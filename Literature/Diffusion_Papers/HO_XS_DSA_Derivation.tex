@@ -1,0 +1,650 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+\usepackage{graphicx} 
+
+\usepackage{stmaryrd}
+
+\usepackage{multirow}
+
+\usepackage{rotating}
+
+\newcommand{\fig}[1]{Fig.~\ref{#1}}                      % figure
+\newcommand{\tbl}[1]{Table~\ref{#1}}                     % table
+
+\newcommand{\benum}{\begin{equation}}
+\newcommand{\eenum}{\end{equation}}
+
+\newcommand{\be}{\begin{equation*}}
+\newcommand{\ee}{\end{equation*}}
+
+\newcommand{\bea}{\begin{eqnarray*}}
+\newcommand{\eea}{\end{eqnarray*}}
+
+\newcommand{\beanum}{\begin{eqnarray}}
+\newcommand{\eeanum}{\end{eqnarray}}
+
+\newcommand{\eqt}[1]{Eq. (\ref{#1})}
+\newcommand{\eqts}[1]{Eqs. (\ref{#1})}
+\newcommand{\omg}{\ensuremath{ \vec{\Omega}}}
+\newcommand{\del}{\ensuremath{ \vec{\nabla} }}
+
+
+\newcommand{\B}[1]{\ensuremath{{B_{#1} }}}
+
+\newcommand{\p}{\ensuremath{ d}}
+\newcommand{\M}{\ensuremath{ \mathbf M}}
+\newcommand{\Mw}{\ensuremath{\widehat{\mathbf M}}}
+
+\newcommand{\abs}[1]{\ensuremath{\left\lvert #1 \right\rvert}}
+\newcommand{\norm}[1]{\ensuremath{\left\lVert #1 \right\rVert}}
+
+\newcommand{\jmp}[1]{\ensuremath{\left\llbracket #1 \right\rrbracket}}
+\newcommand{\avg}[1]{\ensuremath{ \left \{ \hspace{-0.055in} \left \{ #1  \right \}\hspace{-0.055in} \right \} }}
+
+\newcommand{\JT}{\ensuremath{\widetilde{J}(s) }}
+\newcommand{\PT}{\ensuremath{\widetilde{\phi}(s) }}
+% Equation Punctuation
+\newcommand{\pec}{\, ,}
+\newcommand{\pep}{\, .}
+
+
+%newcommand{\eqts}[1]{Eq. \reference{1}\emph{}
+
+\begin{document}
+
+%------------------------------------------------
+\author{Peter Maginot}
+\date{\today}
+\title{Arbitrary Order DFEM Diffusion Discretization \\
+with Spatially Varying Cross Section\\
+Derived via the M4S Method}
+\maketitle
+%------------------------------------------------
+\section{Diffusion Equations}
+We begin with the analytic diffusion equation:
+\benum
+\frac{\p J}{\p x} + \sigma_a \phi = Q(x) \pep
+\label{eq:analytic_diff}
+\eenum
+We will generate a set of DFEM diffusion equations following the first route proposed by Adams and Martin \cite{M4S}.  
+
+\section{Spatial Discretization}
+
+We approximate the true scalar flux $\phi$ in each cell as a $P$ degree polynomial, $\widetilde{\phi}$,
+\benum
+\label{eq:phi_def}
+\phi(x) \approx   \widetilde{\phi}(x) = \sum_{j=1}^{N_P}{\phi_j\B{j}(x) }, ~~x\in[x_{k-1/2},x_{k+1/2}] \pec
+\eenum
+where $N_P = P+1$, and
+\be
+\B{j}(x) = \prod_{\substack{i=1 \\ i\neq j}}^{N_P}{ \frac{s_i - s}{s_i - s_j}} \pep
+\ee
+To determine the $N_P$ unknowns of $\widetilde{\phi}(x)$, $\phi_j$, within each cell, we follow a Galarkin procedure, succesively multiplying \eqt{eq:analytic_diff} by basis functions $\B{i}(x)$, and integrating, generating $N_P$ moment equations:
+\benum
+\int_{x_{k-1/2}}^{x_{k+1/2}}{\B{i}(x)\left[\frac{\p J}{\p x} + \sigma_a(x) \phi(x) = Q(x)  \right]dx} \pep
+\label{eq:raw_basis}
+\eenum
+
+First, we transform to transforming to a generic reference element,
+\bea
+x &=& x_k + \frac{\Delta x_k}{2} s \\
+s &\in& [-1,1] \\
+\Delta x_k &=& x_{k+1/2} - x_{k-1/2} \\
+x_k &=& \frac{x_{k+1/2} + x_{k-1/2}}{2} \pep
+\eea
+With this transformation, \eqt{eq:raw_basis} becomes:
+\benum
+\int_{-1}^{1}{\B{i}(s) \left[ \frac{2}{\Delta x_k}\frac{\p J}{\p s} + \sigma_a(s)\phi(s) = Q(s)  \right]\frac{\Delta x_k}{2}ds} \pep
+\eenum
+Integrating the first term by parts, we have:
+\benum
+\label{eq:diff}
+\B{i}(1)\widehat{J}_{k+1/2} - \B{i}(-1)\widehat{J}_{k-1/2} + \frac{2}{\Delta x_k}\int_{-1}^1{\frac{\p \B{i}}{\p s} D(s) \frac{\p \phi}{\p s} ~ds} + \frac{\Delta x_k}{2} \int_{-1}^1{\sigma_a(s) \B{i}(s) \phi(s)} \pec
+\eenum
+where we have made the standard diffusion approximation:
+\be
+J(x) = -D(x)\frac{\p \phi}{\p x}
+\ee
+within the cell, and $\widehat{J}_{k\pm1/2}$ denotes the vertex currents.  However, with the DFEM spatial discretization, there is no unique value for the current at each cell edges.  One possible solution is to use a $P_1$ approximation of the angular flux at each cell edge:
+\be
+\psi(x_{k\pm1/2},\mu) \approx \frac{\phi(x_{k\pm1/2})}{2} + \frac{3\mu}{2}J(x_{k\pm1/2}) \pec
+\ee
+for which the upwinding scheme used to define the angular flux at cell edges in the transport solution process is well defined.
+Looking specifically at $k-1/2$ vertex we have:
+\benum
+\widetilde{\psi}(x_{k-1/2},\mu) = \left \{ \begin{array}{ll}
+\frac{\widetilde{\phi}_{k-1,R}}{2} + \frac{3\mu}{2}\widetilde{J}_{k-1,R} & ~\mu>0 \\
+\frac{\widetilde{\phi}_{k,L}}{2} + \frac{3\mu}{2}\widetilde{J}_{k,L}& ~\mu<0
+\end{array}
+\right. 
+\pep
+\label{eq:upwind_psi}
+\eenum
+With the definition of \PT given in \eqt{eq:phi_def} and the diffusion approximation, $\widetilde{\phi}_{k-1,R}$ and $\widetilde{J}_{k-1,R}$ become
+\begin{subequations}
+\label{eq:int_1}
+\beanum
+\widetilde{\phi}_{k-1,R} &=& \sum_{j=1}^{N_P}{ \B{j}(1) \phi_{k-1,j} } \\
+\widetilde{J}_{k-1,R} &=& -D_{k-1}(x_{k-1/2}) \frac{\p \phi}{\p x} = -\frac{2D_{k-1}(1)}{\Delta x_{k-1}}\frac{\p \phi}{\p s} = -\frac{2D_{k-1}(1)}{\Delta x_{k-1}} \sum_{j=1}^{N_P}{ \frac{\p \B{j}}{\p s} \bigg \lvert_{s=1} \phi_{k-1,j} } \pec 
+\eeanum
+\end{subequations}
+with $\widetilde{\phi}_{k,L}$ and $\widetilde{J}_{k,L}$ being similarly defined as:
+\begin{subequations}
+\label{eq:int_2}
+\beanum
+\widetilde{\phi}_{k,L} &=& \sum_{j=1}^{N_P}{ \B{j}(-1) \phi_{k,j} } \\
+\widetilde{J}_{k,L} &=& -\frac{2D(-1)}{\Delta x_k}\sum_{j=1}^{N_P}{ \frac{\p \B{j}}{\p s}  \bigg \lvert_{s=-1} \phi_{k,j} } \pep
+\eeanum
+\end{subequations}
+The $\frac{2}{\Delta x}$ terms appear in the $\widetilde{J}$ definitions of \eqt{eq:int_1} and \eqt{eq:int_2} as a result of the change of variables from physical to reference coordinates.
+Using the definitions of \eqt{eq:upwind_psi}, we can now define $\widehat{J}_{k-1/2}$.  We will integrate with the same angular quadrature used in our $S_N$ scheme.  
+\begin{multline}
+\label{eq:jquad}
+\widehat{J}_{k-1/2} = \int_{-1}^1{\mu \psi(x_{k-1/2},\mu)~d\mu} \approx \\
+\sum_{\substack{d=1 \\ \mu_d > 0}}^{N_{dir}}{w_d\mu_d\left[\frac{\widetilde{\phi}_{k-1,R}}{2} + \frac{3\mu_d}{2}\widetilde{J}_{k-1,R}  \right] } 
++ \sum_{\substack{d=1 \\ \mu_d < 0}}^{N_{dir}}{w_d\mu_d \left[ \frac{\widetilde{\phi}_{k,L}}{2} + \frac{3\mu_d}{2}\widetilde{J}_{k,L} \right] }
+\end{multline}
+Since we are integrating half range quantities, symmetric quadrature sets defined for $\mu\in[-1,1]$ will not exactly integrate functions over the intervals $\mu \in[-1,0]$ and $\mu\in[0,1]$.
+Thus, we introduce $\alpha$:
+\benum
+\alpha = \sum_{\substack{d=1\\ \mu_d > 0}}^{N_{dir}}{w_d \mu_d} \approx \frac{1}{2} \pep
+\eenum
+In general, symmetric quadrature sets will integrate even functions of $\mu$ exactly over the half range, so we do not need to introduce a quadrature approximation for this.  We further assume that $\sum_{d=1}^{N_{dir}}{w_d} = 2$.  Performing the quadrature integration of \eqt{eq:jquad} we have
+%
+%
+\benum
+\widehat{J}_{k-1/2} = \alpha \frac{\widetilde{\phi}_{k-1,R}}{2} + \frac{\widetilde{J}_{k-1,R}}{2} - \alpha \frac{\widetilde{\phi}_{k,L}}{2} + \frac{\widetilde{J}_{k,L}}{2}
+\eenum
+and using \eqt{eq:int_1} and \eqt{eq:int_2}, we have:
+\begin{multline}
+\widehat{J}_{k-1/2} = 
+\frac{\alpha}{2}\left[\sum_{j=1}^{N_P}{ \B{j}(1) \phi_{k-1,j} }\right] + 
+\frac{1}{2}\left[ -\frac{2D_{k-1}(1)}{\Delta x_{k-1}} \sum_{j=1}^{N_P}{ \frac{\p \B{j}}{\p s} \bigg \lvert_{s=1} \phi_{k-1,j} } \right] \\
+- \frac{\alpha}{2}\left[ \sum_{j=1}^{N_P}{ \B{j}(-1) \phi_{k,j} } \right] 
++ \frac{1}{2}\left[-\frac{2D_k(-1)}{\Delta x_k}\sum_{j=1}^{N_P}{ \frac{\p \B{j}}{\p s}  \bigg \lvert_{s=-1} \phi_{k,j} }\right] 
+\pep
+\end{multline}
+%
+%
+% Stopped here for the night
+%
+%
+When simplified (slightly), this becomes:
+\benum
+\widehat{J}_{k-1/2} = \frac{1}{2}\sum_{j=1}^{N_P}{\left[\alpha \B{j}(1) -\frac{2}{\Delta x_{k-1}} D_{k-1} \frac{\p \B{j}}{\p s} \bigg \lvert_{s=1}  \right]\phi_{k-1,j} } 
+-\frac{1}{2}\sum_{j=1}^{N_P}{\left[ \alpha \B{j}(-1) +\frac{2}{\Delta x_k}D_k(-1)\frac{\p \B{j}}{\p s} \bigg \lvert_{s=-1}  \right]\phi_{k,j}}
+\pep
+\eenum
+Analogously, the equation for $\widehat{J}_{k+1/2}$ is:
+\benum
+\widehat{J}_{k+1/2} = \frac{1}{2}\sum_{j=1}^{N_P}{\left[\alpha \B{j}(1) - \frac{2}{\Delta x_k}D_{k} \frac{\p \B{j}}{\p s} \bigg \lvert_{s=1}  \right]\phi_{k,j} } 
+-\frac{1}{2}\sum_{j=1}^{N_P}{\left[ \alpha \B{j}(-1) + \frac{2}{\Delta x_{k+1}}D_{k+1}(-1)\frac{\p \B{j}}{\p s} \bigg \lvert_{s=-1}  \right]\phi_{k+1,j}}
+ \pep
+\eenum
+%
+%
+If we consider the $N_P$ moments equations in a given mesh cell at once, we have the following $N_P \times N_P$ system of equations:
+\benum
+\left[ \mathbf{S}_+\left(\mathbf{J}_{L,k+1} \vec{\phi}_{k+1} + \mathbf{J}_{R,k} \vec{\phi}_{k} \right) -
+\mathbf{S}_- \left(\mathbf{J}_{L,k} \vec{\phi}_k + \mathbf{J}_{R,k-1} \vec{\phi}_{k-1} \right) \right]
++ \mathbf{L}\vec{\phi}_k + \Mw_{\sigma_a} \vec{\phi}_k = \M \vec{Q} \pec
+\eenum
+where we make the following definitions:
+\benum
+\mathbf{J}_{L,k,1 \dots N_P,j} = -\frac{1}{2}\left[ \frac{2}{\Delta x_k}D_{k}(-1) \frac{\p \B{j}}{\p s}\bigg \lvert_{s=-1} + \alpha \B{j}(-1)  \right]
+\eenum
+\benum
+\mathbf{J}_{R,k,1 \dots N_P,j} = \frac{1}{2}\left[ \alpha \B{j}(1) -\frac{2}{\Delta x_k} D_{k}(1) \frac{\p \B{j}}{\p s}\bigg \lvert_{s=1}  \right]
+\eenum
+%
+\benum
+\mathbf{S}_{\pm,ij} = \left \{ \begin{array}{ll} \B{i}(\pm 1) & i=j \\ 0 & \text{otherwise} \end{array} \right. 
+\eenum
+%
+\benum
+\mathbf{L}_{ij} = \frac{2}{\Delta x_k}\int_{-1}^{1}{D_k(s) \frac{\p \B{i} }{\p s} \frac{\p B{j}}{\p s} ~ds}
+\eenum
+\benum
+\vec{\phi}_k = \left[ \begin{array}{c} \phi_{1,k} \\ \vdots \\ \phi_{N_P,k} \end{array} \right]\pec
+\eenum
+\benum
+\Mw_{\sigma_a,ij} = \frac{\Delta x}{2} \int_{-1}^1{\sigma_a(s) \B{i}(s) \B{j}(s)~ds} \pec
+\eenum
+\benum
+\M_{ij} = \frac{\Delta x}{2} \int_{-1}^1{\B{i}(s) \B{j}(s)~ds} \pec
+\eenum
+\benum
+\vec{Q} = \left[ \begin{array}{c} Q_{1,k} \\ \vdots \\ Q_{N_P,k} \end{array} \right]\pep
+\eenum
+In practice, we will approximate the $\mathbf{L}$, \Mw, and \M~matrices using numerical quadrature:
+\bea
+\M_{ij} &\approx & \frac{\Delta x_k}{2} \sum_{q=1}^{N_q}{w_q \B{i}(s_q) \B{j}(s_q)} \\
+\Mw_{\sigma_a,ij} &\approx & \frac{\Delta x_k}{2} \sum_{q=1}^{N_q}{w_q \sigma_a(s_q) \B{i}(s_q) \B{j}(s_q)} \\
+\mathbf{L}_{ij} &\approx & \frac{1}{\Delta x_k} \sum_{q=1}^{N_q}{w_q D_k(s_q) \frac{\p \B{i}}{\p s} \bigg \lvert_{s_q}  \frac{\p \B{j}}{\p s} \bigg \lvert_{s_q} }
+\eea
+If we use numerical quadrature restricted to the DFEM interpolation points, \M ~and $\Mw_{\sigma_a}$ ~become diagonal matrices since,
+\benum
+\B{i}(s_q) = \left \{ \begin{array}{ll} 1 & s_i  = s_q \\ 0 & \text{otherwise} \end{array} \right. \pep
+\eenum
+Using self-lumping quadrature, \M~and $\Mw_{\sigma_a}$ are:
+\beanum
+\M_{ij} &=& \left \{ \begin{array}{ll} w_i & i  = j \\ 0 & \text{otherwise} \end{array} \right. \\
+\Mw_{ij,\sigma_a} &=& \left \{ \begin{array}{ll} w_i \sigma_{a}(s_i) & i  = j \\ 0 & \text{otherwise} \end{array} \right.  \pep
+\eeanum
+
+\section{Boundary Conditions}
+
+We'll now consider the boundary conditions for our DSA equations.
+
+\subsection{Vacuum (Incident Flux Transport BC)}
+For a fixed incident flux transport boundary condition, we do not wish to have any correction to the inward directed flux.  Thus, on the left boundary, $\widehat{J}_{1/2}$ is:
+\beanum
+\widehat{J}_{1/2} &=& \int_{-1}^1{\mu \psi(x_{1/2},\mu)~d\mu} \approx 0 + \sum_{\substack{d=1 \\\mu_d < 0}}^{N_{dir}}{w_d \mu_d\left[\frac{\widetilde{\phi}_1}{2} + \frac{3\mu_d \widetilde{J}_1}{2}  \right] }\\
+\widehat{J}_{1/2} &=& -\frac{1}{2}\left[
+\sum_{j=1}^{N_P}{\alpha \B{j}(-1) \phi_{1,j}  +
+\frac{2D_1(-1)}{\Delta x}  \sum_{j=1}^{N_P}
+\frac{\p \B{j}}{\p s} \bigg \lvert_{s=-1} \phi_{1,j}} \pep
+\right]
+\eeanum
+This make the $N_P$ moment equation in the leftmost cell:
+\benum
+\left[ \mathbf{S}_+\left(\mathbf{J}_{L,2} \vec{\phi}_{2} + \mathbf{J}_{R,1} \vec{\phi}_{1} \right) -
+\mathbf{S}_- \mathbf{J}_{L,1} \vec{\phi}_1  \right]
++ \mathbf{L}\vec{\phi}_k + \Mw_{\sigma_a} \vec{\phi}_k = \M \vec{Q} \pep
+\eenum
+Similarly on the rightmost cell, the moment equations become:
+\benum
+\left[ \mathbf{S}_+ \mathbf{J}_{R,N_{cell}} \vec{\phi}_{N_{cell}} -
+\mathbf{S}_- \left(\mathbf{J}_{L,N_{cell}} \vec{\phi}_{N_{cell}} + \mathbf{J}_{R,N_{cell}-1} \vec{\phi}_{N_{cell}-1} \right) \right]
++ \mathbf{L}\vec{\phi}_{N_{cell}} + \Mw_{\sigma_a} \vec{\phi}_{N_{cell}} = \M \vec{Q} \pep
+\eenum
+
+\subsection{Reflecting (Reflecting Transport BC)}
+
+For reflective transport boundary conditions, we need a reflective DSA boundary condition.  This is implemented most clearly by setting $\widehat{J}_{1/2}=0$, since everything that goes out of the slab is reflected back in, result in a net current of $0$.  The moment equation at the left most and right most cell are then:
+\benum
+\mathbf{S}_+\left(\mathbf{J}_{L,2} \vec{\phi}_{2} + \mathbf{J}_{R,1} \vec{\phi}_{1} \right) 
++ \mathbf{L}\vec{\phi}_1 + \Mw_{\sigma_a} \vec{\phi}_1 = \M \vec{Q} \pec
+\eenum
+\benum
+\mathbf{S}_- \left(\mathbf{J}_{L,N_{cell}} \vec{\phi}_{N_{cell}} + \mathbf{J}_{R,N_{cell}-1} \vec{\phi}_{N_{cell}-1} \right) 
++ \mathbf{L}\vec{\phi}_{N_{cell}} + \Mw_{\sigma_a} \vec{\phi}_{N_{cell}} = \M \vec{Q} \pec
+\eenum
+
+\section{Alternative Use of Integration By Parts}
+
+\benum
+\B{i} \left[ \widehat{J}_{out} - \widehat{J}_{in} \right]
+\eenum
+
+\benum
+\left( \B{i}(1)J_{+,k,k+1/2} + \B{i}(-1) J_{-,k,k-1/2} \right) - \left(\B{i}(-1)J_{+,k-1,k-1/2} + \B{i}(1) J_{-,k+1,k-1/2} \right) 
+\eenum
+%
+%
+%
+\begin{multline}
+\left(\B{i}(1)
+ \sum_{\substack{d=1 \\ \mu_d > 0}}^{N_{dir}}{
+w_d \mu_d \sum_{j=1}^{N_P}{\phi_{k,j}\left[ \frac{\B{j}(1)}{2} - \frac{3\mu_d}{2} D_k(1)\frac{2}{\Delta x_k} \frac{\p \B{j}}{\p s} \bigg \lvert_{s=1}     \right] }
+} \right. \\
+\left.
++ \B{i}(-1)
+ \sum_{\substack{d=1 \\ \mu_d < 0}}^{N_{dir}}{
+w_d \mu_d \sum_{j=1}^{N_P}{\phi_{k,j}\left[ \frac{\B{j}(-1)}{2} - \frac{3\mu_d}{2} D_k(-1)\frac{2}{\Delta x_k} \frac{\p \B{i}}{\p s} \bigg \lvert_{s=-1}      \right] }
+}
+ \right) \\ 
+-
+\left(   
+\B{i}(-1)\sum_{\substack{d=1 \\ \mu_d > 0}}^{N_{dir}}{
+w_d\mu_d \sum_{j=1}^{N_P}{
+ \phi_{k-1,j}\left[  \frac{\B{j}(1)}{2} - \frac{3\mu_d}{2} \frac{\Delta x_{k-1}}{2}D_{k-1} \frac{\p B_j}{\p s} \bigg \lvert_{s=1} \right]
+}
+}
+\right.
+\\
+\left.
++ \B{i}(1) \sum_{\substack{d=1 \\ \mu_d < 0}}^{N_{dir}}{w_d \mu_d \sum_{j=1}^{N_P}{
+\phi_{k+1,j}\left[
+\frac{\B{j}(-1)}{2} - \frac{2}{\Delta x_{k+1}}D_{k+1}(-1) \frac{\p \B{j}}{\p s}\bigg \lvert_{s=-1}
+\right]
+}
+}
+\right)
+\end{multline}
+
+\benum
+\left( \mathbf{S}_+ \mathbf{J}_{R,k} \vec{\phi}_k + \mathbf{S}_- \mathbf{J}_{L,k} \vec{\phi}_k \right)
+-
+\left( \mathbf{S}_+ \mathbf{J}_{L,k+1} \vec{\phi}_{k+1} + \mathbf{S}_- \mathbf{J}_{R,k-1} \right) \vec{\phi}_{k-1}
+\eenum
+
+
+
+\section{Stencil Size}
+The stencil of this DSA scheme will be dependent on the DFEM interpolation points selected.  
+If there is not a DFEM interpolation point located at each cell vertex, the stencil increases significantly.  
+This is caused by $\mathbf{S}_{\pm}$.  
+If there is a DFEM interpolation point on each cell edge, then $\mathbf{S}_+ \mathbf{J}_{L,k+1} \vec{\phi}_{k+1}$ will result in a non-zero coefficient of only one $\phi_{k+1,j}$, $\phi_{k+1,1}$ in the $N_P$ moment equation of $\vec{\phi}_k$.  
+Assuming there is a DFEM interpolation point at each vertex, in matrix form, the $N_P$ moment equations for $\vec{\phi}_k$ have $N_P \times N_P + 2$ non-zero entries.
+However, if there is no DFEM interpolation point at the cell edges, rather than coupling to 1 unknown of each neighboring cell, the moment equations of $\vec{\phi}$ are fully coupled to the neighboring cells, creating a $3(N_P \times N_P)$ diffusion equation stencil.
+
+
+\section{MIP DSA}
+
+Start with Yaqi and Ragusa's Modified Interior Penalty (MIP) DSA equation:
+\begin{subequations}
+\label{eq:MIP_formal}
+\beanum
+b_{MIP}(\phi,\phi^*) = &&\left( \sigma_a\phi,\phi^* \right)_{\cal D} + \left( D\del\phi,\del\phi \right)_{\cal D} \\
+&& +\left( \kappa_e \jmp{\phi},\jmp{\phi^*}\right)_{E_h^i} \\
+&& +\left(  \jmp{\phi}, \avg{ D\partial_n \phi^*}\right)_{E_h^i} \\
+&& +\left( \avg{D\partial_n\phi}, \jmp{\phi^*} \right)_{E_h^i} \\
+&& +\left( \kappa_e \phi, \phi^*\right)_{\partial {\cal D}^d} - \frac{1}{2}\left( \phi, D\partial_n \phi^* \right)_{\partial {\cal D}^d} \\
+&& -\frac{1}{2}\left( D \partial_n \phi , \phi^* \right)_{\partial {\cal D}^d}
+\pep
+\eeanum
+\end{subequations}
+\eqt{eq:MIP_formal} involves a series of integrals/evaluations over all cells and edges in the spatial domain.
+We will first consider the interior edges and integrals.  
+Since all of the test functions, $\phi^*$ are only non-zero within a given spatial cell $c$, we define the terms of \eqt{eq:MIP_formal} by looking at the integrals in a single cell, $c$, with left and right edges $c-1/2$ and $c+1/2$, respectively.
+The volumetric integrals of Eq. (\ref{eq:MIP_formal}a) are the simplest to calculate:
+\benum
+\left( \sigma_a\phi,\phi^* \right) = \frac{\Delta x_c}{2} \int_{-1}^1{\sigma_a(s)\widetilde{\phi}(s) \B{i}(s)~ds}
+\label{eq:vol1}
+\eenum
+and
+\benum
+\left( D \del \phi, \del \phi^* \right) = \frac{2}{\Delta x_c} \int_{-1}^1{ D(s) \frac{ \p \widetilde{\phi}}{\p s} \frac{\p \B{i}}{\p s}~ds}\pep
+\label{eq:vol2}
+\eenum
+While Eq. (\ref{eq:MIP_formal}c) - Eq. (\ref{eq:MIP_formal}d) are defined as edge integrations, because \B{i}(s), which are the $\phi^*$ test functions, are only non-zero within a single cell, then \avg{\phi^*} and \jmp{\phi^*} are only non zero on edges $c-1/2$ and $c+1/2$ when \B{i} is defined is non-zero in cell $c$.
+Considering the left edge, $c-1/2$ first, $\left( \kappa_e \jmp{\phi},\jmp{\phi^*}\right)$ is:
+\benum
+\left( \kappa_{c-1/2} \jmp{\phi},\jmp{\phi^*}\right)_{c-1/2} = \kappa_{c-1/2}\left( \widetilde{\phi}_{c}\bigg \lvert_{s=-1} - \widetilde{\phi}_{c-1} \bigg \lvert_{s=1} \right) \left( \B{i}(-1) - 0 \right) \pep
+\label{eq:kap_term}
+\eenum
+%
+%
+%
+The next term, $\left(  \jmp{\phi}, \avg{ D\partial_n \phi^*}\right)$:
+\benum
+\left(  \jmp{\phi}, \avg{ D\partial_n \phi^*}\right)_{c-1/2} = \left( \widetilde{\phi}_c\bigg \lvert_{s=-1} - \widetilde{\phi}_{c-1} \bigg \lvert_{s=1} \right)\frac{1}{2} \left( 0 + \frac{2D_c }{\Delta x_c} \frac{\p \B{i}}{\p s} \bigg \lvert_{s=-1} \right) \pep
+\eenum
+%
+%
+%
+The Eq. (\ref{eq:MIP_formal}d) term is:
+\benum
+\left( \avg{D\partial_n \phi}, \jmp{\phi^*} \right)_{c-1/2} = \frac{1}{2}\left(\frac{2D_{c-1} }{\Delta x_{c-1}} \frac{\p \widetilde{\phi}_{c-1}}{\p s} \bigg \lvert_{s=1} +  \frac{2D_{c}}{\Delta x_{c}} \frac{\p \widetilde{\phi}_{c}}{\p s} \bigg \lvert_{s=-1}  \right) \left( \B{i}(-1) - 0  \right)
+\pep
+\label{eq:edge3}
+\eenum
+%
+%
+%
+In \eqt{eq:kap_term}, $\kappa_{c-1/2}$ is defined as:
+\benum
+\kappa_{c-1/2} = \max\left(\frac{1}{4}, \kappa^{IP}_{c-1/2}  \right) \pec
+\eenum
+and $\kappa^{IP}_{c-1/2}$ is defined as:
+\benum
+\kappa_{c-1/2}^{IP} = p_c (p_c+1)\frac{D_c}{\Delta x_c} \bigg \lvert_{s=-1} + p_{c-1} (p_{c-1} + 1)\frac{D_{c-1}}{\Delta x_{c-1}} \bigg \lvert_{s=1} \pec
+\eenum
+where $p_c$ is the DFEM trial space degree in cell $c$.
+We now define the right edge terms quickly:
+\beanum
+\left( \kappa_{c+1/2} \jmp{\phi},\jmp{\phi^*}\right)_{c+1/2} &=& \kappa_{c+1/2}\left( \widetilde{\phi}_{c+1}\bigg \lvert_{s=-1} - \widetilde{\phi}_{c} \bigg \lvert_{s=1} \right) \left( 0-\B{i}(1) \right) \\
+%
+%
+%
+\left(  \jmp{\phi}, \avg{ D\partial_n \phi^*}\right)_{c+1/2} &= &\left( \widetilde{\phi}_{c+1}\bigg \lvert_{s=-1} - \widetilde{\phi}_{c} \bigg \lvert_{s=1} \right) \frac{1}{2}\left( 0 +  \frac{2 D_c }{\Delta x_c} \frac{\p \B{i}}{\p s} \bigg \lvert_{s=1} \right)  \\
+%
+%
+%
+\left( \avg{D\partial_n \phi}, \jmp{\phi^*} \right)_{c+1/2} &=& \frac{1}{2}\left(\frac{2D_{c} }{\Delta x_{c}} \frac{\p \widetilde{\phi}_{c}}{\p s} \bigg \lvert_{s=1} +  \frac{2D_{c+1} }{\Delta x_{c+1}} \frac{\p \widetilde{\phi}_{c+1}}{\p s} \bigg \lvert_{s=-1}  \right) \left( 0- \B{i}(1) \right)
+\eeanum
+
+In the above, we have implicitly assumed that the edge normal vector, $\vec{n}$ is oriented in the $+x$ direction.
+On the cell interior, this orientation is arbitrary, so long as it is consistent.  
+However, on the global boundaries, the edge normal vector must be oriented outward. 
+On the left boundary, this is in the $-x$ direction, and on the right boundary, in $+x$ direction.
+
+It is possible to consider the MIP equations in matrix form within each cell.  First, let us define the following $N_P \times N_P$ diagonal matrices:
+\beanum
+\mathbf{B}_{L,ii} &=& \B{i}(-1) \\
+\mathbf{B}_{R,ii} &=& \B{i}(1)  \\
+\widehat{\mathbf B}_{L,ii} &=& \frac{\p \B{i}}{\p s} \bigg \lvert_{s=-1}\\
+\widehat{\mathbf B}_{R,ii} &=& \frac{\p \B{i}}{\p s} \bigg \lvert_{s= 1} \pep
+\eeanum
+We also define the following $N_P \times N_P$ matrices:
+\benum
+\begin{array}{c}
+\mathbf{P}_{L,i} \vspace{0.15in}\\
+\mathbf{P}_{R,i} \vspace{0.2in}\\
+\widehat{\mathbf P}_{L,i} \vspace{0.25in}\\
+\widehat{\mathbf P}_{R,i}
+\end{array}
+\begin{array}{c}
+= \vspace{0.15in} \\
+= \vspace{0.20in} \\
+= \vspace{0.25in} \\
+= \\
+\end{array}
+\begin{array}{cccccc}
+\Big [ & B_1(-1) & B_2(-1) & \dots & B_{N_P}(-1) & \Big ] \vspace{0.1in}\\
+\Big [ & B_1(1) & B_2(1) & \dots & B_{N_P}(1) & \Big ] \vspace{0.1in}\\
+\bigg [ & \frac{\p B_1}{\p s}\bigg \lvert_{s=-1} & \frac{\p B_2}{\p s}\bigg \lvert_{s=-1} & \dots & \frac{\p B_{N_P}}{\p s}\bigg \lvert_{s=-1} & \bigg ] \vspace{0.1in}\\
+\bigg [ & \frac{\p B_1}{\p s}\bigg \lvert_{s=1} & \frac{\p B_2}{\p s}\bigg \lvert_{s=1} & \dots & \frac{\p B_{N_P}}{\p s}\bigg \lvert_{s=1} & \bigg ]
+\end{array} \pep
+\eenum
+We note that $\mathbf{P}_L$ and $\mathbf{P}_R$ have only $N_P$ non-zero entries if there are interpolation points located at $s=\pm1$.
+The volumetric MIP moment equations, \eqt{eq:vol1} and \eqt{eq:vol2} become:
+\benum
+\label{eq:vol}
+\frac{\Delta x_c}{2} \mathbf{R}_{\sigma_a} \vec{\phi}_c + \frac{2}{\Delta x_c}\mathbf{L}_{D} \vec{\phi}_c \pec 
+\eenum
+where:
+\beanum
+\mathbf{R}_{\sigma_a,ij} &=& \int_{-1}^1{\sigma_a(s) \B{i}(s) \B{j}(s) ~ds} \\
+\mathbf{L}_{D,ij} &=& \int_{-1}^1{ D(s) \frac{\p \B{i}}{\p s}  \frac{\p \B{j}}{\p s}~ds} \pep
+\eeanum
+The left edge terms in matrix form are:
+\beanum
+\left( \kappa_{c-1/2} \jmp{\phi},\jmp{\phi^*}\right)_{c-1/2} &=& \kappa_{c-1/2}\mathbf{B}_L \mathbf{P}_L \vec{\phi}_{c} - \kappa_{c-1/2}\mathbf{B}_L \mathbf{P}_R \vec{\phi}_{c-1} \\
+\left(  \jmp{\phi}, \avg{ D\partial_n \phi^*}\right)_{c-1/2} &=& \frac{D_c}{\Delta x_c} \bigg \lvert_{s=-1} \widehat{\mathbf B}_L \left[ \mathbf{ P}_L \vec{\phi}_{c} - \mathbf{P}_R \vec{\phi}_{c-1}  \right] \\
+\left( \avg{D\partial_n \phi}, \jmp{\phi^*} \right)_{c-1/2} &=& \mathbf{B}_L\left( \frac{D_c}{\Delta x_c}\bigg \lvert_{s=-1} \widehat{\mathbf P}_L\vec{\phi}_c + \frac{D_{c-1}}{\Delta x_{c-1}} \bigg \lvert_{s=1} \widehat{\mathbf P}_R \vec{\phi}_{c-1}   \right)\pep
+\eeanum
+The right edge terms are:
+\beanum
+\left( \kappa_{c+1/2} \jmp{\phi},\jmp{\phi^*}\right)_{c+1/2} &=& -\kappa_{c+1/2}\widehat{\mathbf B}_R\left[ \mathbf{P}_L \vec{\phi}_{c+1} - \mathbf{P}_R \vec{\phi}_c \right] \\
+\left(  \jmp{\phi}, \avg{ D\partial_n \phi^*}\right)_{c+1/2} &=& \frac{D_c}{\Delta x_c }\bigg \lvert_{s=1} \widehat{\mathbf B}_R\left[ \mathbf{P}_L \vec{\phi}_{c+1} - \mathbf{P}_R \vec{\phi}_c  \right] \\
+\left( \avg{D\partial_n \phi}, \jmp{\phi^*} \right)_{c+1/2} &=& -\mathbf{ B}_R\left[ \frac{D_c}{\Delta x_c} \bigg \lvert_{s=1} \widehat{\mathbf P}_R \vec{\phi}_c+ \frac{D_{c+1}}{\Delta x_{c+1}} \bigg \lvert_{s=-1} \widehat{\mathbf P}_L \vec{\phi}_{c+1} \right]\pep
+\eeanum
+%
+%\begin{multline}
+%\kappa_{c-1/2} \mathbf{B}_L \left(\mathbf{P}_L \vec{\phi}_c - \mathbf{P}_R \vec{\phi}_{c-1}  \right)
+%+   \frac{D_c}{\Delta x_c} \bigg \lvert_{s=-1} \widehat{\mathbf B}_L \left( \mathbf{P}_L\vec{\phi}_c - \mathbf{P}_R \vec{\phi}_{c-1} \right) \\
+%+ \mathbf{B}_L \left( \frac{D_{c-1}}{\Delta x_{c-1}} \bigg \lvert_{s=1} \widehat{\mathbf P}_R \vec{\phi}_{c-1} + \frac{D_c}{\Delta x_c} \bigg \lvert_{s=-1}  \widehat{\mathbf P}_L \vec{\phi}_c  \right) \pep
+%\label{eq:left_e}
+%\end{multline}
+%
+The interior cell MIP equations are:
+\begin{multline*}
+\left( \sigma_a\phi,\phi^* \right)_c + \left( D\del\phi,\del\phi \right)_c
+ +\left( \kappa_{c-1/2} \jmp{\phi},\jmp{\phi^*}\right)_{c-1/2} 
+ +\left(  \jmp{\phi}, \avg{ D\partial_n \phi^*}\right)_{c-1/2} 
+ +\left( \avg{D\partial_n\phi}, \jmp{\phi^*} \right)_{c-1/2} \\
+  +\left( \kappa_{c+1/2} \jmp{\phi},\jmp{\phi^*}\right)_{c+1/2} 
+ +\left(  \jmp{\phi}, \avg{ D\partial_n \phi^*}\right)_{c+1/2} 
+ +\left( \avg{D\partial_n\phi}, \jmp{\phi^*} \right)_{c+1/2} \pep
+\end{multline*}
+%
+%
+Substituting in our definitions
+\begin{multline}
+\left[ -\kappa_{c-1/2}\mathbf{B}_L\mathbf{P}_R - \frac{D_c}{\Delta x_c} \bigg \lvert_{s=-1} \widehat{\mathbf B}_L  \mathbf{P}_R + \mathbf{B}_L \frac{D_{c-1}}{\Delta x_{c-1}}\bigg \lvert_{s=1} \widehat{\mathbf P}_R \right]\vec{\phi}_{c-1} \\
+%
+%
+\left[\frac{\Delta x_c}{2}\mathbf{R}_{\sigma_a} + \frac{2}{\Delta x_c}\mathbf{L}_D + \kappa_{c-1/2}\mathbf{B}_L\mathbf{P}_L + \frac{D_c}{\Delta x_c} \bigg \lvert_{s=-1} \widehat{\mathbf B}_L \mathbf{P}_L  + \mathbf{B}_L \frac{D_c}{\Delta x_c} \bigg \lvert_{s=-1} \widehat{\mathbf P}_L \dots \right. \\
+\left. \kappa_{c+1/2}\mathbf{B}_R \mathbf{P}_R - \frac{D_c}{\Delta x_c}\bigg \lvert_{s=1}\widehat{\mathbf B}_R \mathbf{P}_R -\mathbf{ B}_R \frac{D_c}{\Delta x_c}\bigg \lvert_{s=1} \widehat{\mathbf P}_R \right] \vec{\phi}_c \\
+%
+%
+\left[ -\kappa_{c+1/2}\mathbf{B}_R \mathbf{P}_L + \frac{D_c}{\Delta x_c}\bigg \lvert_{s=1}\widehat{\mathbf B}_R \mathbf{P}_L - \mathbf{ B}_R \frac{D_{c+1}}{\Delta x_{c+1}} \bigg \lvert_{s=-1} \widehat{\mathbf P}_L \right] \vec{\phi}_{c+1}
+\end{multline}
+%
+%%%%The right edge terms are:
+%%%%\begin{multline}
+%%%%-\kappa_{c+1/2}\mathbf{B}_R\left( \mathbf{P}_L \vec{\phi}_{c+1} - \mathbf{P}_R \vec{\phi}_{c} \right) +
+%%%%\frac{D_c}{\Delta x_c} \bigg\lvert_{s=1} \widehat{\mathbf B}_R \left(\mathbf{P}_L \vec{\phi}_{c+1} - \mathbf{P}_R \vec{\phi}_c  \right) \\
+%%%%-\mathbf{B}_R \left(\frac{D_c}{ \Delta x_c} \bigg \lvert_{s=1} \widehat{\mathbf P}_R \vec{\phi}_c + \frac{D_{c+1} }{\Delta x_{c+1}} \bigg \lvert_{s=-1} \widehat{\mathbf P}_L \vec{\phi}_{c+1}  \right) \pep
+%%%%\label{eq:right_e}
+%%%%\end{multline}
+%%%%%
+%%%%%
+%%%%%
+%%%%Combining \eqt{eq:vol}, \eqt{eq:left_e}, and \eqt{eq:right_e} and simplifying we have:
+%%%%%
+%%%%%
+%%%%\begin{multline}
+%%%%-\left[ \kappa_{c-1/2} \mathbf{B}_L \mathbf{P}_R + \frac{ D_c}{\Delta x_c}\big \lvert_{s=-1}\widehat{\mathbf B}_L \mathbf{P}_R
+%%%%-\frac{D_{c-1}}{\Delta x_{c-1}}\bigg \lvert_{s=1} \mathbf{B}_L \widehat{\mathbf P}_R \right]\vec{\phi}_{c-1} \\
+%%%%%
+%%%%%
+%%%%+\left[\frac{\Delta x_c}{2} \mathbf{R}_{\sigma_a} + \frac{2}{\Delta x_c}\mathbf{L}_D + \kappa_{c-1/2}\mathbf{B}_L \mathbf{P}_L 
+%%%%+ \frac{D_c}{\Delta x_c}\bigg \lvert_{s=-1}\left( \widehat{\mathbf B}_L \mathbf{P}_L + \mathbf{B}_L \widehat{\mathbf P}_L \right)
+%%%% \dots \right. \\ \left. 
+%%%% + \kappa_{c+1/2} \mathbf{B}_R \mathbf{P}_R - \frac{D_c}{\Delta x_c}\bigg \lvert_{s=1}\left(  \widehat{\mathbf B}_R\mathbf{P}_R + \mathbf{B}_R \widehat{\mathbf P}_R \right)\right]\vec{\phi}_c \\
+%%%%%
+%%%%%
+%%%%-\left[\kappa_{c+1/2}\mathbf{B}_R \mathbf{P}_L - \frac{D_c}{\Delta x_c} \bigg\lvert_{s=1}\widehat{\mathbf B}_R \mathbf{P}_L +
+%%%%\frac{D_{c+1}}{\Delta x_{c+1}} \bigg \lvert_{s=-1}\mathbf{B}_R \widehat{\mathbf P}_L \right]\vec{\phi}_{c+1} \pep
+%%%%\end{multline}
+
+The boundary cells have only one interior edge, but the boundary terms come into play.
+With this in mind, we handle the domain boundary terms of \eqt{eq:MIP_formal}.
+Starting with the left boundary:
+\beanum
+\left( \kappa_{1/2} \phi, \phi^*\right)_{1/2} &=& \kappa_{1/2}\left(\widetilde{\phi}_1(-1) \right) \B{i}(-1) \\
+\frac{1}{2}\left( \phi, D\partial_n \phi^* \right)_{1/2} &=&  \frac{1}{2}\widetilde{\phi}_1(-1) \left(-\frac{2 D_1}{\Delta x_1} \frac{\p \B{i}}{\p s} \bigg \lvert_{s=-1} \right)\\
+\frac{1}{2}\left( D \partial_n \phi , \phi^* \right)_{1/2} &=& \frac{1}{2}\left(- \frac{2D_1}{\Delta x_1} \frac{\p \widetilde{\phi}_1}{\p s} \bigg \lvert_{s=-1} \right) \B{i}(-1) \\
+\kappa_{1/2} &=& \max \left( \frac{1}{4},\kappa_{1/2}^{IP} \right) \\
+\kappa_{1/2}^{IP} &=& 2 p_1 (p_1 + 1)\frac{D_1}{\Delta x_1}\bigg \lvert_{s=-1} \pep
+\eeanum
+The leftmost cell moment equations are:
+\begin{multline*}
+\left( \sigma_a\phi,\phi^* \right)_1 + \left( D\del\phi,\del\phi \right)_1
+  +\left( \kappa_{3/2} \jmp{\phi},\jmp{\phi^*}\right)_{3/2} 
+ +\left(  \jmp{\phi}, \avg{ D\partial_n \phi^*}\right)_{3/2} \\
+ +\left( \avg{D\partial_n\phi}, \jmp{\phi^*} \right)_{3/2} 
+ + (\kappa_{1/2} \phi, \phi^*) - \frac{1}{2}\left( \phi,D\partial_n \phi^*  \right) - \frac{1}{2}\left( D\partial_n \phi, \phi^* \right) \pep
+\end{multline*}
+%
+%
+Written in matrix form:
+\begin{multline}
+\left[ \frac{\Delta x_1}{2}\mathbf{R}_{\sigma_a} + \frac{2}{\Delta x_1}\mathbf{L} + \kappa_{3/2} \mathbf{ B}_R \mathbf{P}_R - \frac{D_1}{\Delta x_1} \bigg \lvert_{s=1} \widehat{\mathbf B}_R  \mathbf{P}_R
+-\mathbf{B}_R \frac{D_1}{\Delta x_1}\bigg \lvert_{s=1} \widehat{\mathbf P}_R \right. \\
+ \left. + \kappa_{1/2} \mathbf{B}_L \mathbf{P}_L + \frac{D_1}{\Delta x_1} \bigg \lvert_{s=-1} \widehat{\mathbf B}_L \mathbf{P}_L + \frac{D_1}{\Delta x_1} \bigg \lvert_{s=-1} \mathbf{B}_L \widehat{\mathbf P}_L \right]\vec{\phi}_1 \\
+%
++ \left[ -\kappa_{3/2} \mathbf{ B}_R \mathbf{P}_L + \frac{D_1}{\Delta x_1} \bigg \lvert_{s=1} \widehat{\mathbf B}_R \mathbf{P}_L  
+-\mathbf{B}_R \frac{D_2}{\Delta x_2} \bigg \lvert_{s=-1} \widehat{\mathbf P}_L \right] \vec{\phi}_2
+\end{multline}
+%
+If instead we use Yaqi's form, not the M\&C form (our what I assumed), the moment equations are:
+\begin{multline*}
+\left( \sigma_a\phi,\phi^* \right)_1 + \left( D\del\phi,\del\phi \right)_1
+  +\left( \kappa_{3/2} \jmp{\phi},\jmp{\phi^*}\right)_{3/2} 
+ +\left(  \jmp{\phi}, \avg{ D\partial_n \phi^*}\right)_{3/2} \\
+ +\left( \avg{D\partial_n\phi}, \jmp{\phi^*} \right)_{3/2} 
+ + (\kappa_{1/2} \phi, \phi^*) - \frac{1}{2}\left( \phi,D\partial_n \phi^*  \right) - \frac{1}{2}\left( D\partial_n \phi, \phi \right) \pep
+\end{multline*}
+%
+We evaluate the different boundary term as:
+\benum
+(D\partial_n \phi,\phi) = -\frac{2 D_1}{\Delta x_1}\frac{d \widetilde{\phi} }{\p s} \bigg \lvert_{s=-1}  \widetilde{\phi}_1(-1) \pec
+\eenum
+%
+Written in matrix form, the leftmost moment cells are then:
+\begin{multline}
+\left[ \frac{\Delta x_1}{2}\mathbf{R}_{\sigma_a} + \frac{2}{\Delta x_1}\mathbf{L} + \kappa_{3/2} \mathbf{ B}_R \mathbf{P}_R - \frac{D_1}{\Delta x_1} \bigg \lvert_{s=1} \widehat{\mathbf B}_R  \mathbf{P}_R
+-\mathbf{B}_R \frac{D_1}{\Delta x_1}\bigg \lvert_{s=1} \widehat{\mathbf P}_R \right. \\
+ \left. + \kappa_{1/2} \mathbf{B}_L \mathbf{P}_L + \frac{D_1}{\Delta x_1} \bigg \lvert_{s=-1} \widehat{\mathbf B}_L \mathbf{P}_L + \mathbf{E}_{left} \right]\vec{\phi}_1 \\
+%
++ \left[ -\kappa_{3/2} \mathbf{ B}_R \mathbf{P}_L + \frac{D_1}{\Delta x_1} \bigg \lvert_{s=1} \widehat{\mathbf B}_R \mathbf{P}_L  
+-\mathbf{B}_R \frac{D_2}{\Delta x_2} \bigg \lvert_{s=-1} \widehat{\mathbf P}_L \right] \vec{\phi}_2 \pec
+\end{multline}
+with $N_P \times N_P$ matrix, $\mathbf{E}_{left}$, defined as:
+\benum
+E_{left,i} = -\frac{D_1}{\Delta x_1} \bigg \lvert_{s=-1} \left[ \frac{d B_1}{d s}\bigg \lvert_{s=-1} B_1(-1) \dots \frac{d B_{N_P}}{d s}\bigg \lvert_{s=-1} B_{N_P}(-1) \right] 
+\eenum
+%
+%
+%
+%%
+Now considering the rightmost cell, the MIP moment equations are:
+\begin{multline}
+\kappa_{N-1/2} \mathbf{B}_L \left(\mathbf{P}_L \vec{\phi}_N - \mathbf{P}_R \vec{\phi}_{N-1}  \right)
++   \frac{D_N}{\Delta x_N} \bigg \lvert_{s=-1} \widehat{\mathbf B}_L \left( \mathbf{P}_L\vec{\phi}_N - \mathbf{P}_R \vec{\phi}_{N-1} \right) \\
++ \mathbf{B}_L \left( \frac{D_{N-1}}{\Delta x_{N-1}} \bigg \lvert_{s=1} \widehat{\mathbf P}_R \vec{\phi}_{N-1} + \frac{D_N}{\Delta x_N} \bigg \lvert_{s=-1}  \widehat{\mathbf P}_L \vec{\phi}_N  \right) \pec
+\end{multline}
+where $N$ is the total number of mesh cells.  The right boundary edge terms are:
+\beanum
+\left( \kappa_{N+1/2} \phi, \phi^*\right)_{N+1/2} &=& \kappa_{N+1/2}\left(\widetilde{\phi}_N(1) \right) \B{i}(1) \\
+%
+%
+\frac{1}{2}\left( \phi, D\partial_n \phi^* \right)_{N+1/2} &=&  \frac{1}{2}\widetilde{\phi}_N(1) \left(\frac{2 D_N}{\Delta x_N} \frac{\p \B{i}}{\p s} \bigg \lvert_{s=1} \right)\\
+%
+%
+\frac{1}{2}\left( D \partial_n \phi , \phi^* \right)_{N+1/2} &=& \frac{1}{2}\left( \frac{2D_N}{\Delta x_N} \frac{\p \widetilde{\phi}_N}{\p s} \bigg \lvert_{s=1} \right) \B{i}(1) \\
+%
+%
+\kappa_{N+1/2} &=& \max \left( \frac{1}{4},\kappa_{N+1/2}^{IP} \right) \\
+%
+%
+\kappa_{N + 1/2}^{IP} &=& 2 p_N \frac{D_N(1)}{\Delta x_N} \pec
+\eeanum
+Combing all of the edge and cell integral equations together, we have:
+\begin{multline}
+-\left[\kappa_{N-1/2}\mathbf{B}_L\mathbf{P}_R + \frac{D_N}{\Delta x_N}\bigg \lvert_{s=-1} \widehat{\mathbf B}_L \mathbf{P}_R - \frac{D_{N-1}}{\Delta x_{N-1} }\bigg \lvert_{s=1} \mathbf{B}_L \widehat{\mathbf P }_R \right]\vec{\phi}_{N-1} \\
+\left[ \frac{\Delta x_N}{2}\mathbf{R}_{\sigma_a} + \frac{2}{\Delta x_N} \mathbf{L}_D + \kappa_{N-1/2}\mathbf{B}_L\mathbf{P}_L + \frac{D_N}{\Delta x_N} \bigg \lvert_{s=-1} \widehat{\mathbf B}_L\mathbf{P}_L + \frac{D_N}{\Delta x_N}\bigg \lvert_{s=-1} \mathbf{B}_L\widehat{\mathbf P}_L  \dots \right. \\
+\left. + \kappa_{N+1/2}\mathbf{B}_R\mathbf{P}_R - \frac{D_N}{\Delta x_N}\bigg \lvert_{s=1}\widehat{\mathbf B}_R \mathbf{P}_R - \frac{D_N}{\Delta x_N}\bigg \lvert_{s=1}\mathbf{B}_R \widehat{\mathbf P}_R   \right]\vec{\phi}_N
+\end{multline}
+
+Using Yaqi's last boundary term, the rightmost edge terms are:
+\benum
+\left( D \partial_n \phi , \phi \right)_{N+1/2} = \left( \frac{2D_N}{\Delta x_N} \frac{\p \widetilde{\phi}_N}{\p s} \bigg \lvert_{s=1} \right) \widetilde{\phi}(1) 
+\eenum
+The rightmost cell moment equations are then:
+\begin{multline*}
+\left( \sigma_a\phi,\phi^* \right)_N + \left( D\del\phi,\del\phi \right)_N
+ +\left( \kappa_{c-1/2} \jmp{\phi},\jmp{\phi^*}\right)_{N-1/2} 
+ +\left(  \jmp{\phi}, \avg{ D\partial_n \phi^*}\right)_{N-1/2} 
+ +\left( \avg{D\partial_n\phi}, \jmp{\phi^*} \right)_{N-1/2} \\
+  +\left( \kappa_{N+1/2} \phi,\phi^*\right)_{N+1/2}
+ -\frac{1}{2}\left( \phi,  D\partial_n \phi^*\right)_{N+1/2} 
+ -\frac{1}{2}\left( D\partial_n\phi, \phi \right)_{N+1/2} \pep
+\end{multline*}
+Writing these in matrix form:
+\begin{multline}
+\left[ -\kappa_{N-1/2}\mathbf{B}_L\mathbf{P}_R - \frac{D_N}{\Delta x_N}\bigg \lvert_{s=-1} \widehat{\mathbf B}_L \mathbf{P}_R + \mathbf{B}_L \frac{D_{N-1}}{\Delta x_{N-1}} \bigg\lvert_{s=1} \widehat{\mathbf P}_R \right] \vec{\phi}_{N-1} \\
+\left[\frac{\Delta x_n}{2} \mathbf{R}_{\sigma_a} + \frac{2}{\Delta x_N}\mathbf{L} +  \kappa_{N-1/2} \mathbf{B}_L \mathbf{P}_L + \frac{D_N}{\Delta x_N} \bigg \lvert_{s=-1} \widehat{\mathbf B}_L \mathbf{P}_L + \mathbf{B}_L \frac{D_N}{\Delta x_N}\bigg \lvert_{s=-1}\widehat{\mathbf P}_L \right.
+ \\ \left. +\kappa_{N+1/2}\mathbf{B}_R \mathbf{P}_R - \frac{D_N}{\Delta x_N} \bigg \lvert_{s=1}\widehat{\mathbf B}_R \mathbf{P}_R - \frac{D_N}{\Delta x_N} \mathbf{E}_{right} \right] \vec{\phi}_N \pec
+\end{multline}
+where we have the $N_P \times N_P$ matrix $\mathbf{E}_{right}$ as:
+\benum
+\mathbf{E}_{right,i} = \left[ \frac{d B_1}{d s} \bigg \lvert_{s=1} B_1(1) \dots 
+\frac{d B_{N_P}}{d s} \bigg \lvert_{s=1} B_{N_P}(1) \right]
+\eenum
+
+\begin{thebibliography}{20}
+
+\bibitem{M4S} M. L. Adams and W. R. Martin , ``Diffusion Synthetic Acceleration of Discontinuous Finite Element Transport Iterations,'' {\it Nuclear Science and Engineering}, {\bf 111}, pp. 145-167 (1992).
+
+\end{thebibliography}
+
+\end{document}
