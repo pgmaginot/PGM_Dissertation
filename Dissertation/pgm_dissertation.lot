@@ -1,10 +1,17 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {table}{\numberline {2.1}{\ignorespaces This is a table template - This is an example of a long table title. Table titles need to be single-spaced within and double spaced between in the list of tables.}}{7}
-\contentsline {table}{\numberline {2.2}{\ignorespaces This is a table template - This is an example of a long table title. Table titles need to be single-spaced within and double spaced between in the list of tables.}}{7}
+\contentsline {table}{\numberline {2.1}{\ignorespaces Nomenclature of numerical schemes (TL=Traditional Lumping; SL=Self-Lumping).}}{9}
+\contentsline {table}{\numberline {2.2}{\ignorespaces Accuracy of self-Lumping quadratures for trial spaces of different polynomial degree $P$ (each quadrature uses $N_P=P+1$ points).}}{17}
+\contentsline {table}{\numberline {2.3}{\ignorespaces Equivalence of traditional lumping and Newton-Cotes approximation of the mass matrix.}}{19}
+\contentsline {table}{\numberline {2.4}{\ignorespaces Local truncation error analysis in $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle \psi $}\mathaccent "0365{\psi }_{in,d}$ for a single cell problem with constant cross section. Values given as $q(C)$ are to be read as $C h^q$ with $h=\sigma _t \Delta x / \mu $.}}{32}
+\contentsline {table}{\numberline {2.5}{\ignorespaces Local truncation error analysis in $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle \psi $}\mathaccent "0365{\psi }_{A,d}$ for a single cell problem with constant cross section. Values given as $q(C)$ are to be read as $C h^q$ with $h=\sigma _t \Delta x / \mu $. ``Machine Precision'' entries are meant to indicate that Taylor series analysis was inconclusive due to all coefficients being within machine precision.}}{33}
+\contentsline {table}{\numberline {2.6}{\ignorespaces Local truncation error analysis in $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle \psi $}\mathaccent "0365{\psi }_{out,d}$ for a single cell with constant cross section. Values given as $q(C)$ are to be read as $C h^q$ with $h=\sigma _t \Delta x / \mu $. ``Machine Precision'' entries are meant to indicate that Taylor series analysis was inconclusive due to all coefficients being within machine precision.}}{34}
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {table}{\numberline {3.1}{\ignorespaces This is a table template}}{10}
+\contentsline {table}{\numberline {3.1}{\ignorespaces This is a table template}}{51}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

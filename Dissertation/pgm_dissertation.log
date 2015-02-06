@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.18)  5 FEB 2015 22:54
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.18)  6 FEB 2015 16:30
 entering extended mode
 **pgm_dissertation.tex
 (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.tex
@@ -241,8 +241,9 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \mathdisplay@stack=\toks23
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
-)
-(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.aux
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\lscape.sty"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+) (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.aux
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/titlepage.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/abstract.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/dedication.aux)
@@ -250,22 +251,25 @@ LaTeX Info: Redefining \] on input line 2666.
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/nomenclature.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/lists.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter1_intro/introduction.aux)
-(E:\Documents\Research\PGM_Dissertation\Dissertation\section2/section2.aux)
-(E:\Documents\Research\PGM_Dissertation\Dissertation\section3/section3.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\chapter2_constant_xs/chapter2_constant_xs.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\chapter3_variable_xs/chapter3_variable_xs.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\chapter4_acceleration/chapter4_acceleration.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\chapter5_depletion/chapter5_depletion.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\chapter6_grey_radtran/chapter6_grey_radtran.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\appendices/appendices.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -355,13 +359,17 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ])
 \tf@toc=\write3
  [7]
-(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.lof)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.lof [8] [9])
 \tf@lof=\write4
- [8]
-(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.lot)
+ [10]
+(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.lot
+Overfull \hbox (13.81215pt too wide) in paragraph at lines 4--4
+ [][] []\OT1/cmr/m/n/12 Nomenclature of nu-mer-i-cal schemes (TL=Traditional Lump-ing; SL=Self- 
+ []
+
+)
 \tf@lot=\write5
- [9])
-(E:\Documents\Research\PGM_Dissertation\Dissertation\chapter1_intro/introduction.tex
+ [11]) (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter1_intro/introduction.tex
 Chapter 1.
 [1
 
@@ -372,46 +380,264 @@ Overfull \hbox (0.98257pt too wide) in paragraph at lines 58--59
 []\OT1/cmr/m/n/12 Finally, we treat the pho-ton en-ergy de-pen-dence us-ing the multi-frequency method.
  []
 
-[2] [3]) [4] [5] (E:\Documents\Research\PGM_Dissertation\Dissertation\section2/section2.tex
+[2] [3]) [4] [5] (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter2_constant_xs/chapter2_constant_xs.tex
 Chapter 2.
-<figures/Penguins.jpg, id=57, 770.88pt x 578.16pt>
-File: figures/Penguins.jpg Graphic file (type jpg)
- <use figures/Penguins.jpg>
-Package pdftex.def Info: figures/Penguins.jpg used on input line 25.
-(pdftex.def)             Requested size: 385.43906pt x 289.07928pt.
-
-<figures/Sunset.jpg, id=58, 602.25pt x 451.6875pt>
-File: figures/Sunset.jpg Graphic file (type jpg)
- <use figures/Sunset.jpg>
-Package pdftex.def Info: figures/Sunset.jpg used on input line 54.
-(pdftex.def)             Requested size: 301.12425pt x 225.84319pt.
-) [6
+[6
 
 
 
-] [7 <E:/Documents/Research/PGM_Dissertation/Dissertation/figures/Penguins.jpg>] [8 <E:/Documents/Research/PGM_Dissertat
-ion/Dissertation/figures/Sunset.jpg>]
-(E:\Documents\Research\PGM_Dissertation\Dissertation\section3/section3.tex
-Chapter 3.
+] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16]
+Overfull \hbox (70.21353pt too wide) in paragraph at lines 375--392
+ [][] 
+ []
 
-LaTeX Warning: Citation `Agrawal1986' on page 9 undefined on input line 20.
+[17] [18] [19] [20] <chapter2_constant_xs/P1_Outflow_AllMeth-eps-converted-to.pdf, id=113, 799.98875pt x 620.3175pt>
+File: chapter2_constant_xs/P1_Outflow_AllMeth-eps-converted-to.pdf Graphic file (type pdf)
 
-File: figures/Penguins.jpg Graphic file (type jpg)
-<use figures/Penguins.jpg>
-Package pdftex.def Info: figures/Penguins.jpg used on input line 27.
-(pdftex.def)             Requested size: 385.43906pt x 289.07928pt.
-) [9
+<use chapter2_constant_xs/P1_Outflow_AllMeth-eps-converted-to.pdf>
+Package pdftex.def Info: chapter2_constant_xs/P1_Outflow_AllMeth-eps-converted-to.pdf used on input line 571.
+(pdftex.def)             Requested size: 341.43306pt x 264.75308pt.
 
+<chapter2_constant_xs/P2_Outflow_AllMeth-eps-converted-to.pdf, id=114, 799.98875pt x 620.3175pt>
+File: chapter2_constant_xs/P2_Outflow_AllMeth-eps-converted-to.pdf Graphic file (type pdf)
 
+<use chapter2_constant_xs/P2_Outflow_AllMeth-eps-converted-to.pdf>
+Package pdftex.def Info: chapter2_constant_xs/P2_Outflow_AllMeth-eps-converted-to.pdf used on input line 577.
+(pdftex.def)             Requested size: 341.43306pt x 264.75308pt.
 
-] [10] [11
+<chapter2_constant_xs/P3_Outflow_AllMeth-eps-converted-to.pdf, id=115, 799.98875pt x 620.3175pt>
+File: chapter2_constant_xs/P3_Outflow_AllMeth-eps-converted-to.pdf Graphic file (type pdf)
+
+<use chapter2_constant_xs/P3_Outflow_AllMeth-eps-converted-to.pdf>
+Package pdftex.def Info: chapter2_constant_xs/P3_Outflow_AllMeth-eps-converted-to.pdf used on input line 583.
+(pdftex.def)             Requested size: 341.43306pt x 264.75308pt.
+
+<chapter2_constant_xs/P4_Outflow_AllMeth-eps-converted-to.pdf, id=116, 799.98875pt x 620.3175pt>
+File: chapter2_constant_xs/P4_Outflow_AllMeth-eps-converted-to.pdf Graphic file (type pdf)
+
+<use chapter2_constant_xs/P4_Outflow_AllMeth-eps-converted-to.pdf>
+Package pdftex.def Info: chapter2_constant_xs/P4_Outflow_AllMeth-eps-converted-to.pdf used on input line 589.
+(pdftex.def)             Requested size: 341.43306pt x 264.75308pt.
+ [21]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 596.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 596.
+ [22 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter2_constant_xs/P1_Outflow_AllMeth-eps-converted-to.pdf>]
+ [23 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter2_constant_xs/P2_Outflow_AllMeth-eps-converted-to.pdf>]
+ [24 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter2_constant_xs/P3_Outflow_AllMeth-eps-converted-to.pdf>]
+
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_0.png, id=180, 867.24pt x 650.43pt>
+File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_0.png Graphic file (type png)
+
+<use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_0.png>
+Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_0.png used on input line 641.
+(pdftex.def)             Requested size: 341.43306pt x 256.07838pt.
+
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_0.png, id=181, 867.24pt x 650.43pt>
+File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_0.png Graphic file (type png)
+
+<use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_0.png>
+Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_0.png used on input line 647.
+(pdftex.def)             Requested size: 341.43306pt x 256.07838pt.
+
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_0.png, id=182, 867.24pt x 650.43pt>
+File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_0.png Graphic file (type png)
+
+<use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_0.png>
+Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_0.png used on input line 653.
+(pdftex.def)             Requested size: 341.43306pt x 256.07838pt.
+
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_0.png, id=183, 867.24pt x 650.43pt>
+File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_0.png Graphic file (type png)
+
+<use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_0.png>
+Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_0.png used on input line 659.
+(pdftex.def)             Requested size: 341.43306pt x 256.07838pt.
+ [25 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter2_constant_xs/P4_Outflow_AllMeth-eps-converted-to.pdf>]
+
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_5.png, id=204, 867.24pt x 650.43pt>
+File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_5.png Graphic file (type png)
+
+<use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_5.png>
+Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_5.png used on input line 674.
+(pdftex.def)             Requested size: 341.43306pt x 256.07838pt.
+
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_5.png, id=205, 867.24pt x 650.43pt>
+File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_5.png Graphic file (type png)
+
+<use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_5.png>
+Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_5.png used on input line 680.
+(pdftex.def)             Requested size: 341.43306pt x 256.07838pt.
+
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_5.png, id=206, 867.24pt x 650.43pt>
+File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_5.png Graphic file (type png)
+
+<use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_5.png>
+Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_5.png used on input line 686.
+(pdftex.def)             Requested size: 341.43306pt x 256.07838pt.
+
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_5.png, id=207, 867.24pt x 650.43pt>
+File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_5.png Graphic file (type png)
+
+<use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_5.png>
+Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_5.png used on input line 692.
+(pdftex.def)             Requested size: 341.43306pt x 256.07838pt.
+ [26 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP
+_0.png (PNG copy)>] [27 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter2_constant_xs/Final_Inflow_RHS_Compa
+rison_Source_P2_MFP_0.png (PNG copy)>]
+[28 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_
+0.png (PNG copy)>] [29 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter2_constant_xs/Final_Inflow_RHS_Compar
+ison_Source_P4_MFP_0.png (PNG copy)>] [30 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter2_constant_xs/Fina
+l_Inflow_RHS_Comparison_Source_P1_MFP_5.png (PNG copy)> <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter2_co
+nstant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_5.png (PNG copy)>] [31 <E:/Documents/Research/PGM_Dissertation/Disse
+rtation/chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_5.png (PNG copy)> <E:/Documents/Research/PGM_Diss
+ertation/Dissertation/chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_5.png (PNG copy)>] [32
+
+] [33
+
 
 ]
-(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.tex
-(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.bbl [12
+[34
 
 
-])) [13]
+] [35
+
+] [36] <chapter2_constant_xs/Linear_L2_err-eps-converted-to.pdf, id=245, 527.9725pt x 413.545pt>
+File: chapter2_constant_xs/Linear_L2_err-eps-converted-to.pdf Graphic file (type pdf)
+
+<use chapter2_constant_xs/Linear_L2_err-eps-converted-to.pdf>
+Package pdftex.def Info: chapter2_constant_xs/Linear_L2_err-eps-converted-to.pdf used on input line 891.
+(pdftex.def)             Requested size: 341.43306pt x 267.43175pt.
+
+<chapter2_constant_xs/Quadratic_L2_err-eps-converted-to.pdf, id=246, 527.9725pt x 413.545pt>
+File: chapter2_constant_xs/Quadratic_L2_err-eps-converted-to.pdf Graphic file (type pdf)
+
+<use chapter2_constant_xs/Quadratic_L2_err-eps-converted-to.pdf>
+Package pdftex.def Info: chapter2_constant_xs/Quadratic_L2_err-eps-converted-to.pdf used on input line 897.
+(pdftex.def)             Requested size: 341.43306pt x 267.43175pt.
+
+<chapter2_constant_xs/Cubic_L2_err-eps-converted-to.pdf, id=247, 529.98pt x 413.545pt>
+File: chapter2_constant_xs/Cubic_L2_err-eps-converted-to.pdf Graphic file (type pdf)
+
+<use chapter2_constant_xs/Cubic_L2_err-eps-converted-to.pdf>
+Package pdftex.def Info: chapter2_constant_xs/Cubic_L2_err-eps-converted-to.pdf used on input line 903.
+(pdftex.def)             Requested size: 341.43306pt x 266.42212pt.
+
+<chapter2_constant_xs/Quartic_L2_err-eps-converted-to.pdf, id=248, 529.98pt x 413.545pt>
+File: chapter2_constant_xs/Quartic_L2_err-eps-converted-to.pdf Graphic file (type pdf)
+
+<use chapter2_constant_xs/Quartic_L2_err-eps-converted-to.pdf>
+Package pdftex.def Info: chapter2_constant_xs/Quartic_L2_err-eps-converted-to.pdf used on input line 909.
+(pdftex.def)             Requested size: 341.43306pt x 266.42212pt.
+
+<chapter2_constant_xs/Linear_L2A_err-eps-converted-to.pdf, id=249, 527.9725pt x 413.545pt>
+File: chapter2_constant_xs/Linear_L2A_err-eps-converted-to.pdf Graphic file (type pdf)
+
+<use chapter2_constant_xs/Linear_L2A_err-eps-converted-to.pdf>
+Package pdftex.def Info: chapter2_constant_xs/Linear_L2A_err-eps-converted-to.pdf used on input line 917.
+(pdftex.def)             Requested size: 341.43306pt x 267.43175pt.
+
+<chapter2_constant_xs/Quadratic_L2A_err-eps-converted-to.pdf, id=250, 527.9725pt x 413.545pt>
+File: chapter2_constant_xs/Quadratic_L2A_err-eps-converted-to.pdf Graphic file (type pdf)
+
+<use chapter2_constant_xs/Quadratic_L2A_err-eps-converted-to.pdf>
+Package pdftex.def Info: chapter2_constant_xs/Quadratic_L2A_err-eps-converted-to.pdf used on input line 923.
+(pdftex.def)             Requested size: 341.43306pt x 267.43175pt.
+
+<chapter2_constant_xs/Cubic_L2A_err-eps-converted-to.pdf, id=251, 529.98pt x 413.545pt>
+File: chapter2_constant_xs/Cubic_L2A_err-eps-converted-to.pdf Graphic file (type pdf)
+
+<use chapter2_constant_xs/Cubic_L2A_err-eps-converted-to.pdf>
+Package pdftex.def Info: chapter2_constant_xs/Cubic_L2A_err-eps-converted-to.pdf used on input line 929.
+(pdftex.def)             Requested size: 341.43306pt x 266.42212pt.
+
+<chapter2_constant_xs/Quartic_L2A_err-eps-converted-to.pdf, id=252, 529.98pt x 413.545pt>
+File: chapter2_constant_xs/Quartic_L2A_err-eps-converted-to.pdf Graphic file (type pdf)
+
+<use chapter2_constant_xs/Quartic_L2A_err-eps-converted-to.pdf>
+Package pdftex.def Info: chapter2_constant_xs/Quartic_L2A_err-eps-converted-to.pdf used on input line 935.
+(pdftex.def)             Requested size: 341.43306pt x 266.42212pt.
+
+<chapter2_constant_xs/Linear_L2Out_err-eps-converted-to.pdf, id=253, 529.98pt x 413.545pt>
+File: chapter2_constant_xs/Linear_L2Out_err-eps-converted-to.pdf Graphic file (type pdf)
+
+<use chapter2_constant_xs/Linear_L2Out_err-eps-converted-to.pdf>
+Package pdftex.def Info: chapter2_constant_xs/Linear_L2Out_err-eps-converted-to.pdf used on input line 945.
+(pdftex.def)             Requested size: 341.43306pt x 266.42212pt.
+
+<chapter2_constant_xs/Quadratic_L2Out_err-eps-converted-to.pdf, id=254, 529.98pt x 413.545pt>
+File: chapter2_constant_xs/Quadratic_L2Out_err-eps-converted-to.pdf Graphic file (type pdf)
+
+<use chapter2_constant_xs/Quadratic_L2Out_err-eps-converted-to.pdf>
+Package pdftex.def Info: chapter2_constant_xs/Quadratic_L2Out_err-eps-converted-to.pdf used on input line 951.
+(pdftex.def)             Requested size: 341.43306pt x 266.42212pt.
+
+<chapter2_constant_xs/Cubic_L2Out_err-eps-converted-to.pdf, id=255, 531.9875pt x 413.545pt>
+File: chapter2_constant_xs/Cubic_L2Out_err-eps-converted-to.pdf Graphic file (type pdf)
+
+<use chapter2_constant_xs/Cubic_L2Out_err-eps-converted-to.pdf>
+Package pdftex.def Info: chapter2_constant_xs/Cubic_L2Out_err-eps-converted-to.pdf used on input line 957.
+(pdftex.def)             Requested size: 341.43306pt x 265.4188pt.
+
+<chapter2_constant_xs/Quartic_L2Out_err-eps-converted-to.pdf, id=256, 531.9875pt x 413.545pt>
+File: chapter2_constant_xs/Quartic_L2Out_err-eps-converted-to.pdf Graphic file (type pdf)
+
+<use chapter2_constant_xs/Quartic_L2Out_err-eps-converted-to.pdf>
+Package pdftex.def Info: chapter2_constant_xs/Quartic_L2Out_err-eps-converted-to.pdf used on input line 963.
+(pdftex.def)             Requested size: 341.43306pt x 265.4188pt.
+ [37 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter2_constant_xs/Linear_L2_err-eps-converted-to.pdf>]) [38
+ <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter2_constant_xs/Quadratic_L2_err-eps-converted-to.pdf>] [39 <
+E:/Documents/Research/PGM_Dissertation/Dissertation/chapter2_constant_xs/Cubic_L2_err-eps-converted-to.pdf>] [40 <E:/Doc
+uments/Research/PGM_Dissertation/Dissertation/chapter2_constant_xs/Quartic_L2_err-eps-converted-to.pdf>] [41 <E:/Documen
+ts/Research/PGM_Dissertation/Dissertation/chapter2_constant_xs/Linear_L2A_err-eps-converted-to.pdf>] [42 <E:/Documents/R
+esearch/PGM_Dissertation/Dissertation/chapter2_constant_xs/Quadratic_L2A_err-eps-converted-to.pdf>] [43 <E:/Documents/Re
+search/PGM_Dissertation/Dissertation/chapter2_constant_xs/Cubic_L2A_err-eps-converted-to.pdf>] [44 <E:/Documents/Researc
+h/PGM_Dissertation/Dissertation/chapter2_constant_xs/Quartic_L2A_err-eps-converted-to.pdf>] [45 <E:/Documents/Research/P
+GM_Dissertation/Dissertation/chapter2_constant_xs/Linear_L2Out_err-eps-converted-to.pdf>] [46 <E:/Documents/Research/PGM
+_Dissertation/Dissertation/chapter2_constant_xs/Quadratic_L2Out_err-eps-converted-to.pdf>] [47 <E:/Documents/Research/PG
+M_Dissertation/Dissertation/chapter2_constant_xs/Cubic_L2Out_err-eps-converted-to.pdf>] [48 <E:/Documents/Research/PGM_D
+issertation/Dissertation/chapter2_constant_xs/Quartic_L2Out_err-eps-converted-to.pdf>]
+(E:\Documents\Research\PGM_Dissertation\Dissertation\chapter3_variable_xs/chapter3_variable_xs.tex
+Chapter 3.
+<figures/Penguins.jpg, id=439, 770.88pt x 578.16pt>
+File: figures/Penguins.jpg Graphic file (type jpg)
+ <use figures/Penguins.jpg>
+Package pdftex.def Info: figures/Penguins.jpg used on input line 35.
+(pdftex.def)             Requested size: 385.43906pt x 289.07928pt.
+ [49
+
+
+
+]) [50] [51 <E:/Documents/Research/PGM_Dissertation/Dissertation/figures/Penguins.jpg>]
+(E:\Documents\Research\PGM_Dissertation\Dissertation\chapter4_acceleration/chapter4_acceleration.tex
+Chapter 4.
+) [52
+
+
+
+] (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter5_depletion/chapter5_depletion.tex
+Chapter 5.
+) [53
+
+
+
+] (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter6_grey_radtran/chapter6_grey_radtran.tex
+Chapter 6.
+) [54
+
+
+
+] [55
+
+] (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.tex
+(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.bbl [56
+
+
+] [57] [58])) [59]
 (E:\Documents\Research\PGM_Dissertation\Dissertation\appendices/appendices.tex
 (E:\Documents\Research\PGM_Dissertation\Dissertation\appendices/appendix1.tex
 APPENDIX A.
@@ -419,19 +645,19 @@ File: figures/Penguins.jpg Graphic file (type jpg)
 <use figures/Penguins.jpg>
 Package pdftex.def Info: figures/Penguins.jpg used on input line 25.
 (pdftex.def)             Requested size: 385.43906pt x 289.07928pt.
-) (E:\Documents\Research\PGM_Dissertation\Dissertation\appendices/appendix2.tex [14
+) (E:\Documents\Research\PGM_Dissertation\Dissertation\appendices/appendix2.tex [60
 
 
 
-] [15]
+] [61]
 APPENDIX B.
 File: figures/Penguins.jpg Graphic file (type jpg)
 <use figures/Penguins.jpg>
 Package pdftex.def Info: figures/Penguins.jpg used on input line 23.
 (pdftex.def)             Requested size: 385.43906pt x 289.07928pt.
- [16
+ [62
 
-])) [17] (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.aux
+])) [63] (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.aux
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/titlepage.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/abstract.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/dedication.aux)
@@ -439,33 +665,34 @@ Package pdftex.def Info: figures/Penguins.jpg used on input line 23.
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/nomenclature.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/lists.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter1_intro/introduction.aux)
-(E:\Documents\Research\PGM_Dissertation\Dissertation\section2/section2.aux)
-(E:\Documents\Research\PGM_Dissertation\Dissertation\section3/section3.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\chapter2_constant_xs/chapter2_constant_xs.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\chapter3_variable_xs/chapter3_variable_xs.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\chapter4_acceleration/chapter4_acceleration.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\chapter5_depletion/chapter5_depletion.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\chapter6_grey_radtran/chapter6_grey_radtran.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.aux)
-(E:\Documents\Research\PGM_Dissertation\Dissertation\appendices/appendices.aux))
-
-LaTeX Warning: There were undefined references.
-
- ) 
+(E:\Documents\Research\PGM_Dissertation\Dissertation\appendices/appendices.aux)) ) 
 Here is how much of TeX's memory you used:
- 3893 strings out of 493921
- 56094 string characters out of 3147273
- 122796 words of memory out of 3000000
- 7033 multiletter control sequences out of 15000+200000
- 9545 words of font info for 36 fonts, out of 3000000 for 9000
+ 4163 strings out of 493921
+ 67810 string characters out of 3147273
+ 136993 words of memory out of 3000000
+ 7242 multiletter control sequences out of 15000+200000
+ 11167 words of font info for 41 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 34i,9n,33p,993b,279s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12
-.pfb>
-Output written on pgm_dissertation.pdf (26 pages, 1008965 bytes).
+ 34i,17n,33p,993b,281s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb>
+Output written on pgm_dissertation.pdf (74 pages, 1502443 bytes).
 PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
+ 538 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 

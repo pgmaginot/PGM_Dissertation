@@ -1,14 +1,39 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {2.1}{\ignorespaces TAMU figure - This is an example of a long figure title. Figure titles need to be single-spaced within and double spaced between in the list of figures.}}{7}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Sunset figure}}{8}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Numerical outflow values as a function of $h$, for a single cell homogeneous absorber problem with a linear DFEM trial space.}}{22}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Numerical outflow values as a function of $h$, for a single cell homogeneous absorber problem with a quadratic DFEM trial space.}}{23}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Numerical outflow values as a function of $h$, for a single cell homogeneous absorber problem with a cubic DFEM trial space.}}{24}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Numerical outflow values as a function of $h$, for a single cell homogeneous absorber problem with a quartic DFEM trial space.}}{25}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$ for a single cell (vacuum case) with a $\delta $-shaped source, using polynomial orders $P=1$ through $P=4$.}}{26}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$ for a single cell (vacuum case) with a $\delta $-shaped source, using polynomial orders $P=1$ through $P=4$.}}{27}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$ for a single cell (vacuum case) with a $\delta $-shaped source, using polynomial orders $P=1$ through $P=4$.}}{28}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$ for a single cell (vacuum case) with a $\delta $-shaped source, using polynomial orders $P=1$ through $P=4$.}}{29}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$, for a single cell (absorber case) with a $\delta $-shaped source, using polynomial orders $P=1$ through $P=4$.}}{30}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$, for a single cell (absorber case) with a $\delta $-shaped source, using polynomial orders $P=1$ through $P=4$.}}{30}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$, for a single cell (absorber case) with a $\delta $-shaped source, using polynomial orders $P=1$ through $P=4$.}}{31}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$, for a single cell (absorber case) with a $\delta $-shaped source, using polynomial orders $P=1$ through $P=4$.}}{31}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Convergence rate of the $L_2$ norm of the error, $E_{\psi }$, as a function of the mesh cell size for a pure absorber ($\sigma _t(x) = 1\nobreakspace {}[cm^{-1}]$ and $x\in \left [0,10\nobreakspace {}[cm]\right ]$).}}{37}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Convergence rate of the $L_2$ norm of the error, $E_{\psi }$, as a function of the mesh cell size for a pure absorber ($\sigma _t(x) = 1\nobreakspace {}[cm^{-1}]$ and $x\in \left [0,10\nobreakspace {}[cm]\right ]$).}}{38}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Convergence rate of the $L_2$ norm of the error, $E_{\psi }$, as a function of the mesh cell size for a pure absorber ($\sigma _t(x) = 1\nobreakspace {}[cm^{-1}]$ and $x\in \left [0,10\nobreakspace {}[cm]\right ]$).}}{39}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Convergence rate of the $L_2$ norm of the error, $E_{\psi }$, as a function of the mesh cell size for a pure absorber ($\sigma _t(x) = 1\nobreakspace {}[cm^{-1}]$ and $x\in \left [0,10\nobreakspace {}[cm]\right ]$).}}{40}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Convergence rate for $E_{\psi ,A}$ as a function of the mesh cell size for a homogeneous pure absorber and linear DFEM.}}{41}
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Convergence rate for $E_{\psi ,A}$ as a function of the mesh cell size for a homogeneous pure absorber and quadratic DFEM.}}{42}
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Convergence rate for $E_{\psi ,A}$ as a function of the mesh cell size for a homogeneous pure absorber and cubic DFEM.}}{43}
+\contentsline {figure}{\numberline {2.20}{\ignorespaces Convergence rate for $E_{\psi ,A}$ as a function of the mesh cell size for a homogeneous pure absorber and quartic DFEM.}}{44}
+\contentsline {figure}{\numberline {2.21}{\ignorespaces Convergence rate of $E_{\psi ,out}$ as a function of the mesh cell size for a homogeneous pure absorber for linear DFEM.}}{45}
+\contentsline {figure}{\numberline {2.22}{\ignorespaces Convergence rate of $E_{\psi ,out}$ as a function of the mesh cell size for a homogeneous pure absorber for quadratic DFEM.}}{46}
+\contentsline {figure}{\numberline {2.23}{\ignorespaces Convergence rate of $E_{\psi ,out}$ as a function of the mesh cell size for a homogeneous pure absorber for cubic DFEM.}}{47}
+\contentsline {figure}{\numberline {2.24}{\ignorespaces Convergence rate of $E_{\psi ,out}$ as a function of the mesh cell size for a pure absorber for quartic DFEM.}}{48}
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {3.1}{\ignorespaces TAMU figure}}{10}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces TAMU figure}}{51}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {A.1}{\ignorespaces TAMU figure}}{15}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces TAMU figure}}{61}
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {B.1}{\ignorespaces TAMU figure}}{17}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces TAMU figure}}{63}

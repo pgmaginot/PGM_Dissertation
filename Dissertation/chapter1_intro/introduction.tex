@@ -21,7 +21,7 @@
 
 
 \chapter{\uppercase {Introduction}}
-
+\label{sec:introduction}
 This dissertation is dedicated to the solution of thermal radiative transfer (TRT) equations.  The TRT equations:
 \begin{subequations}
 \label{eq:full_trt}
@@ -78,28 +78,32 @@ The simplest of DIRK scheme is the first order implicit Euler scheme, but more a
 
 \subsection{Spatial Discretization with Discontinuous Finite Elements}
 
-The linear discontinuous finite element method (LDFEM) has long been used to solve the discrete ordinates neutron transport equation \cite{reed}.  
+The linear discontinuous finite element method (LDFEM) has long been used to solve the discrete ordinates neutron transport equation \cite{reed}.
+Through manipulation, the thermal radiative transfer equations can be transformed  into a form that is equivalent to the neutron transport equation with pseudo- scattering, fission, and fixed sources.
+This makes it possible to use the same methods and techniques developed for neutron transport to assist in solving the  thermal radiative transfer equations.
 LDFEM has achieved wide spread acceptance in the neutron transport community because it is accurate \cite{larsen_nelson} and highly damped.  
 Because it possesses the thick diffusion limit \cite{larsen_morel_asymptotics}, LDFEM has also been applied to the $S_N$ TRT equations.  
 Morel, Wareing, and Smith first considered the application of LDFEM to the $S_N$ TRT equations in \cite{morel_radtran}.
 Mass matrix lumped LDFEM was shown to preserve the thick equilibrium diffusion limit \cite{morel_radtran}.  
 This suggests that discontinuous finite element (DFEM) schemes can be used to accurately solve the TRT equations in both diffusive and transport effects dominated regions.
 
-The DFEM weak formulation does not limit DFEM solutions of the neutron transport or TRT problems to a linear trial space \cite{reed}.
-However, the robust and well characterized behavior of mass matrix lumped and unlumped LDFEM, along with historical limits on computational resources, has resulted in only limited interest in higher degree DFEM trial space solutions.
-Notable early investigations of using higher degree DFEM trial spaces for the neutron transport equation include the works of Walters \cite{walters} and Hennart and  Del Valle \cite{hennart_delvalle_2,hennart_delvalle_3}.
-More recent investigations of higher order DFEM include those by Wang and Ragusa \cite{yaqi_ragusa} and Warsa and Prinja \cite{warsa_prinja}.  
-To our knowledge higher degree DFEM trial spaces have not been considered for DFEM $S_N$ TRT applications.
+\section{Progression Towards Higher Order DFEM Thermal Radiative Transfer}
 
-Thermal radiative transfer interaction opacities can be rapidly varying functions of temperature.  
-For example, consider Marshak wave problems and the canonical $T^{-3}$ dependence \cite{ober_shadid} of absorption opacity.
-Opacity variations of several orders of magnitude near the heated/cold material interface are easily possible.
-Historically, the neutron transport and thermal radiative transfer communities assumed interaction cross section and opacities, respectively, were cell-wise constant \cite{adams,lewis_book,morel_radtran}.
-Adams first described \cite{adams_scb} and then presented computational results \cite{adams_nowak} for a ``simple'' corner balance (SCB) spatial discretization method that explicitly accounted for the spatial variation of opacity within individual spatial cells.
-The SCB scheme (which can be shown to be related to a LDFEM for certain geometries) accounts for opacity spatial variation within each cell via vertex-based quadrature evaluation.  
-Similar strategies have been adapted to LDFEM radiative diffusion \cite{ober_shadid} and LDFEM TRT \cite{warsa_lmfga} calculations.
-For accurate TRT solutions, use of higher order DFEM will requires the development of corresponding higher order strategies  for treating the within cell spatial variation of opacities.
+For higher order (quadratic and higher polynomial degree trial spaces) DFEM to be accurate and practical for solving \eqts{eq:full_trt} we must demonstrate that higher order DFEM:
+\begin{enumerate}
+\item are ``robust'',
+\item account for within cell spatial variation of opacity accurately, and
+\item can be accelerated using appropriate iterative acceleration techniques.
+\end{enumerate}
+By ``robust'', we mean that that calculated radiation outflow from a spatial cell is strictly positive for all cell widths and optical thicknesses.
 
-\section{A Natural Progression to Accurate DFEM Radiative Transfer Solutions}
+In \secref{sec:chapter2_constant_xs} we use a steady-state, mono-energetic, source-free pure absorber neutron transport problem with a cross section that is constant in space to examine the robustness of different radiation transport DFEM matrix lumping techniques.
+Next, we extend the techniques developed by Adams \cite{adams_scb,adams_nowak}, for a spatial discretization scheme related to LDFEM  to address the within cell spatial variation of opacity, for higher order DFEM in \secref{sec:chapter3_variable_xs} .
+%We study the accuracy and robustness of a technique that explicitly accounts for the spatial variation of neutron transport interaction cross sections within each spatial cell
+%for arbitrary trial space degree  DFEM in 
+Then, we examine iterative acceleration techniques compatible with higher order DFEM spatial discretizations that account for the spatial variation of interaction cross (in neutron transport problems) or opacity (TRT simulations) in \secref{sec:chapter4_acceleration}.
 
-In  Chapter 2
+In preparation for solving the coupled, non-linear TRT equations, in \secref{sec:chapter5_depletion} we combine all of the strategies we have developed in Sections \ref{sec:chapter2_constant_xs}-\ref{sec:chapter4_acceleration} and apply them to a coupled system of linear equations. 
+Section \ref{sec:chapter5_depletion}, is deveoted to the development and solution of a two-group fuel depletion problem that uses explicit Euler time differencing.
+Finally, in \secref{sec:chapter6_grey_radtran} we solve the energy integrated, or grey, thermal radiative transfer equations using higher order DFEM. 
+We then provides solutions to analytic benchmarks to verify our methods \cite{su_olson_1}, and use the method of manufactured solutions \cite{mms} to demonstrate the increased accuracy of applying higher order DFEM and DIRK time integration techniques to the grey TRT equations.

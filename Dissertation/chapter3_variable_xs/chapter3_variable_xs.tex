@@ -16,8 +16,16 @@
 
 
 \chapter{\uppercase{Last Chapter: The Importance of Research}}
+\label{sec:chapter3_variable_xs}
 
-Text goes here \cite{Agrawal1986}.
+Thermal radiative transfer interaction opacities can be rapidly varying functions of temperature.  
+For example, consider Marshak wave problems and the canonical $T^{-3}$ dependence \cite{ober_shadid} of absorption opacity.
+Opacity variations of several orders of magnitude near the heated/cold material interface are easily possible.
+Historically, the neutron transport and thermal radiative transfer communities assumed interaction cross section and opacities, respectively, were cell-wise constant \cite{adams,lewis_book,morel_radtran}.
+Adams first described \cite{adams_scb} and then presented computational results \cite{adams_nowak} for a ``simple'' corner balance (SCB) spatial discretization method that explicitly accounted for the spatial variation of opacity within individual spatial cells.
+The SCB scheme (which can be shown to be related to a LDFEM for certain geometries) accounts for opacity spatial variation within each cell via vertex-based quadrature evaluation.  
+Similar strategies have been adapted to LDFEM radiative diffusion \cite{ober_shadid} and LDFEM TRT \cite{warsa_lmfga} calculations.
+For accurate TRT solutions, use of higher order DFEM will requires the development of corresponding higher order strategies  for treating the within cell spatial variation of opacities.
 
 \section{New Section}
 

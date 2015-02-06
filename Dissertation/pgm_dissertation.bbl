@@ -1,5 +1,11 @@
 \begin{thebibliography}{10}
 
+\bibitem{abramowitz}
+M.~Abramowitz and I.~A. Stegun.
+\newblock {\em Handbook of Mathematical Functions with Formulas, Graphs, and
+  Mathematical Tables}.
+\newblock United States Department of Commerce, Washington, D.C., 1972.
+
 \bibitem{adams_scb}
 M.~L. Adams.
 \newblock Subcell balance methods for radiative transfer on arbitrary grids.
@@ -23,6 +29,18 @@ R.~Alexander.
 \newblock Diagonally implicit runge-kutta methods for stiff o.d.e.'s.
 \newblock {\em SIAM Journal of Numerical Analysis}, 14(6):1006--1021, 1977.
 
+\bibitem{hamilton}
+S.~Hamilton ans M.~Benzi and J.~S. Warsa.
+\newblock Negative flux fixups in discontinuous finite elements sn transport.
+\newblock In {\em International Conference on Mathematics, Computational
+  Methods \& Reactor Physics}, Saratoga Springs, New York, May 2009.
+
+\bibitem{azmy}
+Y.~Azmy.
+\newblock Arbitrarily high order characteristic methods for solving the neutron
+  transport equation.
+\newblock {\em Annals of Nuclear Energy}, 19(7):593--606, 1992.
+
 \bibitem{hennart_delvalle_2}
 J.~P. Hennart and E.~del Valle.
 \newblock A generalize nodal finite element formalism for discrete ordinate
@@ -34,6 +52,12 @@ J.~P. Hennart and E.~del Valle.
 \newblock A generalize nodal finite element formalism for discrete ordinate
   equations in slab geometry: Part iii numerical results.
 \newblock {\em Transport Theory and Statistical Physics}, 24:505--533, 1995.
+
+\bibitem{ld_fine_mesh}
+E.~W. Larsen and W.~F. Miller.
+\newblock Convergence rates of spatial difference equations for the
+  discrete-ordinates neutron transport equations in slab geometry.
+\newblock {\em Nuclear Science and Engineering}, 73:76--83, 1980.
 
 \bibitem{larsen_morel_asymptotics}
 E.~W. Larsen and J.~E. Morel.
@@ -47,10 +71,27 @@ E.~W. Larsen and P.~Nelson.
   discrete ordinates equations in slab geometry.
 \newblock {\em SIAM Journal of Numerical Analysis}, 19(2):334--348, 198.
 
+\bibitem{lathrop}
+K.~D. Lathrop.
+\newblock Spatial differencing of the transport equation: Positivity vs.
+  accuracy.
+\newblock {\em Journal of Computational Physics}, 4:475--498, 1969.
+
 \bibitem{lewis_book}
 E.~E. Lewis and W.~F. Miller.
 \newblock {\em Computational Methods of Neutron Transport}.
 \newblock American Nuclear Society, La Grange Park, IL, 1993.
+
+\bibitem{csz}
+P.~G. Maginot, J.~E. Morel, and J.~C. Ragusa.
+\newblock A non-negative moment preserving spatial discretization scheme for
+  the linearized boltzmann transport equation in 1-d and 2-d cartesian
+  geometries.
+\newblock {\em Journal of Computational Physics}, 231(20):6801--6826, 2012.
+
+\bibitem{matlab}
+The MathWorks.
+\newblock Matlab 2011b, 2011.
 
 \bibitem{morel_radtran}
 J.~E. Morel, T.~A. Wareing, and K.~Smith.
@@ -70,17 +111,46 @@ C.~C. Ober and J.~N. Shadid.
   radiation-diffusion equations.
 \newblock {\em Journal of Computational Physics}, 195:743--772, 2004.
 
+\bibitem{raviart}
+P.~A. Raviart.
+\newblock The use of numerical integration in finite element methods for
+  solving parabolic equations.
+\newblock In {\em Conference on Numerical Analysis, RIANA 1972}, pages
+  233--264, August 1972.
+
 \bibitem{reed}
 W.~H. Reed, T.~R. Hill, F.~W. Brinkley, and K.~D. Lathrop.
 \newblock Triplet: A two-dimensional, multigroup, triangular mesh, planar
   geometry, explicit transport code.
 \newblock Technical Report LA-5428-MS, Los Alamos Scientific Lab, 1973.
 
+\bibitem{mms}
+K.~Salari and P.~Knupp.
+\newblock Code verification by the method of manufactured solutions.
+\newblock Technical Report SAND2000-1444, Sandia National Labs, 2000.
+
+\bibitem{su_olson_1}
+B.~Su and G.~L. Olson.
+\newblock An analytical benchmark for non-equilibrium radiative transfer in an
+  isotropically scattering medium.
+\newblock {\em Annals of Nuclear Engergy}, 24(13):1035--1055, 1997.
+
+\bibitem{thomee}
+V.~Thomee.
+\newblock {\em Galerkin Finite Element Methods for Parabolic Problems}.
+\newblock Springer, New York, 1997.
+
 \bibitem{walters}
 W.~F. Walters.
 \newblock The relation between finite element methods and nodal methods in
   transport theory.
 \newblock {\em Progress in Nuclear Energy}, 18:21--26, 1986.
+
+\bibitem{yaqi_ragusa2}
+Y.~Wang and J.~C. Ragusa.
+\newblock A high-order discontinuous galerkin method for the sn transport
+  equations on 2d unstructured triangular meshes.
+\newblock {\em Annals of Nuclear Energy}, 36(7):931--939, 2009.
 
 \bibitem{yaqi_ragusa}
 Y.~Wang and J.~C. Ragusa.

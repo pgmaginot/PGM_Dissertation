@@ -29,7 +29,7 @@
 \usepackage{amssymb}
 \usepackage{amstext}
 \usepackage{amsbsy}
-%\usepackage{subfigure}
+\usepackage{lscape}
 
 
 \newcommand{\fig}[1]{Fig.~\ref{#1}}                      % figure
@@ -61,6 +61,7 @@
 
 \newcommand{\abs}[1]{\ensuremath{\left\lvert #1 \right\rvert}}  % absolute value of argument (variable bar size)
 \newcommand{\norm}[1]{\ensuremath{\left\lVert #1 \right\rVert}}  % norm of argument, varaible size
+\newcommand{\secref}[1]{Section \ref{#1}}
 
 % Equation Punctuation
 \newcommand{\pec}{\, ,}
@@ -121,8 +122,11 @@
 \include{front_matter/lists}  % This is simply a file that formats and adds your toc, lof, and lot, please do not edit this unless you have a specific need. .
 
 \include{chapter1_intro/introduction}
-\include{section2/section2}
-\include{section3/section3}
+\include{chapter2_constant_xs/chapter2_constant_xs}
+\include{chapter3_variable_xs/chapter3_variable_xs}
+\include{chapter4_acceleration/chapter4_acceleration}
+\include{chapter5_depletion/chapter5_depletion}
+\include{chapter6_grey_radtran/chapter6_grey_radtran}
 
 fix spacing in bibliography, if any...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
