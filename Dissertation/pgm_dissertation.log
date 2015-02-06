@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.18)  31 DEC 2014 12:21
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.18)  5 FEB 2015 22:54
 entering extended mode
 **pgm_dissertation.tex
-(E:\Documents\Research\Git_Dissertation\Dissertation\pgm_dissertation.tex
+(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, arabic, armenian, assamese, basque, bengali
 , bokmal, bulgarian, catalan, coptic, croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, galic
@@ -137,7 +137,7 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 \c@@ppsavesec=\count98
 \c@@ppsaveapp=\count99
 )
-(E:\Documents\Research\Git_Dissertation\Dissertation\tamuconfig.sty
+(E:\Documents\Research\PGM_Dissertation\Dissertation\tamuconfig.sty
 Package: tamuconfig 
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\rotating\rotating.sty"
@@ -175,30 +175,97 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \rot@float@box=\box27
 \rot@mess@toks=\toks17
 )
-(E:\Documents\Research\Git_Dissertation\Dissertation\pgm_dissertation.aux
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/titlepage.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/abstract.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/dedication.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/acknowledgements.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/nomenclature.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/lists.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\chapter1_intro/section1.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\section2/section2.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\section3/section3.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/bibliography.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\appendices/appendices.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks18
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip81
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks19
+\ex@=\dimen118
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen119
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count102
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count103
+\leftroot@=\count104
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count105
+\DOTSCASE@=\count106
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen120
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count107
+\c@MaxMatrixCols=\count108
+\dotsspace@=\muskip10
+\c@parentequation=\count109
+\dspbrk@lvl=\count110
+\tag@help=\toks20
+\row@=\count111
+\column@=\count112
+\maxfields@=\count113
+\andhelp@=\toks21
+\eqnshift@=\dimen121
+\alignsep@=\dimen122
+\tagshift@=\dimen123
+\tagwidth@=\dimen124
+\totwidth@=\dimen125
+\lineht@=\dimen126
+\@envbody=\toks22
+\multlinegap=\skip82
+\multlinetaggap=\skip83
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.aux
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/titlepage.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/abstract.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/dedication.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/acknowledgements.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/nomenclature.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/lists.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\chapter1_intro/introduction.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\section2/section2.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\section3/section3.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\appendices/appendices.aux))
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -236,160 +303,169 @@ LaTeX Font Info:    ... okay on input line 53.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count102
-\scratchdimen=\dimen118
-\scratchbox=\box28
-\nofMPsegments=\count103
-\nofMParguments=\count104
-\everyMPshowfont=\toks18
-\MPscratchCnt=\count105
-\MPscratchDim=\dimen119
-\MPnumerator=\count106
-\makeMPintoPDFobject=\count107
-\everyMPtoPDFconversion=\toks19
-) (E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/titlepage.tex
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 47.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 47.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 47.
- [1
+\scratchcounter=\count114
+\scratchdimen=\dimen127
+\scratchbox=\box30
+\nofMPsegments=\count115
+\nofMParguments=\count116
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count117
+\MPscratchDim=\dimen128
+\MPnumerator=\count118
+\makeMPintoPDFobject=\count119
+\everyMPtoPDFconversion=\toks25
+) (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/titlepage.tex
+LaTeX Font Info:    Try loading font information for U+msa on input line 47.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 47.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+[1
 
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]) (E:\Documents\Research\Git_Dissertation\Dissertation\front_matter
-/abstract.tex [2
-
-
-
-])
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/dedication.tex [3
-
-
-
-])
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/acknowledgements.tex [4
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}])
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/abstract.tex [2
 
 
 
 ])
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/nomenclature.tex [5
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/dedication.tex [3
 
 
 
 ])
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/lists.tex
-(E:\Documents\Research\Git_Dissertation\Dissertation\pgm_dissertation.toc [6
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/acknowledgements.tex [4
+
+
+
+])
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/nomenclature.tex [5
+
+
+
+])
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/lists.tex
+(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.toc [6
 
 
 ])
 \tf@toc=\write3
  [7]
-(E:\Documents\Research\Git_Dissertation\Dissertation\pgm_dissertation.lof)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.lof)
 \tf@lof=\write4
  [8]
-(E:\Documents\Research\Git_Dissertation\Dissertation\pgm_dissertation.lot)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.lot)
 \tf@lot=\write5
  [9])
-(E:\Documents\Research\Git_Dissertation\Dissertation\chapter1_intro/section1.tex
+(E:\Documents\Research\PGM_Dissertation\Dissertation\chapter1_intro/introduction.tex
 Chapter 1.
-<figures/Penguins.jpg, id=31, 770.88pt x 578.16pt>
+[1
+
+
+
+]
+Overfull \hbox (0.98257pt too wide) in paragraph at lines 58--59
+[]\OT1/cmr/m/n/12 Finally, we treat the pho-ton en-ergy de-pen-dence us-ing the multi-frequency method.
+ []
+
+[2] [3]) [4] [5] (E:\Documents\Research\PGM_Dissertation\Dissertation\section2/section2.tex
+Chapter 2.
+<figures/Penguins.jpg, id=57, 770.88pt x 578.16pt>
 File: figures/Penguins.jpg Graphic file (type jpg)
  <use figures/Penguins.jpg>
-Package pdftex.def Info: figures/Penguins.jpg used on input line 34.
-(pdftex.def)             Requested size: 385.43906pt x 289.07928pt.
- [1
-
-
-
-]) [2] [3 <E:/Documents/Research/Git_Dissertation/Dissertation/figures/Penguins.jpg>] (E:\Documents\Research\Git_Dissert
-ation\Dissertation\section2/section2.tex
-Chapter 2.
-File: figures/Penguins.jpg Graphic file (type jpg)
-<use figures/Penguins.jpg>
 Package pdftex.def Info: figures/Penguins.jpg used on input line 25.
 (pdftex.def)             Requested size: 385.43906pt x 289.07928pt.
- <figures/Sunset.jpg, id=42, 602.25pt x 451.6875pt>
+
+<figures/Sunset.jpg, id=58, 602.25pt x 451.6875pt>
 File: figures/Sunset.jpg Graphic file (type jpg)
  <use figures/Sunset.jpg>
 Package pdftex.def Info: figures/Sunset.jpg used on input line 54.
 (pdftex.def)             Requested size: 301.12425pt x 225.84319pt.
-) [4
+) [6
 
 
 
-] [5] [6 <E:/Documents/Research/Git_Dissertation/Dissertation/figures/Sunset.jpg>]
-(E:\Documents\Research\Git_Dissertation\Dissertation\section3/section3.tex
+] [7 <E:/Documents/Research/PGM_Dissertation/Dissertation/figures/Penguins.jpg>] [8 <E:/Documents/Research/PGM_Dissertat
+ion/Dissertation/figures/Sunset.jpg>]
+(E:\Documents\Research\PGM_Dissertation\Dissertation\section3/section3.tex
 Chapter 3.
+
+LaTeX Warning: Citation `Agrawal1986' on page 9 undefined on input line 20.
+
 File: figures/Penguins.jpg Graphic file (type jpg)
 <use figures/Penguins.jpg>
 Package pdftex.def Info: figures/Penguins.jpg used on input line 27.
 (pdftex.def)             Requested size: 385.43906pt x 289.07928pt.
-) [7
+) [9
 
 
 
-] [8] [9
+] [10] [11
 
 ]
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/bibliography.tex
-(E:\Documents\Research\Git_Dissertation\Dissertation\pgm_dissertation.bbl
-Missing character: There is no Ã in font cmr12!
-Missing character: There is no ƒ in font cmr12!
-Missing character: There is no Â in font cmr12!
-Missing character: There is no ³ in font cmr12!
-
-Underfull \hbox (badness 1178) in paragraph at lines 4--9
-[]\OT1/cmr/m/n/12 CINTERFOR (AAOr-ga-ni-za-tion) and Paraguay. Ser-vi-cio Na-cional de Pro-
- []
-
-)) [10
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.tex
+(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.bbl [12
 
 
-] (E:\Documents\Research\Git_Dissertation\Dissertation\appendices/appendices.tex
-(E:\Documents\Research\Git_Dissertation\Dissertation\appendices/appendix1.tex
+])) [13]
+(E:\Documents\Research\PGM_Dissertation\Dissertation\appendices/appendices.tex
+(E:\Documents\Research\PGM_Dissertation\Dissertation\appendices/appendix1.tex
 APPENDIX A.
 File: figures/Penguins.jpg Graphic file (type jpg)
 <use figures/Penguins.jpg>
 Package pdftex.def Info: figures/Penguins.jpg used on input line 25.
 (pdftex.def)             Requested size: 385.43906pt x 289.07928pt.
-) (E:\Documents\Research\Git_Dissertation\Dissertation\appendices/appendix2.tex [11
+) (E:\Documents\Research\PGM_Dissertation\Dissertation\appendices/appendix2.tex [14
 
 
 
-] [12]
+] [15]
 APPENDIX B.
 File: figures/Penguins.jpg Graphic file (type jpg)
 <use figures/Penguins.jpg>
 Package pdftex.def Info: figures/Penguins.jpg used on input line 23.
 (pdftex.def)             Requested size: 385.43906pt x 289.07928pt.
- [13
+ [16
 
-])) [14] (E:\Documents\Research\Git_Dissertation\Dissertation\pgm_dissertation.aux
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/titlepage.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/abstract.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/dedication.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/acknowledgements.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/nomenclature.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/lists.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\chapter1_intro/section1.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\section2/section2.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\section3/section3.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\front_matter/bibliography.aux)
-(E:\Documents\Research\Git_Dissertation\Dissertation\appendices/appendices.aux)) ) 
+])) [17] (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.aux
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/titlepage.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/abstract.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/dedication.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/acknowledgements.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/nomenclature.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/lists.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\chapter1_intro/introduction.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\section2/section2.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\section3/section3.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.aux)
+(E:\Documents\Research\PGM_Dissertation\Dissertation\appendices/appendices.aux))
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2974 strings out of 493921
- 45964 string characters out of 3147273
- 111396 words of memory out of 3000000
- 6149 multiletter control sequences out of 15000+200000
- 7329 words of font info for 26 fonts, out of 3000000 for 9000
+ 3893 strings out of 493921
+ 56094 string characters out of 3147273
+ 122796 words of memory out of 3000000
+ 7033 multiletter control sequences out of 15000+200000
+ 9545 words of font info for 36 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 34i,10n,33p,1022b,290s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on pgm_dissertation.pdf (23 pages, 911835 bytes).
+ 34i,9n,33p,993b,279s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12
+.pfb>
+Output written on pgm_dissertation.pdf (26 pages, 1008965 bytes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
+ 136 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

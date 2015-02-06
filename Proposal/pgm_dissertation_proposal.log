@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.1.8)  7 FEB 2014 15:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.18)  5 FEB 2015 14:14
 entering extended mode
 **pgm_dissertation_proposal.tex
-(E:\Documents\Research\Dissertation\Proposal\pgm_dissertation_proposal.tex
+(E:\Documents\Research\PGM_Dissertation\Proposal\pgm_dissertation_proposal.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, arabic, armenian, assamese, basque, bengali
 , bokmal, bulgarian, catalan, coptic, croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, galic
@@ -30,9 +30,9 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen103
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
  ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
@@ -42,30 +42,40 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: dvips.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 91.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvips.def"
-File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
 ))
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\pifont.sty"
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\pifont.sty"
 Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
 LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\upzd.fd"
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
 )
 LaTeX Font Info:    Try loading font information for U+psy on input line 64.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\upsy.fd"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\upsy.fd"
 File: upsy.fd 2001/06/04 font definitions for U/psy.
 ))
-\c@tnote=\count87
-\c@fnote=\count88
-\c@cnote=\count89
-\c@ead=\count90
-\c@author=\count91
+\c@tnote=\count88
+\c@fnote=\count89
+\c@cnote=\count90
+\c@ead=\count91
+\c@author=\count92
 \@eadauthor=\toks15
-\c@affn=\count92
+\c@affn=\count93
 \absbox=\box26
 \keybox=\box27
 \Columnwidth=\dimen106
@@ -77,20 +87,20 @@ File: upsy.fd 2001/06/04 font definitions for U/psy.
 \@sep=\skip43
 \@@sep=\skip44
 
-(E:\Documents\Research\Dissertation\Proposal\pgm_dissertation_proposal.spl)
+(E:\Documents\Research\PGM_Dissertation\Proposal\pgm_dissertation_proposal.spl)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip45
 \bibsep=\skip46
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count93
+\c@NAT@ctr=\count94
 )
 \splwrite=\write3
  ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
  ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is not detected.
+Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
 Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
@@ -99,9 +109,9 @@ Package ifvtex Info: VTeX not detected.
 ("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count94
-\Gm@cntv=\count95
-\c@Gm@tempcnt=\count96
+\Gm@cnth=\count95
+\Gm@cntv=\count96
+\c@Gm@tempcnt=\count97
 \Gm@bindingoffset=\dimen109
 \Gm@wd@mp=\dimen110
 \Gm@odd@mp=\dimen111
@@ -202,15 +212,12 @@ Package: afterpage 1995/10/27 v1.08 After-Page Package (DPC)
 \AP@partial=\box30
 \AP@footins=\box31
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
-Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+Package: color 2014/04/23 v1.1a Standard LaTeX Color (DPC)
  ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package color Info: Driver file: dvips.def on input line 130.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvipsnam.def"
-File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
-))
+Package color Info: Driver file: pdftex.def on input line 137.
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
@@ -450,13 +457,13 @@ Package: amsbsy 1999/11/29 v1.2d
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count97
+\inf@bad=\count98
 LaTeX Info: Redefining \frac on input line 210.
-\uproot@=\count98
-\leftroot@=\count99
+\uproot@=\count99
+\leftroot@=\count100
 LaTeX Info: Redefining \overline on input line 306.
-\classnum@=\count100
-\DOTSCASE@=\count101
+\classnum@=\count101
+\DOTSCASE@=\count102
 LaTeX Info: Redefining \ldots on input line 378.
 LaTeX Info: Redefining \dots on input line 381.
 LaTeX Info: Redefining \cdots on input line 466.
@@ -465,15 +472,15 @@ LaTeX Info: Redefining \cdots on input line 466.
 \big@size=\dimen125
 LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
-\macc@depth=\count102
-\c@MaxMatrixCols=\count103
+\macc@depth=\count103
+\c@MaxMatrixCols=\count104
 \dotsspace@=\muskip10
-\c@parentequation=\count104
-\dspbrk@lvl=\count105
+\c@parentequation=\count105
+\dspbrk@lvl=\count106
 \tag@help=\toks21
-\row@=\count106
-\column@=\count107
-\maxfields@=\count108
+\row@=\count107
+\column@=\count108
+\maxfields@=\count109
 \andhelp@=\toks22
 \eqnshift@=\dimen126
 \alignsep@=\dimen127
@@ -496,10 +503,10 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \subfigbottomskip=\skip52
 \subfigcapmargin=\dimen133
 \subfiglabelskip=\skip53
-\c@subfigure=\count109
-\c@lofdepth=\count110
-\c@subtable=\count111
-\c@lotdepth=\count112
+\c@subfigure=\count110
+\c@lofdepth=\count111
+\c@subtable=\count112
+\c@lotdepth=\count113
 
 ****************************************
 * Local config file subfigure.cfg used *
@@ -524,12 +531,12 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 \caption@parindent=\dimen140
 \caption@hangindent=\dimen141
 )
-\c@ContinuedFloat=\count113
+\c@ContinuedFloat=\count114
 Package caption Info: subfigure package is loaded.
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\lscape.sty"
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
-(E:\Documents\Research\Dissertation\Proposal\pgm_dissertation_proposal.aux)
+(E:\Documents\Research\PGM_Dissertation\Proposal\pgm_dissertation_proposal.aux)
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 120.
 LaTeX Font Info:    Try loading font information for OML+txmi on input line 120.
 
@@ -563,10 +570,24 @@ LaTeX Font Info:    Try loading font information for OT1+txr on input line 120.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\txfonts\ot1txr.fd"
 File: ot1txr.fd 2000/12/15 v3.1
 )
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count115
+\scratchdimen=\dimen142
+\scratchbox=\box34
+\nofMPsegments=\count116
+\nofMParguments=\count117
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count118
+\MPscratchDim=\dimen143
+\MPnumerator=\count119
+\makeMPintoPDFobject=\count120
+\everyMPtoPDFconversion=\toks26
+)
 *geometry* driver: auto-detecting
-*geometry* detected driver: dvips
+*geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
-* driver: dvips
+* driver: pdftex
 * paper: custom
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -620,26 +641,130 @@ File: utxsyc.fd 2000/12/15 v3.1
 )
 [1
 
-] [2] [3]
-File: Proposal_ex_sol.eps Graphic file (type eps)
- <Proposal_ex_sol.eps> [4]
-File: Proposal_blades.eps Graphic file (type eps)
- <Proposal_blades.eps>
-File: Proposal_plot.eps Graphic file (type eps)
- <Proposal_plot.eps>
-File: WaveFront_60_Unk.eps Graphic file (type eps)
- <WaveFront_60_Unk.eps>
-File: WaveFront_120_Unk.eps Graphic file (type eps)
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3]
 
-<WaveFront_120_Unk.eps> [5] [6] [7] [8] [9] (E:\Documents\Research\Dissertation\Proposal\pgm_dissertation_proposal.aux) 
-) 
+! LaTeX Error: Unknown graphics extension: .eps.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.371 ...graphics[width=10cm]{Proposal_ex_sol.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[4]
+
+! LaTeX Error: Unknown graphics extension: .eps.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.382 ...graphics[width=10cm]{Proposal_blades.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Unknown graphics extension: .eps.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.392 ...degraphics[width=10cm]{Proposal_plot.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Unknown graphics extension: .eps.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.404 }
+       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (3.88pt too wide) in paragraph at lines 404--404
+[]\OT1/txr/m/n/8 (a)
+ []
+
+
+Overfull \hbox (3.0pt too wide) in paragraph at lines 404--404
+\OT1/txr/m/n/8 60
+ []
+
+
+Overfull \hbox (7.44pt too wide) in paragraph at lines 404--404
+\OT1/txr/m/n/8 Un-
+ []
+
+
+Overfull \hbox (19.688pt too wide) in paragraph at lines 404--404
+\OT1/txr/m/n/8 knowns 
+ []
+
+
+! LaTeX Error: Unknown graphics extension: .eps.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.407 }
+       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (4.328pt too wide) in paragraph at lines 407--407
+[]\OT1/txr/m/n/8 (b)
+ []
+
+
+Overfull \hbox (7.0pt too wide) in paragraph at lines 407--407
+\OT1/txr/m/n/8 120
+ []
+
+
+Overfull \hbox (7.44pt too wide) in paragraph at lines 407--407
+\OT1/txr/m/n/8 Un-
+ []
+
+
+Overfull \hbox (19.688pt too wide) in paragraph at lines 407--407
+\OT1/txr/m/n/8 knowns 
+ []
+
+[5] [6] [7] (E:\Documents\Research\PGM_Dissertation\Proposal\pgm_dissertation_proposal.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4592 strings out of 493922
- 64465 string characters out of 3147297
- 128617 words of memory out of 3000000
- 7803 multiletter control sequences out of 15000+200000
- 25358 words of font info for 79 fonts, out of 3000000 for 9000
+ 5055 strings out of 493921
+ 70313 string characters out of 3147273
+ 134790 words of memory out of 3000000
+ 8233 multiletter control sequences out of 15000+200000
+ 40440 words of font info for 102 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 36i,7n,38p,414b,357s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,7n,38p,414b,327s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmtt8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/txfonts/rtxmi.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/rtxr.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/txfonts/txex.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/txfonts/txsy.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on pgm_dissertation_proposal.pdf (7 pages, 96518 bytes).
+PDF statistics:
+ 63 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-Output written on pgm_dissertation_proposal.dvi (9 pages, 47024 bytes).

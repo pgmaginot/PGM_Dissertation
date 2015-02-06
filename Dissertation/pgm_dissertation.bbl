@@ -1,19 +1,96 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
-\bibitem{my_ref}
-CINTERFOR (AAOrganization) and Paraguay. Servicio~Nacional
-  de~PromociÃ³n~Profesional.
-\newblock {\em Seminario sobre Politicas de Formacion Profesional Rural :
-  Proyecto 141, Cinterfor-SNPP}.
-\newblock Cinterfor, Montevideo, 1977.
+\bibitem{adams_scb}
+M.~L. Adams.
+\newblock Subcell balance methods for radiative transfer on arbitrary grids.
+\newblock {\em Transport Theory and Statistical Physics}, 26(4 \&5):385--431,
+  1997.
 
-\bibitem{Agrawal1986}
-Binod~C. Agrawal, Arbind~K. Sinha, Indian Space Research~Organisation
-  Development, and Educational~Communication Unit.
-\newblock {\em SITE to INSAT : challenges of production and research for women
-  and children}.
-\newblock Concept Pub. Co. by arrangement with Development and Educational
-  Communication Unit, Indian Space Research Organisation, Ahmedabad, New Delhi,
-  1986.
+\bibitem{adams}
+M.~L. Adams.
+\newblock Discontinuous finite element transport solutions in thick diffusive
+  problems.
+\newblock {\em Nuclear Science and Engineering}, 137:298--333, 2001.
+
+\bibitem{adams_nowak}
+M.~L. Adams and P.~F. Nowak.
+\newblock Asymptotic analysis of a computational method for time- and
+  frequency- dependent radiative transfer.
+\newblock {\em Journal of Computational Physics}, 46:366--403, 1998.
+
+\bibitem{alexander}
+R.~Alexander.
+\newblock Diagonally implicit runge-kutta methods for stiff o.d.e.'s.
+\newblock {\em SIAM Journal of Numerical Analysis}, 14(6):1006--1021, 1977.
+
+\bibitem{hennart_delvalle_2}
+J.~P. Hennart and E.~del Valle.
+\newblock A generalize nodal finite element formalism for discrete ordinate
+  equations in slab geometry: Part ii theory in the discontinuous moment case.
+\newblock {\em Transport Theory and Statistical Physics}, 24:479--504, 1995.
+
+\bibitem{hennart_delvalle_3}
+J.~P. Hennart and E.~del Valle.
+\newblock A generalize nodal finite element formalism for discrete ordinate
+  equations in slab geometry: Part iii numerical results.
+\newblock {\em Transport Theory and Statistical Physics}, 24:505--533, 1995.
+
+\bibitem{larsen_morel_asymptotics}
+E.~W. Larsen and J.~E. Morel.
+\newblock Asymptotic solutions of numerical transport problems in optically
+  thick, diffusive regimes ii.
+\newblock {\em Journal of Computational Physics}, 83:212--236, 1989.
+
+\bibitem{larsen_nelson}
+E.~W. Larsen and P.~Nelson.
+\newblock Finite-difference approximations and superconvergence for the
+  discrete ordinates equations in slab geometry.
+\newblock {\em SIAM Journal of Numerical Analysis}, 19(2):334--348, 198.
+
+\bibitem{lewis_book}
+E.~E. Lewis and W.~F. Miller.
+\newblock {\em Computational Methods of Neutron Transport}.
+\newblock American Nuclear Society, La Grange Park, IL, 1993.
+
+\bibitem{morel_radtran}
+J.~E. Morel, T.~A. Wareing, and K.~Smith.
+\newblock A linear-discontinuous spatial differencing scheme for $s_n$
+  radiative transfer calculations.
+\newblock {\em Journal of Computational Physics}, 128:445--462, 1996.
+
+\bibitem{warsa_lmfga}
+J.~E. Morel, T.-Y.~B. Yang, and J.~S. Warsa.
+\newblock Linear multifrequency-grey acceleration recast for preconditioned
+  krylov iterations.
+\newblock {\em Journal of Computational Physics}, 227:244--264, 2007.
+
+\bibitem{ober_shadid}
+C.~C. Ober and J.~N. Shadid.
+\newblock Studies on the accuracy of time-integration methods for the
+  radiation-diffusion equations.
+\newblock {\em Journal of Computational Physics}, 195:743--772, 2004.
+
+\bibitem{reed}
+W.~H. Reed, T.~R. Hill, F.~W. Brinkley, and K.~D. Lathrop.
+\newblock Triplet: A two-dimensional, multigroup, triangular mesh, planar
+  geometry, explicit transport code.
+\newblock Technical Report LA-5428-MS, Los Alamos Scientific Lab, 1973.
+
+\bibitem{walters}
+W.~F. Walters.
+\newblock The relation between finite element methods and nodal methods in
+  transport theory.
+\newblock {\em Progress in Nuclear Energy}, 18:21--26, 1986.
+
+\bibitem{yaqi_ragusa}
+Y.~Wang and J.~C. Ragusa.
+\newblock On the convergence of dgfem applied to the discrete ordinates
+  transport equation for structured and unstructured triangular meshes.
+\newblock {\em Nuclear Science and Engineering}, 163:56--72, 2009.
+
+\bibitem{warsa_prinja}
+J.~S. Warsa and A.~K. Prinja.
+\newblock p-adaptive numerical methods for particle transport.
+\newblock {\em Transport Theory and Statistical Physics}, 28(3):229--270, 1999.
 
 \end{thebibliography}

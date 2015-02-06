@@ -22,6 +22,50 @@
  \usepackage{tamuconfig}
 \usepackage{rotating}
 
+% packages I'm adding
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsbsy}
+%\usepackage{subfigure}
+
+
+\newcommand{\fig}[1]{Fig.~\ref{#1}}                      % figure
+\newcommand{\figs}[2]{Figs.~\ref{#1}-\ref{#2}}     
+\newcommand{\tbl}[1]{Table~\ref{#1}}                     % table
+
+\newcommand{\benum}{\begin{equation}} 			% numbered equation
+\newcommand{\eenum}{\end{equation}}
+
+\newcommand{\be}{\begin{equation*}}   % non-numbered equation
+\newcommand{\ee}{\end{equation*}}
+
+\newcommand{\bea}{\begin{eqnarray*}}  % non-numbered equation array
+\newcommand{\eea}{\end{eqnarray*}}
+
+\newcommand{\beanum}{\begin{eqnarray}}  % numbered equation array
+\newcommand{\eeanum}{\end{eqnarray}}
+
+\newcommand{\eqt}[1]{Eq. (\ref{#1})}  % Reference to one equation
+\newcommand{\eqts}[1]{Eqs. (\ref{#1})}  % Reference to multiple equations 
+
+\newcommand{\B}[1]{\ensuremath{\mathbf{B_{#1} }}}
+\newcommand{\J}{\ensuremath{\mathbf{J} }}
+\newcommand{\M}{\ensuremath{ \mathbf M}}
+\newcommand{\Mw}{\ensuremath{\widehat{\mathbf M}}}
+\newcommand{\omg}{\ensuremath{\vec{\Omega}}}
+
+\newcommand{\p}{\ensuremath{ d}}			% shortcut partial derivative symbol
+
+\newcommand{\abs}[1]{\ensuremath{\left\lvert #1 \right\rvert}}  % absolute value of argument (variable bar size)
+\newcommand{\norm}[1]{\ensuremath{\left\lVert #1 \right\rVert}}  % norm of argument, varaible size
+
+% Equation Punctuation
+\newcommand{\pec}{\, ,}
+\newcommand{\pep}{\, .}
+
 % Added to fix issues with pdf searching in some versions of LaTeX
 %\usepackage[T1]{fontenc}\usepackage{lmodern}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -52,7 +96,7 @@
 
 \begin{document}
 
-\renewcommand{\tamumanuscripttitle}{Type in your default title here: You may need to change the spacing if the title is too long and pushes the copyright off of the titlepage }
+\renewcommand{\tamumanuscripttitle}{Higher Order Discontinuous Finite Element Methods for Discrete Ordinates Thermal Radiative Transfer}
 \renewcommand{\tamupapertype}{Dissertation}
 \renewcommand{\tamufullname}{Peter Gregory Maginot}
 \renewcommand{\tamudegree}{Doctor of Philosophy}
@@ -76,7 +120,7 @@
 
 \include{front_matter/lists}  % This is simply a file that formats and adds your toc, lof, and lot, please do not edit this unless you have a specific need. .
 
-\include{chapter1_intro/section1}
+\include{chapter1_intro/introduction}
 \include{section2/section2}
 \include{section3/section3}
 

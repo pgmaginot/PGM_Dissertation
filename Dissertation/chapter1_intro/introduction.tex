@@ -1,0 +1,105 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  New template code for TAMU Theses and Dissertations starting Fall 2012.  
+%  For more info about this template or the 
+%  TAMU LaTeX User's Group, see http://www.howdy.me/.
+%
+%  Author: Wendy Lynn Turner 
+%	 Version 1.0 
+%  Last updated 8/5/2012
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                           SECTION I
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\pagestyle{plain} % No headers, just page numbers
+\pagenumbering{arabic} % Arabic numerals
+\setcounter{page}{1}
+
+
+\chapter{\uppercase {Introduction}}
+
+This dissertation is dedicated to the solution of thermal radiative transfer (TRT) equations.  The TRT equations:
+\begin{subequations}
+\label{eq:full_trt}
+\beanum
+\frac{1}{c} \frac{\p I}{\p t} + \omg \cdot \vec{\nabla} I  + \sigma_t I &=& \int_0^{\infty}{ \int_{4\pi}{ \sigma_s(\omg'\to\omg,E'\to E) I , d\omg' } dE'} + \sigma_a B \\
+C_v \frac{\p T}{\p t} &=& \int_0^{\infty}{ \sigma_a \left( \phi- 4\pi B   \right) dE} \pec 
+\eeanum
+\end{subequations}
+are a nonlinear system of equations that describe the exchange of energy between a photon radiation field and a non-moving material.  
+The radiation intensity, $I$, is a seven dimensional field dependent upon spatial location, $\vec{x}$; photon energy, $E$; photon direction of travel, $\omg$; and time $t$.  
+$c$ is the speed of light.
+Material opacities for all interactions, $\sigma_t$; absorption, $\sigma_a$; and  scattering, $\sigma_s$ are functions of photon energy and material temperature, $T$.  Material heat capacity, $C_v$, is also a function of material temperature.  The angle integrated radiation intensity is an integral over all photon directions of the the photon intensity and is a function of space and photon energy.  Finally, the Planck function, $B$, is a function of photon energy and material temperature.
+While materials at all temperatures emit photon radiation, the radiation emission is proportional to $T^4$.  Thus, solution of the radiative transfer equations is most important in situations where materials are very hot.  
+Solving the thermal radiative transfer equations is an important component of the simulation of different scientific and engineering problems including astrophysics supernova explosions and high energy density laboratory physics experiments like those conducted at the National Ignition Facility.
+
+\section{Simplifications of the Thermal Radiative Transfer Equations}
+In this dissertation, we we make a number of simplifying assumptions to make solution of \eqts{eq:full_trt} more tractable.  
+First, we limit our focus to 1-D Cartesian (slab) geometry.
+The assumption of slab geometry is not required, but slab geometry radiation transport simulations require significantly less computational time.
+Further, any methods that have a possibility of being viable for radiation transport in multiple spatial dimensions must also work well in slab geometry.
+
+Second, we approximate the continuous angle dependence of the intensity using the discrete ordinates ($S_N$) method.
+The $S_N$ method approximates the true definition of the angle integrated intensity,
+\be
+\phi(\vec{x},E,t) = \int_{4\pi}{I(\vec{x},\omg,E,t) d\omg} \pec
+\ee
+using quadrature integration,
+\benum
+\phi(\vec{x},E,t) \approx \sum_{d=1}^{N_{dir}}{ w_d I(\vec{x},\omg_d,E,t) } \pep
+\label{eq:sn_def}
+\eenum
+In \eqt{eq:sn_def}, $\{w_d,\omg_d \}_{d=1,\dots N_{dir}}$ is the set of $N_{dir}$ quadrature weights $w_d$ and discrete directions, $\omg_d$ and corresponding intensities $I_d$.
+
+Finally, we  treat the photon energy dependence using the multi-frequency method.  The multi-frequency method approximates photon energy dependence by discretizing the continuous photon energy dependence with $G$ discrete groups such that:
+\benum
+\int_{0}^{\infty}{I(\vec{x} , \omg, t,E) dE} = \sum_{g=1}^G{I_g} \pec
+\eenum
+where
+\benum
+I(\vec{x} , \omg, t)_g = \int_{E_{g+1/2}}^{E_{g-1/2}}{ I(\vec{x},\omg,t,E) dE} \pec
+\eenum
+$E_{g+1/2}$ is the lower photon energy bound of group $g$, $E_{g-1/2}$ is the upper photon energy bound of group $g$, and we have maintained the traditional neutron transport number of higher energy particles belonging to lower number energy groups.
+
+\section{Spatial and Temporal Discretization}
+
+To complete a description of the approach we will take to solve \eqts{eq:full_trt}, we now describe how we will discretize the spatial and temporal variables.
+
+\subsection{Time Integration}
+
+The appearance of the speed of light in \eqt{eq:full_trt} results in the TRT equations being very stiff.
+To solve the such a stiff system of equations would require either an impractically small time step, or the use of implicit methods.
+We elect to use Diagonally Implicit Runge-Kutta (DIRK) methods to advance our TRT solution in time.
+The simplest of DIRK scheme is the first order implicit Euler scheme, but more advanced DIRK higher order methods in time \cite{alexander}.
+
+\subsection{Spatial Discretization with Discontinuous Finite Elements}
+
+The linear discontinuous finite element method (LDFEM) has long been used to solve the discrete ordinates neutron transport equation \cite{reed}.  
+LDFEM has achieved wide spread acceptance in the neutron transport community because it is accurate \cite{larsen_nelson} and highly damped.  
+Because it possesses the thick diffusion limit \cite{larsen_morel_asymptotics}, LDFEM has also been applied to the $S_N$ TRT equations.  
+Morel, Wareing, and Smith first considered the application of LDFEM to the $S_N$ TRT equations in \cite{morel_radtran}.
+Mass matrix lumped LDFEM was shown to preserve the thick equilibrium diffusion limit \cite{morel_radtran}.  
+This suggests that discontinuous finite element (DFEM) schemes can be used to accurately solve the TRT equations in both diffusive and transport effects dominated regions.
+
+The DFEM weak formulation does not limit DFEM solutions of the neutron transport or TRT problems to a linear trial space \cite{reed}.
+However, the robust and well characterized behavior of mass matrix lumped and unlumped LDFEM, along with historical limits on computational resources, has resulted in only limited interest in higher degree DFEM trial space solutions.
+Notable early investigations of using higher degree DFEM trial spaces for the neutron transport equation include the works of Walters \cite{walters} and Hennart and  Del Valle \cite{hennart_delvalle_2,hennart_delvalle_3}.
+More recent investigations of higher order DFEM include those by Wang and Ragusa \cite{yaqi_ragusa} and Warsa and Prinja \cite{warsa_prinja}.  
+To our knowledge higher degree DFEM trial spaces have not been considered for DFEM $S_N$ TRT applications.
+
+Thermal radiative transfer interaction opacities can be rapidly varying functions of temperature.  
+For example, consider Marshak wave problems and the canonical $T^{-3}$ dependence \cite{ober_shadid} of absorption opacity.
+Opacity variations of several orders of magnitude near the heated/cold material interface are easily possible.
+Historically, the neutron transport and thermal radiative transfer communities assumed interaction cross section and opacities, respectively, were cell-wise constant \cite{adams,lewis_book,morel_radtran}.
+Adams first described \cite{adams_scb} and then presented computational results \cite{adams_nowak} for a ``simple'' corner balance (SCB) spatial discretization method that explicitly accounted for the spatial variation of opacity within individual spatial cells.
+The SCB scheme (which can be shown to be related to a LDFEM for certain geometries) accounts for opacity spatial variation within each cell via vertex-based quadrature evaluation.  
+Similar strategies have been adapted to LDFEM radiative diffusion \cite{ober_shadid} and LDFEM TRT \cite{warsa_lmfga} calculations.
+For accurate TRT solutions, use of higher order DFEM will requires the development of corresponding higher order strategies  for treating the within cell spatial variation of opacities.
+
+\section{A Natural Progression to Accurate DFEM Radiative Transfer Solutions}
+
+In  Chapter 2
