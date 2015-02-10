@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.2.7)  9 FEB 2015 23:52
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.2.7)  10 FEB 2015 02:05
 entering extended mode
 **pgm_dissertation.tex
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.tex
@@ -252,11 +252,8 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\front_matter/lists.aux)
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter1_intro/introduction.aux)
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter2_constant_xs/chapter2_constant_xs.aux)
-(C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter3_variable_xs/chapter3_variable_xs.aux
-
-LaTeX Warning: Label `sec:derive' multiply defined.
-
-) (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter4_acceleration/chapter4_acceleration.aux)
+(C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter3_variable_xs/chapter3_variable_xs.aux)
+(C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter4_acceleration/chapter4_acceleration.aux)
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter5_depletion/chapter5_depletion.aux)
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter6_grey_radtran/chapter6_grey_radtran.aux)
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\front_matter/bibliography.aux)
@@ -362,16 +359,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ])
 \tf@toc=\write3
  [7]
-(C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.lof [8] [9]
-Overfull \hbox (1.85217pt too wide) in paragraph at lines 42--42
- [][] []\OT1/cmr/m/n/12 Asymptotic con-ver-gence of the SLXS Lo-batto scheme us-ing a quadratic 
- []
-
-[10])
+(C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.lof [8] [9] [10] [11])
 \tf@lof=\write4
- [11] (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.lot)
+ [12]
+(C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.lot)
 \tf@lot=\write5
- [12])
+ [13])
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter1_intro/introduction.tex
 Chapter 1.
 [1
@@ -391,28 +384,28 @@ Chapter 2.
 
 
 ] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21]
-<chapter2_constant_xs/P1_Outflow_AllMeth-eps-converted-to.pdf, id=118, 799.98875pt x 620.3175pt>
+<chapter2_constant_xs/P1_Outflow_AllMeth-eps-converted-to.pdf, id=121, 799.98875pt x 620.3175pt>
 File: chapter2_constant_xs/P1_Outflow_AllMeth-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/P1_Outflow_AllMeth-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/P1_Outflow_AllMeth-eps-converted-to.pdf used on input line 612.
 (pdftex.def)             Requested size: 312.9803pt x 242.68954pt.
 
-<chapter2_constant_xs/P2_Outflow_AllMeth-eps-converted-to.pdf, id=119, 799.98875pt x 620.3175pt>
+<chapter2_constant_xs/P2_Outflow_AllMeth-eps-converted-to.pdf, id=122, 799.98875pt x 620.3175pt>
 File: chapter2_constant_xs/P2_Outflow_AllMeth-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/P2_Outflow_AllMeth-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/P2_Outflow_AllMeth-eps-converted-to.pdf used on input line 618.
 (pdftex.def)             Requested size: 312.9803pt x 242.68954pt.
 
-<chapter2_constant_xs/P3_Outflow_AllMeth-eps-converted-to.pdf, id=120, 799.98875pt x 620.3175pt>
+<chapter2_constant_xs/P3_Outflow_AllMeth-eps-converted-to.pdf, id=123, 799.98875pt x 620.3175pt>
 File: chapter2_constant_xs/P3_Outflow_AllMeth-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/P3_Outflow_AllMeth-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/P3_Outflow_AllMeth-eps-converted-to.pdf used on input line 624.
 (pdftex.def)             Requested size: 312.9803pt x 242.68954pt.
 
-<chapter2_constant_xs/P4_Outflow_AllMeth-eps-converted-to.pdf, id=121, 799.98875pt x 620.3175pt>
+<chapter2_constant_xs/P4_Outflow_AllMeth-eps-converted-to.pdf, id=124, 799.98875pt x 620.3175pt>
 File: chapter2_constant_xs/P4_Outflow_AllMeth-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/P4_Outflow_AllMeth-eps-converted-to.pdf>
@@ -429,14 +422,14 @@ erted-to.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chap
 converted-to.pdf>] [24 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter2_constant_xs/P3_Outflow_All
 Meth-eps-converted-to.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter2_constant_xs/P4_Outflow
 _AllMeth-eps-converted-to.pdf>] [25]
-<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_0.png, id=203, 867.24pt x 650.43pt>
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_0.png, id=206, 867.24pt x 650.43pt>
 File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_0.png Graphic file (type png)
 
 <use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_0.png>
 Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_0.png used on input line 682.
 (pdftex.def)             Requested size: 312.9803pt x 234.74017pt.
 
-<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_0.png, id=204, 867.24pt x 650.43pt>
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_0.png, id=207, 867.24pt x 650.43pt>
 File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_0.png Graphic file (type png)
 
 <use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_0.png>
@@ -444,42 +437,42 @@ Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source
 (pdftex.def)             Requested size: 312.9803pt x 234.74017pt.
  [26 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter2_constant_xs/Final_Inflow_RHS_Comparison_Sour
 ce_P1_MFP_0.png (PNG copy)>]
-<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_0.png, id=208, 867.24pt x 650.43pt>
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_0.png, id=211, 867.24pt x 650.43pt>
 File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_0.png Graphic file (type png)
 
 <use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_0.png>
 Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_0.png used on input line 694.
 (pdftex.def)             Requested size: 312.9803pt x 234.74017pt.
 
-<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_0.png, id=209, 867.24pt x 650.43pt>
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_0.png, id=212, 867.24pt x 650.43pt>
 File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_0.png Graphic file (type png)
 
 <use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_0.png>
 Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_0.png used on input line 700.
 (pdftex.def)             Requested size: 312.9803pt x 234.74017pt.
 
-<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_5.png, id=210, 867.24pt x 650.43pt>
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_5.png, id=213, 867.24pt x 650.43pt>
 File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_5.png Graphic file (type png)
 
 <use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_5.png>
 Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_5.png used on input line 714.
 (pdftex.def)             Requested size: 312.9803pt x 234.74017pt.
 
-<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_5.png, id=211, 867.24pt x 650.43pt>
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_5.png, id=214, 867.24pt x 650.43pt>
 File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_5.png Graphic file (type png)
 
 <use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_5.png>
 Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_5.png used on input line 720.
 (pdftex.def)             Requested size: 312.9803pt x 234.74017pt.
 
-<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_5.png, id=212, 867.24pt x 650.43pt>
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_5.png, id=215, 867.24pt x 650.43pt>
 File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_5.png Graphic file (type png)
 
 <use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_5.png>
 Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_5.png used on input line 726.
 (pdftex.def)             Requested size: 312.9803pt x 234.74017pt.
 
-<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_5.png, id=213, 867.24pt x 650.43pt>
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_5.png, id=216, 867.24pt x 650.43pt>
 File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_5.png Graphic file (type png)
 
 <use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_5.png>
@@ -494,84 +487,84 @@ ginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter2_constant_xs/Final_Infl
 NG copy)>] [30 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter2_constant_xs/Final_Inflow_RHS_Compa
 rison_Source_P3_MFP_5.png (PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter2_constant_xs
 /Final_Inflow_RHS_Comparison_Source_P4_MFP_5.png (PNG copy)>] [31] [32] [33] [34] [35]
-<chapter2_constant_xs/Linear_L2_err-eps-converted-to.pdf, id=242, 527.9725pt x 413.545pt>
+<chapter2_constant_xs/Linear_L2_err-eps-converted-to.pdf, id=245, 527.9725pt x 413.545pt>
 File: chapter2_constant_xs/Linear_L2_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Linear_L2_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Linear_L2_err-eps-converted-to.pdf used on input line 1083.
 (pdftex.def)             Requested size: 312.9803pt x 245.14418pt.
 
-<chapter2_constant_xs/Quadratic_L2_err-eps-converted-to.pdf, id=243, 527.9725pt x 413.545pt>
+<chapter2_constant_xs/Quadratic_L2_err-eps-converted-to.pdf, id=246, 527.9725pt x 413.545pt>
 File: chapter2_constant_xs/Quadratic_L2_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Quadratic_L2_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Quadratic_L2_err-eps-converted-to.pdf used on input line 1089.
 (pdftex.def)             Requested size: 312.9803pt x 245.14418pt.
 
-<chapter2_constant_xs/Cubic_L2_err-eps-converted-to.pdf, id=244, 529.98pt x 413.545pt>
+<chapter2_constant_xs/Cubic_L2_err-eps-converted-to.pdf, id=247, 529.98pt x 413.545pt>
 File: chapter2_constant_xs/Cubic_L2_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Cubic_L2_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Cubic_L2_err-eps-converted-to.pdf used on input line 1095.
 (pdftex.def)             Requested size: 312.9803pt x 244.2229pt.
 
-<chapter2_constant_xs/Quartic_L2_err-eps-converted-to.pdf, id=245, 529.98pt x 413.545pt>
+<chapter2_constant_xs/Quartic_L2_err-eps-converted-to.pdf, id=248, 529.98pt x 413.545pt>
 File: chapter2_constant_xs/Quartic_L2_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Quartic_L2_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Quartic_L2_err-eps-converted-to.pdf used on input line 1101.
 (pdftex.def)             Requested size: 312.9803pt x 244.2229pt.
 
-<chapter2_constant_xs/Linear_L2A_err-eps-converted-to.pdf, id=246, 527.9725pt x 413.545pt>
+<chapter2_constant_xs/Linear_L2A_err-eps-converted-to.pdf, id=249, 527.9725pt x 413.545pt>
 File: chapter2_constant_xs/Linear_L2A_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Linear_L2A_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Linear_L2A_err-eps-converted-to.pdf used on input line 1109.
 (pdftex.def)             Requested size: 312.9803pt x 245.14418pt.
 
-<chapter2_constant_xs/Quadratic_L2A_err-eps-converted-to.pdf, id=247, 527.9725pt x 413.545pt>
+<chapter2_constant_xs/Quadratic_L2A_err-eps-converted-to.pdf, id=250, 527.9725pt x 413.545pt>
 File: chapter2_constant_xs/Quadratic_L2A_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Quadratic_L2A_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Quadratic_L2A_err-eps-converted-to.pdf used on input line 1115.
 (pdftex.def)             Requested size: 312.9803pt x 245.14418pt.
 
-<chapter2_constant_xs/Cubic_L2A_err-eps-converted-to.pdf, id=248, 529.98pt x 413.545pt>
+<chapter2_constant_xs/Cubic_L2A_err-eps-converted-to.pdf, id=251, 529.98pt x 413.545pt>
 File: chapter2_constant_xs/Cubic_L2A_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Cubic_L2A_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Cubic_L2A_err-eps-converted-to.pdf used on input line 1121.
 (pdftex.def)             Requested size: 312.9803pt x 244.2229pt.
 
-<chapter2_constant_xs/Quartic_L2A_err-eps-converted-to.pdf, id=249, 529.98pt x 413.545pt>
+<chapter2_constant_xs/Quartic_L2A_err-eps-converted-to.pdf, id=252, 529.98pt x 413.545pt>
 File: chapter2_constant_xs/Quartic_L2A_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Quartic_L2A_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Quartic_L2A_err-eps-converted-to.pdf used on input line 1127.
 (pdftex.def)             Requested size: 312.9803pt x 244.2229pt.
  [36]
-<chapter2_constant_xs/Linear_L2Out_err-eps-converted-to.pdf, id=255, 529.98pt x 413.545pt>
+<chapter2_constant_xs/Linear_L2Out_err-eps-converted-to.pdf, id=259, 529.98pt x 413.545pt>
 File: chapter2_constant_xs/Linear_L2Out_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Linear_L2Out_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Linear_L2Out_err-eps-converted-to.pdf used on input line 1138.
 (pdftex.def)             Requested size: 312.9803pt x 244.2229pt.
 
-<chapter2_constant_xs/Quadratic_L2Out_err-eps-converted-to.pdf, id=256, 529.98pt x 413.545pt>
+<chapter2_constant_xs/Quadratic_L2Out_err-eps-converted-to.pdf, id=260, 529.98pt x 413.545pt>
 File: chapter2_constant_xs/Quadratic_L2Out_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Quadratic_L2Out_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Quadratic_L2Out_err-eps-converted-to.pdf used on input line 1144.
 (pdftex.def)             Requested size: 312.9803pt x 244.2229pt.
 
-<chapter2_constant_xs/Cubic_L2Out_err-eps-converted-to.pdf, id=257, 531.9875pt x 413.545pt>
+<chapter2_constant_xs/Cubic_L2Out_err-eps-converted-to.pdf, id=261, 531.9875pt x 413.545pt>
 File: chapter2_constant_xs/Cubic_L2Out_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Cubic_L2Out_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Cubic_L2Out_err-eps-converted-to.pdf used on input line 1150.
 (pdftex.def)             Requested size: 312.9803pt x 243.30162pt.
 
-<chapter2_constant_xs/Quartic_L2Out_err-eps-converted-to.pdf, id=258, 531.9875pt x 413.545pt>
+<chapter2_constant_xs/Quartic_L2Out_err-eps-converted-to.pdf, id=262, 531.9875pt x 413.545pt>
 File: chapter2_constant_xs/Quartic_L2Out_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Quartic_L2Out_err-eps-converted-to.pdf>
@@ -599,1038 +592,284 @@ LaTeX Warning: Citation `ragusa_ane' on page 44 undefined on input line 34.
 
 
 
-] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54]
-! Undefined control sequence.
-l.399 \subfigure
-                [Linear]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/Exp_outflow_p1.png, id=460, 578.16pt x 433.62pt>
+] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54] [55]
+<chapter3_variable_xs/Exp_outflow_p1.png, id=467, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/Exp_outflow_p1.png Graphic file (type png)
  <use chapter3_variable_xs/Exp_outflow_p1.png>
-Package pdftex.def Info: chapter3_variable_xs/Exp_outflow_p1.png used on input line 400.
+Package pdftex.def Info: chapter3_variable_xs/Exp_outflow_p1.png used on input line 411.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-! Undefined control sequence.
-l.402 \subfigure
-                [Quadratic]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/Exp_outflow_p2.png, id=461, 578.16pt x 433.62pt>
+<chapter3_variable_xs/Exp_outflow_p2.png, id=468, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/Exp_outflow_p2.png Graphic file (type png)
  <use chapter3_variable_xs/Exp_outflow_p2.png>
-Package pdftex.def Info: chapter3_variable_xs/Exp_outflow_p2.png used on input line 403.
+Package pdftex.def Info: chapter3_variable_xs/Exp_outflow_p2.png used on input line 419.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-! Undefined control sequence.
-l.405 \subfigure
-                [Cubic]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/Exp_outflow_p3.png, id=462, 578.16pt x 433.62pt>
+[56 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/Exp_outflow_p1.png (PNG copy)>]
+<chapter3_variable_xs/Exp_outflow_p3.png, id=472, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/Exp_outflow_p3.png Graphic file (type png)
  <use chapter3_variable_xs/Exp_outflow_p3.png>
-Package pdftex.def Info: chapter3_variable_xs/Exp_outflow_p3.png used on input line 406.
+Package pdftex.def Info: chapter3_variable_xs/Exp_outflow_p3.png used on input line 428.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-! Undefined control sequence.
-l.408 \subfigure
-                [4-th Order]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/Exp_outflow_p4.png, id=463, 578.16pt x 433.62pt>
+<chapter3_variable_xs/Exp_outflow_p4.png, id=473, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/Exp_outflow_p4.png Graphic file (type png)
  <use chapter3_variable_xs/Exp_outflow_p4.png>
-Package pdftex.def Info: chapter3_variable_xs/Exp_outflow_p4.png used on input line 409.
+Package pdftex.def Info: chapter3_variable_xs/Exp_outflow_p4.png used on input line 436.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
+[57 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/Exp_outflow_p2.png (PNG copy)>]
+[58 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/Exp_outflow_p3.png (PNG copy)> <C
+:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/Exp_outflow_p4.png (PNG copy)>]
+[59
 
-LaTeX Warning: Float too large for page by 405.47258pt on input line 414.
-
-[55] [56 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/Exp_outflow_p1.png (PNG copy
-)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/Exp_outflow_p2.png (PNG copy)> <C:
-/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/Exp_outflow_p3.png (PNG copy)> <C:/Users
-/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/Exp_outflow_p4.png (PNG copy)>] [57] [58]
-! Undefined control sequence.
-l.558 \subfigure
-                [Linear]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P1_VarXS_E_psi_L2.png, id=477, 578.16pt x 433.62pt>
+] [60] <chapter3_variable_xs/P1_VarXS_E_psi_L2.png, id=487, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P1_VarXS_E_psi_L2.png Graphic file (type png)
 
 <use chapter3_variable_xs/P1_VarXS_E_psi_L2.png>
-Package pdftex.def Info: chapter3_variable_xs/P1_VarXS_E_psi_L2.png used on input line 559.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P1_VarXS_E_psi_L2.png used on input line 576.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-! Undefined control sequence.
-l.561 \subfigure
-                [Quadratic]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P2_VarXS_E_psi_L2.png, id=478, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P2_VarXS_E_psi_L2.png, id=488, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P2_VarXS_E_psi_L2.png Graphic file (type png)
 
 <use chapter3_variable_xs/P2_VarXS_E_psi_L2.png>
-Package pdftex.def Info: chapter3_variable_xs/P2_VarXS_E_psi_L2.png used on input line 562.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P2_VarXS_E_psi_L2.png used on input line 585.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-! Undefined control sequence.
-l.564 \subfigure
-                [Cubic]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P3_VarXS_E_psi_L2.png, id=479, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P3_VarXS_E_psi_L2.png, id=489, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P3_VarXS_E_psi_L2.png Graphic file (type png)
 
 <use chapter3_variable_xs/P3_VarXS_E_psi_L2.png>
-Package pdftex.def Info: chapter3_variable_xs/P3_VarXS_E_psi_L2.png used on input line 565.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P3_VarXS_E_psi_L2.png used on input line 593.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-! Undefined control sequence.
-l.567 \subfigure
-                [4-th Order]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P4_VarXS_E_psi_L2.png, id=480, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P4_VarXS_E_psi_L2.png, id=490, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P4_VarXS_E_psi_L2.png Graphic file (type png)
 
 <use chapter3_variable_xs/P4_VarXS_E_psi_L2.png>
-Package pdftex.def Info: chapter3_variable_xs/P4_VarXS_E_psi_L2.png used on input line 568.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P4_VarXS_E_psi_L2.png used on input line 600.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-
-LaTeX Warning: Float too large for page by 406.13927pt on input line 573.
-
-! Undefined control sequence.
-l.579 \subfigure
-                [Linear]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P1_VarXS_E_psi_in.png, id=481, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/P1_VarXS_E_psi_in.png Graphic file (type png)
-
-<use chapter3_variable_xs/P1_VarXS_E_psi_in.png>
-Package pdftex.def Info: chapter3_variable_xs/P1_VarXS_E_psi_in.png used on input line 580.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.582 \subfigure
-                [Quadratic]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P2_VarXS_E_psi_in.png, id=482, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/P2_VarXS_E_psi_in.png Graphic file (type png)
-
-<use chapter3_variable_xs/P2_VarXS_E_psi_in.png>
-Package pdftex.def Info: chapter3_variable_xs/P2_VarXS_E_psi_in.png used on input line 583.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.585 \subfigure
-                [Cubic]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P3_VarXS_E_psi_in.png, id=483, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/P3_VarXS_E_psi_in.png Graphic file (type png)
-
-<use chapter3_variable_xs/P3_VarXS_E_psi_in.png>
-Package pdftex.def Info: chapter3_variable_xs/P3_VarXS_E_psi_in.png used on input line 586.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.588 \subfigure
-                [4-th Order]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P4_VarXS_E_psi_in.png, id=484, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/P4_VarXS_E_psi_in.png Graphic file (type png)
-
-<use chapter3_variable_xs/P4_VarXS_E_psi_in.png>
-Package pdftex.def Info: chapter3_variable_xs/P4_VarXS_E_psi_in.png used on input line 589.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-
-LaTeX Warning: Float too large for page by 406.13927pt on input line 594.
-
-! Undefined control sequence.
-l.600 \subfigure
-                [Linear]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P1_VarXS_E_psi_A.png, id=485, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P1_VarXS_E_psi_A.png, id=491, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P1_VarXS_E_psi_A.png Graphic file (type png)
 
 <use chapter3_variable_xs/P1_VarXS_E_psi_A.png>
-Package pdftex.def Info: chapter3_variable_xs/P1_VarXS_E_psi_A.png used on input line 601.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P1_VarXS_E_psi_A.png used on input line 645.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-! Undefined control sequence.
-l.603 \subfigure
-                [Quadratic]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P2_VarXS_E_psi_A.png, id=486, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P2_VarXS_E_psi_A.png, id=492, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P2_VarXS_E_psi_A.png Graphic file (type png)
 
 <use chapter3_variable_xs/P2_VarXS_E_psi_A.png>
-Package pdftex.def Info: chapter3_variable_xs/P2_VarXS_E_psi_A.png used on input line 604.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P2_VarXS_E_psi_A.png used on input line 652.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-! Undefined control sequence.
-l.606 \subfigure
-                [Cubic]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P3_VarXS_E_psi_A.png, id=487, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P3_VarXS_E_psi_A.png, id=493, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P3_VarXS_E_psi_A.png Graphic file (type png)
 
 <use chapter3_variable_xs/P3_VarXS_E_psi_A.png>
-Package pdftex.def Info: chapter3_variable_xs/P3_VarXS_E_psi_A.png used on input line 607.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P3_VarXS_E_psi_A.png used on input line 662.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-! Undefined control sequence.
-l.609 \subfigure
-                [4-th Order]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P4_VarXS_E_psi_A.png, id=488, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P4_VarXS_E_psi_A.png, id=494, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P4_VarXS_E_psi_A.png Graphic file (type png)
 
 <use chapter3_variable_xs/P4_VarXS_E_psi_A.png>
-Package pdftex.def Info: chapter3_variable_xs/P4_VarXS_E_psi_A.png used on input line 610.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P4_VarXS_E_psi_A.png used on input line 670.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-
-LaTeX Warning: Float too large for page by 406.13927pt on input line 615.
-
-! Undefined control sequence.
-l.621 \subfigure
-                [Linear]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P1_VarXS_E_psi_out.png, id=489, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P1_VarXS_E_psi_out.png, id=495, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P1_VarXS_E_psi_out.png Graphic file (type png)
 
 <use chapter3_variable_xs/P1_VarXS_E_psi_out.png>
-Package pdftex.def Info: chapter3_variable_xs/P1_VarXS_E_psi_out.png used on input line 622.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P1_VarXS_E_psi_out.png used on input line 680.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-! Undefined control sequence.
-l.624 \subfigure
-                [Quadratic]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P2_VarXS_E_psi_out.png, id=490, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P2_VarXS_E_psi_out.png, id=496, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P2_VarXS_E_psi_out.png Graphic file (type png)
 
 <use chapter3_variable_xs/P2_VarXS_E_psi_out.png>
-Package pdftex.def Info: chapter3_variable_xs/P2_VarXS_E_psi_out.png used on input line 625.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P2_VarXS_E_psi_out.png used on input line 688.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-! Undefined control sequence.
-l.627 \subfigure
-                [Cubic]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P3_VarXS_E_psi_out.png, id=491, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P3_VarXS_E_psi_out.png, id=497, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P3_VarXS_E_psi_out.png Graphic file (type png)
 
 <use chapter3_variable_xs/P3_VarXS_E_psi_out.png>
-Package pdftex.def Info: chapter3_variable_xs/P3_VarXS_E_psi_out.png used on input line 628.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P3_VarXS_E_psi_out.png used on input line 699.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-! Undefined control sequence.
-l.630 \subfigure
-                [4-th Order]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P4_VarXS_E_psi_out.png, id=492, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P4_VarXS_E_psi_out.png, id=498, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P4_VarXS_E_psi_out.png Graphic file (type png)
 
 <use chapter3_variable_xs/P4_VarXS_E_psi_out.png>
-Package pdftex.def Info: chapter3_variable_xs/P4_VarXS_E_psi_out.png used on input line 631.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P4_VarXS_E_psi_out.png used on input line 706.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
+ [61] [62 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P1_VarXS_E_psi_L2.png (PNG 
+copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_VarXS_E_psi_L2.png (PNG cop
+y)>] [63 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P3_VarXS_E_psi_L2.png (PNG c
+opy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P4_VarXS_E_psi_L2.png (PNG copy
+)>] [64 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P1_VarXS_E_psi_A.png (PNG cop
+y)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_VarXS_E_psi_A.png (PNG copy)>]
+ [65 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P3_VarXS_E_psi_A.png (PNG copy)>
+ <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P4_VarXS_E_psi_A.png (PNG copy)>] [6
+6 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P1_VarXS_E_psi_out.png (PNG copy)> 
+<C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_VarXS_E_psi_out.png (PNG copy)>] [
+67 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P3_VarXS_E_psi_out.png (PNG copy)>
+ <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P4_VarXS_E_psi_out.png (PNG copy)>] 
+[68
 
-
-LaTeX Warning: Float too large for page by 406.13927pt on input line 636.
-
-! Undefined control sequence.
-l.644 \subfigure
-                [Linear]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P1_VarXS_E_I_L2.png, id=493, 578.16pt x 433.62pt>
+]
+<chapter3_variable_xs/P1_VarXS_E_I_L2.png, id=524, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P1_VarXS_E_I_L2.png Graphic file (type png)
  <use chapter3_variable_xs/P1_VarXS_E_I_L2.png>
-Package pdftex.def Info: chapter3_variable_xs/P1_VarXS_E_I_L2.png used on input line 645.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P1_VarXS_E_I_L2.png used on input line 736.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-! Undefined control sequence.
-l.647 \subfigure
-                [Quadratic]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P2_VarXS_E_I_L2.png, id=494, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P2_VarXS_E_I_L2.png, id=525, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P2_VarXS_E_I_L2.png Graphic file (type png)
  <use chapter3_variable_xs/P2_VarXS_E_I_L2.png>
-Package pdftex.def Info: chapter3_variable_xs/P2_VarXS_E_I_L2.png used on input line 648.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P2_VarXS_E_I_L2.png used on input line 744.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-! Undefined control sequence.
-l.650 \subfigure
-                [Cubic]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P3_VarXS_E_I_L2.png, id=495, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P3_VarXS_E_I_L2.png, id=526, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P3_VarXS_E_I_L2.png Graphic file (type png)
  <use chapter3_variable_xs/P3_VarXS_E_I_L2.png>
-Package pdftex.def Info: chapter3_variable_xs/P3_VarXS_E_I_L2.png used on input line 651.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P3_VarXS_E_I_L2.png used on input line 752.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-! Undefined control sequence.
-l.653 \subfigure
-                [4-th Order]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P4_VarXS_E_I_L2.png, id=496, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P4_VarXS_E_I_L2.png, id=527, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P4_VarXS_E_I_L2.png Graphic file (type png)
  <use chapter3_variable_xs/P4_VarXS_E_I_L2.png>
-Package pdftex.def Info: chapter3_variable_xs/P4_VarXS_E_I_L2.png used on input line 654.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P4_VarXS_E_I_L2.png used on input line 760.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-
-LaTeX Warning: Float too large for page by 406.13927pt on input line 659.
-
-! Undefined control sequence.
-l.665 \subfigure
-                [Linear]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P1_VarXS_E_I_A.png, id=497, 578.16pt x 433.62pt>
+[69 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P1_VarXS_E_I_L2.png (PNG copy)>]
+[70 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_VarXS_E_I_L2.png (PNG copy)> <
+C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P3_VarXS_E_I_L2.png (PNG copy)>]
+<chapter3_variable_xs/P1_VarXS_E_I_A.png, id=534, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P1_VarXS_E_I_A.png Graphic file (type png)
  <use chapter3_variable_xs/P1_VarXS_E_I_A.png>
-Package pdftex.def Info: chapter3_variable_xs/P1_VarXS_E_I_A.png used on input line 666.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P1_VarXS_E_I_A.png used on input line 780.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-! Undefined control sequence.
-l.668 \subfigure
-                [Quadratic]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P2_VarXS_E_I_A.png, id=498, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P2_VarXS_E_I_A.png, id=535, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P2_VarXS_E_I_A.png Graphic file (type png)
  <use chapter3_variable_xs/P2_VarXS_E_I_A.png>
-Package pdftex.def Info: chapter3_variable_xs/P2_VarXS_E_I_A.png used on input line 669.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P2_VarXS_E_I_A.png used on input line 788.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-! Undefined control sequence.
-l.671 \subfigure
-                [Cubic]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P3_VarXS_E_I_A.png, id=499, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P3_VarXS_E_I_A.png, id=536, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P3_VarXS_E_I_A.png Graphic file (type png)
  <use chapter3_variable_xs/P3_VarXS_E_I_A.png>
-Package pdftex.def Info: chapter3_variable_xs/P3_VarXS_E_I_A.png used on input line 672.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P3_VarXS_E_I_A.png used on input line 796.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-! Undefined control sequence.
-l.674 \subfigure
-                [4-th Order]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P4_VarXS_E_I_A.png, id=500, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P4_VarXS_E_I_A.png, id=537, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P4_VarXS_E_I_A.png Graphic file (type png)
  <use chapter3_variable_xs/P4_VarXS_E_I_A.png>
-Package pdftex.def Info: chapter3_variable_xs/P4_VarXS_E_I_A.png used on input line 675.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/P4_VarXS_E_I_A.png used on input line 802.
+(pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-
-LaTeX Warning: Float too large for page by 406.13927pt on input line 680.
-
-[59] [60] [61 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P1_VarXS_E_psi_L2.png (
-PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_VarXS_E_psi_L2.png (PNG
- copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P3_VarXS_E_psi_L2.png (PNG co
-py)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P4_VarXS_E_psi_L2.png (PNG copy)
->] [62 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P1_VarXS_E_psi_in.png (PNG cop
-y)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_VarXS_E_psi_in.png (PNG copy)>
- <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P3_VarXS_E_psi_in.png (PNG copy)> <C
-:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P4_VarXS_E_psi_in.png (PNG copy)>]
-[63 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P1_VarXS_E_psi_A.png (PNG copy)> 
-<C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_VarXS_E_psi_A.png (PNG copy)> <C:/
-Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P3_VarXS_E_psi_A.png (PNG copy)> <C:/User
-s/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P4_VarXS_E_psi_A.png (PNG copy)>] [64 <C:/Use
-rs/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P1_VarXS_E_psi_out.png (PNG copy)> <C:/Users
-/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_VarXS_E_psi_out.png (PNG copy)> <C:/Users/p
-maginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P3_VarXS_E_psi_out.png (PNG copy)> <C:/Users/pma
-ginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P4_VarXS_E_psi_out.png (PNG copy)>] [65 <C:/Users/
-pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P1_VarXS_E_I_L2.png (PNG copy)> <C:/Users/pmagi
-not/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_VarXS_E_I_L2.png (PNG copy)> <C:/Users/pmaginot/D
-esktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P3_VarXS_E_I_L2.png (PNG copy)> <C:/Users/pmaginot/Deskto
-p/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P4_VarXS_E_I_L2.png (PNG copy)>] [66 <C:/Users/pmaginot/Deskto
-p/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P1_VarXS_E_I_A.png (PNG copy)> <C:/Users/pmaginot/Desktop/Work
-/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_VarXS_E_I_A.png (PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_D
-issertation/Dissertation/chapter3_variable_xs/P3_VarXS_E_I_A.png (PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissert
-ation/Dissertation/chapter3_variable_xs/P4_VarXS_E_I_A.png (PNG copy)>] [67] [68]
-! Undefined control sequence.
-l.734 \subfigure
-                [Angular Flux]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/Psi_Blades.png, id=533, 578.16pt x 433.62pt>
+[71 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P4_VarXS_E_I_L2.png (PNG copy)>]
+[72 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P1_VarXS_E_I_A.png (PNG copy)> <C
+:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_VarXS_E_I_A.png (PNG copy)>]
+[73 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P3_VarXS_E_I_A.png (PNG copy)> <C
+:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P4_VarXS_E_I_A.png (PNG copy)>]
+<chapter3_variable_xs/Psi_Blades.png, id=548, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/Psi_Blades.png Graphic file (type png)
  <use chapter3_variable_xs/Psi_Blades.png>
-Package pdftex.def Info: chapter3_variable_xs/Psi_Blades.png used on input line 735.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.738 \subfigure
-                [Reaction Rate]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/I_Blades.png, id=534, 578.16pt x 433.62pt>
+Package pdftex.def Info: chapter3_variable_xs/Psi_Blades.png used on input line 834.
+(pdftex.def)             Requested size: 341.43306pt x 256.07178pt.
+ [74]
+<chapter3_variable_xs/I_Blades.png, id=552, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/I_Blades.png Graphic file (type png)
  <use chapter3_variable_xs/I_Blades.png>
-Package pdftex.def Info: chapter3_variable_xs/I_Blades.png used on input line 739.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/I_Blades.png used on input line 841.
+(pdftex.def)             Requested size: 341.43306pt x 256.07178pt.
 
-! Undefined control sequence.
-l.767 \subfigure
-                [Angular Flux]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/SLXS_Psi_Profile.png, id=535, 578.16pt x 433.62pt>
+<chapter3_variable_xs/SLXS_Psi_Profile.png, id=553, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/SLXS_Psi_Profile.png Graphic file (type png)
 
 <use chapter3_variable_xs/SLXS_Psi_Profile.png>
-Package pdftex.def Info: chapter3_variable_xs/SLXS_Psi_Profile.png used on input line 768.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.770 \subfigure
-                [Reaction Rate]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/SLXS_I_Profile.png, id=536, 578.16pt x 433.62pt>
+Package pdftex.def Info: chapter3_variable_xs/SLXS_Psi_Profile.png used on input line 867.
+(pdftex.def)             Requested size: 341.43306pt x 256.07178pt.
+ <chapter3_variable_xs/SLXS_I_Profile.png, id=554, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/SLXS_I_Profile.png Graphic file (type png)
- <use chapter3_variable_xs/SLXS_I_Profile.png>
-Package pdftex.def Info: chapter3_variable_xs/SLXS_I_Profile.png used on input line 771.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-[69] [70 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/Psi_Blades.png (PNG copy)> <
-C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/I_Blades.png (PNG copy)>] [71 <C:/User
-s/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/SLXS_Psi_Profile.png (PNG copy)> <C:/Users/pm
-aginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/SLXS_I_Profile.png (PNG copy)>]
-! Undefined control sequence.
-l.792 \subfigure
-                [Angular Flux]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/CXS_Psi_A_Profile.png, id=546, 578.16pt x 433.62pt>
+<use chapter3_variable_xs/SLXS_I_Profile.png>
+Package pdftex.def Info: chapter3_variable_xs/SLXS_I_Profile.png used on input line 875.
+(pdftex.def)             Requested size: 341.43306pt x 256.07178pt.
+ [75 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/Psi_Blades.png (PNG copy)>] [76 
+<C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/I_Blades.png (PNG copy)>] [77 <C:/Use
+rs/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/SLXS_Psi_Profile.png (PNG copy)>] [78 <C:/Us
+ers/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/SLXS_I_Profile.png (PNG copy)>] <chapter3_v
+ariable_xs/CXS_Psi_A_Profile.png, id=568, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/CXS_Psi_A_Profile.png Graphic file (type png)
 
 <use chapter3_variable_xs/CXS_Psi_A_Profile.png>
-Package pdftex.def Info: chapter3_variable_xs/CXS_Psi_A_Profile.png used on input line 793.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/CXS_Psi_A_Profile.png used on input line 894.
+(pdftex.def)             Requested size: 341.43306pt x 256.07178pt.
 
-! Undefined control sequence.
-l.795 \subfigure
-                [Reaction Rate]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/CXS_I_A_Profile.png, id=547, 578.16pt x 433.62pt>
+<chapter3_variable_xs/CXS_I_A_Profile.png, id=569, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/CXS_I_A_Profile.png Graphic file (type png)
  <use chapter3_variable_xs/CXS_I_A_Profile.png>
-Package pdftex.def Info: chapter3_variable_xs/CXS_I_A_Profile.png used on input line 796.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter3_variable_xs/CXS_I_A_Profile.png used on input line 902.
+(pdftex.def)             Requested size: 341.43306pt x 256.07178pt.
 
 
-LaTeX Warning: Citation `bell_glasstone' on page 72 undefined on input line 830.
+LaTeX Warning: Citation `bell_glasstone' on page 79 undefined on input line 934.
 
-[72] [73 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/CXS_Psi_A_Profile.png (PNG c
-opy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/CXS_I_A_Profile.png (PNG copy)>
-]
-! Undefined control sequence.
-l.846 \subfigure
-                [$E_{\psi}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_L2.png, id=555, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_L2.png Graphic file (type png)
-
-<use chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_L2.png>
-Package pdftex.def Info: chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_L2.png used on input line 847.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.849 \subfigure
-                [$E_{\psi_A}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_A.png, id=556, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_A.png Graphic file (type png)
-
-<use chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_A.png>
-Package pdftex.def Info: chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_A.png used on input line 850.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.852 \subfigure
-                [$E_{IR}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/FW_XS_P3_VarXS_E_I_L2.png, id=557, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/FW_XS_P3_VarXS_E_I_L2.png Graphic file (type png)
-
-<use chapter3_variable_xs/FW_XS_P3_VarXS_E_I_L2.png>
-Package pdftex.def Info: chapter3_variable_xs/FW_XS_P3_VarXS_E_I_L2.png used on input line 853.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.855 \subfigure
-                [$E_{IR_A}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/FW_XS_P3_VarXS_E_I_A.png, id=558, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/FW_XS_P3_VarXS_E_I_A.png Graphic file (type png)
-
-<use chapter3_variable_xs/FW_XS_P3_VarXS_E_I_A.png>
-Package pdftex.def Info: chapter3_variable_xs/FW_XS_P3_VarXS_E_I_A.png used on input line 856.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-
-LaTeX Warning: Float too large for page by 405.97256pt on input line 861.
-
-! Undefined control sequence.
-l.867 \subfigure
-                [Angular Flux]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/FW_Psi_Blades.png, id=559, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/FW_Psi_Blades.png Graphic file (type png)
- <use chapter3_variable_xs/FW_Psi_Blades.png>
-Package pdftex.def Info: chapter3_variable_xs/FW_Psi_Blades.png used on input line 868.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.870 \subfigure
-                [Reaction Rate]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/FW_I_Blades.png, id=560, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/FW_I_Blades.png Graphic file (type png)
- <use chapter3_variable_xs/FW_I_Blades.png>
-Package pdftex.def Info: chapter3_variable_xs/FW_I_Blades.png used on input line 871.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-
-LaTeX Warning: Reference `tbl:spacing_labels' on page 74 undefined on input line 886.
-
-
-LaTeX Warning: Reference `sec:mesh_gen' on page 74 undefined on input line 888.
-
-[74] [75 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_L2.png 
-(PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_A.pn
-g (PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/FW_XS_P3_VarXS_E_I_L2.p
-ng (PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/FW_XS_P3_VarXS_E_I_A.p
-ng (PNG copy)>] [76 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/FW_Psi_Blades.png
- (PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/FW_I_Blades.png (PNG cop
-y)>]
-
-LaTeX Warning: Reference `tbl:spacing_labels' on page 77 undefined on input line 892.
-
-[77]
-! Undefined control sequence.
-l.937 \subfigure
-                [$E_{\psi}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P2_LOBATTO_E_PSI.png, id=573, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/P2_LOBATTO_E_PSI.png Graphic file (type png)
-
-<use chapter3_variable_xs/P2_LOBATTO_E_PSI.png>
-Package pdftex.def Info: chapter3_variable_xs/P2_LOBATTO_E_PSI.png used on input line 938.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.940 \subfigure
-                [$E_{\psi_A}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P2_LOBATTO_E_PSI_A.png, id=574, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/P2_LOBATTO_E_PSI_A.png Graphic file (type png)
-
-<use chapter3_variable_xs/P2_LOBATTO_E_PSI_A.png>
-Package pdftex.def Info: chapter3_variable_xs/P2_LOBATTO_E_PSI_A.png used on input line 941.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.943 \subfigure
-                [$E_{IR}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P2_LOBATTO_E_IR.png, id=575, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/P2_LOBATTO_E_IR.png Graphic file (type png)
- <use chapter3_variable_xs/P2_LOBATTO_E_IR.png>
-Package pdftex.def Info: chapter3_variable_xs/P2_LOBATTO_E_IR.png used on input line 944.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.946 \subfigure
-                [$E_{IR_A}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/P2_LOBATTO_E_IR_A.png, id=576, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/P2_LOBATTO_E_IR_A.png Graphic file (type png)
-
-<use chapter3_variable_xs/P2_LOBATTO_E_IR_A.png>
-Package pdftex.def Info: chapter3_variable_xs/P2_LOBATTO_E_IR_A.png used on input line 947.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-
-LaTeX Warning: Float too large for page by 391.47256pt on input line 952.
-
-! Undefined control sequence.
-l.957 \subfigure
-                [$E_{\psi}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI.png, id=577, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI.png Graphic file (type png)
-
-<use chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI.png>
-Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI.png used on input line 958.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.960 \subfigure
-                [$E_{\psi_A}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI_A.png, id=578, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI_A.png Graphic file (type png)
-
-<use chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI_A.png>
-Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI_A.png used on input line 961.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.963 \subfigure
-                [$E_{IR}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR.png, id=579, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR.png Graphic file (type png)
-
-<use chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR.png>
-Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR.png used on input line 964.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.966 \subfigure
-                [$E_{IR_A}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR_A.png, id=580, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR_A.png Graphic file (type png)
-
-<use chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR_A.png>
-Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR_A.png used on input line 967.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-
-LaTeX Warning: Float too large for page by 391.47256pt on input line 972.
-
-! Undefined control sequence.
-l.977 \subfigure
-                [$E_{\psi}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI.png, id=581, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI.png Graphic file (type png)
-
-<use chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI.png>
-Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI.png used on input line 978.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.980 \subfigure
-                [$E_{\psi_A}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI_A.png, id=582, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI_A.png Graphic file (type png)
-
-<use chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI_A.png>
-Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI_A.png used on input line 981.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.983 \subfigure
-                [$E_{IR}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR.png, id=583, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR.png Graphic file (type png)
-
-<use chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR.png>
-Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR.png used on input line 984.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.986 \subfigure
-                [$E_{IR_A}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR_A.png, id=584, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR_A.png Graphic file (type png)
-
-<use chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR_A.png>
-Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR_A.png used on input line 987.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-
-LaTeX Warning: Float too large for page by 391.47256pt on input line 992.
-
-! Undefined control sequence.
-l.997 \subfigure
-                [$E_{\psi}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI.png, id=585, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI.png Graphic file (type png)
-
-<use chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI.png>
-Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI.png used on input line 998.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.1000 \subfigure
-                 [$E_{\psi_A}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI_A.png, id=586, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI_A.png Graphic file (type png)
-
-<use chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI_A.png>
-Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI_A.png used on input line 1001.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.1003 \subfigure
-                 [$E_{IR}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/LOW_RES_P2_CXS_E_IR.png, id=587, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/LOW_RES_P2_CXS_E_IR.png Graphic file (type png)
-
-<use chapter3_variable_xs/LOW_RES_P2_CXS_E_IR.png>
-Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_CXS_E_IR.png used on input line 1004.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-! Undefined control sequence.
-l.1006 \subfigure
-                 [$E_{IR_A}$]{
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<chapter3_variable_xs/LOW_RES_P2_CXS_E_IR_A.png, id=588, 578.16pt x 433.62pt>
-File: chapter3_variable_xs/LOW_RES_P2_CXS_E_IR_A.png Graphic file (type png)
-
-<use chapter3_variable_xs/LOW_RES_P2_CXS_E_IR_A.png>
-Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_CXS_E_IR_A.png used on input line 1007.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
-
-
-LaTeX Warning: Float too large for page by 391.47256pt on input line 1012.
-
-[78] [79 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_LOBATTO_E_PSI.png (PNG co
-py)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_LOBATTO_E_PSI_A.png (PNG copy
-)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_LOBATTO_E_IR.png (PNG copy)> <C
-:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_LOBATTO_E_IR_A.png (PNG copy)>])
-[80] [81 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI.png
- (PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI
-_A.png (PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/LOW_RES_P2_LOBATTO
-_E_IR.png (PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/LOW_RES_P2_LOBA
-TTO_E_IR_A.png (PNG copy)>] [82 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/LOW_R
-ES_P2_GAUSS_E_PSI.png (PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/LOW
-_RES_P2_GAUSS_E_PSI_A.png (PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs
-/LOW_RES_P2_GAUSS_E_IR.png (PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_x
-s/LOW_RES_P2_GAUSS_E_IR_A.png (PNG copy)>] [83 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_va
-riable_xs/LOW_RES_P2_CXS_E_PSI.png (PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_va
-riable_xs/LOW_RES_P2_CXS_E_PSI_A.png (PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_
-variable_xs/LOW_RES_P2_CXS_E_IR.png (PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_v
-ariable_xs/LOW_RES_P2_CXS_E_IR_A.png (PNG copy)>]
+) [79] [80 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/CXS_Psi_A_Profile.png (PNG
+ copy)>] [81 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/CXS_I_A_Profile.png (PNG
+ copy)>] [82]
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter4_acceleration/chapter4_acceleration.tex
 Chapter 4.
-) [84
+) [83
 
 
 
 ] (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter5_depletion/chapter5_depletion.tex
 Chapter 5.
-) [85
+) [84
 
 
 
 ] (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter6_grey_radtran/chapter6_grey_radtran.tex
 Chapter 6.
-) [86
+) [85
 
 
 
 ] (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\front_matter/bibliography.tex
-(C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.bbl [87
+(C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.bbl [86
 
 
 
-] [88] [89])) [90]
+] [87] [88])) [89]
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\appendices/appendices.tex
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\appendices/appendix1.tex
 APPENDIX A.
-<figures/Penguins.jpg, id=630, 770.88pt x 578.16pt>
+<figures/Penguins.jpg, id=604, 770.88pt x 578.16pt>
 File: figures/Penguins.jpg Graphic file (type jpg)
  <use figures/Penguins.jpg>
 Package pdftex.def Info: figures/Penguins.jpg used on input line 25.
 (pdftex.def)             Requested size: 385.43906pt x 289.07928pt.
 )
-(C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\appendices/appendix2.tex [91
+(C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\appendices/appendix2.tex [90
 
 
 
-] [92 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/figures/Penguins.jpg>]
+ <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/figures/Penguins.jpg>]
 APPENDIX B.
 File: figures/Penguins.jpg Graphic file (type jpg)
 <use figures/Penguins.jpg>
 Package pdftex.def Info: figures/Penguins.jpg used on input line 23.
 (pdftex.def)             Requested size: 385.43906pt x 289.07928pt.
- [93
+ [91
 
-])) [94]
+])) [92]
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.aux
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\front_matter/titlepage.aux)
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\front_matter/abstract.aux)
@@ -1649,15 +888,12 @@ Package pdftex.def Info: figures/Penguins.jpg used on input line 23.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 4506 strings out of 493921
- 81783 string characters out of 3147274
- 146714 words of memory out of 3000000
- 7529 multiletter control sequences out of 15000+200000
+ 4386 strings out of 493921
+ 76278 string characters out of 3147274
+ 146816 words of memory out of 3000000
+ 7435 multiletter control sequences out of 15000+200000
  10867 words of font info for 40 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  34i,17n,33p,993b,285s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1670,9 +906,9 @@ pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/cm/cmti8.pfb>
-Output written on pgm_dissertation.pdf (106 pages, 2914489 bytes).
+Output written on pgm_dissertation.pdf (105 pages, 2373741 bytes).
 PDF statistics:
- 691 PDF objects out of 1000 (max. 8388607)
+ 662 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 406 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 276 words of extra memory for PDF output out of 10000 (max. 10000000)
 
