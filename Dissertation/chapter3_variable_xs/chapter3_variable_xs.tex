@@ -70,9 +70,9 @@ By fully accurate we mean schemes that achieve the same order of convergence for
 We begin by considering the 1-D slab geometry $S_N$ transport equation:
 \benum
 \mu_d\frac{\p \psi_d(x)}{\p x} + \Sigma_t(x) \psi_d(x) = Q_d(x) \pep
-\label{eq:slab_ex}
+\label{eq:chap3_slab_ex}
 \eenum
-In \eqt{eq:slab_ex}, $\psi_d(x)$ is the angular flux $\left[1 / [cm^2-sec-ster] \right]$ in $\mu_d$, the directional cosine relative to the $x$-axis, $\Sigma_t(x)$ is the total interaction cross section $[cm^{-1}]$, and $Q_d(x)$ is the total angular source in the direction of $\mu_d$ $\left[1 / [cm^3-sec-ster] \right]$. $Q_d$ includes both scattering and fixed sources.  
+In \eqt{eq:chap3_slab_ex}, $\psi_d(x)$ is the angular flux $\left[1 / [cm^2-sec-ster] \right]$ in $\mu_d$, the directional cosine relative to the $x$-axis, $\Sigma_t(x)$ is the total interaction cross section $[cm^{-1}]$, and $Q_d(x)$ is the total angular source in the direction of $\mu_d$ $\left[1 / [cm^3-sec-ster] \right]$. $Q_d$ includes both scattering and fixed sources.  
 The scalar flux, $\phi(x)$ is defined as:
 \benum
 \phi(x) = 2\pi\int_{-1}^1{\psi(x,\mu) ~d\mu}  \approx  2\pi \sum_{d}{w_d \psi_d(x) } \pep
@@ -81,7 +81,7 @@ We derive the DFEM equations for a single cell, $x\in[x_{L},x_{R}]$, with extens
 A known angular flux, $\psi_{in,d}$, is defined on the incoming face of each cell for a given direction $\mu_d$.  
 $\psi_{in,d}$ comes either from a known boundary condition or from the cell outflow of the upwind cell. We first transform from the physical geometry to a reference element, $s\in[-1,1]$, such that:
 \begin{subequations}
-\label{eq:ref_map}
+\label{eq:chap3_ref_map}
 \beanum
 x &=& \frac{x_L + x_R}{2} + \frac{\Delta x}{2}s \\
 dx &=& \frac{\Delta x}{2}ds \pec
@@ -90,7 +90,7 @@ dx &=& \frac{\Delta x}{2}ds \pec
 with $\Delta x = x_{R} - x_{L}$.  The true angular flux solution, $\psi_d(x)$, is approximated by a Lagrange interpolatory polynomial, $\widetilde{\psi}_d(x)$, of degree $P$:
 \benum
 \psi_d(s) \approx \widetilde{\psi}_d(s) = \sum_{j=1}^{N_P}{\psi_{j,d} \B{j}(s)} \pep
-\label{eq:psi_rep}
+\label{eq:chap3_psi_rep}
 \eenum
 The $\B{j}$'s are the Lagrange interpolatory functions with interpolatory points $s_{j}$,
 \benum
@@ -100,17 +100,17 @@ and $N_P = P + 1$.  We stress that the interpolatory points, $s_j$, are not nece
 \benum
 Q_d(s) \approx \widetilde{Q}_d(s) = \sum_{j=1}^{N_P}{ Q_d(s_{j}) \B{j}(s)} \pep
 \eenum
-%Inserting $\widetilde{\psi}$ and $\widetilde{Q}$ into \eqt{eq:slab_ex}:
+%Inserting $\widetilde{\psi}$ and $\widetilde{Q}$ into \eqt{eq:chap3_slab_ex}:
 %\benum
 %\mu\frac{\p}{\p x}\widetilde{\psi}(s) + \Sigma_t \widetilde{\psi}(s) = \widetilde{Q}(s,\mu)
-%\label{eq:slab_almost}
+%\label{eq:chap3_slab_almost}
 %\eenum
-To determine the $N_P$ unknowns of \eqt{eq:psi_rep}, we follow the standard Galerkin procedure, successively multiplying \eqt{eq:slab_ex} by weight function $\B{i}$ and integrating the result by parts, hence generating $N_P$ moment equations. 
+To determine the $N_P$ unknowns of \eqt{eq:chap3_psi_rep}, we follow the standard Galerkin procedure, successively multiplying \eqt{eq:chap3_slab_ex} by weight function $\B{i}$ and integrating the result by parts, hence generating $N_P$ moment equations. 
 Inserting our solution representation $\widetilde{\psi}_d$, the $i$-th, exact moment equation is:
 \begin{multline}
 \mu_d \left[\B{i}(1)\widetilde{\psi}_d(1) - \B{i}(-1) \widetilde{\psi}_d(-1) - \int_{-1}^1{\widetilde{\psi}_d(s)\frac{\p \B{i}}{\p s}~ds}  \right] + \frac{\Delta x }{2}\int_{-1}^1{ \Sigma_t(s) \B{i}(s) \widetilde{\psi}_d(s)~ds} \\ 
 = \frac{\Delta x}{2}\int_{-1}^1{\B{i}(s) \widetilde{Q}_d(s)~ds} \pep
-\label{eq:grad_term} 
+\label{eq:chap3_grad_term} 
 \end{multline}
 We use the upwind approximation to define the angular flux at the cell edges. For $\mu_d>0$ the angular flux at the cell interfaces is
 \begin{subequations}
@@ -118,7 +118,7 @@ We use the upwind approximation to define the angular flux at the cell edges. Fo
 \widetilde{\psi}_d(-1) &=& \psi_{in,d} \\
 \widetilde{\psi}_d(1) &=& \sum_{j=1}^{N_P}{\psi_{j,d}\B{j}(1)} \pep
 \eeanum
-\label{eq:mu_in_p}
+\label{eq:chap3_mu_in_p}
 \end{subequations}
 Similarly for $\mu_d < 0$:
 \begin{subequations}
@@ -126,32 +126,32 @@ Similarly for $\mu_d < 0$:
 \widetilde{\psi}_d(-1) &=& \sum_{j=1}^{N_P}{\psi_{j,d}\B{j}(-1)} \\
 \widetilde{\psi}_d(1) &=& \psi_{in,d} \pep
 \eeanum
-\label{eq:mu_in_n}
+\label{eq:chap3_mu_in_n}
 \end{subequations}
-In Eqs. (\ref{eq:mu_in_p})-(\ref{eq:mu_in_n}), $\psi_{in,d}$ is a known angular flux outflow from either the upwind cell or boundary conditions.  
-Using definition of \eqts{eq:mu_in_p}, \eqt{eq:grad_term} becomes, for $\mu_d>0$,
+In Eqs. (\ref{eq:chap3_mu_in_p})-(\ref{eq:chap3_mu_in_n}), $\psi_{in,d}$ is a known angular flux outflow from either the upwind cell or boundary conditions.  
+Using definition of \eqts{eq:chap3_mu_in_p}, \eqt{eq:chap3_grad_term} becomes, for $\mu_d>0$,
 \begin{multline}
 \mu_d \left[\B{i}(1)\left[\sum_{j=1}^{N_P}{\psi_{j,d}\B{j}(1)}\right]  - \B{i}(-1) \psi_{in,d} - \int_{-1}^1{\left[\sum_{j=1}^{N_P}{\psi_{j,d}\B{j}(s)} \right]\frac{\p \B{i}}{\p s}~ds}  \right] + \\ \frac{\Delta x }{2}\int_{-1}^1{\Sigma_t(s)\B{i}(s) \left[\sum_{j=1}^{N_P}{\psi_{j,d}\B{j}(s)} \right]~ds} 
 = \frac{\Delta x}{2}\int_{-1}^1{\B{i}(s) \left[\sum_{j=1}^{N_P}{Q_d(s_j)\B{j}(s)} \right]~ds} \pep
-\label{eq:weak_form_pos}
+\label{eq:chap3_weak_form_pos}
 \end{multline}
 %
-For $\mu_d<0$, using the definition of \eqts{eq:mu_in_n} yields:
+For $\mu_d<0$, using the definition of \eqts{eq:chap3_mu_in_n} yields:
 %
 \begin{multline}
 \mu_d \left[\B{i}(1)\psi_{in,d} - \B{i}(-1) \left[\sum_{j=1}^{N_P}{\psi_{j,d}\B{j}(-1)} \right] - \int_{-1}^1{\left[\sum_{j=1}^{N_P}{\psi_{j,d}\B{j}(s)} \right]\frac{\p \B{i}}{\p s}~ds}  \right] \\ + \frac{\Delta x }{2}\int_{-1}^1{\Sigma_t(s)\B{i}(s) \left[\sum_{j=1}^{N_P}{\psi_{j,d}\B{j}(s)} \right]~ds} 
 = \frac{\Delta x}{2}\int_{-1}^1{\B{i}(s) \left[\sum_{j=1}^{N_P}{Q_d(s_j)\B{j}(s)} \right]~ds} \pep
-\label{eq:weak_form_neg} 
+\label{eq:chap3_weak_form_neg} 
 \end{multline}
 %
 %
 %
-Considering all $N_P$ moment equations simultaneously, we write both \eqt{eq:weak_form_pos} and \eqt{eq:weak_form_neg} as:
+Considering all $N_P$ moment equations simultaneously, we write both \eqt{eq:chap3_weak_form_pos} and \eqt{eq:chap3_weak_form_neg} as:
 \beanum
 \mu_d \mathbf{L} \vec{\psi}_d - \mu_d \psi_{in,d} \vec{f} + \frac{\Delta x}{2}\mathbf{R}_{\Sigma_t} \vec{\psi}_d = \frac{\Delta x}{2}\mathbf{M} \vec{Q}_d \pep
-\label{eq:mat_form}
+\label{eq:chap3_mat_form}
 \eeanum
-In \eqt{eq:mat_form} we use the following definitions for the vector of unknowns, $\psi_{j,d}$, and total source components, $Q_{j,d}$:
+In \eqt{eq:chap3_mat_form} we use the following definitions for the vector of unknowns, $\psi_{j,d}$, and total source components, $Q_{j,d}$:
 \beanum
 \vec{\psi}_d &=& \left[\psi_{1,d}~\dots~\psi_{N_P,d}  \right]^T \\
 \vec{Q}_d&=& \left[Q_d(s_{1})~\dots~Q_d(s_{N_P})  \right]^T \pep
@@ -159,11 +159,11 @@ In \eqt{eq:mat_form} we use the following definitions for the vector of unknowns
 We define the $N_P \times N_P$ reaction matrix, $\mathbf{R}_{\Sigma_t}$, as:
 \benum
 \mathbf{R}_{\Sigma_t,ij} = \int_{-1}^1{\Sigma_t(s)\B{i}(s)\B{j}(s)~ds} \pec
-\label{eq:react_mat}
+\label{eq:chap3_react_mat}
 \eenum
 and the $N_P \times N_P$ mass matrix, $\mathbf{M}$, as:
 \benum
-\label{eq:mass_mat}
+\label{eq:chap3_mass_mat}
 \mathbf{M}_{ij} = \int_{-1}^1{\B{i}(s)\B{j}(s)~ds} \pep
 \eenum
 $\vec{f}$ is a length $N_P$ column vector.  For $\mu_d>0$:
@@ -177,12 +177,12 @@ For $\mu_d<0$:
 $\mathbf{L}$ is a $N_P \times N_P$ matrix that we refer to as the gradient operator.  When $\mu_d>0$:
 $\mathbf{L}$ is:
 \benum
-\label{eq:stream_mat_pos}
+\label{eq:chap3_stream_mat_pos}
 \mathbf{L}_{ij} = \B{i}(1)\B{j}(1) - \int_{-1}^1{\frac{\p \B{i}}{\p s}\B{j}~ds} \pep
 \eenum
 For $\mu_d < 0 $, $\mathbf{L}$ is:
 \benum
-\label{eq:stream_mat_neg}
+\label{eq:chap3_stream_mat_neg}
 \mathbf{L}_{ij} = -\B{i}(-1)\B{j}(-1) - \int_{-1}^1{\frac{\p \B{i}}{\p s}\B{j}~ds} \pep
 \eenum
 
@@ -219,8 +219,8 @@ The scheme that assumes a cell-wise constant cross section represents the state 
 
 The exact cross section, exact spatial integration scheme (EXS DFEM) analytically integrates $\mathbf{R}_{\Sigma_t}$.
 Note that since $\Sigma_t(x)$ can be an arbitrary function, analytic integration of $\mathbf{R}_{\Sigma_t}$ is in general impossible.  Likewise, quadrature integration is unlikely to be exact.
-In our testing of the EXS DFEM scheme, we use a 20-point Gauss-Legendre quadrature to approximately integrate \eqt{eq:react_mat}.  
-Alternatively, adaptive quadrature, with a controllable tolerance, may be used such that the quadrature error in evaluating \eqt{eq:react_mat} could be reduced below some small tolerance.    
+In our testing of the EXS DFEM scheme, we use a 20-point Gauss-Legendre quadrature to approximately integrate \eqt{eq:chap3_react_mat}.  
+Alternatively, adaptive quadrature, with a controllable tolerance, may be used such that the quadrature error in evaluating \eqt{eq:chap3_react_mat} could be reduced below some small tolerance.    
 
 \subsubsection{Constant Cross Section}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -228,7 +228,7 @@ Alternatively, adaptive quadrature, with a controllable tolerance, may be used s
 Historically, neutronics and some radiative transfer calculations have approximated spatially varying cross sections by assuming cell-wise constant cross sections \cite{adams, lewis_book, warsa_krylov, morel_radtran}.  
 That is, some evaluation of the true $\Sigma_t(s)$ within a given cell is used to determine a constant value, $\hat{\Sigma}_t$, within each cell.  Under this simplification, $\mathbf{R}_{\Sigma_t}$ is approximated as:
 \begin{subequations}
-\label{eq:cxs_R}
+\label{eq:chap3_cxs_R}
 \beanum
 %\mathbf{R}_{\Sigma_t,ij} &=& \frac{\hat{\Sigma}_t}{2} \int_{-1}^1{ \B{i}(s) \B{j}(s)~ds} ~~\text{and}\\
 \mathbf{R}_{\Sigma_t} &=& \hat{\Sigma}_t \mathbf{M} \pep 
@@ -237,7 +237,7 @@ That is, some evaluation of the true $\Sigma_t(s)$ within a given cell is used t
 In our test problems, the constant cross section scheme (CXS DFEM) uses the average of $\Sigma_t(s)$ to generate $\hat{\Sigma}_t$:
 \benum
 \hat{\Sigma}_t = \frac{1}{2}\int_{-1}^1{\Sigma_t(s)~ds} \pep
-\label{eq:cxs_sigma}
+\label{eq:chap3_cxs_sigma}
 \eenum
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -245,11 +245,11 @@ In our test problems, the constant cross section scheme (CXS DFEM) uses the aver
 \label{sec:sl_theory}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Schemes that are self-lumping evaluate the integrals of Eqs. (\ref{eq:react_mat})-(\ref{eq:stream_mat_neg}) using numerical quadrature.  By definition, self-lumping schemes create diagonal reaction and mass matrices:
+Schemes that are self-lumping evaluate the integrals of Eqs. (\ref{eq:chap3_react_mat})-(\ref{eq:chap3_stream_mat_neg}) using numerical quadrature.  By definition, self-lumping schemes create diagonal reaction and mass matrices:
 \begin{subequations}
-\label{eq:sl_react_mass}
+\label{eq:chap3_sl_react_mass}
 \benum
-\label{eq:sl_react}
+\label{eq:chap3_sl_react}
 \mathbf{R}_{\Sigma_t,ij} = \left \{ \begin{array}{ll}
 w_i \Sigma_t(s_i) ~ & ~ i=j \\
  0 & ~\text{otherwise}
@@ -258,7 +258,7 @@ w_i \Sigma_t(s_i) ~ & ~ i=j \\
 \eenum
 %
 \benum
-\label{eq:sl_mass}
+\label{eq:chap3_sl_mass}
 \mathbf{M}_{ij} = \left \{ \begin{array}{ll}
 w_i ~~~~~~~~ & ~ i=j \\
  0 & ~\text{otherwise}
@@ -292,7 +292,7 @@ We consider $\Sigma_t(x)$ to be of the form,
 %%First, we consider $\Sigma_t(x)$ to be a polynomial in $x$:
 %%\benum
 %%\Sigma_t(x) = d_1 x^{d_2} + d_3 \pec
-%%\label{eq:poly_xs_form}
+%%\label{eq:chap3_poly_xs_form}
 %%\eenum
 %%with constants $d_1~[cm^{-(1+d_2)}],~d_2,~\text{and}~d_3~[cm^{-1}]$.  
 %%The analytic solution for a pure absorber with a polynomial total cross section is:
@@ -303,18 +303,18 @@ We consider $\Sigma_t(x)$ to be of the form,
 %%0 & \text{otherwise}
 %%\end{array}
 %%\right. \pep
-%%\label{eq:polyxs_psi}
+%%\label{eq:chap3_polyxs_psi}
 %%\eenum
 %%By definition, the angular flux outflow, $\psi(x_R,\mu_d)$, is:
 %%\benum 
 %%\psi_{out} = \psi_{in}\exp\left[- \frac{x_R}{\mu_d} \left( \frac{ d_1 x_R ^{d_2} }{d_2+1 }- d_3\right) \right] \pep
-%%\label{eq:polyxs_psi_out}
+%%\label{eq:chap3_polyxs_psi_out}
 %%\eenum
 %%
 %%We also consider cases where $\Sigma_t(x)$ varies as:
 \benum
 \Sigma_t(x) = c_1 e^{c_2 x} \pec
-\label{eq:xs_form}
+\label{eq:chap3_xs_form}
 \eenum
 with $c_1$ and $c_2$ are constants $[cm^{-1}]$, with $c_1 > 0$ and $c_2\neq 0$.  
 The analytic angular flux solution for a source-free pure absorber with an exponentially varying cross section is:
@@ -325,21 +325,21 @@ The analytic angular flux solution for a source-free pure absorber with an expon
 0 & \text{otherwise}
 \end{array}
 \right. \pep
-\label{eq:exp_psi}
+\label{eq:chap3_exp_psi}
 \eenum
 By definition, the outflow angular flux from cell $i$, $\psi_{out,i}$ is $\psi(x_{i+1/2},\mu_d)$ and the average angular flux within cell $i$, $\psi_{A,i}$ as
 \benum
-\label{eq:psi_a_def}
+\label{eq:chap3_psi_a_def}
 \psi_{A,i} = \frac{1}{\Delta x_i}\int_{x_{i-1/2}}^{x_{i+1/2}}{\psi(x,\mu_d)~dx} \pec
 \eenum
-with $\Sigma_t(x)$ defined as in \eqt{eq:xs_form}. 
+with $\Sigma_t(x)$ defined as in \eqt{eq:chap3_xs_form}. 
 The analytical average flux value is:
 \benum
 \psi_{A,i} = \frac{\psi_{in}(\mu_d)}{\Delta x_i}
 \exp\left[\frac{c_1}{\mu_d c_2}  \right] 
 \left[E_1\left(\frac{c_1 e^{c_2 x_{i+1/2}}}{\mu_d c_2} \right) - E_1\left(\frac{c_1 e^{c_2 x_{i-1/2}} }{\mu_d c_2} \right)\right] 
 \pec
-\label{eq:varxs_A}
+\label{eq:chap3_varxs_A}
 \eenum
  with $E_1$ the exponential integral \cite{abramowitz}.
 %\benum
@@ -357,13 +357,13 @@ Regardless of the actual functional form of the cross section within the cell, t
 %\benum
 %\mathbf{R}_{\Sigma_t} = \left[ \begin{array}{cc} \Sigma_{t,1} & 0 \\ 0 & \Sigma_{t,2} \end{array}\right]\pep
 %\eenum
-%Solving \eqt{eq:mat_form}, 
+%Solving \eqt{eq:chap3_mat_form}, 
 numerical angular flux outflow, $\widetilde{\psi}_d(1)$, is:
 \benum
-\label{eq:NC_P1_out}
+\label{eq:chap3_NC_P1_out}
 \widetilde{\psi}_d(1) =  \frac{2\mu_d^2 \psi_{in}(\mu_d)}{2\mu_d^2 + \Delta x^2 \Sigma_{t,1} \Sigma_{t,2} + \Delta x \mu_d \Sigma_{t,1} + \Delta x \mu_d \Sigma_{t,2}}\pep
 \eenum
-Equation \ref{eq:NC_P1_out} is strictly positive when $\Sigma_t(x) \geq 0$, suggesting that the strictly positive outflow results observed in \cite{part_1_paper} might hold for an arbitrarily varying spatial cross section.
+Equation \ref{eq:chap3_NC_P1_out} is strictly positive when $\Sigma_t(x) \geq 0$, suggesting that the strictly positive outflow results observed in \cite{part_1_paper} might hold for an arbitrarily varying spatial cross section.
 However, the results of \cite{part_1_paper} do not hold for higher-order DFEM approximations for spatially dependent cross sections.  
 
 %Consider the angular flux outflow of the cubic SLXS Newton-Cotes scheme, which for the case of a cell-wise constant cross section yields strictly positive angular flux outflow:
@@ -376,9 +376,9 @@ However, the results of \cite{part_1_paper} do not hold for higher-order DFEM ap
 %0 & 0 & 0 & \frac{\Sigma_{t,4}}{4}  
 %\end{array} \right] \pec
 %\eenum
-%which when used to solve \eqt{eq:mat_form} yields the following expression for angular flux outflow:
+%which when used to solve \eqt{eq:chap3_mat_form} yields the following expression for angular flux outflow:
 %\benum
-%\label{eq:P3_NC_out}
+%\label{eq:chap3_P3_NC_out}
 %\widetilde{\psi}(1) = \frac{32\mu_d^2\psi_{in,d}\left( 27\mu_d^2 + \Delta x^2 \Sigma_{t,2} \Sigma_{t,3} - 6 \Delta x \mu_d \Sigma_{t,2} - 3\Delta x \mu_d \Sigma_{t,3} \right)}
 %{\alpha}
 %\pec
@@ -390,15 +390,33 @@ However, the results of \cite{part_1_paper} do not hold for higher-order DFEM ap
 %- 24\Delta x^2\mu_d^2\Sigma_{t,2}\Sigma_{t,4} + 69 \Delta x^2 \mu_d^2 \Sigma_{t,3} \Sigma_{t,4} + 10 \Delta x^3 \mu_d \Sigma_{t,1} \Sigma_{t,2} \Sigma_{t,3} - 6 \Delta x^3 \mu_d \Sigma_{t,1} \Sigma_{t,2} \Sigma_{t,4} \\
 %+ 6 \Delta x^3 \mu_d \Sigma_{t,1} \Sigma_{t,3} \Sigma_{t,4} + 22 \Delta x^3 \mu_d \Sigma_{t,2} \Sigma_{t,3} \Sigma_{t,4} + 4 \Delta x^4 \Sigma_{t,1} \Sigma_{t,2} \Sigma_{t,3} \Sigma_{t,4})
 %\end{multline}
-%Obviously, there are combinations of $\Delta x$, $\Sigma_{t,2}$, and $\Sigma_{t,3}$ which can cause the numerator of \eqt{eq:P3_NC_out} to become negative, resulting in negative angular flux outflows.
+%Obviously, there are combinations of $\Delta x$, $\Sigma_{t,2}$, and $\Sigma_{t,3}$ which can cause the numerator of \eqt{eq:chap3_P3_NC_out} to become negative, resulting in negative angular flux outflows.
 
 To demonstrate that negative cell outflows are possible, we carry out the following test.
 In \fig{fig:exp_outflow}, we plot the angular flux outflow of each method as a function of trial space degree, and the parameter $c_2$.
+\begin{figure}[!htp]
+\begin{center}
+\subfigure[Linear]{
+\includegraphics[width=11cm]{chapter3_variable_xs/Exp_outflow_p1.png}
+}
+\subfigure[Quadratic]{
+\includegraphics[width=11cm]{chapter3_variable_xs/Exp_outflow_p2.png}
+}
+\subfigure[Cubic]{
+\includegraphics[width=11cm]{chapter3_variable_xs/Exp_outflow_p3.png}
+}
+\subfigure[4-th Order]{
+\includegraphics[width=11cm]{chapter3_variable_xs/Exp_outflow_p4.png}
+}
+\end{center}
+\caption{Numerical outflow from single cell pure absorber with $\Sigma_t(x) = c_1e^{c_2 x}$, as a function of $c_2$ with constant optical thickness of twenty MFP, for different degree polynomial trial spaces.}
+\label{fig:exp_outflow}
+\end{figure}
 We hold the total cell optical thickness to 20 mean-free-path (MFP), vary $c_2 \in [1,10]$, fix $x_R=1$, and $\mu_d =1$.
 With an exponential cross section, the cell optical thickness in $MFP$ of a cell  with $x\in[0,x_R]$ is:
 \benum
 MFP = \int_{0}^{x_R}{\Sigma_t(x)~dx} = \frac{c_1}{c_2}\left( e^{c_2 x_R} - 1 \right) \pep
-\label{eq:mfp_tot} 
+\label{eq:chap3_mfp_tot} 
 \eenum
 To maintain a constant optical thickness in \fig{fig:exp_outflow}, $c_1$ is required to be:
 \benum
@@ -406,7 +424,7 @@ c_1 = \frac{c_2~MFP}{e^{c_2 x_R} - 1}\pep
 \eenum
 %In the results that follow, $x_R = 1$, $d_3 = \frac{MFP}{10 x_R}$, and $d_2$ is varied from $[0,10]$.  Results for a cell 1 MFP thick are given in \fig{fig:poly_xs_mfp_1}, for a cell 5 MFP thick in \fig{fig:poly_xs_mfp_5}, and for a cell 10 MFP thick in \fig{fig:poly_xs_mfp_10}.
 %$d_1$ is adjusted to maintain the same number of MFP in each given plot.
-%%  Arranging \eqt{eq:mfp_tot} $d_1$ will be defined as:
+%%  Arranging \eqt{eq:chap3_mfp_tot} $d_1$ will be defined as:
 %%\benum
 %%d_1 = \left(MFP - d_3 x_R \right)\frac{d_2+1}{x_R^{d_2+1}} \pep
 %%\eenum
@@ -422,7 +440,7 @@ Figure \ref{fig:exp_outflow} confirms that  SLXS Lobatto (and the equivalent SLX
 From \fig{fig:exp_outflow} we also observe that $\widetilde{\psi}_{out}$ varies for every method as a function of the shape of $\Sigma_t(x)$, with the obvious exception of CXS DFEM.
 Considering that the analytic angular flux outflow is only a function of total cell MFP:
 \benum
-\label{eq:outflow_truth}
+\label{eq:chap3_outflow_truth}
 \psi_{out,i} = \psi_{in}(\mu_d) \exp\left[-\int_0^{x_{i+1/2}}{\Sigma_t(x)~dx}/ \mu_d \right] = \psi_{in}(\mu_d) \exp\left[-MFP~/\mu_d\right] \pec
 \eenum
 it is unphysical and undesirable that $\widetilde{\psi}_{out}$, for the SLXS Gauss, SLXS Lobatto, SLXS Newton-Cotes, and EXS DFEM schemes, depends on the spatial shape of $\Sigma_t(x)$.
@@ -441,9 +459,9 @@ E_{\psi} &=& \sqrt{\sum_{i=1}^{N_{cells}}{\int_{x_{i-1/2}}^{x_{i+1/2}}{ \left(\w
 E_{\psi_A} &=& \sqrt{\sum_{i=1}^{N_{cells}}{\Delta x_i\left(\widetilde{\psi}_{A,i} - \psi_{A,i}  \right)^2   }}  \\
 E_{\psi_{out}} &=& \sqrt{\sum_{i=1}^{N_{cells}}{\Delta x_i\left(\widetilde{\psi}_{out,i} - \psi(x_{i+1/2},\mu_d)  \right)^2   }}  \pep
 \eeanum
-\label{eq:err_defs}
+\label{eq:chap3_err_defs}
 \end{subequations}
-In \eqts{eq:err_defs}, $\Delta x_i$ is the width of cell $i$, cell $i$ spans $[x_{i-1/2},x_{i+1/2}]$, $\widetilde{\psi}_d(x)$ is the DFEM numerical approximation, $\psi(x,\mu_d)$ is the analytic solution (see \eqt{eq:exp_psi}).  The problem is spatially discretized using $N_{cells}$ spatial cells of equal width. 
+In \eqts{eq:chap3_err_defs}, $\Delta x_i$ is the width of cell $i$, cell $i$ spans $[x_{i-1/2},x_{i+1/2}]$, $\widetilde{\psi}_d(x)$ is the DFEM numerical approximation, $\psi(x,\mu_d)$ is the analytic solution (see \eqt{eq:chap3_exp_psi}).  The problem is spatially discretized using $N_{cells}$ spatial cells of equal width. 
 We approximate the integrals defining the $L^2$ norm of the angular flux error, $E_{\psi}$, using a high-order Gauss quadrature set, $(w_{f,q},s_{f,q})$, with $N_{qf}$ points, such that:
 \benum
 \int_{x_{i-1/2}}^{x_{i+1/2}}{ \left(\widetilde{\psi}(x) - \psi(x,\mu_d)  \right)^2 ~dx}\approx 
@@ -457,7 +475,7 @@ We recall the definitions for the numerical approximations of the cell average a
 \widetilde{\psi}_{A,i} &=& \frac{1}{2}\sum_{j=1}^{N_P}{w_j\psi_{i,j}  } \\
 \widetilde{\psi}_{out,i} &=& \sum_{j=1}^{N_P}{\psi_{i,j} \B{j}(1) } \pep
 \eeanum
-\label{eq:num_defs}
+\label{eq:chap3_num_defs}
 \end{subequations}
 
 We also consider the convergence of the numerical interaction rate, $\widetilde{IR}(x)$ to the true interaction rate $IR(x)$.  First, we define the analytic reaction rate for our beam problem:
@@ -471,7 +489,7 @@ IR_{A,i} = \frac{1}{\Delta x_i}\int_{x_{i-1/2}}^{x_{i+1/2}}{\Sigma_t(x)\psi(x,\m
 %The numerical approximation to $IR(x)$ depends on the numerical scheme considered.  CXS DFEM is the simplest to consider.  Within cell $i$, CXS DFEM approximates $IR(x)$ as:
 %\benum
 %\widetilde{IR}(x) = \hat{\Sigma}_{t,i} \widetilde{\psi}(x,\mu_d) \pec
-%\label{eq:cxs_I}
+%\label{eq:chap3_cxs_I}
 %\eenum
 %with a cell average interaction rate approximated as:
 %\benum
@@ -483,11 +501,11 @@ Quadrature integration only requires point evaluations of $\Sigma_t(x)$, not kno
 However, for the purpose of plotting the SLXS schemes, we define:
 \benum
 \widetilde{IR}(s) = \sum_{j=1}^{N_P}{\B{j}(s) \psi_{j,d} \Sigma_t(s_j) } \pep
-\label{eq:sl_lump_inter}
+\label{eq:chap3_sl_lump_inter}
 \eenum
 
-It must be emphasized that \eqt{eq:sl_lump_inter} is only used for plotting purposes.  
-%For other purposes, such as calculating particle conservation, $L^2$ error estimates, etc., using the $\widetilde{IR}(s)$ given in \eqt{eq:sl_lump_inter} is either invalid or necessitates additional assumptions.
+It must be emphasized that \eqt{eq:chap3_sl_lump_inter} is only used for plotting purposes.  
+%For other purposes, such as calculating particle conservation, $L^2$ error estimates, etc., using the $\widetilde{IR}(s)$ given in \eqt{eq:chap3_sl_lump_inter} is either invalid or necessitates additional assumptions.
 %such as assuming that $\Sigma_t(x)$ can be approximated as $\widetilde{\Sigma}_t(x)$:
 %\benum
 %\widetilde{\Sigma}_t(s) = \sum_{j=1}^{N_P}{\Sigma_t(s_j) \B{j}(s) } \pep
@@ -497,52 +515,176 @@ It must be emphasized that \eqt{eq:sl_lump_inter} is only used for plotting purp
 %Calculating the total absorption rate as:
 %\benum
 %\text{Total Absorptions}= \sum_{i=1}^{N_{cells}}{\frac{\Delta x_i}{2}\int_{-1}^1{\Sigma_t(s)\widetilde{\psi}(s,\mu_d) ~ds}} \pec
-%\label{eq:abs_fake}
+%\label{eq:chap3_abs_fake}
 %\eenum
 %using the true, spatially varying $\Sigma_t(s)$, will yield a different total absorption rate than using the cell average cross section method that was used to form the equations:
 %\benum
 %\text{Total Absorptions}= \sum_{i=1}^{N_{cells}}{\frac{\Delta x_i \hat{\Sigma}_{t,i}}{2}\int_{-1}^1{\widetilde{\psi}(s,\mu_d)~ds}} \pep
-%\label{eq:conserve_cxs}
+%\label{eq:chap3_conserve_cxs}
 %\eenum
-%%Results in a value of $\text{Total Absorption Rates}$ calculated by \eqt{eq:abs_fake} and \eqt{eq:conserve_cxs} are different.
-%For \eqt{eq:abs_fake} and \eqt{eq:conserve_cxs} to be equivalent, $\Sigma_t(s)$ must be a constant, or $\hat{\Sigma}_{t,i}$ must calculated as in \eqt{eq:special}:
+%%Results in a value of $\text{Total Absorption Rates}$ calculated by \eqt{eq:chap3_abs_fake} and \eqt{eq:chap3_conserve_cxs} are different.
+%For \eqt{eq:chap3_abs_fake} and \eqt{eq:chap3_conserve_cxs} to be equivalent, $\Sigma_t(s)$ must be a constant, or $\hat{\Sigma}_{t,i}$ must calculated as in \eqt{eq:chap3_special}:
 %\benum
-%\label{eq:special}
+%\label{eq:chap3_special}
 %\hat{\Sigma}_{t,i} = \frac{\int_{-1}^1{ \Sigma_t(s) \widetilde{\psi}(s,\mu_d)~ds }}{\int_{-1}^1{\widetilde{\psi}(s,\mu_d)~ds}} \pep
 %\eenum
-%However, calculating $\hat{\Sigma}_{t,i}$ as in \eqt{eq:special} requires the transport solution to be known first, or requires a non-linear solution process.
+%However, calculating $\hat{\Sigma}_{t,i}$ as in \eqt{eq:chap3_special} requires the transport solution to be known first, or requires a non-linear solution process.
 We approximate the cell average interaction rate in cell $i$ as:
 \benum
-\label{eq:ia_calc}
+\label{eq:chap3_ia_calc}
 \widetilde{IR}_{A,i} = \frac{1}{2}\sum_{j=1}^{N_P}{w_j \Sigma_t(s_j) \psi_{j,d} }\pep
 \eenum
-In \eqt{eq:ia_calc}, $\Sigma_t(s_j) = \hat{\Sigma}_t$ for the CXS DFEM scheme, and $\Sigma_t(s_j)$ is the point evaluation of the true cross section for all other schemes.
+In \eqt{eq:chap3_ia_calc}, $\Sigma_t(s_j) = \hat{\Sigma}_t$ for the CXS DFEM scheme, and $\Sigma_t(s_j)$ is the point evaluation of the true cross section for all other schemes.
 
 We consider two measures to assess the error of the DFEM schemes' approximation of the true interaction rate, $IR(x)$.  The first, $E_{IR}$ is an approximation of the $L^2$ norm of interaction rate error:
 \benum
 E_{IR} = \sqrt{
 \sum_{i=1}^{N_{cells}}{\frac{\Delta x_i}{2} \sum_{q=1}^{N_P}{w_q \left( IR(s_q) - \Sigma_t(s_q)\widetilde{\psi}(s_q,\mu_d) \right)^2}}
 } \pep
-\label{eq:EIR}
+\label{eq:chap3_EIR}
 \eenum
 We reiterate that, for the self-lumping schemes, $\widetilde{IR}(s)$ is only truly defined at the DFEM interpolation points.
-%Although less accurate than using a fine quadrature, we evaluate \eqt{eq:EIR} with quadrature restricted to the DFEM interpolation points, since the self-lumping schemes only conserve particles if $\widetilde{IR}(s)$ is evaluated at the angular flux DFEM interpolation points.
+%Although less accurate than using a fine quadrature, we evaluate \eqt{eq:chap3_EIR} with quadrature restricted to the DFEM interpolation points, since the self-lumping schemes only conserve particles if $\widetilde{IR}(s)$ is evaluated at the angular flux DFEM interpolation points.
 $E_{IR_A}$ measures the convergence of the average interaction rate:
 \benum
 E_{IR_A} = \sqrt{\sum_{i=1}^{N_{cells}}{\Delta x_i (IR_{A,i} - \widetilde{IR}_{A,i})^2}} \pep
 \eenum
 
-For our convergence study, we consider a source-free purely absorbing slab with a cross section that varies exponentially in space as in \eqt{eq:xs_form} with $c_1 = 0.1$ and $c_2 = 2\ln(10)$.  
+For our convergence study, we consider a source-free purely absorbing slab with a cross section that varies exponentially in space as in \eqt{eq:chap3_xs_form} with $c_1 = 0.1$ and $c_2 = 2\ln(10)$.  
 A beam of radiation is incident on the left face in the direction of $\mu_d=1$, vacuum boundary conditions exist on the right face of the slab, and $x\in[0, 1]$.  
 The convergence of the $E_{\psi}$,  $E_{\psi_A}$, and $E_{\psi_{out}}$ as a function of the choice of numerical scheme and trial space polynomial degree are given in \fig{fig:varxs_psi_L2},  \fig{fig:varxs_psi_A}, and \fig{fig:varxs_psi_out}, respectively.  
+\begin{figure}[!htp]
+\begin{center}
+\subfigure[Linear]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P1_VarXS_E_psi_L2.png}
+}
+\subfigure[Quadratic]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P2_VarXS_E_psi_L2.png}
+}
+\subfigure[Cubic]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P3_VarXS_E_psi_L2.png}
+}
+\subfigure[4-th Order]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P4_VarXS_E_psi_L2.png}
+}
+\end{center}
+\caption{Convergence of $E_{\psi}$ for a multiple cell problem as a function of cell size for a pure absorber with exponentially varying cross section, $c_1 = 0.1~[cm^{-1}]$, $c_2 = 2\ln(10)~[cm^{-1}]$, and $x\in \left[0,1~[cm] \right]$.}
+\label{fig:varxs_psi_L2}
+\end{figure}
+%
+%
+%
+\begin{figure}[!htp]
+\begin{center}
+\subfigure[Linear]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P1_VarXS_E_psi_in.png}
+}
+\subfigure[Quadratic]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P2_VarXS_E_psi_in.png}
+}
+\subfigure[Cubic]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P3_VarXS_E_psi_in.png}
+}
+\subfigure[4-th Order]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P4_VarXS_E_psi_in.png}
+}
+\end{center}
+\caption{Convergence of $E_{\psi_{in}}$ for a multiple cell problem as a function of cell size for a pure absorber with exponentially varying cross section, $c_3=10$, $c_1 = 0.1~[cm^{-1}]$, $c_2 = 2~[cm^{-1}]$, and $x\in \left[0,1~[cm] \right]$.}
+\label{fig:varxs_psi_in}
+\end{figure}
+%
+%
+%
+\begin{figure}[!htp]
+\begin{center}
+\subfigure[Linear]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P1_VarXS_E_psi_A.png}
+}
+\subfigure[Quadratic]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P2_VarXS_E_psi_A.png}
+}
+\subfigure[Cubic]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P3_VarXS_E_psi_A.png}
+}
+\subfigure[4-th Order]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P4_VarXS_E_psi_A.png}
+}
+\end{center}
+\caption{Convergence of $E_{\psi_A}$ for a multiple cell problem as a function of cell size for a pure absorber with exponentially varying cross section, $c_1 = 0.1~[cm^{-1}]$, $c_2 = 2\ln(10)~[cm^{-1}]$, and $x\in \left[0,1~[cm] \right]$.}
+\label{fig:varxs_psi_A}
+\end{figure}
+%
+%
+%
+\begin{figure}[!htp]
+\begin{center}
+\subfigure[Linear]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P1_VarXS_E_psi_out.png}
+}
+\subfigure[Quadratic]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P2_VarXS_E_psi_out.png}
+}
+\subfigure[Cubic]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P3_VarXS_E_psi_out.png}
+}
+\subfigure[4-th Order]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P4_VarXS_E_psi_out.png}
+}
+\end{center}
+\caption{Convergence of $E_{\psi_{out}}$ for a multiple cell problem as a function of cell size for a pure absorber with exponentially varying cross section, $c_1 = 0.1~[cm^{-1}]$, $c_2 = 2\ln(10)~[cm^{-1}]$, and $x\in \left[0,1~[cm] \right]$.}
+\label{fig:varxs_psi_out}
+\end{figure}
+%
+%
 Convergence of $E_{IR}$ and $E_{IR_A}$ as function of numerical scheme and trial space polynomial degree are given in \fig{fig:varxs_I_L2} and \fig{fig:varxs_I_A}. 
+%
+%
+\begin{figure}[!htp]
+\begin{center}
+\subfigure[Linear]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P1_VarXS_E_I_L2.png}
+}
+\subfigure[Quadratic]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P2_VarXS_E_I_L2.png}
+}
+\subfigure[Cubic]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P3_VarXS_E_I_L2.png}
+}
+\subfigure[4-th Order]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P4_VarXS_E_I_L2.png}
+}
+\end{center}
+\caption{Convergence of $E_{IR}$ for a multiple cell problem as a function of cell size for a pure absorber with exponentially varying cross section, $c_1 = 0.1~[cm^{-1}]$, $c_2 = 2\ln(10)~[cm^{-1}]$, and $x\in \left[0,1~[cm] \right]$.}
+\label{fig:varxs_I_L2}
+\end{figure}
+%
+%
+%
+\begin{figure}[!htp]
+\begin{center}
+\subfigure[Linear]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P1_VarXS_E_I_A.png}
+}
+\subfigure[Quadratic]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P2_VarXS_E_I_A.png}
+}
+\subfigure[Cubic]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P3_VarXS_E_I_A.png}
+}
+\subfigure[4-th Order]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P4_VarXS_E_I_A.png}
+}
+\end{center}
+\caption{Convergence of $E_{IR_A}$ for a multiple cell problem as a function of cell size for a pure absorber with exponentially varying cross section, $c_1 = 0.1~[cm^{-1}]$, $c_2 = 2\ln(10)~[cm^{-1}]$, and $x\in \left[0,1~[cm] \right]$.}
+\label{fig:varxs_I_A}
+\end{figure}
 The plateauing of numerical errors for various high-order methods using very small cell sizes in Figs. \ref{fig:varxs_psi_L2}-\ref{fig:varxs_I_A} is a consequence of having  reached machine precision.
 The lines in Figs. \ref{fig:varxs_psi_L2}-\ref{fig:varxs_I_A} that extend to values smaller than machine precision are reference lines.
 
 Figures \ref{fig:varxs_psi_L2}-\ref{fig:varxs_psi_out} show that, for a linear angular flux trial space, CXS DFEM achieves the same orders of spatial convergence as observed with Exact DFEM in \cite{part_1_paper}.
 However, as the degree of the DFEM trial space is increased, the CXS DFEM scheme does not show an increase in the order of the spatial convergence rate of  $E_{\psi}$ and $E_{\psi_A}$; the convergence rate of CXS DFEM is limited to at most second order for both $E_{\psi}$ and $E_{\psi_A}$, regardless of the trial space polynomial degree.  
 The increase in order of convergence of CXS DFEM for $E_{\psi_{out}}$ as trial space is increased is a result of angular flux outflow in the
-CXS DFEM discretization being only a function of the cell optical thickness, which is preserved exactly by our definition of $\hat{\Sigma}_t$; see \eqt{eq:cxs_sigma}.
+CXS DFEM discretization being only a function of the cell optical thickness, which is preserved exactly by our definition of $\hat{\Sigma}_t$; see \eqt{eq:chap3_cxs_sigma}.
 
 Of the self-lumping schemes, SLXS Newton-Cotes is the least accurate.  SLXS Newton-Cotes convergence of $E_{\psi}$ is limited to at most second order for odd degree polynomial trial spaces and third order for even degree trial spaces.  
 Convergence of $E_{\psi_A}$ and $E_{\psi_{out}}$ for the SLXS Newton-Cotes scheme generally increases with an increase in the DFEM polynomial trial space degree, but is only proportional to $P$.
@@ -568,10 +710,10 @@ However, this is not the case and CXS DFEM converges $E_{IR_A}$ with the same or
 CXS DFEM converges $E_{IR_A}$ with a high-order of accuracy because of the locally conservative properties of DFEM approximations, that is:
 \benum
 \text{Particles Into Cell} - \text{Particles Out of Cell} =  \text{Total Interactions in Cell} \pep
-\label{eq:balance}
+\label{eq:chap3_balance}
 \eenum
-As shown in \fig{fig:varxs_psi_out}, CXS DFEM converges the quantities on the left hand side of \eqt{eq:balance} with the same order of accuracy as any self-lumping scheme considered; CXS DFEM is at least as accurate in calculating the particles into a cell (outflow from the previous cell) and out of the cell (outflow from the current cell) as any other scheme considered.
-Since \eqt{eq:balance} holds regardless of the numerical scheme considered, it follows that CXS DFEM converges $E_{IR_A}$, the term in the right hand side of \eqt{eq:balance} summed over all cells, with the maximum order of convergence displayed by any of the DFEM schemes we consider here.
+As shown in \fig{fig:varxs_psi_out}, CXS DFEM converges the quantities on the left hand side of \eqt{eq:chap3_balance} with the same order of accuracy as any self-lumping scheme considered; CXS DFEM is at least as accurate in calculating the particles into a cell (outflow from the previous cell) and out of the cell (outflow from the current cell) as any other scheme considered.
+Since \eqt{eq:chap3_balance} holds regardless of the numerical scheme considered, it follows that CXS DFEM converges $E_{IR_A}$, the term in the right hand side of \eqt{eq:chap3_balance} summed over all cells, with the maximum order of convergence displayed by any of the DFEM schemes we consider here.
 \fig{fig:varxs_I_A} validates this conclusion.
 CXS DFEM and SLXS Gauss exhibit the highest order of spatial convergence, converging $E_{IR_A}$ with order $\propto 2P + 1$.  
 SLXS Newton-Cotes and SLXS Lobatto converge $E_{IR_A}$ with the same orders of convergence each method exhibits in converging $E_{\psi_A}$ for this problem with SLXS Lobatto converging $\propto 2P$ and SLXS Newton-Cotes $\propto P$.
@@ -584,9 +726,22 @@ To understand the poor convergence of point-wise error in angular flux and inter
 We again consider a pure absorber with total absorption cross section that varies exponentially in space with $c_1 = 0.1$, and $c_2 = 2\ln(10)$.  
 A beam of radiation is incident on the left face in the direction of $\mu_d=1$, vacuum boundary conditions are applied on the right face of the slab, and $x\in[0, 1]$.    
 
-In \fig{fig:cxs_blades}, we plot the exact $\psi(x)$ and $IR(x)$, as well as their CXS DFEM numerical approximations, $\widetilde{\psi}(x)$ and $\widetilde{IR}(x)$, using $N_{cells}=5$, and $\hat{\Sigma}_{t,i}$ as defined in \eqt{eq:cxs_sigma}. 
+In \fig{fig:cxs_blades}, we plot the exact $\psi(x)$ and $IR(x)$, as well as their CXS DFEM numerical approximations, $\widetilde{\psi}(x)$ and $\widetilde{IR}(x)$, using $N_{cells}=5$, and $\hat{\Sigma}_{t,i}$ as defined in \eqt{eq:chap3_cxs_sigma}. 
 Additionally, we plot the analytic angular flux and reaction rate one would obtain if the cell average cross section, $\hat{\Sigma}_{t,i}$, had been used instead of the true $\Sigma_t(x)$.
 We refer to these analytic solutions as $\psi_C(x)$ and $IR_C(x)$.
+\begin{figure}[!htp]
+\begin{center}
+\subfigure[Angular Flux]{
+\includegraphics[width=11cm]{chapter3_variable_xs/Psi_Blades.png}
+\label{fig:cxs_blades_a}
+}
+\subfigure[Reaction Rate]{
+\includegraphics[width=11cm]{chapter3_variable_xs/I_Blades.png}
+}
+\end{center}
+\caption{Plots of the analytic $\psi(x)$ and $IR(x)$ and the CXS DFEM $\widetilde{\psi}(x)$ and $\widetilde{IR}(x)$ for the pure absorber with exponential cross section.  Also shown are the analytic $\psi_C(x)$ and $IR_C(x)$ solutions.}
+\label{fig:cxs_blades}
+\end{figure}
 %%
 %%if instead of being the exponentially varying $\Sigma_t(x)$, total macroscopic cross section, was a piecewise constant function, $\Sigma_{t,C}(x)$, equal to $\hat{\Sigma}_{t,i}$, such that:
 %%\benum
@@ -600,13 +755,25 @@ However, the discontinuities present in $\widetilde{IR}(x)$ of \fig{fig:cxs_blad
 The analytic $IR(x)$ is smooth and does not vary rapidly within individual mesh cells, yet there are significant, non-monotonic discontinuities in the CXS DFEM interaction rate solution to the pure absorber problem with exponentially varying cross section.
 The noticeably poor behavior of $\widetilde{IR}(x)$ in \fig{fig:cxs_blades} is inherent to the assumption of a cell-wise constant cross section.
 %The inherent error of approximating a continuously varying cross section with cell-wise constants 
-This is clearly visible in \fig{fig:cxs_blades} when $\psi(x)$ and $IR(x)$, calculated assuming a spatially varying cross section, are compared to the analytic solutions assuming a cell average cross section, $\psi_C(x)$ and $IR_C(x)$.  
+This is clearly visible in \fig{fig:cxs_blades} when $\psi(x)$ and $IR(x)$, calculated assuming a spatially varying cross section, are compared to the analytic solutions assuming a cell average cross section, $\psi_C(x)$ and $IR_C(x)$. 
 %The only difference between these two sets of results is the approximation of $\Sigma_t(x) \approx \hat{\Sigma}_{t,i}$.
 Figure \ref{fig:cxs_blades} does not suggest that linear DFEM is unsuitable for use in problems with spatially varying cross sections. 
 Rather, comparing the CXS DFEM $\widetilde{\psi}(x)$ and $\widetilde{IR}(x)$ to $\psi_C(x)$ and $IR_C(x)$ in \fig{fig:cxs_blades_a}, we see that CXS DFEM  is very accurate when the problem is assumed to have piece-wise constant, cell averaged cross sections.
 
 Given the poor accuracy of CXS DFEM in approximating the true $\psi(x)$ and $IR(x)$, consider $\widetilde{\psi}(x)$ and $\widetilde{IR}(x)$ obtained with SLXS Lobatto using a linear DFEM trial space and five spatial cells, shown in \fig{fig:lobatto_blades}, for the same problem.  
 In \fig{fig:lobatto_blades}(a), the differences between the angular flux solutions obtained using (1) a cell-wise constant cross section (CXS DFEM) and (2) evaluating cross section values at quadrature points (SLXS Lobatto) are small.
+\begin{figure}[!htp]
+\begin{center}
+\subfigure[Angular Flux]{
+\includegraphics[width=11cm]{chapter3_variable_xs/SLXS_Psi_Profile.png}
+}
+\subfigure[Reaction Rate]{
+\includegraphics[width=11cm]{chapter3_variable_xs/SLXS_I_Profile.png}
+}
+\end{center}
+\caption{Plot of the linear trial space SLXS Lobatto and CXS DFEM approximations $\widetilde{\psi}(x)$ and $\widetilde{IR}(x)$ for the pure absorber problem with exponentially varying cross section.}
+\label{fig:lobatto_blades}
+\end{figure}
 This is not the case when comparing the different approximations to the interaction rate, $\widetilde{IR}(x)$, in \fig{fig:lobatto_blades}(b).  
 Though there are discontinuities in the SLXS Lobatto $\widetilde{IR}(x)$, the discontinuities are smaller and the SLXS Lobatto $\widetilde{IR}(x)$ is monotonic unlike the CXS DFEM $\widetilde{IR}(x)$.   
 The SLXS Lobatto $\widetilde{IR}(x)$ is clearly more accurate than the CXS DFEM $\widetilde{IR}(x)$.
@@ -620,6 +787,18 @@ The ``blading'' in $\widetilde{IR}(x)$ has not previously been reported in the r
 We are likely not the first to have generated these large, non-monotonic discontinuities. 
 In fact, we believe that blading has frequently been present in DFEM radiation transport simulations and literature, but has likely gone unnoticed due to the prevalence of linear DFEM and simplified data visualization using cell midpoint values.
 Consider \fig{fig:cxs_avg}(a) and \fig{fig:cxs_avg}(b) that linearly interpolate between $\widetilde{\psi}_{A,i}$ and  $\widetilde{IR}_{A,i}$ plotted at cell centers.
+\begin{figure}[!htp]
+\begin{center}
+\subfigure[Angular Flux]{
+\includegraphics[width=11cm]{chapter3_variable_xs/CXS_Psi_A_Profile.png}
+}
+\subfigure[Reaction Rate]{
+\includegraphics[width=11cm]{chapter3_variable_xs/CXS_I_A_Profile.png}
+}
+\end{center}
+\caption{Plot of the CXS DFEM cell average angular fluxes and interaction rates at cell centers with linear interpolation for a pure absorber with a spatially varying cross section.}
+\label{fig:cxs_avg}
+\end{figure}
 While \fig{fig:cxs_avg}(a) is visually indistinguishable from \fig{fig:cxs_blades}(a), the blading of $\widetilde{IR}(x)$ present in \fig{fig:cxs_blades}(b) is not at all visually present in \fig{fig:cxs_avg}(b).
 %
 %Note that for linear DFEM and cell-wise constant cross sections, $\widetilde{\psi}_{A,i}$ and $\widetilde{IR}_{A,i}$ are equivalent to $\widetilde{\psi}(s)$ and $\widetilde{IR}(s)$ evaluated at $s=0$.  
@@ -652,18 +831,49 @@ However, in reactor physics problems, a flux-weighted cross section is often use
 We now introduce the flux-weighted cell-wise constant cross section scheme (FW CXS), which differs from the CXS DFEM scheme only by how $\hat{\Sigma}$ is defined in each cell: 
 \benum
 \hat{\Sigma}_i = \frac{\int_{x_{i-1/2}}^{x_{i+1/2}}{ \Sigma(x) \psi(x,\mu_d)~dx}}{\int_{x_{i-1/2}}^{x_{i+1/2}}{ \psi(x,\mu_d)~dx}} \pep
-\label{eq:fw_cxs}
+\label{eq:chap3_fw_cxs}
 \eenum
 In practice, flux-weighting is often done using the scalar flux in order not to have angle-dependent total cross section.  However for the beam problem considered here, $\psi(x,\mu_d)$ is proportional to the scalar flux.
 
 We first compare the accuracy of FW CXS versus  volume-averaged CXS DFEM for a cubic DFEM trial space, as shown in \fig{fig:fw_accuracy}.  
 %In \fig{fig:fw_accuracy}, we omit a plot of $E_{\psi_{out}}$ as we have already demonstrated that the accuracy of any method in calculating $E_{\psi_{out}}$ determines the method's accuracy in calculating $E_{IR_A}$.  
 %That is, if $E_{IR_A}$ converges at a given rate, $E_{\psi_{out}}$ converges at the same rate.  
+
 Figure \ref{fig:fw_accuracy} shows that FW CXS scheme is more accurate than CXS DFEM when comparing $E_{\psi}$, $E_{\psi_A}$ and, at low resolutions, for $E_{IR}$.
 However, though designed to preserve cell average interaction rates, FW CXS scheme is not only less accurate than  CXS DFEM in calculating cell average interaction rates, it converges at most second order in space, whereas a volume-averaged cross section converges $\propto 2P+1$ for the pure absorber problem.
-
-Finally, we consider the $\widetilde{\psi}_d(x)$ and $\widetilde{IR}(x)$ solution representations of the FW CXS scheme.  In \fig{fig:fw_blading} it is clear that while the FW CXS and CXS DFEM schemes calculate slightly different solution representations, the FW CXS scheme  exhibits the same interaction rate blading phenomena as the CXS DFEM scheme, reiterating that blading is a result of approximating a spatially varying cross section with as a cell-wise constant.
+\begin{figure}[!htp]
+\begin{center}
+\subfigure[$E_{\psi}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_L2.png}
+}
+\subfigure[$E_{\psi_A}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_A.png}
+}
+\subfigure[$E_{IR}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/FW_XS_P3_VarXS_E_I_L2.png}
+}
+\subfigure[$E_{IR_A}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/FW_XS_P3_VarXS_E_I_A.png}
+}
+\end{center}
+\caption{Accuracy comparison of flux weighted constant cross section scheme (FW CXS) to volume averaged cross section  scheme (CXS DFEM) with a cubic angular flux trial space.}
+\label{fig:fw_accuracy}
+\end{figure}
+Finally, we consider the $\widetilde{\psi}_d(x)$ and $\widetilde{IR}(x)$ solution representations of the FW CXS scheme.  
+In \fig{fig:fw_blading} it is clear that while the FW CXS and CXS DFEM schemes calculate slightly different solution representations, the FW CXS scheme  exhibits the same interaction rate blading phenomena as the CXS DFEM scheme, reiterating that blading is a result of approximating a spatially varying cross section with as a cell-wise constant.
 The choice of cell-wise cross section does not eliminate blading.
+\begin{figure}[!htp]
+\begin{center}
+\subfigure[Angular Flux]{
+\includegraphics[width=11cm]{chapter3_variable_xs/FW_Psi_Blades.png}
+}
+\subfigure[Reaction Rate]{
+\includegraphics[width=11cm]{chapter3_variable_xs/FW_I_Blades.png}
+}
+\end{center}
+\caption{Plot of the linear trial space FW CXS and CXS DFEM approximations $\widetilde{\psi}(x)$ and $\widetilde{IR}(x)$ for the pure absorber problem.}
+\label{fig:fw_blading}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -680,10 +890,10 @@ We derive how to generate these meshes in \secref{sec:mesh_gen} and give results
 
 Two alternative meshing strategies are compared to equally-spaced meshed.
 In the following, we will use a shorthand notation, given in \tbl{tbl:spacing_labels}.
-With the MFP meshing strategy, we find each cell width by determining the width of each cell from $i=1$ (leftmost cell) to $i=N_{cell}$ as outlined by \eqt{eq:mfp_spacing}:
+With the MFP meshing strategy, we find each cell width by determining the width of each cell from $i=1$ (leftmost cell) to $i=N_{cell}$ as outlined by \eqt{eq:chap3_mfp_spacing}:
 \begin{subequations}
 First, we determine the average cell optical thickness:
-\label{eq:mfp_spacing}
+\label{eq:chap3_mfp_spacing}
 \benum
 \bar{h} = \frac{  \int_{x_{1/2}}^{x_{N_{cell}+1/2}}{ \Sigma_t(x)~dx} }{ N_{cell} } \pep
 \eenum
@@ -696,9 +906,9 @@ yielding
 x_{i+1/2} = \frac{1}{c_2} \log\left[ \frac{c_2( \bar{h} + \Sigma_t(x_{i-1/2}) }{c_1} \right] \pep
 \eenum
 \end{subequations}
-%PSI spacing requires a priori knowledge of the analytic solution.  For the pure absorber problem, it is thus feasible to use PSI spacing, but in general PSI spacing would not be feasible.  Starting again from $i=1$, we find the width of each cell through the logic outlined in \eqt{eq:psi_spacing}
+%PSI spacing requires a priori knowledge of the analytic solution.  For the pure absorber problem, it is thus feasible to use PSI spacing, but in general PSI spacing would not be feasible.  Starting again from $i=1$, we find the width of each cell through the logic outlined in \eqt{eq:chap3_psi_spacing}
 %\begin{subequations}
-%\label{eq:psi_spacing}
+%\label{eq:chap3_psi_spacing}
 %\beanum
 %D &=& \frac{\psi(x_{N_{cell}+1/2},\mu_d) - \psi(x_{1/2},\mu_d) }{ N_{cell} } \\
 %\psi(x_{i+1/2},\mu_d) &=& \psi(x_{i-1/2},\mu_d) + D \\
@@ -722,8 +932,84 @@ Logarithmic spacing represents the ``smart'' meshing strategy most likely to be 
 For all of our calculations, we set $R=0.6$ and $\Delta x_{min} = 10^{-3}~[cm]$.
 
 First, we note that the choice of mesh spacing method does not alter asymptotic convergence rates, as shown in \fig{fig:lobatto_spacing}.  Figure \ref{fig:lobatto_spacing} shows that the SLXS Lobatto scheme with a quadratic trial space converges $E_{\psi}$, $E_{\psi_A}$, $E_{IR}$, and $E_{IR_A}$ at the same asymptotic rate, regardless of grid spacing choice.  Plots showing other trial space degrees and DFEM schemes are omitted for brevity.  We also omit showing the convergence of $E_{\psi_{out}}$ as we have already demonstrated that the convergence rate of $E_{\psi_{out}}$ and $E_{IR_A}$are related and identical.
-
-At mesh refinements that are not in the asymptotic convergence regime, the selection of a smart meshing methodology can result in a significant reduction in error.  Consider \fig{fig:low_res_lobatto}, \fig{fig:low_res_gauss}, and \fig{fig:low_res_cxs} that show the values of $E_{\psi}$, $E_{\psi_A}$, $E_{IR}$, and $E_{IR_A}$ for the SLXS Lobatto, SLXS Gauss, and CXS DFEM schemes respectively for a quadratic trial space.
+\begin{figure}[!htp]
+\begin{center}
+\subfigure[$E_{\psi}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P2_LOBATTO_E_PSI.png}
+}
+\subfigure[$E_{\psi_A}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P2_LOBATTO_E_PSI_A.png}
+}
+\subfigure[$E_{IR}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P2_LOBATTO_E_IR.png}
+}
+\subfigure[$E_{IR_A}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/P2_LOBATTO_E_IR_A.png}
+}
+\end{center}
+\caption{Asymptotic convergence of the SLXS Lobatto scheme using a quadratic trial space, for different mesh spacing methodologies.}
+\label{fig:lobatto_spacing}
+\end{figure}
+At mesh refinements that are not in the asymptotic convergence regime, the selection of a smart meshing methodology can result in a significant reduction in error.  
+Consider \fig{fig:low_res_lobatto}, \fig{fig:low_res_gauss}, and \fig{fig:low_res_cxs} that show the values of $E_{\psi}$, $E_{\psi_A}$, $E_{IR}$, and $E_{IR_A}$ for the SLXS Lobatto, SLXS Gauss, and CXS DFEM schemes respectively for a quadratic trial space.
+\begin{figure}[!htp]
+\begin{center}
+\subfigure[$E_{\psi}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI.png}
+}
+\subfigure[$E_{\psi_A}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI_A.png}
+}
+\subfigure[$E_{IR}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR.png}
+}
+\subfigure[$E_{IR_A}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR_A.png}
+}
+\end{center}
+\caption{Errors associated with the SLXS Lobatto using a quadratic trial space scheme for different mesh spacing methodologies, at low resolutions.}
+\label{fig:low_res_lobatto}
+\end{figure}
+%
+%
+\begin{figure}[!htp]
+\begin{center}
+\subfigure[$E_{\psi}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI.png}
+}
+\subfigure[$E_{\psi_A}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI_A.png}
+}
+\subfigure[$E_{IR}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR.png}
+}
+\subfigure[$E_{IR_A}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR_A.png}
+}
+\end{center}
+\caption{Errors associated with the SLXS Gauss using a quadratic trial space for different mesh spacing methodologies, at low resolutions.}
+\label{fig:low_res_gauss}
+\end{figure}
+%
+%
+\begin{figure}[!htp]
+\begin{center}
+\subfigure[$E_{\psi}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI.png}
+}
+\subfigure[$E_{\psi_A}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI_A.png}
+}
+\subfigure[$E_{IR}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/LOW_RES_P2_CXS_E_IR.png}
+}
+\subfigure[$E_{IR_A}$]{
+\includegraphics[width=11cm]{chapter3_variable_xs/LOW_RES_P2_CXS_E_IR_A.png}
+}
+\end{center}
+\caption{Errors associated with CXS DFEM using a quadratic trial space  for different mesh spacing methodologies, at low resolutions.}
+\label{fig:low_res_cxs}
+\end{figure}
 First, we note that any particular mesh spacing methodology results in solutions that are more accurate for certain quantities, but not for all quantities.  
 For example, with the self-lumping schemes, $E_{\psi}$ is generally smaller when using an equally spaced mesh, but using the LOG mesh results in orders of magnitude improvement in $E_{IR}$ and $E_{IR_A}$ on coarse meshes.
 In \fig{fig:low_res_cxs}, CXS DFEM again illustrates that LOG spacing is more accurate in calculating interaction rate quantities than an equally-spaced mesh and equally-spaced meshes are generally more accurate than other meshing strategies for calculating angular flux quantities.

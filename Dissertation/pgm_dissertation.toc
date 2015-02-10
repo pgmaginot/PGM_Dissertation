@@ -6,7 +6,7 @@
 \contentsline {chapter}{NOMENCLATURE}{v}
 \contentsline {chapter}{TABLE OF CONTENTS}{vi}
 \contentsline {chapter}{LIST OF FIGURES}{viii}
-\contentsline {chapter}{LIST OF TABLES}{xi}
+\contentsline {chapter}{LIST OF TABLES}{xii}
 \contentsline {chapter}{\numberline {1}\uppercase {Introduction}}{1}
 \vskip +10pt
 \contentsline {section}{\numberline {1.1}Simplifications of the Thermal Radiative Transfer Equations}{2}
@@ -17,37 +17,45 @@
 \contentsline {chapter}{\numberline {2}\uppercase {Discontinuous Finite Elements for Radiation Transport}}{6}
 \vskip +10pt
 \contentsline {section}{\numberline {2.1}History of DFEM for Neutron Transport}{6}
-\contentsline {section}{\numberline {2.2}Matrix Lumping Techniques to Study}{8}
+\contentsline {section}{\numberline {2.2}Mass Matrix Lumping Techniques}{8}
 \contentsline {section}{\numberline {2.3}Lumping Techniques for the 1-D $S_N$ Neutron Transport Equation with Arbitrary Order DFEM}{10}
 \contentsline {subsection}{\numberline {2.3.1}Weak Form Derivation}{10}
 \contentsline {subsection}{\numberline {2.3.2}Traditional Lumping}{15}
 \contentsline {subsection}{\numberline {2.3.3}Quadrature-Based Lumping}{15}
 \contentsline {subsection}{\numberline {2.3.4}Source Moment Evaluation}{15}
 \contentsline {section}{\numberline {2.4}Quadrature Point Selection}{16}
-\contentsline {section}{\numberline {2.5}Numerical Results}{20}
-\contentsline {subsection}{\numberline {2.5.1}Incident Flux Single-Cell Outflow Comparison}{21}
-\contentsline {subsection}{\numberline {2.5.2}Fixed Source Single-Cell Inflow Comparison}{23}
-\contentsline {subsection}{\numberline {2.5.3}Single-Cell Taylor Series Analysis}{27}
+\contentsline {section}{\numberline {2.5}Numerical Results}{21}
+\contentsline {subsection}{\numberline {2.5.1}Incident Flux Single-Cell Outflow Comparison}{22}
+\contentsline {subsection}{\numberline {2.5.2}Fixed Source Single-Cell Inflow Comparison}{25}
+\contentsline {subsection}{\numberline {2.5.3}Single-Cell Taylor Series Analysis}{31}
 \contentsline {subsection}{\numberline {2.5.4}Convergence Rates for Spatially Discretized 1-D Domains}{35}
-\contentsline {chapter}{\numberline {3}\uppercase {Last Chapter: The Importance of Research}}{49}
+\contentsline {chapter}{\numberline {3}\uppercase {Last Chapter: The Importance of Research}}{44}
 \vskip +10pt
-\contentsline {section}{\numberline {3.1}New Section}{49}
-\contentsline {section}{\numberline {3.2}Another Section}{49}
-\contentsline {subsection}{\numberline {3.2.1}Subsection}{50}
-\contentsline {subsection}{\numberline {3.2.2}Subsection}{50}
-\contentsline {subsubsection}{\numberline {3.2.2.1}This is a subsubsection}{50}
-\contentsline {section}{\numberline {3.3}Another Section}{50}
-\contentsline {chapter}{\numberline {4}\uppercase {Last Chapter: The Importance of Research}}{52}
+\contentsline {section}{\numberline {3.1}Weak Form Derivation}{47}
+\contentsline {section}{\numberline {3.2}Numerical Schemes}{51}
+\contentsline {subsection}{\numberline {3.2.1}Exact Spatial Integration}{51}
+\contentsline {subsubsection}{\numberline {3.2.1.1}Exact Cross Section}{52}
+\contentsline {subsubsection}{\numberline {3.2.1.2}Constant Cross Section}{52}
+\contentsline {subsection}{\numberline {3.2.2}Self-Lumping Quadrature Integration}{53}
+\contentsline {section}{\numberline {3.3}Pure Absorber Numerical Results}{54}
+\contentsline {subsection}{\numberline {3.3.1}Single Cell Outflow Comparisons}{55}
+\contentsline {subsection}{\numberline {3.3.2}Multiple Cell Spatial Convergence Rates}{57}
+\contentsline {subsection}{\numberline {3.3.3}Consequences of Assuming a Cell-Wise Constant Cross Section}{68}
+\contentsline {subsection}{\numberline {3.3.4}Flux-Weighting versus Volume-Averaged Cross Sections}{74}
+\contentsline {subsection}{\numberline {3.3.5}Effects of Mesh Spacing}{77}
+\contentsline {subsubsection}{\numberline {3.3.5.1}Generating Improved Spatial Meshes}{77}
+\contentsline {subsubsection}{\numberline {3.3.5.2}Mesh Spacing Results}{80}
+\contentsline {chapter}{\numberline {4}\uppercase {Last Chapter: The Importance of Research}}{84}
 \vskip +10pt
-\contentsline {section}{\numberline {4.1}New Section}{52}
-\contentsline {chapter}{\numberline {5}\uppercase {Last Chapter: The Importance of Research}}{53}
+\contentsline {section}{\numberline {4.1}New Section}{84}
+\contentsline {chapter}{\numberline {5}\uppercase {Last Chapter: The Importance of Research}}{85}
 \vskip +10pt
-\contentsline {section}{\numberline {5.1}New Section}{53}
-\contentsline {chapter}{\numberline {6}\uppercase {Last Chapter: The Importance of Research}}{54}
+\contentsline {section}{\numberline {5.1}New Section}{85}
+\contentsline {chapter}{\numberline {6}\uppercase {Last Chapter: The Importance of Research}}{86}
 \vskip +10pt
-\contentsline {section}{\numberline {6.1}New Section}{54}
-\contentsline {chapter}{REFERENCES}{56}
-\contentsline {chapter}{APPENDIX \numberline {A}\uppercase {First Appendix}}{60}
-\contentsline {chapter}{APPENDIX \numberline {B}\uppercase {Second Appendix with a longer title - much longer in fact}}{62}
+\contentsline {section}{\numberline {6.1}New Section}{86}
+\contentsline {chapter}{REFERENCES}{87}
+\contentsline {chapter}{APPENDIX \numberline {A}\uppercase {First Appendix}}{91}
+\contentsline {chapter}{APPENDIX \numberline {B}\uppercase {Second Appendix with a longer title - much longer in fact}}{93}
 \vskip +10pt
-\contentsline {section}{\numberline {B.1}Appendix Section}{62}
+\contentsline {section}{\numberline {B.1}Appendix Section}{93}

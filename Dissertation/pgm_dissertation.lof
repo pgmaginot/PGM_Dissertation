@@ -1,39 +1,54 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Numerical outflow values as a function of $h$, for a single cell homogeneous absorber problem with a linear DFEM trial space.}}{22}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Numerical outflow values as a function of $h$, for a single cell homogeneous absorber problem with a linear DFEM trial space.}}{23}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Numerical outflow values as a function of $h$, for a single cell homogeneous absorber problem with a quadratic DFEM trial space.}}{23}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Numerical outflow values as a function of $h$, for a single cell homogeneous absorber problem with a cubic DFEM trial space.}}{24}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Numerical outflow values as a function of $h$, for a single cell homogeneous absorber problem with a quartic DFEM trial space.}}{25}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$ for a single cell (vacuum case) with a $\delta $-shaped source, using polynomial orders $P=1$ through $P=4$.}}{26}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$ for a single cell (vacuum case) with a $\delta $-shaped source, using polynomial orders $P=1$ through $P=4$.}}{27}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$ for a single cell (vacuum case) with a $\delta $-shaped source, using polynomial orders $P=1$ through $P=4$.}}{28}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$ for a single cell (vacuum case) with a $\delta $-shaped source, using polynomial orders $P=1$ through $P=4$.}}{29}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$, for a single cell (absorber case) with a $\delta $-shaped source, using polynomial orders $P=1$ through $P=4$.}}{30}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$, for a single cell (absorber case) with a $\delta $-shaped source, using polynomial orders $P=1$ through $P=4$.}}{30}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$, for a single cell (absorber case) with a $\delta $-shaped source, using polynomial orders $P=1$ through $P=4$.}}{31}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$, for a single cell (absorber case) with a $\delta $-shaped source, using polynomial orders $P=1$ through $P=4$.}}{31}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Convergence rate of the $L_2$ norm of the error, $E_{\psi }$, as a function of the mesh cell size for a pure absorber ($\sigma _t(x) = 1\nobreakspace {}[cm^{-1}]$ and $x\in \left [0,10\nobreakspace {}[cm]\right ]$).}}{37}
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Convergence rate of the $L_2$ norm of the error, $E_{\psi }$, as a function of the mesh cell size for a pure absorber ($\sigma _t(x) = 1\nobreakspace {}[cm^{-1}]$ and $x\in \left [0,10\nobreakspace {}[cm]\right ]$).}}{38}
-\contentsline {figure}{\numberline {2.15}{\ignorespaces Convergence rate of the $L_2$ norm of the error, $E_{\psi }$, as a function of the mesh cell size for a pure absorber ($\sigma _t(x) = 1\nobreakspace {}[cm^{-1}]$ and $x\in \left [0,10\nobreakspace {}[cm]\right ]$).}}{39}
-\contentsline {figure}{\numberline {2.16}{\ignorespaces Convergence rate of the $L_2$ norm of the error, $E_{\psi }$, as a function of the mesh cell size for a pure absorber ($\sigma _t(x) = 1\nobreakspace {}[cm^{-1}]$ and $x\in \left [0,10\nobreakspace {}[cm]\right ]$).}}{40}
-\contentsline {figure}{\numberline {2.17}{\ignorespaces Convergence rate for $E_{\psi ,A}$ as a function of the mesh cell size for a homogeneous pure absorber and linear DFEM.}}{41}
-\contentsline {figure}{\numberline {2.18}{\ignorespaces Convergence rate for $E_{\psi ,A}$ as a function of the mesh cell size for a homogeneous pure absorber and quadratic DFEM.}}{42}
-\contentsline {figure}{\numberline {2.19}{\ignorespaces Convergence rate for $E_{\psi ,A}$ as a function of the mesh cell size for a homogeneous pure absorber and cubic DFEM.}}{43}
-\contentsline {figure}{\numberline {2.20}{\ignorespaces Convergence rate for $E_{\psi ,A}$ as a function of the mesh cell size for a homogeneous pure absorber and quartic DFEM.}}{44}
-\contentsline {figure}{\numberline {2.21}{\ignorespaces Convergence rate of $E_{\psi ,out}$ as a function of the mesh cell size for a homogeneous pure absorber for linear DFEM.}}{45}
-\contentsline {figure}{\numberline {2.22}{\ignorespaces Convergence rate of $E_{\psi ,out}$ as a function of the mesh cell size for a homogeneous pure absorber for quadratic DFEM.}}{46}
-\contentsline {figure}{\numberline {2.23}{\ignorespaces Convergence rate of $E_{\psi ,out}$ as a function of the mesh cell size for a homogeneous pure absorber for cubic DFEM.}}{47}
-\contentsline {figure}{\numberline {2.24}{\ignorespaces Convergence rate of $E_{\psi ,out}$ as a function of the mesh cell size for a pure absorber for quartic DFEM.}}{48}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Numerical outflow values as a function of $h$, for a single cell homogeneous absorber problem with a quartic DFEM trial space.}}{24}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$ for a single cell (vacuum case) with a $\delta $-shaped source, using linear DFEM.}}{26}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$ for a single cell (vacuum case) with a $\delta $-shaped source, using quadratic DFEM.}}{27}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$ for a single cell (vacuum case) with a $\delta $-shaped source, using cubic DFEM.}}{28}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$ for a single cell (vacuum case) with a $\delta $-shaped source, using quartic DFEM.}}{28}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$, for a single cell (absorber case) with a $\delta $-shaped source, using linear DFEM.}}{29}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$, for a single cell (absorber case) with a $\delta $-shaped source, using quadratic DFEM.}}{29}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$, for a single cell (absorber case) with a $\delta $-shaped source, using cubic DFEM.}}{30}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Numerical inflow values as a function of $\frac {S_1}{S_0}$, for a single cell (absorber case) with a $\delta $-shaped source, using quartic DFEM.}}{30}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Convergence rate of the $L_2$ norm of the error, $E_{\psi }$, as a function of the mesh cell size for a pure absorber discretized with linear DFEM.}}{37}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Convergence rate of the $L_2$ norm of the error, $E_{\psi }$, as a function of the mesh cell size for a pure absorber discretized with quadratic DFEM.}}{38}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Convergence rate of the $L_2$ norm of the error, $E_{\psi }$, as a function of the mesh cell size for a pure absorber discretized with cubic DFEM.}}{38}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Convergence rate of the $L_2$ norm of the error, $E_{\psi }$, as a function of the mesh cell size for a pure absorber discretized with quartic DFEM.}}{39}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Convergence rate for $E_{\psi ,A}$ as a function of the mesh cell size for a homogeneous pure absorber and linear DFEM.}}{39}
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Convergence rate for $E_{\psi ,A}$ as a function of the mesh cell size for a homogeneous pure absorber and quadratic DFEM.}}{40}
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Convergence rate for $E_{\psi ,A}$ as a function of the mesh cell size for a homogeneous pure absorber and cubic DFEM.}}{40}
+\contentsline {figure}{\numberline {2.20}{\ignorespaces Convergence rate for $E_{\psi ,A}$ as a function of the mesh cell size for a homogeneous pure absorber and quartic DFEM.}}{41}
+\contentsline {figure}{\numberline {2.21}{\ignorespaces Convergence rate of $E_{\psi ,out}$ as a function of the mesh cell size for a homogeneous pure absorber for linear DFEM.}}{41}
+\contentsline {figure}{\numberline {2.22}{\ignorespaces Convergence rate of $E_{\psi ,out}$ as a function of the mesh cell size for a homogeneous pure absorber for quadratic DFEM.}}{42}
+\contentsline {figure}{\numberline {2.23}{\ignorespaces Convergence rate of $E_{\psi ,out}$ as a function of the mesh cell size for a homogeneous pure absorber for cubic DFEM.}}{42}
+\contentsline {figure}{\numberline {2.24}{\ignorespaces Convergence rate of $E_{\psi ,out}$ as a function of the mesh cell size for a pure absorber for quartic DFEM.}}{43}
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {3.1}{\ignorespaces TAMU figure}}{51}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Numerical outflow from single cell pure absorber with $\Sigma _t(x) = c_1e^{c_2 x}$, as a function of $c_2$ with constant optical thickness of twenty MFP, for different degree polynomial trial spaces.}}{56}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Convergence of $E_{\psi }$ for a multiple cell problem as a function of cell size for a pure absorber with exponentially varying cross section, $c_1 = 0.1\nobreakspace {}[cm^{-1}]$, $c_2 = 2\qopname \relax o{ln}(10)\nobreakspace {}[cm^{-1}]$, and $x\in \left [0,1\nobreakspace {}[cm] \right ]$.}}{61}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Convergence of $E_{\psi _{in}}$ for a multiple cell problem as a function of cell size for a pure absorber with exponentially varying cross section, $c_3=10$, $c_1 = 0.1\nobreakspace {}[cm^{-1}]$, $c_2 = 2\nobreakspace {}[cm^{-1}]$, and $x\in \left [0,1\nobreakspace {}[cm] \right ]$.}}{62}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Convergence of $E_{\psi _A}$ for a multiple cell problem as a function of cell size for a pure absorber with exponentially varying cross section, $c_1 = 0.1\nobreakspace {}[cm^{-1}]$, $c_2 = 2\qopname \relax o{ln}(10)\nobreakspace {}[cm^{-1}]$, and $x\in \left [0,1\nobreakspace {}[cm] \right ]$.}}{63}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Convergence of $E_{\psi _{out}}$ for a multiple cell problem as a function of cell size for a pure absorber with exponentially varying cross section, $c_1 = 0.1\nobreakspace {}[cm^{-1}]$, $c_2 = 2\qopname \relax o{ln}(10)\nobreakspace {}[cm^{-1}]$, and $x\in \left [0,1\nobreakspace {}[cm] \right ]$.}}{64}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Convergence of $E_{IR}$ for a multiple cell problem as a function of cell size for a pure absorber with exponentially varying cross section, $c_1 = 0.1\nobreakspace {}[cm^{-1}]$, $c_2 = 2\qopname \relax o{ln}(10)\nobreakspace {}[cm^{-1}]$, and $x\in \left [0,1\nobreakspace {}[cm] \right ]$.}}{65}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Convergence of $E_{IR_A}$ for a multiple cell problem as a function of cell size for a pure absorber with exponentially varying cross section, $c_1 = 0.1\nobreakspace {}[cm^{-1}]$, $c_2 = 2\qopname \relax o{ln}(10)\nobreakspace {}[cm^{-1}]$, and $x\in \left [0,1\nobreakspace {}[cm] \right ]$.}}{66}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Plots of the analytic $\psi (x)$ and $IR(x)$ and the CXS DFEM $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle \psi $}\mathaccent "0365{\psi }(x)$ and $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle IR$}\mathaccent "0365{IR}(x)$ for the pure absorber with exponential cross section. Also shown are the analytic $\psi _C(x)$ and $IR_C(x)$ solutions.}}{70}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Plot of the linear trial space SLXS Lobatto and CXS DFEM approximations $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle \psi $}\mathaccent "0365{\psi }(x)$ and $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle IR$}\mathaccent "0365{IR}(x)$ for the pure absorber problem with exponentially varying cross section.}}{71}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Plot of the CXS DFEM cell average angular fluxes and interaction rates at cell centers with linear interpolation for a pure absorber with a spatially varying cross section.}}{73}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Accuracy comparison of flux weighted constant cross section scheme (FW CXS) to volume averaged cross section scheme (CXS DFEM) with a cubic angular flux trial space.}}{75}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Plot of the linear trial space FW CXS and CXS DFEM approximations $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle \psi $}\mathaccent "0365{\psi }(x)$ and $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle IR$}\mathaccent "0365{IR}(x)$ for the pure absorber problem.}}{76}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Asymptotic convergence of the SLXS Lobatto scheme using a quadratic trial space, for different mesh spacing methodologies.}}{79}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Errors associated with the SLXS Lobatto using a quadratic trial space scheme for different mesh spacing methodologies, at low resolutions.}}{81}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Errors associated with the SLXS Gauss using a quadratic trial space for different mesh spacing methodologies, at low resolutions.}}{82}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Errors associated with CXS DFEM using a quadratic trial space for different mesh spacing methodologies, at low resolutions.}}{83}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {A.1}{\ignorespaces TAMU figure}}{61}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces TAMU figure}}{92}
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {B.1}{\ignorespaces TAMU figure}}{63}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces TAMU figure}}{94}

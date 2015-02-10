@@ -35,12 +35,6 @@ S.~Hamilton ans M.~Benzi and J.~S. Warsa.
 \newblock In {\em International Conference on Mathematics, Computational
   Methods \& Reactor Physics}, Saratoga Springs, New York, May 2009.
 
-\bibitem{azmy}
-Y.~Azmy.
-\newblock Arbitrarily high order characteristic methods for solving the neutron
-  transport equation.
-\newblock {\em Annals of Nuclear Energy}, 19(7):593--606, 1992.
-
 \bibitem{hennart_delvalle_2}
 J.~P. Hennart and E.~del Valle.
 \newblock A generalize nodal finite element formalism for discrete ordinate
@@ -52,6 +46,12 @@ J.~P. Hennart and E.~del Valle.
 \newblock A generalize nodal finite element formalism for discrete ordinate
   equations in slab geometry: Part iii numerical results.
 \newblock {\em Transport Theory and Statistical Physics}, 24:505--533, 1995.
+
+\bibitem{varXS_diff}
+A.~Kavenoky and J.~Lautard.
+\newblock A finite element depletion diffusion calculation method with
+  space-dependent cross section.
+\newblock {\em Nuclear Science and Engineering}, 64(2):563--575, 1977.
 
 \bibitem{ld_fine_mesh}
 E.~W. Larsen and W.~F. Miller.
@@ -88,6 +88,12 @@ P.~G. Maginot, J.~E. Morel, and J.~C. Ragusa.
   the linearized boltzmann transport equation in 1-d and 2-d cartesian
   geometries.
 \newblock {\em Journal of Computational Physics}, 231(20):6801--6826, 2012.
+
+\bibitem{part_1_paper}
+P.~G. Maginot, J.~C. Ragusa, and J.~E. Morel.
+\newblock Lumping techniques for dfem transport in $s_n$ transport in slab
+  geometry.
+\newblock {\em Nuclear Science and Engineering}, 179(2):148--163, 2015.
 
 \bibitem{matlab}
 The MathWorks.
@@ -129,6 +135,19 @@ K.~Salari and P.~Knupp.
 \newblock Code verification by the method of manufactured solutions.
 \newblock Technical Report SAND2000-1444, Sandia National Labs, 2000.
 
+\bibitem{varXS_MOC}
+S.~Santandrea and P.~Bellier.
+\newblock An unstructured characteristics scheme with a linear expansion for
+  both fluxes and cross sections.
+\newblock In {\em Proceedings of the Joint International Topical Meeting on
+  Mathematics \& Computation and Supercomputing in Nuclear Applications (M\&C +
+  SNA 2007)}, Monterey, California, April 2007.
+
+\bibitem{xs_are_T_dependent}
+W.~M. Stacey.
+\newblock {\em Nuclear Reactor Physics}.
+\newblock John-Wiley \& Sons Inc., 2001.
+
 \bibitem{su_olson_1}
 B.~Su and G.~L. Olson.
 \newblock An analytical benchmark for non-equilibrium radiative transfer in an
@@ -162,5 +181,12 @@ Y.~Wang and J.~C. Ragusa.
 J.~S. Warsa and A.~K. Prinja.
 \newblock p-adaptive numerical methods for particle transport.
 \newblock {\em Transport Theory and Statistical Physics}, 28(3):229--270, 1999.
+
+\bibitem{warsa_krylov}
+J.~S. Warsa, T.~A. Wareing, and J.~E. Morel.
+\newblock Krylov iterative methods and the degraded effectiveness of diffusion
+  synthetic acceleration for multidimensional $s_n$ calculations in problems
+  with material discontinuities.
+\newblock {\em Nuclear Science and Engineering}, 147(3):218--248, 2004.
 
 \end{thebibliography}
