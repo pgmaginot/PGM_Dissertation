@@ -165,11 +165,11 @@ Spatially discretizing with a $P$ degree DFEM as in Chapter \ref{sec:chapter3_va
 \begin{subequations}
 \label{eq:chap4_first_disc}
 \benum
-\left( \mu_+ \mathbf{G}_+ + \frac{\Delta x}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_c = \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \vec{\Delta \phi}_c
+\left( \mu_+ \mathbf{G}_+ + \frac{\Delta x_c}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_c = \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \vec{\Delta \phi}_c
 + \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_c^{(\ell+1/2)} - \vec{\phi}_c^{(\ell)} \right) + \mu_+ \psi_{in,+} \vec{f}_+ 
 \eenum
 \benum
-\left( \mu_- \mathbf{G}_- + \frac{\Delta x}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^-_c = \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \vec{\Delta \phi}_c 
+\left( \mu_- \mathbf{G}_- + \frac{\Delta x_c}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^-_c = \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \vec{\Delta \phi}_c 
 + \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_c^{(\ell+1/2)} - \vec{\phi}_c^{(\ell)} \right) + \mu_- \psi_{in,-} \vec{f}_-  \pep
 \eenum
 \end{subequations}
@@ -215,12 +215,129 @@ Finally, assuming a symmetric quadrature,
 we may write \eqts{eq:chap4_first_disc} as:
 \begin{subequations}
 \benum
-\left( \mu_+ \mathbf{G}_+ + \frac{\Delta x}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_c  - \frac{\Delta x_c}{4} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_c^+ + \vec{\psi}_c^- \right) - \mu_+ \mathbf{U}_+ \vec{\psi}_{c-1}^+
+\left( \mu_+ \mathbf{G}_+ + \frac{\Delta x_c}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_c  - \frac{\Delta x_c}{4} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_c^+ + \vec{\psi}_c^- \right) - \mu_+ \mathbf{U}_+ \vec{\psi}_{c-1}^+
 = \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_c^{(\ell+1/2)} - \vec{\phi}_c^{(\ell)} \right) 
 \eenum
 \benum
-\left( \mu_- \mathbf{G}_- + \frac{\Delta x}{2}\mathbf{R}_{\Sigma_t} \right) \vec{\psi}^-_c  - \frac{\Delta x_c}{4} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_c^+  + \vec{\psi}_c^- \right) 
+\left( \mu_- \mathbf{G}_- + \frac{\Delta x_c}{2}\mathbf{R}_{\Sigma_t} \right) \vec{\psi}^-_c  - \frac{\Delta x_c}{4} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_c^+  + \vec{\psi}_c^- \right) 
 - \mu_- \mathbf{U}_- \vec{\psi}_{c+1}^- =  \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_c^{(\ell+1/2)} - \vec{\phi}^{(\ell)} \right)  \pep
+\eenum
+\end{subequations}
+Thus, the S2SA scheme uses all of the same matrices, in particular we think of $\mathbf{R}_{\Sigma_t}$ and $\mathbf{R}_{\Sigma_s}$, that we have already defined in our higher fidelity transport model.
+
+To complete our derivation of the S2SA scheme, we must now define appropriate boundary conditions.
+We will focus only on the leftmost boundary, though similar equations for the right boundary can be defined analogously.
+It is sufficient for our purposes to consider problems only with specified incident flux boundary conditions and reflective boundaries.
+With incident flux conditions, we wish for the accelerated iterate to maintain the same inflow current as the specified boundary condition.
+Allowing for non-isotropic incident fluxes, the incident current, $J^+$ specified by our problem is:
+\benum
+\sum_{d=N_{dir}/2+1}^{N_{dir}}{ w_d \mu_d \psi_{in,d} } \pep
+\eenum
+Given the S2SA equations were derived via the assumption of a $P_1$ angular flux, the additive angular flux correction for direction $d$ is:
+\begin{subequations}
+\label{eq:s2_def}
+\beanum
+\Delta \phi &=& 2\pi\left( \psi^+ + \psi^-  \right) \\
+\Delta J &=& 2\pi \left( \mu_+\psi^+ + \mu_-\psi^-  \right) \\
+\Delta \psi_d &=& \frac{\Delta \phi}{4\pi} + \mu_d \frac{3 \Delta J}{4\pi} \pep
+\eeanum
+\end{subequations}
+Wishing to maintain $J^+$, we have:
+\benum
+J^+ = 2\pi\sum_{d=N_{dir}/2+1}^{N_{dir}}{ w_d \mu_d \left[ \psi_{in,d} + \frac{\Delta \phi}{4\pi} + \mu_d \frac{3 \Delta J}{4\pi} \right] } \pec 
+\eenum
+which implies
+\benum
+0 =  \sum_{d=N_{dir}/2+1}^{N_{dir}}{ w_d \mu_d \left[ \frac{\Delta \phi}{4\pi} + \mu_d \frac{3 \Delta J}{4\pi} \mu_d \right]}\pep
+\eenum
+Inserting the definitions of \eqts{eq:s2_def}, and allowing for DFEM interpolation points that do not exist at the left boundary:
+\benum
+0 = \sum_{d=N_{dir}/2+1}^{N_{dir}}{ w_d \mu_d \left[ \frac{1}{2} \left( \psi^+_{in}  + \vec{L}\vec{\psi}^-_1 \right) +  \frac{3 \mu_d}{2} \left( \mu_+ \psi^+_{in}  + \mu_-\vec{L} \vec{\psi}^-_1   \right) \right] } \pec
+\label{eq:boundary}
+\eenum
+where
+\benum
+\vec{L} = \left[\B{1}(-1) \dots \B{N_P}(-1)  \right] \pep
+\eenum
+Defining constants dependent on the $S_N$ quadrature used,
+\begin{subequations}
+\beanum
+\langle \mu^+ \rangle &=& \sum_{ \mu_d > 0}{ w_d \mu_d} \\
+\langle \mu^+ \rangle_2 &=& \sum_{ \mu_d > 0}{ w_d \mu_d^2} \pec
+\eeanum
+\end{subequations}
+\eqt{eq:boundary} becomes
+\benum
+\label{eq:chap4_almost}
+0 = \frac{\langle \mu^+ \rangle}{2} \psi^+_{in} + \frac{\langle \mu^+ \rangle}{2}\vec{L}\vec{\psi}^-_1  + \frac{3}{2}\langle \mu^+ \rangle_2 \left( \mu_+ \psi^+_{in} + \mu_-\vec{L} \vec{\psi}^-_1 \right) \pep
+\eenum
+Solving \eqt{eq:chap4_almost} for $\psi^+_{in}$,
+\benum
+\psi^+_{in} = -\left(\frac{\langle \mu^+ \rangle}{2}  + \frac{3}{2}\langle \mu^+ \rangle_2 \mu_+  \right)^{-1} \left( \frac{\langle \mu^+ \rangle}{2} + \frac{3}{2}\langle \mu^+ \rangle_2 \mu_-\right) \vec{L}\vec{\psi}^-_1 \pep
+\eenum
+Defining a constant, $C_{inc}$,
+\benum
+C_{inc} = -\left(\frac{\langle \mu^+ \rangle}{2}  + \frac{3}{2}\langle \mu^+ \rangle_2 \mu_+  \right)^{-1} \left( \frac{\langle \mu^+ \rangle}{2} + \frac{3}{2}\langle \mu^+ \rangle_2 \mu_-\right) \pec
+\eenum
+and substituting into \eqts{eq:chap4_first_disc}, we have
+\begin{subequations}
+\benum
+\left( \mu_+ \mathbf{G}_+ + \frac{\Delta x_1}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_1 = \frac{\Delta x_1}{8\pi} \mathbf{R}_{\Sigma_s} \vec{\Delta \phi}_1
++ \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_c^{(\ell+1/2)} - \vec{\phi}_c^{(\ell)} \right) + \mu_+ C_{inc} \vec{f}_+  \vec{L} \vec{\psi}^-_1
+\eenum
+\benum
+\left( \mu_- \mathbf{G}_- + \frac{\Delta x_1}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^-_1 = \frac{\Delta x_1}{8\pi} \mathbf{R}_{\Sigma_s} \vec{\Delta \phi}_1 
++ \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_1^{(\ell+1/2)} - \vec{\phi}_c^{(\ell)} \right) + \mu_- \psi_{in,-} \vec{f}_-  \pep
+\eenum
+\end{subequations}
+Noting that $\vec{f}_+ \vec{L}$ creates an $N_P \times N_P$ matrix, and inserting all of our other definitions, we have the equations for cell $1$ for incident angular flux boundary conditions
+\begin{subequations}
+\benum
+\left( \mu_+ \mathbf{G}_+ + \frac{\Delta x_1}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_1  - \frac{\Delta x_1}{4} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_1^+ + \vec{\psi}_1^- \right) - \mu_+ C_{inc} \vec{f}_+  \vec{L} \vec{\psi}^-_1
+= \frac{\Delta x_1}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_1^{(\ell+1/2)} - \vec{\phi}_1^{(\ell)} \right) 
+\eenum
+\benum
+\left( \mu_- \mathbf{G}_- + \frac{\Delta x_1}{2}\mathbf{R}_{\Sigma_t} \right) \vec{\psi}^-_1  - \frac{\Delta x_1}{4} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_1^+  + \vec{\psi}_1^- \right) 
+- \mu_- \mathbf{U}_- \vec{\psi}_{2}^- =  \frac{\Delta x_1}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_1^{(\ell+1/2)} - \vec{\phi}^{(\ell)} \right)  \pep
+\eenum
+\end{subequations}
+
+For reflective conditions, we have a zero current on the left edge:
+\benum
+\label{eq:chap4_reflect1}
+0 = 2\pi \sum_d{w_d \mu_d \psi_d^{(\ell+1/2)} }
+\eenum
+\benum
+0 = 2\pi \sum_{d}{ w_d \mu_d \left[ \psi_d^{(\ell+1/2)} + \frac{\Delta \phi}{4\pi} + \mu_d \frac{3 \Delta J}{2} \right] } \pep
+\eenum
+Equation \ref{eq:chap4_reflect1} implies
+\benum
+0 = \sum_{d}{ w_d \mu_d \left[\frac{1}{2}\left( \psi_{in,+} + \vec{L} \vec{\psi}_1^- \right) + \frac{3\mu_d}{2} \left(\mu_+ \psi_{in,+}  + \mu_-\vec{L} \vec{\psi}_1^-  \right)  \right]} \pep
+\eenum
+Expanding our earlier quadrature definitions,
+\begin{subequations}
+\beanum
+\langle \mu \rangle &=& \sum_d{w_d \mu_d} \\
+\langle \mu^2 \rangle &=& \sum_d{w_d \mu_d^2 } 
+\eeanum
+\end{subequations}
+we now solve for $\psi_{in,+}$ as a function of $\vec{\psi}_1^-$:
+\benum
+\psi_{in,+} = -\left( \frac{ \langle \mu \rangle}{2} + \frac{3 \mu_+ }{2}\langle \mu^2 \rangle \right)^{-1} \left(  \frac{\langle \mu \rangle}{2} + \frac{3 \mu_- }{2}\langle \mu^2 \rangle \right)\vec{L} \vec{\psi}_1^- \pep
+\eenum
+Defining another constant, $C_{ref}$,
+\benum
+C_{ref} = -\left( \frac{ \langle \mu \rangle}{2} + \frac{3 \mu_+ }{2}\langle \mu^2 \rangle \right)^{-1} \left(  \frac{\langle \mu \rangle}{2} + \frac{3 \mu_- }{2}\langle \mu^2 \rangle \right)
+\eenum,
+the leftmost cell equations with a reflective boundary condition are:
+\begin{subequations}
+\benum
+\left( \mu_+ \mathbf{G}_+ + \frac{\Delta x_1}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_1  - \frac{\Delta x_1}{4} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_1^+ + \vec{\psi}_1^- \right) - \mu_+ C_{ref} \vec{f}_+  \vec{L} \vec{\psi}^-_1
+= \frac{\Delta x_1}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_1^{(\ell+1/2)} - \vec{\phi}_1^{(\ell)} \right) 
+\eenum
+\benum
+\left( \mu_- \mathbf{G}_- + \frac{\Delta x_1}{2}\mathbf{R}_{\Sigma_t} \right) \vec{\psi}^-_1  - \frac{\Delta x_1}{4} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_1^+  + \vec{\psi}_1^- \right) 
+- \mu_- \mathbf{U}_- \vec{\psi}_{2}^- =  \frac{\Delta x_1}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_1^{(\ell+1/2)} - \vec{\phi}^{(\ell)} \right)  \pep
 \eenum
 \end{subequations}
 
