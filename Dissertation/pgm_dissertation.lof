@@ -27,42 +27,58 @@
 \contentsline {figure}{\numberline {2.24}{\ignorespaces Convergence rate of $E_{\psi ,out}$ as a function of the mesh cell size for a pure absorber for quartic DFEM.}}{43}
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Numerical outflow from single cell pure absorber with $\Sigma _t(x) = c_1e^{c_2 x}$, as a function of $c_2$ with constant optical thickness of twenty MFP, for a linear trial space.}}{56}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Numerical outflow from single cell pure absorber with $\Sigma _t(x) = c_1e^{c_2 x}$, as a function of $c_2$ with constant optical thickness of twenty MFP, for a quadratic trial space.}}{57}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Numerical outflow from single cell pure absorber with $\Sigma _t(x) = c_1e^{c_2 x}$, as a function of $c_2$ with constant optical thickness of twenty MFP, for different degree polynomial trial spaces.}}{58}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Numerical outflow from single cell pure absorber with $\Sigma _t(x) = c_1e^{c_2 x}$, as a function of $c_2$ with constant optical thickness of twenty MFP, for different degree polynomial trial spaces.}}{58}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Convergence of $E_{\psi }$ for a pure absorber with exponentially varying cross section discretized with linear DFEM.}}{62}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Convergence of $E_{\psi }$ for a pure absorber with exponentially varying cross section discretized with quadratic DFEM.}}{62}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Convergence of $E_{\psi }$ for a pure absorber with exponentially varying cross section discretized with cubic DFEM.}}{63}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Convergence of $E_{\psi }$ for a pure absorber with exponentially varying cross section discretized with quartic DFEM.}}{63}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Convergence of $E_{\psi _A}$ for a pure absorber with exponentially varying cross section discretized with linear DFEM.}}{64}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Convergence of $E_{\psi _A}$ for a pure absorber with exponentially varying cross section discretized with quadratic DFEM.}}{64}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Convergence of $E_{\psi _A}$ for a pure absorber with exponentially varying cross section discretized with cubic DFEM.}}{65}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Convergence of $E_{\psi _A}$ for a pure absorber with exponentially varying cross section discretized with quartic DFEM.}}{65}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Convergence of $E_{\psi _{out}}$ for a pure absorber with exponentially varying cross section discretized with linear DFEM.}}{66}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Convergence of $E_{\psi _{out}}$ for a pure absorber with exponentially varying cross section discretized with quadratic DFEM.}}{66}
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Convergence of $E_{\psi _{out}}$ for a pure absorber with exponentially varying cross section discretized with cubic DFEM.}}{67}
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Convergence of $E_{\psi _{out}}$ for a pure absorber with exponentially varying cross section discretized with quartic DFEM.}}{67}
-\contentsline {figure}{\numberline {3.17}{\ignorespaces Convergence of $E_{IR}$ for a pure absorber with exponentially varying cross section discretized with linear DFEM.}}{69}
-\contentsline {figure}{\numberline {3.18}{\ignorespaces Convergence of $E_{IR}$ for a pure absorber with exponentially varying cross section discretized with quadratic DFEM.}}{70}
-\contentsline {figure}{\numberline {3.19}{\ignorespaces Convergence of $E_{IR}$ for a pure absorber with exponentially varying cross section discretized with cubic DFEM.}}{70}
-\contentsline {figure}{\numberline {3.20}{\ignorespaces Convergence of $E_{IR}$ for a pure absorber with exponentially varying cross section discretized with quartic DFEM.}}{71}
-\contentsline {figure}{\numberline {3.21}{\ignorespaces Convergence of $E_{IR_A}$ for a pure absorber with exponentially varying cross section discretized with linear DFEM.}}{72}
-\contentsline {figure}{\numberline {3.22}{\ignorespaces Convergence of $E_{IR_A}$ for a pure absorber with exponentially varying cross section discretized with quadratic DFEM.}}{72}
-\contentsline {figure}{\numberline {3.23}{\ignorespaces Convergence of $E_{IR_A}$ for a pure absorber with exponentially varying cross section discretized with cubic DFEM.}}{73}
-\contentsline {figure}{\numberline {3.24}{\ignorespaces Convergence of $E_{IR_A}$ for a pure absorber with exponentially varying cross section discretized with quartic DFEM.}}{73}
-\contentsline {figure}{\numberline {3.25}{\ignorespaces Plots of the analytic $\psi (x)$, CXS DFEM $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle \psi $}\mathaccent "0365{\psi }(x)$, and $\psi _C(x)$ for the pure absorber with exponential cross section.}}{75}
-\contentsline {figure}{\numberline {3.26}{\ignorespaces Plots of the analytic $IR(x)$, CXS DFEM $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle IR$}\mathaccent "0365{IR}(x)$, and $IR_C(x)$ for the pure absorber with exponential cross section.}}{76}
-\contentsline {figure}{\numberline {3.27}{\ignorespaces Plot of the linear trial space SLXS Lobatto and CXS DFEM approximations of $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle \psi $}\mathaccent "0365{\psi }(x)$ for the pure absorber problem with exponentially varying cross section.}}{77}
-\contentsline {figure}{\numberline {3.28}{\ignorespaces Plot of the linear trial space SLXS Lobatto and CXS DFEM approximations of $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle IR$}\mathaccent "0365{IR}(x)$ for the pure absorber problem with exponentially varying cross section.}}{78}
-\contentsline {figure}{\numberline {3.29}{\ignorespaces Plot of the CXS DFEM cell average angular flux at cell centers with linear interpolation for a pure absorber with exponentially varying spatial cross section.}}{80}
-\contentsline {figure}{\numberline {3.30}{\ignorespaces Plot of the CXS DFEM cell average interaction rate at cell centers with linear interpolation for a pure absorber with exponentially varying spatial cross section.}}{81}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Numerical outflow from single cell pure absorber with $\Sigma _t(x) = c_1e^{c_2 x}$, as a function of $c_2$ with constant optical thickness of twenty MFP, for a linear trial space.}}{53}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Numerical outflow from single cell pure absorber with $\Sigma _t(x) = c_1e^{c_2 x}$, as a function of $c_2$ with constant optical thickness of twenty MFP, for a quadratic trial space.}}{54}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Numerical outflow from single cell pure absorber with $\Sigma _t(x) = c_1e^{c_2 x}$, as a function of $c_2$ with constant optical thickness of twenty MFP, for different degree polynomial trial spaces.}}{55}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Numerical outflow from single cell pure absorber with $\Sigma _t(x) = c_1e^{c_2 x}$, as a function of $c_2$ with constant optical thickness of twenty MFP, for different degree polynomial trial spaces.}}{55}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Convergence of $E_{\psi }$ for a pure absorber with exponentially varying cross section discretized with linear DFEM.}}{59}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Convergence of $E_{\psi }$ for a pure absorber with exponentially varying cross section discretized with quadratic DFEM.}}{59}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Convergence of $E_{\psi }$ for a pure absorber with exponentially varying cross section discretized with cubic DFEM.}}{60}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Convergence of $E_{\psi }$ for a pure absorber with exponentially varying cross section discretized with quartic DFEM.}}{60}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Convergence of $E_{\psi _A}$ for a pure absorber with exponentially varying cross section discretized with linear DFEM.}}{61}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Convergence of $E_{\psi _A}$ for a pure absorber with exponentially varying cross section discretized with quadratic DFEM.}}{61}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Convergence of $E_{\psi _A}$ for a pure absorber with exponentially varying cross section discretized with cubic DFEM.}}{62}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Convergence of $E_{\psi _A}$ for a pure absorber with exponentially varying cross section discretized with quartic DFEM.}}{62}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Convergence of $E_{\psi _{out}}$ for a pure absorber with exponentially varying cross section discretized with linear DFEM.}}{63}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Convergence of $E_{\psi _{out}}$ for a pure absorber with exponentially varying cross section discretized with quadratic DFEM.}}{63}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Convergence of $E_{\psi _{out}}$ for a pure absorber with exponentially varying cross section discretized with cubic DFEM.}}{64}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Convergence of $E_{\psi _{out}}$ for a pure absorber with exponentially varying cross section discretized with quartic DFEM.}}{64}
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Convergence of $E_{IR}$ for a pure absorber with exponentially varying cross section discretized with linear DFEM.}}{66}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Convergence of $E_{IR}$ for a pure absorber with exponentially varying cross section discretized with quadratic DFEM.}}{67}
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Convergence of $E_{IR}$ for a pure absorber with exponentially varying cross section discretized with cubic DFEM.}}{67}
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Convergence of $E_{IR}$ for a pure absorber with exponentially varying cross section discretized with quartic DFEM.}}{68}
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Convergence of $E_{IR_A}$ for a pure absorber with exponentially varying cross section discretized with linear DFEM.}}{69}
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Convergence of $E_{IR_A}$ for a pure absorber with exponentially varying cross section discretized with quadratic DFEM.}}{69}
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Convergence of $E_{IR_A}$ for a pure absorber with exponentially varying cross section discretized with cubic DFEM.}}{70}
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Convergence of $E_{IR_A}$ for a pure absorber with exponentially varying cross section discretized with quartic DFEM.}}{70}
+\contentsline {figure}{\numberline {3.25}{\ignorespaces Plots of the analytic $\psi (x)$, CXS DFEM $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle \psi $}\mathaccent "0365{\psi }(x)$, and $\psi _C(x)$ for the pure absorber with exponential cross section.}}{72}
+\contentsline {figure}{\numberline {3.26}{\ignorespaces Plots of the analytic $IR(x)$, CXS DFEM $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle IR$}\mathaccent "0365{IR}(x)$, and $IR_C(x)$ for the pure absorber with exponential cross section.}}{73}
+\contentsline {figure}{\numberline {3.27}{\ignorespaces Plot of the linear trial space SLXS Lobatto and CXS DFEM approximations of $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle \psi $}\mathaccent "0365{\psi }(x)$ for the pure absorber problem with exponentially varying cross section.}}{74}
+\contentsline {figure}{\numberline {3.28}{\ignorespaces Plot of the linear trial space SLXS Lobatto and CXS DFEM approximations of $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle IR$}\mathaccent "0365{IR}(x)$ for the pure absorber problem with exponentially varying cross section.}}{75}
+\contentsline {figure}{\numberline {3.29}{\ignorespaces Plot of the CXS DFEM cell average angular flux at cell centers with linear interpolation for a pure absorber with exponentially varying spatial cross section.}}{77}
+\contentsline {figure}{\numberline {3.30}{\ignorespaces Plot of the CXS DFEM cell average interaction rate at cell centers with linear interpolation for a pure absorber with exponentially varying spatial cross section.}}{77}
+\contentsline {figure}{\numberline {3.31}{\ignorespaces Accuracy comparison of flux weighted constant cross section scheme (FW CXS) to volume averaged cross section scheme (CXS DFEM) with a cubic angular flux trial space.}}{79}
+\contentsline {figure}{\numberline {3.32}{\ignorespaces Accuracy comparison of flux weighted constant cross section scheme (FW CXS) to volume averaged cross section scheme (CXS DFEM) with a cubic angular flux trial space.}}{79}
+\contentsline {figure}{\numberline {3.33}{\ignorespaces Accuracy comparison of flux weighted constant cross section scheme (FW CXS) to volume averaged cross section scheme (CXS DFEM) with a cubic angular flux trial space.}}{80}
+\contentsline {figure}{\numberline {3.34}{\ignorespaces Accuracy comparison of flux weighted constant cross section scheme (FW CXS) to volume averaged cross section scheme (CXS DFEM) with a cubic angular flux trial space.}}{80}
+\contentsline {figure}{\numberline {3.35}{\ignorespaces Plot of the linear trial space FW CXS and CXS DFEM approximations to $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle \psi $}\mathaccent "0365{\psi }(x)$ for the pure absorber problem with exponentially varying spatial cross section.}}{81}
+\contentsline {figure}{\numberline {3.36}{\ignorespaces Plot of the linear trial space FW CXS and CXS DFEM approximations to $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle IR$}\mathaccent "0365{IR}(x)$ for the pure absorber problem with exponentially varying spatial cross section.}}{82}
+\contentsline {figure}{\numberline {3.37}{\ignorespaces Asymptotic convergence of the SLXS Lobatto scheme using a quadratic trial space, for different mesh spacing methodologies.}}{85}
+\contentsline {figure}{\numberline {3.38}{\ignorespaces Asymptotic convergence of the SLXS Lobatto scheme using a quadratic trial space, for different mesh spacing methodologies.}}{86}
+\contentsline {figure}{\numberline {3.39}{\ignorespaces Asymptotic convergence of the SLXS Lobatto scheme using a quadratic trial space, for different mesh spacing methodologies.}}{86}
+\contentsline {figure}{\numberline {3.40}{\ignorespaces Asymptotic convergence of the SLXS Lobatto scheme using a quadratic trial space, for different mesh spacing methodologies.}}{87}
+\contentsline {figure}{\numberline {3.41}{\ignorespaces Errors associated with the SLXS Lobatto using a quadratic trial space scheme for different mesh spacing methodologies, at low resolutions.}}{87}
+\contentsline {figure}{\numberline {3.42}{\ignorespaces Errors associated with the SLXS Lobatto using a quadratic trial space scheme for different mesh spacing methodologies, at low resolutions.}}{88}
+\contentsline {figure}{\numberline {3.43}{\ignorespaces Errors associated with the SLXS Lobatto using a quadratic trial space scheme for different mesh spacing methodologies, at low resolutions.}}{89}
+\contentsline {figure}{\numberline {3.44}{\ignorespaces Errors associated with the SLXS Lobatto using a quadratic trial space scheme for different mesh spacing methodologies, at low resolutions.}}{90}
+\contentsline {figure}{\numberline {3.45}{\ignorespaces Errors associated with the SLXS Gauss using a quadratic trial space for different mesh spacing methodologies, at low resolutions.}}{90}
+\contentsline {figure}{\numberline {3.46}{\ignorespaces Errors associated with the SLXS Gauss using a quadratic trial space for different mesh spacing methodologies, at low resolutions.}}{91}
+\contentsline {figure}{\numberline {3.47}{\ignorespaces Errors associated with the SLXS Gauss using a quadratic trial space for different mesh spacing methodologies, at low resolutions.}}{91}
+\contentsline {figure}{\numberline {3.48}{\ignorespaces Errors associated with the SLXS Gauss using a quadratic trial space for different mesh spacing methodologies, at low resolutions.}}{92}
+\contentsline {figure}{\numberline {3.49}{\ignorespaces Errors associated with CXS DFEM using a quadratic trial space for different mesh spacing methodologies, at low resolutions.}}{92}
+\contentsline {figure}{\numberline {3.50}{\ignorespaces Errors associated with CXS DFEM using a quadratic trial space for different mesh spacing methodologies, at low resolutions.}}{93}
+\contentsline {figure}{\numberline {3.51}{\ignorespaces Errors associated with CXS DFEM using a quadratic trial space for different mesh spacing methodologies, at low resolutions.}}{93}
+\contentsline {figure}{\numberline {3.52}{\ignorespaces Errors associated with CXS DFEM using a quadratic trial space for different mesh spacing methodologies, at low resolutions.}}{94}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\vskip -10pt
-\contentsline {figure}{\numberline {A.1}{\ignorespaces TAMU figure}}{90}
-\addvspace {10\p@ }
-\vskip -10pt
-\contentsline {figure}{\numberline {B.1}{\ignorespaces TAMU figure}}{92}

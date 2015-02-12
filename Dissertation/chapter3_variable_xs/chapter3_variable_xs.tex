@@ -36,7 +36,7 @@ In \cite{varXS_diff}, continuous cubic finite element diffusion calculations tha
 Similarly, \cite{varXS_MOC} compared the results of a linear characteristic scheme that assumes a linearly varying cross section in each spatial cell 
 to those of a linear characteristic scheme that assumes a constant cross section in each cell.
 
-In this chapter, we analyze the effects of cross-section spatial dependence on solution accuracy.
+In this chapter, we analyze the effects of cross-section spatial dependence on solution accuracy, as we did in our previously published work in \cite{part_2_paper}.
 Our work differs from \cite{varXS_diff,varXS_MOC,adams_scb,adams_nowak} by considering a discontinuous finite element (DFEM) spatial discretization of the slab geometry $S_N$ transport equation using arbitrary degree polynomial finite element trial spaces.  
 In addition, like \cite{adams_scb} and \cite{adams_nowak} we do not make any approximation to the particular spatial shape of the cross-section spatial variation in each cell.
 We build on the quadrature integration ideas presented in Chapter \ref{sec:chapter2_constant_xs} and employ a numerical quadrature to evaluate the mass matrix integrals that involve cross sections as a function of space.
@@ -71,6 +71,7 @@ We begin by repeating the DFEM neutron transport equation derived in Chapter \re
 \eenum
 To account for the within cell variation of cross section, we need only make one change to \eqt{eq:chap3_start}.  We introduce the concept of a reaction matrix, $\mathbf{R}_{\Sigma}$ where $\Sigma$ is any interaction cross section or other material property:
 \benum
+\label{eq:chap3_mat_form}
 \left( \mu_d \mathbf{G} + \frac{\Delta x}{2}\mathbf{R}_{\Sigma_t} \right) \vec{\psi}_d = \frac{\Delta x}{2}\vec{Q}_d + \mu_d \psi_{in,d} \vec{f} \pep
 \eenum
 The $N_P \times N_P$ reaction matrix, $\mathbf{R}_{\Sigma_t}$ is defined as:

@@ -15,7 +15,214 @@
 
 
 
-\chapter{\uppercase{Last Chapter: The Importance of Research}}
+\chapter{\uppercase{Iterative Acceleration for the $S_N$ Neutron Transport Equations}}
 \label{sec:chapter4_acceleration}
 
-\section{New Section}
+Thus far, we have failed to discuss how the global system of angular flux unknowns is solved, 
+focusing instead on the solution of a single system of equations that describes the unknowns of a single spatial cell, for a single discrete direction.
+We have implicitly assumed the existence and knowledge of a transport sweep \cite{lewis_book}, or single, un-accelerated Richardson iteration.
+In \secref{sec:dsa_basis}, we explain the fundamental iterative techniques used to solve the neutron transport equation for scatter media.
+In \secref{sec:synthetics} we discuss the choices available for synthetic acclerators.
+Finally  we two different synthetic acceleration techniques compatible with our chose spatial discretizations of the transport equation.
+In \secref{sec:s2sa} we derive the $S_2$ synethetic acceleration (S2SA) technique\cite{s2sa} and in \secref{sec:dsa} we derive a modified interior penalty (MIP) diffusion synthetic accleration\cite{mip_dsa} (DSA)
+operator.
+
+
+\section{Iterative Solution of the Neutron Transport $S_N$ Equations}
+\label{sec:dsa_basis}
+
+To describe the the iterative process by which the discrete ordinates neutron transport equations are solved, we re-visit the spatially analytic,
+steady-state, mono-energetic discrete ordinates neutron transport equation, but do not have a monolithic right hand side source.
+Rather, we treat the right hand side as having both an isotropic scattering component, and a fixed source component, as given in \eqt{eq:chap4_transport}.
+\benum
+\mu \frac{d \psi_d}{d x} + \Sigma_t \psi_d = \frac{\Sigma_s}{4\pi}\phi + S_d \pep
+\label{eq:chap4_transport}
+\eenum
+The traditional practice is to solve \eqt{eq:chap4_transport} iteratively with Richardson iteration.  
+Each Richardson iteration is referred to as a transport sweep, where for a fixed right hand side, $\psi_d$ is update direction by direction, cell be cell, sweeping 
+from each direction's incident boundary through the entire mesh with upwinding at cell interfaces.
+Introducing iteration index $\ell$, this process can be written as:
+\benum
+\mu \frac{d \psi_d^{(\ell+1)} }{d x} + \Sigma_t \psi_d^{(\ell+1)} = \frac{\Sigma_s}{4\pi}\phi^{(\ell)} + S_d \pep
+\label{eq:chap4_iter}
+\eenum
+After we find, $\psi_d^{(\ell+1)}$, we update $\phi^{(\ell+1)}$ using the discrete ordinates definition:
+\benum
+\phi^{(\ell+1)} = 2\pi \sum_{d=1}^{N_{dir}}{w_d \psi_d^{(\ell+1)}} \pep
+\eenum
+Though convergent, the source iteration process can converge arbitrarily slow, as shown by Larsen\cite{larsen_dsa}, when $\frac{\Sigma_s}{\Sigma_t} \to 1$.
+To accelerate the convergence of source iteration, the diffusion synthetic acceleration (DSA) technique was developed \cite{old_dsa}.
+DSA is best explained through example.  
+
+To start, we consider to a single source iteration:
+\benum
+\label{eq:chap4_iter1}
+\mu \frac{d \psi_d^{(\ell+1/2)} }{d x} + \Sigma_t \psi_d^{(\ell+1/2)} = \frac{\Sigma_s}{4\pi}\phi^{(\ell)} + S_d \pep
+\eenum
+Subtracting \eqt{eq:chap4_transport} from \eqt{eq:chap4_iter1} yields:
+\benum
+\label{eq:chap4_err}
+\mu \frac{d \delta \psi_d^{(\ell+1/2)} }{d x} + \Sigma_t \delta \psi_d^{(\ell+1/2)} = \frac{\Sigma_s}{4\pi} \delta \phi^{(\ell)} \pec
+\eenum
+where we have defined the iterative error of the angular flux, $\delta \psi_d^{(\ell+1)}$,
+\benum
+\psi_d = \psi_d^{(\ell+1)} + \delta \psi_d^{(\ell+1)} \pec
+\eenum
+and scalar flux iterative error, $\delta \phi^{(\ell)}$
+\benum
+\phi = \phi^{(\ell)} + \delta \phi_d^{(\ell)} \pep
+\eenum
+Subtracting $\frac{\Sigma_s}{4\pi} \delta \phi^{(\ell)}$ from both sides of \eqt{eq:chap4_err}, we see arrive at:
+\benum
+\mu \frac{d \delta \psi_d^{(\ell+1/2)} }{d x} + \Sigma_t \delta \psi_d^{(\ell+1/2)} - \frac{\Sigma_s}{4\pi} \delta \phi^{(\ell+1/2)}
+= \frac{\Sigma_s}{4\pi} \delta \phi^{(\ell)} - \frac{\Sigma_s}{4\pi} \delta \phi^{(\ell+1/2)} \pep
+\label{eq:chap4_intermediate}
+\eenum
+Recognizing:
+\begin{subequations}
+\beanum
+\phi &=& \phi^{(\ell+1/2)} + \delta \phi^{(\ell+1/2)} \pec\\
+\phi &=& \phi^{(\ell)} + \delta \phi^{(\ell)} \pec \\
+\phi^{(\ell+1/2)} - \phi^{(\ell)} &=& \left( \phi - \delta \phi^{(\ell+1/2)}  \right) - \left( \phi -  \delta \phi^{(\ell)} \right) \pec \text{ and} \\
+ \delta  \phi^{(\ell)} - \delta \phi^{(\ell+1)} &=& \phi^{(\ell+1/2)} - \phi^{(\ell)} \pec
+\eeanum
+\end{subequations}
+\eqt{eq:chap4_intermediate} becomes:
+\benum
+\label{eq:dsa_idea}
+\mu \frac{d \delta \psi_d^{(\ell+1/2)} }{d x} + \Sigma_t \delta \psi_d^{(\ell+1/2)} 
+= \frac{\Sigma_s}{4\pi} \delta \phi^{(\ell+1/2)} + \frac{\Sigma_s}{4\pi} \left( \phi^{(\ell+1/2)} -  \phi^{(\ell)} \right) \pep
+\eenum
+Equation \ref{eq:dsa_idea} indicates that if we could solve a transport problem with a driving source equal to the difference between two scattering iterates,
+\benum
+\frac{\Sigma_s}{4\pi} \left( \phi^{(\ell+1/2)} - \phi^{(\ell)}  \right)\pec
+\eenum
+then we could get the iterative error of iteration $\delta \phi^{(\ell+1/2)}$, add to the $\phi^{(\ell+1/2)}$ we already have, and then have the exact solution, $\phi$. 
+However, solving \eqt{eq:dsa_idea} is as difficult as solving the original problem in \eqt{eq:chap4_transport}.
+Alternatively, if we could solve an approximation to \eqt{eq:dsa_idea}, perhaps the result would satisfy:
+\benum
+\label{eq:chap4_delta_phi}
+\phi \approx \Delta \phi^{(\ell+1/2)} + \phi^{(\ell+1/2)} \pec
+\eenum
+where $\Delta \phi^{(\ell+1/2)}$ comes from the lower order approximation to \eqt{eq:dsa_idea}.
+The idea of a using lower order approximation to approximately solve \eqt{eq:dsa_idea} is central to synthetic acceleration.
+
+
+\section{Qualitative Comparison of Different Synthetic Acceleration Techniques}
+\label{sec:synthetics}
+
+Three types of synthetic acceleration have received significant attention in the neutron transport and thermal radiative transfer literature,
+$S_2$ synthetic acceleration (S2SA)\cite{s2sa}, diffusion synthetic acceleration (DSA)\cite{old_dsa}, and transport synthetic acceleration (TSA)\cite{tsa}.
+Each method of synthetic acceleration has both advantages and disadvantages relating to the computational efficiency and iterative effectiveness of each method.  
+
+The S2SA method was shown to be iteratively effective in both slab and 1-D spherical geometries. 
+Additionally, it is easily compatible with any DFEM spatial discretization of the $S_N$ neutron transport equations.  
+S2SA solves for $\psi_+$ and $\psi_-$ using a single global matrix solve, rather than a direction by direction solve for the full transport $\psi_d$ unknowns.
+The full transport scalar flux iterative update is then defined as,
+\benum
+\Delta \phi^{(\ell+1/2)} \approx 2\pi \left[ w_+ \psi_+ + w_- \psi_- \right] \pec
+\eenum
+where $w_+,~w_-$ correspond to the weights of a direction quadrature (typically Gauss) set with corresponding discrete direction $\mu_+ and \mu_-$, and $\psi_+,~\psi_-$ are the fundamental unknowns of the $S_2$ discretization.
+Thus, S2SA uses the same local matrices of \eqt{eq:chap3_mat_form} as the full transport operator.
+However, the S2SA global matrix that must be inverted to solve for $\psi_+$ and $\psi_-$ is extremely difficult to invert for multiple spatial dimensions.
+This makes S2SA iteratively effective, but computationally expensive, limiting the extensibility of any techniques that require S2SA.
+But since our initial focus is on solving slab geometry neutron transport problems, we will continue to consider S2SA as it is readily adaptable to our new spatial discretization schemes. \cite{s2sa}
+
+Gelbard and Hageman first showed in \cite{old_dsa} that diffusion synthetic acceleration (DSA) could be used to accelerate the convergence of source iteration in neutron transport since the diffusion operator effectively attenuates the slowly varying error modes that hinder the convergence of source iteration.
+To be unconditionally effective, Larsen showed that DSA needed to be derived in a method consistent with the spatial and angular discretization of the transport equation \cite{larsen_dsa}.
+Adams and Martin first showed that partially consistent diffusion discretizations could be used to effectively accelerate DFEM spatial discretizations of the neutron transport equation \cite{adams_dsa}.
+Though shown to be unconditionally stable for certain geometries the M4S DSA proposed in \cite{adams_dsa} has been shown to be unstable for unstructured multi-dimensional geometries \cite{wwm_dsa}.
+To allow more general applicability, we wish to consider a more advanced DSA discretization.
+Alternative DSA discretizations that have been applied successfully to unstructured multi-dimensional geometries include: the partially consistent WLA DSA proposed in \cite{wla_dsa}, the fully consistent DSA (FCDSA) proposed in \cite{wwm_dsa}, and the partially consistent MIP DSA proposed in \cite{mip_dsa}.
+WLA DSA produces a symmetric positive definite (SPD) diffusion matrix and is unconditionally stable, but the spectral radius of the WLA DSA scheme increases on distorted mesh cells and for optically thick cells with scattering ratios very close to unity \cite{wla_dsa,wwm_dsa}.
+While the FCDSA scheme remains effective in optically thick cells, it creates a diffusion operator that is very difficult and costly to invert\cite{wwm_dsa}. 
+The MIP DSA discretization \cite{mip_dsa} of Wang and Ragusa generates a SPD diffusion operator, remains effective for all cell optical thicknesses, has been successfully applied to high order DFEM $S_N$ transport, and can be used with adaptive mesh refinement.
+Further, it was shown in \cite{mip_mc} that the MIP DSA diffusion operator can be inverted very quickly using advanced preconditioners such as algebraic multi-grid.
+Thus, it we can ideally define a MIP discretization that is iteratively effective for neutron transport problems discretized with our higher order DFEM methods that account for the spatial variation of cross section within each cell, we will have found a scheme that is most likely to prove useful in more meaningful (multiple spatial dimension) thermal radiative transfer simulations.
+
+ TSA differs from S2SA and DSA in that it does not attempt to invert a single matrix that describes a lower order operator approximation to the full discrete ordinates neutron transport equation.
+The main advantage of TSA over DSA is that using TSA allows for re-use of much of the software already developed for transport sweeps, greatly lowering software development overhead as compared to using DSA.
+However, TSA is in general not as effective as DSA, and finding the most efficient set of parameters that complete the description of the TSA scheme is problem dependent.  \cite{tsa}
+
+We will derive an S2SA operator in \secref{sec:s2sa} and MIP DSA operator in \secref{sec:dsa}.  
+We elect not to derive a TSA operator as it occupies a middle ground between, a S2SA operator that re-uses a lot of the transport sweep capability we have already developed with our high order DFEM of Chapter \ref{sec:chapter3_variable_xs}, but is computationally challenging to invert (in multiple spatial dimensions), and the MIP DSA operator we define in \secref{sec:dsa} that requires significant derivation independent of the DFEM neutron transport methodology we have already derived, but that is computationally efficient to invert.
+
+\section{$S_2$ Synthetic Acceleration}
+\label{sec:s2sa}
+
+We begin our derivation by repeating the $S_2$, spatially analytic angular flux update equations from Morel\cite{s2sa} (Eqs. (12a) and (12b)), noting that we have elected to use $\psi^+$ and $\psi^-$ instead of $c^+$ and $c^-$, $\Sigma$ represents macroscopic interaction cross sections rather than $\sigma$,  and we define $\phi = 2\pi \sum_d{w_d \psi_d}$:
+\begin{subequations}
+\label{eq:chap4_raw}
+\benum
+\mu_+ \frac{d \psi^+}{dx} + \Sigma_t \psi^+ = \frac{\Sigma_s}{4\pi} \Delta \phi + \frac{\Sigma_s}{4\pi} \left( \phi^{(\ell+1/2)} - \phi^{(\ell)} \right) 
+\eenum
+\benum
+\mu_- \frac{d \psi^-}{dx} + \Sigma_t \psi^- = \frac{\Sigma_s}{4\pi}{\Delta \phi} + \frac{\Sigma_s}{4\pi} \left( \phi^{(\ell+1/2)} - \phi^{(\ell)} \right) \pep
+\eenum
+\end{subequations}
+In \eqts{eq:chap4_raw} we are assuming scattering is isotropic only.
+Spatially discretizing with a $P$ degree DFEM as in Chapter \ref{sec:chapter3_variable_xs}, for an interior cell, $c$, we would have:
+\begin{subequations}
+\label{eq:chap4_first_disc}
+\benum
+\left( \mu_+ \mathbf{G}_+ + \frac{\Delta x}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_c = \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \vec{\Delta \phi}_c
++ \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_c^{(\ell+1/2)} - \vec{\phi}_c^{(\ell)} \right) + \mu_+ \psi_{in,+} \vec{f}_+ 
+\eenum
+\benum
+\left( \mu_- \mathbf{G}_- + \frac{\Delta x}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^-_c = \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \vec{\Delta \phi}_c 
++ \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_c^{(\ell+1/2)} - \vec{\phi}_c^{(\ell)} \right) + \mu_- \psi_{in,-} \vec{f}_-  \pep
+\eenum
+\end{subequations}
+In \eqts{eq:chap4_first_disc}, we note that $\mu_+ > 0$ and $\mu_- < 0$, and as such use the $\pm$ subscripts to define the appropriate $\mathbf{G}$ and $\vec{f}$, defined in \eqts{eq:chap4_g} and \eqts{eq:chap4_f}, respectively:
+\begin{subequations}
+\label{eq:chap4_g}
+\benum
+\mathbf{G}_{+,i~j} = \B{i}(1)\B{j}(1) - \int_{-1}^1{\frac{ d \B{i}}{d s} \B{j}(s) ~ds}
+\eenum
+\benum
+\mathbf{G}_{-,i~j} = -\B{i}(-1)\B{j}(-1) - \int_{-1}^1{\frac{ d \B{i}}{d s} \B{j}(s) ~ds} \pec
+\eenum
+\end{subequations}
+\begin{subequations}
+\label{eq:chap4_f}
+\benum
+\vec{f}_{+,i} = \B{i}(-1)
+\eenum
+\benum
+\vec{f}_{-,i} = -\B{i}(1) \pep
+\eenum
+\end{subequations}
+Noting that the inflow to cells on the interior is the outflow from the appropriate cell, for and using the definitions of \eqts{eq:mu_in_p} and \eqts{eq:mu_in_n}, we define $\psi_{in,+} \vec{f}_+$ and $\psi_{in,-} \vec{f}_-$ entirely in terms of   $\vec{\psi}^+_{c-1}$ and $\vec{\psi}^-_{c+1}$, 
+\begin{subequations}
+\beanum
+ \psi_{in,+} \vec{f}_+ &=& \mathbf{U}_+ \vec{\psi}^+_{c-1} \\
+ \psi_{in,-} \vec{f}_- &=& \mathbf{U}_- \vec{\psi}^-_{c+1} \pec
+\eeanum
+\end{subequations}
+where
+\begin{subequations}
+\label{eq:u_def}
+\beanum
+\mathbf{U}_+ &=& \left[ \begin{array}{c} \B{1}(-1) \\ \vdots \\ \B{N_P}(-1) \end{array} \right]  \left[ \B{1}(1) \dots \B{N_P}(1) \right] \\
+\mathbf{U}_- &=& \left[ \begin{array}{c} \B{1}(1) \\ \vdots \\ \B{N_P}(1) \end{array} \right]  \left[ \B{1}(-1) \dots \B{N_P}(-1) \right] \pep
+\eeanum
+\end{subequations}
+Finally, assuming a symmetric quadrature,
+\benum
+\frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s}\vec{\Delta \phi}_c = \frac{\Delta x_c}{4}\mathbf{R}_{\Sigma_s} \left( \vec{\psi}_c^+ + \vec{\psi}_c^- \right) \pec
+\label{eq:s2_quad}
+\eenum
+we may write \eqts{eq:chap4_first_disc} as:
+\begin{subequations}
+\benum
+\left( \mu_+ \mathbf{G}_+ + \frac{\Delta x}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_c  - \frac{\Delta x_c}{4} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_c^+ + \vec{\psi}_c^- \right) - \mu_+ \mathbf{U}_+ \vec{\psi}_{c-1}^+
+= \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_c^{(\ell+1/2)} - \vec{\phi}_c^{(\ell)} \right) 
+\eenum
+\benum
+\left( \mu_- \mathbf{G}_- + \frac{\Delta x}{2}\mathbf{R}_{\Sigma_t} \right) \vec{\psi}^-_c  - \frac{\Delta x_c}{4} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_c^+  + \vec{\psi}_c^- \right) 
+- \mu_- \mathbf{U}_- \vec{\psi}_{c+1}^- =  \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_c^{(\ell+1/2)} - \vec{\phi}^{(\ell)} \right)  \pep
+\eenum
+\end{subequations}
+
+\section{Modified Interior Penalty Diffusion Synthetic Acceleration}
+\label{sec:dsa}

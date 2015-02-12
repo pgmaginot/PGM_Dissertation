@@ -13,8 +13,9 @@
 \contentsline {table}{\numberline {2.10}{\ignorespaces Local truncation error analysis in $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle \psi $}\mathaccent "0365{\psi }_{out,d}$ for a single cell with constant cross section, for Exact DFEM and TL.}}{34}
 \contentsline {table}{\numberline {2.11}{\ignorespaces Local truncation error analysis in $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle \psi $}\mathaccent "0365{\psi }_{out,d}$ for a single cell with constant cross section, for SL Newton-Cotes, SL Gauss, and SL Lobatto.}}{34}
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\vskip -10pt
+\contentsline {table}{\numberline {3.1}{\ignorespaces Nomenclature of numerical schemes considered for the pure absorber problem with a spatially exponential cross section.}}{48}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Shorthand notation of different cell spacing schemes.}}{83}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

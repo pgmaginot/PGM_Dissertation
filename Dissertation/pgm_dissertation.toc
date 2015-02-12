@@ -6,7 +6,7 @@
 \contentsline {chapter}{NOMENCLATURE}{v}
 \contentsline {chapter}{TABLE OF CONTENTS}{vi}
 \contentsline {chapter}{LIST OF FIGURES}{viii}
-\contentsline {chapter}{LIST OF TABLES}{xiii}
+\contentsline {chapter}{LIST OF TABLES}{xiv}
 \contentsline {chapter}{\numberline {1}\uppercase {Introduction}}{1}
 \vskip +10pt
 \contentsline {section}{\numberline {1.1}Simplifications of the Thermal Radiative Transfer Equations}{2}
@@ -29,29 +29,30 @@
 \contentsline {subsection}{\numberline {2.5.2}Fixed Source Single-Cell Inflow Comparison}{25}
 \contentsline {subsection}{\numberline {2.5.3}Single-Cell Taylor Series Analysis}{31}
 \contentsline {subsection}{\numberline {2.5.4}Convergence Rates for Spatially Discretized 1-D Domains}{35}
-\contentsline {chapter}{\numberline {3}\uppercase {Last Chapter: The Importance of Research}}{44}
+\contentsline {chapter}{\numberline {3}\uppercase {DFEM Methods for Neutron Transport for Problems with Spatially Varying Cross Section}}{44}
 \vskip +10pt
-\contentsline {section}{\numberline {3.1}Weak Form Derivation}{47}
-\contentsline {section}{\numberline {3.2}Numerical Schemes}{51}
-\contentsline {subsection}{\numberline {3.2.1}Exact Spatial Integration}{51}
-\contentsline {subsubsection}{\numberline {3.2.1.1}Exact Cross Section}{52}
-\contentsline {subsubsection}{\numberline {3.2.1.2}Constant Cross Section}{52}
-\contentsline {subsection}{\numberline {3.2.2}Self-Lumping Quadrature Integration}{53}
-\contentsline {section}{\numberline {3.3}Pure Absorber Numerical Results}{54}
-\contentsline {subsection}{\numberline {3.3.1}Multiple Cell Spatial Convergence Rates}{59}
-\contentsline {subsection}{\numberline {3.3.2}Consequences of Assuming a Cell-Wise Constant Cross Section}{74}
-\contentsline {subsection}{\numberline {3.3.3}Flux-Weighting versus Volume-Averaged Cross Sections}{79}
-\contentsline {chapter}{\numberline {4}\uppercase {Last Chapter: The Importance of Research}}{83}
+\contentsline {section}{\numberline {3.1}Weak Form Derivation}{46}
+\contentsline {section}{\numberline {3.2}Numerical Schemes}{47}
+\contentsline {subsection}{\numberline {3.2.1}Exact Spatial Integration}{48}
+\contentsline {subsubsection}{\numberline {3.2.1.1}Exact Cross Section}{49}
+\contentsline {subsubsection}{\numberline {3.2.1.2}Constant Cross Section}{49}
+\contentsline {subsection}{\numberline {3.2.2}Self-Lumping Quadrature Integration}{50}
+\contentsline {section}{\numberline {3.3}Pure Absorber Numerical Results}{50}
+\contentsline {subsection}{\numberline {3.3.1}Multiple Cell Spatial Convergence Rates}{56}
+\contentsline {subsection}{\numberline {3.3.2}Consequences of Assuming a Cell-Wise Constant Cross Section}{71}
+\contentsline {subsection}{\numberline {3.3.3}Flux-Weighting versus Volume-Averaged Cross Sections}{78}
+\contentsline {subsubsection}{\numberline {3.3.3.1}Generating Improved Spatial Meshes}{83}
+\contentsline {subsubsection}{\numberline {3.3.3.2}Mesh Spacing Results}{84}
+\contentsline {chapter}{\numberline {4}\uppercase {Iterative Acceleration for the $S_N$ Neutron Transport Equations}}{95}
 \vskip +10pt
-\contentsline {section}{\numberline {4.1}New Section}{83}
-\contentsline {chapter}{\numberline {5}\uppercase {Last Chapter: The Importance of Research}}{84}
+\contentsline {section}{\numberline {4.1}Iterative Solution of the Neutron Transport $S_N$ Equations}{95}
+\contentsline {section}{\numberline {4.2}Qualitative Comparison of Different Synthetic Acceleration Techniques}{98}
+\contentsline {section}{\numberline {4.3}$S_2$ Synthetic Acceleration}{101}
+\contentsline {section}{\numberline {4.4}Modified Interior Penalty Diffusion Synthetic Acceleration}{103}
+\contentsline {chapter}{\numberline {5}\uppercase {Last Chapter: The Importance of Research}}{104}
 \vskip +10pt
-\contentsline {section}{\numberline {5.1}New Section}{84}
-\contentsline {chapter}{\numberline {6}\uppercase {Last Chapter: The Importance of Research}}{85}
+\contentsline {section}{\numberline {5.1}New Section}{104}
+\contentsline {chapter}{\numberline {6}\uppercase {Last Chapter: The Importance of Research}}{105}
 \vskip +10pt
-\contentsline {section}{\numberline {6.1}New Section}{85}
-\contentsline {chapter}{REFERENCES}{86}
-\contentsline {chapter}{APPENDIX \numberline {A}\uppercase {First Appendix}}{90}
-\contentsline {chapter}{APPENDIX \numberline {B}\uppercase {Second Appendix with a longer title - much longer in fact}}{91}
-\vskip +10pt
-\contentsline {section}{\numberline {B.1}Appendix Section}{91}
+\contentsline {section}{\numberline {6.1}New Section}{105}
+\contentsline {chapter}{REFERENCES}{106}
