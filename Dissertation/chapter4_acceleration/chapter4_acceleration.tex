@@ -69,6 +69,7 @@ where we have defined the iterative error of the angular flux, $\delta \psi_d^{(
 \eenum
 and scalar flux iterative error, $\delta \phi^{(\ell)}$
 \benum
+\label{eq:chap4_phi_err}
 \phi = \phi^{(\ell)} + \delta \phi_d^{(\ell)} \pep
 \eenum
 Subtracting $\frac{\Sigma_s}{4\pi} \delta \phi^{(\ell)}$ from both sides of \eqt{eq:chap4_err}, we see arrive at:
@@ -511,4 +512,28 @@ C_{MIP} = 2\pi \sum_{\mu_d >0}{w_d \mu_d \psi_d^{(\ell+1/2)} } \pep
 
 \section{Numerical Results Verifying Implementation and Performance of S2SA and MIP DSA}
 \label{sec:accel_results}
+
+We will consider two test problems to compare the effectiveness of S2SA and MIP DSA compared against source iteration, abbreviated as SI in the following results.
+To measure effectiveness, we will  numerically compare the spectral radius, $\rho$ of each scheme.
+The spectral radius of an iterative technique is the largest magnitude eigenvalue of the iterative operator.
+For an iteration scheme to be convergent, it must be true $\p < 1$.
+After sufficiently many iterations, the following is true:
+\benum
+\norm{ \delta \phi^{(\ell+1)} } \leq \rho \norm{\delta \phi^{(ell)}} \pec
+\eenum
+where $\norm{\cdot}$ is a valid norm and $\delta \phi^{(\ell)}$ is the error as defined in \eqt{eq:chap4_phi_err}.
+We will numerically test our methods by considering a trivial solution problem.  
+That is to say we will solve a problem with vacuum boundary conditions on all edges and no volumetric solutions.  
+However, rather than initialize with a zero solution, we set the values of $\phi^{(0)}$ to be random numbers $\in[0,1]$.
+We then use 100 iterations to estimate $\rho$, taking the last value to be the converged estimate of $\rho$.
+In \secref{sec:chap4_constant_xs} we present results for a scattering medium with a spatially constant cross section and in \secref{sec:chap4_variable_xs}, we consider a scattering medium with spatially varying interaction cross section.
+
+\subsection{Spatially Constant Cross Section Scattering Problem}
+\label{sec:chap4_constant_xs}
+
+
+\subsection{Spatially Varying Cross Section Scattering Problem}
+\label{sec:chap4_variable_xs}
+
+
 

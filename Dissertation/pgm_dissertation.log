@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.18)  12 FEB 2015 17:25
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.18)  13 FEB 2015 16:04
 entering extended mode
 **pgm_dissertation.tex
 (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.tex
@@ -1031,60 +1031,60 @@ Chapter 4.
 
 
 ] [96] [97] [98] [99] [100] [101]
-Overfull \hbox (17.28886pt too wide) detected at line 219
+Overfull \hbox (17.28886pt too wide) detected at line 220
 [] [] \OMS/cmsy/m/n/12   []\OT1/cmr/bx/n/12 R[] [] \OMS/cmsy/m/n/12   \OML/cmm/m/it/12 []\OT1/cmr/bx/n/12 U[][] \OT1/cm
 r/m/n/12 = []\OT1/cmr/bx/n/12 R[] []
  []
 
 
-Overfull \hbox (24.55266pt too wide) detected at line 223
+Overfull \hbox (24.55266pt too wide) detected at line 224
 [] [] \OMS/cmsy/m/n/12   []\OT1/cmr/bx/n/12 R[] [] \OMS/cmsy/m/n/12   \OML/cmm/m/it/12 []\OT1/cmr/bx/n/12 U[][] \OT1/cm
 r/m/n/12 = []\OT1/cmr/bx/n/12 R[] []  \OML/cmm/m/it/12 :
  []
 
 [102] [103] [104]
-Overfull \hbox (35.5438pt too wide) detected at line 299
+Overfull \hbox (35.5438pt too wide) detected at line 300
 [] [] \OMS/cmsy/m/n/12   []\OT1/cmr/bx/n/12 R[] [] \OMS/cmsy/m/n/12   \OML/cmm/m/it/12 []C[][][][] \OT1/cmr/m/n/12 = []
 \OT1/cmr/bx/n/12 R[] []
  []
 
 
-Overfull \hbox (18.7572pt too wide) detected at line 303
+Overfull \hbox (18.7572pt too wide) detected at line 304
 [] [] \OMS/cmsy/m/n/12   []\OT1/cmr/bx/n/12 R[] [] \OMS/cmsy/m/n/12   \OML/cmm/m/it/12 []\OT1/cmr/bx/n/12 U[][] \OT1/cm
 r/m/n/12 = []\OT1/cmr/bx/n/12 R[] []  \OML/cmm/m/it/12 :
  []
 
 [105]
-Overfull \hbox (36.79108pt too wide) detected at line 338
+Overfull \hbox (36.79108pt too wide) detected at line 339
 [] [] \OMS/cmsy/m/n/12   []\OT1/cmr/bx/n/12 R[] [] \OMS/cmsy/m/n/12   \OML/cmm/m/it/12 []C[][][][] \OT1/cmr/m/n/12 = []
 \OT1/cmr/bx/n/12 R[] []
  []
 
 
-Overfull \hbox (18.7572pt too wide) detected at line 342
+Overfull \hbox (18.7572pt too wide) detected at line 343
 [] [] \OMS/cmsy/m/n/12   []\OT1/cmr/bx/n/12 R[] [] \OMS/cmsy/m/n/12   \OML/cmm/m/it/12 []\OT1/cmr/bx/n/12 U[][] \OT1/cm
 r/m/n/12 = []\OT1/cmr/bx/n/12 R[] []  \OML/cmm/m/it/12 :
  []
 
-[106] [107] [108] [109] [110] [111]) [112]
+[106] [107] [108] [109] [110] [111] [112]) [113]
 (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter5_depletion/chapter5_depletion.tex
 Chapter 5.
-) [113
+) [114
 
 
 
 ] (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter6_grey_radtran/chapter6_grey_radtran.tex
 Chapter 6.
-) [114
+) [115
 
 
 
 ] (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.tex
-(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.bbl [115
+(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.bbl [116
 
 
 
-] [116] [117] [118] [119])) [120]
+] [117] [118] [119] [120])) [121]
 (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.aux
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/titlepage.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/abstract.aux)
@@ -1100,10 +1100,10 @@ Chapter 6.
 (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter6_grey_radtran/chapter6_grey_radtran.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.aux)) ) 
 Here is how much of TeX's memory you used:
- 4753 strings out of 493921
- 82727 string characters out of 3147273
- 148562 words of memory out of 3000000
- 7783 multiletter control sequences out of 15000+200000
+ 4756 strings out of 493921
+ 82791 string characters out of 3147273
+ 148601 words of memory out of 3000000
+ 7786 multiletter control sequences out of 15000+200000
  11479 words of font info for 43 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  34i,18n,33p,993b,281s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1117,9 +1117,9 @@ eX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/font
 onts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/public/hoekwater/stmary10.pfb>
-Output written on pgm_dissertation.pdf (134 pages, 2079743 bytes).
+Output written on pgm_dissertation.pdf (135 pages, 2082221 bytes).
 PDF statistics:
- 780 PDF objects out of 1000 (max. 8388607)
+ 783 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  381 words of extra memory for PDF output out of 10000 (max. 10000000)
 

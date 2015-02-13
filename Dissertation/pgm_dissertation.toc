@@ -50,10 +50,12 @@
 \contentsline {section}{\numberline {4.3}$S_2$ Synthetic Acceleration}{101}
 \contentsline {section}{\numberline {4.4}Modified Interior Penalty Diffusion Synthetic Acceleration}{106}
 \contentsline {section}{\numberline {4.5}Numerical Results Verifying Implementation and Performance of S2SA and MIP DSA}{112}
-\contentsline {chapter}{\numberline {5}\uppercase {Last Chapter: The Importance of Research}}{113}
+\contentsline {subsection}{\numberline {4.5.1}Spatially Constant Cross Section Scattering Problem}{113}
+\contentsline {subsection}{\numberline {4.5.2}Spatially Varying Cross Section Scattering Problem}{113}
+\contentsline {chapter}{\numberline {5}\uppercase {Last Chapter: The Importance of Research}}{114}
 \vskip +10pt
-\contentsline {section}{\numberline {5.1}New Section}{113}
-\contentsline {chapter}{\numberline {6}\uppercase {Last Chapter: The Importance of Research}}{114}
+\contentsline {section}{\numberline {5.1}New Section}{114}
+\contentsline {chapter}{\numberline {6}\uppercase {Last Chapter: The Importance of Research}}{115}
 \vskip +10pt
-\contentsline {section}{\numberline {6.1}New Section}{114}
-\contentsline {chapter}{REFERENCES}{115}
+\contentsline {section}{\numberline {6.1}New Section}{115}
+\contentsline {chapter}{REFERENCES}{116}
