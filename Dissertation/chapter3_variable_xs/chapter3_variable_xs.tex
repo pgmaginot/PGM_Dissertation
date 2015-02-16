@@ -160,10 +160,10 @@ Historically, neutronics and some radiative transfer calculations have approxima
 That is, some evaluation of the true $\Sigma_t(s)$ within a given cell is used to determine a constant value, $\hat{\Sigma}_t$, within each cell.  Under this simplification, $\mathbf{R}_{\Sigma_t}$ is approximated as:
 \begin{subequations}
 \label{eq:chap3_cxs_R}
-\beanum
+\benum
 %\mathbf{R}_{\Sigma_t,ij} &=& \frac{\hat{\Sigma}_t}{2} \int_{-1}^1{ \B{i}(s) \B{j}(s)~ds} ~~\text{and}\\
-\mathbf{R}_{\Sigma_t} &=& \hat{\Sigma}_t \mathbf{M} \pep 
-\eeanum
+\mathbf{R}_{\Sigma_t} = \hat{\Sigma}_t \mathbf{M} \pep 
+\eenum
 \end{subequations}
 In our test problems, the constant cross section scheme (CXS DFEM) uses the volumetric average of $\Sigma_t(s)$ to generate $\hat{\Sigma}_t$:
 \benum

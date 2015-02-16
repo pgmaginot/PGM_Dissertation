@@ -312,12 +312,12 @@ An alternative method of mass matrix lumping restricts the quadrature points to 
 \eenum
 and the quadrature integration of \eqt{eq:mass_int} reduces to:
 \benum
-\label{eq:self_lump_def}
 \mathbf{M}_{ij} = \left \{ \begin{array}{ll}
 w_i ~ & ~ i=j \\
  0 & ~\text{otherwise}
 \end{array}
 \right. \pep
+\label{eq:self_lump_def}
 \eenum
 As mentioned previously, we refer to the implicit lumping of \eqt{eq:self_lump_def} as self-lumping (SL).  Self-lumping is a method to automatically generate a diagonal mass matrix. We note that self-lumping does not imply that the quadrature formula inexactly integrates the mass matrix. 
 %, \eqt{eq:mass_mat}.

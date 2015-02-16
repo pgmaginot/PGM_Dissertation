@@ -6,7 +6,7 @@
 \contentsline {chapter}{NOMENCLATURE}{v}
 \contentsline {chapter}{TABLE OF CONTENTS}{vi}
 \contentsline {chapter}{LIST OF FIGURES}{viii}
-\contentsline {chapter}{LIST OF TABLES}{xiv}
+\contentsline {chapter}{LIST OF TABLES}{xv}
 \contentsline {chapter}{\numberline {1}\uppercase {Introduction}}{1}
 \vskip +10pt
 \contentsline {section}{\numberline {1.1}Simplifications of the Thermal Radiative Transfer Equations}{2}
@@ -52,10 +52,10 @@
 \contentsline {section}{\numberline {4.5}Numerical Results Verifying Implementation and Performance of S2SA and MIP DSA}{112}
 \contentsline {subsection}{\numberline {4.5.1}Spatially Constant Cross Section Scattering Problem}{113}
 \contentsline {subsection}{\numberline {4.5.2}Spatially Varying Cross Section Scattering Problem}{113}
-\contentsline {chapter}{\numberline {5}\uppercase {Last Chapter: The Importance of Research}}{114}
+\contentsline {chapter}{\numberline {5}\uppercase {Fuel Depletion Problem}}{114}
 \vskip +10pt
-\contentsline {section}{\numberline {5.1}New Section}{114}
-\contentsline {chapter}{\numberline {6}\uppercase {Last Chapter: The Importance of Research}}{115}
+\contentsline {section}{\numberline {5.1}Specfication}{114}
+\contentsline {chapter}{\numberline {6}\uppercase {Last Chapter: The Importance of Research}}{130}
 \vskip +10pt
-\contentsline {section}{\numberline {6.1}New Section}{115}
-\contentsline {chapter}{REFERENCES}{116}
+\contentsline {section}{\numberline {6.1}New Section}{130}
+\contentsline {chapter}{REFERENCES}{131}
