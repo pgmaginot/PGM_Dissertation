@@ -523,74 +523,149 @@ where $\norm{\cdot}$ is a valid norm and $\delta \phi^{(\ell)}$ is the error as 
 We will numerically test our methods by considering a trivial solution problem.  
 That is to say we will solve a problem with vacuum boundary conditions on all edges and no volumetric solutions.  
 However, rather than initialize with a zero solution, we set the values of $\phi^{(0)}$ to be random numbers $\in[0,1]$.
-We then use 100 iterations to estimate $\rho$, taking the last value to be the converged estimate of $\rho$.
+We then use 150 iterations to estimate $\rho$, taking the last value to be the converged estimate of $\rho$.
 In \secref{sec:chap4_constant_xs} we present results for a scattering medium with a spatially constant cross section and in \secref{sec:chap4_variable_xs}, we consider a scattering medium with spatially varying interaction cross section.
+
+In the plots of \secref{sec:chap4_constant_xs} and \secref{sec:chap4_variable_xs} we will examine $\rho$ as a function of scattering ratio, $c$, $S_N$ order, DFEM trial space degree, iterative technique, DFEM interpolation point type, and cell optical thickness, $\Sigma_t \Delta x$.
 
 \subsection{Spatially Constant Cross Section Scattering Problem}
 \label{sec:chap4_constant_xs}
 
-\begin{figure}[!htp]
-\centering
-\includegraphics[width=10cm]{Constant_XS_SN8_P3_Lobatto_Solvers.png}
-\caption{Estimates of $\rho$ for different iterative techniques for $S_8$, $c=0.999$, cubic SL Lobatto.}
-\label{fig:p3_solvers}
-\end{figure}
+Our first test problem with is a $20~[cm]$ slab with spatially homogeneous cross section.  
+We use at least 10 cells in all simulations in \figs{fig:p1_gauss}{fig:s2sa_lobatto}.
+For $\Sigma_t \Delta x >= 2$, we increase $\Sigma_t$ to the necessary value to obtain the desired $\Sigma_t \Delta x$, while holding $\Delta x = 2[cm]$ constant.
+For $\Sigma_t \Delta x < 2$, we hold $\Sigma_t = 1[cm^{-1}]$ constant, while increasing the number of cells to achieve the desired $\Sigma_t \Delta x$.
 
+The purpose of the following section is to 
+\begin{enumerate}
+\item verify that results from our S2SA implementation for linear SL Gauss are qualitatively similar to those presented in \cite{s2sa},
+\item determine whether S2SA is an effective iterative acceleration technique, for SL Gauss and SL Lobatto DFEM with $P \in[1,4]$,
+\item verify that results from our MIP DSA implementation used in conjunction with SL Gauss, gives results similar to those presented in \cite{mip_dsa} for $P\in[1,4]$, and 
+\item  determine whether MIP DSA is an effective iterative acceleration technique for SL Lobatto DFEM.
+\end{enumerate}
+
+In \fig{fig:p1_gauss}, we compare SI, S2SA, and MIP DSA for quartic SL Gauss, with $S_8$ angular quadrature, and $c=0.999$.
+We see that as expected\cite{larsen_dsa}, $\rho$ for source iteration $\approx c$.  
+Additionally, we see that MIP DSA achieves a $\rho$ similar to that given in Figs. 6 and 7 of \cite{mip_dsa}.
+Likewise, our S2SA implementation estimates $\rho \leq \approx 0.2$, which agrees well with the Fourier analysis of \cite{s2sa} a true spectral radius of $0.2127c$.  Since the analysis of \cite{s2sa} is for an infinite medium, we expect our estimate of $\rho$ to be less.
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{Constant_XS_SN8_P4_Gauss_Solvers.png}
-\caption{Estimates of $\rho$ for different iterative techniques for $S_8$, $c=0.999$, quartic SL Gauss.}
-\label{fig:p4_solvers}
+\includegraphics[width=10cm]{chapter4_acceleration/Constant_XS_SN8_P4_Gauss_Solvers.png}
+\caption{Estimates of $\rho$ for different iterative techniques for $S_8$, $c=0.999$, linear SL Gauss.}
+\label{fig:p1_gauss}
 \end{figure}
-
+In \fig{fig:p1_lobatto}, we compare the $\rho$ estimates of SI, S2SA, and MIP DSA for linear SL Lobatto differencing.  Results indicate that both S2SA and MIP DSA are compatible with SL Lobatto neutron transport.
+MIP DSA for linear SL Lobatto exhibits the same peaking as observed with linear SL Gauss, though the peak is slightly smoother. 
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{Constant_XS_sn_comparisons_MIP.png}
+\includegraphics[width=10cm]{chapter4_acceleration/Constant_XS_SN8_P3_Lobatto_Solvers.png}
+\caption{Estimates of $\rho$ for different iterative techniques for $S_8$, $c=0.999$, linear SL Lobatto.}
+\label{fig:p1_lobatto}
+\end{figure}
+We now attempt to find a value of $c$ and the $S_N$ order that result in the worst (largest) value of $\rho$ for S2SA and MIP DSA. 
+From \fig{fig:p1_gauss} and \fig{fig:p1_lobatto}, we expect that the choice of DFEM interpolation point will have nearly negligible effect on $\rho$, but continue to compare SL Lobatto and SL Gauss solutions to one another for completeness.
+
+In \fig{fig:mip_gauss_as_fun_sn} and \fig{fig:mip_lobatto_as_fun_sn} we compare $\rho$ as a function of $S_N$ order, for linear SL Gauss and linear SL  Lobatto, respectively, with $c=0.999$.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter4_acceleration/Constant_XS_sn_comparions_MIP.png}
 \caption{Estimates of $\rho$ for MIP DSA as a function of  $S_N$ order for $c=0.999$ cubic SL Lobatto.}
-\label{fig:mip_as_fun_sn}
+\label{fig:mip_gauss_as_fun_sn}
 \end{figure}
-
+%
+%
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{Constant_XS_sn_comparisons_S2SA.png}
+\includegraphics[width=10cm]{chapter4_acceleration/Constant_XS_sn_comparions_MIP.png}
+\caption{Estimates of $\rho$ for MIP DSA as a function of  $S_N$ order for $c=0.999$ cubic SL Lobatto.}
+\label{fig:mip_lobatto_as_fun_sn}
+\end{figure}
+%
+%
+Likewise, in \fig{fig:s2sa_gauss_as_fun_sn} and \fig{fig:s2sa_lobatto_as_fun_sn}, we compute $\rho$ for S2SA as a function of $S_N$ order for linear SL Gauss and linear SL Lobatto, respectively.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter4_acceleration/Constant_XS_sn_comparions_S2SA.png}
 \caption{Estimate of $\rho$ for S2SA as a function of $S_N$ order for $c=0.999$ for  cubic SL Lobatto.}
-\label{fig:s2sa_as_fun_sn}
+\label{fig:s2sa_gauss_as_fun_sn}
 \end{figure}
-
-\begin{figure}[!htp]
-\centering
-\includegraphics[width=10cm]{Constant_XS_c_comparisons_SI.png}
-\caption{Estimates of $\rho$ for source iteration as a function of $c$ for  $S_8$ cubic SL Lobatto.}
-\label{fig:si_as_fun_c}
-\end{figure}
-
+%
+%
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{Constant_XS_c_comparisons_MIP.png}
+\includegraphics[width=10cm]{chapter4_acceleration/Constant_XS_sn_comparions_S2SA.png}
+\caption{Estimate of $\rho$ for S2SA as a function of $S_N$ order for $c=0.999$ for  cubic SL Lobatto.}
+\label{fig:s2sa_lobatto_as_fun_sn}
+\end{figure}
+Every figure in \figs{fig:mip_gauss_as_fun_sn}{fig:s2sa_lobatto_as_fun_sn}, indicates that the higher the $S_N$ order, the larger $\rho$. 
+However, the value of $\rho$ obtained with $S_8$ is only slightly smaller than the $\rho$ of $S_{16}$, and as such we prefer the reduced computational work of $S_8$ simulations to $S_{16}$ in examining the iterative effectiveness of S2SA and MIP DSA for higher order DFEM.
+
+Figure \ref{fig:mip_gauss_as_fun_c} and \fig{fig:mip_lobatto_as_fun_c} examine the effect of $c$ on $\rho$ for MIP DSA with the linear SL Gauss and SL Lobatto schemes.
+The close $c$ is to unity, the larger the estimate of $\rho$, but we observe little increase in $\rho$ in moving from $c=0.999$ to $c=0.9999$, so we find that assuming $c=0.999$ is suficient for our purposes of determining the effectiveness of MIP DSA for higher order SL Lobatto.  Comparing our estimates of $\rho$ of S2SA, as a function of $c$, for linear SL Gauss and SL Lobatto in \fig{fig:s2sa_gauss_as_fun_c} and \fig{fig:s2sa_lobatto_as_fun_c}, respectively, we also conclude that the closer $c$ is to unity, the larger, $\rho$, but there is negligible increase from $c=0.999$ to $c=0.9999$.
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{chapter4_acceleration/Constant_XS_c_comparions_MIP.png}
 \caption{Estimates of $\rho$ for MIP DSA as a function of $c$  for  $S_8$  cubic SL Lobatto.}
-\label{fig:mip_as_fun_c}
+\label{fig:mip_gauss_as_fun_c}
 \end{figure}
-
+\vfill{}
+\pagebreak
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{Constant_XS_SN8_MIP_Gauss.png}
-\caption{Estimates of $\rho$ for S2SA as a function of $\Sigma_t \Delta x$ for different $c$  for $S_8$ cubic SL Lobatto.}
-\label{fig:mip_gauss}
+\includegraphics[width=10cm]{chapter4_acceleration/Constant_XS_c_comparions_MIP.png}
+\caption{Estimates of $\rho$ for MIP DSA as a function of $c$  for  $S_8$  cubic SL Lobatto.}
+\label{fig:mip_lobatto_as_fun_c}
 \end{figure}
-
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{Constant_XS_SN8_MIP_Gauss.png}
-\caption{Estimates of $\rho$ for S2SA as a function of $\Sigma_t \Delta x$ for different $c$  for $S_8$ cubic SL Lobatto.}
-\label{fig:mip_gauss}
+\includegraphics[width=10cm]{chapter4_acceleration/Constant_XS_c_comparions_S2SA.png}
+\caption{Estimates of $\rho$ for MIP DSA as a function of $c$  for  $S_8$  cubic SL Lobatto.}
+\label{fig:s2sa_gauss_as_fun_c}
 \end{figure}
 
+%
+%
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter4_acceleration/Constant_XS_c_comparions_S2SA.png}
+\caption{Estimates of $\rho$ for MIP DSA as a function of $c$  for  $S_8$  cubic SL Lobatto.}
+\label{fig:s2sa_lobatto_as_fun_c}
+\end{figure}
+
+Having determined that for linear DFEM, $c=0.999$ and $S_8$ will yield nearly maximal $\rho$, we calculate $\rho$ as a function of $P$ for MIP DSA acceleration of SL Gauss and SL Lobatto transport spatial discretizations in \fig{fig:mip_gauss} and \fig{fig:mip_lobatto}, respectively.  Figure \fig{fig:mip_gauss} confirms the results of \cite{mip_dsa}, and \fig{fig:mip_lobatto} indicates that so long as the MIP DSA operator is defined using the same numerical scheme (lumping technique and DFEM trial space) as the neutron transport spatial discretization, MIP DSA is an effective iterative acceleration technique.
+Similarly, \fig{fig:s2sa_gauss} and \fig{fig:s2sa_lobatto} indicate that S2SA is an effective iterative acceleration technique for self-lumping higher order DFEM neutron transport spatial discretizations.
+\vfill{}
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter4_acceleration/Constant_XS_SN8_MIP_Gauss.png}
+\caption{Estimates of $\rho$ for MIP as a function of $S_8$, $c=0.999$, SL Gauss as a function of trial space degree.}
+\label{fig:mip_gauss}
+\end{figure}
+%
+%
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{Constant_XS_c_comparisons_MIP.png}
-\caption{Estimates of $\rho$ for MIP DSA as a function of $\Sigma_t \Delta x$ for different $c$}
-\label{fig:mip_as_fun_c}
+\includegraphics[width=10cm]{chapter4_acceleration/Constant_XS_SN8_MIP_Lobatto.png}
+\caption{Estimates of $\rho$ for MIP DSA as a function of $S_8$, $c=0.999$, SL Lobatto as a function of trial space degree.}
+\label{fig:mip_lobatto}
 \end{figure}
+%
+%
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter4_acceleration/Constant_XS_SN8_S2SA_Gauss.png}
+\caption{Estimates of $\rho$ for S2SA as a function of $S_8$, $c=0.999$, SL Gauss as a function of trial space degree.}
+\label{fig:s2sa_gauss}
+\end{figure}
+%
+%
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{chapter4_acceleration/Constant_XS_SN8_S2SA_Lobatto.png}
+\caption{Estimates of $\rho$ for S2SA as a function of $S_8$, $c=0.999$, SL Lobatto as a function of trial space degree.}
+\label{fig:s2sa_lobatto}
+\end{figure}
+\pagebreak
 
 \subsection{Spatially Varying Cross Section Scattering Problem}
 \label{sec:chap4_variable_xs}
