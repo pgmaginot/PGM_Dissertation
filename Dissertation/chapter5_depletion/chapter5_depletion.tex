@@ -191,6 +191,7 @@ $^{16}\text{O}$&  0 & 0 &  2.739 & 3.780 & 0 \\
 \end{table}
 Absorption and scattering cross sections for the fertile and fissile nuclides are given in \tbl{tbl:fresh-fuel},  
 and fission cross sections and average neutrons per fission are given in \tbl{tbl:fission_data}.  
+Radiative capture fractions and probability of an absorbed neutron inducing fission are given in \tbl{tbl:fission_data_2}.   
 \begin{table}[!htp]
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -208,18 +209,36 @@ $^{238} _{~92} \text{U}$   & 0.374 &  2.717 & 4.804 & 9.36 & 0 \\
 \end{table}
 \begin{table}[!hbp]
 \begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|}
 \hline
-Nuclide &	  $\nu_1$ &	$\nu_2$ & $\sigma_{f,1}$ & $\sigma_{f,2} $ & $\gamma_1$ & $\gamma_2$ &  $y_1$ & $y_2$ \\
+Nuclide &	  $\nu_1$ &	$\nu_2$ & $\sigma_{f,1}$ & $\sigma_{f,2} $ \\
 \hline
-$^{235} _{~92} \text{U}$   & 2.6 & 2.4 & 1.235  &  584.4 & $\frac{0.09}{1.325}=0.068$ & $\frac{98.81}{683.21}=0.145$ & $\frac{1.235}{1.325}=0.932$ & $\frac{584.4}{683.21}=0.855$ \\
+$^{235} _{~92} \text{U}$   & 2.6 & 2.4 & 1.235  &  584.4 \\
 \hline
-$^{238} _{~92} \text{U}$   & 2.8 & N/A & 0.308 &  0  &  $\frac{0.066}{0.374}=0.177 $  & 1 &  $\frac{0.308}{0.374}=0.823$ & 0 \\
+$^{238} _{~92} \text{U}$   & 2.8 & N/A & 0.308 &  0   \\
 \hline
 \end{tabular}	
 \end{center}
-\caption{Fission cross section data in barns [$10^{-24}~cm^2$], radiative capture fraction, and fission probability for fissile and fertile nuclides.}
+\caption{Average neutron yield per fission, and fission cross section data [$10^{-24}~cm^2$]. }
 \label{tbl:fission_data}
+\end{table}
+%
+%
+%
+\begin{table}[!hbp]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Nuclide &	 $\gamma_1$ & $\gamma_2$ &  $y_1$ & $y_2$ \\
+\hline
+$^{235} _{~92} \text{U}$   & $\frac{0.09}{1.325}=0.068$ & $\frac{98.81}{683.21}=0.145$ & $\frac{1.235}{1.325}=0.932$ & $\frac{584.4}{683.21}=0.855$ \\
+\hline
+$^{238} _{~92} \text{U}$   &  $\frac{0.066}{0.374}=0.177 $  & 1 &  $\frac{0.308}{0.374}=0.823$ & 0 \\
+\hline
+\end{tabular}	
+\end{center}
+\caption{Radiative capture fraction, and fission probability for fissile and fertile nuclides.}
+\label{tbl:fission_data_2}
 \end{table}
 
 Cross-section data for the fission products and inert nuclides are given in \tbl{tbl:fp-data}.
