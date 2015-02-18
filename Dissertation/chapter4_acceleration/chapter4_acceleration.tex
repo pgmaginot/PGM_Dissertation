@@ -10,8 +10,6 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                           SECTION III
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -531,6 +529,68 @@ In \secref{sec:chap4_constant_xs} we present results for a scattering medium wit
 \subsection{Spatially Constant Cross Section Scattering Problem}
 \label{sec:chap4_constant_xs}
 
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{Constant_XS_SN8_P3_Lobatto_Solvers.png}
+\caption{Estimates of $\rho$ for different iterative techniques for $S_8$, $c=0.999$, cubic SL Lobatto.}
+\label{fig:p3_solvers}
+\end{figure}
+
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{Constant_XS_SN8_P4_Gauss_Solvers.png}
+\caption{Estimates of $\rho$ for different iterative techniques for $S_8$, $c=0.999$, quartic SL Gauss.}
+\label{fig:p4_solvers}
+\end{figure}
+
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{Constant_XS_sn_comparisons_MIP.png}
+\caption{Estimates of $\rho$ for MIP DSA as a function of  $S_N$ order for $c=0.999$ cubic SL Lobatto.}
+\label{fig:mip_as_fun_sn}
+\end{figure}
+
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{Constant_XS_sn_comparisons_S2SA.png}
+\caption{Estimate of $\rho$ for S2SA as a function of $S_N$ order for $c=0.999$ for  cubic SL Lobatto.}
+\label{fig:s2sa_as_fun_sn}
+\end{figure}
+
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{Constant_XS_c_comparisons_SI.png}
+\caption{Estimates of $\rho$ for source iteration as a function of $c$ for  $S_8$ cubic SL Lobatto.}
+\label{fig:si_as_fun_c}
+\end{figure}
+
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{Constant_XS_c_comparisons_MIP.png}
+\caption{Estimates of $\rho$ for MIP DSA as a function of $c$  for  $S_8$  cubic SL Lobatto.}
+\label{fig:mip_as_fun_c}
+\end{figure}
+
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{Constant_XS_SN8_MIP_Gauss.png}
+\caption{Estimates of $\rho$ for S2SA as a function of $\Sigma_t \Delta x$ for different $c$  for $S_8$ cubic SL Lobatto.}
+\label{fig:mip_gauss}
+\end{figure}
+
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{Constant_XS_SN8_MIP_Gauss.png}
+\caption{Estimates of $\rho$ for S2SA as a function of $\Sigma_t \Delta x$ for different $c$  for $S_8$ cubic SL Lobatto.}
+\label{fig:mip_gauss}
+\end{figure}
+
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{Constant_XS_c_comparisons_MIP.png}
+\caption{Estimates of $\rho$ for MIP DSA as a function of $\Sigma_t \Delta x$ for different $c$}
+\label{fig:mip_as_fun_c}
+\end{figure}
 
 \subsection{Spatially Varying Cross Section Scattering Problem}
 \label{sec:chap4_variable_xs}

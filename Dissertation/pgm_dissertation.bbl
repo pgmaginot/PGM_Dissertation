@@ -267,4 +267,10 @@ B.~Turcksin and J.~C. Ragusa.
   methods, Applied to Nuclear Science and Engineering}, Sun Vlley, Idaho, May
   2013.
 
+\bibitem{warsa_k}
+J.~S. Warsa, T.~A. Wareing, J.~E. Morel, J.~M. McGhee, and R.~B. Lehoucq.
+\newblock Krylov subspace iterations for deterministic $k$-eigenvalue
+  calculations.
+\newblock {\em Nuclear Science and Engineering}, 147:26--42, 2004.
+
 \end{thebibliography}
