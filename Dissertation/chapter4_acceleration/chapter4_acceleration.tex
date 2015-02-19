@@ -676,9 +676,9 @@ We impose
 \Sigma_t(x) = \Sigma_{t,0} \exp\left[ \frac{\abs{\left(10 -x  \right)}  }{2} \right] \pep
 \eenum
 We hold $c$ constant in space.
-We will estimate $\rho$ as a function of $\widebar{\Sigma_t \Delta x}$, the average optical thickness of each mesh cell.
-For values of $\widebar{\Sigma_t \Delta x} > 2$, we will use 10 mesh cells, and adjust $\Sigma_{t,0}$ to achieve the desired optical thickness.
-For values of $\widebar{\Sigma_t \Delta x} < 2$, we will hold $\Sigma_{t,0}$ constant, and increase the number of mesh cells.
+We will estimate $\rho$ as a function of $\overline{\Sigma_t \Delta x}$, the average optical thickness of each mesh cell.
+For values of $\overline{\Sigma_t \Delta x} > 2$, we will use 10 mesh cells, and adjust $\Sigma_{t,0}$ to achieve the desired optical thickness.
+For values of $\overline{\Sigma_t \Delta x} < 2$, we will hold $\Sigma_{t,0}$ constant, and increase the number of mesh cells.
 We wish to maintain a total slab optical thickness of at least 20 mean free paths.  Since,
 \begin{subequations}
 \beanum
@@ -687,12 +687,12 @@ We wish to maintain a total slab optical thickness of at least 20 mean free path
 \eeanum
 the minimum value of $\Sigma_{t,0}$ is:
 \benum
-\Sigma_{t,0} = \frac{5}{  \exp[5] - 1 \right }\pep
+\Sigma_{t,0} = \frac{5}{  \exp[5] - 1  }\pep
 \eenum
-For values of $\widebar{\Sigma_t \Delta x} > 2$,
+For values of $\overline{\Sigma_t \Delta x} > 2$,
 \beanum
-10 \widebar{\Sigma_t \Delta x} &=& 4\Sigma_{t,0} \left( \exp[5] - 1 \right) \\
-\Sigma_{t,0} = \frac{5\widebar{\Sigma_t \Delta x}}{2 \left( \exp[5] - 1 \right) } \pep
+10 \overline{\Sigma_t \Delta x} &=& 4\Sigma_{t,0} \left( \exp[5] - 1 \right) \\
+\Sigma_{t,0} &=& \frac{5\overline{\Sigma_t \Delta x}}{2 \left( \exp[5] - 1 \right) } \pep
 \eeanum
 \end{subequations}
 
