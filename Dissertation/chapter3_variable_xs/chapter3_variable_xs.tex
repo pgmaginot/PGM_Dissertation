@@ -259,7 +259,7 @@ The analytical average flux value is:
 %\eenum
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Single Cell Outflow Comparisons}
+\subsection{Single Cell Outflow Comparisons}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 The only variable cross-section schemes that yields strictly positive angular outflows in a source-free pure absorber are the SLXS Lobatto and SLXS Newton-Cotes schemes using a linear trial space.
@@ -906,7 +906,7 @@ The choice of cell-wise cross section does not eliminate blading.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%\subsection{Effects of Mesh Spacing}
+\subsection{Effects of Mesh Spacing}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 In practice, computational domains are not necessarily discretized with uniform grids; rather cells are concentrated in regions where the solution is known or assumed to vary rapidly.  
@@ -1117,10 +1117,12 @@ However, CXS DFEM shows a two order of magnitude reduction in calculating $E_{IR
 %
 %
 
-%\label{sec:chap3_mesh_results}
-%The important results from Figs. \ref{fig:lobatto_spacing}-\ref{fig:low_res_cxs} are summarized here:
-%\begin{enumerate}
-%\item mesh spacing does not affect asymptotic order of convergence,
-%\item accuracy in calculating certain quantities of interest (point-wise and cell averaged reaction rates) is improved with alternative meshing strategies at low resolution.
-%%\item accuracy in calculating the angular flux, is sacrificed.
-%\end{enumerate}
+\section{Conclusions to Be Carried Forward}
+The SLXS Lobatto and SLXS Gauss schemes are accurate for problems $S_N$ neutron transport problems that have within cell spatial interaction cross-section variation.
+Though no less accurate for the case of spatially varying cross sections that for cell-wise constant cross section, the SLXS Newton-Cotes scheme will no longer be considered.
+SLXS Newton-Cotes is not as asymptotically accurate as SLXS Gauss or SLXS Lobatto schemes, though the SLXS Lobatto scheme is equivalent to SLXS Newton-Cotes for linear and quadratic trial spaces.
+We continued to consider a self-lumping scheme using closed Newton-Cotes quadrature due to the robustness SL Newton-Cotes exhibited for the cell-wise constant cross section case.
+However, since no scheme other than linear SLXS Lobatto will yield strictly positive angular flux outflow for arbitrary within cell cross section variation, we conclude that SLXS Lobatto has all of the strengths exhibited by SLXS Newton-Cotes, with the added benefit of increased accuracy.
+
+We have also documented that the assumption of a cell-wise constant cross section will in general be less accurate than using a self-lumping scheme that explicitly accounts for within cell variation of cross section when constructing $\mathbf{R}$.
+Though the CXS DFEM was more accurate than self-lumping schemes in calculating $E_{IR_A}$, and $E_{\psi_{out}}$, when using the exact volume average cross section, this is more a function of our test problem being a pure absorber than an inherent benefit of CXS DFEM that will be true for all problems of interest. 

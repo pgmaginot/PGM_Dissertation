@@ -696,3 +696,39 @@ For values of $\overline{\Sigma_t \Delta x} > 2$,
 \eeanum
 \end{subequations}
 
+In \fig{fig:varxs_s2sa_gauss} and \fig{fig:varxs_s2sa_lobatto}, we plot the estimate of $\rho$ for the variable cross section problem S2SA for the SL Gauss and SL Lobatto schemes, respectively, as a function of trial space degree.
+Similar plots for MIP DSA are given in \fig{fig:varxs_mip_gauss} and \fig{fig:varxs_lobatto_gauss} for the SLXS Gauss and SLXS Lobatto schemes using linear-quartic DFEM. 
+We assume that the same trends for $S_N$ order and $c$ established with the constant cross section testing of \secref{sec:chap4_constant_xs}.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter4/Variable_XS_S2SA_Gauss_spr.png}
+\caption{Estimate of $\rho$ as a function of $\overline{\Sigma_t \Delta x}$ as a function of DFEM trial space degree for S2SA and SLXS Gauss.}
+\label{fig:varxs_s2sa_gauss}
+\end{figure}
+%
+%
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter4/Variable_XS_S2SA_Lobatto_spr.png}
+\caption{Estimate of $\rho$ as a function of $\overline{\Sigma_t \Delta x}$ as a function of DFEM trial space degree for S2SA and SLXS Lobatto.}
+\label{fig:varxs_s2sa_lobatto}
+\end{figure}
+%
+%
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter4/Variable_XS_MIP_Gauss_spr.png}
+\caption{Estimate of $\rho$ as a function of $\overline{\Sigma_t \Delta x}$ as a function of DFEM trial space degree for MIP and SLXS Gauss.}
+\label{fig:varxs_mip_gauss}
+\end{figure}
+%
+%
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter4/Variable_XS_MIP_Lobatto_spr.png}
+\caption{Estimate of $\rho$ as a function of $\overline{\Sigma_t \Delta x}$ as a function of DFEM trial space degree for MIP and SLXS Lobatto.}
+\label{fig:varxs_mip_lobatto}
+\end{figure}
+From \figs{fig:varxs_s2sa_gauss}{fig:varxs_mip_lobatto}, we see that both S2SA and MIP DSA are effective iterative acceleration techniques for solve the $S_N$ neutron transport equations.
+This comes with the caveat that the S2SA and MIP DSA operators must be differenced using the same trial space degree and quadrature as the underlying neutron transport discretization, be it SLXS Gauss or SLXS Lobatto.
+

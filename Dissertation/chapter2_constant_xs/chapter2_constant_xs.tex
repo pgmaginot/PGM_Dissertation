@@ -1166,65 +1166,18 @@ in \figs{fig:multi_L2_p1}{fig:multi_L2_p4}, \figs{fig:multi_L2A_p1}{fig:multi_L2
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \section{Conclusions}
+\section{Conclusions About Self-Lumping}
 % \label{sec:conclusions}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %
-% %\marginpar{\textcolor{red}{needs revisions}}
-% %
-% %\textcolor{red}{first recall what we did: sn transport, DFEM, higher order poly approx, mass lumping strategies}\\
 
-% Lumping methods for arbitrary order DFEM spatial discretizations of the first-order form of the $S_N$ neutron transport equation have been studied in 1-D slab geometry.
-% We have analyzed lumping in terms of numerical integration strategy and finite element basis function interpolation point type. Accuracy and robustness of the various
-% schemes have been assessed.
-% %
-% %In particular, we have focused on analyzing numerical schemes (i.e., a combination of integration strategy and finite element basis function interpolation point type) that are both robust and accurate.  
-% Robustness is defined in the traditionally accepted assertion in the radiation transport community, i.e., resistance to negative outflow angular flux solutions in source-free pure absorbers with incident angular flux as cell optical thickness is increased.
-% Two forms of mass matrix lumping were studied in an attempt to find DFEM discretization schemes that are both robust and yield higher order accuracy with increases in the polynomial degree of the DFEM trial space.  
-
-% The first scheme, traditional mass lumping or TL, exactly integrates the mass matrix and collapses row entries onto the main diagonal to create a diagonal mass matrix.  
-% TL yields strictly positive angular flux outflows in a pure absorber with optically thick cells only when utilized with linear DFEM (LDFEM).
-% The second form of mass matrix lumping considered here generates a diagonal mass matrix by restricting the DFEM interpolation points to the numerical quadrature points (this automatically generates a diagonal mass matrix).  
-% This concept, termed self-lumping or SL, may be new to the radiation transport community but was already presented in \cite{raviart,thomee} in the general context of parabolic equations.
-% We have extended these earlier works on self-lumping quadratures by using arbitrary degree polynomial trial spaces and studied three types of interpolation points: 
-% (i) equally-spaced points, (ii) Gauss-Legendre quadrature, and (iii) Lobatto-Gauss-Legendre quadrature.  
-% Using SL schemes, a strictly positive angular flux outflow can be obtained for all even degree polynomial trial spaces when employing Gauss-Legendre points (SL Gauss).  
-% Positive outflow is also obtained for all odd degree polynomial trial spaces using either equally-spaced points (SL Newton-Cotes) or Lobatto-Gauss-Legendre quadratures (SL Lobatto).
-% For source driven problems, regardless of mass matrix lumping scheme, it is still possible to obtain negative angular fluxes near cell inflows, for certain source distributions.
-% %However, exact integration of fixed source moments will lead to a more robust scheme, regardless of mass matrix lumping strategy. % than if the source moments are approximately evaluated.
+We have shown that, for arbitrary degree polynomial trial space DFEM, a diagonal mass matrix does not necessarily ensure strictly positive angular flux outflow in a purely absorbing slab with spatially constant cross section.  
+Indeed, the TL scheme was neither robust or accurate for polynomial trial space degree greater than linear.
+ Also, we have shown that by using quadrature-based lumping schemes and choosing DFEM interpolation points that are not equally spaced, robust, accurate polynomial DFEM schemes can be obtained.  
+ Based on the observed robustness, accuracy, and spatial convergence order results, we conclude that, for applications requiring robust solution techniques, the SL Lobatto scheme with odd degree polynomial trial space DFEM should be used to discretize the angular flux .  
+ If $p$-adaptivity is desired, software should be developed such that the ability to use either Lobatto (for odd trial space degrees) or Gauss (for even trial space degree) quadrature as the DFEM interpolation points is possible.  
+ However, given the non-monotonic behavior of the outflow angular flux as a function of the cell optical thickness when employing the SL Gauss scheme with even degree trial spaces for under-resolved problems, using SL Lobatto  with an odd degree trial space would seem to be more accurate than using SL Gauss, despite SL Gauss being more accurate in the asymptotic (fine mesh) limit.
+Finally, though not as accurate SL Lobatto or SL Gauss, we will continue to consider SL Newton-Cotes due to its observed robustness.
 
 
-% In addition to the robustness of each scheme, we also considered the spatial convergence order of each method for a source-free purely absorbing medium with incident angular flux and constant cross section.  
-% The most accurate mass matrix lumping scheme was SL Gauss, for which the average and outflow angular fluxes converged with an order $2P+1$, where $P$ is the polynomial degree of the trial space employed.  
-% Since SL Gauss exactly integrates the mass matrix, its behavior is identical to employing exact DFEM, despite having a diagonal mass matrix.  TL was the least accurate of all schemes considered.  
-% Increasing the degree of the finite element trial space did not guarantee increased convergence order when using the TL scheme.  
-% The SL Newton-Cotes scheme performed better than TL; its order of convergence in the average and outflow angular fluxes increased with an increase in trial space polynomial degree, but in a suboptimal manner.  
-% %Further, SL Newton-Cotes, like TL, was at most second order accurate for odd degree polynomial trial spaces and third order accurate for even degree trial spaces in approximating the cell inflow angular flux, respectively.  
-% %This lack of local accuracy in calculating $\widetilde{\psi}_{in}$ translated to at most second order convergence for odd degree polynomial trial spaces and third order convergence for even degree polynomial trial spaces in 
-% %the $L_2$-norm sense (that is, when calculating $E_{\psi}$).  
-% Though not as accurate as SL Gauss for a given degree polynomial trial space, the SL Lobatto scheme only lagged SL Gauss' order of accuracy and spatial convergence by 1 for outflow and cell-averaged quantities.  
-% %For all other quantities, SL Lobatto increased two orders of accuracy and spatial order of convergence for each increment in trial space degree, though was always one order less accurate than Exact DFEM and SL Gauss.
-
-% In conclusion, we have shown that, for arbitrary degree polynomial trial space DFEM, a diagonal mass matrix does not necessarily ensure strictly positive angular flux outflow in a purely absorbing slab with spatially constant cross section.  
-% Also, we have shown that by using quadrature-based lumping schemes and choosing DFEM interpolation points that are not equally spaced, robust, accurate polynomial DFEM schemes can be obtained.  
-% Based on the observed robustness, accuracy, and spatial convergence order results, we conclude that, for applications requiring robust solution techniques, the SL Lobatto scheme with odd degree polynomial trial space DFEM 
-% be used to discretize the angular flux .  
-% If $p$-adaptivity is desired, software should be developed such that the ability to use either Lobatto (for odd trial space degrees) or Gauss (for even trial space degree) quadrature as the DFEM interpolation points is possible.  
-% However, given the non-monotonic behavior of the outflow angular flux as a function of the cell optical thickness when employing the SL Gauss scheme with even degree trial spaces for under-resolved problems, using SL Lobatto 
-% with an odd degree trial space would seem to be more accurate than using SL Gauss, despite SL Gauss being more accurate in the asymptotic (fine mesh) limit.
-
-% We see additional opportunities for investigation. % before self-lumping schemes can be used in high order accuracy radiative transfer calculations.
-% In particular, we plan on examining the robustness and accuracy of self-lumping DFEM schemes for situations where the cross section is not cell-wise constant.  
-% In radiative transfer, the opacity (analog of a cross section) strongly depends on temperature, with temperature varying also within each mesh cell. Thus, opacity is an arbitrary, possibly rapidly, varying function of space.
-% The behavior of self-lumping DFEM schemes when cross section is a continuously varying function of space will be of interest in radiative transfer calculations and, as such, should be considered as a topic of research on that subject.
-
-% We also see opportunities to apply self-lumping quadrature to multi-dimensional geometries.  
-% While we do not anticipate the multi-dimensional extensions of SL Lobatto or SL Gauss schemes to yield strictly positive angular flux outflows in multi-dimensional geometries, the mass matrix self-lumping technique we have examined here 
-% in slab geometry provides a framework not only for mass matrix lumping but also for gradient matrix lumping.
-% % in multidimensional geometries.  
-% In multi-dimensional problems, mass matrix lumping alone has been shown to be insufficient in preventing solution oscillations. 
-% To reduce these oscillations, gradient operator lumping is also required \cite{adams}.
-% Though gradient lumping is straightforward on orthogonal grids, it is an open topic of research for non-orthogonal grids \cite{morel_lump}.  Self-lumping methods may provide an adequate framework 
-% to carry out consistent mass and gradient lumping on non-orthogonal meshes.
 
