@@ -729,6 +729,10 @@ We assume that the same trends for $S_N$ order and $c$ established with the cons
 \caption{Estimate of $\rho$ as a function of $\overline{\Sigma_t \Delta x}$ as a function of DFEM trial space degree for MIP and SLXS Lobatto.}
 \label{fig:varxs_mip_lobatto}
 \end{figure}
-From \figs{fig:varxs_s2sa_gauss}{fig:varxs_mip_lobatto}, we see that both S2SA and MIP DSA are effective iterative acceleration techniques for solve the $S_N$ neutron transport equations.
-This comes with the caveat that the S2SA and MIP DSA operators must be differenced using the same trial space degree and quadrature as the underlying neutron transport discretization, be it SLXS Gauss or SLXS Lobatto.
+From \figs{fig:varxs_s2sa_gauss}{fig:varxs_mip_lobatto}, we see that both S2SA and MIP DSA remain effective iterative acceleration techniques for solve the $S_N$ neutron transport equations, despite significant corss section variation within each cell.
+This is true so long as the S2SA and MIP DSA operators are differenced using the same trial space degree and quadrature as the underlying neutron transport discretization, be it SLXS Gauss or SLXS Lobatto.
+
+\section{Conclusions}
+
+S2SA is a more effective 
 
