@@ -5,8 +5,8 @@
 \contentsline {chapter}{ACKNOWLEDGEMENTS}{iv}
 \contentsline {chapter}{NOMENCLATURE}{v}
 \contentsline {chapter}{TABLE OF CONTENTS}{vi}
-\contentsline {chapter}{LIST OF FIGURES}{viii}
-\contentsline {chapter}{LIST OF TABLES}{xvi}
+\contentsline {chapter}{LIST OF FIGURES}{ix}
+\contentsline {chapter}{LIST OF TABLES}{xviii}
 \contentsline {chapter}{\numberline {1}\uppercase {Introduction}}{1}
 \vskip +10pt
 \contentsline {section}{\numberline {1.1}Simplifications of the Thermal Radiative Transfer Equations}{2}
@@ -29,39 +29,46 @@
 \contentsline {subsection}{\numberline {2.5.2}Fixed Source Single-Cell Inflow Comparison}{25}
 \contentsline {subsection}{\numberline {2.5.3}Single-Cell Taylor Series Analysis}{31}
 \contentsline {subsection}{\numberline {2.5.4}Convergence Rates for Spatially Discretized 1-D Domains}{35}
-\contentsline {chapter}{\numberline {3}\uppercase {DFEM Methods for Neutron Transport for Problems with Spatially Varying Cross Section}}{44}
+\contentsline {section}{\numberline {2.6}Conclusions About Self-Lumping}{43}
+\contentsline {chapter}{\numberline {3}\uppercase {DFEM Methods for Neutron Transport for Problems with Spatially Varying Cross Section}}{45}
 \vskip +10pt
-\contentsline {section}{\numberline {3.1}Weak Form Derivation}{46}
-\contentsline {section}{\numberline {3.2}Numerical Schemes}{47}
-\contentsline {subsection}{\numberline {3.2.1}Exact Spatial Integration}{48}
-\contentsline {subsubsection}{\numberline {3.2.1.1}Exact Cross Section}{49}
-\contentsline {subsubsection}{\numberline {3.2.1.2}Constant Cross Section}{49}
-\contentsline {subsection}{\numberline {3.2.2}Self-Lumping Quadrature Integration}{50}
-\contentsline {section}{\numberline {3.3}Pure Absorber Numerical Results}{50}
-\contentsline {subsection}{\numberline {3.3.1}Multiple Cell Spatial Convergence Rates}{56}
-\contentsline {subsection}{\numberline {3.3.2}Consequences of Assuming a Cell-Wise Constant Cross Section}{71}
-\contentsline {subsection}{\numberline {3.3.3}Flux-Weighting versus Volume-Averaged Cross Sections}{78}
-\contentsline {subsubsection}{\numberline {3.3.3.1}Generating Improved Spatial Meshes}{83}
-\contentsline {subsubsection}{\numberline {3.3.3.2}Mesh Spacing Results}{84}
-\contentsline {chapter}{\numberline {4}\uppercase {Iterative Acceleration for the $S_N$ Neutron Transport Equations}}{95}
+\contentsline {section}{\numberline {3.1}Weak Form Derivation}{47}
+\contentsline {section}{\numberline {3.2}Numerical Schemes}{48}
+\contentsline {subsection}{\numberline {3.2.1}Exact Spatial Integration}{49}
+\contentsline {subsubsection}{\numberline {3.2.1.1}Exact Cross Section}{50}
+\contentsline {subsubsection}{\numberline {3.2.1.2}Constant Cross Section}{50}
+\contentsline {subsection}{\numberline {3.2.2}Self-Lumping Quadrature Integration}{51}
+\contentsline {section}{\numberline {3.3}Pure Absorber Numerical Results}{51}
+\contentsline {subsection}{\numberline {3.3.1}Single Cell Outflow Comparisons}{52}
+\contentsline {subsection}{\numberline {3.3.2}Multiple Cell Spatial Convergence Rates}{57}
+\contentsline {subsection}{\numberline {3.3.3}Consequences of Assuming a Cell-Wise Constant Cross Section}{72}
+\contentsline {subsection}{\numberline {3.3.4}Flux-Weighting versus Volume-Averaged Cross Sections}{79}
+\contentsline {subsection}{\numberline {3.3.5}Effects of Mesh Spacing}{84}
+\contentsline {subsubsection}{\numberline {3.3.5.1}Generating Improved Spatial Meshes}{84}
+\contentsline {subsubsection}{\numberline {3.3.5.2}Mesh Spacing Results}{85}
+\contentsline {section}{\numberline {3.4}Conclusions to Be Carried Forward}{95}
+\contentsline {chapter}{\numberline {4}\uppercase {Iterative Acceleration for the $S_N$ Neutron Transport Equations}}{97}
 \vskip +10pt
-\contentsline {section}{\numberline {4.1}Iterative Solution of the Neutron Transport $S_N$ Equations}{95}
-\contentsline {section}{\numberline {4.2}Qualitative Comparison of Different Synthetic Acceleration Techniques}{98}
-\contentsline {section}{\numberline {4.3}$S_2$ Synthetic Acceleration}{101}
-\contentsline {section}{\numberline {4.4}Modified Interior Penalty Diffusion Synthetic Acceleration}{106}
-\contentsline {section}{\numberline {4.5}Numerical Results Verifying Implementation and Performance of S2SA and MIP DSA}{112}
-\contentsline {subsection}{\numberline {4.5.1}Spatially Constant Cross Section Scattering Problem}{113}
-\contentsline {subsection}{\numberline {4.5.2}Spatially Varying Cross Section Scattering Problem}{123}
-\contentsline {chapter}{\numberline {5}\uppercase {Fuel Depletion Problem}}{124}
+\contentsline {section}{\numberline {4.1}Iterative Solution of the Neutron Transport $S_N$ Equations}{97}
+\contentsline {section}{\numberline {4.2}Qualitative Comparison of Different Synthetic Acceleration Techniques}{100}
+\contentsline {section}{\numberline {4.3}$S_2$ Synthetic Acceleration}{103}
+\contentsline {section}{\numberline {4.4}Modified Interior Penalty Diffusion Synthetic Acceleration}{108}
+\contentsline {section}{\numberline {4.5}Numerical Results Verifying Implementation and Performance of S2SA and MIP DSA}{114}
+\contentsline {subsection}{\numberline {4.5.1}Spatially Constant Cross Section Scattering Problem}{115}
+\contentsline {subsubsection}{\numberline {4.5.1.1}S2SA Spectral Radius Sensitivity}{119}
+\contentsline {subsubsection}{\numberline {4.5.1.2}MIP DSA Spectral Radius Sensitivity}{123}
+\contentsline {subsection}{\numberline {4.5.2}Spatially Varying Cross Section Scattering Problem}{130}
+\contentsline {section}{\numberline {4.6}Conclusions}{131}
+\contentsline {chapter}{\numberline {5}\uppercase {Fuel Depletion Problem}}{132}
 \vskip +10pt
-\contentsline {section}{\numberline {5.1}Problem Physical Description}{124}
-\contentsline {subsection}{\numberline {5.1.1}Microscopic Cross Section and Yield Data}{128}
-\contentsline {subsection}{\numberline {5.1.2}Reactor Power Levels and Normalization}{130}
-\contentsline {section}{\numberline {5.2}Spatial Discretization}{130}
-\contentsline {subsection}{\numberline {5.2.1}Radiation Solution}{133}
-\contentsline {subsection}{\numberline {5.2.2}Nuclide Density}{134}
-\contentsline {section}{\numberline {5.3}Numerical Results}{138}
-\contentsline {chapter}{\numberline {6}\uppercase {Last Chapter: The Importance of Research}}{150}
+\contentsline {section}{\numberline {5.1}Problem Physical Description}{132}
+\contentsline {subsection}{\numberline {5.1.1}Microscopic Cross Section and Yield Data}{136}
+\contentsline {subsection}{\numberline {5.1.2}Reactor Power Levels and Normalization}{138}
+\contentsline {section}{\numberline {5.2}Spatial Discretization}{138}
+\contentsline {subsection}{\numberline {5.2.1}Radiation Solution}{141}
+\contentsline {subsection}{\numberline {5.2.2}Nuclide Density}{142}
+\contentsline {section}{\numberline {5.3}Numerical Results}{146}
+\contentsline {chapter}{\numberline {6}\uppercase {Last Chapter: The Importance of Research}}{158}
 \vskip +10pt
-\contentsline {section}{\numberline {6.1}New Section}{150}
-\contentsline {chapter}{REFERENCES}{151}
+\contentsline {section}{\numberline {6.1}New Section}{158}
+\contentsline {chapter}{REFERENCES}{159}
