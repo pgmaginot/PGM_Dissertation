@@ -43,7 +43,7 @@ We build on the quadrature integration ideas presented in Chapter \ref{sec:chapt
 In general, the quadrature integration of the DFEM interaction term with arbitrary spatial cross section form will not be exact.
 However, we showed in Chapter \ref{sec:chapter2_constant_xs} that exact computation of integrals appearing in the DFEM weak form, when cross sections are spatially constant, is not required to achieve high-order accuracy with high-order DFEM approximations.  
 Building on this idea, we investigate the effects of using numerical quadratures to compute DFEM mass matrices, accounting for the spatial variation of cross section in space.
-As in \secref{sec:chapter2_constant_xs} we use self-lumping numerical quadratures \cite{raviart, thomee}, restricting quadrature integration points to the DFEM polynomial interpolation points.
+As in \chapref{sec:chapter2_constant_xs} we use self-lumping numerical quadratures \cite{raviart, thomee}, restricting quadrature integration points to the DFEM polynomial interpolation points.
 Results are compared as a function of DFEM polynomial trial space degree and interpolation point type.
 
 We demonstrate that assuming a piecewise constant cross section in each cell, when the cross section is not cell-wise constant in space, has several undesirable effects.  
@@ -799,7 +799,7 @@ The SLXS Lobatto $\widetilde{IR}(x)$ is clearly more accurate than the CXS DFEM 
 %
 \\
 In this problem, there are two possible sources of error that could cause a DFEM to be inaccurate: inexact matrix evaluation and not incorporating cross-section spatial variation into the scheme.
-By definition, CXS DFEM exactly integrates the mass matrix, and we showed in \secref{sec:chapter2_constant_xs} that schemes that exactly integrate the mass matrix are more accurate than schemes that only approximately integrate the mass matrix, like SLXS Lobatto.
+By definition, CXS DFEM exactly integrates the mass matrix, and we showed in \chapref{sec:chapter2_constant_xs} that schemes that exactly integrate the mass matrix are more accurate than schemes that only approximately integrate the mass matrix, like SLXS Lobatto.
 Thus, the poor accuracy of CXS DFEM relative to SLXS Lobatto is entirely caused by the approximation of a spatially varying cross section with a cell-wise constant value.
 
 The ``blading'' in $\widetilde{IR}(x)$ has not previously been reported in neutron transport or thermal radiative transport community literature.
@@ -810,7 +810,7 @@ To demonstrate that a minor choice in data presentation can obscure the existenc
 Though \fig{fig:cxs_avg_psi} is visually indistinguishable from \fig{fig:cxs_blades_psi}, the blading of $\widetilde{IR}(x)$ present in \fig{fig:cxs_blades_ir} is not at all visually present in \fig{fig:cxs_avg_ir}.
 Interaction rate terms are present in other radiation transport physics.
 In particular, we think of the radiative transfer analog to the neutronics interaction rate, absorption rate density.
-We hypothesize here, and will show in \secref{sec:chapter6_grey_radtran} that assuming cell-wise constants opacities for problems with temperature dependent opacities introduces blading in thermal radiative transfer temperature solutions, via the material energy equation's absorption rate density term.
+We hypothesize here, and will show in \chapref{sec:chapter6_grey_radtran} that assuming cell-wise constants opacities for problems with temperature dependent opacities introduces blading in thermal radiative transfer temperature solutions, via the material energy equation's absorption rate density term.
 \vfill{}
 
 \begin{figure}[!htp]

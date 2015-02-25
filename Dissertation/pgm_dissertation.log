@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.18)  24 FEB 2015 22:48
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.18)  25 FEB 2015 17:12
 entering extended mode
 **pgm_dissertation.tex
 (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.tex
@@ -275,18 +275,18 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter5_depletion/chapter5_depletion.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter6_grey_radtran/chapter6_grey_radtran.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -380,9 +380,9 @@ Overfull \hbox (0.47432pt too wide) in paragraph at lines 56--56
  [][] []\OT1/cmr/m/n/12 Numerical Re-sults Ver-i-fy-ing Im-ple-men-ta-tion and Per-for-mance of S2SA 
  []
 
-)
+[7])
 \tf@toc=\write3
- [7] [8] (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.lof [9] [10] [11] [12]
+ [8] (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.lof [9] [10] [11] [12]
 Overfull \hbox (1.85217pt too wide) in paragraph at lines 66--66
  [][] []\OT1/cmr/m/n/12 Asymptotic con-ver-gence of the SLXS Lo-batto scheme us-ing a quadratic 
  []
@@ -413,12 +413,7 @@ Chapter 1.
 
 
 
-]
-Overfull \hbox (0.98257pt too wide) in paragraph at lines 58--59
-[]\OT1/cmr/m/n/12 Finally, we treat the pho-ton en-ergy de-pen-dence us-ing the multi-frequency method.
- []
-
-[2] [3]) [4] [5] (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter2_constant_xs/chapter2_constant_xs.tex
+] [2] [3] [4]) [5] (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter2_constant_xs/chapter2_constant_xs.tex
 Chapter 2.
 [6
 
@@ -1461,16 +1456,16 @@ Package pdftex.def Info: chapter5_depletion/FPA_P4_norm_err.png used on input li
 ts/Research/PGM_Dissertation/Dissertation/chapter5_depletion/FPA_P4_norm_err.png (PNG copy)>]) [162]
 (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter6_grey_radtran/chapter6_grey_radtran.tex
 Chapter 6.
-) [163
+[163
 
 
 
-] (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.tex
-(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.bbl [164
+] [164] [165] [166] [167]) [168] (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.tex
+(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.bbl [169
 
 
 
-] [165] [166] [167] [168])) [169]
+] [170] [171] [172] [173])) [174]
 (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.aux
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/titlepage.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/abstract.aux)
@@ -1484,31 +1479,28 @@ Chapter 6.
 (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter4_acceleration/chapter4_acceleration.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter5_depletion/chapter5_depletion.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter6_grey_radtran/chapter6_grey_radtran.aux)
-(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.aux))
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.aux)) ) 
 Here is how much of TeX's memory you used:
- 5073 strings out of 493921
- 97331 string characters out of 3147273
- 149544 words of memory out of 3000000
- 8055 multiletter control sequences out of 15000+200000
+ 5093 strings out of 493921
+ 97654 string characters out of 3147273
+ 149805 words of memory out of 3000000
+ 8075 multiletter control sequences out of 15000+200000
  11479 words of font info for 43 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  34i,18n,33p,993b,287s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/hoekwater/stmary10.pfb>
-Output written on pgm_dissertation.pdf (188 pages, 2831768 bytes).
+<C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/hoekwater/stmary10.pfb>
+Output written on pgm_dissertation.pdf (193 pages, 2844610 bytes).
 PDF statistics:
- 1050 PDF objects out of 1200 (max. 8388607)
+ 1066 PDF objects out of 1200 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  621 words of extra memory for PDF output out of 10000 (max. 10000000)
 

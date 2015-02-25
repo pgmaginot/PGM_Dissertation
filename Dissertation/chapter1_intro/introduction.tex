@@ -22,19 +22,22 @@
 
 \chapter{\uppercase {Introduction}}
 \label{sec:introduction}
-This dissertation is dedicated to the solution of thermal radiative transfer (TRT) equations.  The TRT equations:
+This dissertation is dedicated to the solution of the thermal radiative transfer (TRT) equations.  The TRT equations:
 \begin{subequations}
 \label{eq:full_trt}
 \beanum
-\frac{1}{c} \frac{\p I}{\p t} + \omg \cdot \vec{\nabla} I  + \sigma_t I &=& \int_0^{\infty}{ \int_{4\pi}{ \sigma_s(\omg'\to\omg,E'\to E) I , d\omg' } dE'} + \sigma_a B \\
-C_v \frac{\p T}{\p t} &=& \int_0^{\infty}{ \sigma_a \left( \phi- 4\pi B   \right) dE} \pec 
+\frac{1}{c} \frac{\p I}{\p t} + \omg \cdot \vec{\nabla} I  + \sigma_t I &=& \int_0^{\infty}{ \int_{4\pi}{ \sigma_s(\omg'\to\omg,E'\to E) I , d\omg' } dE'}+ \sigma_a B \\
+C_v \frac{\p T}{\p t} &=& \int_0^{\infty}{  \sigma_a \left( \phi- 4\pi B   \right) dE} \pec 
 \eeanum
 \end{subequations}
 are a nonlinear system of equations that describe the exchange of energy between a photon radiation field and a non-moving material.  
-The radiation intensity, $I$, is a seven dimensional field dependent upon spatial location, $\vec{x}$; photon energy, $E$; photon direction of travel, $\omg$; and time $t$.  
+Radiation intensity, $I$, is a seven dimensional field dependent upon spatial location, $\vec{x}$; photon energy, $E$; photon direction of travel, $\omg$; and time $t$.  
 $c$ is the speed of light.
-Material opacities for all interactions, $\sigma_t$; absorption, $\sigma_a$; and  scattering, $\sigma_s$ are functions of photon energy and material temperature, $T$.  Material heat capacity, $C_v$, is also a function of material temperature.  The angle integrated radiation intensity is an integral over all photon directions of the the photon intensity and is a function of space and photon energy.  Finally, the Planck function, $B$, is a function of photon energy and material temperature.
-While materials at all temperatures emit photon radiation, the radiation emission is proportional to $T^4$.  Thus, solution of the radiative transfer equations is most important in situations where materials are very hot.  
+Material opacities for all interactions, $\sigma_t$; absorption, $\sigma_a$; and  scattering, $\sigma_s$ are functions of photon energy and material temperature, $T$. 
+Material heat capacity, $C_v$, is also a function of material temperature.  
+The angle integrated radiation intensity, $\phi$, is an integral over all photon directions of the the photon intensity and is a function of space and photon energy.  Finally, the Planck function, $B$, is a function of photon energy and material temperature.
+While materials at all temperatures emit photon radiation, the radiation emission is proportional to $T^4$.  
+Thus, solution of the radiative transfer equations is most important in situations where materials are very hot.  
 Solving the thermal radiative transfer equations is an important component of the simulation of different scientific and engineering problems including astrophysics supernova explosions and high energy density laboratory physics experiments like those conducted at the National Ignition Facility.
 
 \section{Simplifications of the Thermal Radiative Transfer Equations}
@@ -55,15 +58,25 @@ using quadrature integration,
 \eenum
 In \eqt{eq:sn_def}, $\{w_d,\omg_d \}_{d=1,\dots N_{dir}}$ is the set of $N_{dir}$ quadrature weights $w_d$ and discrete directions, $\omg_d$ and corresponding intensities $I_d$.
 
-Finally, we  treat the photon energy dependence using the multi-frequency method.  The multi-frequency method approximates photon energy dependence by discretizing the continuous photon energy dependence with $G$ discrete groups such that:
-\benum
-\int_{0}^{\infty}{I(\vec{x} , \omg, t,E) dE} = \sum_{g=1}^G{I_g} \pec
-\eenum
-where
-\benum
-I(\vec{x} , \omg, t)_g = \int_{E_{g+1/2}}^{E_{g-1/2}}{ I(\vec{x},\omg,t,E) dE} \pec
-\eenum
-$E_{g+1/2}$ is the lower photon energy bound of group $g$, $E_{g-1/2}$ is the upper photon energy bound of group $g$, and we have maintained the traditional neutron transport number of higher energy particles belonging to lower number energy groups.
+Finally, we  treat the photon energy dependence assuming a grey, or photon energy integrated model.  
+The grey assumption assumes suitable opacities, $\sigma_{grey}$ exist such that
+\begin{subequations}
+\label{eq:chap1_opacity}
+\beanum
+\int_0^{\infty}{ \sigma(E) I(E) dE} &=& \sigma_{grey} I_{grey} \\
+ \int_0^{\infty}{ \sigma(E) \phi(E) dE} &=& \sigma_{grey} \phi_{grey} \\
+\int_0^{\infty}{ \sigma(E) B(E,T) dE} &=& \sigma_{grey} B_{grey}(T) \pec
+\eeanum
+\end{subequations}
+where $I_{grey}$, $\phi_{grey}$, and $B_{grey}$ are photon energy integrated quantities,
+\beanum
+I_{grey} &=& \int_0^{\infty}{ I(E) dE}  \\
+\phi_{grey} &=& \int_0^{\infty}{ \phi(E) dE} \\
+B_{grey} &=& \int_0^{\infty}{ B(E,T) dE} \pep
+\eeanum
+For the remainder of this work, we will forgo explicitly denoting quantities as grey, and unless otherwise noted, all quantities should be assumed to be photon energy integrated (grey).
+Though the assumption of \eqts{eq:chap1_opacity} does not hold unless all opacities are constant in energy, methods developed for the grey case are readily extensible
+to the multi-frequency treatment of photon energy dependence, and the multi-frequency approximation is by far the most common treatment of thermal radiative transfer photon energy dependence\cite{lewis_book}.
 
 \section{Spatial and Temporal Discretization}
 
@@ -97,13 +110,11 @@ For higher order (quadratic and higher polynomial degree trial spaces) DFEM to b
 \end{enumerate}
 By ``robust'', we mean that that calculated radiation outflow from a spatial cell is strictly positive for all cell widths and optical thicknesses.
 
-In \secref{sec:chapter2_constant_xs} we use a steady-state, mono-energetic, source-free pure absorber neutron transport problem with a cross section that is constant in space to examine the robustness of different radiation transport DFEM matrix lumping techniques.
-Next, we extend the techniques developed by Adams \cite{adams_scb,adams_nowak}, for a spatial discretization scheme related to LDFEM  to address the within cell spatial variation of opacity, for higher order DFEM in \secref{sec:chapter3_variable_xs} .
+In \chapref{sec:chapter2_constant_xs} we use a steady-state, mono-energetic, source-free pure absorber neutron transport problem with a cross section that is constant in space to examine the robustness of different radiation transport DFEM matrix lumping techniques.
+Next, we extend the techniques developed by Adams \cite{adams_scb,adams_nowak}, for a spatial discretization scheme related to LDFEM  to address the within cell spatial variation of opacity, for higher order DFEM in \chapref{sec:chapter3_variable_xs} .
 %We study the accuracy and robustness of a technique that explicitly accounts for the spatial variation of neutron transport interaction cross sections within each spatial cell
 %for arbitrary trial space degree  DFEM in 
-Then, we examine iterative acceleration techniques compatible with higher order DFEM spatial discretizations that account for the spatial variation of interaction cross (in neutron transport problems) or opacity (TRT simulations) in \secref{sec:chapter4_acceleration}.
+Then, we examine iterative acceleration techniques compatible with higher order DFEM spatial discretizations in Chapter \ref{sec:chapter4_acceleration}.
+In preparation for solving the coupled, non-linear TRT equations, in \chapref{sec:chapter5_depletion} we combine all of the strategies we have developed in Chapters \ref{sec:chapter2_constant_xs}-\ref{sec:chapter4_acceleration} and apply them to a coupled system of linear equations to solve a two-group fuel depletion problem that uses explicit Euler time differencing.
+Finally, in \secref{sec:chapter6_grey_radtran} we solve the grey thermal radiative transfer equations using higher order DFEM, fully deriving the necessary  equations, acceleration techniques, and providing numerical results that verify our newly developed DFEM methods and their implementation. 
 
-In preparation for solving the coupled, non-linear TRT equations, in \secref{sec:chapter5_depletion} we combine all of the strategies we have developed in Sections \ref{sec:chapter2_constant_xs}-\ref{sec:chapter4_acceleration} and apply them to a coupled system of linear equations. 
-Section \ref{sec:chapter5_depletion}, is deveoted to the development and solution of a two-group fuel depletion problem that uses explicit Euler time differencing.
-Finally, in \secref{sec:chapter6_grey_radtran} we solve the energy integrated, or grey, thermal radiative transfer equations using higher order DFEM. 
-We then provides solutions to analytic benchmarks to verify our methods \cite{su_olson_1}, and use the method of manufactured solutions \cite{mms} to demonstrate the increased accuracy of applying higher order DFEM and DIRK time integration techniques to the grey TRT equations.

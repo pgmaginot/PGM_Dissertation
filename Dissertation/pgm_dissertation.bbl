@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{lewis_book}
+E.~E. Lewis and W.~F. Miller.
+\newblock {\em Computational Methods of Neutron Transport}.
+\newblock American Nuclear Society, La Grange Park, IL, 1993.
+
 \bibitem{alexander}
 R.~Alexander.
 \newblock Diagonally implicit {R}unge-{K}utta methods for stiff {O.D.E}.'s.
@@ -15,7 +20,7 @@ W.~H. Reed, T.~R. Hill, F.~W. Brinkley, and K.~D. Lathrop.
 E.~W. Larsen and P.~Nelson.
 \newblock Finite-difference approximations and superconvergence for the
   discrete ordinates equations in slab geometry.
-\newblock {\em SIAM Journal of Numerical Analysis}, 19(2):334--348, 198.
+\newblock {\em SIAM Journal of Numerical Analysis}, 19(2):334--348, 1982.
 
 \bibitem{larsen_morel_asymptotics}
 E.~W. Larsen and J.~E. Morel.
@@ -40,17 +45,6 @@ M.~L. Adams and P.~F. Nowak.
 \newblock Asymptotic analysis of a computational method for time- and
   frequency- dependent radiative transfer.
 \newblock {\em Journal of Computational Physics}, 46:366--403, 1998.
-
-\bibitem{su_olson_1}
-B.~Su and G.~L. Olson.
-\newblock An analytical benchmark for non-equilibrium radiative transfer in an
-  isotropically scattering medium.
-\newblock {\em Annals of Nuclear Engergy}, 24(13):1035--1055, 1997.
-
-\bibitem{mms}
-K.~Salari and P.~Knupp.
-\newblock Code verification by the method of manufactured solutions.
-\newblock Technical Report {SAND}2000-1444, Sandia National Labs, 2000.
 
 \bibitem{ober_shadid}
 C.~C. Ober and J.~N. Shadid.
@@ -167,11 +161,6 @@ W.~M. Stacey.
 \newblock {\em Nuclear Reactor Physics}.
 \newblock John-Wiley \& Sons Inc., 2001.
 
-\bibitem{lewis_book}
-E.~E. Lewis and W.~F. Miller.
-\newblock {\em Computational Methods of Neutron Transport}.
-\newblock American Nuclear Society, La Grange Park, IL, 1993.
-
 \bibitem{warsa_lmfga}
 J.~E. Morel, T.-Y.~B. Yang, and J.~S. Warsa.
 \newblock Linear multifrequency-grey acceleration recast for preconditioned
@@ -284,5 +273,11 @@ J.~S. Warsa, T.~A. Wareing, J.~E. Morel, J.~M. McGhee, and R.~B. Lehoucq.
 \newblock Krylov subspace iterations for deterministic $k$-eigenvalue
   calculations.
 \newblock {\em Nuclear Science and Engineering}, 147:26--42, 2004.
+
+\bibitem{larsen_trt}
+E.~W. Larsen, A.~Kumar, and J.~E. Morel.
+\newblock Properties of the implicitly time-differenced equations of thermal
+  radiation transport.
+\newblock {\em Journal of Computational Physics}, 238:82--96, 2013.
 
 \end{thebibliography}

@@ -19,9 +19,153 @@
 \label{sec:chapter6_grey_radtran}
 
 We now apply our self-lumping DFEM methodology to the grey thermal radiative transfer equations.
-Our framework will be very similar to that presented by Morel et al in \cite{morel_radtran}.
-That is, we will linearize the Planckian about an arbitrary temperature and expand the spatial dependence of the Planckian in a $P$ degree trial space.
-We will also expand the angular intensity, $I$, and temperature, $T$ in a $P$ degree trial space as well.
+Our framework will share important characteristics of the work presented by Morel, Wareing, and Smith\cite{morel_radtran}.
+That is, we will
+\begin{enumerate}
+\item linearize the Planckian about an arbitrary temperature,
+\item  expand the angular intensity and temperature in a $P$ degree trial space, and
+\item expand the spatial dependence of the Planckian in a $P$ degree trial space.
+\end{enumerate}
+There are several differences between the work we present here and that of \cite{morel_radtran}.
+First, we will derive our method for arbitrary DFEM polynomial trial space degree, not only a linear polynomial trial space.
+Second, \cite{morel_radtran} used a DFEM scheme equivalent to traditional lumping, whereas we will primarily be considering quadrature based self-lumping discretizations.
+However, the equations we derive will be applicable to any DFEM scheme that uses polynomial trial and test functions.
+Additionally, we will consider arbitrary order (and stage count) SDIRK integration, not only implicit Euler time integration.
+The two most important differences between our work here and that of \cite{morel_radtran} will be that we will assume opacity can vary within each spatial cell and we will fully converge the Planckian linearization in temperature.
+As shown by Larsen, Kumar, and Morel, failure to fully converge the Planckian linearization in temperature can result lead to non-physical solutions that violate the maximum principle\cite{larsen_trt}.
 
-\section{New Section}
+The remainder of this chapter will be divided into three sections.  Section \ref{sec:chap6_linearization} will describe our linearization and discretization of grey TRT equations.  
+In \secref{sec:chap6_programming}, we will briefly describe the features and computer science implementation of the discretized TRT equations.  
+Finally, we present numerical results that verify and demonstrate the capabilities of our TRT solver in \secref{sec:chap6_results} and discuss the results in \secref{sec:chap6_conclusions}.
+
+\section{Linearization and Discretization of Grey TRT Equations}
+\label{sec:chap6_linearization}
+We will begin our discussion of how to linearize the Planckian of the grey thermal radiative transfer in temperature by first briefly outlining SDIRK temporal integration in \secref{sec:sdirk_explained}.
+A more complete explanation can be found in \cite{alexander}
+
+\subsection{SDIRK Time Integration}
+\label{sec:sdirk_explained}
+The coefficients, $a_i$, $b_i$, and $c_i$ that describe any Runge-Kutta time integration are typically given in formatted tables called Butcher Tableaux.
+Due to the stiff nature of the TRT equations, we will limit ourselves to SDIRK time integration schemes.  
+Depending on the source, SDIRK stands for Single-Diagonally Implicit Runge-Kutta, S-stable Diagonally Implicit Runge-Kutta, or one of many other expansions of the SDIRK acronym, depending on the source's author.
+The Butcher Tableaux of an SDIRK  scheme with $N_{stage}$ stages is given in \eqt{eq:butcher}
+\benum
+\label{eq:butcher}
+\begin{array}{c|c|cccc}
+\text{Stage}& c_i 	 & a  			&  		&					&	\\
+\hline
+1						&  c_1   &  a_{11} 	&  0  	&		\dots		&  0 \\
+2						&  c_2   &  a_{21}  & a_{22}  & 		0		& \vdots	\\	
+i						& c_i    &   a_{i1} &  a_{i2} & \ddots   &	0	\\
+N_{stage}     			&  c_{N_{stage}}   &   a_{N_{stage}1} & a_{N_{stage}2} 	& \dots 		& a_{N_{stage}N_{stage} }\\
+\hline
+{}					&				&		b_1		&		b_2			& \dots 	&   b_{N_{stage}}
+\end{array} \pep
+\eenum
+To illustrate how SDIRK is used to advance time dependent quantities, let us consider a time dependent scalar function, $g(t)$.
+Given an initial value at time (or time step) $t^n$, $g_n = g(t^n)$, then $g(t^{n+1})$ is:
+\benum
+g_{n+1} = g_n + \Delta t \sum_{i=1}^{N_{tstage}}{b_i k_i} \pec
+\label{eq:p1}
+\eenum
+where $\Delta t = t^{n+1} - t^n$, and $k_i$ is defined as:
+\benum
+k_i = f\left( t_n + c_i \Delta t ~,~g_{n} + \Delta t \sum_{j=1}^i{c_{ij} k_j }\right) \pec
+\eenum
+and
+\benum
+f(t,g) = \frac{\partial g}{\partial t} \pep
+\eenum
+Equation \ref{eq:p1} can also be interpreted as meaning:
+\benum
+g_i = g_{n} + \Delta t \sum_{j=1}^i{a_{ij} f\left(t_n + \Delta t c_j , g_j\right)} \pec
+\label{eq:psi-def}
+\eenum
+where $g_i$ is the intermediate value of $g$ at the time of stage $i$, $t_i = t^n + \Delta t c_i$.
+
+\subsection{Spatially Analytic Linearization}
+We now linearize the spatially analytic, 1-D slab, grey, discrete ordinates TRT equations with SDIRK time integration.  The fully analytic grey TRT are given in \eqts{eq:analytic_grey_trt},
+\begin{subequations}
+\label{eq:analytic_grey_trt}
+\benum
+\frac{1}{c} \frac{\partial I}{\partial t} + \mu_d \frac{\partial I}{\partial x} + \sigma_t I= \frac{1}{4\pi}\sigma_s \phi + \sigma_a B + S_I
+\label{eq:intensity_eq}
+\eenum
+\benum
+C_v \frac{\partial T}{\partial t} = \sigma_a \left( \phi - 4\pi B \right) + S_T \pep
+\label{eq:temperature_eq} 
+\eenum
+\end{subequations}
+In \eqts{eq:analytic_grey_trt}, we have assumed all scattering and material photon emission is isotropic, assume that $I$ is the intensity with directional cosine $\mu_d$ (relative to the $x$-axis),  $S_I$ is a homogenous intensity source in the direction of $\mu_d$, $S_T$ is a homogenous temperature source, and the frequency integrated Planck, $B$ is:
+\benum
+B(T) = \frac{1}{4\pi} ac T^4\pec
+\eenum
+with $c$ as the speed of light, and $a$ is the Planck radiation constant.
+To use SDIRK to advance $I$ and $T$ in time, we must first define the time derivatives of $I$ and $T$:
+\benum
+ \frac{\partial I}{\partial t} = c\left[ \frac{1}{4\pi}\sigma_s \phi + \sigma_a B + S_I - \mu_d \frac{\partial I}{\partial x} - \sigma_t I \right]
+\label{eq:k_I}
+\eenum
+and
+\benum
+\frac{\partial T}{\partial t} = \frac{1}{C_v} \left[ \sigma_a \left( \phi - 4\pi B \right) + S_T \right] \pep
+\label{eq:k_T}
+\eenum
+We evaluate $k_{I,s}$ and $k_{T,s}$, the SDIRK $k$ values for intensity and temperature for stage $s$ as:
+\benum
+k_{I,s} = c\left[ \frac{1}{4\pi}\sigma_{s}(T_s) \phi_s + \sigma_a(T_s) B(T_s) + S_I(t_s) - \mu_d \frac{\partial I_s}{\partial x} - \sigma_t(T_s) I_s \right]
+\label{eq:k_I_stage}
+\eenum
+and
+\benum
+k_{T,s} = \frac{1}{C_v(T_s)} \left[ \sigma_a(T_s) \left( \phi_s - 4\pi B(T_s) \right) + S_T(t_s) \right] \pec
+\label{eq:k_T_stage}
+\eenum
+where $\phi_s$, $I_s$, and $T_s$ are the angle integrated intensity, angular intensity, and temperature at stage/time $s$.
+With these definitions, we now seek to find $I_1$ and $T_1$ as prescribed by \eqt{eq:psi-def}.
+\benum
+I_1 = I_n + a_{11} \Delta t k_{I,1} \pec
+\eenum
+after substituting the definition of \eqt{eq:k_I_stage}
+\benum
+I_1 = I_n + a_{11} \Delta t c \left[ \frac{1}{4\pi}\sigma_{s} \phi_1 + \sigma_a B+ S_I - \mu_d \frac{\partial I_1}{\partial x} - \sigma_t I_1 \right] 
+\pep
+\label{eq:i_1_start}
+\eenum
+Likewise for temperature we have
+\benum
+T_1 = T_n +\frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi B \right) + S_T  \right] \pep
+\label{eq:t_1_start}
+\eenum
+In \eqt{eq:i_1_start} and \eqt{eq:t_1_start}, we have assumed that unless otherwise noted, all material properties and sources are evaluated at $t_s$ and $T_s$.
+
+We now introduce the linearization of the Planckian in temperature. 
+For an arbitrary temperature iterate, $T_*$, we approximate $B(T_s)$ as:
+\beanum
+B(T) &\approx & B(T_*) + \frac{\partial B}{\partial T} \bigg \lvert_{T=T_*} \left(  T - T_* \right) \\
+B(T) &\approx & B_* + D_*  \left(  T - T_* \right) \pep
+\label{eq:scalar_linear}
+\eeanum
+If we could remove the dependence on $T_1$ from \eqt{eq:i_1_start}, we could solve \eqt{eq:i_1_start} using the same techniques that have been developed to solve the discrete ordinates neutron transport equation.
+To remove the dependence on $T_1$ from \eqt{eq:i_1_start}, we first insert the linearization of \eqt{eq:scalar_linear} into \eqt{eq:t_1_start} and manipulate.
+We begin with \eqt{eq:long_t_1}
+\benum
+T_1 = T_n + \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi \left(  B_* + D_*  \left(  T_1 - T_* \right)  \right) \right) + S_T  \right] \pep
+\label{eq:long_t_1}
+\eenum
+
+Since we will linearize the spatially discretized TRT equations in the next section, it may seem unnecessary to perform the linearization for the spatially analytic case.
+If we could solve the spatially discretized equations efficiently through source iteration alone, it would be redundant to linearize the the spatially analytic and spatially discretized TRT equations.
+However, acceleration is essential for efficient solution of the TRT equations due to the non-linear Planckian absorption/re-emission terms in the linearized radiation intensity equation resulting in a situation analogous to a scattering dominated medium in neutron transport.
+This will be more clear and we will re-visit this topic, after we have derived the linearized the spatially discretized TRT.
+
+\section{Computer Science Implementation}
+\label{sec:chap6_programming}
+
+\section{Numerical Results}
+\label{sec:chap6_results}
+
+\section{Conclusions}
+\label{sec:chap6_conclusions}
+
 
