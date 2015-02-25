@@ -18,13 +18,15 @@
 \chapter{\uppercase{Fuel Depletion Problem}}
 \label{sec:chapter5_depletion}
 
-\section{Problem Physical Description}
-We consider a fuel depletion problem to illustrate that self-lumping DFEM schemes remain accurate for more complex physics than simply a purely absorbing medium.
+We now consider a fuel depletion problem to illustrate that self-lumping DFEM schemes remain accurate for more complex physics than simply a purely absorbing medium.
 The depletion method we use [time stepping scheme, time step size, etc.] is chosen for its simplicity, not for its fidelity relative to state-of-the art depletion methodologies.  
 Our goal is to assess the accuracy of {\emph spatial discretization} methods for problems with spatially varying cross sections, not to propose a new depletion method.  
 However, we stress that self-lumping methods can be implemented with any time depletion method or time stepping scheme since implementation of self-lumping  only requires changes pertaining to the spatial discretization. 
 
-The 1-D geometry of fuel and moderator layers is shown in \fig{fig:lattice}.  
+\section{Problem Physical Description}
+
+We will consider a 1-D slab fuel depletion problem.
+The dimensions and layout of the fuel and moderator layers lattice is shown in \fig{fig:lattice}.  
 \begin{figure}[!htp]
 \begin{center}
 \includegraphics[width=8cm]{chapter5_depletion/article_grid.pdf}
@@ -35,7 +37,8 @@ The 1-D geometry of fuel and moderator layers is shown in \fig{fig:lattice}.
 
 Initially, each fuel region is a homogeneous mixture containing only fissile $^{235}U$ and fertile $^{238}U$ nuclei, with compositions given in \tbl{tbl:fuel_atom_density}.
 \begin{table}[!htp]
-\begin{center}
+\centering
+\caption{Fuel atom density data.}
 \begin{tabular}{|c|c|}
 \hline
 Fuel Density $[g/cm^3]$  & 10.97 \\
@@ -47,14 +50,14 @@ Atom Fraction $^{238}\text{U}$ & 0.95 \\
 Fuel Molecular Weight $[amu]$ & 270.03\\
 \hline
 \end{tabular}
-\end{center}
-\caption{Fuel atom density data.}
 \label{tbl:fuel_atom_density}
 \end{table}
+%
 As fuel depletion progresses, the isotopic composition of fuel changes.
 The moderator is light water and its composition, given in \tbl{tbl:water_atom_density}, does not change with irradiation.
 \begin{table}[!htp]
-\begin{center}
+\centering
+\caption{Water atom density data.}
 \begin{tabular}{|c|c|}
 \hline
 Water Density $[g/cm^3]$  & 1 \\
@@ -66,14 +69,12 @@ Atom Fraction $^{16}\text{O}$ & $\frac{1}{3}$ \\
 Water Molecular Weight $[amu]$ & 18.02\\
 \hline
 \end{tabular}
-\end{center}
-\caption{Water atom density data.}
 \label{tbl:water_atom_density}
 \end{table}
 We track five nuclide types in the fuel during the fuel depletion problem: fissile, fertile, parasitic absorber fission product, scattering fission product, and inert, whose spatial nuclide densities, $[atom/cm^{3}]$, are respectively denoted as $N_{FS}$, $N_{FT}$, $N_{FP-A}$, $N_{FP-S}$, and $N_I$.
 
-We use a two-energy-group approximation with the standard numbering convention, the lower the group number, the faster the neutron.  
-All neutrons are born fast, there is no thermal upscattering, and we assume all scattering and fission is isotropic.
+We use a two-energy-group approximation with the standard numbering convention- the lower the group number, the faster the neutron.  
+All neutrons are born fast, there is no thermal upscattering, and we assume all scattering and fission is isotropic in angle.
 We also assume that if neutron absorption leads to isotopic transmutation, the transmutation occurs at the time of absorption, there are no radioactive decay chains.
 All possible transmutation paths are shown in \fig{fig:transmutation}.
 \begin{figure}[!htp]
@@ -156,7 +157,7 @@ and $\xi_g$ is the probability that when a parasitic absorber fission production
 Though not explicitly noted in \eqts{eq:analytic_depletion}, all scalar fluxes $\phi_g$, macroscopic cross sections $\Sigma_g$, and nuclide densities $N$, are functions of position.  We use Gauss-Legendre $S_2$ angular quadrature, with weights that sum to 2, to approximate the scalar fluxes.
 
 Macroscopic cross sections are generated from nuclide density and microscopic cross section data.
-As an example, $\Sigma_{t,g}$ is calculated as $i$ is shown in \eqt{eq:sigt_macro}:
+As an example, $\Sigma_{t,g}$ is calculated as  shown in \eqt{eq:sigt_macro}:
 \begin{multline}
 \Sigma_{t,g,i} = N_{FS}\sigma_{t,FS,g} + N_{FT}\sigma_{t,FT,g} + N_{FP-A}\sigma_{t,FP-A,g} 
 \\ + N_{FP-S}\sigma_{t,FP-S,g} + N_{I}\sigma_{t,I,g} \pep
@@ -174,8 +175,14 @@ Macroscopic fission cross section and average neutrons per fission products are 
 
 We complete the specification of the depletion problem  by giving the physical data used to solve the problem.  
 Microscopic cross section data for the water is given in \tbl{tbl:water}.  
+Absorption and scattering cross sections for the fertile and fissile nuclides are given in \tbl{tbl:fresh-fuel},  
+and fission cross sections and average neutrons per fission are given in \tbl{tbl:fission_data}.  
+Radiative capture fractions and probability of an absorbed neutron inducing fission are given in \tbl{tbl:fission_data_2}.   
+Cross-section data for the fission products and inert nuclides are given in \tbl{tbl:fp-data}.
+Fission product yields and the parasitic absorber fission product regeneration fraction, $\xi$, are given in \tbl{tbl:fp_misc}.
 \begin{table}[!htp]
-\begin{center}
+\centering
+\caption{Water microscopic cross section, in barns [$10^{-24}~cm^2$].  Moderator is composed only of $H_{2} O$.}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
 Nuclide &		$\sigma_{a,1}$ & $\sigma_{a,2} $& $\sigma_{s,1\to1} $& $\sigma_{s,2\to2}$ & $\sigma_{s,1\to2}$ \\
@@ -185,15 +192,13 @@ $^1\text{H}$   & 0  &  0.332 & 0 & 20.47 & 3.926 \\
 $^{16}\text{O}$&  0 & 0 &  2.739 & 3.780 & 0 \\
 \hline
 \end{tabular}	
-\end{center}
-\caption{Water microscopic cross section.  Assumed that water is composed only of $H_{2} O$.  All cross sections given in barns [$10^{-24}~cm^2$]}
 \label{tbl:water}
 \end{table}
-Absorption and scattering cross sections for the fertile and fissile nuclides are given in \tbl{tbl:fresh-fuel},  
-and fission cross sections and average neutrons per fission are given in \tbl{tbl:fission_data}.  
-Radiative capture fractions and probability of an absorbed neutron inducing fission are given in \tbl{tbl:fission_data_2}.   
+%
+%
 \begin{table}[!htp]
-\begin{center}
+\centering
+\caption{Fuel microscopic cross sections, in barns [$10^{-24}~cm^2$].}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
 Nuclide &		$\sigma_{a,1}$ & $\sigma_{a,2} $& $\sigma_{s,1\to1} $& $\sigma_{s,2\to2}$ & $\sigma_{s,1\to2}$ \\
@@ -203,12 +208,13 @@ $^{235} _{~92} \text{U}$   & 1.325 &  683.21 & 4.566 & 15.04 & 0\\
 $^{238} _{~92} \text{U}$   & 0.374 &  2.717 & 4.804 & 9.36 & 0 \\
 \hline
 \end{tabular}	
-\end{center}
-\caption{Fuel microscopic cross sections. All cross sections given in barns [$10^{-24}~cm^2$].}
 \label{tbl:fresh-fuel}
 \end{table}
+%
+%
 \begin{table}[!hbp]
-\begin{center}
+\centering
+\caption{Average neutron yield per fission, and fission microscopic cross section [$10^{-24}~cm^2$]. }
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 Nuclide &	  $\nu_1$ &	$\nu_2$ & $\sigma_{f,1}$ & $\sigma_{f,2} $ \\
@@ -218,15 +224,14 @@ $^{235} _{~92} \text{U}$   & 2.6 & 2.4 & 1.235  &  584.4 \\
 $^{238} _{~92} \text{U}$   & 2.8 & N/A & 0.308 &  0   \\
 \hline
 \end{tabular}	
-\end{center}
-\caption{Average neutron yield per fission, and fission cross section data [$10^{-24}~cm^2$]. }
 \label{tbl:fission_data}
 \end{table}
 %
 %
 %
 \begin{table}[!hbp]
-\begin{center}
+\centering
+\caption{Radiative capture fraction, and fission probability for fissile and fertile nuclides.}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 Nuclide &	 $\gamma_1$ & $\gamma_2$ &  $y_1$ & $y_2$ \\
@@ -236,14 +241,13 @@ $^{235} _{~92} \text{U}$   & $\frac{0.09}{1.325}=0.068$ & $\frac{98.81}{683.21}=
 $^{238} _{~92} \text{U}$   &  $\frac{0.066}{0.374}=0.177 $  & 1 &  $\frac{0.308}{0.374}=0.823$ & 0 \\
 \hline
 \end{tabular}	
-\end{center}
-\caption{Radiative capture fraction, and fission probability for fissile and fertile nuclides.}
 \label{tbl:fission_data_2}
 \end{table}
-
-Cross-section data for the fission products and inert nuclides are given in \tbl{tbl:fp-data}.
+%
+%
 \begin{table}[!htp]
-\begin{center}
+\centering
+\caption{Parasitic absorber fission product, scattering fission product, and inert nuclide microscopic cross section data in barns [$10^{-24}~cm^2$].}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
 Nuclide  & $\sigma_{a,1}$ & $\sigma_{a,2}$	& $\sigma_{s,1}$	& $\sigma_{s,2}$ & $\sigma_{s,1\to2} $\\
@@ -255,13 +259,13 @@ FP-S  & 0.5  & 5  & 15  & 100 & 0 \\
 Inert & 1 & 5  & 1 & 5 & 0 \\
 \hline
 \end{tabular}
-\end{center}
-\caption{Parasitic absorber fission product, scattering fission product, and inert nuclide microscopic cross section data.  All cross sections given in barns [$10^{-24}~cm^2$].}
 \label{tbl:fp-data}
 \end{table}
-Fission product yields and the parasitic absorber fission product regeneration fraction, $\xi$, are given in \tbl{tbl:fp_misc}.
+%
+%
 \begin{table}[!htp]
-\begin{center}
+\centering
+\caption{Fission product branch ratios and parasitic absorber fission product regeneration fraction.}
 \begin{tabular}{|c|c|}
 \hline
 $p_{FS,1} $& 0.3\\
@@ -277,11 +281,9 @@ $\xi_{FP-A,1}$ & 0.3 \\
 $\xi_{FP-A,2}$ & 0.5\\
 \hline
 \end{tabular}
-\end{center}
-\caption{Fission product branch ratios and parasitic absorber fission product regeneration fraction.}
 \label{tbl:fp_misc}
 \end{table}
-
+\newpage
 \subsection{Reactor Power Levels and Normalization}
 
 Vacuum boundary conditions are imposed on both sides of the slab.  
@@ -290,14 +292,14 @@ The burn-up cycle length consists of 600 full-power days and we use a time step 
 A typical beginning-of-cycle flux profile is shown in \fig{fig:ex_boc_cycle} and an end-of-cycle scalar flux profile is shown in \fig{fig:ex_eoc_cycle}.  
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__BOC_Flux.pdf}
+\includegraphics[width=11cm]{chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__BOC_Flux.pdf}
 \caption{Example normalized scalar flux profiles at beginning and end of fuel burn-up cycle.}
 \label{fig:ex_boc_cycle}
 \end{figure}
-
-\begin{figure}[!hbp]
+%
+\begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__EOC_Flux.pdf}
+\includegraphics[width=11cm]{chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__EOC_Flux.pdf}
 \caption{Example normalized scalar flux profiles at beginning and end of fuel burn-up cycle.}
 \label{fig:ex_eoc_cycle}
 \end{figure}
@@ -317,7 +319,7 @@ Lobatto quadrature is used as the DFEM interpolation points for odd degree trial
 
 \subsection{Radiation Solution}
 
-The spatially discretized radiation equations are:
+Using the nomenclature developed in Chapter \ref{sec:chapter2_constant_xs} and Chapter \ref{sec:chapter3_variable_xs}, the spatially discretized radiation equations are:
 %The left hand sides of Eq. (\ref{eq:ss_depletion}a) and Eq. (\ref{eq:ss_depletion}b) are identical to the left hand side derived in \eqt{eq:mat_form} of \secref{sec:derive}.
 %Noting that \eqt{eq:sn_def} holds not only for the analytic quantities, but also for numerical quantities, we introduce the numerical approximation to the group $g$ scalar flux, $\widetilde{\phi}_g(x)$:
 %\benum
@@ -435,7 +437,7 @@ AD DFEM calculates $\bar{\phi}_{g,i}$ using closed Newton-Cotes quadrature with 
 \bar{\phi}_{g,i} = \frac{1}{2}\sum_{j=1}^{N_P}{w_j \phi_{g,j} } \pep
 \eenum
 The averaging in \eqt{eq:avg} is exact since an $N_P$ point closed Newton-Cotes quadrature can exactly integrate any $P$ degree polynomial.
-Equation (\ref{eq:udfem_depletion}) locally updates $\bar{N}_{FS,i}$ via a $5\times5$ matrix-vector multiply.
+Equation (\ref{eq:udfem_depletion}) locally updates all average nuclide densities, $\bar{N}_{FS,i},~\bar{N}_{FT,i},~\bar{N}_{FP-A,i},~\bar{N}_{FP-S,i},~\text{and} \bar{N}_{I,i}$, simultaneously via a $5\times5$ matrix-vector multiply.
 
 The SL Full and SL Collapse schemes approximate the true spatial density of nuclide $m$ as a $P$ degree Lagrange polynomial, $\widetilde{N}_m(s)$, in each cell:
 \benum
@@ -444,7 +446,7 @@ The SL Full and SL Collapse schemes approximate the true spatial density of nucl
 \eenum
 where \B{j} are the $N_P = P+1$  Lagrange interpolatory polynomials in the interval $s\in[-1,1]$.  
 We require the set of nuclide density DFEM interpolation points to be the same set of $N_P$ points as the angular flux DFEM interpolation points.
-Following a Galerkin procedure, we multiply each production/destruction nuclide equation in \eqts{eq:analytic_depletion} by basis function $\B{j}$ and integrate generating a $5(P+1) \times 5(P+1)$ system of equations.
+Following a Galerkin procedure, we multiply each production/destruction nuclide equation of \eqts{eq:analytic_depletion} by basis function $\B{j}$ and integrate generating  $5(P+1)$ equations.
 The system of update equations for $\vec{N}_{FS,i}$ is shown in \eqts{eq:dfem_nuclide}:
 %\begin{subequations}
 \begin{multline}
@@ -511,7 +513,7 @@ N_{m,P+1}^{\tau}
 \end{array} \right]
  \pep
 \eenum
-Given that we track five nuclides in the fuel region, each expanded in a $P$ degree polynomial in each cell, there are $5(P+1)$ unknowns in each cell, thus \eqt{eq:dfem_nuclide} is a closed, $5(P+1) \times 5(P+1)$ system of linear equations for the $5(P+1)$ unknown $N_{FS,i,j}$ in each cell.
+Given that we track five nuclides in the fuel region, each expanded in a $P$ degree polynomial in each cell, there are $5(P+1)$ unknowns in each cell, thus \eqt{eq:dfem_nuclide} is a closed, $5(P+1) \times 5(P+1)$ system of linear equations for the $5(P+1)$ unknown nuclide densities, $N_{m,i,j}$ in each cell.
 %
 %Solution of \eqts{eq:dfem_nuclide} can be simplified by defining two matrices, $\mathbf{G}_1$ and $\mathbf{G}_2$:
 %\benum
@@ -539,7 +541,7 @@ w_j \phi_{g,\tau,i,j} & j=k \\
 Macroscopic cross sections are generated from nuclide density and microscopic cross section data.
 %s $[b]$, $1b = 10^{-24}~cm^2$, by multiplying a given nuclide's density by the microscopic cross section of that nuclide for a specific reaction, and then summing over all nuclides.  
 For the AD DFEM scheme, each cell has a single macroscopic cross section (per reaction type), and a single value of nuclide density for each nuclide type.  
-Thus, interaction cross sections are easily tabulated.  As an example, $\Sigma_{t,g}$ in cell $i$ is shown in \eqt{eq:udfem_sigt}:
+Thus, interaction cross sections are easily tabulated.  As an example, the cell average total interaction cross section in cell $i$ is calculated in \eqt{eq:udfem_sigt}:
 \begin{multline}
 \widehat{\Sigma}_{t,g,i} = N_{FS,i}\sigma_{t,FS,g} + N_{FT,i}\sigma_{t,FT,g} + N_{FP-A,i}\sigma_{t,FP-A,g} 
 \\ + N_{FP-S,i}\sigma_{t,FP-S,g} + N_{I,i}\sigma_{t,I,g} \pep
@@ -596,66 +598,71 @@ where $N_{ref}$ is the number of reference cells, $\widetilde{\phi}_{ref,i,g}(s)
 Error measures for $N_{FS}$, $N_{FT}$, and $N_{FP-A}$ are derived similarly.
 
 Convergence of $E_{\phi}$ is shown in \figs{fig:depletion_flux_p1}{fig:depletion_flux_p4} as a function of DFEM trial space degree and DFEM scheme.
-\begin{figure}[!htp]
+\begin{figure}[!hbp]
 \centering
-\includegraphics[width=11cm]{chapter5_depletion/Flux_P1_norm_err.png}
-\caption{Normalized total scalar flux error, $E_{\phi}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}
+\includegraphics[width=9.5cm]{chapter5_depletion/Flux_P1_norm_err.png}
+\caption{Normalized total scalar flux error for the depletion problem at end of cycle, for linear DFEM.}
 \label{fig:depletion_flux_p1}
 \end{figure}
 
-\begin{figure}[!hbp]
-\centering
-\includegraphics[width=11cm]{chapter5_depletion/Flux_P2_norm_err.png}
-\caption{Normalized total scalar flux error, $E_{\phi}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}
-\label{fig:depletion_flux_p2}
-\end{figure}
+\pagebreak
 
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=11cm]{chapter5_depletion/Flux_P3_norm_err.png}
-\caption{Normalized total scalar flux error, $E_{\phi}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}
-\label{fig:depletion_flux_p3}
+\includegraphics[width=9.5cm]{chapter5_depletion/Flux_P2_norm_err.png}
+\caption{Normalized total scalar flux error for the depletion problem at end of cycle, for quadratic DFEM.}
+\label{fig:depletion_flux_p2}
 \end{figure}
 
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=11cm]{chapter5_depletion/Flux_P4_norm_err.png}
-\caption{Normalized total scalar flux error, $E_{\phi}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}
+\includegraphics[width=9.5cm]{chapter5_depletion/Flux_P3_norm_err.png}
+\caption{Normalized total scalar flux error for the depletion problem at end of cycle, for cubic DFEM.}
+\label{fig:depletion_flux_p3}
+\end{figure}
+
+\pagebreak
+
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=9.5cm]{chapter5_depletion/Flux_P4_norm_err.png}
+\caption{Normalized total scalar flux error for the depletion problem at end of cycle, for quartic DFEM.}
 \label{fig:depletion_flux_p4}
 \end{figure}
-Figures \ref{fig:depletion_flux_p1}-\ref{fig:depletion_flux_p4} re-emphasizes two key results observed in the case of a pure absorber.
+
+Figures \ref{fig:depletion_flux_p1}-\ref{fig:depletion_flux_p4} re-emphasize two key results observed in the case of a pure absorber.
 First, when employing cell-wise constant cross sections, angular / scalar flux convergence is at most second order in space, regardless of the DFEM trial space polynomial degree.
 Second, exact integration of the interaction terms in the DFEM moment equations is not required to achieve high-order accuracy.
 In the depletion term, the DFEM interaction term is a degree $3P$ polynomial, and self-lumping schemes using Gauss or Lobatto quadrature only integrate $2P+1$ and $2P-1$ degree polynomials, respectively.
 
 Convergence of $E_{N_{FS}}$, $E_{N_{FT}}$, and $E_{N_{FP-A}}$ are given in 
-\figs{fig:depletion_NFS_p1}{fig:depletion_NFS_p4}, \figs{fig:depletion_NFT_p1}{fig:depletion_NFT_p4}, and \figs{fig:depletion_NFPA_p1}{fig:depletion_NFPA_p4}, respectively.
+\figs{fig:depletion_NFS_p1}{fig:depletion_NFS_p4}, \figs{fig:depletion_NFT_p1}{fig:depletion_NFT_p4}, and \figs{fig:depletion_NFPA_p1}{fig:depletion_NFPA_p4}, respectively for linear through quartic trial space degrees.
 
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=11cm]{chapter5_depletion/FS_P1_norm_err.png}
-\caption{Normalized fissile nuclide density error, $E_{N_{FS}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}
+\includegraphics[width=9.5cm]{chapter5_depletion/FS_P1_norm_err.png}
+\caption{Normalized fissile nuclide density error for the depletion problem at end of cycle, for linear DFEM}
 \label{fig:depletion_NFS_p1}
 \end{figure}
 
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=11cm]{chapter5_depletion/FS_P2_norm_err.png}
-\caption{Normalized fissile nuclide density error, $E_{N_{FS}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}
+\includegraphics[width=9.5cm]{chapter5_depletion/FS_P2_norm_err.png}
+\caption{Normalized fissile nuclide density error for the depletion problem at end of cycle, for quadratic DFEM.}
 \label{fig:depletion_NFS_p2}
 \end{figure}
 
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=11cm]{chapter5_depletion/FS_P3_norm_err.png}
-\caption{Normalized fissile nuclide density error, $E_{N_{FS}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}
+\includegraphics[width=9.5cm]{chapter5_depletion/FS_P3_norm_err.png}
+\caption{Normalized fissile nuclide density error for the depletion problem at end of cycle, for cubic DFEM.}
 \label{fig:depletion_NFS_p3}
 \end{figure}
 
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=11cm]{chapter5_depletion/FS_P4_norm_err.png}
-\caption{Normalized fissile nuclide density error, $E_{N_{FS}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}
+\includegraphics[width=9.5cm]{chapter5_depletion/FS_P4_norm_err.png}
+\caption{Normalized fissile nuclide density error for the depletion problem at end of cycle, for quartic DFEM.}
 \label{fig:depletion_NFS_p4}
 \end{figure}
 
@@ -663,62 +670,68 @@ Convergence of $E_{N_{FS}}$, $E_{N_{FT}}$, and $E_{N_{FP-A}}$ are given in
 
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=11cm]{chapter5_depletion/ft_P1_norm_err.png}
-\caption{Normalized fertile nuclide density, $E_{N_{ft}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}
+\includegraphics[width=9.5cm]{chapter5_depletion/ft_P1_norm_err.png}
+\caption{Normalized fertile nuclide density error for the depletion problem at end of cycle, for linear DFEM.}
 \label{fig:depletion_NFT_p1}
 \end{figure}
-
+%
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=11cm]{chapter5_depletion/ft_P2_norm_err.png}
-\caption{Normalized fertile nuclide density, $E_{N_{ft}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}
+\includegraphics[width=9.5cm]{chapter5_depletion/ft_P2_norm_err.png}
+\caption{Normalized fertile nuclide density error for the depletion problem at end of cycle, for quadratic DFEM..}
 \label{fig:depletion_NFT_p2}
 \end{figure}
-
+%
+\newpage
+%
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=11cm]{chapter5_depletion/ft_P3_norm_err.png}
-\caption{Normalized fertile nuclide density, $E_{N_{ft}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}
+\includegraphics[width=9.5cm]{chapter5_depletion/ft_P3_norm_err.png}
+\caption{Normalized fertile nuclide density error for the depletion problem at end of cycle, for cubic DFEM.}
 \label{fig:depletion_NFT_p3}
 \end{figure}
 
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=11cm]{chapter5_depletion/ft_P4_norm_err.png}
-\caption{Normalized fertile nuclide density, $E_{N_{ft}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}
+\includegraphics[width=9.5cm]{chapter5_depletion/ft_P4_norm_err.png}
+\caption{Normalized fertile nuclide density error for the depletion problem at end of cycle, for quartic DFEM.}
 \label{fig:depletion_NFT_p4}
 \end{figure}
 
-
-\pagebreak
+\newpage
 
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=11cm]{chapter5_depletion/FPA_P1_norm_err.png}
-\caption{Normalized parasitic absorber fission product error, $E_{N_{FPA}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}
+\includegraphics[width=9.5cm]{chapter5_depletion/FPA_P1_norm_err.png}
+\caption{Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for linear DFEM.}
 \label{fig:depletion_NFPA_p1}
 \end{figure}
-
+%
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=11cm]{chapter5_depletion/FPA_P2_norm_err.png}
-\caption{Normalized parasitic absorber fission product error, $E_{N_{FPA}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}
+\includegraphics[width=9.5cm]{chapter5_depletion/FPA_P2_norm_err.png}
+\caption{Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for quadratic DFEM.}
 \label{fig:depletion_NFPA_p2}
 \end{figure}
 
+\newpage
+
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=11cm]{chapter5_depletion/FPA_P3_norm_err.png}
-\caption{Normalized parasitic absorber fission product error, $E_{N_{FPA}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}
+\includegraphics[width=9.5cm]{chapter5_depletion/FPA_P3_norm_err.png}
+\caption{Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for cubic DFEM.}
 \label{fig:depletion_NFPA_p3}
 \end{figure}
-
+%
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=11cm]{chapter5_depletion/FPA_P4_norm_err.png}
-\caption{Normalized parasitic absorber fission product error, $E_{N_{FPA}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}
+\includegraphics[width=9.5cm]{chapter5_depletion/FPA_P4_norm_err.png}
+\caption{Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for quartic DFEM.}
 \label{fig:depletion_NFPA_p4}
 \end{figure}  
+
+\newpage
+
 Examining the spatial convergence in nuclide densities, we make several observations.  
 First, we note that the AD DFEM scheme (cell-wise average cross section, cell average nuclide density) achieves at most first-order convergence for all spatial nuclide density errors, regardless of the angular flux trial space degree.  
 The AD DFEM scheme is limited to at most first-order convergence of the error in the spatial distribution of nuclides because the scalar flux is updated using only a cell-wise average cross section and only the cell average nuclide density is tracked.

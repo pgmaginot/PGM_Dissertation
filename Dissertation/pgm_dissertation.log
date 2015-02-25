@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.18)  24 FEB 2015 20:30
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.18)  24 FEB 2015 22:48
 entering extended mode
 **pgm_dissertation.tex
 (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.tex
@@ -404,20 +404,10 @@ Overfull \hbox (1.85217pt too wide) in paragraph at lines 69--69
 
 [13] [14] [15] [16])
 \tf@lof=\write4
- [17] (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.lot [18]
-Overfull \hbox (21.43427pt too wide) in paragraph at lines 26--26
- [][] []\OT1/cmr/m/n/12 Average neu-tron yield per fis-sion, and fis-sion cross sec-tion data [$10[] []\OML/cmm/m/it/12 
-cm[]$\OT1/cmr/m/n/12 ]. 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 26--26
- []  
- []
-
-)
+ [17] (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.lot [18])
 \tf@lot=\write5
- [19]) (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter1_intro/introduction.tex
+ [19])
+(E:\Documents\Research\PGM_Dissertation\Dissertation\chapter1_intro/introduction.tex
 Chapter 1.
 [1
 
@@ -1315,15 +1305,10 @@ opy)>] [135 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter4_accele
 ) [137]
 (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter5_depletion/chapter5_depletion.tex
 Chapter 5.
-
-Overfull \hbox (4.23265pt too wide) in paragraph at lines 22--26
-[]\OT1/cmr/m/n/12 We con-sider a fuel de-ple-tion prob-lem to il-lus-trate that self-lumping DFEM schemes
- []
-
 <chapter5_depletion/article_grid.pdf, id=854, 364.36125pt x 294.09875pt>
 File: chapter5_depletion/article_grid.pdf Graphic file (type pdf)
  <use chapter5_depletion/article_grid.pdf>
-Package pdftex.def Info: chapter5_depletion/article_grid.pdf used on input line 30.
+Package pdftex.def Info: chapter5_depletion/article_grid.pdf used on input line 32.
 (pdftex.def)             Requested size: 227.62204pt x 183.726pt.
 
 [138
@@ -1335,152 +1320,157 @@ Package pdftex.def Info: chapter5_depletion/article_grid.pdf used on input line 
 File: chapter5_depletion/article_transmutation.pdf Graphic file (type pdf)
 
 <use chapter5_depletion/article_transmutation.pdf>
-Package pdftex.def Info: chapter5_depletion/article_transmutation.pdf used on input line 81.
+Package pdftex.def Info: chapter5_depletion/article_transmutation.pdf used on input line 82.
 (pdftex.def)             Requested size: 284.52756pt x 306.50972pt.
- [139] [140 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/article_transmutation.pdf>] [141] [1
-42] [143]
-<chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__BOC_Flux.pdf, id=888, 502.87875pt x 407.5225p
+
+Overfull \hbox (10.73941pt too wide) in paragraph at lines 76--87
+[]\OT1/cmr/m/n/12 We use a two-energy-group ap-prox-i-ma-tion with the stan-dard num-ber-ing convention-
+ []
+
+[139] [140 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/article_transmutation.pdf>] [141]
+[142] [143] [144]
+<chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__BOC_Flux.pdf, id=892, 502.87875pt x 407.5225p
 t>
 File: chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__BOC_Flux.pdf Graphic file (type pdf)
  <use chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__BOC_Flux.pdf>
 Package pdftex.def Info: chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__BOC_Flux.pdf used on 
-input line 293.
-(pdftex.def)             Requested size: 284.52756pt x 230.57399pt.
+input line 295.
+(pdftex.def)             Requested size: 312.9803pt x 253.63138pt.
 
-<chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__EOC_Flux.pdf, id=889, 502.87875pt x 407.5225p
+<chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__EOC_Flux.pdf, id=893, 502.87875pt x 407.5225p
 t>
 File: chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__EOC_Flux.pdf Graphic file (type pdf)
  <use chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__EOC_Flux.pdf>
 Package pdftex.def Info: chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__EOC_Flux.pdf used on 
-input line 300.
-(pdftex.def)             Requested size: 284.52756pt x 230.57399pt.
- [144] [145 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_E
-nd_600_Power_2000__BOC_Flux.pdf>] [146 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/P1_Lobatt
-o_full_80_cells_t_steps60_End_600_Power_2000__EOC_Flux.pdf>] [147] [148] [149] [150] [151]
-<chapter5_depletion/Flux_P1_norm_err.png, id=924, 578.16pt x 433.62pt>
+input line 302.
+(pdftex.def)             Requested size: 312.9803pt x 253.63138pt.
+ [145 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600
+_Power_2000__BOC_Flux.pdf>] [146 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/P1_Lobatto_full
+_80_cells_t_steps60_End_600_Power_2000__EOC_Flux.pdf>] [147] [148] [149] [150] [151] [152]
+<chapter5_depletion/Flux_P1_norm_err.png, id=927, 578.16pt x 433.62pt>
 File: chapter5_depletion/Flux_P1_norm_err.png Graphic file (type png)
  <use chapter5_depletion/Flux_P1_norm_err.png>
-Package pdftex.def Info: chapter5_depletion/Flux_P1_norm_err.png used on input line 601.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter5_depletion/Flux_P1_norm_err.png used on input line 603.
+(pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-[152] <chapter5_depletion/Flux_P2_norm_err.png, id=928, 578.16pt x 433.62pt>
+[153 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/Flux_P1_norm_err.png (PNG copy)>]
+<chapter5_depletion/Flux_P2_norm_err.png, id=931, 578.16pt x 433.62pt>
 File: chapter5_depletion/Flux_P2_norm_err.png Graphic file (type png)
+ <use chapter5_depletion/Flux_P2_norm_err.png>
+Package pdftex.def Info: chapter5_depletion/Flux_P2_norm_err.png used on input line 612.
+(pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<use chapter5_depletion/Flux_P2_norm_err.png>
-Package pdftex.def Info: chapter5_depletion/Flux_P2_norm_err.png used on input line 608.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
- <chapter5_depletion/Flux_P3_norm_err.png, id=929, 578.16pt x 433.62pt>
+<chapter5_depletion/Flux_P3_norm_err.png, id=932, 578.16pt x 433.62pt>
 File: chapter5_depletion/Flux_P3_norm_err.png Graphic file (type png)
+ <use chapter5_depletion/Flux_P3_norm_err.png>
+Package pdftex.def Info: chapter5_depletion/Flux_P3_norm_err.png used on input line 619.
+(pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<use chapter5_depletion/Flux_P3_norm_err.png>
-Package pdftex.def Info: chapter5_depletion/Flux_P3_norm_err.png used on input line 615.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
- <chapter5_depletion/Flux_P4_norm_err.png, id=930, 578.16pt x 433.62pt>
+[154 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/Flux_P2_norm_err.png (PNG copy)> <E:/Docume
+nts/Research/PGM_Dissertation/Dissertation/chapter5_depletion/Flux_P3_norm_err.png (PNG copy)>]
+<chapter5_depletion/Flux_P4_norm_err.png, id=936, 578.16pt x 433.62pt>
 File: chapter5_depletion/Flux_P4_norm_err.png Graphic file (type png)
+ <use chapter5_depletion/Flux_P4_norm_err.png>
+Package pdftex.def Info: chapter5_depletion/Flux_P4_norm_err.png used on input line 628.
+(pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<use chapter5_depletion/Flux_P4_norm_err.png>
-Package pdftex.def Info: chapter5_depletion/Flux_P4_norm_err.png used on input line 622.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
- <chapter5_depletion/FS_P1_norm_err.png, id=931, 578.16pt x 433.62pt>
+<chapter5_depletion/FS_P1_norm_err.png, id=937, 578.16pt x 433.62pt>
 File: chapter5_depletion/FS_P1_norm_err.png Graphic file (type png)
+ <use chapter5_depletion/FS_P1_norm_err.png>
+Package pdftex.def Info: chapter5_depletion/FS_P1_norm_err.png used on input line 643.
+(pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<use chapter5_depletion/FS_P1_norm_err.png>
-Package pdftex.def Info: chapter5_depletion/FS_P1_norm_err.png used on input line 636.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
- [153 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/Flux_P1_norm_err.png (PNG copy)>] [154 <E:
-/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/Flux_P2_norm_err.png (PNG copy)> <E:/Documents/Rese
-arch/PGM_Dissertation/Dissertation/chapter5_depletion/Flux_P3_norm_err.png (PNG copy)>] <chapter5_depletion/FS_P2_norm_e
-rr.png, id=938, 578.16pt x 433.62pt>
+<chapter5_depletion/FS_P2_norm_err.png, id=938, 578.16pt x 433.62pt>
 File: chapter5_depletion/FS_P2_norm_err.png Graphic file (type png)
+ <use chapter5_depletion/FS_P2_norm_err.png>
+Package pdftex.def Info: chapter5_depletion/FS_P2_norm_err.png used on input line 650.
+(pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<use chapter5_depletion/FS_P2_norm_err.png>
-Package pdftex.def Info: chapter5_depletion/FS_P2_norm_err.png used on input line 643.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
- <chapter5_depletion/FS_P3_norm_err.png, id=939, 578.16pt x 433.62pt>
+<chapter5_depletion/FS_P3_norm_err.png, id=939, 578.16pt x 433.62pt>
 File: chapter5_depletion/FS_P3_norm_err.png Graphic file (type png)
+ <use chapter5_depletion/FS_P3_norm_err.png>
+Package pdftex.def Info: chapter5_depletion/FS_P3_norm_err.png used on input line 657.
+(pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<use chapter5_depletion/FS_P3_norm_err.png>
-Package pdftex.def Info: chapter5_depletion/FS_P3_norm_err.png used on input line 650.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
- <chapter5_depletion/FS_P4_norm_err.png, id=940, 578.16pt x 433.62pt>
+<chapter5_depletion/FS_P4_norm_err.png, id=940, 578.16pt x 433.62pt>
 File: chapter5_depletion/FS_P4_norm_err.png Graphic file (type png)
+ <use chapter5_depletion/FS_P4_norm_err.png>
+Package pdftex.def Info: chapter5_depletion/FS_P4_norm_err.png used on input line 664.
+(pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<use chapter5_depletion/FS_P4_norm_err.png>
-Package pdftex.def Info: chapter5_depletion/FS_P4_norm_err.png used on input line 657.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
- [155 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/Flux_P4_norm_err.png (PNG copy)>] [156 <E:
-/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/FS_P1_norm_err.png (PNG copy)> <E:/Documents/Resear
-ch/PGM_Dissertation/Dissertation/chapter5_depletion/FS_P2_norm_err.png (PNG copy)>] [157 <E:/Documents/Research/PGM_Diss
-ertation/Dissertation/chapter5_depletion/FS_P3_norm_err.png (PNG copy)> <E:/Documents/Research/PGM_Dissertation/Disserta
-tion/chapter5_depletion/FS_P4_norm_err.png (PNG copy)>]
+[155 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/Flux_P4_norm_err.png (PNG copy)>] [156 <E:/
+Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/FS_P1_norm_err.png (PNG copy)> <E:/Documents/Researc
+h/PGM_Dissertation/Dissertation/chapter5_depletion/FS_P2_norm_err.png (PNG copy)>] [157 <E:/Documents/Research/PGM_Disse
+rtation/Dissertation/chapter5_depletion/FS_P3_norm_err.png (PNG copy)> <E:/Documents/Research/PGM_Dissertation/Dissertat
+ion/chapter5_depletion/FS_P4_norm_err.png (PNG copy)>]
 <chapter5_depletion/ft_P1_norm_err.png, id=951, 578.16pt x 433.62pt>
 File: chapter5_depletion/ft_P1_norm_err.png Graphic file (type png)
  <use chapter5_depletion/ft_P1_norm_err.png>
-Package pdftex.def Info: chapter5_depletion/ft_P1_norm_err.png used on input line 666.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter5_depletion/ft_P1_norm_err.png used on input line 673.
+(pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
 <chapter5_depletion/ft_P2_norm_err.png, id=952, 578.16pt x 433.62pt>
 File: chapter5_depletion/ft_P2_norm_err.png Graphic file (type png)
  <use chapter5_depletion/ft_P2_norm_err.png>
-Package pdftex.def Info: chapter5_depletion/ft_P2_norm_err.png used on input line 673.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter5_depletion/ft_P2_norm_err.png used on input line 680.
+(pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<chapter5_depletion/ft_P3_norm_err.png, id=953, 578.16pt x 433.62pt>
+[158 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/ft_P1_norm_err.png (PNG copy)> <E:/Document
+s/Research/PGM_Dissertation/Dissertation/chapter5_depletion/ft_P2_norm_err.png (PNG copy)>]
+<chapter5_depletion/ft_P3_norm_err.png, id=956, 578.16pt x 433.62pt>
 File: chapter5_depletion/ft_P3_norm_err.png Graphic file (type png)
  <use chapter5_depletion/ft_P3_norm_err.png>
-Package pdftex.def Info: chapter5_depletion/ft_P3_norm_err.png used on input line 680.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter5_depletion/ft_P3_norm_err.png used on input line 689.
+(pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<chapter5_depletion/ft_P4_norm_err.png, id=954, 578.16pt x 433.62pt>
+<chapter5_depletion/ft_P4_norm_err.png, id=957, 578.16pt x 433.62pt>
 File: chapter5_depletion/ft_P4_norm_err.png Graphic file (type png)
  <use chapter5_depletion/ft_P4_norm_err.png>
-Package pdftex.def Info: chapter5_depletion/ft_P4_norm_err.png used on input line 687.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter5_depletion/ft_P4_norm_err.png used on input line 696.
+(pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-[158 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/ft_P1_norm_err.png (PNG copy)>] [159 <E:/Do
-cuments/Research/PGM_Dissertation/Dissertation/chapter5_depletion/ft_P2_norm_err.png (PNG copy)> <E:/Documents/Research/
-PGM_Dissertation/Dissertation/chapter5_depletion/ft_P3_norm_err.png (PNG copy)>]
+[159 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/ft_P3_norm_err.png (PNG copy)> <E:/Document
+s/Research/PGM_Dissertation/Dissertation/chapter5_depletion/ft_P4_norm_err.png (PNG copy)>]
 <chapter5_depletion/FPA_P1_norm_err.png, id=961, 578.16pt x 433.62pt>
 File: chapter5_depletion/FPA_P1_norm_err.png Graphic file (type png)
  <use chapter5_depletion/FPA_P1_norm_err.png>
-Package pdftex.def Info: chapter5_depletion/FPA_P1_norm_err.png used on input line 697.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter5_depletion/FPA_P1_norm_err.png used on input line 705.
+(pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
 <chapter5_depletion/FPA_P2_norm_err.png, id=962, 578.16pt x 433.62pt>
 File: chapter5_depletion/FPA_P2_norm_err.png Graphic file (type png)
  <use chapter5_depletion/FPA_P2_norm_err.png>
-Package pdftex.def Info: chapter5_depletion/FPA_P2_norm_err.png used on input line 704.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter5_depletion/FPA_P2_norm_err.png used on input line 712.
+(pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<chapter5_depletion/FPA_P3_norm_err.png, id=963, 578.16pt x 433.62pt>
+[160 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/FPA_P1_norm_err.png (PNG copy)> <E:/Documen
+ts/Research/PGM_Dissertation/Dissertation/chapter5_depletion/FPA_P2_norm_err.png (PNG copy)>]
+<chapter5_depletion/FPA_P3_norm_err.png, id=966, 578.16pt x 433.62pt>
 File: chapter5_depletion/FPA_P3_norm_err.png Graphic file (type png)
  <use chapter5_depletion/FPA_P3_norm_err.png>
-Package pdftex.def Info: chapter5_depletion/FPA_P3_norm_err.png used on input line 711.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter5_depletion/FPA_P3_norm_err.png used on input line 721.
+(pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<chapter5_depletion/FPA_P4_norm_err.png, id=964, 578.16pt x 433.62pt>
+<chapter5_depletion/FPA_P4_norm_err.png, id=967, 578.16pt x 433.62pt>
 File: chapter5_depletion/FPA_P4_norm_err.png Graphic file (type png)
  <use chapter5_depletion/FPA_P4_norm_err.png>
-Package pdftex.def Info: chapter5_depletion/FPA_P4_norm_err.png used on input line 718.
-(pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
+Package pdftex.def Info: chapter5_depletion/FPA_P4_norm_err.png used on input line 728.
+(pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-[160 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/ft_P4_norm_err.png (PNG copy)>] [161 <E:/Do
-cuments/Research/PGM_Dissertation/Dissertation/chapter5_depletion/FPA_P1_norm_err.png (PNG copy)> <E:/Documents/Research
-/PGM_Dissertation/Dissertation/chapter5_depletion/FPA_P2_norm_err.png (PNG copy)>] [162 <E:/Documents/Research/PGM_Disse
-rtation/Dissertation/chapter5_depletion/FPA_P3_norm_err.png (PNG copy)> <E:/Documents/Research/PGM_Dissertation/Disserta
-tion/chapter5_depletion/FPA_P4_norm_err.png (PNG copy)>]) [163]
+[161 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter5_depletion/FPA_P3_norm_err.png (PNG copy)> <E:/Documen
+ts/Research/PGM_Dissertation/Dissertation/chapter5_depletion/FPA_P4_norm_err.png (PNG copy)>]) [162]
 (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter6_grey_radtran/chapter6_grey_radtran.tex
 Chapter 6.
-) [164
+) [163
 
 
 
 ] (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.tex
-(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.bbl [165
+(E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.bbl [164
 
 
 
-] [166] [167] [168] [169])) [170]
+] [165] [166] [167] [168])) [169]
 (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.aux
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/titlepage.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/abstract.aux)
@@ -1494,7 +1484,11 @@ Chapter 6.
 (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter4_acceleration/chapter4_acceleration.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter5_depletion/chapter5_depletion.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter6_grey_radtran/chapter6_grey_radtran.aux)
-(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.aux)) ) 
+(E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.aux))
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
  5073 strings out of 493921
  97331 string characters out of 3147273
@@ -1503,19 +1497,18 @@ Here is how much of TeX's memory you used:
  11479 words of font info for 43 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  34i,18n,33p,993b,287s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/hoekwater/stmary10.pfb>
-Output written on pgm_dissertation.pdf (189 pages, 2833552 bytes).
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/hoekwater/stmary10.pfb>
+Output written on pgm_dissertation.pdf (188 pages, 2831768 bytes).
 PDF statistics:
- 1053 PDF objects out of 1200 (max. 8388607)
+ 1050 PDF objects out of 1200 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  621 words of extra memory for PDF output out of 10000 (max. 10000000)
 
