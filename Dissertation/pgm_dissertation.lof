@@ -90,37 +90,47 @@
 \contentsline {figure}{\numberline {4.7}{\ignorespaces Estimates of $\rho $ for S2SA as a function of $c$ for $S_8$ linear SL Lobatto.}}{121}
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Estimates of $\rho $ for S2SA as a function of $S_8$, $c=0.999$, SL Gauss as a function of trial space degree.}}{122}
 \contentsline {figure}{\numberline {4.9}{\ignorespaces Estimates of $\rho $ for S2SA as a function of $S_8$, $c=0.999$, SL Lobatto as a function of trial space degree.}}{122}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Estimates of $\rho $ for MIP DSA as a function of $S_N$ order for $c=0.999$ linear SL Gauss.}}{123}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Estimates of $\rho $ for MIP DSA as a function of $S_N$ order for $c=0.999$ linear SL Lobatto.}}{124}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Estimates of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Gauss.}}{125}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $S_N$ order for $c=0.999$ linear SL Gauss.}}{123}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $S_N$ order for $c=0.999$ linear SL Lobatto.}}{124}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Gauss.}}{125}
 \contentsline {figure}{\numberline {4.13}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Lobatto.}}{125}
 \contentsline {figure}{\numberline {4.14}{\ignorespaces Average estimate of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Gauss during iteration process.}}{126}
 \contentsline {figure}{\numberline {4.15}{\ignorespaces Average estimate of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Lobatto during iteration process.}}{126}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Estimates of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Gauss, with $Z_{MIP}=4$.}}{127}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Estimates of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Lobatto, with $Z_{MIP}=4$.}}{127}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Gauss, $Z_{MIP}=4$.}}{127}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Lobatto, $Z_{MIP}=4$.}}{127}
 \contentsline {figure}{\numberline {4.18}{\ignorespaces Average estimate of $\rho $ during iteration for MIP DSA as a function of $c$ for $S_8$ linear SL Gauss, with $Z_{MIP}=4$.}}{128}
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Estimates of $\rho $ for MIP as a function of $S_8$, $c=0.999$, SL Gauss as a function of trial space degree.}}{129}
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Estimates of $\rho $ for MIP DSA as a function of $S_8$, $c=0.999$, SL Lobatto as a function of trial space degree.}}{130}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Gauss with $Z_{MIP}=2$.}}{129}
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Lobatto with $Z_{MIP}=2$.}}{130}
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Average estimate of $\rho $ for MIP DSA during iteration, as a function of $P$ for $S_8$, $c=0.999$, SL Gauss with $Z_{MIP}=2$.}}{130}
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Average estimate of $\rho $ for MIP DSA during iteration, as a function of $P$ with $S_8$, $c=0.999$, SL Lobatto with $Z_{MIP}=2$.}}{131}
+\contentsline {figure}{\numberline {4.23}{\ignorespaces $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Gauss with $Z_{MIP}=4$.}}{131}
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Estimates of $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Lobatto with $Z_{MIP}=4$.}}{132}
+\contentsline {figure}{\numberline {4.25}{\ignorespaces Estimate of $\rho $ for S2SA as a function of $\overline {\Sigma _t \Delta x}$ and $P$, with SLXS Gauss.}}{133}
+\contentsline {figure}{\numberline {4.26}{\ignorespaces Estimate of $\rho $ for S2SA as a function of $\overline {\Sigma _t \Delta x}$ and $P$, with SLXS Lobatto.}}{134}
+\contentsline {figure}{\numberline {4.27}{\ignorespaces Estimate of $\rho $ for MIP DSA with SLXS Gauss as a function of $\overline {\Sigma _t \Delta x}$ and $P$.}}{135}
+\contentsline {figure}{\numberline {4.28}{\ignorespaces Estimate of $\rho $ for MIP DSA with SLXS Lobatto as a function of $\overline {\Sigma _t \Delta x}$ and $P$.}}{135}
+\contentsline {figure}{\numberline {4.29}{\ignorespaces Estimate of $\rho $ for MIP DSA with SLXS Gauss as a function of $\overline {\Sigma _t \Delta x}$ and $P$.}}{136}
+\contentsline {figure}{\numberline {4.30}{\ignorespaces Estimate of $\rho $ for MIP DSA with SLXS Lobatto as a function of $\overline {\Sigma _t \Delta x}$ and $P$.}}{136}
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Depletion problem fuel/moderator lattice.}}{132}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Depletion problem possible transmutation paths and mechanisms.}}{134}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Example normalized scalar flux profiles at beginning and end of fuel burn-up cycle.}}{139}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Example normalized scalar flux profiles at beginning and end of fuel burn-up cycle.}}{140}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Normalized total scalar flux error, $E_{\phi }$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{147}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Normalized total scalar flux error, $E_{\phi }$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{148}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Normalized total scalar flux error, $E_{\phi }$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{148}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Normalized total scalar flux error, $E_{\phi }$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{149}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Normalized fissile nuclide density error, $E_{N_{FS}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{150}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Normalized fissile nuclide density error, $E_{N_{FS}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{150}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Normalized fissile nuclide density error, $E_{N_{FS}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{151}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Normalized fissile nuclide density error, $E_{N_{FS}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{151}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Normalized fertile nuclide density, $E_{N_{ft}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{152}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Normalized fertile nuclide density, $E_{N_{ft}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{153}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Normalized fertile nuclide density, $E_{N_{ft}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{153}
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Normalized fertile nuclide density, $E_{N_{ft}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{154}
-\contentsline {figure}{\numberline {5.17}{\ignorespaces Normalized parasitic absorber fission product error, $E_{N_{FPA}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{155}
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Normalized parasitic absorber fission product error, $E_{N_{FPA}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{155}
-\contentsline {figure}{\numberline {5.19}{\ignorespaces Normalized parasitic absorber fission product error, $E_{N_{FPA}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{156}
-\contentsline {figure}{\numberline {5.20}{\ignorespaces Normalized parasitic absorber fission product error, $E_{N_{FPA}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{156}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Depletion problem fuel/moderator lattice.}}{138}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Depletion problem possible transmutation paths and mechanisms.}}{140}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Example normalized scalar flux profiles at beginning and end of fuel burn-up cycle.}}{145}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Example normalized scalar flux profiles at beginning and end of fuel burn-up cycle.}}{146}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Normalized total scalar flux error, $E_{\phi }$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{153}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Normalized total scalar flux error, $E_{\phi }$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{154}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Normalized total scalar flux error, $E_{\phi }$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{154}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Normalized total scalar flux error, $E_{\phi }$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{155}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Normalized fissile nuclide density error, $E_{N_{FS}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{156}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Normalized fissile nuclide density error, $E_{N_{FS}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{156}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Normalized fissile nuclide density error, $E_{N_{FS}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{157}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Normalized fissile nuclide density error, $E_{N_{FS}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{157}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Normalized fertile nuclide density, $E_{N_{ft}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{158}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Normalized fertile nuclide density, $E_{N_{ft}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{159}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Normalized fertile nuclide density, $E_{N_{ft}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{159}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Normalized fertile nuclide density, $E_{N_{ft}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{160}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Normalized parasitic absorber fission product error, $E_{N_{FPA}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{161}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Normalized parasitic absorber fission product error, $E_{N_{FPA}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{161}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Normalized parasitic absorber fission product error, $E_{N_{FPA}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{162}
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Normalized parasitic absorber fission product error, $E_{N_{FPA}}$, for the depletion problem at end of cycle, as a function of angular flux trial space degree.}}{162}
 \addvspace {10\p@ }

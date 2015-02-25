@@ -57,18 +57,20 @@
 \contentsline {subsection}{\numberline {4.5.1}Spatially Constant Cross Section Scattering Problem}{115}
 \contentsline {subsubsection}{\numberline {4.5.1.1}S2SA Spectral Radius Sensitivity}{119}
 \contentsline {subsubsection}{\numberline {4.5.1.2}MIP DSA Spectral Radius Sensitivity}{123}
-\contentsline {subsection}{\numberline {4.5.2}Spatially Varying Cross Section Scattering Problem}{130}
-\contentsline {section}{\numberline {4.6}Conclusions}{131}
-\contentsline {chapter}{\numberline {5}\uppercase {Fuel Depletion Problem}}{132}
+\contentsline {subsection}{\numberline {4.5.2}Spatially Varying Cross Section Scattering Problem}{132}
+\contentsline {subsubsection}{\numberline {4.5.2.1}S2SA}{133}
+\contentsline {subsubsection}{\numberline {4.5.2.2}MIP DSA}{134}
+\contentsline {section}{\numberline {4.6}Conclusions}{137}
+\contentsline {chapter}{\numberline {5}\uppercase {Fuel Depletion Problem}}{138}
 \vskip +10pt
-\contentsline {section}{\numberline {5.1}Problem Physical Description}{132}
-\contentsline {subsection}{\numberline {5.1.1}Microscopic Cross Section and Yield Data}{136}
-\contentsline {subsection}{\numberline {5.1.2}Reactor Power Levels and Normalization}{138}
-\contentsline {section}{\numberline {5.2}Spatial Discretization}{138}
-\contentsline {subsection}{\numberline {5.2.1}Radiation Solution}{141}
-\contentsline {subsection}{\numberline {5.2.2}Nuclide Density}{142}
-\contentsline {section}{\numberline {5.3}Numerical Results}{146}
-\contentsline {chapter}{\numberline {6}\uppercase {Last Chapter: The Importance of Research}}{158}
+\contentsline {section}{\numberline {5.1}Problem Physical Description}{138}
+\contentsline {subsection}{\numberline {5.1.1}Microscopic Cross Section and Yield Data}{142}
+\contentsline {subsection}{\numberline {5.1.2}Reactor Power Levels and Normalization}{144}
+\contentsline {section}{\numberline {5.2}Spatial Discretization}{144}
+\contentsline {subsection}{\numberline {5.2.1}Radiation Solution}{147}
+\contentsline {subsection}{\numberline {5.2.2}Nuclide Density}{148}
+\contentsline {section}{\numberline {5.3}Numerical Results}{152}
+\contentsline {chapter}{\numberline {6}\uppercase {Last Chapter: The Importance of Research}}{164}
 \vskip +10pt
-\contentsline {section}{\numberline {6.1}New Section}{158}
-\contentsline {chapter}{REFERENCES}{159}
+\contentsline {section}{\numberline {6.1}New Section}{164}
+\contentsline {chapter}{REFERENCES}{165}

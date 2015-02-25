@@ -267,10 +267,10 @@ B.~Turcksin and J.~C. Ragusa.
   methods, Applied to Nuclear Science and Engineering}, Sun Vlley, Idaho, May
   2013.
 
-\bibitem{cpp_book}
-A~person.
-\newblock {\em C++ Book}.
-\newblock Book maker, City, State, 2008.
+\bibitem{numerical_book}
+W.~H. Press, S.~A. Teukolsky, W.~T. Vetterling, and B.~P. Flannery.
+\newblock {\em Numerical Recipes: The Art of Scientific Programming}.
+\newblock Cambridge University Press, New York, 3rd edition, 2007.
 
 \bibitem{yaqi_dissertation}
 Y.~Wang.
