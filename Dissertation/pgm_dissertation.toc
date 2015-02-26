@@ -75,7 +75,8 @@
 \contentsline {section}{\numberline {6.1}Linearization and Discretization of Grey TRT Equations}{164}
 \contentsline {subsection}{\numberline {6.1.1}SDIRK Time Integration}{164}
 \contentsline {subsection}{\numberline {6.1.2}Spatially Analytic Linearization}{165}
-\contentsline {section}{\numberline {6.2}Computer Science Implementation}{168}
-\contentsline {section}{\numberline {6.3}Numerical Results}{168}
-\contentsline {section}{\numberline {6.4}Conclusions}{168}
-\contentsline {chapter}{REFERENCES}{169}
+\contentsline {subsubsection}{\numberline {6.1.2.1}SDIRK Stage 1}{166}
+\contentsline {section}{\numberline {6.2}Computer Science Implementation}{172}
+\contentsline {section}{\numberline {6.3}Numerical Results}{172}
+\contentsline {section}{\numberline {6.4}Conclusions}{172}
+\contentsline {chapter}{REFERENCES}{173}

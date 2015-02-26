@@ -84,6 +84,8 @@ g_i = g_{n} + \Delta t \sum_{j=1}^i{a_{ij} f\left(t_n + \Delta t c_j , g_j\right
 where $g_i$ is the intermediate value of $g$ at the time of stage $i$, $t_i = t^n + \Delta t c_i$.
 
 \subsection{Spatially Analytic Linearization}
+%
+%
 We now linearize the spatially analytic, 1-D slab, grey, discrete ordinates TRT equations with SDIRK time integration.  The fully analytic grey TRT are given in \eqts{eq:analytic_grey_trt},
 \begin{subequations}
 \label{eq:analytic_grey_trt}
@@ -122,7 +124,9 @@ k_{T,s} = \frac{1}{C_v(T_s)} \left[ \sigma_a(T_s) \left( \phi_s - 4\pi B(T_s) \r
 \label{eq:k_T_stage}
 \eenum
 where $\phi_s$, $I_s$, and $T_s$ are the angle integrated intensity, angular intensity, and temperature at stage/time $s$.
-With these definitions, we now seek to find $I_1$ and $T_1$ as prescribed by \eqt{eq:psi-def}.
+
+\subsubsection{SDIRK Stage 1}
+With the definitions of \eqt{eq:psi-def}, \eqt{eq:k_I_stage}, and \eqt{eq:k_T_stage}, we now seek to find $I_1$,
 \benum
 I_1 = I_n + a_{11} \Delta t k_{I,1} \pec
 \eenum
@@ -132,7 +136,7 @@ I_1 = I_n + a_{11} \Delta t c \left[ \frac{1}{4\pi}\sigma_{s} \phi_1 + \sigma_a 
 \pep
 \label{eq:i_1_start}
 \eenum
-Likewise for temperature we have
+Likewise for $T_1$, we have
 \benum
 T_1 = T_n +\frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi B \right) + S_T  \right] \pep
 \label{eq:t_1_start}
@@ -150,10 +154,114 @@ If we could remove the dependence on $T_1$ from \eqt{eq:i_1_start}, we could sol
 To remove the dependence on $T_1$ from \eqt{eq:i_1_start}, we first insert the linearization of \eqt{eq:scalar_linear} into \eqt{eq:t_1_start} and manipulate.
 We begin with \eqt{eq:long_t_1}
 \benum
-T_1 = T_n + \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi \left(  B_* + D_*  \left(  T_1 - T_* \right)  \right) \right) + S_T  \right] \pep
+T_1 = T_n + \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi \left(  B_* + D_*  \left(  T_1 - T_* \right)  \right) \right) + S_T  \right] \pec
 \label{eq:long_t_1}
 \eenum
+then move all $T_1$ terms to the left hand side,
+\benum
+\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)T_1 = T_n + \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi   B_* + 4\pi D_*  T_* \right) + S_T  \right] \pep
+\eenum
+Next, we divide by the coefficient in front of $T_1$ on the left hand side:
+\begin{multline}
+T_1 = \left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} T_n + \dots \\
+\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi   B_* \right) + S_T \right] + \dots \\
+\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \frac{ 4\pi a_{11} \Delta t }{C_v} \sigma_a D_*  T_* \pec
+\end{multline}
+and then add ``nothing'' ,
+\benum
+\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left( T_* - T_* \right) \pec
+\eenum
+to the right hand side,
+\begin{multline}
+T_1 = \left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} T_n + \dots \\
+\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi   B_* \right) + S_T \right] + \dots \\
+\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left(1 + \frac{ 4\pi a_{11} \Delta t }{C_v} \sigma_a D_* \right) T_* \dots \\
+-\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} T_*\pep
+\end{multline}
+Noting that 
+\benum
+\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left(1 + \frac{ 4\pi a_{11} \Delta t }{C_v} \sigma_a D_* \right)  = 1 \pec
+\eenum
+and condensing, we finally have:
+\benum
+T_1 = T_* + \left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left( T_n - T_* + \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi   B_* \right) + S_T \right]  \right) \pep
+\label{eq:analytic_t_1}
+\eenum
+We will occasionally refer to \eqt{eq:analytic_t_1} as a temperature update, as \eqt{eq:analytic_t_1} is the non-linear iteration for temperature we wish to converge.
 
+We now linearize the Planck term in \eqt{eq:i_1_start},
+\benum
+I_1 = I_n + a_{11} \Delta t c \left[ \frac{1}{4\pi}\sigma_{s} \phi_1 + \sigma_a \left(B_* + D_*(T_1 - T_*)  \right) + S_I - \mu_d \frac{\partial I_1}{\partial x} - \sigma_t I_1 \right] \pep
+\label{eq:long_i_1_analytic}
+\eenum
+We then insert \eqt{eq:analytic_t_1} into \eqt{eq:long_i_1_analytic},
+\begin{multline}
+I_1 = I_n + a_{11} \Delta t c \left[ \frac{1}{4\pi}\sigma_{s} \phi_1 + S_I - \mu_d \frac{\partial I_1}{\partial x} - \sigma_t I_1  \right. \\ 
+\left. + \sigma_a \left(B_* + D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left( T_n - T_* + \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi   B_* \right) + S_T \right]  \right) \right) \right] \pep
+\end{multline}
+Next, we divide by $ a_{11} \Delta t c$, and move interaction and gradient terms to the left hand side:
+\begin{multline}
+\mu_d \frac{\partial I_1}{\partial x} + \sigma_t I_1 + \frac{1}{a_{11} \Delta t c} I_1 = \frac{1}{a_{11} \Delta t c}I_n + \frac{1}{4\pi}\sigma_{s} \phi_1 + S_I \dots \\
++ \sigma_a \left(B_* + D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left( T_n - T_* + \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi   B_* \right) + S_T \right]  \right) \right) \pep
+\end{multline}
+We now manipulate the right hand side,
+\begin{multline}
+\mu_d \frac{\partial I_1}{\partial x} + \sigma_t I_1 + \frac{1}{a_{11} \Delta t c} I_1 = \frac{1}{a_{11} \Delta t c}I_n + \frac{1}{4\pi}\sigma_{s} \phi_1  \dots \\ 
++  \sigma_a  D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \frac{a_{11} \Delta t }{C_v} \sigma_a \phi_1  \dots \\
++ S_I + \sigma_a B_* 
++ \sigma_a D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left( T_n - T_* + \frac{a_{11} \Delta t }{C_v} \left[  S_T - 4\pi \sigma_a   B_*\right]  \right) \pec
+\end{multline}
+and define
+\benum
+\sigma_{\tau,1} = \sigma_t + \frac{1}{a_{11} \Delta t c} \pec
+\label{eq:tau_1_analytic}
+\eenum
+giving
+\begin{multline}
+\mu_d \frac{\partial I_1}{\partial x} + \sigma_{\tau,1} I_1 = \frac{1}{a_{11} \Delta t c}I_n + \frac{1}{4\pi}\sigma_{s} \phi_1  \dots \\ 
++  \sigma_a  D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \frac{a_{11} \Delta t }{C_v} \sigma_a \phi_1  \dots \\
++ S_I + \sigma_a B_* 
++ \sigma_a D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left( T_n - T_* + \frac{a_{11} \Delta t }{C_v} \left[  S_T - 4\pi \sigma_a   B_*\right]  \right) \pep
+\end{multline}
+Focusing on the second $\phi_1$ term on the right hand side,
+\benum
+\sigma_a  D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \frac{a_{11} \Delta t }{C_v} \sigma_a \phi_1 \pec
+\eenum
+multiplying by $\frac{4\pi}{4\pi}$ we have:
+\benum
+\frac{1}{4\pi} \left( 4\pi  a_{11} \Delta t \sigma_a  D_*  \right) \left(C_v + 4\pi a_{11} \Delta t \sigma_a D_*  \right)^{-1}\sigma_a \phi_1 \pec
+\eenum
+and defining a constant, $\nu_1$,
+\benum
+\nu_1 = \left( 4\pi  a_{11} \Delta t \sigma_a  D_*  \right) \left(C_v + 4\pi a_{11} \Delta t \sigma_a D_*  \right)^{-1} \pec
+\eenum
+we arrive at an equation for intensity $I_1$ that appears like a neutron transport with isotropic scattering, fission, and a fixed source:
+\benum
+\mu_d \frac{\partial I_1}{\partial x} + \sigma_{\tau,1} I_1 = \frac{1}{4\pi}\sigma_{s} \phi_1 + \frac{1}{4\pi}\nu_1 \sigma_a \phi_1 + \xi_1 \pec
+\label{eq:i_analytic_pseudo}
+\eenum
+where
+\begin{multline}
+\xi_1 = \frac{1}{a_{11} \Delta t c}I_n + S_I + \sigma_a B_* + \dots \\
+\sigma_a D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left( T_n - T_* + \frac{a_{11} \Delta t }{C_v} \left[  S_T - 4\pi \sigma_a   B_*\right]  \right) \pep
+\end{multline}
+If we define pseudo total interaction and scattering cross sections, $\widetilde{\Sigma_t}$ and $\widetilde{\Sigma_s}$, to be
+\beanum
+\widetilde{\Sigma_t} &=& \sigma_{\tau,1} \\
+\widetilde{\Sigma_s} &=& \sigma_s + \nu_1 \sigma_a\pec
+\eeanum
+and a pseudo absorption interaction cross section as,
+\benum
+\widetilde{\Sigma_a}  = \widetilde{\Sigma_t} - \widetilde{\Sigma_s} \pec
+\eenum
+then it appears that all of the methodology, including DSA, developed for discrete ordinates neutron transport might be applicable for solving the discrete ordinates thermal radiative transfer equations using SDIRK time integration.
+The next step in examining the possibility of applying neutron transport methods to solve the TRT equations is to attempt to form a pseudo neutron transport equation for stage $i$ of any SDIRK time integration scheme. 
+
+
+
+%\benum
+%\frac{1}{4\pi} \sigma_a D_* \left(\frac{C_v}{4\pi  a_{11} \Delta t + \sigma_a D_*\right)^{-1} \sigma_a \phi_1 
+%\eenum
 Since we will linearize the spatially discretized TRT equations in the next section, it may seem unnecessary to perform the linearization for the spatially analytic case.
 If we could solve the spatially discretized equations efficiently through source iteration alone, it would be redundant to linearize the the spatially analytic and spatially discretized TRT equations.
 However, acceleration is essential for efficient solution of the TRT equations due to the non-linear Planckian absorption/re-emission terms in the linearized radiation intensity equation resulting in a situation analogous to a scattering dominated medium in neutron transport.
