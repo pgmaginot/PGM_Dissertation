@@ -76,7 +76,11 @@
 \contentsline {subsection}{\numberline {6.1.1}SDIRK Time Integration}{164}
 \contentsline {subsection}{\numberline {6.1.2}Spatially Analytic Linearization}{165}
 \contentsline {subsubsection}{\numberline {6.1.2.1}SDIRK Stage 1}{166}
-\contentsline {section}{\numberline {6.2}Computer Science Implementation}{172}
-\contentsline {section}{\numberline {6.3}Numerical Results}{172}
-\contentsline {section}{\numberline {6.4}Conclusions}{172}
-\contentsline {chapter}{REFERENCES}{173}
+\contentsline {subsubsection}{\numberline {6.1.2.2}SDIRK Stage $i$}{172}
+\contentsline {subsection}{\numberline {6.1.3}Spatially Discretized Linearization}{175}
+\contentsline {subsubsection}{\numberline {6.1.3.1}SDIRK Stage 1}{177}
+\contentsline {subsubsection}{\numberline {6.1.3.2}SDIRK Stage $i$}{177}
+\contentsline {section}{\numberline {6.2}Computer Science Implementation}{177}
+\contentsline {section}{\numberline {6.3}Numerical Results}{177}
+\contentsline {section}{\numberline {6.4}Conclusions}{177}
+\contentsline {chapter}{REFERENCES}{178}
