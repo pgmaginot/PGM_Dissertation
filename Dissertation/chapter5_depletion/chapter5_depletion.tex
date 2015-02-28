@@ -89,11 +89,11 @@ Under these assumptions, and given the transmutation paths given in \fig{fig:tra
 \begin{subequations}
 \label{eq:analytic_depletion}
 \benum
-\mu \frac{\partial  \psi_1}{\partial  x} + \Sigma_{t,1} \psi_1 = \frac{\Sigma_{s,1\to 1}}{2}\phi_1 + \frac{1}{k}\left( \frac{\nu\Sigma_{f,1}}{2}\phi_1 + \frac{\nu\Sigma_{f,2}}{2}\phi_2 \right)
+\mu \frac{\partial  \psi_1}{\partial  x} + \Sigma_{t,1} \psi_1 = \frac{\Sigma_{s,1\to 1}}{4\pi}\phi_1 + \frac{1}{k}\left( \frac{\nu\Sigma_{f,1}}{4\pi}\phi_1 + \frac{\nu\Sigma_{f,2}}{4\pi}\phi_2 \right)
 \eenum
 \benum
-\mu \frac{\partial  \psi_2}{\partial  x} + \Sigma_{t,2} \psi_2 = \frac{\Sigma_{s,2\to 2}}{2}\phi_2 +
-\frac{\Sigma_{s,1\to 2}}{2}\phi_1 
+\mu \frac{\partial  \psi_2}{\partial  x} + \Sigma_{t,2} \psi_2 = \frac{\Sigma_{s,2\to 2}}{4\pi}\phi_2 +
+\frac{\Sigma_{s,1\to 2}}{4\pi}\phi_1 
 \eenum
 \begin{multline}
 \frac{\partial N_{FS}}{\partial t} = -N_{FS}\left[(1-\gamma_{FS,1})\sigma_{a,FS,1}\phi_1 + (1-\gamma_{FS,2})\sigma_{a,FS,2}\phi_2 \right] \\  + N_{FT}[\gamma_{FT,1}\sigma_{a,FT,1} \phi_1 + \gamma_{FT,2}\sigma_{a,FT,2}\phi_2  ] 
@@ -326,18 +326,18 @@ Using the nomenclature developed in Chapter \ref{sec:chapter2_constant_xs} and C
 %\widetilde{\phi}_g(x) = \sum_{j=1}^{N_P}{\phi_{g,j} \B{j}(s)}
 %\eenum 
 \begin{multline}
-\mu_d \mathbf{G} \vec{\psi}_{d,1} - \mu_d \psi_{in,d,1} \vec{f} + \frac{\Delta x}{2}\mathbf{R}_{\Sigma_{t,1}} \vec{\psi}_{d,1} = 
-\frac{\Delta x}{4}\mathbf{R}_{\Sigma_{s,1\to1}}\vec{\phi}_1  \\
-+ \frac{1}{k_{\tau}} \frac{\Delta x}{4}\left( \mathbf{R}_{\nu\Sigma_{f,1}} \vec{\phi}_1 +\mathbf{R}_{\nu\Sigma_{f,2}} \vec{\phi}_2 \right)\pec 
+\mu_d \mathbf{G} \vec{\psi}_{d,1} - \mu_d \psi_{in,d,1} \vec{f} + \R{\Sigma_{t,1}} \vec{\psi}_{d,1} = 
+\frac{1}{4\pi}\R{\Sigma_{s,1\to1}}\vec{\phi}_1  \\
++ \frac{1}{k_{\tau}} \frac{1}{4\pi}\left( \R{\nu\Sigma_{f,1}} \vec{\phi}_1 +\R{\nu\Sigma_{f,2}} \vec{\phi}_2 \right)\pec 
 \label{eq:fast_DFEM}
 \end{multline}
 %
 and
 %
 \benum
-\mu_d \mathbf{G} \vec{\psi}_{d,2} - \mu_d \psi_{in,d,2} \vec{f} + \frac{\Delta x}{2}\mathbf{R}_{\Sigma_{t,2}} \vec{\psi}_{d,2} = 
-\frac{\Delta x}{4}\left( \mathbf{R}_{\Sigma_{s,2\to2}}\vec{\phi}_2  +
-\mathbf{R}_{\Sigma_{s,1\to2}}\vec{\phi}_1 \right) \pep
+\mu_d \mathbf{G} \vec{\psi}_{d,2} - \mu_d \psi_{in,d,2} \vec{f} + \R{\Sigma_{t,2}} \vec{\psi}_{d,2} = 
+\frac{1}{4\pi}\left( \R{\Sigma_{s,2\to2}}\vec{\phi}_2  +
+\R{\Sigma_{s,1\to2}}\vec{\phi}_1 \right) \pep
 \label{eq:thermal_DFEM}
 \eenum
 In \eqt{eq:fast_DFEM} and \eqt{eq:thermal_DFEM} $k_{\tau}$ is the multiplication factor at time index $\tau$ and $\mathbf{R}_{\Sigma_{s,1\to1}}$, $\mathbf{R}_{\Sigma_{s,1\to2}}$, $\mathbf{R}_{\Sigma_{s,2\to2}}$, $\mathbf{R}_{\nu\Sigma_{f,1}}$, and $\mathbf{R}_{\nu\Sigma_{f,2}}$ are defined analogously to $\mathbf{R}_{\Sigma_t}$, as in \eqt{eq:chap3_react_mat}, replacing $\Sigma_t(s)$ with $\Sigma_{s,1\to1}(s)$, $\Sigma_{s,1\to2}(s)$, $\Sigma_{s,2\to2}(s)$, $\Sigma_{f,1}(s)$, and $\Sigma_{f,2}(s)$, respectively.
@@ -450,9 +450,9 @@ Following a Galerkin procedure, we multiply each production/destruction nuclide 
 The system of update equations for $\vec{N}_{FS,i}$ is shown in \eqts{eq:dfem_nuclide}:
 %\begin{subequations}
 \begin{multline}
-\frac{1}{\Delta t}\frac{\Delta x}{2}\M\left(\vec{N}_{FS,i}^{\tau+1} - \vec{N}_{FS,i}^{\tau} \right) = -(1-\gamma_{FS,1})\sigma_{a,FS,1}\frac{\Delta x}{2}\Mw_{\phi_{1,i},\tau}\vec{N}_{FS,i}^{\tau} \\
-- (1-\gamma_{FS,2})\sigma_{a,FS,2}\frac{\Delta x}{2}\Mw_{\phi_{2,i},\tau}\vec{N}_{FS,i}^{\tau} \\
-+ \gamma_{FT,1}\sigma_{a,FT,1}\frac{\Delta x}{2}\Mw_{\phi_{1,i}^{\tau}}\vec{N}_{FT,i}^{\tau}  + \gamma_{FT,2}\sigma_{a,FT,2}\frac{\Delta x}{2}\Mw_{\phi_{2,i}^{\tau}}\vec{N}_{FT,i}^{\tau} 
+\frac{1}{\Delta t}\M\left(\vec{N}_{FS,i}^{\tau+1} - \vec{N}_{FS,i}^{\tau} \right) = -(1-\gamma_{FS,1})\sigma_{a,FS,1}\Mw_{\phi_{1,i},\tau}\vec{N}_{FS,i}^{\tau} \\
+- (1-\gamma_{FS,2})\sigma_{a,FS,2}\Mw_{\phi_{2,i},\tau}\vec{N}_{FS,i}^{\tau} \\
++ \gamma_{FT,1}\sigma_{a,FT,1}\Mw_{\phi_{1,i}^{\tau}}\vec{N}_{FT,i}^{\tau}  + \gamma_{FT,2}\sigma_{a,FT,2}\Mw_{\phi_{2,i}^{\tau}}\vec{N}_{FT,i}^{\tau} 
 \pep
 \label{eq:dfem_nuclide}
 \end{multline}
@@ -500,7 +500,7 @@ The system of update equations for $\vec{N}_{FS,i}$ is shown in \eqts{eq:dfem_nu
 The equations for $\vec{N}_{FT,i}$, $\vec{N}_{FP-A,i}$, $N_{FP-S,i}$, and $N_{I,i}$ are derived in a similar fashion to \eqt{eq:dfem_nuclide}.  
 In \eqt{eq:dfem_nuclide} we have defined:
 \benum
-\Mw_{\phi_{g,i}^{\tau},jk} = \int_{-1}^{1}{\B{j}(s)\B{k}(s)\widetilde{\phi}_{g,\tau,i}(s)~ds} ~~\text{, and}
+\Mw_{\phi_{g,i}^{\tau},jk} = \frac{\Delta x}{2}\int_{-1}^{1}{\B{j}(s)\B{k}(s)\widetilde{\phi}_{g,\tau,i}(s)~ds} ~~\text{, and}
 \label{eq:mw_mat}
 \eenum
 \benum
@@ -532,7 +532,7 @@ Recalling that $\widetilde{N}_m$ uses the same interpolation points as $\widetil
 \benum
 \Mw_{\phi_{g,i}^{\tau},jk} = \left \{ 
 \begin{array}{ll} 
-w_j \phi_{g,\tau,i,j} & j=k \\
+w_j \frac{\Delta x}{2} \phi_{g,\tau,i,j} & j=k \\
 0 & \text{otherwise} 
 \end{array}
 \right. \pep

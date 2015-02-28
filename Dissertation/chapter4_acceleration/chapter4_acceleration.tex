@@ -163,14 +163,15 @@ Spatially discretizing with a $P$ degree DFEM as in Chapter \ref{sec:chapter3_va
 \begin{subequations}
 \label{eq:chap4_first_disc}
 \benum
-\left( \mu_+ \mathbf{G}_+ + \frac{\Delta x_c}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_c = \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \vec{\Delta \phi}_c
-+ \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_c^{(\ell+1/2)} - \vec{\phi}_c^{(\ell)} \right) + \mu_+ \psi_{in,+} \vec{f}_+ 
+\left( \mu_+ \mathbf{G}_+ + \mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_c = \frac{1}{4\pi} \mathbf{R}_{\Sigma_s} \vec{\Delta \phi}_c
++ \frac{1}{4\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_c^{(\ell+1/2)} - \vec{\phi}_c^{(\ell)} \right) + \mu_+ \psi_{in,+} \vec{f}_+ 
 \eenum
 \benum
-\left( \mu_- \mathbf{G}_- + \frac{\Delta x_c}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^-_c = \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \vec{\Delta \phi}_c 
-+ \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_c^{(\ell+1/2)} - \vec{\phi}_c^{(\ell)} \right) + \mu_- \psi_{in,-} \vec{f}_-  \pep
+\left( \mu_- \mathbf{G}_- + \mathbf{R}_{\Sigma_t}\right) \vec{\psi}^-_c = \frac{1}{4\pi} \mathbf{R}_{\Sigma_s} \vec{\Delta \phi}_c 
++ \frac{1}{4\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_c^{(\ell+1/2)} - \vec{\phi}_c^{(\ell)} \right) + \mu_- \psi_{in,-} \vec{f}_-  \pep
 \eenum
 \end{subequations}
+All reaction matrices are evaluated in cell $c$, unless otherwise noted with a subscript.
 In \eqts{eq:chap4_first_disc}, we note that $\mu_+ > 0$ and $\mu_- < 0$, and as such use the $\pm$ subscripts to define the appropriate $\mathbf{G}$ and $\vec{f}$, defined in \eqts{eq:chap4_g} and \eqts{eq:chap4_f}, respectively:
 \begin{subequations}
 \label{eq:chap4_g}
@@ -207,18 +208,18 @@ where
 \end{subequations}
 Finally, assuming a symmetric quadrature,
 \benum
-\frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s}\vec{\Delta \phi}_c = \frac{\Delta x_c}{4}\mathbf{R}_{\Sigma_s} \left( \vec{\psi}_c^+ + \vec{\psi}_c^- \right) \pec
+\frac{1}{4\pi} \mathbf{R}_{\Sigma_s}\vec{\Delta \phi}_c = \frac{1}{2}\mathbf{R}_{\Sigma_s} \left( \vec{\psi}_c^+ + \vec{\psi}_c^- \right) \pec
 \label{eq:s2_quad}
 \eenum
 we may write \eqts{eq:chap4_first_disc} as:
 \begin{subequations}
 \benum
-\left( \mu_+ \mathbf{G}_+ + \frac{\Delta x_c}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_c  - \frac{\Delta x_c}{4} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_c^+ + \vec{\psi}_c^- \right) - \mu_+ \mathbf{U}_+ \vec{\psi}_{c-1}^+
-= \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_c^{(\ell+1/2)} - \vec{\phi}_c^{(\ell)} \right) 
+\left( \mu_+ \mathbf{G}_+ + \mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_c  - \frac{1}{2} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_c^+ + \vec{\psi}_c^- \right) - \mu_+ \mathbf{U}_+ \vec{\psi}_{c-1}^+
+= \frac{1}{4\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_c^{(\ell+1/2)} - \vec{\phi}_c^{(\ell)} \right) 
 \eenum
 \benum
-\left( \mu_- \mathbf{G}_- + \frac{\Delta x_c}{2}\mathbf{R}_{\Sigma_t} \right) \vec{\psi}^-_c  - \frac{\Delta x_c}{4} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_c^+  + \vec{\psi}_c^- \right) 
-- \mu_- \mathbf{U}_- \vec{\psi}_{c+1}^- =  \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_c^{(\ell+1/2)} - \vec{\phi}^{(\ell)} \right)  \pep
+\left( \mu_- \mathbf{G}_- + \mathbf{R}_{\Sigma_t} \right) \vec{\psi}^-_c  - \frac{1}{2} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_c^+  + \vec{\psi}_c^- \right) 
+- \mu_- \mathbf{U}_- \vec{\psi}_{c+1}^- =  \frac{1}{4\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_c^{(\ell+1/2)} - \vec{\phi}_c^{(\ell)} \right)  \pep
 \eenum
 \end{subequations}
 Thus, the S2SA scheme uses all of the same matrices, in particular we think of $\mathbf{R}_{\Sigma_t}$ and $\mathbf{R}_{\Sigma_s}$, that we have already defined in our higher fidelity transport model.
@@ -282,23 +283,23 @@ C_{inc} = -\left(\frac{\langle \mu^+ \rangle}{2}  + \frac{3}{2}\langle \mu^+ \ra
 and substituting into \eqts{eq:chap4_first_disc}, we have
 \begin{subequations}
 \benum
-\left( \mu_+ \mathbf{G}_+ + \frac{\Delta x_1}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_1 = \frac{\Delta x_1}{8\pi} \mathbf{R}_{\Sigma_s} \vec{\Delta \phi}_1
-+ \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_c^{(\ell+1/2)} - \vec{\phi}_c^{(\ell)} \right) + \mu_+ C_{inc} \vec{f}_+  \vec{L} \vec{\psi}^-_1
+\left( \mu_+ \mathbf{G}_+ + \mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_1 = \frac{1}{4\pi} \mathbf{R}_{\Sigma_s} \vec{\Delta \phi}_1
++ \frac{1}{4\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_1^{(\ell+1/2)} - \vec{\phi}_1^{(\ell)} \right) + \mu_+ C_{inc} \vec{f}_+  \vec{L} \vec{\psi}^-_1
 \eenum
 \benum
-\left( \mu_- \mathbf{G}_- + \frac{\Delta x_1}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^-_1 = \frac{\Delta x_1}{8\pi} \mathbf{R}_{\Sigma_s} \vec{\Delta \phi}_1 
-+ \frac{\Delta x_c}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_1^{(\ell+1/2)} - \vec{\phi}_c^{(\ell)} \right) + \mu_- \psi_{in,-} \vec{f}_-  \pep
+\left( \mu_- \mathbf{G}_- + \mathbf{R}_{\Sigma_t}\right) \vec{\psi}^-_1 = \frac{1}{4\pi} \mathbf{R}_{\Sigma_s} \vec{\Delta \phi}_1 
++ \frac{1}{4\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_1^{(\ell+1/2)} - \vec{\phi}_1^{(\ell)} \right) + \mu_- \psi_{in,-} \vec{f}_-  \pep
 \eenum
 \end{subequations}
 Noting that $\vec{f}_+ \vec{L}$ creates an $N_P \times N_P$ matrix, and inserting all of our other definitions, we have the equations for cell $1$ for incident angular flux boundary conditions
 \begin{subequations}
 \benum
-\left( \mu_+ \mathbf{G}_+ + \frac{\Delta x_1}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_1  - \frac{\Delta x_1}{4} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_1^+ + \vec{\psi}_1^- \right) - \mu_+ C_{inc} \vec{f}_+  \vec{L} \vec{\psi}^-_1
-= \frac{\Delta x_1}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_1^{(\ell+1/2)} - \vec{\phi}_1^{(\ell)} \right) 
+\left( \mu_+ \mathbf{G}_+ + \mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_1  - \frac{1}{2} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_1^+ + \vec{\psi}_1^- \right) - \mu_+ C_{inc} \vec{f}_+  \vec{L} \vec{\psi}^-_1
+= \frac{1}{4\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_1^{(\ell+1/2)} - \vec{\phi}_1^{(\ell)} \right) 
 \eenum
 \benum
-\left( \mu_- \mathbf{G}_- + \frac{\Delta x_1}{2}\mathbf{R}_{\Sigma_t} \right) \vec{\psi}^-_1  - \frac{\Delta x_1}{4} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_1^+  + \vec{\psi}_1^- \right) 
-- \mu_- \mathbf{U}_- \vec{\psi}_{2}^- =  \frac{\Delta x_1}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_1^{(\ell+1/2)} - \vec{\phi}^{(\ell)} \right)  \pep
+\left( \mu_- \mathbf{G}_- + \mathbf{R}_{\Sigma_t} \right) \vec{\psi}^-_1  - \frac{1}{2} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_1^+  + \vec{\psi}_1^- \right) 
+- \mu_- \mathbf{U}_- \vec{\psi}_{2}^- =  \frac{1}{4\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_1^{(\ell+1/2)} - \vec{\phi}_1^{(\ell)} \right)  \pep
 \eenum
 \end{subequations}
 
@@ -332,12 +333,12 @@ C_{ref} = -\left( \frac{ \langle \mu \rangle}{2} + \frac{3 \mu_+ }{2}\langle \mu
 the leftmost cell equations with a reflective boundary condition are:
 \begin{subequations}
 \benum
-\left( \mu_+ \mathbf{G}_+ + \frac{\Delta x_1}{2}\mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_1  - \frac{\Delta x_1}{4} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_1^+ + \vec{\psi}_1^- \right) - \mu_+ C_{ref} \vec{f}_+  \vec{L} \vec{\psi}^-_1
-= \frac{\Delta x_1}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_1^{(\ell+1/2)} - \vec{\phi}_1^{(\ell)} \right) 
+\left( \mu_+ \mathbf{G}_+ + \mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_1  - \frac{1}{2} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_1^+ + \vec{\psi}_1^- \right) - \mu_+ C_{ref} \vec{f}_+  \vec{L} \vec{\psi}^-_1
+= \frac{1}{4\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_1^{(\ell+1/2)} - \vec{\phi}_1^{(\ell)} \right) 
 \eenum
 \benum
-\left( \mu_- \mathbf{G}_- + \frac{\Delta x_1}{2}\mathbf{R}_{\Sigma_t} \right) \vec{\psi}^-_1  - \frac{\Delta x_1}{4} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_1^+  + \vec{\psi}_1^- \right) 
-- \mu_- \mathbf{U}_- \vec{\psi}_{2}^- =  \frac{\Delta x_1}{8\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_1^{(\ell+1/2)} - \vec{\phi}^{(\ell)} \right)  \pep
+\left( \mu_- \mathbf{G}_- + \mathbf{R}_{\Sigma_t} \right) \vec{\psi}^-_1  - \frac{1}{2} \mathbf{R}_{\Sigma_s} \left( \vec{\psi}_1^+  + \vec{\psi}_1^- \right) 
+- \mu_- \mathbf{U}_- \vec{\psi}_{2}^- =  \frac{1}{4\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_1^{(\ell+1/2)} - \vec{\phi}_1^{(\ell)} \right)  \pep
 \eenum
 \end{subequations}
 
@@ -409,17 +410,17 @@ where $Z_{MIP}$ is an arbitrarily chosen constant.  Unless otherwise stated, we 
 
 Focusing now on an interior mesh cell, $c$, and the $N_P$ \B{i} that are non-zero in that cell, we now go about defining all of the terms of \eqt{eq:mip_b}.  First, we consider the volumetric integration terms, defining
 \benum
-( \Sigma_a \Delta \phi, \B{*} )  = \frac{\Delta x_c}{2} \R{\Sigma_a} \vec{\Delta \phi}_c \pec
+( \Sigma_a \Delta \phi, \B{*} )  = \R{\Sigma_a} \vec{\Delta \phi}_c \pec
 \label{eq:mip_sigma_a}
 \eenum
 and
 \benum
-( D\del \Delta \phi,\del \B{*} ) = \frac{2}{\Delta x_c} \mathbf{S} \pep
+( D\del \Delta \phi,\del \B{*} ) =  \mathbf{S} \pep
 \label{eq:s_d_definition}
 \eenum
 In \eqt{eq:s_d_definition}, we have defined:
 \benum
-\mathbf{S}_{ij} = \int_{-1}^1{ \frac{1}{3\Sigma_t(s)} \frac{\p \B{i}}{\p s} \frac{\p \B{j}}{\p s}~ds} \pep
+\mathbf{S}_{ij} = \frac{2}{\Delta x_c} \int_{-1}^1{ \frac{1}{3\Sigma_t(s)} \frac{\p \B{i}}{\p s} \frac{\p \B{j}}{\p s}~ds} \pep
 \eenum
 Now we treat the edge terms.  We begin by defining $\jmp{ \Delta \phi}$ on each edge,
 \begin{subequations}
@@ -471,20 +472,24 @@ On edges $c-1/2$ and $c+1/2$,
 \end{subequations}
 Combining \eqt{eq:mip_sigma_a}, \eqt{eq:s_d_definition}, \eqts{eq:soln_jmp}, \eqts{eq:test_jmp}, \eqts{eq:soln_grad_avg}, and \eqts{eq:test_grad_avg}, we have the left hand side of the cell $c$ MIP DSA equations:
 \begin{multline}
-\frac{\Delta x_c}{2} \R{\Sigma_a} \vec{\Delta \phi}_c + \frac{2}{\Delta x_c} \mathbf{S} \vec{\Delta \phi}_c \\
+\R{\Sigma_a} \vec{\Delta \phi}_c + \mathbf{S} \vec{\Delta \phi}_c \\
 + \left \{ \left[ \kappa_{c-1/2} \vec{L}^T \left( \vec{L} \vec{\Delta \phi}_c - \vec{R} \vec{\Delta \phi}_{c-1}  \right) \right]  -  \left[\kappa_{c+1/2} \vec{R}^T\left( \vec{L} \vec{\Delta \phi}_{c+1} - \vec{R} \vec{\Delta \phi}_{c}  \right)  \right] \right \} \\
 + \left \{  \frac{D(x_{c-1/2}^+) }{\Delta x_c} \vec{L}^T_s \left( \vec{L} \vec{\Delta \phi}_c - \vec{R} \vec{\Delta \phi}_{c-1}  \right)  +
 					\frac{D(x_{c-1/2}^+) }{\Delta x_c} \vec{R}^T_s \left( \vec{L} \vec{\Delta \phi}_{c+1} - \vec{R} \vec{\Delta \phi}_{c}  \right)\right\} \\
 	+ \left\{  \vec{L}^T \left(\frac{D(x_{c-1/2}^+)}{\Delta x_c }  \vec{L}_s \vec{\Delta \phi}_c +  \frac{D(x_{c-1/2}^-)}{\Delta x_{c-1} }  \vec{R}_s \vec{\Delta \phi}_{c-1}\right) \dots \right.\\
-	- \left. \vec{R}^T \left( \frac{D(x_{c+1/2}^+)}{\Delta x_{c+1} }  \vec{L}_s \vec{\Delta \phi}_{c+1} +  \frac{D(x_{c+1/2}^-)}{\Delta x_c}  \vec{R}_s \vec{\Delta \phi}_{c} \right) \right\}			\pep
-\end{multline}
-The right hand side on the interior is obviously 
+	- \left. \vec{R}^T \left( \frac{D(x_{c+1/2}^+)}{\Delta x_{c+1} }  \vec{L}_s \vec{\Delta \phi}_{c+1} +  \frac{D(x_{c+1/2}^-)}{\Delta x_c}  \vec{R}_s \vec{\Delta \phi}_{c} \right) \right\}			\pec
+\label{eq:mip_interior_discretization}
+  \end{multline}
+and the right hand side on the interior is obviously 
 \benum
-\frac{\Delta x_c}{2} \R{\Sigma_s}\left(  \vec{\phi}^{(\ell+1/2)} _c - \vec{\phi}^{(\ell)}_c \right) \pep
+\R{\Sigma_s}\left(  \vec{\phi}^{(\ell+1/2)} _c - \vec{\phi}^{(\ell)}_c \right) \pep
+\label{eq:mip_rhs_interior}
 \eenum
+In \eqt{eq:mip_interior_discretization} and \eqt{eq:mip_rhs_interior}, \R{\Sigma_a}, \R{\Sigma_s}, and $\mathbf{S}$ are evaluated in cell $c$.
 
-We now consider the leftmost cell.  We will derive equations for reflective and incident current boundary conditions.  
-Analogous equations can be derived for the rightmost cell.
+We now consider the leftmost cell, so that we derive appropropirate boudnary conditions.  
+We will derive equations for reflective and incident current boundary conditions.  
+Equations for the right boundary can be derived analogously.
 Starting with incident flux boundary conditions, we must define the $\left( \kappa_{1/2}\Delta \phi , \B{*} \right)$, $\left( \Delta \phi , D \partial_n \B{*} \right)$ , and $\left( D \partial_n \Delta \phi , \B{*} \right)$ operators.
 They are:
 \begin{subequations}
@@ -496,14 +501,14 @@ They are:
 \end{subequations}
 Combing with the cell integral quantities, for problems with an incident flux boundary condition, the leftmost cell equation is
 \begin{multline}
- \frac{\Delta x_1}{2} \R{\Sigma_a} \vec{\Delta \phi}_1 + \frac{2}{\Delta x_1} \mathbf{S}\vec{\Delta \phi}_1 \\
+\R{\Sigma_a} \vec{\Delta \phi}_1 + \mathbf{S}\vec{\Delta \phi}_1 \\
 \kappa_{1/2} \vec{L}^T \vec{L} \vec{\Delta \phi}_1 - \frac{D(x_{1/2}^+}{\Delta x_1} \vec{L}_s^T \vec{L} \vec{\Delta \phi}_1 - \frac{D(x_{1/2}) }{\Delta x_1} \vec{L}^T \vec{L}_s \vec{\Delta \phi}_1 \\
-= \frac{\Delta x_1}{2} \R{\Sigma_s}\left(  \vec{\phi}^{(\ell+1/2)}_1 - \vec{\phi}^{(\ell)}_1 \right) \pep
+= \R{\Sigma_s}\left(  \vec{\phi}^{(\ell+1/2)}_1 - \vec{\phi}^{(\ell)}_1 \right) \pep
 \end{multline}
 
 If the left edge satisfies a reflective condition, the leftmost cell equations are:
 \benum
- \frac{\Delta x_1}{2} \R{\Sigma_a} \vec{\Delta \phi}_1 + \frac{2}{\Delta x_1} \mathbf{S}\vec{\Delta \phi}_1 =  \frac{\Delta x_1}{2} \R{\Sigma_s}\left(  \vec{\phi}^{(\ell+1/2)}_1 - \vec{\phi}^{(\ell)}_1 \right) + C_{MIP} \vec{L}^T\pec
+\R{\Sigma_a} \vec{\Delta \phi}_1 + \mathbf{S}\vec{\Delta \phi}_1 =  \R{\Sigma_s}\left(  \vec{\phi}^{(\ell+1/2)}_1 - \vec{\phi}^{(\ell)}_1 \right) + C_{MIP} \vec{L}^T\pec
 \eenum
 where $C_{MIP}$ is the incident partial current,
 \benum

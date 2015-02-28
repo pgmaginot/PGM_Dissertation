@@ -66,22 +66,22 @@ By fully accurate we mean schemes that achieve the same order of convergence for
 
 We begin by repeating the DFEM neutron transport equation derived in Chapter \ref{sec:chapter2_constant_xs}:
 \benum
-\left( \mu_d \mathbf{G} + \frac{\Sigma_t \Delta x}{2}\mathbf{M} \right) \vec{\psi}_d = \frac{\Delta x}{2}\vec{Q}_d + \mu_d \psi_{in,d} \vec{f} \pep
+\left( \mu_d \mathbf{G} + \mathbf{M} \right) \vec{\psi}_d = \vec{Q}_d + \mu_d \psi_{in,d} \vec{f} \pep
 \label{eq:chap3_start}
 \eenum
 To account for the within cell variation of cross section, we need only make one change to \eqt{eq:chap3_start}.  We introduce the concept of a reaction matrix, $\mathbf{R}_{\Sigma}$ where $\Sigma$ is any interaction cross section or other material property:
 \benum
 \label{eq:chap3_mat_form}
-\left( \mu_d \mathbf{G} + \frac{\Delta x}{2}\mathbf{R}_{\Sigma_t} \right) \vec{\psi}_d = \frac{\Delta x}{2}\vec{Q}_d + \mu_d \psi_{in,d} \vec{f} \pep
+\left( \mu_d \mathbf{G} + \mathbf{R}_{\Sigma_t} \right) \vec{\psi}_d = \vec{Q}_d + \mu_d \psi_{in,d} \vec{f} \pep
 \eenum
 The $N_P \times N_P$ reaction matrix, $\mathbf{R}_{\Sigma_t}$ is defined as:
 \benum
-\mathbf{R}_{\Sigma_t,ij} = \int_{-1}^1{\Sigma_t(s)\B{i}(s)\B{j}(s)~ds} \pep
+\mathbf{R}_{\Sigma_t,ij} = \frac{\Delta x}{2}\int_{-1}^1{\Sigma_t(s)\B{i}(s)\B{j}(s)~ds} \pep
 \label{eq:chap3_react_mat}
 \eenum
 Note that if $\Sigma_t$ is indeed spatially constant within the mesh cell, there is no approximation in removing $\Sigma_t(s)$ from the integral of \eqt{eq:chap3_react_mat}, giving
 \benum
-\mathbf{R}_{\Sigma_t,ij} = \Sigma_t \int_{-1}^1{\B{i}(s)\B{j}(s)~ds} \pec
+\mathbf{R}_{\Sigma_t,ij} = \frac{\Delta \Sigma_t}{2} \int_{-1}^1{\B{i}(s)\B{j}(s)~ds} \pec
 \eenum
 which is equivalent to
 \benum
@@ -181,7 +181,7 @@ Self-lumping schemes also create diagonal reaction matrices:
 \benum
 \label{eq:chap3_sl_react}
 \mathbf{R}_{\Sigma_t,ij} = \left \{ \begin{array}{ll}
-w_i \Sigma_t(s_i) ~ & ~ i=j \\
+w_i \frac{\Delta x}{2} \Sigma_t(s_i) ~ & ~ i=j \\
  0 & ~\text{otherwise}
 \end{array}
 \right. \\

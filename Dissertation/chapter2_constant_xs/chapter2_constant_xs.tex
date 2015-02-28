@@ -212,7 +212,7 @@ and, for $\mu_d<0$,
 %
 Considering all of the $N_P$ moment equations at once we can write both \eqt{eq:weak_form_pos} and \eqt{eq:weak_form_neg} in a single matrix form:
 \beanum
-\left( \mu_d \mathbf{G} + \frac{\Sigma_t \Delta x}{2}\mathbf{M} \right) \vec{\psi}_d = \frac{\Delta x}{2}\vec{Q}_d + \mu_d \psi_{in,d} \vec{f} \pep
+\left( \mu_d \mathbf{G} + \Sigma_t \mathbf{M} \right) \vec{\psi}_d = \vec{Q}_d + \mu_d \psi_{in,d} \vec{f} \pep
 \label{eq:mat_form}
 \eeanum
 In \eqt{eq:mat_form} we have made use of the following definitions: the vector of unknowns is given by
@@ -224,11 +224,11 @@ In \eqt{eq:mat_form} we have made use of the following definitions: the vector o
 the mass matrix $\mathbf{M}$  is:
 \benum
 \label{eq:mass_mat}
-\mathbf{M}_{ij} = \int_{-1}^1{\B{i}(s)\B{j}(s)~ds} \pec
+\mathbf{M}_{ij} = \frac{\Delta x}{2}\int_{-1}^1{\B{i}(s)\B{j}(s)~ds} \pec
 \eenum
 the fixed source moment vector, $\vec{Q_d}$, is a column vector of length $N_P$:
 \benum
-\vec{Q}_{d,i} = \int_{-1}^1{\B{i}(s) Q_d(s)~ds} \pec
+\vec{Q}_{d,i} = \frac{\Delta x}{2} \int_{-1}^1{\B{i}(s) Q_d(s)~ds} \pec
 \label{eq:source_moment_vec}
 \eenum
 %
@@ -269,7 +269,7 @@ We evaluate the integrals of \eqt{eq:mass_mat} and \eqt{eq:stream_mat} using a n
 A method exactly integrates a quantity when the quadrature rule used to evaluate the integral is accurate for polynomials of degree equal to  or greater than the polynomial degree of the integrand.  
 In general, the matrices are dense and their entries are computed as:
 \beanum
-\mathbf{M}_{ij} &\approx& \sum_{q=1}^{N_q}{ w_q \B{i}(s_q) \B{j}(s_q) } \label{eq:mass_int} \pec \\
+\mathbf{M}_{ij} &\approx& \frac{\Delta x}{2} \sum_{q=1}^{N_q}{ w_q \B{i}(s_q) \B{j}(s_q) } \label{eq:mass_int} \pec \\
 \mathbf{G}_{ij} &\approx& sg(\mu_d)\B{i}(sg(\mu_d))\B{j}(sg(\mu_d)) - \sum_{q=1}^{N_q}{ w_q \frac{\p \B{i}}{\p s} \bigg \lvert_{s=s_q} \B{j}(s_q) } \pec %~~~\mu_d>0 \\
 %\mathbf{G}_{ij} &\approx& -\B{i}(-1)\B{j}(-1) - \sum_{q=1}^{N_q}{ w_q \frac{\p \B{i}}{\p s} \bigg \lvert_{s=s_q} \B{j}(s_q) }, ~~~\mu_d<0 
 \eeanum
@@ -313,7 +313,7 @@ An alternative method of mass matrix lumping restricts the quadrature points to 
 and the quadrature integration of \eqt{eq:mass_int} reduces to:
 \benum
 \mathbf{M}_{ij} = \left \{ \begin{array}{ll}
-w_i ~ & ~ i=j \\
+\frac{\Delta x}{2} w_i ~ & ~ i=j \\
  0 & ~\text{otherwise}
 \end{array}
 \right. \pep
@@ -340,7 +340,7 @@ To address this, we expand the source on a Legendre polynomial basis:
 \end{subequations}
 and evaluate $\vec{Q}_d$ as follows
 \benum
-\vec{Q}_{d,i} = \int_{-1}^1{ \B{i}(s) \widehat{S}_d(s)~ds} \pep
+\vec{Q}_{d,i} = \frac{\Delta x}{2}\int_{-1}^1{ \B{i}(s) \widehat{S}_d(s)~ds} \pep
 \label{eq:mod_source_moment}
 \eenum
 Note that if the right-hand-side of \eqt{eq:mod_source_moment} is exactly integrated, this is equivalent 
@@ -453,21 +453,21 @@ For cell-wise constant cross sections, TL is equivalent to a numerical integrati
 To prove the third point, consider the following.
 With traditional lumping, $\mathbf{M}_{ij}$ is exactly computed and then a row-sum operation is performed on the rows of $\mathbf{ M}$; thus the entries of the diagonal mass matrix computed for TL are
 \begin{align}
-\widehat{\mathbf M}_{ii} = \sum_{j=1}^{N_P}{ \int_{-1}^1 \B{i}(s)\B{j}(s) ~ds}
-&=  \int_{-1}^1{ \B{i}(s) \left[  \sum_{j=1}^{N_P} \B{j}(s)\right]~ds  } 
+\widehat{\mathbf M}_{ii} = \sum_{j=1}^{N_P}{ \frac{\Delta x}{2} \int_{-1}^1 \B{i}(s)\B{j}(s) ~ds}
+&=  \frac{\Delta x}{2}\int_{-1}^1{ \B{i}(s) \left[  \sum_{j=1}^{N_P} \B{j}(s)\right]~ds  } 
  \notag \\ 
-&=\int_{-1}^1{ds\, \B{i}(s) }\qquad \forall i=1,\ldots,N_P \pec
+&=\frac{\Delta x}{2} \int_{-1}^1{ds\, \B{i}(s) }\qquad \forall i=1,\ldots,N_P \pec
 \end{align}
 because $\sum_j^{N_P}{ \B{j}(s)} =1$ $\forall ~s\in [-1,+1]$ by definition.  
-The integral $\int_{-1}^1{ ds\, \B{i}(s)}$ is exactly integrated using a closed Newton-Cotes formula with $N_P=P+1$ points since $\B{i}(s)$ is a polynomial of degree $P$. 
+The integral $\frac{\Delta x}{2}\int_{-1}^1{ \B{i}(s)~ds}$ is exactly integrated using a closed Newton-Cotes formula with $N_P=P+1$ points since $\B{i}(s)$ is a polynomial of degree $P$. 
 Finally, when the $\B{i}$ functions are defined using
 equally-spaced points,  the use of a closed Newton-Cotes formula with $N_P$ points yields
 \begin{equation}
-\widehat{\mathbf M}_{ii} = \int_{-1}^1{ ds\, \B{i}(s)}  = \sum_{q=1}^{N_P} {w_q \B{i}(s_q)} = w_i \pec
+\widehat{\mathbf M}_{ii} = \frac{\Delta x}{2} \int_{-1}^1{ \B{i}(s)~ds}  = \frac{\Delta x}{2} \sum_{q=1}^{N_P} {w_q \B{i}(s_q)} = \frac{\Delta x}{2}w_i \pec
 \end{equation}
 because $\B{i}(s_q) =\delta_{iq}$. 
 Thus, the diagonal mass matrix computed using TL contains the closed Newton-Cotes weights as diagonal entries and is equivalent to approximating $\mathbf{M}$ using closed Newton-Cotes quadrature in \eqt{eq:self_lump_def}. 
-We also numerically verify this in \tbl{tbl:cotes} for polynomial degrees up to 4.
+We also numerically verify this in \tbl{tbl:cotes} for polynomial degrees up to 4, assuming $\Delta x = 2$.
 \begin{table}[!htp]
 \centering
 \caption{Equivalence of traditional lumping and closed Newton-Cotes quadrature approximation of the mass matrix.}
@@ -601,10 +601,10 @@ Similarly, the analytic average angular flux within the cell, $\psi_{A,d}$, is:
 
 The solution components are given by
 \benum
-\vec{\psi}_d = \psi_{in,d}\left({\mathbf G} + \frac{h}{2}{\mathbf{M}}\right)^{-1}\vec{f} \pec
+\vec{\psi}_d = \psi_{in,d}\left({\mathbf G} + \mathbf{M}\right)^{-1}\vec{f} \pec
 \label{eq:sym_solve}
 \eenum
-which allows us to compare the various choices of interpolatory points and numerical integration strategies solely as a function of $h$.
+and since $\mathbf{M} \propto h$, we can compare the various choices of interpolatory points and numerical integration strategies solely as a function of $h$.
 
 Figures \ref{fig:p1_outflow}-\ref{fig:p4_outflow} show the numerically calculated cell outflow, $\widetilde{\psi}_{out,d}$, as a function 
 of $h$ for all methods considered. 
