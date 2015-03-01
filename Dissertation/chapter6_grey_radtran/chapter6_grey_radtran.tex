@@ -513,13 +513,13 @@ Equation (\ref{eq:almost_1}) can be made to resemble the canonical mono-energeti
 \label{eq:step1_defs}
 %
 \benum
-\overline{\overline{\mathbf \nu}} = 4\pi\Delta t a_{11} \R{\sigma_a}
+\overline{\overline{\mathbf \nu}}_1 = 4\pi\Delta t a_{11} \R{\sigma_a}
 \D \left[\I + 4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a}\D   \right]^{-1}\R{C_v}^{-1}
 \eenum 
  %
 %
  \begin{multline}
-\overline{\overline{\mathbf \xi}}_d = \frac{1}{c\Delta t a_{11}}\M\vec{I}_n + \R{\sigma_a}\vec{B}_*  + \vec{S}_I \dots \\ 
+\overline{\overline{\mathbf \xi}}_{d,1} = \frac{1}{c\Delta t a_{11}}\M\vec{I}_n + \R{\sigma_a}\vec{B}_*  + \vec{S}_I \dots \\ 
 + \R{\sigma_a} \D
 \left[\I + 4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a}\D   \right]^{-1}
 \left[\vec{T}_n - \vec{T}_* + \Delta t a_{11}  \R{C_v}^{-1}\left[\vec{S}_T - 4\pi\R{\sigma_a}\vec{B}_*\right]\right] 
@@ -527,17 +527,166 @@ Equation (\ref{eq:almost_1}) can be made to resemble the canonical mono-energeti
 %%
 %%
 \benum
-\overline{\overline{\mathbf R}}_{\sigma_t} = \frac{1}{c\Delta t a_{11}} \M + \R{\sigma_t} \pep
+\overline{\overline{\mathbf R}}_{\sigma_{\tau}}_1 = \frac{1}{c\Delta t a_{11}} \M + \R{\sigma_t} \pep
 \eenum
 %
 \end{subequations}
 Inserting \eqts{eq:step1_defs} into \eqt{eq:almost_1} gives our final form:
 \benum
- \mu_d\mathbf{G}\vec{I}_1 + \overline{\overline{\mathbf R}}_{\sigma_t}\vec{I}_1 = \frac{1}{4\pi}\R{\sigma_s}\vec{\phi}_1 + \frac{1}{4\pi}\overline{\overline{\mathbf \nu}}\R{\sigma_a} \vec{\phi}_1 +  \mu_d I_{in,1}\vec{f} + \overline{\overline{\mathbf \xi}}_d \pep
+ \mu_d\mathbf{G}\vec{I}_1 + \overline{\overline{\mathbf R}}_{\sigma_{\tau},1}\vec{I}_1 = \frac{1}{4\pi}\R{\sigma_s}\vec{\phi}_1 + \frac{1}{4\pi}\overline{\overline{\mathbf \nu}}_1\R{\sigma_a} \vec{\phi}_1 +  \mu_d I_{in,1}\vec{f} + \overline{\overline{\mathbf \xi}}_d \pep
 \label{eq:1_done}
 \eenum
 %
 \subsubsection{SDIRK Stage $i$}
+Moving on to the $i$-th RK step, we first write the equation for $\vec{I}_i$ and $\vec{T}_{i}$:
+\benum
+\vec{I}_i = \vec{I}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{I,j}   } + \Delta t a_{ii} c \M^{-1}\left[
+\frac{1}{4\pi}\R{\sigma_s,*}\vec{\phi}_i +
+\R{\sigma_a,*}\left(\vec{B}_* + \D \left(\vec{T}_i -\vec{T}^*  \right)   \right)- \R{\sigma_t,*} \vec{I}_i - \mathbf{ L}\vec{I}_i + \vec{f}I_{in,i} + \vec{S}_I
+\right]
+\label{eq:first_kIi}
+\eenum
+\benum
+\vec{T}_i = \vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   } + \Delta t a_{ii}\R{C_v}^{-1}\left[
+\R{\sigma_a*}\left(\vec{\phi}_i - 4\pi\vec{B}_* - 4\pi\D\left( \vec{T}_i - \vec{T}^* \right)\right) + \vec{S}_T 
+\right]
+\label{eq:first_kTi}
+\eenum
+%
+%
+Proceeding in a similar fashion as before, we solve \eqt{eq:first_kTi} for $\vec{T}_{i}$.
+%
+%
+\be
+\vec{T}_i +4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*}\D\vec{T}_i = \vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   } + \Delta t a_{ii}
+\R{C_v}^{-1}\left[
+\R{\sigma_a*} \left(\vec{\phi}_i - 4\pi\vec{B}_* + 4\pi\D\vec{T}^* \right) + \vec{S}_T
+ \right]
+\ee
+%
+%
+\be
+\left[\I + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]\vec{T}_i = \vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   } + \Delta t a_{ii}\R{C_v}^{-1}\left[\R{\sigma_a*} \left(\vec{\phi}_i - 4\pi\vec{B}_* + 4\pi\D\vec{T}^* \right) + \vec{S}_T \right]
+\ee
+%
+%
+\begin{multline*}
+\vec{T}_i = \left[\I+ 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*}\D  \right]^{-1}\left[\vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right] \dots \\
++ \Delta t a_{ii}\left[\I+  4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*}\D  \right]^{-1}\R{C_v}^{-1}\left[
+\R{\sigma_a*} \left(\vec{\phi}_i - 4\pi\vec{B}_* + 4\pi\D\vec{T}^* \right) + \vec{S}_T 
+\right] 
+\end{multline*}
+%
+%
+\begin{multline*}
+\vec{T}_i = \left[\I +4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*}\D  \right]^{-1}\left[\vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right] \dots \\
++ \Delta t a_{ii}\left[\I +4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*}\D  \right]^{-1}
+\R{C_v}^{-1}\left[ \R{\sigma_a*}\left(\vec{\phi}_i - 4\pi\vec{B}_*\right)  + \vec{S}_T \right]\dots \\
++4\pi\Delta t a_{ii}\left[\I + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*}\D  \right]^{-1}
+\R{C_v}^{-1}\R{\sigma_a*}\D\vec{T}^*
+\end{multline*}
+%
+%
+Adding nothing:
+\begin{multline*}
+\vec{T}_i = \left[\I + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*}\D  \right]^{-1}\left[\vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right] \dots \\
++ \Delta t a_{ii}\left[\I+ 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*}\D  \right]^{-1}
+\R{C_v}^{-1}\left[\R{\sigma_a*} \left(\vec{\phi}_i -  4\pi\vec{B}_*\right) + \vec{S}_T \right]\dots \\
++\left[\I+ 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*}\D  \right]^{-1}
+\left[ 4\pi\Delta t a_{ii} \R{C_v}^{-1}\R{\sigma_a*}  \D\vec{T}^* \right]\dots \\
++ \left[\I + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*}\D  \right]^{-1} \left( \vec{T}^* - \vec{T}^*\right)
+\end{multline*}
+%
+%
+simplifying
+\begin{multline*}
+\vec{T}_i = \left[\I + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*}\D  \right]^{-1}\left[\vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right] \dots \\
++ \Delta t a_{ii}\left[\I + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*}\D  \right]^{-1}
+\R{C_v}^{-1}\left[\R{\sigma_a*}\left(\vec{\phi}_i - 4\pi\vec{B}_*\right) + \vec{S}_T \right]\dots \\
++\left[\I+ 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*}\D  \right]^{-1}
+\left[ \I + 4\pi\Delta t a_{ii} \R{C_v}^{-1}\R{\sigma_a*} \D\right]\vec{T}^* \dots \\
+- \left[\I + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*}\D  \right]^{-1} \vec{T}^* 
+\end{multline*}
+%
+%
+%
+\begin{multline}
+\vec{T}_i = \vec{T}^*   + \left[\I+ 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*}\D  \right]^{-1}\left[\vec{T}_n -\vec{T}^* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right] \dots \\
++ \Delta t a_{ii}\left[\I + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*}\D  \right]^{-1}\R{C_v}^{-1}
+\left[ \R{\sigma_a*}\left(\vec{\phi}_i - 4\pi\vec{B}_*  \right) + \vec{S}_T \right]
+\label{eq:Ti_iso}
+\end{multline}
+%stopped above here
+%
+Multiplying \eqt{eq:first_kIi} by $\frac{1}{c\Delta t a_{ii}}\M$:
+\begin{multline}
+\frac{1}{c\Delta t a_{ii}}\M\vec{I}_i = \frac{1}{c\Delta t a_{ii}}\M\vec{I}_n + \frac{1}{c a_{ii}} \M \sum_{j=1}^{i-1}{a_{ij} k_{I,j}   } \dots \\
++ 
+\frac{1}{4\pi}\R{\sigma_s,*}\vec{\phi}_i + 
+\R{\sigma_a,*}\left(\vec{B}_* + \D\left(\vec{T}_i -\vec{T}^*  \right)   \right)- \R{\sigma_t,*} \vec{I}_i - \mathbf{L}\vec{I}_i + \vec{f}I_{in,i} + \vec{S}_I
+\label{eq:kIi_second}
+\end{multline}
+%
+%
+Inserting \eqt{eq:Ti_iso} into \eqt{eq:kIi_second}:
+%
+%
+\begin{multline*}
+\mathbf{ L} \vec{I}_i + \left( \frac{1}{c\Delta t a_{ii}}\M + \R{\sigma_t,*} \right) \vec{I}_i = 
+\frac{1}{c\Delta t a_{ii}}\M\vec{I}_n + \frac{1}{c a_{ii}} \M \sum_{j=1}^{i-1}{a_{ij} k_{I,j}   } 
++ \frac{1}{4\pi}\R{\sigma_s,*}\vec{\phi}_i 
++ \R{\sigma_a,*}\vec{B}_* \dots \\ 
++ \R{\sigma_a,*} \D \Bigg \{ 
+\left[\I + 4\pi \Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*}\D  \right]^{-1}
+\left[\vec{T}_n -\vec{T}^* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right]  \dots \\
++ \Delta t a_{ii}\left[\I+ 4\pi \Delta t a_{ii}\R{C_v}^{-1} \R{\sigma_a*}\D  \right]^{-1} 
+\R{C_v}^{-1}\left[\R{\sigma_a*} \left(\vec{\phi}_i - 4\pi \vec{B}_*  \right) + \vec{S}_T \right]  \Bigg \} + \vec{f}I_{in,i} + \vec{S}_I
+\end{multline*}
+%
+%
+Re-arranging to isolate $\vec{\phi}_i$:
+%
+%
+\begin{multline}
+\mathbf{ L} \vec{I}_i + \left( \frac{1}{c\Delta t a_{ii}}\M + \R{\sigma_t,*} \right) \vec{I}_i =  \frac{1}{4\pi}\R{\sigma_s,*}\vec{\phi}_i \dots \\
+%
+%
++  \Delta t a_{ii} \R{\sigma_a,*} \D
+\left[\I + 4\pi \Delta t a_{ii}\R{C_v}^{-1} \R{\sigma_a,*}\D  \right]^{-1}\R{C_v}^{-1}\R{\sigma_a*}\vec{\phi}_i\dots \\
+%
+%
++ \vec{f}I_{in,i} + S_I +  \frac{1}{c\Delta t a_{ii}}\M\vec{I}_n + \frac{1}{c a_{ii}} \M \sum_{j=1}^{i-1}{a_{ij} k_{I,j}   } + \R{\sigma_a,*}\vec{B}_* \dots \\
+%
+%
++ \R{\sigma_a,*} \D
+\left[\I+ 4\pi \Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*} \D\right]^{-1}
+\left[
+\vec{T}_n - \vec{T}^* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   +  \Delta t a_{ii} } \R{C_v}^{-1}\left[\vec{S}_T - 4\pi\R{\sigma_a*} \vec{B}_* \right]
+\right]
+\end{multline}
+Make the following definitions:
+\begin{subequations}
+\label{eq:stepi_defs}
+\begin{multline}
+\bar{\bar{\mathbf \xi}}_{i,d}  = \frac{1}{c\Delta t a_{ii}}\M\vec{I}_n + \frac{1}{c a_{ii}} \M \sum_{j=1}^{i-1}{a_{ij} k_{I,j}   } + \R{\sigma_a,*}\vec{B}_* \dots \\
++ \R{\sigma_a,*} \D
+\left[\mathbf{I} + 4\pi \Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*} \D \right]^{-1}
+\left[
+\vec{T}_n - \vec{T}^* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   + \Delta t a_{ii} } \R{C_v}^{-1}\left[\vec{S}_T - 4\pi\R{\sigma_a*} \vec{B}_* \right]
+\right] + \vec{S}_I
+\end{multline}
+ %
+ %
+\beanum
+\bar{\bar{\mathbf \nu}}_i &=& 4\pi \Delta t a_{ii} \R{\sigma_a,*} \D \left[\mathbf{I} + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a*}\D  \right]^{-1}\R{C_v}^{-1}
+\\
+\bar{\bar{\mathbf R}}_{\sigma_t,i} &=& \R{\sigma_t,*} + \frac{1}{c\Delta t a_{ii}}\M
+\eeanum
+\end{subequations}
+This then gives us our final equation for the radiation intensity:
+\benum
+\mathbf{ L} \vec{I}_i + \bar{\bar{\mathbf R}}_{\sigma_t,i}\vec{I}_i = \frac{1}{4\pi}\R{\sigma_s,*}\vec{\phi}_i + \frac{1}{4\pi}\bar{\bar{\mathbf \nu}}_i \R{\sigma_a*}\vec{\phi}_i + \bar{\bar{\mathbf \xi}}_{i,d} + \vec{f}I_{in} 
+\eenum
 
 \section{Computer Science Implementation}
 \label{sec:chap6_programming}

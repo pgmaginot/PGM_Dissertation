@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<txcop:outputProfiles version="2" xmlns:txcop="http://schemas.ToolsCenter.org/TeXnicCenter/OutputProfiles.xsd">
+	<outputProfileList>
+		<outputProfile name="LaTeX &#8680; PS" stopOnLatexError="false">
+			<texCommand execute="true" path="latex.exe" arguments="-src -max-print-line=120 -interaction=nonstopmode &quot;%wm&quot;"/>
+			<bibTexCommand execute="true" path="bibtex.exe" arguments="&quot;%tm&quot;"/>
+			<makeIndexCommand execute="true" path="makeindex.exe" arguments="&quot;%tm.idx&quot; -t &quot;%tm.ilg&quot; -o &quot;%tm.ind&quot;"/>
+			<preProcessors/>
+			<postProcessors>
+				<processor name="DviPs" path="dvips.exe" arguments="&quot;%Bm.dvi&quot;" inputFile="" outputFile=""/>
+			</postProcessors>
+			<viewer path="gsview64.exe" closeBeforeCompilation="false">
+				<viewProjectCommand type="commandLine">
+					<commandLineCommand path="gsview64.exe" arguments="-e &quot;%bm.ps&quot;"/>
+					<ddeCommand path="" server="" topic="System" command=""/>
+				</viewProjectCommand>
+				<viewCurrentFileCommand type="commandLine">
+					<commandLineCommand path="gsview64.exe" arguments="-e  &quot;%bm.ps&quot;"/>
+					<ddeCommand path="" server="" topic="System" command=""/>
+				</viewCurrentFileCommand>
+				<viewCloseCommand type="commandLine">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="" server="" topic="System" command=""/>
+				</viewCloseCommand>
+			</viewer>
+		</outputProfile>
+		<outputProfile name="LaTeX &#8680; DVI" stopOnLatexError="false">
+			<texCommand execute="true" path="latex.exe" arguments="-src -max-print-line=120 -interaction=nonstopmode &quot;%wm&quot;"/>
+			<bibTexCommand execute="true" path="bibtex.exe" arguments="&quot;%tm&quot;"/>
+			<makeIndexCommand execute="true" path="makeindex.exe" arguments="&quot;%tm.idx&quot; -t &quot;%tm.ilg&quot; -o &quot;%tm.ind&quot;"/>
+			<preProcessors/>
+			<postProcessors/>
+			<viewer path="yap.exe" closeBeforeCompilation="false">
+				<viewProjectCommand type="commandLine">
+					<commandLineCommand path="yap.exe" arguments="-1 &quot;%bm.dvi&quot;"/>
+					<ddeCommand path="" server="" topic="System" command=""/>
+				</viewProjectCommand>
+				<viewCurrentFileCommand type="commandLine">
+					<commandLineCommand path="yap.exe" arguments="-1 -s %l&quot;%Wc&quot; &quot;%bm.dvi&quot;"/>
+					<ddeCommand path="" server="" topic="System" command=""/>
+				</viewCurrentFileCommand>
+				<viewCloseCommand type="commandLine">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="" server="" topic="System" command=""/>
+				</viewCloseCommand>
+			</viewer>
+		</outputProfile>
+		<outputProfile name="LuaLaTeX &#8680; PDF" stopOnLatexError="false">
+			<texCommand execute="true" path="lualatex.exe" arguments="-synctex=-1 -max-print-line=120 -interaction=nonstopmode &quot;%wm&quot;"/>
+			<bibTexCommand execute="true" path="bibtex.exe" arguments="&quot;%tm&quot;"/>
+			<makeIndexCommand execute="true" path="makeindex.exe" arguments="&quot;%tm.idx&quot; -t &quot;%tm.ilg&quot; -o &quot;%tm.ind&quot;"/>
+			<preProcessors/>
+			<postProcessors/>
+			<viewer path="&quot;&quot;" closeBeforeCompilation="false">
+				<viewProjectCommand type="commandLine">
+					<commandLineCommand path="SumatraPDF.exe" arguments="&quot;%bm.pdf&quot;"/>
+					<ddeCommand path="" server="" topic="System" command=""/>
+				</viewProjectCommand>
+				<viewCurrentFileCommand type="dde">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="SumatraPDF.exe" server="sumatra" topic="control" command="[ForwardSearch(&quot;%bm.pdf&quot;,&quot;%Wc&quot;,%l,0,0,1)]"/>
+				</viewCurrentFileCommand>
+				<viewCloseCommand type="commandLine">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="" server="" topic="System" command=""/>
+				</viewCloseCommand>
+			</viewer>
+		</outputProfile>
+		<outputProfile name="LaTeX &#8680; PS &#8680; PDF" stopOnLatexError="false">
+			<texCommand execute="true" path="latex.exe" arguments="-synctex=-1 -max-print-line=120 -interaction=nonstopmode &quot;%wm&quot;"/>
+			<bibTexCommand execute="true" path="bibtex.exe" arguments="&quot;%tm&quot;"/>
+			<makeIndexCommand execute="true" path="makeindex.exe" arguments="&quot;%tm.idx&quot; -t &quot;%tm.ilg&quot; -o &quot;%tm.ind&quot;"/>
+			<preProcessors/>
+			<postProcessors>
+				<processor name="DviPs (PDF)" path="dvips.exe" arguments="-P pdf &quot;%Bm.dvi&quot;" inputFile="" outputFile=""/>
+				<processor name="Ghostscript (ps2pdf)" path="gswin32c.exe" arguments="-sPAPERSIZE=a4 -dSAFER -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=&quot;%bm.pdf&quot; -c save pop -f &quot;%bm.ps&quot;" inputFile="" outputFile=""/>
+			</postProcessors>
+			<viewer path="&quot;&quot;" closeBeforeCompilation="false">
+				<viewProjectCommand type="commandLine">
+					<commandLineCommand path="SumatraPDF.exe" arguments="&quot;%bm.pdf&quot;"/>
+					<ddeCommand path="" server="" topic="System" command=""/>
+				</viewProjectCommand>
+				<viewCurrentFileCommand type="dde">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="SumatraPDF.exe" server="sumatra" topic="control" command="[ForwardSearch(&quot;%bm.pdf&quot;,&quot;%Wc&quot;,%l,0,0,1)]"/>
+				</viewCurrentFileCommand>
+				<viewCloseCommand type="commandLine">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="" server="" topic="System" command=""/>
+				</viewCloseCommand>
+			</viewer>
+		</outputProfile>
+		<outputProfile name="XeLaTeX &#8680; PDF" stopOnLatexError="false">
+			<texCommand execute="true" path="xelatex.exe" arguments="-synctex=-1 -max-print-line=120 -interaction=nonstopmode &quot;%wm&quot;"/>
+			<bibTexCommand execute="true" path="bibtex.exe" arguments="&quot;%tm&quot;"/>
+			<makeIndexCommand execute="true" path="makeindex.exe" arguments="&quot;%tm.idx&quot; -t &quot;%tm.ilg&quot; -o &quot;%tm.ind&quot;"/>
+			<preProcessors/>
+			<postProcessors/>
+			<viewer path="&quot;&quot;" closeBeforeCompilation="false">
+				<viewProjectCommand type="commandLine">
+					<commandLineCommand path="SumatraPDF.exe" arguments="&quot;%bm.pdf&quot;"/>
+					<ddeCommand path="" server="" topic="System" command=""/>
+				</viewProjectCommand>
+				<viewCurrentFileCommand type="dde">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="SumatraPDF.exe" server="sumatra" topic="control" command="[ForwardSearch(&quot;%bm.pdf&quot;,&quot;%Wc&quot;,%l,0,0,1)]"/>
+				</viewCurrentFileCommand>
+				<viewCloseCommand type="commandLine">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="" server="" topic="System" command=""/>
+				</viewCloseCommand>
+			</viewer>
+		</outputProfile>
+		<outputProfile name="LaTeX &#8680; PDF" stopOnLatexError="false">
+			<texCommand execute="true" path="pdflatex.exe" arguments="-synctex=-1 -max-print-line=120 -interaction=nonstopmode &quot;%wm&quot;"/>
+			<bibTexCommand execute="true" path="bibtex.exe" arguments="&quot;%tm&quot;"/>
+			<makeIndexCommand execute="true" path="makeindex.exe" arguments="&quot;%tm.idx&quot; -t &quot;%tm.ilg&quot; -o &quot;%tm.ind&quot;"/>
+			<preProcessors/>
+			<postProcessors/>
+			<viewer path="&quot;&quot;" closeBeforeCompilation="false">
+				<viewProjectCommand type="commandLine">
+					<commandLineCommand path="&quot;&quot;" arguments="&quot;%bm.pdf&quot;"/>
+					<ddeCommand path="" server="" topic="System" command=""/>
+				</viewProjectCommand>
+				<viewCurrentFileCommand type="dde">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="&quot;&quot;" server="sumatra" topic="control" command="[ForwardSearch(&quot;%bm.pdf&quot;,&quot;%Wc&quot;,%l,0,0,1)]"/>
+				</viewCurrentFileCommand>
+				<viewCloseCommand type="commandLine">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="" server="" topic="System" command=""/>
+				</viewCloseCommand>
+			</viewer>
+		</outputProfile>
+		<outputProfile name="LaTeX &#8680; DVI &#8680; PDF" stopOnLatexError="false">
+			<texCommand execute="true" path="latex.exe" arguments="-synctex=-1 -max-print-line=120 -interaction=nonstopmode &quot;%wm&quot;"/>
+			<bibTexCommand execute="true" path="bibtex.exe" arguments="&quot;%tm&quot;"/>
+			<makeIndexCommand execute="true" path="makeindex.exe" arguments="&quot;%tm.idx&quot; -t &quot;%tm.ilg&quot; -o &quot;%tm.ind&quot;"/>
+			<preProcessors/>
+			<postProcessors>
+				<processor name="dvipdfm" path="dvipdfm.exe" arguments="&quot;%bm.dvi&quot;" inputFile="" outputFile=""/>
+			</postProcessors>
+			<viewer path="&quot;&quot;" closeBeforeCompilation="false">
+				<viewProjectCommand type="commandLine">
+					<commandLineCommand path="SumatraPDF.exe" arguments="&quot;%bm.pdf&quot;"/>
+					<ddeCommand path="" server="" topic="System" command=""/>
+				</viewProjectCommand>
+				<viewCurrentFileCommand type="dde">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="SumatraPDF.exe" server="sumatra" topic="control" command="[ForwardSearch(&quot;%bm.pdf&quot;,&quot;%Wc&quot;,%l,0,0,1)]"/>
+				</viewCurrentFileCommand>
+				<viewCloseCommand type="commandLine">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="" server="" topic="System" command=""/>
+				</viewCloseCommand>
+			</viewer>
+		</outputProfile>
+	</outputProfileList>
+</txcop:outputProfiles>

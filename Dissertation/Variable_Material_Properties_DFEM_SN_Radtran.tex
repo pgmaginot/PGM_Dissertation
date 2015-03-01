@@ -1,0 +1,924 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+\usepackage{graphicx} 
+
+\usepackage{multirow}
+
+\usepackage{rotating}
+
+\newcommand{\fig}[1]{Fig.~\ref{#1}}                      % figure
+\newcommand{\tbl}[1]{Table~\ref{#1}}                     % table
+
+\newcommand{\benum}{\begin{equation}}
+\newcommand{\eenum}{\end{equation}}
+
+\newcommand{\be}{\begin{equation*}}
+\newcommand{\ee}{\end{equation*}}
+
+\newcommand{\bea}{\begin{eqnarray*}}
+\newcommand{\eea}{\end{eqnarray*}}
+
+\newcommand{\beanum}{\begin{eqnarray}}
+\newcommand{\eeanum}{\end{eqnarray}}
+
+\newcommand{\eqt}[1]{Eq. (\ref{#1})}
+\newcommand{\eqts}[1]{Eqs. (\ref{#1})}
+\newcommand{\omg}{\ensuremath{ \vec{\Omega}}}
+\newcommand{\del}{\ensuremath{ \vec{\nabla} }}
+
+\newcommand{\pec}{\, ,}
+\newcommand{\pep}{\, .}
+
+\newcommand{\B}[1]{\ensuremath{B_{#1} }}
+\newcommand{\J}{\ensuremath{\mathbf{J} }}
+\newcommand{\p}{\ensuremath{ \partial}}
+\newcommand{\M}{\ensuremath{ \mathbf M}}
+\newcommand{\R}{\ensuremath{{\mathbf R}}}
+\newcommand{\Rag}{\ensuremath{{\mathbf R}_{\sigma_{a,g}}^*}}
+\newcommand{\Rsg}{\ensuremath{{\mathbf R}_{\sigma_{s,g}}^*}}
+\newcommand{\Rtg}{\ensuremath{{\mathbf R}_{\sigma_{t,g}}^*}}
+\newcommand{\Dg}{\ensuremath{ \mathbf D}^*_g}
+\newcommand{\Pgvec}{\ensuremath{ \vec{\widehat{B}^*_g}}}
+\newcommand{\Pvec}{\ensuremath{ \vec{\widehat{B}^*}}}
+\newcommand{\D}{\ensuremath{ \mathbf D}^*}
+\newcommand{\I}{\ensuremath{\mathbf{I}}}
+
+
+\newcommand{\abs}[1]{\ensuremath{\left\lvert #1 \right\rvert}}
+\newcommand{\norm}[1]{\ensuremath{\left\lVert #1 \right\rVert}}
+
+%newcommand{\eqts}[1]{Eq. \reference{1}
+
+\begin{document}
+
+%------------------------------------------------
+\author{Peter Maginot}
+\date{\today}
+\title{SDIRK Time Integration and Variable Material Properties for Radiative Transfer}
+\maketitle
+%------------------------------------------------
+\section{Generic SDIRK}
+Consider a generic Butcher Tableaux:
+\be
+\begin{array}{c|c|cccc}
+\text{Stage}& c_i 	 & a  			&  		&					&	\\
+\hline
+1						&  c_1   &  \gamma 	&  0  	&		\dots		&  0 \\
+2						&  c_2   &  a_{21}  & \gamma  & 		0		& \vdots	\\	
+i						& c_i    &   a_{i1} &  a_{i2} & \ddots   &	0	\\
+s      			&  c_s   &   a_{c1} & a_{c2} 	& \dots 		& \gamma \\
+\hline
+{}					&				&		b_1		&		b_2			& \dots 	&   b_s
+\end{array}
+\ee
+Let $\psi$ be our variable of interest.  Then $\psi_{n+1}=\psi(t_n + \Delta t)$ is:
+\benum
+\psi_{n+1} = \psi_n + \Delta t \sum_{i=1}^s{b_i k_i}
+\label{eq:p1}
+\eenum
+where $k_i$ is defined as:
+\be
+k_i = f\left( t_n + c_i \Delta t ~,~\psi_{n} + \Delta t \sum_{j=1}^i{c_{ij} k_j }\right)
+\ee
+and
+\be
+f(t,\psi) = \frac{\p \psi}{\p t}
+\ee
+\eqt{eq:p1} can also be interpreted as meaning:
+\benum
+\psi_i = \psi_{n} + \Delta t \sum_{j=1}^i{a_{ij} f\left(t_n + \Delta t c_j , \psi_j\right)}
+\label{eq:psi-def}
+\eenum
+
+\section{Grey Equations}
+We know that the 1D, mono-energetic (grey) radiative transfer equations are:
+\be
+\frac{1}{c}\frac{\p I}{\p t} + \mu \frac{\p }{\p x}I + \sigma_{t} I = \frac{\sigma_{s}}{4\pi}\phi + \frac{\sigma_{a}}{4\pi} acT^4 + S_I
+\ee
+\be
+C_v\frac{\p T}{\p t} = \sigma_a\left(\phi - acT^4\right) + S_T
+\ee
+
+Solving for the time derivatives:
+\be
+\frac{\p I}{\p t} = c\left[  \frac{\sigma_s}{4\pi}\phi + \frac{\sigma_a}{4\pi} acT^4 - \mu \frac{\p I}{\p x}- \sigma_t I + S_I \right] 
+\ee
+\be
+\frac{\p T}{\p t} = \frac{1}{C_v}\left[ \sigma_a \left(\phi - acT^4\right) + S_T\right]
+\ee
+Before going any further, we spatially discretize our equations, expanding in an arbitrary order Lagrangian basis.  First, transforming to a generic reference element:
+\bea
+x &=& x_i + \frac{\Delta x_i}{2} s \\
+s &\in& [-1,1] \\
+\Delta x_i &=& x_{i+1/2} - x_{i-1/2} \\
+x_i &=& \frac{x_{i+1/2} + x_{i-1/2}}{2}
+\eea
+For generality, let $\widetilde{x}$ and $\widetilde{y}$ be unknowns represented using our finite element representation:
+\be
+\widetilde{x}(s) = \vec{B}(s)\cdot\vec{x} = \B{1}(s)x_1 + \B{2}x_2+ \dots + \B{N}x_{N_P} 
+\ee
+where
+\be
+\vec{B} = \left[
+\begin{array}{c}
+\B{1} \\
+\B{2} \\
+\vdots \\
+\B{N}
+\end{array}
+\right] \pec
+\ee
+\be
+\B{i}(s) =\prod_{ \substack{k=1 \\ k\neq j}}^{N_P}{ \frac{s_k - s}{s_k - s_i} } \pec
+\ee
+and $N_P=P+1$ where $P$ is the DFEM trial space degree.  Further suppose we wish to take integrals of the form:
+\be
+\int_{-1}^1{ \vec{B} \psi ds}
+\ee 
+we represent this result as 
+\be
+\M \vec{\psi}
+\ee
+where
+\be
+\M_{ij} = \frac{\Delta x_c}{2}\int_{-1}^1{\B{i}(s) \B{j}(s) ds} \approx \frac{\Delta x_i}{2}\sum_{q=1}^{N_q}{w_q \B{i}(s_q) \B{j}(s_q) } \pec
+\ee
+$\{s_q,q_q\}_{q=1}^{N_q}$ is a quadrature set, and 
+\be
+\psi \approx \widetilde{\psi} = \sum_{j=1}^{N_P}{ \B{j}(s) \psi_j } \pep
+\ee
+If we want to calculate the integral:
+\be
+\int_{-1}^1{ \vec{B} \widetilde{\psi}(s) \sigma(s)  ds}
+\ee
+we denote the result as:
+\be
+\R_{\sigma} \vec{\psi} \pec
+\ee
+where
+\be
+\R_{\sigma,ij} = \frac{\Delta x_c}{2}\int_{-1}^1{ \sigma(s) \B{i}(s) \B{j}(s) ds} \approx 
+\frac{\Delta x_c}{2}\sum_{q=1}^{N_q}{ w_q \B{i}(s_q) \B{j}(s_q)   \sigma(s_q)} \pep
+\ee
+Our fundamental unknowns will be expressed as:
+\bea
+I(s) &=& \vec{B}(s) \cdot \vec{I} \\
+T(s) &=& \vec{B}(s) \cdot \vec{T} \pep
+\eea
+The Planck function, $\widehat{B}(T)$ will be similarly expanded:
+\be
+\widehat{B}(s) \approx \vec{B}(s) \cdot \vec{\widehat{B}}  
+\ee
+where for the grey case:
+\be
+\vec{\widehat{B}} = \frac{1}{4\pi}\left[
+\begin{array}{c}
+acT_1^4 \\
+\vdots \\
+acT_j^4 \\
+\vdots \\
+acT_N^4 \\
+\end{array}
+\right] \\
+\ee
+Since the Planck function is a highly nonlinear function of $T$, we elect to linearize it about an arbitrary temperature, $T^*$:
+\be
+\widehat{B}(T) \approx \widehat{B}(T^*) + \frac{\p }{\p T}\left[ \widehat{B}(T^*)\right](T-T^*)
+\ee
+Expressing in vector/matrix form:
+\benum
+\vec{\widehat{B}} \approx  \Pvec + \widehat{\mathbf D}^*\left(\vec{T} - \vec{T^*}  \right)
+\label{eq:bg-vect}
+\eenum
+where:
+$\widehat{\mathbf D}^*$ is a $N\times N$ diagonal matrix with non zero elements, $d_{jj}$:
+\be
+d_{jj} = \frac{\p \widehat{B}(T_j^*)}{\p T} 
+\ee
+
+Driving/manufactured solution sources are likely not to be polynomials, so we define the following source moments rather than expand $S_I$ or $S_T$ in the DFEM trial space:
+\bea
+\vec{S}_{I,j} &=& \int_{-1}^1{\B{j} S_I(s)~ds} \\
+\vec{S}_{T,j} &=& \int_{-1}^1{\B{j} S_T(s)~ds} \pep
+\eea
+
+Having defined all this notation, we give the spatially discretized equations for cell $i$:
+\benum
+\frac{\p }{\p t}\left[\M \vec{I}  \right] = c\left[
+\frac{1}{4\pi}\R_{\sigma_s}\vec{\phi} + \R_{\sigma_a}\left(\Pvec + \D \left(\vec{T} -\vec{T}^*  \right)   \right)- \R_{\sigma_t} \vec{I} - \mathbf{L}\vec{I} + \vec{f}I_{in} + \vec{S}_I
+\right]
+\label{eq:disc-intensity}
+\eenum
+\benum
+\frac{\p }{\p t}\left[\R_{C_v^*}\vec{T}   \right] = 
+\R_{\sigma_a} \left[\vec{\phi} -4\pi\Pvec - 4\pi\D\left( \vec{T} - \vec{T}^* \right)\right] + \vec{S}_T
+\label{eq:disc-temperature}
+\eenum
+
+Solving for $k_I$ and $k_T$ we have:
+\benum
+k_I = c\M^{-1}\left[   
+\frac{1}{4\pi}\R_{\sigma_s}\vec{\phi} + \R_{\sigma_a}\left(\Pvec + \D \left(\vec{T} -\vec{T}^*  \right)   \right)- \R_{\sigma_t} \vec{I} - \mathbf{ L}\vec{I} + \vec{f}I_{in} +  \vec{S}_I
+\right]
+\label{eq:kI}
+\eenum
+\benum
+k_T = \R_{C_v}^{-1}\left[
+\R_{\sigma_a} \left(\vec{\phi} - 4\pi\Pvec - 4\pi\D\left( \vec{T} - \vec{T}^* \right)\right) + \vec{S}_T
+\right]
+\label{eq:kT}
+\eenum
+
+\subsection{First RK step}
+We now look at \eqt{eq:psi-def} for step 1 of an arbitrary, diagonally implicit RK scheme:
+\benum
+\vec{I}_1 = \vec{I}_n + c\Delta t a_{11}\M^{-1}\left[   
+\frac{1}{4\pi}\R_{\sigma_s,*}\vec{\phi}_1 + \R_{\sigma_a,*}\left(\Pvec + \D \left(\vec{T}_1 -\vec{T}^*  \right)   \right)- \R_{\sigma_t,*} \vec{I}_1 - \mathbf{L}\vec{I}_1 + \vec{f}I_{in,1} 
++ \vec{S}_I
+\right]
+\label{eq:first_I}
+\eenum
+\benum
+\vec{T}_1  = \vec{T}_n + \Delta t a_{11} \R_{C_v}^{-1}\left[
+\R_{\sigma_a} \left(\vec{\phi}_1 - 4\pi\Pvec - 4\pi\D\left( \vec{T}_1 - \vec{T}^* \right)\right) + \vec{S}_T
+\right]
+\label{eq:first_T}
+\eenum
+We now use \eqt{eq:first_T} to eliminate the unknown temperature, $\vec{T}_1$ from \eqt{eq:first_I}. Solving \eqt{eq:first_T} for $\vec{T}_1$:
+\be
+\vec{T}_1 +  4\pi\Delta t a_{11} \R_{C_v}^{-1}\R_{\sigma_a}\D \vec{T}_1   = \vec{T}_n + \Delta t a_{11} \R_{C_v}^{-1}\left[
+\R_{\sigma_a*} \left(\vec{\phi}_1 -  4\pi\Pvec+ 4\pi\D\vec{T}^* \right) + \vec{S}_T
+\right]
+\ee
+\begin{multline*}
+\vec{T}_1 = \left[\mathbf{I} + 4\pi\Delta t a_{11}  \R_{C_v}^{-1}\R_{\sigma_a}\D   \right]^{-1}
+\left[
+\vec{T}_n + \Delta t a_{11}  \R_{C_v}^{-1}\left[ \R_{\sigma_a} \left(\vec{\phi}_1 -4\pi \Pvec+ 4\pi\D\vec{T}^* \right) +  \vec{S}_T \right]  
+\right] \dots \\ + \left[\I+ 4\pi\Delta t a_{11}  \R_{C_v}^{-1}\R_{\sigma_a}\D   \right]^{-1}\left[\vec{T}^* - \vec{T}^*  \right]
+\end{multline*}
+%
+%
+\begin{multline*}
+\vec{T}_1 = \left[\I+ 4\pi\Delta t a_{11}  \R_{C_v}^{-1}\R_{\sigma_a}\D   \right]^{-1}
+\left[
+\vec{T}_n + \Delta t a_{11}  \R_{C_v}^{-1}\left[ \R_{\sigma_a*} \left(\vec{\phi}_1 - 4\pi\Pvec  \right)+ \vec{S}_T \right]\right] \dots \\ 
++ 
+\left[\I +  4\pi\Delta t a_{11}  \R_{C_v}^{-1}\R_{\sigma_a}\D  \right]^{-1}
+\left[\I +  4\pi\Delta t a_{11}  \R_{C_v}^{-1}\R_{\sigma_a}\D   \right] \vec{T}^* \dots \\
+- \left[\I +  4\pi\Delta t a_{11}  \R_{C_v}^{-1}\R_{\sigma_a}\D   \right]^{-1}\vec{T}^*
+\end{multline*}
+%
+%finished the above
+%
+%
+The ``Temperature Update'' for the first RK stage is the following:
+%
+\benum
+\vec{T}_1 = \vec{T}^* + \left[\I + 4\pi\Delta t a_{11}  \R_{C_v}^{-1}\R_{\sigma_a}\D \right]^{-1}\left[\vec{T}_n - \vec{T}^* +  \Delta t a_{11}  \R_{C_v}^{-1}\left[ \R_{\sigma_a*} \left(\vec{\phi}_1 - 4\pi\Pvec\right) + \vec{S}_{T}\right]\right]
+\label{eq:iso_T1}
+\eenum
+%
+%
+Inserting \eqt{eq:iso_T1} into \eqt{eq:first_I}:
+\begin{multline*}
+\vec{I}_1 = \vec{I}_n + c\Delta t a_{11}\M^{-1}\left[   
+\frac{1}{4\pi}\R_{\sigma_s,*}\vec{\phi}_1 + \R_{\sigma_a,*}\Pvec - \R_{\sigma_t,*} \vec{I}_1 -\mathbf{ L}\vec{I}_1 + \vec{f}I_{in,1} + \vec{S}_I \right] \dots  \\
++ c \Delta t a_{11}\M^{-1} \R_{\sigma_a,*}\D
+\left[\I + 4\pi\Delta t a_{11}  \R_{C_v}^{-1}\R_{\sigma_a}\D   \right]^{-1}
+\left[\vec{T}_n - \vec{T}^* +  \Delta t a_{11} \R_{C_v}^{-1}\left[ \R_{\sigma_a*} \left(\vec{\phi}_1 - 4\pi\Pvec\right) + \vec{S}_T \right]\right] 
+\end{multline*}
+%
+%
+%
+Multiply by $\frac{1}{c\Delta t a_{11}}\M$
+\begin{multline*}
+\frac{1}{c\Delta t a_{11}}\M\vec{I}_1 = \frac{1}{c\Delta t a_{11}}\M\vec{I}_n + \left[   
+\frac{1}{4\pi}\R_{\sigma_s,*}\vec{\phi}_1 + \R_{\sigma_a,*}\Pvec - \R_{\sigma_t,*} \vec{I}_1 - \mathbf{ L}\vec{I}_1 + \vec{f}I_{in,1}  + \vec{S}_I \right] \dots  \\
++ \R_{\sigma_a,*} \D
+\left[\I+ 4\pi\Delta t a_{11}  \R_{C_v}^{-1}\R_{\sigma_a*}\D   \right]^{-1}
+\left[\vec{T}_n - \vec{T}^* +  \Delta t a_{11} \R_{C_v}^{-1}\left[ \R_{\sigma_a*} \left(\vec{\phi}_1 - 4\pi\Pvec\right) + \vec{S}_T\right]\right]  \pep
+\end{multline*}
+%
+%
+%
+Move some terms over to the LHS:
+\begin{multline*}
+\mathbf{ L}\vec{I}_1 + \left(\frac{1}{c\Delta t a_{11}} \M + \R_{\sigma_t,*} \right)\vec{I}_1 = \frac{1}{c\Delta t a_{11}}\M\vec{I}_n +   
+\frac{1}{4\pi}\R_{\sigma_s,*}\vec{\phi}_1 + \R_{\sigma_a,*}\Pvec + \vec{f}I_{in,1} + \vec{S}_I \dots  \\
++ \R_{\sigma_a,*} \D \left[\I+ 4\pi\Delta t a_{11}  \R_{C_v}^{-1}\R_{\sigma_a*}\D   \right]^{-1}
+\left[\vec{T}_n - \vec{T}^* +  \Delta t a_{11}  \R_{C_v}^{-1}\left[ \R_{\sigma_a*} \left(\vec{\phi}_1 - 4\pi\Pvec\right) + \vec{S}_T\right]\right] 
+\end{multline*}
+%
+%above here
+%
+Further manipulating to pull all of the $\vec{\phi}_1$ terms together:
+%
+%
+\begin{multline}
+\mathbf{ L}\vec{I}_1 + \left(\frac{1}{c\Delta t a_{11}} \M + \R_{\sigma_t,*} \right)\vec{I}_1 = \dots \\
+\frac{1}{4\pi}\R_{\sigma_s,*}\vec{\phi}_1 + \Delta t a_{11} \R_{\sigma_a,*} \D
+\left[\I + 4\pi\Delta t a_{11}  \R_{C_v}^{-1}\R_{\sigma_a*} \D   \right]^{-1}
+  \R_{C_v}^{-1}\R_{\sigma_a*}
+\vec{\phi}_1 \dots \\
++ \frac{1}{c\Delta t a_{11}}\M\vec{I}_n +\R_{\sigma_a,*}\Pvec + \vec{f}I_{in,1} \vec{S}_I  \dots \\
++ \R_{\sigma_a,*} \D
+\left[\I +4\pi\Delta t a_{11}  \R_{C_v}^{-1}\R_{\sigma_a*} \D   \right]^{-1}
+\left[\vec{T}_n - \vec{T}^* + \Delta t a_{11}  \R_{C_v}^{-1}\left[ \vec{S}_T -4\pi\R_{\sigma_a*} \Pvec\right] \right] 
+\label{eq:almost_1}
+\end{multline}
+Though it does not look that familiar, \eqt{eq:almost_1} can be made to resemble the canonical mono-energetic neutron fission equation.  Let us define the following terms:
+\begin{subequations}
+\label{eq:step1_defs}
+\benum
+\bar{\bar{\mathbf \nu}} = 4\pi\Delta t a_{11} \R_{\sigma_a,*}
+\D \left[\mathbf{I} + 4\pi\Delta t a_{11}  \R_{C_v}^{-1}\R_{\sigma_a*}\D   \right]^{-1}\R_{C_v}^{-1}
+\eenum
+ %
+ %
+ \begin{multline}
+\bar{\bar{\mathbf \xi}}_d = \frac{1}{c\Delta t a_{11}}\M\vec{I}_n + \R_{\sigma_a,*}\Pvec  + \vec{S}_I \dots \\ 
++ \R_{\sigma_a,*}
+\D
+\left[\I + 4\pi\Delta t a_{11}  \R_{C_v}^{-1}\R_{\sigma_a*}\D   \right]^{-1}
+\left[\vec{T}_n - \vec{T}^* + \Delta t a_{11}  \R_{C_v}^{-1}\left[\vec{S}_T - 4\pi\R_{\sigma_a}\Pvec\right]\right] 
+\end{multline}
+%
+\benum
+\bar{\bar{\mathbf R}}_{\sigma_t} = \frac{1}{c\Delta t a_{11}} \M + \R_{\sigma_t,*}
+\eenum
+\end{subequations}
+Inserting \eqts{eq:step1_defs} into \eqt{eq:almost_1} gives our final form:
+\benum
+ \mathbf{ L}\vec{I}_1 + \bar{\bar{\mathbf R}}_{\sigma_t}\vec{I}_1 = \frac{1}{4\pi}\R_{\sigma_s,*}\vec{\phi}_1 + \frac{1}{4\pi}\bar{\bar{\mathbf \nu}}\R_{\sigma_a*} \vec{\phi}_1 +  \vec{f}I_{in,1} + \bar{\bar{\mathbf \xi}}_d
+\label{eq:1_done}
+\eenum
+Having found $\vec{I}_1$ by solving \eqt{eq:1_done}, we use \eqt{eq:iso_T1} to find $\vec{T}_1$.  This is like an outre Newton iteration loop, with the update defined in \eqt{eq:iso_T1}.  The following assume we have converged the outer Newton iteration loop:
+\be
+k_{I,1} = c\M^{-1}\left[   
+\frac{1}{4\pi}\R_{\sigma_{s},1}\vec{\phi}_1 + \R_{\sigma_{a},1}\widehat{\mathbf B}_1 - \R_{\sigma_{t},1} \vec{I}_1 - \mathbf{ L}\vec{I}_1 + \vec{f}I_{in,1} + \vec{S}_I
+\right]
+\ee
+\be
+k_{T,1} = \R_{C_v}^{-1} \left[  \R_{\sigma_a} \left(\vec{\phi}_1 - 4\pi\widehat{\mathbf B}_1\right) + \vec{S}_T \right]
+\ee
+%
+%
+%
+%
+\subsection{$i$-th RK step}
+Moving on to the $i$-th RK step, we first write the equation for $\vec{I}_i$ and $\vec{T}_{i}$:
+\benum
+\vec{I}_i = \vec{I}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{I,j}   } + \Delta t a_{ii} c \M^{-1}\left[
+\frac{1}{4\pi}\R_{\sigma_s,*}\vec{\phi}_i +
+\R_{\sigma_a,*}\left(\Pvec + \D \left(\vec{T}_i -\vec{T}^*  \right)   \right)- \R_{\sigma_t,*} \vec{I}_i - \mathbf{ L}\vec{I}_i + \vec{f}I_{in,i} + \vec{S}_I
+\right]
+\label{eq:first_kIi}
+\eenum
+\benum
+\vec{T}_i = \vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   } + \Delta t a_{ii}\R_{C_v}^{-1}\left[
+\R_{\sigma_a*}\left(\vec{\phi}_i - 4\pi\Pvec - 4\pi\D\left( \vec{T}_i - \vec{T}^* \right)\right) + \vec{S}_T 
+\right]
+\label{eq:first_kTi}
+\eenum
+%
+%
+Proceeding in a similar fashion as before, we solve \eqt{eq:first_kTi} for $\vec{T}_{i}$.
+%
+%
+\be
+\vec{T}_i +4\pi\Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*}\D\vec{T}_i = \vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   } + \Delta t a_{ii}
+\R_{C_v}^{-1}\left[
+\R_{\sigma_a*} \left(\vec{\phi}_i - 4\pi\Pvec + 4\pi\D\vec{T}^* \right) + \vec{S}_T
+ \right]
+\ee
+%
+%
+\be
+\left[\I + 4\pi\Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a}\D  \right]\vec{T}_i = \vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   } + \Delta t a_{ii}\R_{C_v}^{-1}\left[\R_{\sigma_a*} \left(\vec{\phi}_i - 4\pi\Pvec + 4\pi\D\vec{T}^* \right) + \vec{S}_T \right]
+\ee
+%
+%
+\begin{multline*}
+\vec{T}_i = \left[\I+ 4\pi\Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*}\D  \right]^{-1}\left[\vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right] \dots \\
++ \Delta t a_{ii}\left[\I+  4\pi\Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*}\D  \right]^{-1}\R_{C_v}^{-1}\left[
+\R_{\sigma_a*} \left(\vec{\phi}_i - 4\pi\Pvec + 4\pi\D\vec{T}^* \right) + \vec{S}_T 
+\right] 
+\end{multline*}
+%
+%
+\begin{multline*}
+\vec{T}_i = \left[\I +4\pi\Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*}\D  \right]^{-1}\left[\vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right] \dots \\
++ \Delta t a_{ii}\left[\I +4\pi\Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*}\D  \right]^{-1}
+\R_{C_v}^{-1}\left[ \R_{\sigma_a*}\left(\vec{\phi}_i - 4\pi\Pvec\right)  + \vec{S}_T \right]\dots \\
++4\pi\Delta t a_{ii}\left[\I + 4\pi\Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*}\D  \right]^{-1}
+\R_{C_v}^{-1}\R_{\sigma_a*}\D\vec{T}^*
+\end{multline*}
+%
+%
+Adding nothing:
+\begin{multline*}
+\vec{T}_i = \left[\I + 4\pi\Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*}\D  \right]^{-1}\left[\vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right] \dots \\
++ \Delta t a_{ii}\left[\I+ 4\pi\Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*}\D  \right]^{-1}
+\R_{C_v}^{-1}\left[\R_{\sigma_a*} \left(\vec{\phi}_i -  4\pi\Pvec\right) + \vec{S}_T \right]\dots \\
++\left[\I+ 4\pi\Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*}\D  \right]^{-1}
+\left[ 4\pi\Delta t a_{ii} \R_{C_v}^{-1}\R_{\sigma_a*}  \D\vec{T}^* \right]\dots \\
++ \left[\I + 4\pi\Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*}\D  \right]^{-1} \left( \vec{T}^* - \vec{T}^*\right)
+\end{multline*}
+%
+%
+simplifying
+\begin{multline*}
+\vec{T}_i = \left[\I + 4\pi\Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*}\D  \right]^{-1}\left[\vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right] \dots \\
++ \Delta t a_{ii}\left[\I + 4\pi\Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*}\D  \right]^{-1}
+\R_{C_v}^{-1}\left[\R_{\sigma_a*}\left(\vec{\phi}_i - 4\pi\Pvec\right) + \vec{S}_T \right]\dots \\
++\left[\I+ 4\pi\Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*}\D  \right]^{-1}
+\left[ \I + 4\pi\Delta t a_{ii} \R_{C_v}^{-1}\R_{\sigma_a*} \D\right]\vec{T}^* \dots \\
+- \left[\I + 4\pi\Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*}\D  \right]^{-1} \vec{T}^* 
+\end{multline*}
+%
+%
+%
+\begin{multline}
+\vec{T}_i = \vec{T}^*   + \left[\I+ 4\pi\Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*}\D  \right]^{-1}\left[\vec{T}_n -\vec{T}^* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right] \dots \\
++ \Delta t a_{ii}\left[\I + 4\pi\Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*}\D  \right]^{-1}\R_{C_v}^{-1}
+\left[ \R_{\sigma_a*}\left(\vec{\phi}_i - 4\pi\Pvec  \right) + \vec{S}_T \right]
+\label{eq:Ti_iso}
+\end{multline}
+%stopped above here
+%
+Multiplying \eqt{eq:first_kIi} by $\frac{1}{c\Delta t a_{ii}}\M$:
+\begin{multline}
+\frac{1}{c\Delta t a_{ii}}\M\vec{I}_i = \frac{1}{c\Delta t a_{ii}}\M\vec{I}_n + \frac{1}{c a_{ii}} \M \sum_{j=1}^{i-1}{a_{ij} k_{I,j}   } \dots \\
++ 
+\frac{1}{4\pi}\R_{\sigma_s,*}\vec{\phi}_i + 
+\R_{\sigma_a,*}\left(\Pvec + \D\left(\vec{T}_i -\vec{T}^*  \right)   \right)- \R_{\sigma_t,*} \vec{I}_i - \mathbf{L}\vec{I}_i + \vec{f}I_{in,i} + \vec{S}_I
+\label{eq:kIi_second}
+\end{multline}
+%
+%
+Inserting \eqt{eq:Ti_iso} into \eqt{eq:kIi_second}:
+%
+%
+\begin{multline*}
+\mathbf{ L} \vec{I}_i + \left( \frac{1}{c\Delta t a_{ii}}\M + \R_{\sigma_t,*} \right) \vec{I}_i = 
+\frac{1}{c\Delta t a_{ii}}\M\vec{I}_n + \frac{1}{c a_{ii}} \M \sum_{j=1}^{i-1}{a_{ij} k_{I,j}   } 
++ \frac{1}{4\pi}\R_{\sigma_s,*}\vec{\phi}_i 
++ \R_{\sigma_a,*}\Pvec \dots \\ 
++ \R_{\sigma_a,*} \D \Bigg \{ 
+\left[\I + 4\pi \Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*}\D  \right]^{-1}
+\left[\vec{T}_n -\vec{T}^* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right]  \dots \\
++ \Delta t a_{ii}\left[\I+ 4\pi \Delta t a_{ii}\R_{C_v}^{-1} \R_{\sigma_a*}\D  \right]^{-1} 
+\R_{C_v}^{-1}\left[\R_{\sigma_a*} \left(\vec{\phi}_i - 4\pi \Pvec  \right) + \vec{S}_T \right]  \Bigg \} + \vec{f}I_{in,i} + \vec{S}_I
+\end{multline*}
+%
+%
+Re-arranging to isolate $\vec{\phi}_i$:
+%
+%
+\begin{multline}
+\mathbf{ L} \vec{I}_i + \left( \frac{1}{c\Delta t a_{ii}}\M + \R_{\sigma_t,*} \right) \vec{I}_i =  \frac{1}{4\pi}\R_{\sigma_s,*}\vec{\phi}_i \dots \\
+%
+%
++  \Delta t a_{ii} \R_{\sigma_a,*} \D
+\left[\I + 4\pi \Delta t a_{ii}\R_{C_v}^{-1} \R_{\sigma_a,*}\D  \right]^{-1}\R_{C_v}^{-1}\R_{\sigma_a*}\vec{\phi}_i\dots \\
+%
+%
++ \vec{f}I_{in,i} + S_I +  \frac{1}{c\Delta t a_{ii}}\M\vec{I}_n + \frac{1}{c a_{ii}} \M \sum_{j=1}^{i-1}{a_{ij} k_{I,j}   } + \R_{\sigma_a,*}\Pvec \dots \\
+%
+%
++ \R_{\sigma_a,*} \D
+\left[\I+ 4\pi \Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*} \D\right]^{-1}
+\left[
+\vec{T}_n - \vec{T}^* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   +  \Delta t a_{ii} } \R_{C_v}^{-1}\left[\vec{S}_T - 4\pi\R_{\sigma_a*} \Pvec \right]
+\right]
+\end{multline}
+Make the following definitions:
+\begin{subequations}
+\label{eq:stepi_defs}
+\begin{multline}
+\bar{\bar{\mathbf \xi}}_{i,d}  = \frac{1}{c\Delta t a_{ii}}\M\vec{I}_n + \frac{1}{c a_{ii}} \M \sum_{j=1}^{i-1}{a_{ij} k_{I,j}   } + \R_{\sigma_a,*}\Pvec \dots \\
++ \R_{\sigma_a,*} \D
+\left[\mathbf{I} + 4\pi \Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*} \D \right]^{-1}
+\left[
+\vec{T}_n - \vec{T}^* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   + \Delta t a_{ii} } \R_{C_v}^{-1}\left[\vec{S}_T - 4\pi\R_{\sigma_a*} \Pvec \right]
+\right] + \vec{S}_I
+\end{multline}
+ %
+ %
+\beanum
+\bar{\bar{\mathbf \nu}}_i &=& 4\pi \Delta t a_{ii} \R_{\sigma_a,*} \D \left[\mathbf{I} + 4\pi\Delta t a_{ii}\R_{C_v}^{-1}\R_{\sigma_a*}\D  \right]^{-1}\R_{C_v}^{-1}
+\\
+\bar{\bar{\mathbf R}}_{\sigma_t,i} &=& \R_{\sigma_t,*} + \frac{1}{c\Delta t a_{ii}}\M
+\eeanum
+\end{subequations}
+This then gives us our final equation for the radiation intensity:
+\benum
+\mathbf{ L} \vec{I}_i + \bar{\bar{\mathbf R}}_{\sigma_t,i}\vec{I}_i = \frac{1}{4\pi}\R_{\sigma_s,*}\vec{\phi}_i + \frac{1}{4\pi}\bar{\bar{\mathbf \nu}}_i \R_{\sigma_a*}\vec{\phi}_i + \bar{\bar{\mathbf \xi}}_{i,d} + \vec{f}I_{in} 
+\eenum
+Having found $\vec{I}$ for the $i$-th RK time step, we solve for $\vec{T}_i$ using \eqt{eq:Ti_iso}.  At this point, we again have the option to either iterate on $\vec{T}_i$, or we only solve for $\vec{T}_i$ once.  Regardless of whether we iterate for $\vec{T}_i$ or not, we evaluate all material properties at the final value of $\vec{T}_i$, and apply the definitions of $k_{T,i}$ and $k_{I,i}$:
+\benum
+k_{I,i} = c\M^{-1}\left[   
+\frac{1}{4\pi}\R_{\sigma_s,i}\vec{\phi}_i + \R_{\sigma_a,i}\vec{\widehat{\mathbf B}}_i- \R_{\sigma_t} \vec{I}_i - \mathbf{L}\vec{I}_i  + \vec{f} I_{in,i} + \vec{S}_I
+\right]
+\eenum
+\benum
+k_{T,i} = \R_{C_v}^{-1}\left[
+\R_{\sigma_a,i} \left(\vec{\phi}_i - 4\pi\vec{\widehat{\mathbf B}}_i \right) + \vec{S}_T
+\right]
+\eenum
+After completing all steps of the particular RK scheme, we advance $\vec{I}_n \to \vec{I}_{n+1}$ and $\vec{T}_n \to \vec{T}_{n+1}$:
+\bea
+\vec{I}_{n+1} &=& \vec{I}_n + \Delta t \sum_{i=1}^s{b_i k_{I,i}} \\ 
+\vec{T}_{n+1} &=& \vec{T}_n + \Delta t \sum_{i=1}^s{b_i k_{T,i}} \\ 
+\eea 
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Multigroup Case}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We previously considered the grey case, now we consider the spectrum of photon energies.
+We discretize the energy variable using the multigroup method.  
+The multigroup method assumes a finite number of groups, $G$.  
+Ideally, we would have:
+\bea
+I_g &=& \int_{E_{min}}^{E_{max}}{I(E) dE} \\
+I_g \sigma_g &=& \int_{E_{min}}^{E_{max}}{I(E)\sigma(E)dE} \\
+\int_{0}^{\infty}{\sigma(E)I(E) dE} &=& \sum_{g=1}^G{\sigma_g I_g} 
+\eea
+where $E_{min}$ and $E_{max}$ are the minimum and maximum photon energy of each group, $g$. 
+In practice though we are solving equations of the form:
+\benum
+\frac{1}{c}\frac{\p I_g}{\p t} + \mu\frac{\p I_g}{\p x} + \sigma_{t,g}I_g= \frac{\sigma_{s,g}}{4\pi} \phi_g + \sigma_{a,g} \widehat{B}_g
+\eenum
+\benum
+C_v \frac{\p T}{\p t} = \sum_{g=1}^G{\sigma_{a,g}\left(\phi_g - 4\pi \widehat{B}_g  \right)}
+\eenum
+where the $\sigma_g$ and $C_v$ are evaluated {\em a priori}.
+Adjusting our Planck function expansion for multigroup use, we define:
+\be
+\widehat{B}_g = \int_{E_{min,g}}^{E_{max,g}}{ \widehat{B} (E,T) dE}
+\ee
+%
+%
+and ${\mathbf D}_g^*$ is a diagonal matrix with non-zero main diagonal elements $d_ii$:
+\be
+d_{ii} = \int_{E_{min,g}}^{E_{max,g}}{\frac{\p \widehat{B}(E,T)}{\p T} dE}  
+\ee
+giving our familiar linearization (and expansion of the Planck in the DFEM trial space):
+\be
+\vec{\widehat{B}}_g \approx \Pgvec + \Dg \left(\vec{T} - \vec{T}^*  \right)
+\ee
+with this notation, our spatially discretized, temporally analytic equations are:
+\benum
+\frac{1}{c}\frac{\p}{\p t}\M \vec{I}_{g} + \mathbf{L} \vec{I}_{g} + \Rtg \vec{I}_{g}= \frac{1}{4\pi} \Rsg \vec{\phi} + \Rag \left[\Pgvec + \Dg \left(\vec{T}- \vec{T}^*  \right)  \right] + \vec{f}I_{in,g} + \vec{S}_{I,g}
+\label{eq:multi-group-intensity}
+\eenum
+\benum
+\frac{\p}{\p t} \left[\R_{C_v^*} \vec{T}  \right] = \sum_{g=1}^G{\Rag \left \{ \vec{\phi}_g - 4\pi\left[\Pgvec  +   \Dg \left(\vec{T} - \vec{T}^*  \right)\right]   \right \} }  + \vec{S}_T
+\label{eq:multi-group-temperature}
+\eenum
+solving for $k_{I,g}$ and $k_{T}$ we have:
+\benum
+k_{I,g} = c\M^{-1}\left[ \frac{1}{4\pi} \Rsg \vec{\phi}_g + \Rag \left[ \Pgvec+ \Dg \left(\vec{T}- \vec{T}^*  \right)  \right] - \mathbf{L} \vec{I}_{d,g} - \Rtg \vec{I}_{d,g} + \vec{f}I_{in,g} + \vec{S}_{I,g} \right]
+\label{eq:kI_multi}
+\eenum
+\benum
+k_T = \R_{C_v^*}^{-1}\left[\sum_{g=1}^G{\Rag \left \{ \vec{\phi}_g - 4\pi\left[ \Pgvec +   \Dg \left(\vec{T} - \vec{T}^*  \right)\right]   \right \} } + \vec{S}_T \right]
+\label{eq:kT_multi}
+\eenum
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{First RK step}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The equations for the first stage of an SDIRK scheme are:
+\benum
+\vec{I}_{g,1} = \vec{I}_n + a_{11} \Delta t c\M^{-1}\left[ \frac{1}{4\pi} \Rsg \vec{\phi}_{g,1} + \Rag \left[\Pgvec + \Dg \left(\vec{T}_1- \vec{T}^*  \right)  \right] - \mathbf{L} \vec{I}_{d,g,1} - \Rtg \vec{I}_{d,g,1} + \vec{f}I_{in,g,1} + S_{I,g} \right]
+\label{eq:stage1_intensity}
+\eenum
+\benum
+\vec{T}_{1} = \vec{T}_n + a_{11}\Delta t \R_{C_v^*}^{-1}\left[\sum_{g=1}^G{ \Rag \left \{ \vec{\phi}_{g,1} - 4\pi\left[\Pgvec +   \Dg \left(\vec{T}_1 - \vec{T}^*  \right)\right]   \right \} } + \vec{S}_T \right]
+\label{eq:stage1_temp}
+\eenum
+proceeding as before, and seeking to eliminate $\vec{T}_1$ from \eqt{eq:stage1_intensity} we first must manipulate \eqt{eq:stage1_temp} to isolate $\vec{T}_1$.
+\be
+\vec{T}_1 + a_{11}\Delta t \R_{C_v^*}^{-1}\left[\sum_{g=1}^G{ 4\pi \Rag \Dg}  \right]\vec{T}_1 = \vec{T}_n + 
+a_{11}\Delta t \R_{C_v^*}^{-1} \left[ \sum_{g=1}^G{ \Rag \left \{ \vec{\phi}_{g,1} - 4\pi\left( \Pgvec - \Dg \vec{T}^*\right) \right \} }  + \vec{S}_T \right]
+\ee
+%
+Condensing, pulling some $4\pi$ from some summations:
+%
+\begin{multline*}
+\left[\I+ 4\pi a_{11} \Delta t \R_{C_v^*}^{-1}\sum_{g=1}^G{ \Rag \Dg  }\right] \vec{T}_1 = \vec{T}_n + \dots \\
+a_{11} \Delta t \R_{C_v^*}^{-1} \left[ \sum_{g=1}^G{ \Rag \left( \vec{\phi}_{g,1} - 4\pi \Pgvec  \right ) } + \vec{S}_T \right]+
+4\pi a_{11} \Delta t \R_{C_v^*}^{-1}\left[\sum_{g=1}^G{\Rag \Dg } \right]\vec{T}^*
+\end{multline*}
+%
+Get $\vec{T}_1$ by itself:
+%
+\begin{multline*}
+\vec{T}_1 = \left[\I + 4\pi a_{11} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{ \Rag \Dg  }\right]^{-1}
+\left[\vec{T}_n + 
+a_{11} \Delta t \R_{C_v^*}^{-1} \left[ \sum_{g=1}^G{ \Rag \left( \vec{\phi}_{g,1} - 4\pi \Pgvec  \right) }  + \vec{S}_T \right] \right]\dots \\
++  \left[\I+ 4\pi a_{11} \Delta t \R_{C_v^*}^{-1}\sum_{g=1}^G{\Rag \Dg }\right]^{-1}
+\left[ 4\pi a_{11} \Delta t \R_{C_v^*}^{-1}\left[\sum_{g=1}^G{\Rag \Dg } \right]  \right]\vec{T}^*
+\end{multline*}
+%
+add a ``zero quantity'' 
+\be
+\left[\I + 4\pi a_{11} \Delta t \R_{C_v^*}^{-1}\sum_{g=1}^G{\Rag \Dg  }\right]^{-1}\left[\vec{T}^* - \vec{T}^*  \right] \pec
+\ee
+%
+to the right hand side,
+%
+\begin{multline*}
+\vec{T}_1 = \left[\I + 4\pi a_{11} \Delta t \R_{C_v^*}^{-1}\sum_{g=1}^G{\Rag \Dg }\right]^{-1}
+\left[\vec{T}_n + 
+a_{11} \Delta t \R_{C_v^*}^{-1}\left[ \sum_{g=1}^G{ \Rag \left(\vec{\phi}_{g,1} - 4\pi \Pgvec  \right) } + \vec{S}_T \right]  \right]  \dots  \\
++  \left[\I+ 4\pi a_{11} \Delta t \R_{C_v^*}^{-1}\sum_{g=1}^G{\Rag \Dg }\right]^{-1}
+\left[ 4\pi a_{11} \Delta t \R_{C_v^*}^{-1}\left[\sum_{g=1}^G{\Rag \Dg } \right]  \right]\vec{T}^* \dots \\
++ \left[\I + 4\pi a_{11} \Delta t \R_{C_v^*}^{-1}\sum_{g=1}^G{\Rag \Dg  }\right]^{-1}\left[\vec{T}^* - \vec{T}^*  \right] \pep
+\end{multline*}
+% 
+This allows us to pull out a $\vec{T}^*$, giving us our temperature update (Newton iteration) equation:
+%
+\begin{multline}
+\vec{T}_1 = \vec{T}^* + \left[\I+ 4\pi a_{11} \Delta t \R_{C_v^*}^{-1}\sum_{g=1}^G{\Rag \Dg  }\right]^{-1}
+\left[\vec{T}_n -\vec{T}^* + 
+a_{11} \Delta t \R_{C_v^*}^{-1}\left[ \sum_{g=1}^G{ \Rag \left (\vec{\phi}_{g,1} - 4\pi \Pgvec  \right ) }  + \vec{S}_T \right] \right]\pep
+\label{eq:mg_T1_iso}
+\end{multline}
+%
+%
+Moving forward and inserting \eqt{eq:mg_T1_iso} into \eqt{eq:stage1_intensity}:
+%
+%
+\begin{multline*}
+\vec{I}_{g,1} = \vec{I}_{n,g} + a_{11} \Delta t c \M^{-1} \left[\frac{1}{4\pi}\Rsg \vec{\phi}_{g,1} + \Rag \Pgvec + \vec{f}I_{in,g,1} + \vec{S}_{I,G} - \mathbf{L} \vec{I}_{g,1} - \Rtg \vec{I}_{g,1} \right] \dots \\
++ a_{11}\Delta t c \M^{-1} \Rag \Dg \left[\I + 4\pi a_{11} \Delta t \R_{C_v^*}^{-1}\sum_{g=1}^G{ \Rag \Dg }\right]^{-1}
+\left[\vec{T}_n -\vec{T}^*\right] \dots \\
+ +  a_{11}\Delta t c \M^{-1} \Rag \Dg \left[\I + 4\pi a_{11} \Delta t \R_{C_v^*}^{-1}\sum_{g=1}^G{ \Rag \Dg }\right]^{-1} 
+a_{11} \Delta t \R_{C_v^*}^{-1} \left[ \sum_{g=1}^G{ \Rag \left(\vec{\phi}_{g,1} - 4\pi \Pgvec \right) } + \vec{S}_T \right]
+\end{multline*}
+%
+%
+Multiplying by $\frac{1}{a_{11}c\Delta t}\M$, and re-arranging:
+%
+%
+\begin{multline}
+\mathbf{L} \vec{I}_{g,1} + \left( \frac{1}{a_{11} c \Delta t }\M + \Rtg  \right) \vec{I}_{g,1} = \frac{1}{4\pi} \Rsg \vec{\phi}_{g,1} \dots \\
++ a_{11}\Delta t \Rag \Dg \left[ \I + 4\pi a_{11} \Delta t \R_{C_v^*}^{-1}\sum_{g=1}^G{\Rag \Dg }\right]^{-1}\R_{C_v^*}^{-1}\left[\sum_{g=1}^G{\Rag \vec{\phi}_{g,1} }\right]   \dots \\
++ \frac{1}{a_{11} c \Delta t}\M \vec{I}_{n,g} + \Rag \Pgvec +  \vec{f}I_{in,g} + \vec{S}_{I,g} \dots \\
+\Rag \Dg \left[\I+ 4\pi a_{11} \Delta t \R_{C_v^*}^{-1}\sum_{g=1}^G{\Rag \Dg  }\right]^{-1}
+\left[\vec{T}_n - \vec{T}^* - 4\pi a_{11}\Delta t \R_{C_v^*}^{-1}\left[ \sum_{g=1}^G{\Rag \Pgvec } + \vec{S}_T \right] \right]
+\label{eq:toolong1}
+\end{multline}
+%
+%
+Multiply the second line of \eqt{eq:toolong1} by the following identity:
+%
+%
+\be
+\left[\sum_{g=1}^{G}{\Rag \Dg }  \right]^{-1} \left[ \sum_{g=1}^{G}{\Rag \Dg  } \right] \pec
+\ee
+giving
+\small
+\benum
+a_{11}\Delta t \Rag \Dg 
+\left[\sum_{g=1}^{G}{\Rag \Dg }  \right]^{-1} \left[ \sum_{g=1}^{G}{\Rag \Dg } \right]
+\left[ \I + 4\pi a_{11} \Delta t \R_{C_v^*}^{-1}\sum_{g=1}^G{\Rag \Dg  }\right]^{-1}  \R_{C_v^*}^{-1} \left[\sum_{g=1}^G{\Rag  \vec{\phi}_{g,1} }\right] 
+\label{eq:almost_fission}
+\eenum
+\normalsize
+make the following definitions:
+\begin{subequations}
+\label{eq:mg_stage1_chi_nu}
+\beanum
+\bar{\bar{\chi}}_g &=& \Rag \Dg  \left[\sum_{g=1}^{G}{\Rag \Dg }  \right]^{-1} \\
+%
+%
+\bar{\bar{\nu}}_1 &=& 4\pi a_{11} \Delta t \left[ \sum_{g=1}^{G}{\Rag \Dg } \right]
+\left[ \I + 4\pi a_{11} \Delta t \R_{C_v^*}^{-1}\sum_{g=1}^G{\Rag \Dg  }\right]^{-1} \R_{C_v^*}^{-1}\\
+%
+%
+\overline{\overline{ \Sigma \Phi}}_1& =&  \left[\sum_{g=1}^G{\Rag \vec{\phi}_{g,1} }\right] 
+\eeanum
+\end{subequations}
+inserting the definitions of  \eqts{eq:mg_stage1_chi_nu} into \eqt{eq:almost_fission} we get:
+\be
+\frac{1}{4\pi}\bar{\bar{\chi}}_g\bar{\bar{\nu}}_1 \overline{\overline{\Sigma \Phi}}_1 \pep
+\ee
+Defining more terms for \eqt{eq:toolong1}:
+\begin{subequations}
+\label{eq:stage1_remainder}
+\begin{multline}
+\bar{\bar{\xi}}_{g,1} = \frac{1}{a_{11} c \Delta t}\M \vec{I}_{n,g} + \Rag \Pgvec + \dots \\
+\Rag \Dg \left[\I + 4\pi a_{11} \Delta t \R_{C_v^*}^{-1}\sum_{g=1}^G{\Rag \Dg  }\right]^{-1}
+\left[\vec{T}_n - \vec{T}^* - 4\pi a_{11}\Delta t \R_{C_v^*}^{-1}\left[ \sum_{g=1}^G{\Rag \Pgvec}  + \vec{S}_T \right] \right] + \vec{S}_{I,g}
+\end{multline}
+\benum
+\bar{\mathbf{R}}_{\sigma_t,1} = \frac{1}{a_{11}c\Delta t}\M + \R_{\sigma_{t,g}^*}
+\eenum
+\end{subequations}
+we finally arrive at an equation that is very similar to the canonical multigroup DFEM $S_N$ fission problem:
+\benum
+\mathbf{ L}\vec{I}_{g,1} + \bar{\mathbf{R}}_{\sigma_t,1} \vec{I}_{g,1} = \frac{1}{4\pi}\Rsg \vec{\phi}_{g,1} + \frac{1}{4\pi}\bar{\bar{\chi}}_g\bar{\bar{\nu}}\overline{\overline{\Sigma \Phi}}_1 + \vec{f} I_{in,g,1} \bar{\bar{\xi}}_{g,1}
+\label{eq:stage1_complete}
+\eenum
+
+At this point, \eqt{eq:stage1_complete} can be solved again using the just found value of $\vec{T}_1$ as the new value of $\vec{T}^*$, or we can move forward with the time integration process.  
+Regardless of whether we iterate upon $\vec{T}^*$ or not, we apply the definitions of \eqt{eq:multi-group-intensity} and \eqt{eq:multi-group-temperature} to find $k_{I,g,1}$ and $k_{T,1}$.  We use the final value of $\vec{T}_1$ to evaluate all material properties.
+\benum
+k_{I,g,1} = c\M^{-1}\left[\frac{1}{4\pi}\R_{\sigma_{s,g,1}}\vec{\phi}_{g,1} + \R_{\sigma_{a,g,1}}\vec{\widehat{\mathbf B}}_{g,1} - \mathbf{L} \vec{I}_{g,1} + \vec{f}I_{in,g,1} + \vec{S}_{I,1} - \R_{\sigma_{t,g,1}} \vec{I}_{g,1}  \right]
+\eenum
+\benum
+k_{T,1} = \R_{C_v,1}^{-1} \left[ \sum_{g=1}^G{\R_{\sigma_{a,g,1}} \left \{\vec{\phi}_{g,1} - 4\pi \vec{\widehat{\mathbf B}}_{g,1}   \right \} } + \vec{S}_T \right]
+\eenum
+where we note that the quantities with a subscript 1, e.g. $x_1$, implies evaluation of $x$ at $\vec{T}_1$.  Note that we have also skipped the linearization of $\widehat{\mathbf B}_g$, implying that we have converged $\vec{T}_1$.  Alternatively, we could apply the linearization of the Planck using the most recent iterate!
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{$i$-th RK step}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Extending now to the $i$-th SDIRK step, we first write the equations for $\vec{I}_{g,i}$ and $\vec{T}_i$.
+\begin{multline}
+\vec{I}_{g,i} = \vec{I}_{g,n} + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{I,g,j}} + \dots \\
+a_{ii} c \Delta t \M^{-1} \left[
+\frac{1}{4\pi}\Rsg \vec{\phi}_{g,i} + \Rag \left[\Pgvec +\Dg \left(\vec{T}_i - \vec{T}^*\right)  \right] - \mathbf{ L}\vec{I}_{g,i} + \vec{f}I_{in,g,i} + \vec{S}_{I,g} - \Rtg \vec{I}_{g,i}  
+\right] 
+\label{eq:mg_intensity_stagei}
+\end{multline}
+%
+\benum
+\vec{T}_i = \vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} + a_{ii} \Delta t \R_{C_v^*}^{-1} \left[ \sum_{g=1}^G{\Rag \left[\phi_{g,i} - 4\pi \left(\Pgvec  + \Dg \left(\vec{T}_i - \vec{T}^*  \right)\right)  \right] } + \vec{S}_T \right]  
+\label{eq:mg_temperature_stagei}
+\eenum
+Proceeding as we have before, isolating $\vec{T}_i$ in \eqt{eq:mg_temperature_stagei}:
+\begin{multline*}
+\vec{T}_i + 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{\Rag \Dg  } \vec{T}_i = \dots \\
+\vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} + a_{ii} \Delta t \R_{C_v^*}^{-1}
+ \left[ \sum_{g=1}^G{ \Rag \left[\phi_{g,i} - 4\pi \left(\Pgvec - \Dg \vec{T}^* \right) \right] } + \vec{S}_T \right]
+\end{multline*}
+%%
+Isolating $\vec{T}_i$:
+%%
+\begin{multline*}
+\vec{T}_i = \left[\I+ 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{\Rag \Dg } \right]^{-1} \left[\vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}}\right] \dots \\
++ \left[\I + 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1}\sum_{g=1}^G{\Rag \Dg  }  \right]^{-1}
+\left[a_{ii} \Delta t \R_{C_v^*}^{-1} \left[ \sum_{g=1}^G{\Rag \left(\phi_{g,i} - 4\pi \Pgvec \right)  } + \vec{S}_T \right] \right]  \dots \\
++ \left[\I+ 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1}\sum_{g=1}^G{\Rag  \Dg  }   \right]^{-1}
+\left[4\pi a_{ii}\Delta t\R_{C_v^*}^{-1}\sum_{g=1}^G{\Rag  \Dg } \right] \vec{T}^*
+\end{multline*}
+%
+Adding nothing:
+%
+\begin{multline*}
+\vec{T}_i = \left[\I+ 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{\Rag  \Dg  }  \right]^{-1} \left[\vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}}\right] \dots \\
++ \left[\I + 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{\Rag \Dg  }   \right]^{-1}
+\left[a_{ii} \Delta t \R_{C_v^*}^{-1} \left[ \sum_{g=1}^G{\Rag \left(\phi_{g,i} - 4\pi \Pgvec \right)  }  + \vec{S}_T \right] \right] \dots \\
++ \left[\I + 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{\Rag \Dg  }   \right]^{-1}
+\left[4\pi a_{ii}\Delta t\R_{C_v^*}^{-1}\sum_{g=1}^G{\Rag  \Dg }\right] \vec{T}^* \\
++ \left[\I+ 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{\Rag \Dg  }   \right]^{-1}\left[\vec{T}^* - \vec{T}^*  \right]
+\end{multline*}
+%
+Simplifying
+%
+\begin{multline}
+\vec{T}_i = \vec{T}^* + \left[\I + 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{\Rag \Dg  }  \right]^{-1} \left[\vec{T}_n - \vec{T}^* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}}\right] \dots \\
++ \left[\I + 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{\Rag \Dg  }  \right]^{-1}
+\left[a_{ii} \Delta t \R_{C_v^*}^{-1} \left[ \sum_{g=1}^G{\Rag \left(\phi_{g,i} - 4\pi \Pgvec \right)  } + \vec{S}_T \right] \right] 
+\label{eq:mg_Ti_iso}
+\end{multline}
+Inserting \eqt{eq:mg_Ti_iso} into \eqt{eq:mg_intensity_stagei} we have:
+\begin{multline*}
+\vec{I}_{g,i} = \vec{I}_{g,n} + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{I,g,j}} +
+%
+%
+a_{ii}c\Delta t \M^{-1} \left[
+\frac{1}{4\pi}\Rsg \vec{\phi}_{g,i} + \Rag \Pgvec - \mathbf{L}\vec{I}_{g,i} + \vec{f}I_{g,in,i} - \Rtg \vec{I}_{g,i} + \vec{S}_{I,g}   \right] \dots \\
+%
++ a_{ii}c\Delta t \M^{-1} \Rag \Dg \left[\I + 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{\Rag \Dg  }   \right]^{-1} \left[\vec{T}_n - \vec{T}^* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}}\right] \dots \\
+%
+%
++ a_{ii}c\Delta t \M^{-1} \Rag \Dg \left[\I + 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{\Rag \Dg }  \right]^{-1}
+\left[a_{ii} \Delta t \R_{C_v^*}^{-1} \left[ \sum_{g=1}^G{\Rag \left(\phi_{g,i} - 4\pi \Pgvec \right)  } + \vec{S}_T \right] \right] 
+\end{multline*}
+%
+%
+Multiplying by $\frac{1}{a_{ii}c \Delta t}\M$
+\begin{multline*}
+\frac{1}{a_{ii}c\Delta t}\M\vec{I}_{g,i} = \frac{1}{a_{ii}c\Delta t}\M \vec{I}_{g,n} + \frac{1}{c a_{ii}} \M \sum_{j=1}^{i-1}{a_{ij} k_{I,g,j}} \dots \\
+%
+%
++ \left[
+\frac{1}{4\pi}\Rsg \vec{\phi}_{g,i} + \Rag \Pgvec - \mathbf{ L}\vec{I}_{g,i} + \vec{f}I_{in,g,i} + \vec{S}_I - \Rtg \vec{I}_{g,i} \right] \dots \\
+%
++  \Rag \Dg \left[\I + 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{\Rag \Dg  }   \right]^{-1} \left[\vec{T}_n - \vec{T}^* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}}\right] \dots \\
+%
+%
++ \Rag \Dg \left[\I + 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{\Rag \Dg   }  \right]^{-1}
+\left[a_{ii} \Delta t \R_{C_v^*}^{-1} \left[ \sum_{g=1}^G{\Rag \left(\phi_{g,i} - 4\pi \Pgvec \right)  } + \vec{S}_T \right] \right] 
+\end{multline*}
+%
+%
+Moving terms around:
+%
+%
+\begin{multline}
+\mathbf{ L} \vec{I}_{g,i} + \left[\frac{1}{ca_{ii}\Delta t}\M + \Rtg  \right]\vec{I}_{g,i} = \frac{1}{4\pi}\Rsg \vec{\phi}_{g,i} + \dots \\
+%
++ \Rag \Dg \left[\I + 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{\Rag \Dg  }   \right]^{-1}
+\left[a_{ii} \Delta t \R_{C_v^*}^{-1}\right] \left[ \sum_{g=1}^G{\Rag \phi_{g,i}} \right ]\dots \\
++ \vec{f}I_{in,g,i} + \vec{S}_{I,g} + 
+\frac{1}{a_{ii}c\Delta t}\M \vec{I}_{g,n} + \frac{1}{c a_{ii}} \M \sum_{j=1}^{i-1}{a_{ij} k_{I,g,j}} + \Rag \Pgvec \dots \\
+%
++  \Rag \Dg \left[\I + 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{\Rag \Dg  }  \right]^{-1}
+\left[ \vec{T}_n - \vec{T}^* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} - 4\pi a_{ii}\Delta t \R_{C_v^*}^{-1} \left[ \sum_{g=1}^G{\Rag \Pgvec }  + \vec{S}_T \right] \right]
+\label{eq:mg_stagei_long}
+\end{multline}
+%
+%
+Make the following definitions:
+\begin{subequations}
+\label{eq:mg_stagei_defs}
+%
+\benum
+\bar{\mathbf R}_{\sigma_{t},i} = \frac{1}{ca_{ii}\Delta t}\M + \Rtg
+\eenum
+%
+%
+\begin{multline}
+\bar{\bar{\xi}}_{g,i} = \frac{1}{a_{ii}c\Delta t}\M \vec{I}_{g,n} + \frac{1}{c a_{ii}} \M \sum_{j=1}^{i-1}{a_{ij} k_{I,g,j}} + \Rag \Pgvec  \dots \\
+%
+%
++  \Rag \Dg \left[\I + 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{\Rag \Dg  }   \right]^{-1}
+\left[ \vec{T}_n - \vec{T}^* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} - 4\pi a_{ii}\Delta t \R_{C_v^*}^{-1} \left[ \sum_{g=1}^G{\Rag \Pgvec }  + \vec{S}_T \right] \right]
+\end{multline}
+%
+\end{subequations}
+%
+%
+Inserting into \eqt{eq:mg_stagei_long}:
+\begin{multline}
+\mathbf{ L}\vec{I}_{g,i} + \bar{\mathbf R}_{\sigma_t,i} \vec{I}_{g,i} = \frac{1}{4\pi}\Rsg \vec{\phi}_{g,i} + \vec{f} I_{in,g,i} + \vec{S}_{I,g} + \bar{\bar{\xi}}_{g,i} + \dots \\
++ \Rag \Dg \left[\I+ 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{\Rag \Dg  } \right]^{-1}
+\left[a_{ii} \Delta t \R_{C_v^*}^{-1}\right] \left[ \sum_{g=1}^G{\Rag \phi_{g,i} } \right]
+\label{eq:mg_stagei_partial}
+\end{multline}
+Multiplying the last line by the following equivalent to the identity matrix:
+\be
+\left[ \sum_{g=1}^{G}{\Rag \Dg } \right]^{-1}\left[ \sum_{g=1}^{G}{\Rag \Dg }\right]
+\ee
+we can group terms in the following manner:
+\begin{multline*}
+\frac{1}{4\pi} 
+\left \{  \Rag \Dg \left[\sum_{g=1}^{G}{\Rag \Dg} \right]^{-1}  \right \} \dots \\
+\left \{
+4\pi a_{ii} \Delta t \left[\sum_{g=1}^{G}{\Rag \Dg} \right] \left[\I + 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{\Rag \Dg }   \right]^{-1} \R_{C_v^*}^{-1} 
+\right \} \dots \\
+\left \{ \sum_{g=1}^G{\Rag \phi_{g,i}} \right \}
+\end{multline*}
+Make the following pseudo-fission source definitions:
+\begin{subequations}
+\label{eq:mg_stagei_fission_defs}
+\beanum
+\bar{\bar{\chi}}_g &=& \Rag \Dg  \left[\sum_{g=1}^{G}{\Rag \Dg } \right]^{-1}  \\
+%
+\bar{\bar{\nu}}_i &=& 4\pi a_{ii} \Delta t \left[\sum_{g=1}^{G}{\Rag  \Dg } \right] \left[\I + 4\pi a_{ii} \Delta t \R_{C_v^*}^{-1} \sum_{g=1}^G{\Rag \Dg }   \right]^{-1}  \R_{C_v^*}^{-1} \\
+%
+\overline{\overline{\Sigma \Phi}}_i &=& \sum_{g=1}^G{\Rag \phi_{g,i} }
+\eeanum
+\end{subequations}
+Inserting \eqts{eq:mg_stagei_fission_defs} into \eqt{eq:mg_stagei_partial} we arrive at our final form of the radiation intensity equation:
+\benum
+\mathbf{L}\vec{I}_{g,i} + \bar{\mathbf R}_{\sigma_t,i} \vec{I}_{g,i} = \frac{1}{4\pi}\Rsg \vec{\phi}_{g,i} + \vec{f}I_{in,g,i} +  \frac{1}{4\pi}\bar{\bar{\chi}}_g \bar{\bar{\nu}}_i \overline{\overline{\Sigma \Phi}}_i + \bar{\bar{\xi}}_{g,i} 
+\eenum
+%
+%
+Having solved for $\vec{I}_{g,i}$ we then find $\vec{T}_i$ as we did in the first SDIRK step, where again, we can either iterate on $\vec{T}_i$, or simply find $\vec{I}_{g,i}$ once using the material properties associated with the initial guess for $\vec{T}^*$.  
+Having settled on a $\vec{T}_i$, we evaluate $k_{I,g,i}$ and $k_{T,i}$ using the material properties associated with $\vec{T}_{i}$:
+\benum
+k_{I,g,i} =  c\M^{-1}\left[\frac{1}{4\pi}\R_{\sigma_{s,g,i}} \vec{\phi}_{g,i} + \R_{\sigma_{a,g,i}}\vec{\widehat{\mathbf B}}_{g,i} - \mathbf{L}\vec{I}_{g,i} + \vec{f}I_{in,g,i} + \vec{S}_{I,g,i} - \R_{\sigma_{t,g,i}}\vec{I}_{g,i} \right]
+\eenum
+\benum
+k_{T,i} = \R_{C_v,i}^{-1}\left[ \sum_{g=1}^G{ \R_{\sigma_{a,g,i}}\left(\vec{\phi}_{g,i} - 4\pi \vec{\widehat{\mathbf B}}_{g,i}  \right)}  + \vec{S}_{T,i} \right]
+\eenum
+After all the stages are solved for, the solution is advanced to time step $n+1$:
+\be
+\vec{I}_{g,n+1} = \vec{I}_n + \Delta t \sum_{i=1}^s{b_i k_{I,g,i}}
+\ee
+\small
+\be
+\vec{T}_{n+1} = \vec{T}_n + \Delta t \sum_{i=1}^s{b_i k_{T,i}}
+\ee
+\end{document}
