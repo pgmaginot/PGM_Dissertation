@@ -80,7 +80,8 @@
 \contentsline {subsection}{\numberline {6.1.3}Spatially Discretized Linearization}{175}
 \contentsline {subsubsection}{\numberline {6.1.3.1}SDIRK Stage 1}{177}
 \contentsline {subsubsection}{\numberline {6.1.3.2}SDIRK Stage $i$}{181}
-\contentsline {section}{\numberline {6.2}Computer Science Implementation}{184}
-\contentsline {section}{\numberline {6.3}Numerical Results}{184}
-\contentsline {section}{\numberline {6.4}Conclusions}{184}
-\contentsline {chapter}{REFERENCES}{185}
+\contentsline {subsection}{\numberline {6.1.4}Consistency of Pseudo Cross Sections}{185}
+\contentsline {section}{\numberline {6.2}Computer Science Implementation}{187}
+\contentsline {section}{\numberline {6.3}Numerical Results}{187}
+\contentsline {section}{\numberline {6.4}Conclusions}{187}
+\contentsline {chapter}{REFERENCES}{188}
