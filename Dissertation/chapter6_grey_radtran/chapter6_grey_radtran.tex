@@ -322,6 +322,7 @@ Isolating the $\phi_i$ term that has a coefficient based on the Planck lineariza
 defining 
 \benum
 \nu_i = 4\pi \sigma_a D_* \left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1}  \frac{a_{ii} \Delta t }{C_v} = \frac{ 4\pi a_{ii} \sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \pec
+\label{eq:analytic_nu}
 \eenum
 \benum
 \sigma_{\tau,i} = \frac{1}{a_{ii} \Delta t c} + \sigma_t \pec
@@ -784,22 +785,115 @@ From \eqts{eq:funky_defs},
 and we conclude that $\overline{\overline{\mathbf R}}_{\sigma_{\tau,i}} = \R{\widetilde{\Sigma_t}}$.
 This is a very important result because it implies that we have a consistent definition of $\widetilde{\Sigma}_t$, which in turn allows us to define a diffusion coefficient for MIP DSA,
 \benum
+\label{eq:radtran_d}
 D(s) = \frac{1}{3\widetilde{\Sigma}_t(s)} = \frac{1}{3 \left( \frac{1}{a_{ii} c \Delta t} + \sigma_t(s) \right)} \pep
 \eenum
 
-
- $\R{\widetilde{\Sigma}_{t,i}}$ be equivalent to $\overline{\overline{\mathbf{R}}}_{\sigma_{\tau,i}}$ of \eqt{eq:step_i_defs}?
-Likewise, if we define
-\beanum
-\widetilde{\Sigma}_a &=& \widetilde{\Sigma}_t - \widetilde{\Sigma}_s \\
-\widetilde{\Sigma}_a &=&  \sigma_{\tau,i} - \left(  \sigma_s + \nu_i \sigma_a \right) \pec
-\eeanum
-is the reaction matrix from the spatially analytic Planck linearization, $\R{\widetilde{\Sigma}_a}$, equal to the equivalent matrix arising from the Planck linearization of the discretized equations,
+We now attempt to determine if \R{\widetilde{\Sigma}_s} is equivalent to 
 \benum
-\R{\sigma_s} + \overline{\overline{\nu}}_i \R{\sigma_a} ~\text{?}
+\R{\sigma_s} + \overline{\overline{\nu}}_i \R{\sigma_a} \pep
+\eenum
+First, we simply expand the definition of $\R{\widetilde{\Sigma}_s}$ from \eqts{eq:funky_defs}, to incorporate the defintion of $\nu_i$ given in \eqt{eq:analytic_nu},
+\benum
+\R{\widetilde{\Sigma}_s,jk} = \frac{\Delta x}{2}\int_{-1}^1{  \B{j}(s) \B{k}(s)~ds   \left( \sigma_s +  \frac{ 4\pi a_{ii} \sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \sigma_a \right)  } \pep
+\label{eq:to_split}
+\eenum
+Obviously, we may split \eqt{eq:to_split} into separate components:
+\begin{multline}
+\R{\widetilde{\Sigma}_s,jk} = \frac{\Delta x}{2}\int_{-1}^1{ \sigma_s  \B{j}(s) \B{k}(s)~ds  } + \dots \\ 
+\frac{\Delta x}{2}\int_{-1}^1{ \B{j}(s) \B{k} \left(  \frac{ 4\pi a_{ii} \sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \sigma_a \right) ds} \pep
+\end{multline}
+Clearly
+\benum
+\frac{\Delta x}{2}\int_{-1}^1{ \sigma_s  \B{j}(s) \B{k}(s)~ds  } = \R{\sigma_s} \pec
+\eenum
+so we are left to determine whether 
+\benum
+\frac{\Delta x}{2}\int_{-1}^1{ \B{j}(s) \B{k} \left(  \frac{ 4\pi a_{ii} \sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \sigma_a \right) ds} = \overline{\overline{\nu}}_i \R{\sigma_a} \pep
+\eenum
+Using the definition of $\overline{\overline{\nu}}_i$ from \eqts{eq:step_i_defs}, we expand $\overline{\overline{\nu}}_i \R{\sigma_a}$,
+\benum
+\overline{\overline{\nu}}_i \R{\sigma_a} = 4\pi \Delta t a_{ii} \R{\sigma_a} \D \left[\mathbf{I} + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}\R{C_v}^{-1}  \R{\sigma_a} \pep
+\label{eq:dense_nu_sig_a_expansion}
+\eenum
+In the general case, when \R{\sigma_a} and \R{C_v} are dense, \eqt{eq:dense_nu_sig_a_expansion} will not yield a matrix with elements
+\benum
+\left[ \overline{\overline{\nu}}_i \R{\sigma_a} \right]_{jk} \neq \frac{\Delta x}{2}\int_{-1}^1{ \B{j}(s) \B{k} \left(  \frac{ 4\pi a_{ii} \sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \sigma_a \right) ds} \pep
 \eenum
 
-We first consider the pseudo total interaction cross section.  If, after performing the spatially analytic linearization of the Planckia
+Though in the general case it is true that $\left[ \overline{\overline{\nu}}_i \R{\sigma_a} \right]_{jk} \neq \frac{\Delta x}{2}\int_{-1}^1{ \B{j}(s) \B{k}  \sigma_{\tau,i}~ds}$, what about in the special case of self-lumping DFEM schemes?
+To answer this, we consider an arbitrary, linear self-lumping scheme, with the following matrices,
+\begin{subequations}
+\beanum
+\mathbf{R}_{C_v} &=& \left[ \begin{array}{cc} \frac{\Delta x}{2} w_l C_{v,l} & 0 \\ 0 & \frac{\Delta x}{2} w_r C_{v,r} \end{array} \right] \\
+\mathbf{R}_{\sigma_a} &=& \left[ \begin{array}{cc} \frac{\Delta x}{2} w_l \sigma_{a,l} & 0 \\ 0 & \frac{\Delta x}{2} w_r \sigma_{a,r} \end{array} \right] \\
+\D &=& \left[ \begin{array}{cc} D_{*,l} & 0 \\ 0 & D_{*,r}  \end{array} \right] \\
+D_{*,l} &=& \frac{d B}{d T} \bigg \lvert_{T = \widetilde{T}_{*,l}} \\
+D_{*,r} &=& \frac{d B}{d T} \bigg \lvert_{T = \widetilde{T}_{*,r}} 
+\eeanum
+\end{subequations}
+with the $l$ and $r$ subscripts denoting values at the two quadrature points, $s_l$ and $s_q$
+Since $\R{C_v}$ is diagonal, 
+\benum
+\R{C_v}^{-1} = \left[ \begin{array}{cc} \frac{2}{\Delta x w_l C_{v,l} }& 0 \\ 0 & \frac{2}{\Delta x w_r C_{v,r} } \end{array} \right] \pec
+\eenum
+we have
+\beanum
+\left[ \mathbf{I} + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D\right]_{11}  &=&  1 + 4\pi \Delta t a_{ii} \left(\frac{2}{\Delta x w_l C_{v,l} } \right) \left(\frac{\Delta x w_l \sigma_{a,l} }{2} \right)D_{*,l} ~~~~~~~~~\\
+\left[ \mathbf{I} + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D\right]_{22} &=& 1+  4\pi \Delta t a_{ii} \left(\frac{2}{\Delta x w_r C_{v,r} } \right) \left(\frac{\Delta x w_r\sigma_{a,r} }{2} \right) D_{*,r} ~~~~~~~~ \\ 
+\left[ \mathbf{I} + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D\right]_{12} &=& \left[ \mathbf{I} + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D\right]_{21} = 0  \pep
+\eeanum
+Completing the definition of $\overline{\overline{\nu}}_i \R{\sigma_a}$,
+\begin{multline}
+\overline{\overline{\nu}}_i \R{\sigma_a} = 4\pi a_{ii} \Delta t 
+\left[  \begin{array}{cc} \frac{\Delta x w_l \sigma_{a,l} }{2}  & 0 \\ 0 & \frac{\Delta x w_l \sigma_{a,r} }{2}  \end{array} \right] 
+\left[  \begin{array}{cc} D_{*,l} & 0 \\ 0 & D_{*,r} \end{array} \right] \times ... \\
+\left[ \begin{array}{cc} \frac{1}{1 + 4\pi \Delta a_{ii} \frac{\sigma_{a,l}}{C_{v,l}}}& 0 \\ 0 &   \frac{1}{1 + 4\pi \Delta a_{ii} \frac{\sigma_{a,r}}{C_{v,r}}} \end{array} \right]
+\left[ \begin{array}{cc} \frac{2}{\Delta x w_l C_{v,l} }& 0 \\ 0 & \frac{2}{\Delta x w_r C_{v,r} } \end{array} \right]
+\left[  \begin{array}{cc} \frac{\Delta x w_l \sigma_{a,l} }{2}  & 0 \\ 0 & \frac{\Delta x w_l \sigma_{a,r} }{2}  \end{array} \right] 
+\end{multline}
+\benum
+\overline{\overline{\nu}}_i \R{\sigma_a} = 4\pi a_{ii} \Delta t \frac{\Delta x}{2}
+\left[ \begin{array}{cc}
+\frac{ w_l \sigma_{a,l} D_{*,l} }{1+ 4\pi \Delta a_{ii} \frac{\sigma_{a,l}}{C_{v,l}}} \frac{\sigma_{a,l} }{C_{v,l}} & 0
+\\
+0 & \frac{ w_r \sigma_{a,r} D_{*,r} }{1+ 4\pi \Delta a_{ii} \frac{\sigma_{a,r}}{C_{v,r}}} \frac{\sigma_{a,r} }{C_{v,r}}
+\end{array} \right]
+\label{eq:almost_to_f}
+\eenum
+For some quantity $f$, we note that \R{f} with our linear, self-lumping quadrature would be:
+\benum
+\R{f} = \left[ \begin{array}{cc}  \frac{\Delta x}{2} w_l f_l & 0 \\ 0 & \frac{\Delta x}{2} w_r f_r \end{array}\right] \pep
+\eenum
+Considering \eqt{eq:almost_to_f}, and thinking about $\overline{\overline{\nu}}_i \R{\sigma_a} = \R{f}$
+\beanum
+f_l &=& 4\pi a_{ii} \Delta t \frac{\sigma_{a,l} D_{*,l}}{C_{v,l} + 4\pi \Delta a_{ii} \sigma_{a,l}} \sigma_{a,l} \\
+f_r&=& 4\pi a_{ii} \Delta t \frac{\sigma_{a,r} D_{*,r}}{C_{v,r} + 4\pi \Delta a_{ii} \sigma_{a,r}} \sigma_{a,r} \\
+f &=& 4\pi a_{ii} \Delta t \frac{\sigma_{a} D_{*}}{C_v + 4\pi \Delta a_{ii} \sigma_{a}} \sigma_{a} = \nu_i \sigma_a \\
+\R{\nu_i \sigma_a} &=& \overline{\overline{\nu}}_i \R{\sigma_a} \pep
+\eeanum
+Thus, when accounting for the within cell spatial variation of material properties, only when using self-lumping DFEM schemes would it be equivalent to
+\begin{enumerate}
+\item linearize the Planckian of the spatially analytic grey TRT and then spatially discretize or 
+\item spatially discretize the grey TRT equations then linear the Planckian.
+\end{enumerate}
+
+
+Given this information, in the most general case, when using MIP DSA to accelerate grey radiative transfer, we will define the integration in cell $c$ (\eqt{eq:mip_sigma_a} ) as: 
+\benum
+( \Sigma_a \Delta \phi, \B{*} ) = \R{\sigma_{\tau,i}} - \left( \R{\sigma_s} + \overline{\overline{\nu}}_i \R{\Sigma_a} \right) \vec{\Delta \phi}_c \pec
+\eenum
+where $\Delta \phi$ is the low order approximation of the angle integrated intensity error, not the neutron transport scalar flux error.
+Likewise, we will define the MIP DSA driving source, the difference between two successive iterates, as
+\benum
+ \left( \Sigma_s( \phi^{(\ell+1/2)} - \phi^{(\ell)} ) , \B{*} \right) = \left(  \R{\sigma_s} + \overline{\overline{\nu}}_i \R{\Sigma_a} \right)\left( \vec{\phi}^{(\ell+1)} - \vec{\phi}^{(\ell)} \right) \pep
+\eenum
+Since we have shown that 
+\benum
+\R{\sigma_{\tau,i},jk} = \frac{\Delta x}{2} \int_{-1}^1{ds}{ \left( \frac{1}{a_{ii} c \Delta t} + \sigma_t \right) \B{j}(s) \B{k}(s) }\pec
+\eenum
+we will use the point-wise definition of \eqt{eq:radtran_d} to evaluate $\mathbf{S}$ and MIP DSA edge integrals requiring knowledge of a point-wise diffusion coefficient.
+
 \section{Computer Science Implementation}
 \label{sec:chap6_programming}
 
