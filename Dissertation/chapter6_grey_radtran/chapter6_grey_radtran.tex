@@ -732,12 +732,63 @@ and obviously,
 \benum
 \R{\Sigma_a,ij} = \frac{\Delta x}{2} \int_{-1}^1{ \left( \Sigma_t(s) - \Sigma_s(s) \right) \B{i}(s) \B{j}(s)~ds} = \frac{\Delta x}{2} \int_{-1}^1{ \Sigma_a(s) \B{i}(s) \B{j}(s)~ds} \pep
 \eenum
+
 However, though the forms of \eqt{eq:analytic_pseudo_i} and \eqt{eq:stage_i_sdirk_intensity} appear analogous to neutron transport, are the linearized, pseudo interaction cross sections (\eqt{eq:analytic_pseudo_i}) and their spatially discretized analogs, (\eqt{eq:stage_i_sdirk_intensity}), equivalent?
-For example, if we were to use the spatailly analytic Planck linearization of \eqt{eq:analytic_pseudo_i} to define a macroscopic cross section for MIP DSA,
+That is, if we started with the spatially analytic linearization, \eqt{eq:analytic_pseudo_i}, re-cast as,
 \benum
-\widetilde{\Sigma_t} = \sigma_{\tau,i} \pec
+\mu_d \frac{\p I}{\p x} + \widetilde{\Sigma}_t I = \widetilde{\Sigma}_s \phi + \xi_{d,i}
 \eenum
-would $\R{\widetilde{\Sigma}_{t,i}}$ be equivalent to $\overline{\overline{\mathbf{R}}}_{\sigma_{\tau,i}}$ of \eqt{eq:step_i_defs}?
+with
+\beanum
+\widetilde{\Sigma_t} &=& \sigma_{\tau,i} \\
+\widetilde{\Sigma_s} &=& \sigma_s + \nu_i \sigma_a \pep
+\eeanum
+Then applied the Galerkin procedure, yielding,
+\benum
+\mu_d \mathbf{G} \vec{I} + \R{\widetilde{\Sigma_t}}\vec{I} = \R{\widetilde{\Sigma_s}}\vec{\phi} + \vec{\widetilde{\xi}}_{d,i}
+\eenum
+with
+\begin{subequations}
+\label{eq:funky_defs}
+\beanum
+\R{\widetilde{\Sigma_t},jk} &=& \frac{\Delta x}{2}\int_{-1}^1{ \widetilde{\Sigma}_t(s)\B{j}(s) \B{k}(s)~ds }\\
+\R{\widetilde{\Sigma_s},jk}&=& \frac{\Delta x}{2}\int_{-1}^1{ \widetilde{\Sigma}_s(s)\B{j}(s) \B{k}(s)~ds } \\
+\vec{\widetilde{\xi}}_{d,j} &=& \frac{\Delta x}{2}\int_{-1}^1{ \B{j}(s) \xi_{d,i}~ds } \pep
+\eeanum
+\end{subequations}
+In \eqts{eq:funky_defs}, use $i$ subscript to denote SDIRK stage $i$, $j$ to denote matrix row, and $k$ to denote matrix column.  We will continue this notation for the remainder of this section.
+Would the definitions of \eqts{eq:funky_defs} be equivalent to
+\begin{subequations}
+\beanum
+\overline{\overline{\mathbf R}}_{\sigma_{\tau,i}} \pec \\
+\R{\sigma_s} + \overline{\overline{\nu}}_i \R{\sigma_a} \pec \text{ and}\\
+\vec{\xi}_{d,i}\pec
+\eeanum
+\end{subequations}
+respectively?
+
+We first consider the equivalence of $\overline{\overline{\mathbf R}}_{\sigma_{\tau,i}}$ to $\R{\widetilde{\Sigma_t}}$.
+By definition, 
+\benum
+\overline{\overline{\mathbf R}}_{\sigma_{\tau,i}} = \frac{1}{a_{ii} c \Delta t} \M + \R{\sigma_t} \pep
+\eenum
+It follows that,
+\beanum
+\overline{\overline{\mathbf R}}_{\sigma_{\tau,i},jk} &=& \frac{1}{a_{ii} c \Delta t} \frac{\Delta x}{2} \int_{-1}^1{\B{j}(s) \B{k}(s) ~ds} + \frac{\Delta x}{2} \int_{-1}^1{ \sigma_t(s) \B{j}(s) \B{k}(s)~ds} \\
+\overline{\overline{\mathbf R}}_{\sigma_{\tau,i},jk} &=& \frac{\Delta x}{2} \int_{-1}^1{ \left(\frac{1}{a_{ii} c \Delta t} + \sigma_t(s)  \right) \B{j}(s) \B{k}(s)~ds} \pep
+\eeanum
+From \eqts{eq:funky_defs},
+\benum
+\R{\widetilde{\Sigma_t},jk} = \frac{\Delta x}{2} \int_{-1}^1{\left( \frac{1}{a_{ii} \Delta t c} + \sigma_t(s) \right)\B{j}(s)\B{k}(s)~ds} \pec
+\eenum
+and we conclude that $\overline{\overline{\mathbf R}}_{\sigma_{\tau,i}} = \R{\widetilde{\Sigma_t}}$.
+This is a very important result because it implies that we have a consistent definition of $\widetilde{\Sigma}_t$, which in turn allows us to define a diffusion coefficient for MIP DSA,
+\benum
+D(s) = \frac{1}{3\widetilde{\Sigma}_t(s)} = \frac{1}{3 \left( \frac{1}{a_{ii} c \Delta t} + \sigma_t(s) \right)} \pep
+\eenum
+
+
+ $\R{\widetilde{\Sigma}_{t,i}}$ be equivalent to $\overline{\overline{\mathbf{R}}}_{\sigma_{\tau,i}}$ of \eqt{eq:step_i_defs}?
 Likewise, if we define
 \beanum
 \widetilde{\Sigma}_a &=& \widetilde{\Sigma}_t - \widetilde{\Sigma}_s \\
@@ -748,6 +799,7 @@ is the reaction matrix from the spatially analytic Planck linearization, $\R{\wi
 \R{\sigma_s} + \overline{\overline{\nu}}_i \R{\sigma_a} ~\text{?}
 \eenum
 
+We first consider the pseudo total interaction cross section.  If, after performing the spatially analytic linearization of the Planckia
 \section{Computer Science Implementation}
 \label{sec:chap6_programming}
 
