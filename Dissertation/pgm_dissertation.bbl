@@ -280,4 +280,69 @@ E.~W. Larsen, A.~Kumar, and J.~E. Morel.
   radiation transport.
 \newblock {\em Journal of Computational Physics}, 238:82--96, 2013.
 
+\bibitem{cpp_book}
+B.~Stroustrup.
+\newblock {\em Programming: Principles and Practice Using {C}++}.
+\newblock Pearson {E}ducation {I}nc., Upper Saddle River, New Jersey, 2nd
+  edition, 2014.
+
+\bibitem{effective_cpp}
+S.~Meyers.
+\newblock {\em Effective {C}++}.
+\newblock Pearson {E}ducation {I}nc., Upper Saddle River, New Jersey, 3rd
+  edition, 2005.
+
+\bibitem{quadrule}
+J.~Burkhardt.
+\newblock {QUADRULE}.
+\newblock
+  \url{http://people.sc.fsu.edu/~jburkardt/cpp_src/quadrule/quadrule.html},
+  2011.
+
+\bibitem{eigen}
+Ga\"{e}l Guennebaud, Beno\^{i}t Jacob, et~al.
+\newblock Eigen v3.
+\newblock \url{http://eigen.tuxfamily.org}, 2010.
+
+\bibitem{petsc}
+S.~Balay, S.~Abhyankar, M.~F. Adams, J.~Brown, P.~Brune, K.~Buschelman,
+  V.~Eijkhout, W.~D. Gropp, D.~Kaushik, M.~G. Knepley, L.~C. McInnes, K.~Rupp,
+  B.~F. Smith, and H.~Zhang.
+\newblock {PETS}c users manual.
+\newblock Technical Report ANL-95/11 - Revision 3.5, Argonne National
+  Laboratory, 2014.
+
+\bibitem{hypre}
+V.E. Henson and U.M. Yang.
+\newblock Boomer{AMG}: a parallel algebraic multigrid solver and
+  preconditioner.
+\newblock {\em Applied Numerical Mathematics}, 41:155--177, 2002.
+
+\bibitem{doxygen}
+D.~van Hessch.
+\newblock Doxygen manual.
+\newblock \url{http://www.stack.nl/~dimitri/doxygen/index.html}, 2015.
+
+\bibitem{cmake}
+Kitware.
+\newblock {CM}ake, a cross-platform open-source build system.
+\newblock \url{http://www.cmake.org}, 2003.
+
+\bibitem{mms}
+K.~Salari and P.~Knupp.
+\newblock Code verification by the method of manufactured solutions.
+\newblock Technical Report {SAND}2000-1444, Sandia National Labs, 2000.
+
+\bibitem{xml}
+L.~Thomason and A.~Ellerton Y.~Berquin.
+\newblock Tiny{X}ml.
+\newblock \url{www.sourceforge.net/projects/tinyxml}, 2010.
+\newblock v2.6.0.
+
+\bibitem{su_olson_1}
+B.~Su and G.~L. Olson.
+\newblock An analytical benchmark for non-equilibrium radiative transfer in an
+  isotropically scattering medium.
+\newblock {\em Annals of Nuclear Engergy}, 24(13):1035--1055, 1997.
+
 \end{thebibliography}

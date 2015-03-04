@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.18)  2 MAR 2015 14:56
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.18)  4 MAR 2015 11:37
 entering extended mode
 **pgm_dissertation.tex
 (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.tex
@@ -275,6 +275,35 @@ Package: amsthm 2004/08/06 v2.20
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\lscape.sty"
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count114
+\lst@gtempboxa=\box30
+\lst@token=\toks30
+\lst@length=\count115
+\lst@currlwidth=\dimen127
+\lst@column=\count116
+\lst@pos=\count117
+\lst@lostspace=\dimen128
+\lst@width=\dimen129
+\lst@newlines=\count118
+\lst@lineno=\count119
+\lst@maxwidth=\dimen130
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
+\c@lstnumber=\count120
+\lst@skipnumbers=\count121
+\lst@framebox=\box31
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2014/03/04 1.5c listings configuration
+))
+Package: listings 2014/03/04 1.5c (Carsten Heinz)
+
 (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.aux
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/titlepage.aux
 )
@@ -301,18 +330,18 @@ ter4_acceleration.aux)
 ter6_grey_radtran.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.
 aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -350,18 +379,20 @@ LaTeX Font Info:    ... okay on input line 111.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count114
-\scratchdimen=\dimen127
-\scratchbox=\box30
-\nofMPsegments=\count115
-\nofMParguments=\count116
-\everyMPshowfont=\toks30
-\MPscratchCnt=\count117
-\MPscratchDim=\dimen128
-\MPnumerator=\count118
-\makeMPintoPDFobject=\count119
-\everyMPtoPDFconversion=\toks31
+\scratchcounter=\count122
+\scratchdimen=\dimen131
+\scratchbox=\box32
+\nofMPsegments=\count123
+\nofMParguments=\count124
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count125
+\MPscratchDim=\dimen132
+\MPnumerator=\count126
+\makeMPintoPDFobject=\count127
+\everyMPtoPDFconversion=\toks32
 )
+\c@lstlisting=\count128
+
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/titlepage.tex
 LaTeX Font Info:    Try loading font information for U+msa on input line 47.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
@@ -1823,42 +1854,48 @@ Overfull \hbox (3.59695pt too wide) detected at line 321
  []
 
 [173] [174] [175] [176] [177]
-Overfull \hbox (13.28772pt too wide) detected at line 465
+Overfull \hbox (13.28772pt too wide) detected at line 466
 [] \OT1/cmr/m/n/12 = [] + [][] []  \OML/cmm/m/it/12 :
  []
 
 [178]
-Overfull \hbox (25.94893pt too wide) detected at line 487
+Overfull \hbox (25.94893pt too wide) detected at line 488
  []$[] \OT1/cmr/m/n/12 + \OT1/cmr/bx/n/12 R[]D[] [][] []  \OML/cmm/m/it/12 :$ [
 ]  
  []
 
 
-Overfull \hbox (25.94893pt too wide) detected at line 497
+Overfull \hbox (25.94893pt too wide) detected at line 498
  []$[] \OT1/cmr/m/n/12 + \OT1/cmr/bx/n/12 R[]D[] [][] []  \OML/cmm/m/it/12 ;$ [
 ]  
  []
 
 [179]
-Overfull \hbox (9.2835pt too wide) detected at line 553
+Overfull \hbox (9.2835pt too wide) detected at line 554
  []$[]\OT1/cmr/m/n/12 \OML/cmm/m/it/12 ta[]c\OT1/cmr/bx/n/12 M[] []$ []  
  []
 
 [180] [181] [182]
-Overfull \hbox (8.6214pt too wide) detected at line 650
+Overfull \hbox (8.6214pt too wide) detected at line 651
  []$[]  \OML/cmm/m/it/12 []\OT1/cmr/bx/n/12 G[] \OT1/cmr/m/n/12 + [] [] = []\O
 T1/cmr/bx/n/12 M[] \OT1/cmr/m/n/12 + []\OT1/cmr/bx/n/12 M [] [] \OT1/cmr/m/n/12
  + []\OT1/cmr/bx/n/12 R[][] \OT1/cmr/m/n/12 + \OT1/cmr/bx/n/12 R[][] []$ 
  []
 
-[183] [184] [185] [186] [187] [188] [189] [190] [191]) [192]
+[183] [184] [185] [186] [187] [188] [189] [190] [191]
+Overfull \hbox (13.003pt too wide) in paragraph at lines 901--910
+\OT1/cmr/m/n/12 sim-ply call []\OT1/cmtt/m/n/12 matrix_construction->construct_
+dimensionless_mass_matrix()\OT1/cmr/m/n/12 , and,
+ []
+
+[192] [193] [194] [195]) [196]
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.
 tex (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.bbl
-[193
+[197
 
 
 
-] [194] [195] [196] [197])) [198]
+] [198] [199] [200] [201] [202])) [203]
 (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.aux
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/titlepage.aux
 )
@@ -1886,11 +1923,11 @@ ter6_grey_radtran.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.
 aux)) ) 
 Here is how much of TeX's memory you used:
- 5129 strings out of 493921
- 98310 string characters out of 3147273
- 150311 words of memory out of 3000000
- 8111 multiletter control sequences out of 15000+200000
- 11479 words of font info for 43 fonts, out of 3000000 for 9000
+ 6399 strings out of 493921
+ 116767 string characters out of 3147273
+ 172603 words of memory out of 3000000
+ 9364 multiletter control sequences out of 15000+200000
+ 11648 words of font info for 44 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  34i,18n,33p,993b,287s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
@@ -1907,10 +1944,11 @@ ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/hoekwater/stmary10.pfb>
-Output written on pgm_dissertation.pdf (217 pages, 2914181 bytes).
+public/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/h
+oekwater/stmary10.pfb>
+Output written on pgm_dissertation.pdf (222 pages, 2936360 bytes).
 PDF statistics:
- 1149 PDF objects out of 1200 (max. 8388607)
+ 1168 PDF objects out of 1200 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  621 words of extra memory for PDF output out of 10000 (max. 10000000)
 

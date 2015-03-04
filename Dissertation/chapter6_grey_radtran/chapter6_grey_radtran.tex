@@ -362,6 +362,7 @@ For $\vec{k}_{I}$, we have:
 \left[
 \frac{1}{4\pi}\R{\sigma_s}\vec{\phi} + \R{\sigma_a}\vec{B} - \R{\sigma_t} \vec{I} - \mu_d\mathbf{G}\vec{I} + \mu_d I_{in} \vec{f}+ \vec{S}_I
 \right] \pec
+\label{eq:k_i_vec_example}
 \eenum
 where we have approximated the true angular intensity, angle integrated intensities, and temperatures as $P$ degree polynomials:
 \beanum
@@ -897,8 +898,72 @@ we will use the point-wise definition of \eqt{eq:radtran_d} to evaluate $\mathbf
 \section{Computer Science Implementation}
 \label{sec:chap6_programming}
 
+We have implemented our grey radiative transfer equations in a C++ 11 computer code.
+All attempts have been made to incorporate the best practices of modern, C++ programming and software design\cite{cpp_book,effective_cpp}.
+We have made extensive use of the object-oriented programming paradigm of virtual base classes with concrete instantiations.
+For example, we have compared the effects of different methods of DFEM mass matrix construction.
+Regardless of whether we use exact matrix construction, traditional lumping, or self lumping integration, the our solution of the radiative transfer equations requires access to a mass matrix, for example when calculating $\vec{k}_I$ in \eqt{eq:k_i_vec_example}.
+To shelter other portions of our code and programming logic from the particulars of a given simulation's choice of mass matrix construction in our radiative transfer implementation, we declared a virtual base class, \verb+V_Matrix_Construction+ with pure virtual member function \verb+construct_dimensionless_mass_matrix()+ .
+The concrete instantiations of \verb+V_Matrix_Construction+, \verb+Matrix_Construction_Exact+, \verb+Matrix_Construction_Trad_Lumping+, and \verb+Matrix_Construction_Self_Lumping+, each exhibit the object oriented programming inheritance ``is a'' relationship with base class \verb+V_Matrix_Construction+.
+Then, through the use of C++ 11's smart pointers, in particular the \verb+std::shared_ptr+ ,  at program run-time we declare, once during the entire program's execution, the particular instantiation of base class \verb+V_Matrix_Construction+  we wish our smart pointer, named \verb+matrix_construction+, to point to/possess.
+From this point forward, anytime a mass matrix is needed, we simply call \verb+matrix_construction->construct_dimensionless_mass_matrix()+, and, regardless of our choice of DFEM integration strategy, the appropriate mass matrix is returned.
+
+Where possible we have used third party software to prevent duplication of  efforts.
+All Gauss-Legendre, Gauss-Lobatto, and closed Newton-Cotes quadrature functions are derived from the \verb+QUADRULE+ \cite{quadrule} package, with minor modifications to including: use C++ \verb+std::vector+s rather than arrays and encapsulation of the \verb+QUADRULE+ functions into a \verb+QUADRULE+ class to prevent limit access and contamination the global name space.
+We have directly implemented all of the matrix/vector based equations in this chapter, as written, using the \verb+Eigen+ linear algebra package\cite{eigen}.
+To invert the MIP DSA matrix used to accelerate the iterative solution of the grey TRT equations, we use the \verb+PETSc+ package\cite{petsc} preconditioned with algebraic multigrid\cite{mip_mc} via the \verb+BoomerAMG+ package of \verb+Hypre+\cite{hypre}.
+We document our code using  inline comments  via \verb+Doxygen+ \cite{doxygen}.
+To build and test the components of our grey thermal radiative transfer code, we use the CMake and CTest packages from Kitware\cite{cmake}.
+By using CTest to verify and test the code, we have created a set (greater than 50) of unit tests that can be performed every time the code is changed or compiled.
+Tests range in size from single component to full simulations using the method of manufactured solutions\cite{mms} testing for convergence.
+Though requiring more additional work than simply using \verb+std::cout+ to test components as added then commenting out the output statements, CTest allows for continuous testing to find bugs that the programmer would not otherwise suspect.
+Finally, input parameters for the code are input an \verb+XML+ file, which we read using \verb+TinyXML+\cite{xml}. 
+
 \section{Numerical Results}
 \label{sec:chap6_results}
+
+We now consider several test problems to verify and demonstrate the capability of the self-lumping DFEM schemes we have developed to solve the grey TRT equations.
+
+\subsection{Method of Manufactured Solutions}
+
+The method of manufactured solutions (MMS)\cite{mms} consists of choosing an analytic solution, then defining the driving source necessary to achieve that solution.
+Though MMS solutions are derived, they are excellent for testing the convergence of numerical methods devised to solve complex physics phenomena.
+While analytic solutions that do not use exotic source terms are more appealing for verification purposes, these types of solutions are difficult to devise for complex physics phenomena, especially for coupled physical phenomena like radiative transfer.  
+Or as with the Su-Olson problem, the analytic solutions are really semi-analytic, and cannot be used effectively as a reference solution for a convergence study because the semi-analytic solution has numerical errors of the same magnitude as the numerical simulation we are attempting to verify.
+Similarly experimental results will contain measurement errors, and will almost certainly be of low resolution, either measuring only integral quantities, or providing data at only a few points in space.
+
+We elect to choose separable MMS of the form:
+\begin{subequations}
+\beanum
+I_d(x,\mu_d,t) &=& M(\mu_d) F(t) W_I(x) \\
+T(x) &=& F(t) W_T(x) \\
+\phi(x) &=& C_M F(t) W_I(x) \\
+C_M &=& \sum_{d=1}^{N_{dir}} { w_d M(\mu_d) } \pep
+\eeanum
+\label{eq:mms_solns}
+\end{subequations}
+where $M(\mu_d)$ is as angular component of the intensity solution desired, $I_d(x,\mu_d,t)$; $F(t)$ is the time component of the MMS, chosen to be the same for intensity, temperature, and angle integrated intensity; $W_I(x)$ is the spatial component of the intensity, and $W_T(x)$ is the spatial component of the temperature solutions.
+$W_I(x)$ being the spatial component of $\phi$, and the definition of $C_M$ given in \eqts{eq:mms_solns} is required for the $S_N$ approximation to be true.
+
+\subsubsection{Steady State}
+
+\subsubsection{Linear Space - Linear Time}
+
+\subsubsection{Linear Space - Sinusoidal Time}
+
+\subsubsection{Sinusoidal Space - Linear Time}
+
+\subsection{Su-Olson Problem}
+
+We further verify our equations and programming using the grey analytic benchmark developed by Su and Olson\cite{su_olson_1}.
+The Su-Olson problem consists of an initially cold (initial radiation energy density and temperature conditions are identically zero) half-space slab, heated for a finite amount of time by a volumetric, isotropic radiation source.
+Under these restrictions, and further assuming that $C_v \propto T^3$, scattering opacity is constant in space and temperature, and absorption opacity is constant in space and temperature, a semi-analytic solution can be obtained.
+The solution is semi-analytic in the sense that the radiation energy density and material temperature at every point can be expressed as a closed form integral, but evaluation of that integral requires numerical estimation.
+Further, the integral is a 2-D, indefinite integral (in both variables) of a trigonometric function with a slowly  decaying exponential argument.
+Thus, the Su-Olson problem is not suitable for a true convergence study, however it is beneficial as a benchmark problem to verify the physics of a given radiative transfer implementation.
+
+\subsection{Marshak Wave Problem}
+
 
 \section{Conclusions}
 \label{sec:chap6_conclusions}

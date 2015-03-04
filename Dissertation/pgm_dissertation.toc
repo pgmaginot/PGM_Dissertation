@@ -82,6 +82,13 @@
 \contentsline {subsubsection}{\numberline {6.1.3.2}SDIRK Stage $i$}{181}
 \contentsline {subsection}{\numberline {6.1.4}Consistency of Pseudo Cross Sections}{185}
 \contentsline {section}{\numberline {6.2}Computer Science Implementation}{192}
-\contentsline {section}{\numberline {6.3}Numerical Results}{192}
-\contentsline {section}{\numberline {6.4}Conclusions}{192}
-\contentsline {chapter}{REFERENCES}{193}
+\contentsline {section}{\numberline {6.3}Numerical Results}{194}
+\contentsline {subsection}{\numberline {6.3.1}Method of Manufactured Solutions}{194}
+\contentsline {subsubsection}{\numberline {6.3.1.1}Steady State}{195}
+\contentsline {subsubsection}{\numberline {6.3.1.2}Linear Space - Linear Time}{195}
+\contentsline {subsubsection}{\numberline {6.3.1.3}Linear Space - Sinusoidal Time}{195}
+\contentsline {subsubsection}{\numberline {6.3.1.4}Sinusoidal Space - Linear Time}{195}
+\contentsline {subsection}{\numberline {6.3.2}Su-Olson Problem}{195}
+\contentsline {subsection}{\numberline {6.3.3}Marshak Wave Problem}{196}
+\contentsline {section}{\numberline {6.4}Conclusions}{196}
+\contentsline {chapter}{REFERENCES}{197}
