@@ -466,7 +466,7 @@ On edges $c-1/2$ and $c+1/2$,
 \begin{subequations}
 \beanum
 \avg{D\partial_n \B{*}}_{c-1/2}  &=& \frac{D(x_{c-1/2}^+) }{\Delta x_c} \vec{L}^T_s \\ 
-\avg{D\partial_n \B{*}}_{c+1/2} &=& \frac{D(x_{c-1/2}^+) }{\Delta x_c} \vec{R}^T_s \pep
+\avg{D\partial_n \B{*}}_{c+1/2} &=& \frac{D(x_{c+1/2}^-) }{\Delta x_c} \vec{R}^T_s \pep
 \eeanum
 \label{eq:test_grad_avg}
 \end{subequations}
@@ -475,7 +475,7 @@ Combining \eqt{eq:mip_sigma_a}, \eqt{eq:s_d_definition}, \eqts{eq:soln_jmp}, \eq
 \R{\Sigma_a} \vec{\Delta \phi}_c + \mathbf{S} \vec{\Delta \phi}_c \\
 + \left \{ \left[ \kappa_{c-1/2} \vec{L}^T \left( \vec{L} \vec{\Delta \phi}_c - \vec{R} \vec{\Delta \phi}_{c-1}  \right) \right]  -  \left[\kappa_{c+1/2} \vec{R}^T\left( \vec{L} \vec{\Delta \phi}_{c+1} - \vec{R} \vec{\Delta \phi}_{c}  \right)  \right] \right \} \\
 + \left \{  \frac{D(x_{c-1/2}^+) }{\Delta x_c} \vec{L}^T_s \left( \vec{L} \vec{\Delta \phi}_c - \vec{R} \vec{\Delta \phi}_{c-1}  \right)  +
-					\frac{D(x_{c-1/2}^+) }{\Delta x_c} \vec{R}^T_s \left( \vec{L} \vec{\Delta \phi}_{c+1} - \vec{R} \vec{\Delta \phi}_{c}  \right)\right\} \\
+					\frac{D(x_{c+1/2}^-) }{\Delta x_c} \vec{R}^T_s \left( \vec{L} \vec{\Delta \phi}_{c+1} - \vec{R} \vec{\Delta \phi}_{c}  \right)\right\} \\
 	+ \left\{  \vec{L}^T \left(\frac{D(x_{c-1/2}^+)}{\Delta x_c }  \vec{L}_s \vec{\Delta \phi}_c +  \frac{D(x_{c-1/2}^-)}{\Delta x_{c-1} }  \vec{R}_s \vec{\Delta \phi}_{c-1}\right) \dots \right.\\
 	- \left. \vec{R}^T \left( \frac{D(x_{c+1/2}^+)}{\Delta x_{c+1} }  \vec{L}_s \vec{\Delta \phi}_{c+1} +  \frac{D(x_{c+1/2}^-)}{\Delta x_c}  \vec{R}_s \vec{\Delta \phi}_{c} \right) \right\}			\pec
 \label{eq:mip_interior_discretization}
@@ -486,8 +486,22 @@ and the right hand side on the interior is obviously
 \label{eq:mip_rhs_interior}
 \eenum
 In \eqt{eq:mip_interior_discretization} and \eqt{eq:mip_rhs_interior}, \R{\Sigma_a}, \R{\Sigma_s}, and $\mathbf{S}$ are evaluated in cell $c$.
+Arranging \eqt{eq:mip_interior_discretization} to isolate $\vec{\Delta \phi}_{c-1}$, $\vec{\Delta \phi}_{c}$, and $\vec{\Delta \phi}_{c+1}$, we have 
+\begin{multline}
+\left\{  -\kappa_{c-1/2} \vec{L}^T\vec{R}    - \frac{ D(x_{c-1/2} ^+) }{\Delta x_c} \vec{L}_s^T \vec{R} + \frac{D(x_{c-1/2}^-)}{\Delta x_{c-1}} \vec{L}^T\vec{R}_s
+\right \} \vec{\Delta \phi}_{c-1} \\
+%
+%
+\left\{ \R{\Sigma_a} + \mathbf{S} + \kappa_{c-1/2} \vec{L}^T \vec{L} +  \kappa_{c+1/2} \vec{R}^T \vec{R}  + \frac{ D(x_{c-1/2}^+) }{\Delta x_c}\vec{L}_s^T \vec{L}
+- \frac{D(x_{c+1/2}^-)}{\Delta x_c} \vec{R}_s^T \vec{R} \right. \\
+\left. + \frac{D(x_{c-1/2}^+)}{\Delta x_c}\vec{L}^T \vec{L}_s - \frac{D(x_{c+1/2}^-)}{\Delta x_c} \vec{R}^T \vec{R}_s  
+ \right\} \vec{\Delta \phi}_c \\
+%
+%
+\left\{   -\kappa_{c+1/2}\vec{R}^T \vec{L}  + \frac{D(x_{c+1/2}^-) }{\Delta x_c} \vec{R}_s^T \vec{L} - \frac{D(x_{c+1/2}^+)}{\Delta x_{c+1}} \vec{R}^T \vec{L}_s  \right\} \vec{\Delta \phi}_{c+1}
+\end{multline}  
 
-We now consider the leftmost cell, so that we derive appropropirate boudnary conditions.  
+We now consider the leftmost cell, so that we derive appropriate boundary conditions.  
 We will derive equations for reflective and incident current boundary conditions.  
 Equations for the right boundary can be derived analogously.
 Starting with incident flux boundary conditions, we must define the $\left( \kappa_{1/2}\Delta \phi , \B{*} \right)$, $\left( \Delta \phi , D \partial_n \B{*} \right)$ , and $\left( D \partial_n \Delta \phi , \B{*} \right)$ operators.

@@ -53,42 +53,42 @@
 \contentsline {section}{\numberline {4.2}Qualitative Comparison of Different Synthetic Acceleration Techniques}{100}
 \contentsline {section}{\numberline {4.3}$S_2$ Synthetic Acceleration}{103}
 \contentsline {section}{\numberline {4.4}Modified Interior Penalty Diffusion Synthetic Acceleration}{108}
-\contentsline {section}{\numberline {4.5}Numerical Results Verifying Implementation and Performance of S2SA and MIP DSA}{114}
-\contentsline {subsection}{\numberline {4.5.1}Spatially Constant Cross Section Scattering Problem}{115}
+\contentsline {section}{\numberline {4.5}Numerical Results Verifying Implementation and Performance of S2SA and MIP DSA}{115}
+\contentsline {subsection}{\numberline {4.5.1}Spatially Constant Cross Section Scattering Problem}{116}
 \contentsline {subsubsection}{\numberline {4.5.1.1}S2SA Spectral Radius Sensitivity}{119}
 \contentsline {subsubsection}{\numberline {4.5.1.2}MIP DSA Spectral Radius Sensitivity}{123}
-\contentsline {subsection}{\numberline {4.5.2}Spatially Varying Cross Section Scattering Problem}{132}
-\contentsline {subsubsection}{\numberline {4.5.2.1}S2SA}{133}
-\contentsline {subsubsection}{\numberline {4.5.2.2}MIP DSA}{134}
-\contentsline {section}{\numberline {4.6}Conclusions}{137}
-\contentsline {chapter}{\numberline {5}\uppercase {Fuel Depletion Problem}}{138}
+\contentsline {subsection}{\numberline {4.5.2}Spatially Varying Cross Section Scattering Problem}{133}
+\contentsline {subsubsection}{\numberline {4.5.2.1}S2SA}{134}
+\contentsline {subsubsection}{\numberline {4.5.2.2}MIP DSA}{135}
+\contentsline {section}{\numberline {4.6}Conclusions}{138}
+\contentsline {chapter}{\numberline {5}\uppercase {Fuel Depletion Problem}}{139}
 \vskip +10pt
-\contentsline {section}{\numberline {5.1}Problem Physical Description}{138}
-\contentsline {subsection}{\numberline {5.1.1}Microscopic Cross Section and Yield Data}{142}
-\contentsline {subsection}{\numberline {5.1.2}Reactor Power Levels and Normalization}{145}
-\contentsline {section}{\numberline {5.2}Spatial Discretization}{146}
-\contentsline {subsection}{\numberline {5.2.1}Radiation Solution}{147}
-\contentsline {subsection}{\numberline {5.2.2}Nuclide Density}{149}
-\contentsline {section}{\numberline {5.3}Numerical Results}{152}
-\contentsline {chapter}{\numberline {6}\uppercase {Grey Thermal Radiative Transfer}}{163}
+\contentsline {section}{\numberline {5.1}Problem Physical Description}{139}
+\contentsline {subsection}{\numberline {5.1.1}Microscopic Cross Section and Yield Data}{143}
+\contentsline {subsection}{\numberline {5.1.2}Reactor Power Levels and Normalization}{146}
+\contentsline {section}{\numberline {5.2}Spatial Discretization}{147}
+\contentsline {subsection}{\numberline {5.2.1}Radiation Solution}{148}
+\contentsline {subsection}{\numberline {5.2.2}Nuclide Density}{150}
+\contentsline {section}{\numberline {5.3}Numerical Results}{153}
+\contentsline {chapter}{\numberline {6}\uppercase {Grey Thermal Radiative Transfer}}{164}
 \vskip +10pt
-\contentsline {section}{\numberline {6.1}Linearization and Discretization of Grey TRT Equations}{164}
-\contentsline {subsection}{\numberline {6.1.1}SDIRK Time Integration}{164}
-\contentsline {subsection}{\numberline {6.1.2}Spatially Analytic Linearization}{165}
-\contentsline {subsubsection}{\numberline {6.1.2.1}SDIRK Stage 1}{166}
-\contentsline {subsubsection}{\numberline {6.1.2.2}SDIRK Stage $i$}{172}
-\contentsline {subsection}{\numberline {6.1.3}Spatially Discretized Linearization}{175}
-\contentsline {subsubsection}{\numberline {6.1.3.1}SDIRK Stage 1}{177}
-\contentsline {subsubsection}{\numberline {6.1.3.2}SDIRK Stage $i$}{181}
-\contentsline {subsection}{\numberline {6.1.4}Consistency of Pseudo Cross Sections}{185}
-\contentsline {section}{\numberline {6.2}Computer Science Implementation}{192}
-\contentsline {section}{\numberline {6.3}Numerical Results}{194}
-\contentsline {subsection}{\numberline {6.3.1}Method of Manufactured Solutions}{194}
-\contentsline {subsubsection}{\numberline {6.3.1.1}Steady State}{195}
-\contentsline {subsubsection}{\numberline {6.3.1.2}Linear Space - Linear Time}{195}
-\contentsline {subsubsection}{\numberline {6.3.1.3}Linear Space - Sinusoidal Time}{195}
-\contentsline {subsubsection}{\numberline {6.3.1.4}Sinusoidal Space - Linear Time}{195}
-\contentsline {subsection}{\numberline {6.3.2}Su-Olson Problem}{195}
-\contentsline {subsection}{\numberline {6.3.3}Marshak Wave Problem}{196}
-\contentsline {section}{\numberline {6.4}Conclusions}{196}
-\contentsline {chapter}{REFERENCES}{197}
+\contentsline {section}{\numberline {6.1}Linearization and Discretization of Grey TRT Equations}{165}
+\contentsline {subsection}{\numberline {6.1.1}SDIRK Time Integration}{165}
+\contentsline {subsection}{\numberline {6.1.2}Spatially Analytic Linearization}{166}
+\contentsline {subsubsection}{\numberline {6.1.2.1}SDIRK Stage 1}{167}
+\contentsline {subsubsection}{\numberline {6.1.2.2}SDIRK Stage $i$}{173}
+\contentsline {subsection}{\numberline {6.1.3}Spatially Discretized Linearization}{176}
+\contentsline {subsubsection}{\numberline {6.1.3.1}SDIRK Stage 1}{178}
+\contentsline {subsubsection}{\numberline {6.1.3.2}SDIRK Stage $i$}{182}
+\contentsline {subsection}{\numberline {6.1.4}Consistency of Pseudo Cross Sections}{186}
+\contentsline {section}{\numberline {6.2}Computer Science Implementation}{193}
+\contentsline {section}{\numberline {6.3}Numerical Results}{195}
+\contentsline {subsection}{\numberline {6.3.1}Method of Manufactured Solutions}{195}
+\contentsline {subsubsection}{\numberline {6.3.1.1}Steady State}{196}
+\contentsline {subsubsection}{\numberline {6.3.1.2}Linear Space - Linear Time}{196}
+\contentsline {subsubsection}{\numberline {6.3.1.3}Linear Space - Sinusoidal Time}{196}
+\contentsline {subsubsection}{\numberline {6.3.1.4}Sinusoidal Space - Linear Time}{196}
+\contentsline {subsection}{\numberline {6.3.2}Su-Olson Problem}{196}
+\contentsline {subsection}{\numberline {6.3.3}Marshak Wave Problem}{197}
+\contentsline {section}{\numberline {6.4}Conclusions}{197}
+\contentsline {chapter}{REFERENCES}{198}
