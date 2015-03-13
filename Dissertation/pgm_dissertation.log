@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.18)  12 MAR 2015 01:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.18)  13 MAR 2015 14:58
 entering extended mode
 **pgm_dissertation.tex
 (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.tex
@@ -1290,7 +1290,7 @@ File: chapter4_acceleration/Constant_XS_SN8_P1_Gauss_Solvers.png Graphic file (
 type png)
  <use chapter4_acceleration/Constant_XS_SN8_P1_Gauss_Solvers.png>
 Package pdftex.def Info: chapter4_acceleration/Constant_XS_SN8_P1_Gauss_Solvers
-.png used on input line 574.
+.png used on input line 582.
 (pdftex.def)             Requested size: 341.43306pt x 256.07838pt.
 
 [116] [117 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter4_accele
@@ -1302,7 +1302,7 @@ hic file (type png)
 
 <use chapter4_acceleration/Const_2_Constant_XS_SN8_P1_Lobatto_Solvers.png>
 Package pdftex.def Info: chapter4_acceleration/Const_2_Constant_XS_SN8_P1_Lobat
-to_Solvers.png used on input line 600.
+to_Solvers.png used on input line 608.
 (pdftex.def)             Requested size: 312.9803pt x 234.73853pt.
 
 <chapter4_acceleration/Const_2_Bar_Constant_XS_SN8_P1_Lobatto_Solvers.png, id=7
@@ -1312,7 +1312,7 @@ Graphic file (type png)
 
 <use chapter4_acceleration/Const_2_Bar_Constant_XS_SN8_P1_Lobatto_Solvers.png>
 Package pdftex.def Info: chapter4_acceleration/Const_2_Bar_Constant_XS_SN8_P1_L
-obatto_Solvers.png used on input line 606.
+obatto_Solvers.png used on input line 614.
 (pdftex.def)             Requested size: 312.9803pt x 234.73853pt.
 
 [118 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter4_acceleration
@@ -1324,7 +1324,7 @@ le (type png)
 
 <use chapter4_acceleration/Constant_XS_sn_comparions_S2SA_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Constant_XS_sn_comparions_S2SA_G
-auss.png used on input line 618.
+auss.png used on input line 626.
 (pdftex.def)             Requested size: 312.9803pt x 234.73853pt.
 
 <chapter4_acceleration/Constant_XS_sn_comparions_S2SA_Lobatto.png, id=745, 505.
@@ -1334,7 +1334,7 @@ file (type png)
 
 <use chapter4_acceleration/Constant_XS_sn_comparions_S2SA_Lobatto.png>
 Package pdftex.def Info: chapter4_acceleration/Constant_XS_sn_comparions_S2SA_L
-obatto.png used on input line 626.
+obatto.png used on input line 634.
 (pdftex.def)             Requested size: 312.9803pt x 234.73853pt.
 
 <chapter4_acceleration/Constant_XS_c_comparions_S2SA_Gauss.png, id=746, 505.89p
@@ -1344,7 +1344,7 @@ e (type png)
 
 <use chapter4_acceleration/Constant_XS_c_comparions_S2SA_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Constant_XS_c_comparions_S2SA_Ga
-uss.png used on input line 634.
+uss.png used on input line 642.
 (pdftex.def)             Requested size: 312.9803pt x 234.73853pt.
 
 <chapter4_acceleration/Constant_XS_c_comparions_S2SA_Lobatto.png, id=747, 505.8
@@ -1354,7 +1354,7 @@ ile (type png)
 
 <use chapter4_acceleration/Constant_XS_c_comparions_S2SA_Lobatto.png>
 Package pdftex.def Info: chapter4_acceleration/Constant_XS_c_comparions_S2SA_Lo
-batto.png used on input line 642.
+batto.png used on input line 650.
 (pdftex.def)             Requested size: 312.9803pt x 234.73853pt.
 
 <chapter4_acceleration/Constant_XS_SN8_S2SA_Gauss.png, id=748, 505.89pt x 379.4
@@ -1363,7 +1363,7 @@ File: chapter4_acceleration/Constant_XS_SN8_S2SA_Gauss.png Graphic file (type p
 ng)
  <use chapter4_acceleration/Constant_XS_SN8_S2SA_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Constant_XS_SN8_S2SA_Gauss.png u
-sed on input line 656.
+sed on input line 664.
 (pdftex.def)             Requested size: 312.9803pt x 234.73853pt.
 
 <chapter4_acceleration/Constant_XS_SN8_S2SA_Lobatto.png, id=749, 505.89pt x 379
@@ -1372,7 +1372,7 @@ File: chapter4_acceleration/Constant_XS_SN8_S2SA_Lobatto.png Graphic file (type
  png)
  <use chapter4_acceleration/Constant_XS_SN8_S2SA_Lobatto.png>
 Package pdftex.def Info: chapter4_acceleration/Constant_XS_SN8_S2SA_Lobatto.png
- used on input line 664.
+ used on input line 672.
 (pdftex.def)             Requested size: 312.9803pt x 234.73853pt.
  [119 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter4_acceleratio
 n/Const_2_Bar_Constant_XS_SN8_P1_Lobatto_Solvers.png>] [120 <E:/Documents/Resea
@@ -1391,7 +1391,7 @@ e (type png)
 
 <use chapter4_acceleration/Constant_XS_sn_comparions_MIP_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Constant_XS_sn_comparions_MIP_Ga
-uss.png used on input line 679.
+uss.png used on input line 687.
 (pdftex.def)             Requested size: 312.9803pt x 234.73853pt.
 
 <chapter4_acceleration/Constant_XS_sn_comparions_MIP_Lobatto.png, id=770, 505.8
@@ -1401,7 +1401,7 @@ ile (type png)
 
 <use chapter4_acceleration/Constant_XS_sn_comparions_MIP_Lobatto.png>
 Package pdftex.def Info: chapter4_acceleration/Constant_XS_sn_comparions_MIP_Lo
-batto.png used on input line 693.
+batto.png used on input line 701.
 (pdftex.def)             Requested size: 312.9803pt x 234.73853pt.
  [123 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter4_acceleratio
 n/Constant_XS_SN8_S2SA_Lobatto.png>] [124 <E:/Documents/Research/PGM_Dissertati
@@ -1415,7 +1415,7 @@ hic file (type png)
 
 <use chapter4_acceleration/Const_2_Constant_XS_c_comparions_MIP_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Const_2_Constant_XS_c_comparions
-_MIP_Gauss.png used on input line 707.
+_MIP_Gauss.png used on input line 715.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
 <chapter4_acceleration/Const_2_Constant_XS_c_comparions_MIP_Lobatto.png, id=784
@@ -1425,7 +1425,7 @@ aphic file (type png)
 
 <use chapter4_acceleration/Const_2_Constant_XS_c_comparions_MIP_Lobatto.png>
 Package pdftex.def Info: chapter4_acceleration/Const_2_Constant_XS_c_comparions
-_MIP_Lobatto.png used on input line 715.
+_MIP_Lobatto.png used on input line 723.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
 <chapter4_acceleration/Const_2_bar_Constant_XS_c_comparions_MIP_Gauss.png, id=7
@@ -1435,7 +1435,7 @@ Graphic file (type png)
 
 <use chapter4_acceleration/Const_2_bar_Constant_XS_c_comparions_MIP_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Const_2_bar_Constant_XS_c_compar
-ions_MIP_Gauss.png used on input line 723.
+ions_MIP_Gauss.png used on input line 731.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
 <chapter4_acceleration/Const_2_bar_Constant_XS_c_comparions_MIP_Lobatto.png, id
@@ -1446,7 +1446,7 @@ g Graphic file (type png)
 <use chapter4_acceleration/Const_2_bar_Constant_XS_c_comparions_MIP_Lobatto.png
 >
 Package pdftex.def Info: chapter4_acceleration/Const_2_bar_Constant_XS_c_compar
-ions_MIP_Lobatto.png used on input line 730.
+ions_MIP_Lobatto.png used on input line 738.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
  [126 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter4_acceleratio
 n/Const_2_Constant_XS_c_comparions_MIP_Gauss.png> <E:/Documents/Research/PGM_Di
@@ -1462,7 +1462,7 @@ hic file (type png)
 
 <use chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Const_4_Constant_XS_c_comparions
-_MIP_Gauss.png used on input line 739.
+_MIP_Gauss.png used on input line 747.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
 <chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Lobatto.png, id=799
@@ -1472,7 +1472,7 @@ aphic file (type png)
 
 <use chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Lobatto.png>
 Package pdftex.def Info: chapter4_acceleration/Const_4_Constant_XS_c_comparions
-_MIP_Lobatto.png used on input line 747.
+_MIP_Lobatto.png used on input line 755.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
 [128 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter4_acceleration
@@ -1486,7 +1486,7 @@ Graphic file (type png)
 
 <use chapter4_acceleration/Const_4_bar_Constant_XS_c_comparions_MIP_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Const_4_bar_Constant_XS_c_compar
-ions_MIP_Gauss.png used on input line 761.
+ions_MIP_Gauss.png used on input line 769.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
 <chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Gauss.png, id=806, 505.89pt 
@@ -1496,7 +1496,7 @@ File: chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Gauss.png Graphic file
 
 <use chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Gaus
-s.png used on input line 770.
+s.png used on input line 778.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
 <chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Lobatto.png, id=807, 505.89p
@@ -1506,7 +1506,7 @@ e (type png)
 
 <use chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Lobatto.png>
 Package pdftex.def Info: chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Loba
-tto.png used on input line 784.
+tto.png used on input line 792.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
 <chapter4_acceleration/Const_2_bar_Constant_XS_SN8_MIP_Gauss.png, id=808, 505.8
@@ -1516,7 +1516,7 @@ ile (type png)
 
 <use chapter4_acceleration/Const_2_bar_Constant_XS_SN8_MIP_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Const_2_bar_Constant_XS_SN8_MIP_
-Gauss.png used on input line 793.
+Gauss.png used on input line 801.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
  [129 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter4_acceleratio
 n/Const_4_bar_Constant_XS_c_comparions_MIP_Gauss.png>] [130 <E:/Documents/Resea
@@ -1532,7 +1532,7 @@ File: chapter4_acceleration/Const_2_bar_Constant_XS_SN8_MIP_Lobatto.png Graphic
 
 <use chapter4_acceleration/Const_2_bar_Constant_XS_SN8_MIP_Lobatto.png>
 Package pdftex.def Info: chapter4_acceleration/Const_2_bar_Constant_XS_SN8_MIP_
-Lobatto.png used on input line 803.
+Lobatto.png used on input line 811.
 (pdftex.def)             Requested size: 270.30118pt x 202.72871pt.
 
 <chapter4_acceleration/Const_4_Constant_XS_SN8_MIP_Gauss.png, id=823, 505.89pt 
@@ -1542,7 +1542,7 @@ File: chapter4_acceleration/Const_4_Constant_XS_SN8_MIP_Gauss.png Graphic file
 
 <use chapter4_acceleration/Const_4_Constant_XS_SN8_MIP_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Const_4_Constant_XS_SN8_MIP_Gaus
-s.png used on input line 811.
+s.png used on input line 819.
 (pdftex.def)             Requested size: 270.30118pt x 202.72871pt.
 
 <chapter4_acceleration/Const_4_Constant_XS_SN8_MIP_Lobatto.png, id=824, 505.89p
@@ -1552,7 +1552,7 @@ e (type png)
 
 <use chapter4_acceleration/Const_4_Constant_XS_SN8_MIP_Lobatto.png>
 Package pdftex.def Info: chapter4_acceleration/Const_4_Constant_XS_SN8_MIP_Loba
-tto.png used on input line 820.
+tto.png used on input line 828.
 (pdftex.def)             Requested size: 270.30118pt x 202.72871pt.
  [132 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter4_acceleratio
 n/Const_2_bar_Constant_XS_SN8_MIP_Lobatto.png> <E:/Documents/Research/PGM_Disse
@@ -1565,7 +1565,7 @@ File: chapter4_acceleration/Variable_XS_S2SA_Gauss_spr.png Graphic file (type p
 ng)
  <use chapter4_acceleration/Variable_XS_S2SA_Gauss_spr.png>
 Package pdftex.def Info: chapter4_acceleration/Variable_XS_S2SA_Gauss_spr.png u
-sed on input line 860.
+sed on input line 868.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
 <chapter4_acceleration/Variable_XS_S2SA_Lobatto_spr.png, id=836, 578.16pt x 433
@@ -1574,7 +1574,7 @@ File: chapter4_acceleration/Variable_XS_S2SA_Lobatto_spr.png Graphic file (type
  png)
  <use chapter4_acceleration/Variable_XS_S2SA_Lobatto_spr.png>
 Package pdftex.def Info: chapter4_acceleration/Variable_XS_S2SA_Lobatto_spr.png
- used on input line 868.
+ used on input line 876.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
  [134 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter4_acceleratio
 n/Variable_XS_S2SA_Gauss_spr.png>]
@@ -1584,7 +1584,7 @@ File: chapter4_acceleration/Const_4_Variable_XS_MIP_Gauss.png Graphic file (typ
 e png)
  <use chapter4_acceleration/Const_4_Variable_XS_MIP_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Const_4_Variable_XS_MIP_Gauss.pn
-g used on input line 880.
+g used on input line 888.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
 <chapter4_acceleration/Const_4_Variable_XS_MIP_Lobatto.png, id=842, 505.89pt x 
@@ -1593,21 +1593,21 @@ File: chapter4_acceleration/Const_4_Variable_XS_MIP_Lobatto.png Graphic file (t
 ype png)
  <use chapter4_acceleration/Const_4_Variable_XS_MIP_Lobatto.png>
 Package pdftex.def Info: chapter4_acceleration/Const_4_Variable_XS_MIP_Lobatto.
-png used on input line 886.
+png used on input line 894.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 File: chapter4_acceleration/Const_4_Variable_XS_MIP_Gauss.png Graphic file (typ
 e png)
 
 <use chapter4_acceleration/Const_4_Variable_XS_MIP_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Const_4_Variable_XS_MIP_Gauss.pn
-g used on input line 896.
+g used on input line 904.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 File: chapter4_acceleration/Const_4_Variable_XS_MIP_Lobatto.png Graphic file (t
 ype png)
 
 <use chapter4_acceleration/Const_4_Variable_XS_MIP_Lobatto.png>
 Package pdftex.def Info: chapter4_acceleration/Const_4_Variable_XS_MIP_Lobatto.
-png used on input line 902.
+png used on input line 910.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
  [135 <E:/Documents/Research/PGM_Dissertation/Dissertation/chapter4_acceleratio
 n/Variable_XS_S2SA_Lobatto_spr.png (PNG copy)>] [136 <E:/Documents/Research/PGM
@@ -1945,7 +1945,7 @@ X 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/h
 oekwater/stmary10.pfb>
-Output written on pgm_dissertation.pdf (223 pages, 2937412 bytes).
+Output written on pgm_dissertation.pdf (223 pages, 2938327 bytes).
 PDF statistics:
  1172 PDF objects out of 1200 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

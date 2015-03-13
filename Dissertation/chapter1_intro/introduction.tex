@@ -26,7 +26,7 @@ This dissertation is dedicated to the solution of the thermal radiative transfer
 \begin{subequations}
 \label{eq:full_trt}
 \beanum
-\frac{1}{c} \frac{\p I}{\p t} + \omg \cdot \vec{\nabla} I  + \sigma_t I &=& \int_0^{\infty}{ \int_{4\pi}{ \sigma_s(\omg'\to\omg,E'\to E) I , d\omg' } dE'}+ \sigma_a B \\
+\frac{1}{c} \frac{\partial I}{\p t} + \omg \cdot \vec{\nabla} I  + \sigma_t I &=& \int_0^{\infty}{ \int_{4\pi}{ \sigma_s(\omg'\to\omg,E'\to E) I  d\omg' } dE'}+ \sigma_a B \\
 C_v \frac{\p T}{\p t} &=& \int_0^{\infty}{  \sigma_a \left( \phi- 4\pi B   \right) dE} \pec 
 \eeanum
 \end{subequations}
@@ -38,10 +38,10 @@ Material heat capacity, $C_v$, is also a function of material temperature.
 The angle integrated radiation intensity, $\phi$, is an integral over all photon directions of the the photon intensity and is a function of space and photon energy.  Finally, the Planck function, $B$, is a function of photon energy and material temperature.
 While materials at all temperatures emit photon radiation, the radiation emission is proportional to $T^4$.  
 Thus, solution of the radiative transfer equations is most important in situations where materials are very hot.  
-Solving the thermal radiative transfer equations is an important component of the simulation of different scientific and engineering problems including astrophysics supernova explosions and high energy density laboratory physics experiments like those conducted at the National Ignition Facility.
+Solving the thermal radiative transfer equations is an important component of the simulation of different scientific and engineering problems including astrophysics supernova explosions and high energy density physics laboratory experiments such as the ones conducted at the National Ignition Facility.
 
 \section{Simplifications of the Thermal Radiative Transfer Equations}
-In this dissertation, we we make a number of simplifying assumptions to make solution of \eqts{eq:full_trt} more tractable.  
+In this dissertation, we make a number of simplifying assumptions to make solution of \eqts{eq:full_trt} more tractable.  
 First, we limit our focus to 1-D Cartesian (slab) geometry.
 The assumption of slab geometry is not required, but slab geometry radiation transport simulations require significantly less computational time.
 Further, any methods that have a possibility of being viable for radiation transport in multiple spatial dimensions must also work well in slab geometry.
@@ -87,7 +87,7 @@ To complete a description of the approach we will take to solve \eqts{eq:full_tr
 The appearance of the speed of light in \eqt{eq:full_trt} results in the TRT equations being very stiff.
 To solve the such a stiff system of equations would require either an impractically small time step, or the use of implicit methods.
 We elect to use Diagonally Implicit Runge-Kutta (DIRK) methods to advance our TRT solution in time.
-The simplest of DIRK scheme is the first order implicit Euler scheme, but more advanced DIRK higher order methods in time \cite{alexander}.
+The simplest of DIRK scheme is the first order implicit Euler scheme, but S-stable DIRK schemes with higher order convergence exist \cite{alexander}.
 
 \subsection{Spatial Discretization with Discontinuous Finite Elements}
 

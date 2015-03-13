@@ -17,20 +17,20 @@
 \chapter{\uppercase {Discontinuous Finite Elements for Radiation Transport}}
 \label{sec:chapter2_constant_xs}
 
-In \chapref{sec:introduction}, we briefly mentioned that through manipulation, the thermal radiatve transfer equations can be put into a form equivalent to the 
+In \chapref{sec:introduction}, we briefly mentioned that through manipulation, the thermal radiative transfer equations can be put into a form equivalent to the 
 neutron transport equation with pseudo- scattering, fission, and fixed sources.  
 We will fully demonstrate the linearization process in \chapref{sec:chapter6_grey_radtran}, but for now we 
 take for granted that solving for the neutron transport equation's angular flux, $\psi$, is related to solving \eqt{eq:full_trt} for $I$.
 Additionally, we will assume that a steady-state, source-free, pure absorber neutron transport problem taxes DFEM schemes in a manner similar to the way DFEM schemes are tested
-in time-dependent thermal radiative transfer simulations, in particular Marshak wave type problems \cite{ober_shadid}.  This chapter draws primiarily from
-from our previously publsihed work in \cite{mc_2013} and \cite{part_1_paper}.
+in time-dependent thermal radiative transfer simulations, in particular Marshak wave type problems \cite{ober_shadid}.  This chapter draws primarily from
+from our previously published work in \cite{mc_2013} and \cite{part_1_paper}.
 
 \section{History of DFEM for Neutron Transport}
 
-The linear discontinuous finite element method (LDFEM) for discrete ordinates neutron transport is widely used and has been extensively studied\cite{ld_fine_mesh,hamilton,csz,adams}.  
+The linear discontinuous finite element method (LDFEM) for discrete ordinates neutron transport is widely used and has been extensively studied \cite{ld_fine_mesh,hamilton,csz,adams}.  
 However, the DFEM technique is not limited to linear trial spaces.
-Reed et. al \cite{reed} used arbitrary order DFEM $S_N$ neutron transport in TRIPLET but, due to data storage limitations at the time, only LDFEM was computationally practical.
-As a result of these historical computing limitations,  the accuracy of LDFEM\cite{larsen_nelson}, and LDFEM possesing the thick diffusion limit \cite{larsen_morel_asymptotics},
+Reed et al. \cite{reed} used arbitrary order DFEM $S_N$ neutron transport in TRIPLET but, due to data storage limitations at the time, only LDFEM was computationally practical.
+As a result of these historical computing limitations,  the accuracy of LDFEM \cite{larsen_nelson}, and LDFEM possessing the thick diffusion limit \cite{larsen_morel_asymptotics},
 the majority of reported DFEM radiation transport literature has focused on the LDFEM approximation.
 Higher order DFEM methods have received periodic attention; some older examples include the work of Walters \cite{walters} and Hennart and del Valle \cite{hennart_delvalle_2,hennart_delvalle_3}.
 More recent investigations of higher order DFEM trial spaces include those of  Warsa and Prinja \cite{warsa_prinja} and Wang and Ragusa \cite{yaqi_ragusa,yaqi_ragusa2}.  
@@ -769,7 +769,7 @@ for the Exact DFEM and TL schemes.
 The same information for the SL Newton-Cotes, SL Gauss, and SL Lobatto schemes is given in \tbl{tbl:taylor_in_part2}.
 The differences between $\psi_{A,d,T}$ and the respective numerical analogs are given in \tbl{tbl:taylor_avg_part1} for Exact DFEM and TL,
 and \tbl{tbl:taylor_avg_part2} for the SL Newton-Cotes, SL Gauss, and SL Lobatto schemes.
-Differences between $\psi{out,d,T}$ and the correseponding numerical analogs are given in \tbl{tbl:taylor_out_part1} for Exact DFEM and TL  and 
+Differences between $\psi{out,d,T}$ and the corresponding numerical analogs are given in \tbl{tbl:taylor_out_part1} for Exact DFEM and TL  and 
 \tbl{tbl:taylor_out_part2} gives the lowest order difference between the SL Newton-Cotes, SL Gauss, and SL Lobatto approximations of $\psi_{out,d,T}$.
 In Tables \ref{tbl:taylor_in_part1}-\ref{tbl:taylor_out_part2} all entries are listed as
 $q(C)$, to be read as ``the difference between the analytic taylor expansion and the numeric analog is $C h^q$ with $h=\Sigma_t \Delta x / \mu$''.

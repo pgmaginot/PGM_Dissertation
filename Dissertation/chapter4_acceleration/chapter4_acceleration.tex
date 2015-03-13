@@ -16,19 +16,17 @@
 \chapter{\uppercase{Iterative Acceleration for the $S_N$ Neutron Transport Equations}}
 \label{sec:chapter4_acceleration}
 
-Thus far, we have failed to discuss how the global system of angular flux unknowns is solved, 
+Thus far, we have omitted a discussion of how the global system of angular flux unknowns is solved, 
 focusing instead on the solution of a single system of equations that describes the unknowns of a single spatial cell, for a single discrete direction.
-We have implicitly assumed the existence and knowledge of a transport sweep \cite{lewis_book}, or single, un-accelerated Richardson iteration.
-In \secref{sec:dsa_basis}, we explain the fundamental iterative techniques used to solve the neutron transport equation for scatter media.
-In \secref{sec:synthetics} we discuss the choices available for synthetic acclerators.
-Finally  we two different synthetic acceleration techniques compatible with our chose spatial discretizations of the transport equation.
-In \secref{sec:s2sa} we derive the $S_2$ synethetic acceleration (S2SA) technique\cite{s2sa} and in \secref{sec:dsa} we derive a modified interior penalty (MIP) diffusion synthetic accleration\cite{mip_dsa} (DSA) operator.  Finally, in \secref{sec:accel_results}, we compare verify the implementation of each for a set of test problems with spatially constant and and spatially varying interaction cross sections.
+In \secref{sec:dsa_basis}, we explain the fundamental iterative techniques used to solve the neutron transport equation for all of the angular flux unknowns.
+In \secref{sec:synthetics} we discuss two different synthetic acceleration techniques compatible with our chosen spatial discretizations of the transport equation.
+In \secref{sec:s2sa} we derive the $S_2$ synthetic acceleration (S2SA) technique \cite{s2sa} and in \secref{sec:dsa} we derive a modified interior penalty (MIP) diffusion synthetic acceleration \cite{mip_dsa} (DSA) operator.  Finally, in \secref{sec:accel_results}, we verify the implementation of each for a set of test problems with spatially constant and spatially varying interaction cross sections.
 
 
 \section{Iterative Solution of the Neutron Transport $S_N$ Equations}
 \label{sec:dsa_basis}
 
-To describe the the iterative process by which the discrete ordinates neutron transport equations are solved, we re-visit the spatially analytic,
+To describe the iterative process by which the discrete ordinates neutron transport equations are solved, we re-visit the spatially analytic,
 steady-state, mono-energetic discrete ordinates neutron transport equation, but do not have a monolithic right hand side source.
 Rather, we treat the right hand side as having both an isotropic scattering component, and a fixed source component, as given in \eqt{eq:chap4_transport}.
 \benum
@@ -36,7 +34,7 @@ Rather, we treat the right hand side as having both an isotropic scattering comp
 \label{eq:chap4_transport}
 \eenum
 The traditional practice is to solve \eqt{eq:chap4_transport} iteratively with Richardson iteration.  
-Each Richardson iteration is referred to as a transport sweep, where for a fixed right hand side, $\psi_d$ is update direction by direction, cell be cell, sweeping 
+Each Richardson iteration is referred to as a transport sweep, where for a fixed right hand side, $\psi_d$ is updated direction by direction, cell be cell, sweeping 
 from each direction's incident boundary through the entire mesh with upwinding at cell interfaces.
 Introducing iteration index $\ell$, this process can be written as:
 \benum
@@ -103,15 +101,15 @@ Alternatively, if we could solve an approximation to \eqt{eq:dsa_idea}, perhaps 
 \phi \approx \Delta \phi^{(\ell+1/2)} + \phi^{(\ell+1/2)} \pec
 \eenum
 where $\Delta \phi^{(\ell+1/2)}$ comes from the lower order approximation to \eqt{eq:dsa_idea}.
-The idea of a using lower order approximation to approximately solve \eqt{eq:dsa_idea} is central to synthetic acceleration.
+The idea of using a lower order operator to approximately solve \eqt{eq:dsa_idea} is central to synthetic acceleration.
 
 
 \section{Qualitative Comparison of Different Synthetic Acceleration Techniques}
 \label{sec:synthetics}
 
-Three types of synthetic acceleration have received significant attention in the neutron transport and thermal radiative transfer literature,
-$S_2$ synthetic acceleration (S2SA)\cite{s2sa}, diffusion synthetic acceleration (DSA)\cite{old_dsa}, and transport synthetic acceleration (TSA)\cite{tsa}.
-Each method of synthetic acceleration has both advantages and disadvantages relating to the computational efficiency and iterative effectiveness of each method.  
+We consider two synthetic acceleration techniques that have received significant attention in the neutron transport and thermal radiative transfer literature,
+$S_2$ synthetic acceleration (S2SA)\cite{s2sa} and diffusion synthetic acceleration (DSA)\cite{old_dsa}.
+Both methods of synthetic acceleration has both advantages and disadvantages relating to the computational efficiency and iterative effectiveness of each method.  
 
 The S2SA method was shown to be iteratively effective in both slab and 1-D spherical geometries. 
 Additionally, it is easily compatible with any DFEM spatial discretization of the $S_N$ neutron transport equations.  
@@ -120,7 +118,7 @@ The full transport scalar flux iterative update is then defined as,
 \benum
 \Delta \phi^{(\ell+1/2)} \approx 2\pi \left[ w_+ \psi_+ + w_- \psi_- \right] \pec
 \eenum
-where $w_+,~w_-$ correspond to the weights of a direction quadrature (typically Gauss) set with corresponding discrete direction $\mu_+ and \mu_-$, and $\psi_+,~\psi_-$ are the fundamental unknowns of the $S_2$ discretization.
+where $w_+,~w_-$ correspond to the weights of a direction quadrature (typically Gauss) set with corresponding discrete direction $\mu_+$ and $\mu_-$, and $\psi_+,~\psi_-$ are the fundamental unknowns of the $S_2$ discretization.
 Thus, S2SA uses the same local matrices of \eqt{eq:chap3_mat_form} as the full transport operator.
 However, the S2SA global matrix that must be inverted to solve for $\psi_+$ and $\psi_-$ is extremely difficult to invert for multiple spatial dimensions.
 This makes S2SA iteratively effective, but computationally expensive, limiting the extensibility of any techniques that require S2SA.
@@ -136,14 +134,14 @@ WLA DSA produces a symmetric positive definite (SPD) diffusion matrix and is unc
 While the FCDSA scheme remains effective in optically thick cells, it creates a diffusion operator that is very difficult and costly to invert\cite{wwm_dsa}. 
 The MIP DSA discretization \cite{mip_dsa} of Wang and Ragusa generates a SPD diffusion operator, remains effective for all cell optical thicknesses, has been successfully applied to high order DFEM $S_N$ transport, and can be used with adaptive mesh refinement.
 Further, it was shown in \cite{mip_mc} that the MIP DSA diffusion operator can be inverted very quickly using advanced preconditioners such as algebraic multi-grid.
-Thus, it we can ideally define a MIP discretization that is iteratively effective for neutron transport problems discretized with our higher order DFEM methods that account for the spatial variation of cross section within each cell, we will have found a scheme that is most likely to prove useful in more meaningful (multiple spatial dimension) thermal radiative transfer simulations.
+Thus, if we can show that a MIP DSA discretization is iteratively effective for neutron transport problems discretized with our higher order DFEM methods that account for the spatial variation of cross section within each cell, we will have found a scheme that is most likely to prove useful in meaningful (multiple spatial dimensions) thermal radiative transfer simulations.
 
- TSA differs from S2SA and DSA in that it does not attempt to invert a single matrix that describes a lower order operator approximation to the full discrete ordinates neutron transport equation.
-The main advantage of TSA over DSA is that using TSA allows for re-use of much of the software already developed for transport sweeps, greatly lowering software development overhead as compared to using DSA.
-However, TSA is in general not as effective as DSA, and finding the most efficient set of parameters that complete the description of the TSA scheme is problem dependent.  \cite{tsa}
+ %TSA differs from S2SA and DSA in that it does not attempt to invert a single matrix that describes a lower order operator approximation to the full discrete ordinates neutron transport equation.
+%The main advantage of TSA over DSA is that using TSA allows for re-use of much of the software already developed for transport sweeps, greatly lowering software development overhead as compared to using DSA.
+%However, TSA is in general not as effective as DSA, and finding the most efficient set of parameters that complete the description of the TSA scheme is problem dependent.  \cite{tsa}
 
 We will derive an S2SA operator in \secref{sec:s2sa} and MIP DSA operator in \secref{sec:dsa}.  
-We elect not to derive a TSA operator as it occupies a middle ground between, a S2SA operator that re-uses a lot of the transport sweep capability we have already developed with our high order DFEM of Chapter \ref{sec:chapter3_variable_xs}, but is computationally challenging to invert (in multiple spatial dimensions), and the MIP DSA operator we define in \secref{sec:dsa} that requires significant derivation independent of the DFEM neutron transport methodology we have already derived, but that is computationally efficient to invert.
+The S2SA operator re-uses a lot of the transport sweep capability we have already developed with our high order DFEM of Chapter \ref{sec:chapter3_variable_xs}, but is computationally challenging to invert (in multiple spatial dimensions), and the MIP DSA operator we define in \secref{sec:dsa} requires significant derivation independent of the DFEM neutron transport methodology we have already derived, but is computationally efficient to invert.
 
 \section{$S_2$ Synthetic Acceleration}
 \label{sec:s2sa}
@@ -206,7 +204,7 @@ where
 \mathbf{U}_- &=& \left[ \begin{array}{c} \B{1}(1) \\ \vdots \\ \B{N_P}(1) \end{array} \right]  \left[ \B{1}(-1) \dots \B{N_P}(-1) \right] \pep
 \eeanum
 \end{subequations}
-Finally, assuming a symmetric quadrature,
+Finally, assuming a symmetric angular quadrature,
 \benum
 \frac{1}{4\pi} \mathbf{R}_{\Sigma_s}\vec{\Delta \phi}_c = \frac{1}{2}\mathbf{R}_{\Sigma_s} \left( \vec{\psi}_c^+ + \vec{\psi}_c^- \right) \pec
 \label{eq:s2_quad}
@@ -224,7 +222,7 @@ we may write \eqts{eq:chap4_first_disc} as:
 \end{subequations}
 Thus, the S2SA scheme uses all of the same matrices, in particular we think of $\mathbf{R}_{\Sigma_t}$ and $\mathbf{R}_{\Sigma_s}$, that we have already defined in our higher fidelity transport model.
 To find $\psi^+$ and $\psi^-$, we must then solve a system of $2\times N_P \times N_{cell}$ linear equations with $2\times N_P \times N_{cell}$ unknowns.
-It important to note that S2SA can accelerate not only the scalar flux, but also the first angular moment, $J$ of the $S_N$ neutron transport equations
+It important to note that S2SA can accelerate not only the scalar flux, but also the first angular moment, $J$, of the $S_N$ neutron transport equations
 
 To complete our derivation of the S2SA scheme, we must now define appropriate boundary conditions.
 We will focus only on the leftmost boundary, though similar equations for the right boundary can be defined analogously.
@@ -284,7 +282,7 @@ and substituting into \eqts{eq:chap4_first_disc}, we have
 \begin{subequations}
 \benum
 \left( \mu_+ \mathbf{G}_+ + \mathbf{R}_{\Sigma_t}\right) \vec{\psi}^+_1 = \frac{1}{4\pi} \mathbf{R}_{\Sigma_s} \vec{\Delta \phi}_1
-+ \frac{1}{4\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_1^{(\ell+1/2)} - \vec{\phi}_1^{(\ell)} \right) + \mu_+ C_{inc} \vec{f}_+  \vec{L} \vec{\psi}^-_1
++ \frac{1}{4\pi} \mathbf{R}_{\Sigma_s} \left( \vec{\phi}_1^{(\ell+1/2)} - \vec{\phi}_1^{(\ell)} \right) + \mu_+ C_{inc} \left(  \vec{L} \vec{\psi}^-_1 \right) \vec{f}_+  
 \eenum
 \benum
 \left( \mu_- \mathbf{G}_- + \mathbf{R}_{\Sigma_t}\right) \vec{\psi}^-_1 = \frac{1}{4\pi} \mathbf{R}_{\Sigma_s} \vec{\Delta \phi}_1 
@@ -344,7 +342,7 @@ the leftmost cell equations with a reflective boundary condition are:
 
 \section{Modified Interior Penalty Diffusion Synthetic Acceleration}
 \label{sec:dsa}
- We now derive the modified interior penalty diffusion synthetic acceleration (MIP DSA) operator introduced by Ragusa and Wang \cite{mip_dsa}, but also considered by Turcksin and Ragusa \cite{mip_mc}.
+ We now derive the modified interior penalty diffusion synthetic acceleration (MIP DSA) operator introduced by Ragusa and Wang \cite{mip_dsa}, and also considered by Turcksin and Ragusa \cite{mip_mc}.
 To accelerate the convergence of $N_P \times N_{cell}$ spatial unknowns of the scalar flux, we will need to solve a system of $N_P \times N_{cell}$ linear equations with $N_P \times N_{cell}$ unknowns.  
 Adapted from \cite{mip_dsa}, the MIP DSA update will attempt to solve the diffusion approximation of \eqt{eq:dsa_idea},
 \benum
@@ -353,7 +351,7 @@ Adapted from \cite{mip_dsa}, the MIP DSA update will attempt to solve the diffus
 where we use the standard definitions \cite{bell_glasstone},
 \beanum
 D &=& \frac{1}{3\Sigma_t} \\
-\Sigma_A &=& = \Sigma_t - \Sigma_s \pep
+\Sigma_a &=& = \Sigma_t - \Sigma_s \pep
 \eeanum
 MIP DSA is presented in the standard finite element bilinear form 
 \benum
@@ -375,7 +373,7 @@ b_{MIP}( \Delta \phi , \B{*} ) = &\left( \Sigma_a \Delta \phi, \B{*} \right)_{\c
 and
 \benum
 \label{eq:mip_rhs}
-l_{MIP}(\B{*} ) = \left( \Sigma_s( \phi^{(\ell+1/2)} - \phi^{(\ell)} ) , \B{*} \right)\pep
+l_{MIP}(\B{*} ) = \left( \Sigma_s( \phi^{(\ell+1/2)} - \phi^{(\ell)} ) , \B{*} \right) + \left(J_{inc} , \B{*} \right)_{\partial {\cal D}^r} \pep
 \eenum
 In Eqs. (\ref{eq:mip_bilinear})-(\ref{eq:mip_rhs}), \B{*} is any/every basis function (also referred to as test functions), the $\left( f,g \right)_{E^i_h}$ operator acting on quantities $f$ and $g$ is a sum over all cell interior edges:
 \benum
@@ -391,13 +389,13 @@ where $x_{c+1/2}$ is the position of cell edge $c+1/2$, the average operator, $\
 \avg{f}_{c+1/2} = \frac{1}{2}\left[  f(x^+_{c+1/2})  +  f(x^-_{c+1/2})   \right] \pec
 \eenum
 and $\partial_n$ is the edge directed normal dotted into the gradient operator.
-We we assume the edge nomral always pointing from left to right, thus $\partial_n = \frac{d}{dx}$.
+We we assume the edge normal always pointing from left to right, thus $\partial_n = \frac{d}{dx}$.
 Also in Eqs (\ref{eq:mip_b})-(\ref{eq:mip_rhs}), the $(f,g)_{\mathcal D}$ operator is an integration of quantities $f$ and $g$ over the entire domain $\mathcal D$:
 \beanum
 (f,g)_{\mathcal D} &=& \sum_{c=1}^{N_{cell}}{ \left( f,g \right)_c} \\
 (f,g)_c &=& \int_{x_{c-1/2}}^{x_{c+1/2}}{ f ~g  ~dx} \pep
 \eeanum
-Finally, $\kappa_e$ is defined on edge $c+1/2$ as
+Finally, $\kappa_e$ is defined on edge $c-1/2$ as
 \benum
 \kappa_e = \kappa_{c-1/2} =  \max\left(\frac{1}{4}, \kappa^{IP}_{c-1/2}  \right) \pec
 \eenum
@@ -406,7 +404,10 @@ and $\kappa^{IP}_{c-1/2}$ is defined as:
 \kappa_{c-1/2}^{IP} = \frac{Z_{MIP}}{2} p_c (p_c+1)\frac{D_c}{\Delta x_c} \bigg \lvert_{x_{c-1/2}^+} +  \frac{Z_{MIP}}{2}p_{c-1} (p_{c-1} + 1)\frac{D_{c-1}}{\Delta x_{c-1}} \bigg \lvert_{x_{c-1/2}^-} \pec
 \label{eq:kappa_def}
 \eenum
-where $Z_{MIP}$ is an arbitrarily chosen constant.  Unless otherwise stated, we use $Z_{MIP}=2$, as recommended by Wang and Ragusa\cite{mip_dsa}.
+where $Z_{MIP}$ is a stability constant.  
+Unless otherwise stated, we use $Z_{MIP}=2$, as recommended by Wang and Ragusa\cite{mip_dsa}.
+Larger values of $Z_{MIP}$ will increase scheme stability (by adding numerical diffusion), but if chosen too large, will affect the accuracy of the spatial discretization.
+Terms denoted by $\partial{\cal D}^d$ indicate Dirichlet boundary terms (specified incident angular boundary condition), and terms applicable only for reflective (Neumann) boundary conditions are denoted with a  $\partial{\cal D}^r$.
 
 Focusing now on an interior mesh cell, $c$, and the $N_P$ \B{i} that are non-zero in that cell, we now go about defining all of the terms of \eqt{eq:mip_b}.  First, we consider the volumetric integration terms, defining
 \benum
@@ -509,21 +510,28 @@ They are:
 \begin{subequations}
 \beanum
  \left( \kappa_{1/2}\Delta \phi , \B{*} \right) &=& \kappa_{1/2} \vec{L}^T \vec{L} \vec{\Delta \phi}_1 \\
-\left( \Delta \phi , D \partial_n \B{*} \right) &=& \frac{2 D(x_{1/2}^+}{\Delta x_1} \vec{L}_s^T \vec{L} \vec{\Delta \phi}_1 \\
-\left( D \partial_n \Delta \phi , \B{*} \right) &=& \frac{2 D(x_{1/2}) }{\Delta x_1} \vec{L}^T \vec{L}_s \vec{\Delta \phi}_1 \pep
+\left( \Delta \phi , D \partial_n \B{*} \right) &=& \frac{2 D(x_{1/2}^+)}{\Delta x_1} \vec{L}_s^T \vec{L} \vec{\Delta \phi}_1 \\
+\left( D \partial_n \Delta \phi , \B{*} \right) &=& \frac{2 D(x_{1/2}^+) }{\Delta x_1} \vec{L}^T \vec{L}_s \vec{\Delta \phi}_1 \pep
 \eeanum
 \end{subequations}
-Combing with the cell integral quantities, for problems with an incident flux boundary condition, the leftmost cell equation is
+Combing with the cell integral quantities, and the interior edge terms, for problems with an incident flux boundary condition, the leftmost cell equations are
 \begin{multline}
-\R{\Sigma_a} \vec{\Delta \phi}_1 + \mathbf{S}\vec{\Delta \phi}_1 \\
-\kappa_{1/2} \vec{L}^T \vec{L} \vec{\Delta \phi}_1 - \frac{D(x_{1/2}^+}{\Delta x_1} \vec{L}_s^T \vec{L} \vec{\Delta \phi}_1 - \frac{D(x_{1/2}) }{\Delta x_1} \vec{L}^T \vec{L}_s \vec{\Delta \phi}_1 \\
-= \R{\Sigma_s}\left(  \vec{\phi}^{(\ell+1/2)}_1 - \vec{\phi}^{(\ell)}_1 \right) \pep
+\R{\Sigma_a} \vec{\Delta \phi}_1 + \mathbf{S}\vec{\Delta \phi}_1 +
+\kappa_{1/2} \vec{L}^T \vec{L} \vec{\Delta \phi}_1 - \frac{D(x_{1/2}^+)}{\Delta x_1} \vec{L}_s^T \vec{L} \vec{\Delta \phi}_1 - \frac{D(x_{1/2}^+) }{\Delta x_1} \vec{L}^T \vec{L}_s \vec{\Delta \phi}_1 \\
+-\kappa_{3/2}\vec{R}^T\left( \vec{L} \vec{\Delta \phi}_2 - \vec{R} \vec{\Delta \phi}_1 \right) + 
+\frac{D(x_{3/2}^-)} {\Delta x_1}\vec{R}_s^T \left( \vec{L} \vec{\Delta \phi}_2 - \vec{R} \vec{\Delta \phi}_1 \right) \\
+-\vec{R}^T\left( \frac{D(x_{3/2}^-)}{\Delta x_1}\vec{R}_s \vec{\Delta \phi}_1 + \frac{D(x_{3/2}^+)}{\Delta x_2}\vec{L}_s \vec{\Delta \phi}_2 \right)
+ = \R{\Sigma_s}\left(  \vec{\phi}^{(\ell+1/2)}_1 - \vec{\phi}^{(\ell)}_1 \right) \pep
 \end{multline}
 
 If the left edge satisfies a reflective condition, the leftmost cell equations are:
-\benum
-\R{\Sigma_a} \vec{\Delta \phi}_1 + \mathbf{S}\vec{\Delta \phi}_1 =  \R{\Sigma_s}\left(  \vec{\phi}^{(\ell+1/2)}_1 - \vec{\phi}^{(\ell)}_1 \right) + C_{MIP} \vec{L}^T\pec
-\eenum
+\begin{multline}
+\R{\Sigma_a} \vec{\Delta \phi}_1 + \mathbf{S}\vec{\Delta \phi}_1 
+-\kappa_{3/2}\vec{R}^T\left( \vec{L} \vec{\Delta \phi}_2 - \vec{R} \vec{\Delta \phi}_1 \right) + \\
+\frac{D(x_{3/2}^-)} {\Delta x_1}\vec{R}_s^T \left( \vec{L} \vec{\Delta \phi}_2 - \vec{R} \vec{\Delta \phi}_1 \right) \\
+-\vec{R}^T\left( \frac{D(x_{3/2}^-)}{\Delta x_1}\vec{R}_s \vec{\Delta \phi}_1 + \frac{D(x_{3/2}^+)}{\Delta x_2}\vec{L}_s \vec{\Delta \phi}_2 \right)
+\\=  \R{\Sigma_s}\left(  \vec{\phi}^{(\ell+1/2)}_1 - \vec{\phi}^{(\ell)}_1 \right) + C_{MIP} \vec{L}^T\pec
+\end{multline}
 where $C_{MIP}$ is the incident partial current,
 \benum
 C_{MIP} = 2\pi \sum_{\mu_d >0}{w_d \mu_d \psi_d^{(\ell+1/2)} } \pep

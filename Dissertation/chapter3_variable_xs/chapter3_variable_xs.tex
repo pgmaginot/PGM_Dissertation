@@ -20,7 +20,7 @@
 
 For many problems of interest to the nuclear science and engineering community, macroscopic cross sections in neutronics and opacities in radiative transfer calculations cannot accurately be described as piecewise constants in space.  
 Cross sections and opacities are functions of continuously varying quantities such as temperature, density, burn-up history, etc. \cite{xs_are_T_dependent}.
-An examples simulation that is not be adequately described with cell-wise constant cross sections includes nuclear reactor isotopic depletion calculations.
+An example simulation that is not adequately described with cell-wise constant cross sections includes nuclear reactor isotopic depletion calculations.
 In thermal radiative transfer, interaction opacities can be rapidly varying functions of temperature.  
 For example, consider Marshak wave problems and the canonical $T^{-3}$ dependence \cite{ober_shadid} of absorption opacity, 
 Across cells near the heated/cold material interface, opacity variations of several orders of magnitude are easily possible.
@@ -775,7 +775,7 @@ Figure \ref{fig:cxs_blades_psi} and \fig{fig:cxs_blades_ir} does not suggest tha
 Rather, comparing the CXS DFEM $\widetilde{\psi}(x)$to $\psi_C(x)$ in \fig{fig:cxs_blades_psi} and $\widetilde{IR}(x)$ to $IR_C(x)$ in \fig{fig:cxs_blades_ir}, we see that CXS DFEM  is very accurate when compared to the analytic solution of the problem CXS DFEM is solving, a pure absorber with cell-wise constant cross section.
 %
 Given the poor accuracy of CXS DFEM in approximating the true $\psi(x)$ and $IR(x)$, we wish to see how a scheme that does not assume a cell-wise constant cross section behaves.
-Consider $\widetilde{\psi}(x)$ and $\widetilde{IR}(x)$ obtained with SLXS Lobatto using a linear DFEM trial space and five spatial cells, shown in \fig{fig:lobatto_blades_psi} amd \fig{fig:lobatto_blades_ir}, for the same problem.  
+Consider $\widetilde{\psi}(x)$ and $\widetilde{IR}(x)$ obtained with SLXS Lobatto using a linear DFEM trial space and five spatial cells, shown in \fig{fig:lobatto_blades_psi} and \fig{fig:lobatto_blades_ir}, for the same problem.  
 In \fig{fig:lobatto_blades_psi}, the differences between the angular flux solutions obtained using (1) a cell-wise constant cross section (CXS DFEM) and (2) evaluating cross section values at quadrature points (SLXS Lobatto) are small.
 \begin{figure}[!htp]
 \centering
@@ -804,7 +804,7 @@ Thus, the poor accuracy of CXS DFEM relative to SLXS Lobatto is entirely caused 
 
 The ``blading'' in $\widetilde{IR}(x)$ has not previously been reported in neutron transport or thermal radiative transport community literature.
 We are likely not the first to have generated these large, non-monotonic discontinuities. 
-In fact, we believe that blading has frequently been present in DFEM both neutron transport and thermal radiatve transfer simulations but has likely gone unnoticed due to the prevalence of linear DFEM and simplified data visualization using cell midpoint values.
+In fact, we believe that blading has frequently been present in DFEM both neutron transport and thermal radiative transfer simulations but has likely gone unnoticed due to the prevalence of linear DFEM and simplified data visualization using cell midpoint values.
 
 To demonstrate that a minor choice in data presentation can obscure the existence of blading, consider \fig{fig:cxs_avg_psi} and \fig{fig:cxs_avg_ir} that linearly interpolate between $\widetilde{\psi}_{A,i}$ and  $\widetilde{IR}_{A,i}$ plotted at cell centers.
 Though \fig{fig:cxs_avg_psi} is visually indistinguishable from \fig{fig:cxs_blades_psi}, the blading of $\widetilde{IR}(x)$ present in \fig{fig:cxs_blades_ir} is not at all visually present in \fig{fig:cxs_avg_ir}.
