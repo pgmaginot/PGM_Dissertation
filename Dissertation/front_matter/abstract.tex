@@ -20,10 +20,22 @@
 \pagenumbering{roman} % Roman numerals
 \setcounter{page}{2}
 
-\indent Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus quam, condimentum quis bibendum eu, sollicitudin eget lacus. Praesent non sodales odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla ac luctus sapien. Morbi cursus sapien eget lorem fermentum hendrerit. Nam ac erat dui, in cursus velit. Vivamus hendrerit porttitor nisi, ut porttitor lorem volutpat eget. In ligula ligula, euismod ut condimentum sit amet, pulvinar sit amet diam. Pellentesque interdum, ipsum ullamcorper consequat dignissim, sem arcu egestas mauris, vitae interdum sem tortor ut ante. Nunc blandit laoreet nisi, non rutrum lorem hendrerit quis. Cras nunc diam, convallis et feugiat at, auctor id libero. Nunc facilisis massa eu eros imperdiet vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec non velit vitae tortor blandit semper.
+\indent The linear discontinuous finite element method (LDFEM) is the current work horse of the radiation transport community.  
+The popularity of LDFEM is a result of LDFEM (and its $Q^1$ multi-dimensional extensions) being both accurate and preserving the thick diffusion limit.
+In practice, the LDFEM equations must be ``lumped'' to mitigate negative radiation transport solutions.
+Negative solutions are non-physical, but are inherent to the mathematics of LDFEM and other spatial discretizations.
 
-Etiam vitae dolor nulla. Ut eros odio, rhoncus eget placerat vitae, elementum ac ante. Proin vitae odio eu nisl pharetra mattis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus fermentum lacus consectetur neque consequat ullamcorper. Cras blandit urna non dui consequat molestie. Curabitur viverra nibh at nisi semper faucibus. Nam egestas mauris a enim dignissim nec consectetur tortor rutrum. Mauris at nisi in est luctus congue ut mattis est. Ut pretium, mi quis elementum cursus, ante eros suscipit ligula, ut porttitor elit leo sed turpis. Nam sed dui ligula.
+Ongoing changes in high performance computing (HPC) are dictating a preference for increased numbers of floating point operations (FLOPS) per unknown.
+Higher order discontinuous finite element methods (DFEM), those with polynomial trial spaces greater than linear, have been found to offer more accuracy per unknown than LDFEM.
+However, DFEM with higher degree trial spaces have received only limited attention due to their increased computational time per unknown, LDFEM's preservation of the thick diffusion limit, and the relative accuracy of LDFEM compared to other historical spatial discretizations.
+As solution methods evolve to make the most efficient use of HPC, it is possible that the increased computational work of higher order DFEM may become a strength rather than a hindrance.
 
- 
+For higher order DFEM to be useful in practice, lumping techniques must be developed to inhibit negative radiation transport solutions.
+We will show that traditional mass matrix lumping does not guarantee positive solutions and limits the overall accuracy of the DFEM scheme.
+To solve this problem, we propose a new, quadrature based, self-lumping technique.
+Our self-lumping technique does not limit solution order of convergence, improves solution positivity, and can be easily adapted to account for the within cell variation of interaction cross section.
+To test and demonstrate the characteristics of our self-lumping methodology, we apply our schemes to several test problems: a homogeneous, source-free pure absorber; a pure absorber with spatially varying cross section; a model fuel depletion problem; and finally, we solve the grey thermal radiative transfer equations.
+
+
 
 \pagebreak{}

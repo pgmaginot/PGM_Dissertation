@@ -223,11 +223,6 @@ E.~M. Gelbard and L.~A. Hageman.
 \newblock Synthetic methods as applied to {$S_N$} equations.
 \newblock {\em Nuclear Science and Engineering}, 37(2):288--298, 1969.
 
-\bibitem{tsa}
-G.~L. Ramone, M.~L. Adams, and P.~F. Nowak.
-\newblock A transport synthetic accleration method for transport iterations.
-\newblock {\em Nuclear Science and Engineering}, 125:257--283, 1997.
-
 \bibitem{adams_dsa}
 M.~L. Adams and W.~R. Martin.
 \newblock Diffusion synthetic acceleration of discontinuous finite element

@@ -579,7 +579,7 @@ Additionally, we see that MIP DSA achieves a $\rho$ similar to that given in Fig
 Likewise, our S2SA implementation estimates $\rho \leq \approx 0.2$, which agrees well with the Fourier analysis of \cite{s2sa} a true spectral radius of $0.2127c$.  Since the analysis of \cite{s2sa} is for an infinite medium, we expect our estimate of $\rho$ to be less.
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=12cm]{chapter4_acceleration/Constant_XS_SN8_P1_Gauss_Solvers.png}
+\includegraphics[width=12cm]{chapter4_acceleration/Const_2_Constant_XS_SN8_P1_Gauss_Solvers.png}
 \caption{Estimates of $\rho$ for different iterative techniques for $S_8$, $c=0.999$, linear SL Gauss.}
 \label{fig:p1_gauss}
 \end{figure}
@@ -682,146 +682,155 @@ Regardless of $c$, $P$, $\Sigma_t \Delta x$, and $S_N$ order, we numerically ver
 
 
 In \fig{fig:mip_gauss_as_fun_sn} and \fig{fig:mip_lobatto_as_fun_sn} we compare $\rho$ for MIP DSA as a function of $S_N$ order, for linear SL Gauss and linear SL  Lobatto, respectively, with $c=0.999$.
-\begin{figure}[!hbp]
+As with S2SA, the higher $S_N$ order, the larger $\rho$ is for the MIP DSA scheme. 
+However, the value of $\rho$ obtained with $S_8$ is only slightly smaller than the $\rho$ of $S_{16}$, and as such we prefer the reduced computational work of $S_8$ simulations to $S_{16}$ in examining iterative effectiveness.  
+Figures \ref{fig:mip_gauss_as_fun_sn}-\ref{fig:mip_lobatto_as_fun_sn} also exhibit $\rho$ dips associated with insufficient iteration to converge to the correct $\rho$. 
+ 
+\vfill{}
+
+\begin{figure}[!htp]
 \centering
-\includegraphics[width=11cm]{chapter4_acceleration/Constant_XS_sn_comparions_MIP_Gauss.png}
+\includegraphics[width=10cm]{chapter4_acceleration/Const_2_Constant_XS_sn_comparions_MIP_Gauss.png}
 \caption{Estimate of $\rho$ for MIP DSA as a function of  $S_N$ order for $c=0.999$ linear SL Gauss.}
 \label{fig:mip_gauss_as_fun_sn}
 \end{figure}
-%
-%
-%
-%
-As with S2SA, the higher $S_N$ order, the larger $\rho$ is for the MIP DSA scheme. 
-However, the value of $\rho$ obtained with $S_8$ is only slightly smaller than the $\rho$ of $S_{16}$, and as such we prefer the reduced computational work of $S_8$ simulations to $S_{16}$ in examining iterative effectiveness.  
-Figures \ref{fig:mip_gauss_as_fun_sn}-\ref{fig:mip_lobatto_as_fun_sn} also exhibit $\rho$ dips associated with insufficient iteration to converge to the correct $\rho$.  
-\vfill{}
-\begin{figure}[!htp]
+
+\begin{figure}[!hbp]
 \centering
-\includegraphics[width=11cm]{chapter4_acceleration/Constant_XS_sn_comparions_MIP_Lobatto.png}
+\includegraphics[width=10cm]{chapter4_acceleration/Const_2_Constant_XS_sn_comparions_MIP_Lobatto.png}
 \caption{Estimate of $\rho$ for MIP DSA as a function of  $S_N$ order for $c=0.999$ linear SL Lobatto.}
 \label{fig:mip_lobatto_as_fun_sn}
 \end{figure}
+
+
 Figure \ref{fig:mip_gauss_as_fun_c} and \fig{fig:mip_lobatto_as_fun_c} examine the effect of $c$ on $\rho$ for MIP DSA with the linear SL Gauss and SL Lobatto schemes.
 The general trend is that as $c\to 1$, the larger the estimate of $\rho$.
 However, we are most concerned about the large spikes in $\rho$ for $c=0.9999$ for $\Sigma_t \Delta x \in [10,100]$.
 Allowing for the possibility that the ending $\rho$ estimate was not converged, we plot the average $\rho$ found while iterating for SL Gauss in \fig{fig:mip_gauss_as_fun_c_bar} and for SL Lobatto in \fig{fig:mip_lobatto_as_fun_c_bar}.
 While the averaging of $\rho$ does eliminate the most worrisome spike in $\rho$, the spike SL Lobatto exhibits in \fig{fig:mip_lobatto_as_fun_c} that approaches unity, not all spikes are  eliminated.  
-It is as this point that we remember that the MIP DSA scheme uses a constant, $\kappa_{IP}$, which depends on an arbitrarily chosen constant.  In all of the results that have presented to this point, we have assumed that made an assumption regarding $Z_{MIP}$ of \eqt{eq:kappa_def}, $Z_{MIP} =2$.
+It is as this point that we remember that the MIP DSA scheme uses a constant, $\kappa_{IP}$, which depends on a chosen constant.  In all of the results that have presented to this point, we have assumed that $Z_{MIP}$ of \eqt{eq:kappa_def}, $Z_{MIP} =2$.
 Just as Wang did in his dissertation\cite{yaqi_dissertation}, we now consider $Z_{MIP}=4$.  
-\newpage
-\begin{figure}[!htp]
+Estimates of $\rho$ for MIP DSA as a function of $c$ for SL Gauss and SL Lobatto, with $Z_{MIP}=4$ are given in \fig{fig:mip_gauss_as_fun_c_z4} and \fig{fig:mip_lobatto_as_fun_c_z4}, respectively.
+\begin{figure}[!hbp]
 \centering
 \includegraphics[width=10cm]{chapter4_acceleration/Const_2_Constant_XS_c_comparions_MIP_Gauss.png}
 \caption{Estimate of $\rho$ for MIP DSA as a function of $c$  for  $S_8$  linear SL Gauss.}
 \label{fig:mip_gauss_as_fun_c}
 \end{figure}
 %
+
 %
-\begin{figure}[!hbp]
+\begin{figure}[!htp]
 \centering
 \includegraphics[width=10cm]{chapter4_acceleration/Const_2_Constant_XS_c_comparions_MIP_Lobatto.png}
 \caption{Estimate of $\rho$ for MIP DSA as a function of $c$  for  $S_8$  linear SL Lobatto.}
 \label{fig:mip_lobatto_as_fun_c}
 \end{figure}
 %
-%
-\begin{figure}[!htp]
+%  this is fig 4.14
+\begin{figure}[!hbp]
 \centering
 \includegraphics[width=10cm]{chapter4_acceleration/Const_2_bar_Constant_XS_c_comparions_MIP_Gauss.png}
 \caption{Average estimate of $\rho$ for MIP DSA as a function of $c$  for  $S_8$  linear SL Gauss during iteration process.}
 \label{fig:mip_gauss_as_fun_c_bar}
 \end{figure}
-%
-\begin{figure}[!hbp]
+
+% figure 4.15
+
+\begin{figure}[!htp]
 \centering
 \includegraphics[width=10cm]{chapter4_acceleration/Const_2_bar_Constant_XS_c_comparions_MIP_Lobatto.png}
 \caption{Average estimate of $\rho$ for MIP DSA as a function of $c$  for  $S_8$  linear SL Lobatto during iteration process.}
 \label{fig:mip_lobatto_as_fun_c_bar}
 \end{figure}
-%
-\pagebreak
-%
-\begin{figure}[!htp]
+
+% figure 4.16
+\begin{figure}[!hbp]
 \centering
 \includegraphics[width=10cm]{chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Gauss.png}
 \caption{$\rho$ for MIP DSA as a function of $c$  for  $S_8$  linear SL Gauss, $Z_{MIP}=4$.}
 \label{fig:mip_gauss_as_fun_c_z4}
 \end{figure}
-%
-%
-\begin{figure}[!hbp]
+
+% figure 4.17
+\begin{figure}[!htp]
 \centering
 \includegraphics[width=10cm]{chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Lobatto.png}
 \caption{$\rho$ for MIP DSA as a function of $c$  for  $S_8$  linear SL Lobatto, $Z_{MIP}=4$.}
 \label{fig:mip_lobatto_as_fun_c_z4}
 \end{figure}
-%
-\pagebreak
-%
 
-Estimates of $\rho$ for MIP DSA as a function of $c$ for SL Gauss and SL Lobatto, with $Z_{MIP}=4$ are given in \fig{fig:mip_gauss_as_fun_c_z4} and \fig{fig:mip_lobatto_as_fun_c_z4}, respectively.
-The differences between \figs{fig:mip_gauss_as_fun_c}{fig:mip_lobatto_as_fun_c} and \figs{fig:mip_gauss_as_fun_c_z4}{fig:mip_lobatto_as_fun_c_z4} is relatively small.  With $Z_{MIP}=4$, SL Gauss maintains the optically thin limit of $\rho$ for larger values of $\Sigma_t \Delta x$, but does not display the large spike before $\Sigma_t \Delta x =1$.
+There are small, but important differences between \figs{fig:mip_gauss_as_fun_c}{fig:mip_lobatto_as_fun_c} and \figs{fig:mip_gauss_as_fun_c_z4}{fig:mip_lobatto_as_fun_c_z4} .  With $Z_{MIP}=4$ in \fig{fig:mip_gauss_as_fun_c_z4} SL Gauss maintains the optically thin limit of $\rho$ for larger values of $\Sigma_t \Delta x$, smoothing out the spike near $\Sigma_t \Delta x=10$, and does not display as large of a spike near $\Sigma_t \Delta x =100$.
 With $Z_{MIP}=4$, SL Lobatto displays a modest, smooth increase in $\rho$ over a large range of $\Sigma_t \Delta x$, but eliminates the spikes in $\rho$ present in the optically thick regions of $\Sigma_t \Delta x$ for $Z_{MIP}=2$ in \fig{fig:mip_lobatto_as_fun_c} and \fig{fig:mip_lobatto_as_fun_c_bar}.
-To determine whether the small spikes in $\rho$ for $\Sigma_t \Delta x \geq 100$ in \fig{fig:mip_gauss_as_fun_c_z4} are a spurious result of our iterative process, we plot the average $\rho$ achieved during the iteration process for SL Gauss with $Z_{MIP}=4$ in \fig{fig:mip_gauss_as_fun_c_z4_bar}.
-\begin{figure}[!hbp]
-\centering
-\includegraphics[width=10cm]{chapter4_acceleration/Const_4_bar_Constant_XS_c_comparions_MIP_Gauss.png}
-\caption{Average estimate  of $\rho$ during iteration for MIP DSA as a function of $c$  for  $S_8$  linear SL Gauss, with $Z_{MIP}=4$.}
-\label{fig:mip_gauss_as_fun_c_z4_bar}
-\end{figure}
-The averaging of \fig{fig:mip_gauss_as_fun_c_z4_bar} mitigates some of the spikes seen in \fig{fig:mip_gauss_as_fun_c_z4}, but does not eliminate them.
+%To determine whether the small spikes in $\rho$ for $\Sigma_t \Delta x \geq 100$ in \fig{fig:mip_gauss_as_fun_c_z4} are a spurious result of our iterative process, we plot the average $\rho$ achieved during the iteration process for SL Gauss with $Z_{MIP}=4$ in \fig{fig:mip_gauss_as_fun_c_z4_bar}.
+%\begin{figure}[!hbp]
+%\centering
+%\includegraphics[width=10cm]{chapter4_acceleration/Const_4_bar_Constant_XS_c_comparions_MIP_Gauss.png}
+%\caption{Average estimate  of $\rho$ during iteration for MIP DSA as a function of $c$  for  $S_8$  linear SL Gauss, with $Z_{MIP}=4$.}
+%\label{fig:mip_gauss_as_fun_c_z4_bar}
+%\end{figure}
+%The averaging of \fig{fig:mip_gauss_as_fun_c_z4_bar} mitigates some of the spikes seen in \fig{fig:mip_gauss_as_fun_c_z4}, but does not eliminate them.
+Thus, it seems likely that choosing $Z_{MIP}=2$ may provide insufficient numerical diffusion for guaranteed stability in slab geometry. 
 
-Finally, having determined that $c=0.999$ and $S_8$ will yield nearly maximal $\rho$, we calculate $\rho$ as a function of $P$ for MIP DSA acceleration of SL Gauss and SL Lobatto transport spatial discretizations in \fig{fig:mip_gauss} and \fig{fig:mip_lobatto}, respectively, using $Z_{MIP}=2$.  
+
+Having determined that $c=0.999$ and $S_8$ will yield nearly maximal $\rho$, we calculate $\rho$ as a function of $P$ for MIP DSA acceleration of SL Gauss and SL Lobatto transport spatial discretizations in \fig{fig:mip_gauss} and \fig{fig:mip_lobatto}, respectively, using $Z_{MIP}=2$.  
+Unfortunately, it appears that MIP DSA is may guaranteed to be convergent for all $P$ for SL Lobatto and SL Gauss when $Z_{MIP}=2$.  
+Hoping that this is a result of the end iterate for $\rho$ is not yet converged, we plot the average $\rho$ observed during the iteration process in \fig{fig:mip_gauss_c2_bar} and \fig{fig:mip_lobatto_c2_bar} for SL Gauss and SL Lobatto, respectively.  
+
+\newpage
+
+% 4.18
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Gauss.png}
+\includegraphics[width=9.5cm]{chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Gauss.png}
 \caption{Estimate of $\rho$ for MIP DSA as a function of $P$ for  $S_8$, $c=0.999$, SL Gauss with $Z_{MIP}=2$.}
 \label{fig:mip_gauss}
 \end{figure}
 %
-Unfortunately, it appears that MIP DSA is not guaranteed to be convergent for all $P$ for SL Lobatto and SL Gauss.  
-Hoping that this is a result of the end iterate for $\rho$ is not yet converged, we plot the average $\rho$ observed during the iteration process in \fig{fig:mip_gauss_c2_bar} and \fig{fig:mip_lobatto_c2_bar} for SL Gauss and SL Lobatto, respectively.  
-Figures \ref{fig:mip_gauss_c2_bar}-\ref{fig:mip_lobatto_c2_bar} unfortunately confirm that convergence is not guaranteed for $Z_{MIP}=2$.
-Seeking a solution that guarantees $\rho < 1$ for all values of $\Sigma_t \Delta x$ and $P$, we now examine the effect of choosing $Z_{MIP}=4$ in \figs{fig:mip_gauss_z4}{fig:mip_lobatto_z4}.
-In \figs{fig:mip_gauss_z4}{fig:mip_lobatto_z4}, both SL Gauss and SL Lobatto remain convergent for all values of $\Sigma_t \Delta x$ for $P\in[1,4]$, when $Z_{MIP}=4$.  
-As such, moving forward we will assume $Z_{MIP} = 4$.
-%
-\begin{figure}[!htp]
+\begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Lobatto.png}
+\includegraphics[width=9.5cm]{chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Lobatto.png}
 \caption{Estimate of $\rho$ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$,  SL Lobatto with $Z_{MIP}=2$.}
 \label{fig:mip_lobatto}
 \end{figure}
-%
-%
-%
-\begin{figure}[!hbp]
+
+\pagebreak
+
+%4.20
+\begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter4_acceleration/Const_2_bar_Constant_XS_SN8_MIP_Gauss.png}
+\includegraphics[width=9.5cm]{chapter4_acceleration/Const_2_bar_Constant_XS_SN8_MIP_Gauss.png}
 \caption{Average estimate of $\rho$ for MIP DSA during iteration, as a function of $P$ for  $S_8$, $c=0.999$, SL Gauss with $Z_{MIP}=2$.}
 \label{fig:mip_gauss_c2_bar}
 \end{figure}
 %
-\pagebreak
-
-%
-\begin{figure}[!htp]
+\begin{figure}[!hbp]
 \centering
 \includegraphics[width=9.5cm]{chapter4_acceleration/Const_2_bar_Constant_XS_SN8_MIP_Lobatto.png}
 \caption{Average estimate of $\rho$ for MIP DSA during iteration, as a function of $P$ with $S_8$, $c=0.999$,  SL Lobatto with $Z_{MIP}=2$.}
 \label{fig:mip_lobatto_c2_bar}
 \end{figure}
 
+\pagebreak
+
+Figures \ref{fig:mip_gauss_c2_bar}-\ref{fig:mip_lobatto_c2_bar} are still non-smooth, though the largest spikes are removed.
+Concerned that certain intermediate values of $\Sigma_t \Delta x$ for which we did not numerically estimate $\rho$ could result in a $\rho>1$, we seek a smoother curve for $\rho$ as a function of $\Sigma_t \Delta x$.
+Seeking a smoother curve for all values of $\Sigma_t \Delta x$ and $P$, we now examine the effect  using $Z_{MIP}=4$ in \figs{fig:mip_gauss_z4}{fig:mip_lobatto_z4}.
+In \figs{fig:mip_gauss_z4}{fig:mip_lobatto_z4}, SL Gauss and SL Lobatto yield smoother curves for $\rho$ as a function of $\Sigma_t \Delta x$ for $P\in[1,4]$.  
+However, there is an undesirable spike for SL Lobatto near $\Sigma_t \Delta x =100$.
+As shown in \fig{fig:mip_lobatto_z4_bar}, averaging effectively eliminates the spike, suggesting that MIP DSA with $Z_{MIP}=4$ remains iteratively effective for SL Lobatto, for all $P$ for the case of spatially constant cross section.
 %
-\begin{figure}[!hbp]
+%
+%
+%
+\begin{figure}[!htp]
 \centering
 \includegraphics[width=9.5cm]{chapter4_acceleration/Const_4_Constant_XS_SN8_MIP_Gauss.png}
 \caption{$\rho$ for MIP DSA as a function of $P$ for  $S_8$, $c=0.999$, SL Gauss with $Z_{MIP}=4$.}
 \label{fig:mip_gauss_z4}
 \end{figure}
 %
-
+\vfill{}
 %
 \begin{figure}[!htp]
 \centering
@@ -829,6 +838,13 @@ As such, moving forward we will assume $Z_{MIP} = 4$.
 \caption{Estimates of $\rho$ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$,  SL Lobatto with $Z_{MIP}=4$.}
 \label{fig:mip_lobatto_z4}
 \end{figure}
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=9.5cm]{chapter4_acceleration/Const_4_bar_Constant_XS_SN8_MIP_Lobatto.png}
+\caption{Average estimate of $\rho$ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$,  SL Lobatto with $Z_{MIP}=4$.}
+\label{fig:mip_lobatto_z4_bar}
+\end{figure}
+
 
 \subsection{Spatially Varying Cross Section Scattering Problem}
 \label{sec:chap4_variable_xs}

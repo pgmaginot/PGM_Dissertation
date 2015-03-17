@@ -92,22 +92,22 @@
 \contentsline {figure}{\numberline {4.9}{\ignorespaces Estimates of $\rho $ for S2SA as a function of $S_8$, $c=0.999$, SL Lobatto as a function of trial space degree.}}{123}
 \contentsline {figure}{\numberline {4.10}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $S_N$ order for $c=0.999$ linear SL Gauss.}}{124}
 \contentsline {figure}{\numberline {4.11}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $S_N$ order for $c=0.999$ linear SL Lobatto.}}{124}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Gauss.}}{126}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Gauss.}}{125}
 \contentsline {figure}{\numberline {4.13}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Lobatto.}}{126}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Average estimate of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Gauss during iteration process.}}{127}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Average estimate of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Gauss during iteration process.}}{126}
 \contentsline {figure}{\numberline {4.15}{\ignorespaces Average estimate of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Lobatto during iteration process.}}{127}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Gauss, $Z_{MIP}=4$.}}{128}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Gauss, $Z_{MIP}=4$.}}{127}
 \contentsline {figure}{\numberline {4.17}{\ignorespaces $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Lobatto, $Z_{MIP}=4$.}}{128}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Average estimate of $\rho $ during iteration for MIP DSA as a function of $c$ for $S_8$ linear SL Gauss, with $Z_{MIP}=4$.}}{129}
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Gauss with $Z_{MIP}=2$.}}{130}
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Lobatto with $Z_{MIP}=2$.}}{131}
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Average estimate of $\rho $ for MIP DSA during iteration, as a function of $P$ for $S_8$, $c=0.999$, SL Gauss with $Z_{MIP}=2$.}}{131}
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Average estimate of $\rho $ for MIP DSA during iteration, as a function of $P$ with $S_8$, $c=0.999$, SL Lobatto with $Z_{MIP}=2$.}}{132}
-\contentsline {figure}{\numberline {4.23}{\ignorespaces $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Gauss with $Z_{MIP}=4$.}}{132}
-\contentsline {figure}{\numberline {4.24}{\ignorespaces Estimates of $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Lobatto with $Z_{MIP}=4$.}}{133}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Gauss with $Z_{MIP}=2$.}}{129}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Lobatto with $Z_{MIP}=2$.}}{129}
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Average estimate of $\rho $ for MIP DSA during iteration, as a function of $P$ for $S_8$, $c=0.999$, SL Gauss with $Z_{MIP}=2$.}}{130}
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Average estimate of $\rho $ for MIP DSA during iteration, as a function of $P$ with $S_8$, $c=0.999$, SL Lobatto with $Z_{MIP}=2$.}}{130}
+\contentsline {figure}{\numberline {4.22}{\ignorespaces $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Gauss with $Z_{MIP}=4$.}}{131}
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Estimates of $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Lobatto with $Z_{MIP}=4$.}}{132}
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Average estimate of $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Lobatto with $Z_{MIP}=4$.}}{132}
 \contentsline {figure}{\numberline {4.25}{\ignorespaces Estimate of $\rho $ for S2SA as a function of $\overline {\Sigma _t \Delta x}$ and $P$, with SLXS Gauss.}}{134}
 \contentsline {figure}{\numberline {4.26}{\ignorespaces Estimate of $\rho $ for S2SA as a function of $\overline {\Sigma _t \Delta x}$ and $P$, with SLXS Lobatto.}}{135}
-\contentsline {figure}{\numberline {4.27}{\ignorespaces Estimate of $\rho $ for MIP DSA with SLXS Gauss as a function of $\overline {\Sigma _t \Delta x}$ and $P$.}}{136}
+\contentsline {figure}{\numberline {4.27}{\ignorespaces Estimate of $\rho $ for MIP DSA with SLXS Gauss as a function of $\overline {\Sigma _t \Delta x}$ and $P$.}}{135}
 \contentsline {figure}{\numberline {4.28}{\ignorespaces Estimate of $\rho $ for MIP DSA with SLXS Lobatto as a function of $\overline {\Sigma _t \Delta x}$ and $P$.}}{136}
 \contentsline {figure}{\numberline {4.29}{\ignorespaces Estimate of $\rho $ for MIP DSA with SLXS Gauss as a function of $\overline {\Sigma _t \Delta x}$ and $P$.}}{137}
 \contentsline {figure}{\numberline {4.30}{\ignorespaces Estimate of $\rho $ for MIP DSA with SLXS Lobatto as a function of $\overline {\Sigma _t \Delta x}$ and $P$.}}{137}

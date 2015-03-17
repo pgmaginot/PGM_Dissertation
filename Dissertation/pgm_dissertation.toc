@@ -1,12 +1,12 @@
 
 \renewcommand {\cftchapleader } {\cftdotfill {4.5}}
 \contentsline {chapter}{ABSTRACT}{ii}
-\contentsline {chapter}{DEDICATION}{iii}
-\contentsline {chapter}{ACKNOWLEDGEMENTS}{iv}
-\contentsline {chapter}{NOMENCLATURE}{v}
-\contentsline {chapter}{TABLE OF CONTENTS}{vi}
-\contentsline {chapter}{LIST OF FIGURES}{ix}
-\contentsline {chapter}{LIST OF TABLES}{xviii}
+\contentsline {chapter}{DEDICATION}{iv}
+\contentsline {chapter}{ACKNOWLEDGEMENTS}{v}
+\contentsline {chapter}{NOMENCLATURE}{vi}
+\contentsline {chapter}{TABLE OF CONTENTS}{vii}
+\contentsline {chapter}{LIST OF FIGURES}{x}
+\contentsline {chapter}{LIST OF TABLES}{xix}
 \contentsline {chapter}{\numberline {1}\uppercase {Introduction}}{1}
 \vskip +10pt
 \contentsline {section}{\numberline {1.1}Simplifications of the Thermal Radiative Transfer Equations}{2}
@@ -51,7 +51,7 @@
 \vskip +10pt
 \contentsline {section}{\numberline {4.1}Iterative Solution of the Neutron Transport $S_N$ Equations}{97}
 \contentsline {section}{\numberline {4.2}Qualitative Comparison of Different Synthetic Acceleration Techniques}{100}
-\contentsline {section}{\numberline {4.3}$S_2$ Synthetic Acceleration}{103}
+\contentsline {section}{\numberline {4.3}$S_2$ Synthetic Acceleration}{102}
 \contentsline {section}{\numberline {4.4}Modified Interior Penalty Diffusion Synthetic Acceleration}{108}
 \contentsline {section}{\numberline {4.5}Numerical Results Verifying Implementation and Performance of S2SA and MIP DSA}{115}
 \contentsline {subsection}{\numberline {4.5.1}Spatially Constant Cross Section Scattering Problem}{116}
@@ -59,8 +59,8 @@
 \contentsline {subsubsection}{\numberline {4.5.1.2}MIP DSA Spectral Radius Sensitivity}{123}
 \contentsline {subsection}{\numberline {4.5.2}Spatially Varying Cross Section Scattering Problem}{133}
 \contentsline {subsubsection}{\numberline {4.5.2.1}S2SA}{134}
-\contentsline {subsubsection}{\numberline {4.5.2.2}MIP DSA}{135}
-\contentsline {section}{\numberline {4.6}Conclusions}{138}
+\contentsline {subsubsection}{\numberline {4.5.2.2}MIP DSA}{134}
+\contentsline {section}{\numberline {4.6}Conclusions}{136}
 \contentsline {chapter}{\numberline {5}\uppercase {Fuel Depletion Problem}}{139}
 \vskip +10pt
 \contentsline {section}{\numberline {5.1}Problem Physical Description}{139}
