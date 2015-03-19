@@ -83,54 +83,47 @@
 \vskip -10pt
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Estimates of $\rho $ for different iterative techniques for $S_8$, $c=0.999$, linear SL Gauss.}}{117}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Estimates of $\rho $ for different iterative techniques for $S_8$, $c=0.999$, linear SL Lobatto.}}{118}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Average value of $\rho $ during estimation, for different iterative techniques for $S_8$, $c=0.999$, with linear SL Lobatto spatial discretization.}}{119}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Estimate of $\rho $ for S2SA as a function of $S_N$ order for $c=0.999$ for linear SL Gauss.}}{120}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Estimate of $\rho $ for S2SA as a function of $S_N$ order for $c=0.999$ for linear SL Lobatto.}}{120}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Estimates of $\rho $ for S2SA as a function of $c$ for $S_8$ linear SL Gauss.}}{121}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Estimates of $\rho $ for S2SA as a function of $c$ for $S_8$ linear SL Lobatto.}}{121}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Estimates of $\rho $ for S2SA as a function of $S_8$, $c=0.999$, SL Gauss as a function of trial space degree.}}{122}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Estimates of $\rho $ for S2SA as a function of $S_8$, $c=0.999$, SL Lobatto as a function of trial space degree.}}{123}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $S_N$ order for $c=0.999$ linear SL Gauss.}}{124}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $S_N$ order for $c=0.999$ linear SL Lobatto.}}{124}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Gauss.}}{125}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Lobatto.}}{126}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Average estimate of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Gauss during iteration process.}}{126}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Average estimate of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Lobatto during iteration process.}}{127}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Gauss, $Z_{MIP}=4$.}}{127}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Lobatto, $Z_{MIP}=4$.}}{128}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Gauss with $Z_{MIP}=2$.}}{129}
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Lobatto with $Z_{MIP}=2$.}}{129}
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Average estimate of $\rho $ for MIP DSA during iteration, as a function of $P$ for $S_8$, $c=0.999$, SL Gauss with $Z_{MIP}=2$.}}{130}
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Average estimate of $\rho $ for MIP DSA during iteration, as a function of $P$ with $S_8$, $c=0.999$, SL Lobatto with $Z_{MIP}=2$.}}{130}
-\contentsline {figure}{\numberline {4.22}{\ignorespaces $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Gauss with $Z_{MIP}=4$.}}{131}
-\contentsline {figure}{\numberline {4.23}{\ignorespaces Estimates of $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Lobatto with $Z_{MIP}=4$.}}{132}
-\contentsline {figure}{\numberline {4.24}{\ignorespaces Average estimate of $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Lobatto with $Z_{MIP}=4$.}}{132}
-\contentsline {figure}{\numberline {4.25}{\ignorespaces Estimate of $\rho $ for S2SA as a function of $\overline {\Sigma _t \Delta x}$ and $P$, with SLXS Gauss.}}{134}
-\contentsline {figure}{\numberline {4.26}{\ignorespaces Estimate of $\rho $ for S2SA as a function of $\overline {\Sigma _t \Delta x}$ and $P$, with SLXS Lobatto.}}{135}
-\contentsline {figure}{\numberline {4.27}{\ignorespaces Estimate of $\rho $ for MIP DSA with SLXS Gauss as a function of $\overline {\Sigma _t \Delta x}$ and $P$.}}{135}
-\contentsline {figure}{\numberline {4.28}{\ignorespaces Estimate of $\rho $ for MIP DSA with SLXS Lobatto as a function of $\overline {\Sigma _t \Delta x}$ and $P$.}}{136}
-\contentsline {figure}{\numberline {4.29}{\ignorespaces Estimate of $\rho $ for MIP DSA with SLXS Gauss as a function of $\overline {\Sigma _t \Delta x}$ and $P$.}}{137}
-\contentsline {figure}{\numberline {4.30}{\ignorespaces Estimate of $\rho $ for MIP DSA with SLXS Lobatto as a function of $\overline {\Sigma _t \Delta x}$ and $P$.}}{137}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Estimate of $\rho $ for S2SA as a function of $S_N$ order for $c=0.999$ for linear SL Gauss.}}{119}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Estimate of $\rho $ for S2SA as a function of $S_N$ order for $c=0.999$ for linear SL Lobatto.}}{119}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Estimates of $\rho $ for S2SA as a function of $c$ for $S_8$ linear SL Gauss.}}{120}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Estimates of $\rho $ for S2SA as a function of $c$ for $S_8$ linear SL Lobatto.}}{120}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Estimates of $\rho $ for S2SA as a function of $S_8$, $c=0.999$, SL Gauss as a function of trial space degree.}}{121}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Estimates of $\rho $ for S2SA as a function of $S_8$, $c=0.999$, SL Lobatto as a function of trial space degree.}}{121}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $S_N$ order for $c=0.999$ linear SL Gauss.}}{122}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $S_N$ order for $c=0.999$ linear SL Lobatto.}}{123}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Gauss.}}{124}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Lobatto.}}{124}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Gauss, $Z_{MIP}=4$.}}{125}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces $\rho $ for MIP DSA as a function of $c$ for $S_8$ linear SL Lobatto, $Z_{MIP}=4$.}}{125}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Gauss with $Z_{MIP}=2$.}}{126}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Estimate of $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Lobatto with $Z_{MIP}=2$.}}{127}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Gauss with $Z_{MIP}=4$.}}{128}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Estimates of $\rho $ for MIP DSA as a function of $P$ for $S_8$, $c=0.999$, SL Lobatto with $Z_{MIP}=4$.}}{128}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Estimate of $\rho $ for S2SA as a function of $\overline {\Sigma _t \Delta x}$ and $P$, with SLXS Gauss.}}{130}
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Estimate of $\rho $ for S2SA as a function of $\overline {\Sigma _t \Delta x}$ and $P$, with SLXS Lobatto.}}{131}
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Estimate of $\rho $ for MIP DSA with SLXS Gauss as a function of $\overline {\Sigma _t \Delta x}$ and $P$.}}{131}
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Estimate of $\rho $ for MIP DSA with SLXS Lobatto as a function of $\overline {\Sigma _t \Delta x}$ and $P$.}}{132}
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Depletion problem fuel/moderator lattice.}}{139}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Depletion problem possible transmutation paths and mechanisms.}}{141}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Example normalized scalar flux profiles at beginning and end of fuel burn-up cycle.}}{146}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Example normalized scalar flux profiles at beginning and end of fuel burn-up cycle.}}{147}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Normalized total scalar flux error for the depletion problem at end of cycle, for linear DFEM.}}{154}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Normalized total scalar flux error for the depletion problem at end of cycle, for quadratic DFEM.}}{155}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Normalized total scalar flux error for the depletion problem at end of cycle, for cubic DFEM.}}{155}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Normalized total scalar flux error for the depletion problem at end of cycle, for quartic DFEM.}}{156}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Normalized fissile nuclide density error for the depletion problem at end of cycle, for linear DFEM}}{157}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Normalized fissile nuclide density error for the depletion problem at end of cycle, for quadratic DFEM.}}{157}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Normalized fissile nuclide density error for the depletion problem at end of cycle, for cubic DFEM.}}{158}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Normalized fissile nuclide density error for the depletion problem at end of cycle, for quartic DFEM.}}{158}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Normalized fertile nuclide density error for the depletion problem at end of cycle, for linear DFEM.}}{159}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Normalized fertile nuclide density error for the depletion problem at end of cycle, for quadratic DFEM..}}{159}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Normalized fertile nuclide density error for the depletion problem at end of cycle, for cubic DFEM.}}{160}
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Normalized fertile nuclide density error for the depletion problem at end of cycle, for quartic DFEM.}}{160}
-\contentsline {figure}{\numberline {5.17}{\ignorespaces Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for linear DFEM.}}{161}
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for quadratic DFEM.}}{161}
-\contentsline {figure}{\numberline {5.19}{\ignorespaces Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for cubic DFEM.}}{162}
-\contentsline {figure}{\numberline {5.20}{\ignorespaces Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for quartic DFEM.}}{162}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Depletion problem fuel/moderator lattice.}}{134}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Depletion problem possible transmutation paths and mechanisms.}}{136}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Example normalized scalar flux profiles at beginning and end of fuel burn-up cycle.}}{141}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Example normalized scalar flux profiles at beginning and end of fuel burn-up cycle.}}{142}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Normalized total scalar flux error for the depletion problem at end of cycle, for linear DFEM.}}{149}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Normalized total scalar flux error for the depletion problem at end of cycle, for quadratic DFEM.}}{150}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Normalized total scalar flux error for the depletion problem at end of cycle, for cubic DFEM.}}{150}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Normalized total scalar flux error for the depletion problem at end of cycle, for quartic DFEM.}}{151}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Normalized fissile nuclide density error for the depletion problem at end of cycle, for linear DFEM}}{152}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Normalized fissile nuclide density error for the depletion problem at end of cycle, for quadratic DFEM.}}{152}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Normalized fissile nuclide density error for the depletion problem at end of cycle, for cubic DFEM.}}{153}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Normalized fissile nuclide density error for the depletion problem at end of cycle, for quartic DFEM.}}{153}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Normalized fertile nuclide density error for the depletion problem at end of cycle, for linear DFEM.}}{154}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Normalized fertile nuclide density error for the depletion problem at end of cycle, for quadratic DFEM..}}{154}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Normalized fertile nuclide density error for the depletion problem at end of cycle, for cubic DFEM.}}{155}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Normalized fertile nuclide density error for the depletion problem at end of cycle, for quartic DFEM.}}{155}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for linear DFEM.}}{156}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for quadratic DFEM.}}{156}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for cubic DFEM.}}{157}
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for quartic DFEM.}}{157}
+\addvspace {10\p@ }
 \addvspace {10\p@ }
