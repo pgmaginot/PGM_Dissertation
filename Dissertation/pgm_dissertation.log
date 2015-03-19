@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.18)  19 MAR 2015 16:06
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.2.18)  19 MAR 2015 17:23
 entering extended mode
 **pgm_dissertation.tex
 (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.tex
@@ -1806,22 +1806,26 @@ Overfull \hbox (13.003pt too wide) in paragraph at lines 901--910
 dimensionless_mass_matrix()\OT1/cmr/m/n/12 , and,
  []
 
-[188] [189] [190] [191]) [192]
+[188] [189] [190] [191]
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+ [192] [193] [194]) [195]
 (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter7_conclusions/chapt
 er7_conclusions.tex
 Chapter 7.
-) [193
+) [196
 
 
 
 ]
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.
 tex (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.bbl
-[194
+[197
 
 
 
-] [195] [196] [197] [198] [199])) [200]
+] [198] [199] [200] [201] [202])) [203]
 (E:\Documents\Research\PGM_Dissertation\Dissertation\pgm_dissertation.aux
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/titlepage.aux
 )
@@ -1849,38 +1853,34 @@ ter6_grey_radtran.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\chapter7_conclusions/chapt
 er7_conclusions.aux)
 (E:\Documents\Research\PGM_Dissertation\Dissertation\front_matter/bibliography.
-aux))
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+aux)) ) 
 Here is how much of TeX's memory you used:
- 6372 strings out of 493921
- 115285 string characters out of 3147273
- 172962 words of memory out of 3000000
- 9334 multiletter control sequences out of 15000+200000
+ 6378 strings out of 493921
+ 115411 string characters out of 3147273
+ 173032 words of memory out of 3000000
+ 9340 multiletter control sequences out of 15000+200000
  11648 words of font info for 44 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  34i,18n,33p,802b,287s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
-8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/hoekwa
-ter/stmary10.pfb>
-Output written on pgm_dissertation.pdf (220 pages, 2872636 bytes).
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/h
+oekwater/stmary10.pfb>
+Output written on pgm_dissertation.pdf (223 pages, 2879145 bytes).
 PDF statistics:
- 1150 PDF objects out of 1200 (max. 8388607)
+ 1160 PDF objects out of 1200 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  591 words of extra memory for PDF output out of 10000 (max. 10000000)
 

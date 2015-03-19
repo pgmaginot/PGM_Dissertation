@@ -126,4 +126,13 @@
 \contentsline {figure}{\numberline {5.19}{\ignorespaces Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for cubic DFEM.}}{157}
 \contentsline {figure}{\numberline {5.20}{\ignorespaces Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for quartic DFEM.}}{157}
 \addvspace {10\p@ }
+\vskip -10pt
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Convergence of $E_{\phi }$ for MMS1 using linear finite elements.}}{192}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Convergence of $E_{\phi }$ for MMS1 using quadratic finite elements.}}{193}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Convergence of $E_{\phi }$ for MMS1 using cubic finite elements.}}{193}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Convergence of $E_{\phi }$ for MMS1 using quartic finite elements.}}{193}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Convergence of $E_{T}$ for MMS1 using linear finite elements.}}{193}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Convergence of $E_{T}$ for MMS1 using quadratic finite elements.}}{193}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Convergence of $E_{T}$ for MMS1 using cubic finite elements.}}{193}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Convergence of $E_{T}$ for MMS1 using quartic finite elements.}}{193}
 \addvspace {10\p@ }

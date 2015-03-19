@@ -945,11 +945,94 @@ C_M &=& \sum_{d=1}^{N_{dir}} { w_d M(\mu_d) } \pep
 where $M(\mu_d)$ is as angular component of the intensity solution desired, $I_d(x,\mu_d,t)$; $F(t)$ is the time component of the MMS, chosen to be the same for intensity, temperature, and angle integrated intensity; $W_I(x)$ is the spatial component of the intensity, and $W_T(x)$ is the spatial component of the temperature solutions.
 $W_I(x)$ being the spatial component of $\phi$, and the definition of $C_M$ given in \eqts{eq:mms_solns} is required for the $S_N$ approximation to be true.
 
-\subsubsection{Linear Space - Linear Time}
+\subsubsection{Linear Space - Linear Time  }
+In our first mehtod of manufactured solutions problem, MMS1, we attempt to reproduce a TRT problem whose radiation and temperature solutions are linear in space and time.
+We use a non-dimensional form of the TRT, assuming that $a=c=1$, and for this problem we assume opacities are constant functions of space and temperature.
+We will impose the solution:
+\beanum
+M(\mu_d) &=& \frac{1}{4\pi} \\
+W_I(x) &=& 60 + x\\
+W_T(x) &=&  100 + 2x \\
+F(t) &=& 1+.02x \pep
+\eeanum
+Physically, $x\in[0,10]$, $C_v = 0.1$, $\sigma_a = 2.0$, $\sigma_s = 1.0$, we start the simulation at $t_0 = 0$, and use 20 equal time steps of length $\Delta t = 0.1$, with implicit Euler time differencing. 
+We evaluate $\vec{S}_I$ and $\vec{S}_T$ using the spatially analytic definitions of $S_I$ and $S_T$ respectively, and numerically integrate the source moments using a $N_q$ Gauss-Legendre quadrature points, with $N_q = 2N_P + 5$, and $N_P$ is as defined before, the number of DFEM interpolation points.
 
-\subsubsection{Linear Space - Sinusoidal Time}
+We will consider three DFEM, SL Lobatto, SL Gauss, and TL, and compare each method’s accuracy in calculating the discrete $L_2$ norm of the error in angle integrated intensity, $E_{\phi} = \norm{ \widetilde{\phi}(x) - \phi(x)}_{L^2}$, and the $L_2$ error in temperature, $E_T = \norm{ \widetilde{T}(x) - T(x) }_{L^2}$.
+Figure \ref{fig:mms1_linear_phi}, \fig{fig:mms1_quadratic_phi}, \fig{fig:mms1_cubic_phi}, and \fig{fig:mms1_quartic_phi} respectively give the convergence of linear, quadratic, cubic, and quartic DFEM as a function of number of cells for the SL Lobatto, SL Gauss, and TL schemes for $E_{\phi}$.
+Analogous data for $E_{T}$ is given in \figs{fig:mms1_linear_temp}{fig:mms1_quartic_temp}.
+\begin{figure}[!ht]
+\centering
 
-\subsubsection{Sinusoidal Space - Linear Time}
+\caption{Convergence of $E_{\phi}$ for MMS1 using linear finite elements.}
+\label{fig:mms1_linear_phi}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+
+\caption{Convergence of $E_{\phi}$ for MMS1 using quadratic finite elements.}
+\label{fig:mms1_quadratic_phi}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+
+\caption{Convergence of $E_{\phi}$ for MMS1 using cubic finite elements.}
+\label{fig:mms1_cubic_phi}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+
+\caption{Convergence of $E_{\phi}$ for MMS1 using quartic finite elements.}
+\label{fig:mms1_quartic_phi}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+
+\caption{Convergence of $E_{T}$ for MMS1 using linear finite elements.}
+\label{fig:mms1_linear_temp}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+
+\caption{Convergence of $E_{T}$ for MMS1 using quadratic finite elements.}
+\label{fig:mms1_quadratic_temp}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+
+\caption{Convergence of $E_{T}$ for MMS1 using cubic finite elements.}
+\label{fig:mms1_cubic_temp}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+
+\caption{Convergence of $E_{T}$ for MMS1 using quartic finite elements.}
+\label{fig:mms1_quartic_temp}
+\end{figure}
+
+We make several observations regarding the above figures.  First, none of the linear DFEM schemes considered exactly achieves the imposed linear solution, as evidenced each method's non-zero errors.
+Second, we see a plateauing of errors above limits of machine precision.
+This plateauing of errors is a result of the nested nature of our TRT solution algorithm.
+Due to the nested iterations, we must use the tightest tolerance on the innermost solve, the intensity update.
+We terminate the innermost solve after reaching a certain pointwise change tolerance, $\epsilon_{inner}$, of the zero-th angular moment of the angle integrated intensity: 
+\benum
+\max_{j} { \abs{ \frac{\phi_{j}^{(\ell+1)} - \phi_j^{(\ell)} }{\phi_{j}^{(\ell+1)} } }  } < \epsilon_{inner} \pep
+\eenum
+Similarly, the thermal iteration of SDIRK stage $s$ is terminated when every temperature solution at the DFEM interpolation points, $T_j$,  changes less than $\epsilon_{thermal}$,
+\benum
+ \max_{j} { { \abs{ \frac{ T_{j,s}^{(\ell+1)} - T_j^{(\ell)} }{T_{j}^{(\ell+1)} } }  } }< \epsilon_{thermal} \pep
+\eenum
+For this and all other MMS problems, $\epsilon_{inner} = 10^{-12}$ and $\epsilon_{thermal} = 10^{-10}$.
+Since $T(x)$ is on the order of 100, we stop the thermal iteration, we see expect an iterative error of the order of $1-10$.
+
+
+
+\subsubsection{Trigonometric Space - Linear Time}
+
+\subsubsection{Trigonometric Space - Linear Time - With Temperature Dependent Material Properties}
+
+\subsubsection{Linear Space - Trigonometric Time}
 
 \subsection{Su-Olson Problem}
 
