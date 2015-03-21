@@ -738,16 +738,16 @@ and obviously,
 However, though the forms of \eqt{eq:analytic_pseudo_i} and \eqt{eq:stage_i_sdirk_intensity} appear analogous to neutron transport, are the linearized, pseudo interaction cross sections (\eqt{eq:analytic_pseudo_i}) and their spatially discretized analogs, (\eqt{eq:stage_i_sdirk_intensity}), equivalent?
 That is, if we started with the spatially analytic linearization, \eqt{eq:analytic_pseudo_i}, re-cast as,
 \benum
-\mu_d \frac{\p I}{\p x} + \widetilde{\Sigma}_t I = \widetilde{\Sigma}_s \phi + \xi_{d,i}
+\mu_d \frac{\p I}{\p x} + \widetilde{\Sigma}_t I = \frac{1}{4\pi} \widetilde{\Sigma}_s \phi + \xi_{d,i}
 \eenum
 with
 \beanum
 \widetilde{\Sigma_t} &=& \sigma_{\tau,i} \\
-\widetilde{\Sigma_s} &=& \sigma_s + \nu_i \sigma_a \pep
+\widetilde{\Sigma_s} &=& \sigma_s + \nu_i \sigma_a \pec
 \eeanum
-Then applied the Galerkin procedure, yielding,
+then applied the Galerkin procedure, yielding,
 \benum
-\mu_d \mathbf{G} \vec{I} + \R{\widetilde{\Sigma_t}}\vec{I} = \R{\widetilde{\Sigma_s}}\vec{\phi} + \vec{\widetilde{\xi}}_{d,i}
+\mu_d \mathbf{G} \vec{I} + \R{\widetilde{\Sigma_t}}\vec{I} = \frac{1}{4\pi} \R{\widetilde{\Sigma_s}}\vec{\phi} + \vec{\widetilde{\xi}}_{d,i} \pec
 \eenum
 with
 \begin{subequations}
@@ -755,19 +755,18 @@ with
 \beanum
 \R{\widetilde{\Sigma_t},jk} &=& \frac{\Delta x}{2}\int_{-1}^1{ \widetilde{\Sigma}_t(s)\B{j}(s) \B{k}(s)~ds }\\
 \R{\widetilde{\Sigma_s},jk}&=& \frac{\Delta x}{2}\int_{-1}^1{ \widetilde{\Sigma}_s(s)\B{j}(s) \B{k}(s)~ds } \\
-\vec{\widetilde{\xi}}_{d,j} &=& \frac{\Delta x}{2}\int_{-1}^1{ \B{j}(s) \xi_{d,i}~ds } \pep
+\vec{\widetilde{\xi}}_{d,j} &=& \frac{\Delta x}{2}\int_{-1}^1{ \B{j}(s) \xi_{d,i}~ds } \pec
+\eeanum
+\end{subequations}
+would the definitions of \eqts{eq:funky_defs} be equivalent to
+\begin{subequations}
+\beanum
+\overline{\overline{\mathbf R}}_{\sigma_{\tau,i}} &\pec& \\
+\R{\sigma_s} + \overline{\overline{\nu}}_i \R{\sigma_a} &\pec& \text{ and}\\
+\vec{\xi}_{d,i}&?&
 \eeanum
 \end{subequations}
 In \eqts{eq:funky_defs}, use $i$ subscript to denote SDIRK stage $i$, $j$ to denote matrix row, and $k$ to denote matrix column.  We will continue this notation for the remainder of this section.
-Would the definitions of \eqts{eq:funky_defs} be equivalent to
-\begin{subequations}
-\beanum
-\overline{\overline{\mathbf R}}_{\sigma_{\tau,i}} \pec \\
-\R{\sigma_s} + \overline{\overline{\nu}}_i \R{\sigma_a} \pec \text{ and}\\
-\vec{\xi}_{d,i}\pec
-\eeanum
-\end{subequations}
-respectively?
 
 We first consider the equivalence of $\overline{\overline{\mathbf R}}_{\sigma_{\tau,i}}$ to $\R{\widetilde{\Sigma_t}}$.
 By definition, 
@@ -796,13 +795,13 @@ We now attempt to determine if \R{\widetilde{\Sigma}_s} is equivalent to
 \eenum
 First, we simply expand the definition of $\R{\widetilde{\Sigma}_s}$ from \eqts{eq:funky_defs}, to incorporate the defintion of $\nu_i$ given in \eqt{eq:analytic_nu},
 \benum
-\R{\widetilde{\Sigma}_s,jk} = \frac{\Delta x}{2}\int_{-1}^1{  \B{j}(s) \B{k}(s)~ds   \left( \sigma_s +  \frac{ 4\pi a_{ii} \sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \sigma_a \right)  } \pep
+\R{\widetilde{\Sigma}_s,jk} = \frac{\Delta x}{2}\int_{-1}^1{  \B{j}(s) \B{k}(s)~ds   \left( \sigma_s +  \frac{ 4\pi a_{ii} \Delta t \sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \sigma_a \right)  } \pep
 \label{eq:to_split}
 \eenum
 Obviously, we may split \eqt{eq:to_split} into separate components:
 \begin{multline}
 \R{\widetilde{\Sigma}_s,jk} = \frac{\Delta x}{2}\int_{-1}^1{ \sigma_s  \B{j}(s) \B{k}(s)~ds  } + \dots \\ 
-\frac{\Delta x}{2}\int_{-1}^1{ \B{j}(s) \B{k} \left(  \frac{ 4\pi a_{ii} \sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \sigma_a \right) ds} \pep
+\frac{\Delta x}{2}\int_{-1}^1{ \B{j}(s) \B{k} \left(  \frac{ 4\pi a_{ii} \Delta t\sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \sigma_a \right) ds} \pep
 \end{multline}
 Clearly
 \benum
@@ -810,7 +809,7 @@ Clearly
 \eenum
 so we are left to determine whether 
 \benum
-\frac{\Delta x}{2}\int_{-1}^1{ \B{j}(s) \B{k} \left(  \frac{ 4\pi a_{ii} \sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \sigma_a \right) ds} = \overline{\overline{\nu}}_i \R{\sigma_a} \pep
+\frac{\Delta x}{2}\int_{-1}^1{ \B{j}(s) \B{k} \left(  \frac{ 4\pi a_{ii} \Delta t \sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \sigma_a \right) ds} = \overline{\overline{\nu}}_i \R{\sigma_a} \pep
 \eenum
 Using the definition of $\overline{\overline{\nu}}_i$ from \eqts{eq:step_i_defs}, we expand $\overline{\overline{\nu}}_i \R{\sigma_a}$,
 \benum
