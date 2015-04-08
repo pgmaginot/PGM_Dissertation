@@ -1,0 +1,4 @@
+N_cells:    2 Fem_ord:  2 Time_str: 2_2 N_steps:    100 Dt_max: 1.000000000000000e-02 WG_tol: 1.00000e-13 BG_tol: 2.00000e+00 Thermal_tol: 1.00000e-11 Err: 1.079201132920363e+00 Total_thermals: 603 Total_sweeps: 774
+N_cells:    2 Fem_ord:  1 Time_str: 2_2 N_steps:    100 Dt_max: 1.000000000000000e-02 WG_tol: 1.00000e-13 BG_tol: 2.00000e+00 Thermal_tol: 1.00000e-11 Err: 5.626426386706444e+00 Total_thermals: 604 Total_sweeps: 705
+N_cells:  128 Fem_ord:  1 Time_str: 2_2 N_steps:    100 Dt_max: 1.000000000000000e-02 WG_tol: 1.00000e-13 BG_tol: 2.00000e+00 Thermal_tol: 1.00000e-11 Err: 9.929913324148178e-04 Total_thermals: 601 Total_sweeps: 1204
+N_cells:  256 Fem_ord:  2 Time_str: 2_2 N_steps:    100 Dt_max: 1.000000000000000e-02 WG_tol: 1.00000e-13 BG_tol: 2.00000e+00 Thermal_tol: 1.00000e-11 Err: 1.895658714395743e-07 Total_thermals: 600 Total_sweeps: 1590

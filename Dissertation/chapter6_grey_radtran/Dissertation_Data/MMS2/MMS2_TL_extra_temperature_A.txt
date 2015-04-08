@@ -1,0 +1,8 @@
+N_cells:    2 Fem_ord:  3 Time_str: 2_2 N_steps:    100 Dt_max: 1.000000000000000e-02 WG_tol: 1.00000e-13 BG_tol: 2.00000e+00 Thermal_tol: 1.00000e-11 Err: 9.313759945895321e-01 Total_thermals: 603 Total_sweeps: 798
+N_cells:    4 Fem_ord:  3 Time_str: 2_2 N_steps:    100 Dt_max: 1.000000000000000e-02 WG_tol: 1.00000e-13 BG_tol: 2.00000e+00 Thermal_tol: 1.00000e-11 Err: 5.622590590615761e-01 Total_thermals: 602 Total_sweeps: 807
+N_cells:    8 Fem_ord:  3 Time_str: 2_2 N_steps:    100 Dt_max: 1.000000000000000e-02 WG_tol: 1.00000e-13 BG_tol: 2.00000e+00 Thermal_tol: 1.00000e-11 Err: 1.393644663512871e-01 Total_thermals: 602 Total_sweeps: 951
+N_cells:   16 Fem_ord:  3 Time_str: 2_2 N_steps:    100 Dt_max: 1.000000000000000e-02 WG_tol: 1.00000e-13 BG_tol: 2.00000e+00 Thermal_tol: 1.00000e-11 Err: 3.424148234174814e-02 Total_thermals: 601 Total_sweeps: 1105
+N_cells:   32 Fem_ord:  3 Time_str: 2_2 N_steps:    100 Dt_max: 1.000000000000000e-02 WG_tol: 1.00000e-13 BG_tol: 2.00000e+00 Thermal_tol: 1.00000e-11 Err: 8.517464693780409e-03 Total_thermals: 601 Total_sweeps: 1204
+N_cells:   64 Fem_ord:  3 Time_str: 2_2 N_steps:    100 Dt_max: 1.000000000000000e-02 WG_tol: 1.00000e-13 BG_tol: 2.00000e+00 Thermal_tol: 1.00000e-11 Err: 2.126616128246430e-03 Total_thermals: 601 Total_sweeps: 1215
+N_cells:  128 Fem_ord:  3 Time_str: 2_2 N_steps:    100 Dt_max: 1.000000000000000e-02 WG_tol: 1.00000e-13 BG_tol: 2.00000e+00 Thermal_tol: 1.00000e-11 Err: 5.314811021719411e-04 Total_thermals: 601 Total_sweeps: 1439
+N_cells:  256 Fem_ord:  3 Time_str: 2_2 N_steps:    100 Dt_max: 1.000000000000000e-02 WG_tol: 1.00000e-13 BG_tol: 2.00000e+00 Thermal_tol: 1.00000e-11 Err: 1.328596065335595e-04 Total_thermals: 601 Total_sweeps: 2106
