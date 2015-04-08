@@ -1,0 +1,9 @@
+function [data_hold] = SortByP(fid , n_data , data_hold , dim_4)
+% % % sort a file by DFEM trial space degree 
+
+for i=1:1:n_data
+    err_info = 
+end
+
+return
+end
