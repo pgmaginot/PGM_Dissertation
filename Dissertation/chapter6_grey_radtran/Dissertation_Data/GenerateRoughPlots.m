@@ -1,6 +1,7 @@
-function GenerateRoughPlots(width,offset,n,fid)
+function mm = GenerateRoughPlots(width,offset,n,fid)
 
-data = zeros(n,2, 4, 4);
+mm = zeros(3,4);
+data = zeros(ceil(n/4),2, 4, 4);
 for i=1:1:4
     data = SortByP(fid(offset+i),n,data,i,width);
     
@@ -19,23 +20,31 @@ for i=1:1:4
     % linear
     loglog(data(:,1,1,i) , data(:,2,1,i) , 'ko-.','LineWidth',2,'MarkerSize',10);
     hold on;
+    mm(1,i) = min(nonzeros(data(:,1,1,i)));
+    mm(2,i) = max(nonzeros(data(:,1,1,i)));
     
     % quadratic
     loglog(data(:,1,2,i) , data(:,2,2,i) , 'bx--','LineWidth',2,'MarkerSize',10);
     hold on;
+    mm(1,i) = min( min(nonzeros(data(:,1,2,i))) , mm(1,i) );
+    mm(2,i) = max( max(nonzeros(data(:,1,2,i))) , mm(2,i) ) ;
     
     % cubic
     loglog(data(:,1,3,i) , data(:,2,3,i) , 'rs-','LineWidth',2,'MarkerSize',10);
     hold on;
+    mm(1,i) = min( min(nonzeros(data(:,1,3,i))) , mm(1,i) );
+    mm(2,i) = max( max(nonzeros(data(:,1,3,i))) , mm(2,i) ) ;
     
     % quartic
     loglog(data(:,1,4,i) , data(:,2,4,i) , 'v-.','Color', [0 0.7 0],  'LineWidth', 2,'MarkerSize',10);
     hold on;
+    mm(1,i) = min( min(nonzeros(data(:,1,4,i))) , mm(1,i) );
+    mm(2,i) = max( max(nonzeros(data(:,1,4,i))) , mm(2,i) ) ;
+    
+    mm(3,i) = mm(2,i) / mm(1,i);
     
     xlabel('Cell size [cm]','Interpreter','latex','FontSize',18);
     ylabel(y_str,'Interpreter','latex','FontSize',18)
-    
-    legend('P1','P2','P3','P4','Location','NorthWest')
 end
 
 
