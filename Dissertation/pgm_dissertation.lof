@@ -127,12 +127,39 @@
 \contentsline {figure}{\numberline {5.20}{\ignorespaces Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for quartic DFEM.}}{157}
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Convergence of $E_{\phi }$ for MMS1 using linear finite elements.}}{192}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Convergence of $E_{\phi }$ for MMS1 using quadratic finite elements.}}{193}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Convergence of $E_{\phi }$ for MMS1 using cubic finite elements.}}{193}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Convergence of $E_{\phi }$ for MMS1 using quartic finite elements.}}{193}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Convergence of $E_{T}$ for MMS1 using linear finite elements.}}{193}
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Convergence of $E_{T}$ for MMS1 using quadratic finite elements.}}{193}
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Convergence of $E_{T}$ for MMS1 using cubic finite elements.}}{193}
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Convergence of $E_{T}$ for MMS1 using quartic finite elements.}}{193}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Convergence of $E_{\phi }$ for the TL scheme in problem MMS1.}}{193}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Convergence of $E_{\phi }$ for the SL Lobatto scheme in problem MMS1.}}{193}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Convergence of $E_{\phi }$ for the SL Gauss scheme in problem MMS1.}}{194}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Convergence of $E_{T}$ for the TL scheme in problem MMS1.}}{195}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Convergence of $E_{T}$ for the SL Lobatto scheme in problem MMS1.}}{195}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Convergence of $E_{T}$ for the SL Gauss scheme in problem MMS1.}}{196}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Convergence of $E_{\phi _A}$ for the SL Lobatto scheme in problem MMS1.}}{197}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Convergence of $E_{\phi _A}$ for the SL Gauss scheme in problem MMS1.}}{197}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Convergence of $E_{T_A}$ for the SL Lobatto scheme in problem MMS1.}}{198}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Convergence of $E_{T_A}$ for the SL Gauss scheme in problem MMS1.}}{198}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Convergence of $E_{\phi }$ for the SL Lobatto scheme in problem MMS2.}}{201}
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Convergence of $E_{\phi }$ for the SL Gauss scheme in problem MMS2.}}{201}
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Convergence of $E_{T}$ for the SL Lobatto scheme in problem MMS2.}}{202}
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Convergence of $E_{T}$ for the SL Gauss scheme in problem MMS2.}}{203}
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Convergence of $E_{T_A}$ for the SL Lobatto scheme in problem MMS2.}}{203}
+\contentsline {figure}{\numberline {6.16}{\ignorespaces Convergence of $E_{T_A}$ for the SL Gauss scheme in problem MMS2.}}{204}
+\contentsline {figure}{\numberline {6.17}{\ignorespaces Convergence of $E_{\phi }$ for the SLXS Lobatto scheme in problem MMS2.}}{205}
+\contentsline {figure}{\numberline {6.18}{\ignorespaces Convergence of $E_{\phi }$ for the SLXS Gauss scheme in problem MMS2.}}{205}
+\contentsline {figure}{\numberline {6.19}{\ignorespaces Convergence of $E_{\phi }$ for the SLXS Lobatto scheme in problem MMS2.}}{206}
+\contentsline {figure}{\numberline {6.20}{\ignorespaces Convergence of $E_{\phi }$ for the SLXS Gauss scheme in problem MMS2.}}{206}
+\contentsline {figure}{\numberline {6.21}{\ignorespaces Convergence of $E_{\phi _A}$ for the SLXS Lobatto scheme in problem MMS2.}}{207}
+\contentsline {figure}{\numberline {6.22}{\ignorespaces Convergence of $E_{\phi _A}$ for the SLXS Gauss scheme in problem MMS2.}}{207}
+\contentsline {figure}{\numberline {6.23}{\ignorespaces Convergence of $E_{T_A}$ for the SLXS Lobatto scheme in problem MMS2.}}{208}
+\contentsline {figure}{\numberline {6.24}{\ignorespaces Convergence of $E_{T_A}$ for the SLXS Gauss scheme in problem MMS2.}}{209}
+\contentsline {figure}{\numberline {6.25}{\ignorespaces Convergence of $E_{\phi }$ for SLXS Lobatto scheme for steady state test problem.}}{210}
+\contentsline {figure}{\numberline {6.26}{\ignorespaces Convergence of $E_{\phi }$ for SLXS Gauss scheme, for steady state test problem.}}{211}
+\contentsline {figure}{\numberline {6.27}{\ignorespaces Convergence of $E_{T}$ for SLXS Lobatto scheme, for steady state test problem.}}{211}
+\contentsline {figure}{\numberline {6.28}{\ignorespaces Convergence of $E_{T}$ for SLXS Gauss scheme, for steady state test problem.}}{212}
+\contentsline {figure}{\numberline {6.29}{\ignorespaces Convergence of $E_{\phi _A}$ for SLXS Lobatto scheme, for steady state test problem.}}{212}
+\contentsline {figure}{\numberline {6.30}{\ignorespaces Convergence of $E_{\phi _A}$ for SLXS Gauss scheme, for steady state test problem.}}{213}
+\contentsline {figure}{\numberline {6.31}{\ignorespaces Convergence of $E_{T_A}$ for SLXS Lobatto scheme, for steady state test problem.}}{214}
+\contentsline {figure}{\numberline {6.32}{\ignorespaces Convergence of $E_{T_A}$ for SLXS Gauss scheme, for steady state test problem.}}{214}
+\contentsline {figure}{\numberline {6.33}{\ignorespaces Convergence of $E_{\phi }$ for different time integrators as a function of $\Delta t$.}}{216}
+\contentsline {figure}{\numberline {6.34}{\ignorespaces Convergence of $E_{T}$ for different time integrators as a function of $\Delta t$ for larger $\Delta t$.}}{217}
+\contentsline {figure}{\numberline {6.35}{\ignorespaces Convergence of $E_{T}$ for different time integrators as a function of $\Delta t$ for small $\Delta t$.}}{218}
 \addvspace {10\p@ }

@@ -158,7 +158,7 @@ if(save_all)
         switch m
             case 1
                 meth = sprintf('SL_Lobatto');
-            case 3
+            case 2
                 meth = sprintf('SL_Gauss');
         end
 

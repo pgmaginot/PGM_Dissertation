@@ -944,75 +944,131 @@ C_M &=& \sum_{d=1}^{N_{dir}} { w_d M(\mu_d) } \pep
 where $M(\mu_d)$ is as angular component of the intensity solution desired, $I_d(x,\mu_d,t)$; $F(t)$ is the time component of the MMS, chosen to be the same for intensity, temperature, and angle integrated intensity; $W_I(x)$ is the spatial component of the intensity, and $W_T(x)$ is the spatial component of the temperature solutions.
 $W_I(x)$ being the spatial component of $\phi$, and the definition of $C_M$ given in \eqts{eq:mms_solns} is required for the $S_N$ approximation to be true.
 
-\subsubsection{Linear Space - Linear Time  }
-In our first mehtod of manufactured solutions problem, MMS1, we attempt to reproduce a TRT problem whose radiation and temperature solutions are linear in space and time.
+\subsubsection{Linear in Time - Trigonometric in Space  }
+In our first method of manufactured solutions problem, MMS1, we attempt to reproduce a TRT problem whose radiation and temperature solutions is a cosine in space and  linear in time.
 We use a non-dimensional form of the TRT, assuming that $a=c=1$, and for this problem we assume opacities are constant functions of space and temperature.
 We will impose the solution:
 \beanum
 M(\mu_d) &=& \frac{1}{4\pi} \\
-W_I(x) &=& 60 + x\\
-W_T(x) &=&  100 + 2x \\
+W_I(x) &=& 10 \cos\left( \frac{\pi x}{10} - \frac{\pi}{2} \right) + 15\\
+W_T(x) &=&  25 \cos\left( \frac{\pi x}{10} - \frac{\pi}{2} \right) + 30\\
 F(t) &=& 1+.02x \pep
 \eeanum
-Physically, $x\in[0,10]$, $C_v = 0.1$, $\sigma_a = 2.0$, $\sigma_s = 1.0$, we start the simulation at $t_0 = 0$, and use 20 equal time steps of length $\Delta t = 0.1$, with implicit Euler time differencing. 
-We evaluate $\vec{S}_I$ and $\vec{S}_T$ using the spatially analytic definitions of $S_I$ and $S_T$ respectively, and numerically integrate the source moments using a $N_q$ Gauss-Legendre quadrature points, with $N_q = 2N_P + 5$, and $N_P$ is as defined before, the number of DFEM interpolation points.
+Physically, $x\in[0,10]$, $C_v = 0.1$, $\sigma_a = 100.0$, $\sigma_s = 0.5$, we start the simulation at $t_0 = 0$, and use 100 equal time steps of length $\Delta t = 0.01$, with Alexander's two stage, second order SDIRK method, which we will refer to as 2-2 \cite{alexander}.  The Butcher tableaux for this and all other SDIRK schemes considered is given in \secref{sec:time_convergence}.
+We evaluate $\vec{S}_I$ and $\vec{S}_T$ using the spatially analytic definitions of $S_I$ and $S_T$ respectively, and numerically integrate the source moments using a $N_q$ Gauss-Legendre quadrature points, with $N_q = 2N_P + 5$, and $N_P$ is the number of DFEM interpolation points, as defined previously.
 
-We will consider three DFEM, SL Lobatto, SL Gauss, and TL, and compare each method’s accuracy in calculating the discrete $L_2$ norm of the error in angle integrated intensity, $E_{\phi} = \norm{ \widetilde{\phi}(x) - \phi(x)}_{L^2}$, and the $L_2$ error in temperature, $E_T = \norm{ \widetilde{T}(x) - T(x) }_{L^2}$.
-Figure \ref{fig:mms1_linear_phi}, \fig{fig:mms1_quadratic_phi}, \fig{fig:mms1_cubic_phi}, and \fig{fig:mms1_quartic_phi} respectively give the convergence of linear, quadratic, cubic, and quartic DFEM as a function of number of cells for the SL Lobatto, SL Gauss, and TL schemes for $E_{\phi}$.
-Analogous data for $E_{T}$ is given in \figs{fig:mms1_linear_temp}{fig:mms1_quartic_temp}.
+We consider three DFEM schemes,
+\begin{enumerate}
+\item TL: traditional mass matrix lumping using equally-spaced interpolation points,
+\item SL Lobatto: self-lumping quadrature using Lobatto interpolation points,
+\item SL Gauss: self-lumping quadrature using Gauss interpolation points, and
+\end{enumerate}  
+compare each method’s accuracy in calculating the discrete $L_2$ norm of the error in angle integrated intensity, $E_{\phi} = \norm{ \widetilde{\phi}(x) - \phi(x)}_{L^2}$, and the $L_2$ error in temperature, $E_T = \norm{ \widetilde{T}(x) - T(x) }_{L^2}$.
+Figure \ref{fig:mms1_tl_phi}, \fig{fig:mms1_lobatto_phi}, and \fig{fig:mms1_gauss_phi} respectively plot the order of convergence of $E_{\phi}$ for the TL, SL Lobatto, and SL Gauss schemes, respectively as a function of trial space degree and cell size.
+Analogous data for $E_{T}$ is given in \figs{fig:mms1_tl_temp}{fig:mms1_gauss_temp}.
 \begin{figure}[!ht]
 \centering
-
-\caption{Convergence of $E_{\phi}$ for MMS1 using linear finite elements.}
-\label{fig:mms1_linear_phi}
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_TL_phi_L2.png}
+\caption{Convergence of $E_{\phi}$ for the TL scheme in problem MMS1.}
+\label{fig:mms1_tl_phi}
 \end{figure}
+%
+%
 \begin{figure}[!ht]
 \centering
-
-\caption{Convergence of $E_{\phi}$ for MMS1 using quadratic finite elements.}
-\label{fig:mms1_quadratic_phi}
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_L2.png}
+\caption{Convergence of $E_{\phi}$ for the SL Lobatto scheme in problem MMS1.}
+\label{fig:mms1_lobatto_phi}
 \end{figure}
+%
+%
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_L2.png}
+\caption{Convergence of $E_{\phi}$ for the SL Gauss scheme in problem MMS1.}
+\label{fig:mms1_gauss_phi}
+\end{figure}
+%
+\pagebreak
+%
 \begin{figure}[!ht]
 \centering
-
-\caption{Convergence of $E_{\phi}$ for MMS1 using cubic finite elements.}
-\label{fig:mms1_cubic_phi}
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_TL_temp_L2.png}
+\caption{Convergence of $E_{T}$ for the TL scheme in problem MMS1.}
+\label{fig:mms1_tl_temp}
 \end{figure}
+%
+%
 \begin{figure}[!ht]
 \centering
-
-\caption{Convergence of $E_{\phi}$ for MMS1 using quartic finite elements.}
-\label{fig:mms1_quartic_phi}
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_L2.png}
+\caption{Convergence of $E_{T}$ for the SL Lobatto scheme in problem MMS1.}
+\label{fig:mms1_lobatto_temp}
 \end{figure}
-
+%
+%
 \begin{figure}[!ht]
 \centering
-
-\caption{Convergence of $E_{T}$ for MMS1 using linear finite elements.}
-\label{fig:mms1_linear_temp}
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_L2.png}
+\caption{Convergence of $E_{T}$ for the SL Gauss scheme in problem MMS1.}
+\label{fig:mms1_gauss_temp}
 \end{figure}
+
+We make several observations regarding \figs{fig:mms1_tl_phi}{fig:mms1_gauss_temp}.  
+First, the TL scheme does not necessarily increase in accuracy with an increase in trial space degree, is limited to second order spatial convergence for odd degree trial space DFEM, and is limited to their order spatial convergence for even degree trial space schemes.
+Second, SL Lobatto converges the $L^2$ norm of the radiation energy density $\propto P+1$, the same order of convergence achieved in our neutron transport test problems for the convergence of $L^2$ error of the angular and scalar fluxes.
+However, SL Lobatto only converges $E_T \propto P$, not $P+1$ as was the case for the neutron transport interaction rate.
+Finally, SL Gauss converges $E_{\phi} \propto P+1$, the same order of convergence as for the neutron transport analog, and exhibits super convergence in converging $E_T \propto P+2$.
+
+To understand the behaviors of SL Lobatto and SL Gauss completely, we now consider the $L^2$ like norm of cell average radiation energy density error, $E_{\phi_A}$ and cell average temperature error, $E_{T_A}$.
+Convergence of $E_{\phi_A}$ is given in \fig{fig:mms1_lobatto_phi_A} for SL Lobatto and \fig{fig:mms1_gauss_phi_A} for SL Gauss.
+Convergence of $E_{T_A}$ is given in \figs{fig:mms1_lobatto_temp_A}{fig:mms1_gauss_temp_A} for SL Lobatto and SL Gauss, respectively.
+While no clear pattern emerges in the convergence of $E_{\phi_A}$ as a function of $P$ for SL Lobatto in \fig{fig:mms1_lobatto_phi_A} when considering linear through quartic polynomial trial spaces, it is clear that the orders of convergence exhibited are less than orders of convergence exhibited by SL Lobatto in \figs{fig:multi_L2A_p1}{fig:multi_L2A_p4} for the analogous neutron transport quantity $E_{\psi_A}$.
+Similarly, the radiative transfer variant of SL Gauss does not converge $E_{\phi_A}$ at as high a degree as SL Gauss converged $E_{\psi_A}$ for a pure absorber in neutron transport.  
+However, comparing \fig{fig:mms1_gauss_phi_A} to \figs{fig:multi_L2A_p1}{fig:multi_L2A_p4}, it appears that SL Gauss applied to the radiative transfer problems loses at most 1 order of convergence relative to SL Gauss applied to neutron transport, whereas SL Lobatto loses at least one order of convergence.
+Interestingly, decrease in convergence of $E_{\phi_A}$ does not translate to $E_{T_A}$, SL Lobatto converges $E_{T_A}$ with the same order as $E_{\psi_A}$ and $E_{IR_A}$ are converged by SL Lobatto for neutron transport, and SL Gauss actually exhibits an $E_{T_A}$ order of convergence that exceeds its neutron transport analogs. 
 \begin{figure}[!ht]
 \centering
-
-\caption{Convergence of $E_{T}$ for MMS1 using quadratic finite elements.}
-\label{fig:mms1_quadratic_temp}
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_A.png}
+\caption{Convergence of $E_{\phi_A}$ for the SL Lobatto scheme in problem MMS1.}
+\label{fig:mms1_lobatto_phi_A}
 \end{figure}
-\begin{figure}[!ht]
+%
+%
+\begin{figure}[!hbp]
 \centering
-
-\caption{Convergence of $E_{T}$ for MMS1 using cubic finite elements.}
-\label{fig:mms1_cubic_temp}
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_A.png}
+\caption{Convergence of $E_{\phi_A}$ for the SL Gauss scheme in problem MMS1.}
+\label{fig:mms1_gauss_phi_A}
 \end{figure}
-\begin{figure}[!ht]
+%
+%
+\begin{figure}[!htp]
 \centering
-
-\caption{Convergence of $E_{T}$ for MMS1 using quartic finite elements.}
-\label{fig:mms1_quartic_temp}
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.png}
+\caption{Convergence of $E_{T_A}$ for the SL Lobatto scheme in problem MMS1.}
+\label{fig:mms1_lobatto_temp_A}
+\end{figure}
+%
+%
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.png}
+\caption{Convergence of $E_{T_A}$ for the SL Gauss scheme in problem MMS1.}
+\label{fig:mms1_gauss_temp_A}
 \end{figure}
 
-We make several observations regarding the above figures.  First, none of the linear DFEM schemes considered exactly achieves the imposed linear solution, as evidenced each method's non-zero errors.
-Second, we see a plateauing of errors above limits of machine precision.
-This plateauing of errors is a result of the nested nature of our TRT solution algorithm.
+It is our hypothesis that the apparent super convergence demonstrated by SL Gauss in converging $E_T$ is related to how we expand the Planckian in the same trial space as the DFEM temperature and radiation solutions. 
+That is to say that we suspect the $N_P$ quadrature points of a given trial space degree SL Gauss scheme are significantly more accurate at integrating 
+\benum
+\B{i}(s) B(\widetilde{T}) \pec
+\label{eq:planck_int}
+\eenum
+a degree $5P$ polynomial, than an $N_P$ Lobatto quadrature.
+Though the $N_P$ point Gauss quadrature only exactly integrates polynomials of degree $2(P+1) -1$, it may be that the remaining terms are coincidentally very small in magnitude for a degree $5P$ polynomial of the particular nature of \eqt{eq:planck_int}.
+
+This plateauing of errors seen in the above plots is a result of two things.  
+First, the nested nature of our TRT solution algorithm.
 Due to the nested iterations, we must use the tightest tolerance on the innermost solve, the intensity update.
 We terminate the innermost solve after reaching a certain pointwise change tolerance, $\epsilon_{inner}$, of the zero-th angular moment of the angle integrated intensity: 
 \benum
@@ -1023,15 +1079,302 @@ Similarly, the thermal iteration of SDIRK stage $s$ is terminated when every tem
  \max_{j} { { \abs{ \frac{ T_{j,s}^{(\ell+1)} - T_j^{(\ell)} }{T_{j}^{(\ell+1)} } }  } }< \epsilon_{thermal} \pep
 \eenum
 For this and all other MMS problems, $\epsilon_{inner} = 10^{-12}$ and $\epsilon_{thermal} = 10^{-10}$.
-Since $T(x)$ is on the order of 100, we stop the thermal iteration, we see expect an iterative error of the order of $1-10$.
+Secondly, as the TRT equations are functions of space and time, it possible that the error of a given spatial discretization is smaller than the temporal error of the problem, thus a plateauing of the solution error as a function of space.
+Thus, truly accurate solutions require the refinement of both spatial mesh and time step size.
+
+\subsubsection{Trigonometric in  Space - Linear in Time - with Temperature Dependent Material Properties}
+
+We now consider a problem with temperature dependent material properties, MMS2.  We impose the following solution:
+\beanum
+M(\mu_d) &=& \frac{1}{4\pi} \\
+W_I(x) &=& 9 \cos\left( \frac{\pi x}{10} - \frac{\pi}{2} \right) + 3 \pec \\
+W_T(x) &=&  5 \cos\left( \frac{\pi x}{10} - \frac{\pi}{2} \right) + 5 \pec \\
+F(t) &=&  1 + .02t \pec
+\eeanum
+and define the following material properties:
+\beanum
+C_v &=& 0.2 + 0.01 T^3 \\
+\sigma_a &=& \frac{10^4}{T^3} \\
+\sigma_s &=& 0.5 \pep
+\eeanum
+In our problem, $x\in[0,10]$, $t\in[0,2]$, we use the three stage, third order accurate SDRIK method of Alexander \cite{alexander} with $\Delta t = 0.001$.  
+In total , we will consider four different DFEM schemes for this problem, SL Lobatto, SL Gauss, SLXS Lobatto, and SLXS Gauss.  
+The methods denoted SL will assume cell wise constant opacities and specific heats,  equal to the volumetric average of that quantity.  
+The SLXS schemes will explicitly account for the within cell variation of temperature dependent material properties by evaluating $\mathbf{R}$ as in \eqt{eq:chap3_sl_react}.
+$E_{\phi}$ for the SL Lobatto and SL Gauss schemes is plotted in \fig{fig:mms3_constant_lobatto_phi} and \fig{fig:mms3_constant_gauss_phi}, respectively.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_phi_L2.png}
+\caption{Convergence of $E_{\phi}$ for the SL Lobatto scheme in problem MMS2.}
+\label{fig:mms3_constant_lobatto_phi}
+\end{figure}
+%
+%
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_phi_L2.png}
+\caption{Convergence of $E_{\phi}$ for the SL Gauss scheme in problem MMS2.}
+\label{fig:mms3_constant_gauss_phi}
+\end{figure}
+Regardless of DFEM interpolation point type or trial space degree, assuming cell-wise constant material properties limits spatial convergence of $E_{\phi}$ to at most second order.
+Confirming our suspicion that convergence of $E_T$ is limited, we plot the convergence of $E_T$ for the SL Lobatto scheme in \fig{fig:mms3_constant_lobatto_temp} and for the SL Gauss scheme in \fig{fig:mms3_constant_gauss_temp}.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_L2.png}
+\caption{Convergence of $E_{T}$ for the SL Lobatto scheme in problem MMS2.}
+\label{fig:mms3_constant_lobatto_temp}
+\end{figure}
+%
+%
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_L2.png}
+\caption{Convergence of $E_{T}$ for the SL Gauss scheme in problem MMS2.}
+\label{fig:mms3_constant_gauss_temp}
+\end{figure}
+Figures \ref{fig:mms3_constant_lobatto_temp}-\ref{fig:mms3_constant_gauss_temp} verify the hypothesis we developed while discussing our neutron transport results, assuming a cell wise constant opacity limits $L^2$ convergence of temperature to at most first order in space, regardless of trial space degree.
+Wishing to verify that the high order of convergence observed for $E_{IR_A}$ in Section 3 does not translate to a high rate of spatial convergence for $E_{T_A}$, we consider \fig{fig:mms3_constant_lobatto_temp_A} and \fig{fig:mms3_constant_gauss_temp_A}.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_A.png}
+\caption{Convergence of $E_{T_A}$ for the SL Lobatto scheme in problem MMS2.}
+\label{fig:mms3_constant_lobatto_temp_A}
+\end{figure}
+%
+%
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_A.png}
+\caption{Convergence of $E_{T_A}$ for the SL Gauss scheme in problem MMS2.}
+\label{fig:mms3_constant_gauss_temp_A}
+\end{figure}
+Figure \ref{fig:mms3_constant_lobatto_temp_A} verifies that regardless of trial space degree, the SL Lobatto scheme assuming a cell-wise constant opacity for a problem with temperature or spatially varying opacities converges $E_{T_A}$ second order in space.
+Likewise, \fig{fig:mms3_constant_gauss_temp_A} demonstrates the same is true for the SL Gauss scheme.
+
+We now consider the convergence of SLXS Lobatto and SLXS Gauss.  First, we see that in \fig{fig:mms3_slxs_lobatto_e_phi}, SLXS Lobatto converges $E_{\phi} \propto P+1$, and in \fig{fig:mms3_slxs_gauss_e_phi}, SLXS Gauss converges $E_{\phi}$ at least $\propto P+1$.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_L2.png}
+\caption{Convergence of $E_{\phi}$ for the SLXS Lobatto scheme in problem MMS2.}
+\label{fig:mms3_slxs_lobatto_e_phi}
+\end{figure}
+%
+%
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_L2.png}
+\caption{Convergence of $E_{\phi}$ for the SLXS Gauss scheme in problem MMS2.}
+\label{fig:mms3_slxs_gauss_e_phi}
+\end{figure}
+
+Moving on to the convergence of $E_T$, in \fig{fig:mms3_slxs_lobatto_e_t} observe that SLXS Lobatto converges $E_T \propto P$, the same rate SL Lobatto converged $E_T$ for the TRT problem with constant material properties.  
+In \fig{fig:mms3_slxs_gauss_e_t} converges very rapidly, and only the asymptotic convergence rate of linear and quadratic DFEM can be estimated, though both suggest SLXS Gauss converges $E_T \propto +P+2$.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_L2.png}
+\caption{Convergence of $E_{\phi}$ for the SLXS Lobatto scheme in problem MMS2.}
+\label{fig:mms3_slxs_lobatto_e_t}
+\end{figure}
+%
+%
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_L2.png}
+\caption{Convergence of $E_{\phi}$ for the SLXS Gauss scheme in problem MMS2.}
+\label{fig:mms3_slxs_gauss_e_t}
+\end{figure}
+
+Focusing now on the convergence of cell average error quantities, we first consider $E_{\phi_A}$ for SLXS Lobatto and SLXS Gauss in \fig{fig:mms3_slxs_lobatto_phi_a} and \fig{fig:mms3_slxs_gauss_phi_a} respectively.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_A.png}
+\caption{Convergence of $E_{\phi_A}$ for the SLXS Lobatto scheme in problem MMS2.}
+\label{fig:mms3_slxs_lobatto_phi_a}
+\end{figure}
+%
+%
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_A.png}
+\caption{Convergence of $E_{\phi_A}$ for the SLXS Gauss scheme in problem MMS2.}
+\label{fig:mms3_slxs_gauss_phi_a}
+\end{figure}
+Due to the high accuracy of both of both SLXS Lobatto and SLXS Gauss, it is difficult to draw many conclusions from \fig{fig:mms3_slxs_lobatto_phi_a} and \fig{fig:mms3_slxs_gauss_phi_a}.  All we can say for certain in that both converge $E_{\phi_A}$ at an order less than or at most equal to the order their respective neutron transport analogs converged $E_{\psi_A}$.
+Reference order of convergence lines are given, but only linear DFEM in both figures appears to have reached a truly asymptotic order of convergence.
+For completeness, we include convergence plots of $E_{T_A}$ for SLXS Lobatto and SLXS Gauss respectively in \fig{fig:mms3_slxs_lobatto_t_a} and \fig{fig:mms3_slxs_gauss_t_a}, however, all we can conclude is that both SLXS Lobatto and SLXS Gauss experience increases in convergence of $E_{T_A}$ with increases in trial space degree.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_A.png}
+\caption{Convergence of $E_{T_A}$ for the SLXS Lobatto scheme in problem MMS2.}
+\label{fig:mms3_slxs_lobatto_t_a}
+\end{figure}
+%
+%
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_A.png}
+\caption{Convergence of $E_{T_A}$ for the SLXS Gauss scheme in problem MMS2.}
+\label{fig:mms3_slxs_gauss_t_a}
+\end{figure}
+
+\subsubsection{Constant in Time - Trigonometric in Space - with Temperature Dependent Material Properties}
+
+We now consider a problem that is constant in time and varies as a cosine in space with temperature dependent material properties.  
+Though very similar to MMS2, we hope that by considering a steady state problem, can study the spatial error of our DFEM schemes without temporal error interference.
+We impose a solution of the form:
+\beanum
+M(\mu_d) &=& \frac{1}{4\pi} \\
+W_I(x) &=& 19 \cos\left( \frac{\pi x}{2} \right) + 20 \pec \\
+W_T(x) &=&  15 \cos\left( \frac{\pi x}{2}  \right) + 20 \pec \\
+F(t) &=&  10
+\eeanum
+and define the following material properties:
+\beanum
+C_v &=& 0.1 + 0.2 T^2 \\
+\sigma_a &=& \frac{5}{T^2} \\
+\sigma_s &=& 0.01 \pep
+\eeanum
+Repeating as we have before, we first consider the convergence of $E_{\phi}$ for SLXS Lobatto and SLXS Gauss in \fig{fig:constant_time_lobatto_phi} and \fig{fig:constant_time_gauss_phi}.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_L2.png}
+\caption{Convergence of $E_{\phi}$ for SLXS Lobatto scheme for steady state test problem.}
+\label{fig:constant_time_lobatto_phi}
+\end{figure}
+%
+%
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_L2.png}
+\caption{Convergence of $E_{\phi}$ for SLXS Gauss scheme, for steady state test problem.}
+\label{fig:constant_time_gauss_phi}
+\end{figure}
+Eliminating the temporal error has made it clear that for TRT problems with temperature dependent quantities, SLXS Lobatto converges $E_{\phi} \propto P+1$, and SLXS Gauss converges $E_{\phi} \propto P+2$.  
+Similarly, from \fig{fig:constant_time_lobatto_t} and \fig{fig:constant_time_gauss_t} it is clear that SLXS Lobatto converges $E_T \propto P$ and SLXS Gauss converges $E_T \propto P+2$
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_L2.png}
+\caption{Convergence of $E_{T}$ for SLXS Lobatto scheme, for steady state test problem.}
+\label{fig:constant_time_lobatto_t}
+\end{figure}
+%
+%
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_L2.png}
+\caption{Convergence of $E_{T}$ for SLXS Gauss scheme, for steady state test problem.}
+\label{fig:constant_time_gauss_t}
+\end{figure}
+
+We now examine the convergence of $E_{\phi_A}$.  The orders of convergence estimated by \fig{fig:constant_time_lobatto_phi_a}, are not identical to those estimated in MMS2 shown in \fig{fig:mms3_slxs_lobatto_phi_a}.  
+Even with the steady problem, the error converges quickly enough that solver tolerance is quickly reached, preventing an obvious development of asymptotic behavior.
+Similarly the convergence of $E_{\phi_A}$ for SLXS Gauss in the steady state problem, given in \fig{fig:constant_time_gauss_phi_a}, is not identical to the estimates of \fig{fig:mms3_slxs_gauss_phi_a}.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_A.png}
+\caption{Convergence of $E_{\phi_A}$ for SLXS Lobatto scheme, for steady state test problem.}
+\label{fig:constant_time_lobatto_phi_a}
+\end{figure}
+%
+%
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_A.png}
+\caption{Convergence of $E_{\phi_A}$ for SLXS Gauss scheme, for steady state test problem.}
+\label{fig:constant_time_gauss_phi_a}
+\end{figure}
+
+Finally, we consider the convergence of $E_{T_A}$.  If we were to liken the neutron transport interaction rate, $IR$, to the thermal radiative transfer temperature, $T$, then from \fig{fig:constant_time_lobatto_t_a} the SLXS Lobatto thermal radiative transfer spatial convergence of $T$ quantities is one order less than the SLXS Lobatto neutron transport convergence of $IR$ quantities, as SLXS Lobatto converges $E_{IR_A} \propto 2P$ in \fig{fig:constant_time_lobatto_t_a}.  
+Conversely in \fig{fig:constant_time_gauss_t_a}, SLXS Lobatto converges $E_{T_A} \propto 2P+2$, whereas SLXS for neutron transport converges $E_{IR_A} \propto 2P+1$ as seen in \figs{fig:varxs_I_A_p1}{fig:varxs_I_A_p4}.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_A.png}
+\caption{Convergence of $E_{T_A}$ for SLXS Lobatto scheme, for steady state test problem.}
+\label{fig:constant_time_lobatto_t_a}
+\end{figure}
+%
+%
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_A.png}
+\caption{Convergence of $E_{T_A}$ for SLXS Gauss scheme, for steady state test problem.}
+\label{fig:constant_time_gauss_t_a}
+\end{figure}
 
 
+\subsubsection{Constant in Space - Trigonometric in Time}
+\label{sec:time_convergence}
+We consider three different SDIRK schemes in our work, implicit Euler (IE); a two stage, second order S-stable scheme (2-2); and a three stage, third order S-stable scheme (3-3).
+Both multi-stage schemes were taken from \cite{alexander}.
+The implicit Euler scheme can be written as:
+\benum
+\label{eq:ie}
+\begin{array}{c|c|c}
+\hline
+1						&  1  	& 1	\\
+\hline
+{}					&				&		1	
+\end{array} \pep
+\eenum
+We use the second order scheme of Alexander with,
+\benum
+\label{eq:alexander_2_2}
+\begin{array}{c|c|cc}
+\hline
+1						&  1-\frac{\sqrt{2}}{2}   &  1-\frac{\sqrt{2}}{2}  	&  0  		\\
+2						&  1   &  \frac{\sqrt{2}}{2} & 1-\frac{\sqrt{2}}{2}  	\\	
+\hline
+{}					&				&		\frac{\sqrt{2}}{2}	&		1- \frac{\sqrt{2}}{2}		
+\end{array} \pec
+\eenum
+and the three stage, third order scheme:
+\benum
+\label{eq:alexander_3_3}
+\begin{array}{c|c|ccc}
+\hline
+1						&  \gamma   						& \gamma 	&    										&			\\
+2						&  \frac{1+\gamma}{2}   &  \frac{1-\gamma}{2} 		& \gamma  	&			\\	
+3						&  1   									&   	\delta	& \beta 	 	&		\gamma	\\	
+\hline
+{}					&												&		\delta		&		\beta			&	\gamma
+\end{array} \pec
+\eenum
+with 
+\beanum
+\gamma &=& 0.435866521508459 \\
+\delta &=& \frac{-6\gamma^2 + 16\gamma -1}{4} \\
+\beta &=& \frac{6\gamma^2 - 20\gamma + 5}{4} \pep
+\eeanum
 
-\subsubsection{Trigonometric Space - Linear Time}
-
-\subsubsection{Trigonometric Space - Linear Time - With Temperature Dependent Material Properties}
-
-\subsubsection{Linear Space - Trigonometric Time}
+We now verify the asymptotic order of convergence of each SDIRK scheme.
+To simplify the process, we consider a problem with constant spatial dependence:
+\beanum
+M(\mu_d) &=& \frac{1}{4\pi} \\
+W_I(x) &=& \frac{10}{4\pi} \\
+W_T(x) &=&  10 \\
+F(t) &=& 45 \cos\left( \pi t \right) + 46 \pec
+\eeanum
+$t \in[0,1]$, $\sigma_s = 0.1$, $\sigma_a = 2.5$, $C_v = 0.2$, $x\in[0,10]$ discretized with 10 equally spaced cells.  Convergence of $E_{\phi}$ as a function of time step size for IE, 2-2, and 3-3 time differencing schemes are given in \fig{fig:e_phi_time}.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Phi.png}
+\caption{Convergence of $E_{\phi}$ for different time integrators as a function of $\Delta t$.}
+\label{fig:e_phi_time}
+\end{figure}
+As expected, the implicit Euler scheme converges 1st order in time, the second order, two stage Alexander-2-2 scheme converges second order, and the Alexander 3-3 scheme converges third order in time.
+The same data for temperature is given in \figs{fig:big_dt}{fig:small_dt}.  Surprisingly, it took a very large number of time steps for the 2-2 and 3-3 schemes to become asymptotic, thus \fig{fig:big_dt} shows the convergence of $E_{T}$ for larger time steps, and \fig{fig:small_dt} shows convergence of $E_{T}$ for smaller time steps, when the 2-2 and 3-3 schemes begin to demonstrate their respective asymptotic orders of convergence.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Temperature_Big_dt.png}
+\caption{Convergence of $E_{T}$ for different time integrators as a function of $\Delta t$ for larger $\Delta t$.}
+\label{fig:big_dt}
+\end{figure}
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm]{chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Temperature_Small_dt.png}
+\caption{Convergence of $E_{T}$ for different time integrators as a function of $\Delta t$ for small $\Delta t$.}
+\label{fig:small_dt}
+\end{figure}
 
 \subsection{Su-Olson Problem}
 

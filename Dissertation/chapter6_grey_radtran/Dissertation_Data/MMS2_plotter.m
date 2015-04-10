@@ -263,7 +263,7 @@ loglog([mm3(1,4) mm3(2,4)] , [c4 c4*mm3(3,4)^p4],'g-','LineWidth',2 );
 hold on
 loglog([mm3(1,4) mm3(2,4)] , [c3 c3*mm3(3,4)^p1],'k-','LineWidth',2 );
 
-h=legend('P1','P2','P3','P4','$O(\Delta x^3)$','$O(\Delta x^4)$','Location','NorthWest');
+h=legend('P1','P2','P3','P4','$O(\Delta x^3)$','$O(\Delta x^5)$','Location','NorthWest');
 set(h,'Interpreter','latex','Fontsize',14);
 axis( [mm3(1,2)/2 2*mm3(2,2) 1E-9 2])    
 
