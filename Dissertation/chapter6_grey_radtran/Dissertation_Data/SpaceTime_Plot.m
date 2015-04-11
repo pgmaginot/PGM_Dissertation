@@ -20,8 +20,6 @@ data_base = { sprintf('Marshak_Results/Marshak_Wave_%s_P%i_Base',meth,p_ord) ...
             
 Dark_Arts_Plotter(1,2,cell_base,data_base,dfem_mat)
 
-
-
 % temperature 
 figure(1)
 % axis([0.34 0.41 -0.1 1])

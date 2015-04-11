@@ -8,6 +8,7 @@ function Dark_Arts_Plotter( fig_n_temp , fig_n_rad , cell_base , data_base ,dfem
 
 % dfem_mat is an n_p * n_el matrix
 
+fun_handle = dfem_mat;
 
 if( ~iscellstr(data_base) )
     error('Data must be passed in as cell arrays')
@@ -61,6 +62,9 @@ end
 
 % plot one variable at a time to avoit needless, slow, figure switching
 figure(fig_n_temp)
+
+p_refining = isa(dfem_mat,'function_handle') ;
+
 for i=1:1:n_plots
     % determine number of elements per cell
     
@@ -78,21 +82,40 @@ for i=1:1:n_plots
     end
     
     [x,t] = GetOneTempData(fid_cell_t(i) , fid_temp(i) , n_el_cell );
+    
+    if( p_refining )
+        [q,w] = fun_handle(n_el_cell);
+        [plot_mat,trash] = feshpln( linspace(-1,1,i +5) , q , i);
+        plot(plot_mat*x,plot_mat*t, char(color_str(1,i)) , 'Color' , color_str{2,i} ,  'LineWidth',2)
+    else
 %     char(color_str(i))
-    plot(dfem_mat*x,dfem_mat*t, char(color_str(1,i)) , 'Color' , color_str{2,i} ,  'LineWidth',2)
+        plot(dfem_mat*x,dfem_mat*t, char(color_str(1,i)) , 'Color' , color_str{2,i} ,  'LineWidth',2)
+    end
     hold on
 end
-  
-for i=1:1:n_plots
-    while(~feof(fid_temp(i) ) )
-        [x,t] = GetOneTempData(fid_cell_t(i) , fid_temp(i) , n_el_cell );
 
-        plot(dfem_mat*x,dfem_mat*t, char(color_str(1,i)) , 'Color' , color_str{2,i} , 'LineWidth',2)
-        hold on
+for i=1:1:n_plots
+    if( p_refining )
+        [q,w] = fun_handle(i+1);
+        [plot_mat,trash] = feshpln( linspace(-1,1,i +5) , q , i);
+    end
+    while(~feof(fid_temp(i) ) )
+       
+        if(p_refining)
+             [x,t] = GetOneTempData(fid_cell_t(i) , fid_temp(i) , i+1 );
+            plot(plot_mat*x,plot_mat*t, char(color_str(1,i)) , 'Color' , color_str{2,i} , 'LineWidth',2)
+        else
+             [x,t] = GetOneTempData(fid_cell_t(i) , fid_temp(i) , n_el_cell );
+            plot(dfem_mat*x,dfem_mat*t, char(color_str(1,i)) , 'Color' , color_str{2,i} , 'LineWidth',2)
+        end
+         hold on
     end
     fclose(fid_cell_t(i));
     fclose(fid_temp(i));
 end
+
+xlabel('Position','FontSize',18,'Interpreter','latex');
+ylabel('Material Temperature','FontSize',18,'Interpreter','latex');
 
 figure(fig_n_rad)
 % set the legend entries
@@ -114,22 +137,37 @@ for i=1:1:n_plots
     
     [x,r] = GetOneRadData(fid_cell_r(i) , fid_rad(i) , n_el_cell );
 %     char(color_str(i))
-    plot(dfem_mat*x,dfem_mat*r, char(color_str(1,i)) , 'Color' , color_str{2,i} ,  'LineWidth',2)
+    if( p_refining )
+        [q,w] = fun_handle(n_el_cell);
+        [plot_mat,trash] = feshpln( linspace(-1,1,i +5) , q , i);
+        plot(plot_mat*x,plot_mat*r, char(color_str(1,i)) , 'Color' , color_str{2,i} ,  'LineWidth',2)
+    else
+        plot(dfem_mat*x,dfem_mat*r, char(color_str(1,i)) , 'Color' , color_str{2,i} ,  'LineWidth',2)
+    end
     hold on
 end
 
-for i=1:1:n_plots
-    
+for i=1:1:n_plots    
+    if( p_refining )
+        [q,w] = fun_handle(i+1);
+        [plot_mat,trash] = feshpln( linspace(-1,1,i +5) , q , i);
+    end
     while(~feof(fid_rad(i) ) )
-        [x,r] = GetOneRadData(fid_cell_r(i) , fid_rad(i) , n_el_cell );
-
-        plot(dfem_mat*x,dfem_mat*r, char(color_str(1,i)) , 'Color' , color_str{2,i} , 'LineWidth',2)
+        if( p_refining )
+            [x,r] = GetOneRadData(fid_cell_r(i) , fid_rad(i) , i+1 );
+            plot(plot_mat*x,plot_mat*r, char(color_str(1,i)) , 'Color' , color_str{2,i} , 'LineWidth',2)
+        else
+            [x,r] = GetOneRadData(fid_cell_r(i) , fid_rad(i) , n_el_cell );
+            plot(dfem_mat*x,dfem_mat*r, char(color_str(1,i)) , 'Color' , color_str{2,i} , 'LineWidth',2)
+        end
         hold on
     end
     fclose(fid_cell_r(i));
     fclose(fid_rad(i));
 end
 
+xlabel('Position','FontSize',18,'Interpreter','latex');
+ylabel('Radiation Energy Density','FontSize',18,'Interpreter','latex');
 
 
 return
