@@ -25,14 +25,14 @@ if(n_plots > 6)
 end
 
 color_str = cell(2,5);
-color_str(1,1) =  cellstr(':') ;  
-color_str(1,2) = cellstr('-.' ) ;
-color_str(1,3) = cellstr('--' ) ;   
-color_str(1,4) = cellstr('-' );  
+color_str(1,1) =  cellstr('-') ;  
+color_str(1,2) = cellstr('--' ) ;
+color_str(1,3) = cellstr('-.' ) ;   
+color_str(1,4) = cellstr(':' );  
 color_str(1,5) = cellstr('-.' ) ; 
-color_str(2,1) = {[1 0 0]} ;
-color_str(2,2) = {[0 0 0] } ;
-color_str(2,3) = {[0 0.7 0]} ;
+color_str(2,1) = {[0 0 0] } ;
+color_str(2,2) = {[1 0 0]} ;
+color_str(2,3) = {[0 0.8 0]} ;
 color_str(2,4) = {[0 0 1]}  ;
 color_str(2,5) = {[0.5 0 0]} ;
 
@@ -85,7 +85,7 @@ for i=1:1:n_plots
     
     if( p_refining )
         [q,w] = fun_handle(n_el_cell);
-        [plot_mat,trash] = feshpln( linspace(-1,1,i +5) , q , i);
+        [plot_mat,trash] = feshpln( linspace(-1,1, 2*(5-i)^2 + 2) , q , 5-i);
         plot(plot_mat*x,plot_mat*t, char(color_str(1,i)) , 'Color' , color_str{2,i} ,  'LineWidth',2)
     else
 %     char(color_str(i))
@@ -96,13 +96,13 @@ end
 
 for i=1:1:n_plots
     if( p_refining )
-        [q,w] = fun_handle(i+1);
-        [plot_mat,trash] = feshpln( linspace(-1,1,i +5) , q , i);
+        [q,w] = fun_handle(5-i+1);
+        [plot_mat,trash] = feshpln( linspace(-1,1, 2*(5-i)^2 +5) , q , 5-i);
     end
     while(~feof(fid_temp(i) ) )
        
         if(p_refining)
-             [x,t] = GetOneTempData(fid_cell_t(i) , fid_temp(i) , i+1 );
+             [x,t] = GetOneTempData(fid_cell_t(i) , fid_temp(i) ,6-i );
             plot(plot_mat*x,plot_mat*t, char(color_str(1,i)) , 'Color' , color_str{2,i} , 'LineWidth',2)
         else
              [x,t] = GetOneTempData(fid_cell_t(i) , fid_temp(i) , n_el_cell );
@@ -139,7 +139,7 @@ for i=1:1:n_plots
 %     char(color_str(i))
     if( p_refining )
         [q,w] = fun_handle(n_el_cell);
-        [plot_mat,trash] = feshpln( linspace(-1,1,i +5) , q , i);
+        [plot_mat,trash] = feshpln( linspace(-1,1,2*(5-i)^2 + 2) , q , 5-i);
         plot(plot_mat*x,plot_mat*r, char(color_str(1,i)) , 'Color' , color_str{2,i} ,  'LineWidth',2)
     else
         plot(dfem_mat*x,dfem_mat*r, char(color_str(1,i)) , 'Color' , color_str{2,i} ,  'LineWidth',2)
@@ -149,12 +149,12 @@ end
 
 for i=1:1:n_plots    
     if( p_refining )
-        [q,w] = fun_handle(i+1);
-        [plot_mat,trash] = feshpln( linspace(-1,1,i +5) , q , i);
+        [q,w] = fun_handle( 5-i+1);
+        [plot_mat,trash] = feshpln( linspace(-1,1, 2*(5-i)^2 + 3) , q ,5-i);
     end
     while(~feof(fid_rad(i) ) )
         if( p_refining )
-            [x,r] = GetOneRadData(fid_cell_r(i) , fid_rad(i) , i+1 );
+            [x,r] = GetOneRadData(fid_cell_r(i) , fid_rad(i) , 5-i+1 );
             plot(plot_mat*x,plot_mat*r, char(color_str(1,i)) , 'Color' , color_str{2,i} , 'LineWidth',2)
         else
             [x,r] = GetOneRadData(fid_cell_r(i) , fid_rad(i) , n_el_cell );

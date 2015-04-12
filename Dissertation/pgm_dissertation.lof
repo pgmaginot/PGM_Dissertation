@@ -128,38 +128,49 @@
 \addvspace {10\p@ }
 \vskip -10pt
 \contentsline {figure}{\numberline {6.1}{\ignorespaces Convergence of $E_{\phi }$ for the TL scheme in problem MMS1.}}{193}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Convergence of $E_{\phi }$ for the SL Lobatto scheme in problem MMS1.}}{193}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Convergence of $E_{\phi }$ for the SL Lobatto scheme in problem MMS1.}}{194}
 \contentsline {figure}{\numberline {6.3}{\ignorespaces Convergence of $E_{\phi }$ for the SL Gauss scheme in problem MMS1.}}{194}
 \contentsline {figure}{\numberline {6.4}{\ignorespaces Convergence of $E_{T}$ for the TL scheme in problem MMS1.}}{195}
 \contentsline {figure}{\numberline {6.5}{\ignorespaces Convergence of $E_{T}$ for the SL Lobatto scheme in problem MMS1.}}{195}
 \contentsline {figure}{\numberline {6.6}{\ignorespaces Convergence of $E_{T}$ for the SL Gauss scheme in problem MMS1.}}{196}
 \contentsline {figure}{\numberline {6.7}{\ignorespaces Convergence of $E_{\phi _A}$ for the SL Lobatto scheme in problem MMS1.}}{197}
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Convergence of $E_{\phi _A}$ for the SL Gauss scheme in problem MMS1.}}{197}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Convergence of $E_{\phi _A}$ for the SL Gauss scheme in problem MMS1.}}{198}
 \contentsline {figure}{\numberline {6.9}{\ignorespaces Convergence of $E_{T_A}$ for the SL Lobatto scheme in problem MMS1.}}{198}
-\contentsline {figure}{\numberline {6.10}{\ignorespaces Convergence of $E_{T_A}$ for the SL Gauss scheme in problem MMS1.}}{198}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Convergence of $E_{T_A}$ for the SL Gauss scheme in problem MMS1.}}{199}
 \contentsline {figure}{\numberline {6.11}{\ignorespaces Convergence of $E_{\phi }$ for the SL Lobatto scheme in problem MMS2.}}{201}
-\contentsline {figure}{\numberline {6.12}{\ignorespaces Convergence of $E_{\phi }$ for the SL Gauss scheme in problem MMS2.}}{201}
-\contentsline {figure}{\numberline {6.13}{\ignorespaces Convergence of $E_{T}$ for the SL Lobatto scheme in problem MMS2.}}{202}
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Convergence of $E_{\phi }$ for the SL Gauss scheme in problem MMS2.}}{202}
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Convergence of $E_{T}$ for the SL Lobatto scheme in problem MMS2.}}{203}
 \contentsline {figure}{\numberline {6.14}{\ignorespaces Convergence of $E_{T}$ for the SL Gauss scheme in problem MMS2.}}{203}
-\contentsline {figure}{\numberline {6.15}{\ignorespaces Convergence of $E_{T_A}$ for the SL Lobatto scheme in problem MMS2.}}{203}
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Convergence of $E_{T_A}$ for the SL Lobatto scheme in problem MMS2.}}{204}
 \contentsline {figure}{\numberline {6.16}{\ignorespaces Convergence of $E_{T_A}$ for the SL Gauss scheme in problem MMS2.}}{204}
 \contentsline {figure}{\numberline {6.17}{\ignorespaces Convergence of $E_{\phi }$ for the SLXS Lobatto scheme in problem MMS2.}}{205}
-\contentsline {figure}{\numberline {6.18}{\ignorespaces Convergence of $E_{\phi }$ for the SLXS Gauss scheme in problem MMS2.}}{205}
-\contentsline {figure}{\numberline {6.19}{\ignorespaces Convergence of $E_{\phi }$ for the SLXS Lobatto scheme in problem MMS2.}}{206}
-\contentsline {figure}{\numberline {6.20}{\ignorespaces Convergence of $E_{\phi }$ for the SLXS Gauss scheme in problem MMS2.}}{206}
+\contentsline {figure}{\numberline {6.18}{\ignorespaces Convergence of $E_{\phi }$ for the SLXS Gauss scheme in problem MMS2.}}{206}
+\contentsline {figure}{\numberline {6.19}{\ignorespaces Convergence of $E_{T}$ for the SLXS Lobatto scheme in problem MMS2.}}{206}
+\contentsline {figure}{\numberline {6.20}{\ignorespaces Convergence of $E_{T}$ for the SLXS Gauss scheme in problem MMS2.}}{207}
 \contentsline {figure}{\numberline {6.21}{\ignorespaces Convergence of $E_{\phi _A}$ for the SLXS Lobatto scheme in problem MMS2.}}{207}
-\contentsline {figure}{\numberline {6.22}{\ignorespaces Convergence of $E_{\phi _A}$ for the SLXS Gauss scheme in problem MMS2.}}{207}
-\contentsline {figure}{\numberline {6.23}{\ignorespaces Convergence of $E_{T_A}$ for the SLXS Lobatto scheme in problem MMS2.}}{208}
+\contentsline {figure}{\numberline {6.22}{\ignorespaces Convergence of $E_{\phi _A}$ for the SLXS Gauss scheme in problem MMS2.}}{208}
+\contentsline {figure}{\numberline {6.23}{\ignorespaces Convergence of $E_{T_A}$ for the SLXS Lobatto scheme in problem MMS2.}}{209}
 \contentsline {figure}{\numberline {6.24}{\ignorespaces Convergence of $E_{T_A}$ for the SLXS Gauss scheme in problem MMS2.}}{209}
-\contentsline {figure}{\numberline {6.25}{\ignorespaces Convergence of $E_{\phi }$ for SLXS Lobatto scheme for steady state test problem.}}{210}
+\contentsline {figure}{\numberline {6.25}{\ignorespaces Convergence of $E_{\phi }$ for SLXS Lobatto scheme for steady state test problem.}}{211}
 \contentsline {figure}{\numberline {6.26}{\ignorespaces Convergence of $E_{\phi }$ for SLXS Gauss scheme, for steady state test problem.}}{211}
-\contentsline {figure}{\numberline {6.27}{\ignorespaces Convergence of $E_{T}$ for SLXS Lobatto scheme, for steady state test problem.}}{211}
+\contentsline {figure}{\numberline {6.27}{\ignorespaces Convergence of $E_{T}$ for SLXS Lobatto scheme, for steady state test problem.}}{212}
 \contentsline {figure}{\numberline {6.28}{\ignorespaces Convergence of $E_{T}$ for SLXS Gauss scheme, for steady state test problem.}}{212}
-\contentsline {figure}{\numberline {6.29}{\ignorespaces Convergence of $E_{\phi _A}$ for SLXS Lobatto scheme, for steady state test problem.}}{212}
-\contentsline {figure}{\numberline {6.30}{\ignorespaces Convergence of $E_{\phi _A}$ for SLXS Gauss scheme, for steady state test problem.}}{213}
+\contentsline {figure}{\numberline {6.29}{\ignorespaces Convergence of $E_{\phi _A}$ for SLXS Lobatto scheme, for steady state test problem.}}{213}
+\contentsline {figure}{\numberline {6.30}{\ignorespaces Convergence of $E_{\phi _A}$ for SLXS Gauss scheme, for steady state test problem.}}{214}
 \contentsline {figure}{\numberline {6.31}{\ignorespaces Convergence of $E_{T_A}$ for SLXS Lobatto scheme, for steady state test problem.}}{214}
-\contentsline {figure}{\numberline {6.32}{\ignorespaces Convergence of $E_{T_A}$ for SLXS Gauss scheme, for steady state test problem.}}{214}
-\contentsline {figure}{\numberline {6.33}{\ignorespaces Convergence of $E_{\phi }$ for different time integrators as a function of $\Delta t$.}}{216}
-\contentsline {figure}{\numberline {6.34}{\ignorespaces Convergence of $E_{T}$ for different time integrators as a function of $\Delta t$ for larger $\Delta t$.}}{217}
+\contentsline {figure}{\numberline {6.32}{\ignorespaces Convergence of $E_{T_A}$ for SLXS Gauss scheme, for steady state test problem.}}{215}
+\contentsline {figure}{\numberline {6.33}{\ignorespaces Convergence of $E_{\phi }$ for different time integrators as a function of $\Delta t$.}}{217}
+\contentsline {figure}{\numberline {6.34}{\ignorespaces Convergence of $E_{T}$ for different time integrators as a function of $\Delta t$ for larger $\Delta t$.}}{218}
 \contentsline {figure}{\numberline {6.35}{\ignorespaces Convergence of $E_{T}$ for different time integrators as a function of $\Delta t$ for small $\Delta t$.}}{218}
+\contentsline {figure}{\numberline {6.36}{\ignorespaces SL Lobatto radiation solution for the Marshak wave problem assuming cell-wise constant volumetric averaged opacities.}}{220}
+\contentsline {figure}{\numberline {6.37}{\ignorespaces SL Lobatto temperature solution for the Marshak wave problem assuming cell-wise constant volumetric averaged opacities.}}{220}
+\contentsline {figure}{\numberline {6.38}{\ignorespaces SL Lobatto temperature solution for the Marshak wave problem near the wavefront.}}{221}
+\contentsline {figure}{\numberline {6.39}{\ignorespaces Linear SLXS Lobatto radiation solution near wavefront with increasing spatial mesh refinement.}}{222}
+\contentsline {figure}{\numberline {6.40}{\ignorespaces Linear SLXS Lobatto temperature solution near wavefront with increasing spatial mesh refinement.}}{222}
+\contentsline {figure}{\numberline {6.41}{\ignorespaces Quartic SLXS Gauss radiation solution near wavefront with increasing spatial mesh refinement.}}{223}
+\contentsline {figure}{\numberline {6.42}{\ignorespaces Quartic SLXS Gauss temperature solution near wavefront with increasing spatial mesh refinement.}}{223}
+\contentsline {figure}{\numberline {6.43}{\ignorespaces SLXS Lobatto radiation energy density solution with 320 cells for different $P$ near Marshak wavefront.}}{224}
+\contentsline {figure}{\numberline {6.44}{\ignorespaces SLXS Lobatto material temperature solution with 320 cells for different $P$ near Marshak wavefront.}}{225}
+\contentsline {figure}{\numberline {6.45}{\ignorespaces Quartic SLXS Lobatto radiation energy density solution with 1280 cells for different time refinements near the Marshak wavefront.}}{226}
+\contentsline {figure}{\numberline {6.46}{\ignorespaces Quartic SLXS Lobatto temperature solution with 1280 cells for different time refinements near the Marshak wavefront.}}{227}
 \addvspace {10\p@ }

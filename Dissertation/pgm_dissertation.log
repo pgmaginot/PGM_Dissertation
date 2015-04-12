@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.2.7)  10 APR 2015 13:48
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.2.7)  12 APR 2015 04:09
 entering extended mode
 **pgm_dissertation.tex
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.tex
@@ -433,12 +433,12 @@ Overfull \hbox (1.85217pt too wide) in paragraph at lines 69--69
  [][] []\OT1/cmr/m/n/12 Asymptotic con-ver-gence of the SLXS Lo-batto scheme us-ing a quadratic 
  []
 
-[14] [15] [16] [17] [18])
+[14] [15] [16] [17] [18] [19])
 \tf@lof=\write4
- [19] (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.lot
-[20])
+ [20] (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.lot
+[21])
 \tf@lot=\write5
- [21]) (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter1_intro/introduction.tex
+ [22]) (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter1_intro/introduction.tex
 Chapter 1.
 [1
 
@@ -452,28 +452,28 @@ Chapter 2.
 
 
 ] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21]
-<chapter2_constant_xs/P1_Outflow_AllMeth-eps-converted-to.pdf, id=146, 799.98875pt x 620.3175pt>
+<chapter2_constant_xs/P1_Outflow_AllMeth-eps-converted-to.pdf, id=150, 799.98875pt x 620.3175pt>
 File: chapter2_constant_xs/P1_Outflow_AllMeth-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/P1_Outflow_AllMeth-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/P1_Outflow_AllMeth-eps-converted-to.pdf used on input line 613.
 (pdftex.def)             Requested size: 312.9803pt x 242.68954pt.
 
-<chapter2_constant_xs/P2_Outflow_AllMeth-eps-converted-to.pdf, id=147, 799.98875pt x 620.3175pt>
+<chapter2_constant_xs/P2_Outflow_AllMeth-eps-converted-to.pdf, id=151, 799.98875pt x 620.3175pt>
 File: chapter2_constant_xs/P2_Outflow_AllMeth-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/P2_Outflow_AllMeth-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/P2_Outflow_AllMeth-eps-converted-to.pdf used on input line 619.
 (pdftex.def)             Requested size: 312.9803pt x 242.68954pt.
 
-<chapter2_constant_xs/P3_Outflow_AllMeth-eps-converted-to.pdf, id=148, 799.98875pt x 620.3175pt>
+<chapter2_constant_xs/P3_Outflow_AllMeth-eps-converted-to.pdf, id=152, 799.98875pt x 620.3175pt>
 File: chapter2_constant_xs/P3_Outflow_AllMeth-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/P3_Outflow_AllMeth-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/P3_Outflow_AllMeth-eps-converted-to.pdf used on input line 625.
 (pdftex.def)             Requested size: 312.9803pt x 242.68954pt.
 
-<chapter2_constant_xs/P4_Outflow_AllMeth-eps-converted-to.pdf, id=149, 799.98875pt x 620.3175pt>
+<chapter2_constant_xs/P4_Outflow_AllMeth-eps-converted-to.pdf, id=153, 799.98875pt x 620.3175pt>
 File: chapter2_constant_xs/P4_Outflow_AllMeth-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/P4_Outflow_AllMeth-eps-converted-to.pdf>
@@ -490,14 +490,14 @@ erted-to.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chap
 converted-to.pdf>] [24 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter2_constant_xs/P3_Outflow_All
 Meth-eps-converted-to.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter2_constant_xs/P4_Outflow
 _AllMeth-eps-converted-to.pdf>] [25]
-<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_0.png, id=231, 867.24pt x 650.43pt>
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_0.png, id=234, 867.24pt x 650.43pt>
 File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_0.png Graphic file (type png)
 
 <use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_0.png>
 Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_0.png used on input line 683.
 (pdftex.def)             Requested size: 312.9803pt x 234.74017pt.
 
-<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_0.png, id=232, 867.24pt x 650.43pt>
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_0.png, id=235, 867.24pt x 650.43pt>
 File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_0.png Graphic file (type png)
 
 <use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_0.png>
@@ -505,42 +505,42 @@ Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source
 (pdftex.def)             Requested size: 312.9803pt x 234.74017pt.
  [26 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter2_constant_xs/Final_Inflow_RHS_Comparison_Sour
 ce_P1_MFP_0.png (PNG copy)>]
-<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_0.png, id=236, 867.24pt x 650.43pt>
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_0.png, id=239, 867.24pt x 650.43pt>
 File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_0.png Graphic file (type png)
 
 <use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_0.png>
 Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_0.png used on input line 695.
 (pdftex.def)             Requested size: 312.9803pt x 234.74017pt.
 
-<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_0.png, id=237, 867.24pt x 650.43pt>
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_0.png, id=240, 867.24pt x 650.43pt>
 File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_0.png Graphic file (type png)
 
 <use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_0.png>
 Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_0.png used on input line 701.
 (pdftex.def)             Requested size: 312.9803pt x 234.74017pt.
 
-<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_5.png, id=238, 867.24pt x 650.43pt>
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_5.png, id=241, 867.24pt x 650.43pt>
 File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_5.png Graphic file (type png)
 
 <use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_5.png>
 Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_5.png used on input line 715.
 (pdftex.def)             Requested size: 312.9803pt x 234.74017pt.
 
-<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_5.png, id=239, 867.24pt x 650.43pt>
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_5.png, id=242, 867.24pt x 650.43pt>
 File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_5.png Graphic file (type png)
 
 <use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_5.png>
 Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_5.png used on input line 721.
 (pdftex.def)             Requested size: 312.9803pt x 234.74017pt.
 
-<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_5.png, id=240, 867.24pt x 650.43pt>
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_5.png, id=243, 867.24pt x 650.43pt>
 File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_5.png Graphic file (type png)
 
 <use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_5.png>
 Package pdftex.def Info: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_5.png used on input line 727.
 (pdftex.def)             Requested size: 312.9803pt x 234.74017pt.
 
-<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_5.png, id=241, 867.24pt x 650.43pt>
+<chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_5.png, id=244, 867.24pt x 650.43pt>
 File: chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_5.png Graphic file (type png)
 
 <use chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_5.png>
@@ -555,84 +555,84 @@ ginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter2_constant_xs/Final_Infl
 NG copy)>] [30 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter2_constant_xs/Final_Inflow_RHS_Compa
 rison_Source_P3_MFP_5.png (PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter2_constant_xs
 /Final_Inflow_RHS_Comparison_Source_P4_MFP_5.png (PNG copy)>] [31] [32] [33] [34] [35]
-<chapter2_constant_xs/Linear_L2_err-eps-converted-to.pdf, id=271, 527.9725pt x 413.545pt>
+<chapter2_constant_xs/Linear_L2_err-eps-converted-to.pdf, id=274, 527.9725pt x 413.545pt>
 File: chapter2_constant_xs/Linear_L2_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Linear_L2_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Linear_L2_err-eps-converted-to.pdf used on input line 1084.
 (pdftex.def)             Requested size: 312.9803pt x 245.14418pt.
 
-<chapter2_constant_xs/Quadratic_L2_err-eps-converted-to.pdf, id=272, 527.9725pt x 413.545pt>
+<chapter2_constant_xs/Quadratic_L2_err-eps-converted-to.pdf, id=275, 527.9725pt x 413.545pt>
 File: chapter2_constant_xs/Quadratic_L2_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Quadratic_L2_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Quadratic_L2_err-eps-converted-to.pdf used on input line 1090.
 (pdftex.def)             Requested size: 312.9803pt x 245.14418pt.
 
-<chapter2_constant_xs/Cubic_L2_err-eps-converted-to.pdf, id=273, 529.98pt x 413.545pt>
+<chapter2_constant_xs/Cubic_L2_err-eps-converted-to.pdf, id=276, 529.98pt x 413.545pt>
 File: chapter2_constant_xs/Cubic_L2_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Cubic_L2_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Cubic_L2_err-eps-converted-to.pdf used on input line 1096.
 (pdftex.def)             Requested size: 312.9803pt x 244.2229pt.
 
-<chapter2_constant_xs/Quartic_L2_err-eps-converted-to.pdf, id=274, 529.98pt x 413.545pt>
+<chapter2_constant_xs/Quartic_L2_err-eps-converted-to.pdf, id=277, 529.98pt x 413.545pt>
 File: chapter2_constant_xs/Quartic_L2_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Quartic_L2_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Quartic_L2_err-eps-converted-to.pdf used on input line 1102.
 (pdftex.def)             Requested size: 312.9803pt x 244.2229pt.
 
-<chapter2_constant_xs/Linear_L2A_err-eps-converted-to.pdf, id=275, 527.9725pt x 413.545pt>
+<chapter2_constant_xs/Linear_L2A_err-eps-converted-to.pdf, id=278, 527.9725pt x 413.545pt>
 File: chapter2_constant_xs/Linear_L2A_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Linear_L2A_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Linear_L2A_err-eps-converted-to.pdf used on input line 1110.
 (pdftex.def)             Requested size: 312.9803pt x 245.14418pt.
 
-<chapter2_constant_xs/Quadratic_L2A_err-eps-converted-to.pdf, id=276, 527.9725pt x 413.545pt>
+<chapter2_constant_xs/Quadratic_L2A_err-eps-converted-to.pdf, id=279, 527.9725pt x 413.545pt>
 File: chapter2_constant_xs/Quadratic_L2A_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Quadratic_L2A_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Quadratic_L2A_err-eps-converted-to.pdf used on input line 1116.
 (pdftex.def)             Requested size: 312.9803pt x 245.14418pt.
 
-<chapter2_constant_xs/Cubic_L2A_err-eps-converted-to.pdf, id=277, 529.98pt x 413.545pt>
+<chapter2_constant_xs/Cubic_L2A_err-eps-converted-to.pdf, id=280, 529.98pt x 413.545pt>
 File: chapter2_constant_xs/Cubic_L2A_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Cubic_L2A_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Cubic_L2A_err-eps-converted-to.pdf used on input line 1122.
 (pdftex.def)             Requested size: 312.9803pt x 244.2229pt.
 
-<chapter2_constant_xs/Quartic_L2A_err-eps-converted-to.pdf, id=278, 529.98pt x 413.545pt>
+<chapter2_constant_xs/Quartic_L2A_err-eps-converted-to.pdf, id=281, 529.98pt x 413.545pt>
 File: chapter2_constant_xs/Quartic_L2A_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Quartic_L2A_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Quartic_L2A_err-eps-converted-to.pdf used on input line 1128.
 (pdftex.def)             Requested size: 312.9803pt x 244.2229pt.
  [36]
-<chapter2_constant_xs/Linear_L2Out_err-eps-converted-to.pdf, id=284, 529.98pt x 413.545pt>
+<chapter2_constant_xs/Linear_L2Out_err-eps-converted-to.pdf, id=287, 529.98pt x 413.545pt>
 File: chapter2_constant_xs/Linear_L2Out_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Linear_L2Out_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Linear_L2Out_err-eps-converted-to.pdf used on input line 1139.
 (pdftex.def)             Requested size: 312.9803pt x 244.2229pt.
 
-<chapter2_constant_xs/Quadratic_L2Out_err-eps-converted-to.pdf, id=285, 529.98pt x 413.545pt>
+<chapter2_constant_xs/Quadratic_L2Out_err-eps-converted-to.pdf, id=288, 529.98pt x 413.545pt>
 File: chapter2_constant_xs/Quadratic_L2Out_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Quadratic_L2Out_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Quadratic_L2Out_err-eps-converted-to.pdf used on input line 1145.
 (pdftex.def)             Requested size: 312.9803pt x 244.2229pt.
 
-<chapter2_constant_xs/Cubic_L2Out_err-eps-converted-to.pdf, id=286, 531.9875pt x 413.545pt>
+<chapter2_constant_xs/Cubic_L2Out_err-eps-converted-to.pdf, id=289, 531.9875pt x 413.545pt>
 File: chapter2_constant_xs/Cubic_L2Out_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Cubic_L2Out_err-eps-converted-to.pdf>
 Package pdftex.def Info: chapter2_constant_xs/Cubic_L2Out_err-eps-converted-to.pdf used on input line 1151.
 (pdftex.def)             Requested size: 312.9803pt x 243.30162pt.
 
-<chapter2_constant_xs/Quartic_L2Out_err-eps-converted-to.pdf, id=287, 531.9875pt x 413.545pt>
+<chapter2_constant_xs/Quartic_L2Out_err-eps-converted-to.pdf, id=290, 531.9875pt x 413.545pt>
 File: chapter2_constant_xs/Quartic_L2Out_err-eps-converted-to.pdf Graphic file (type pdf)
 
 <use chapter2_constant_xs/Quartic_L2Out_err-eps-converted-to.pdf>
@@ -657,26 +657,26 @@ Chapter 3.
 
 
 
-] [46] [47] [48] [49] [50] [51] [52] [53] <chapter3_variable_xs/Exp_outflow_p1.png, id=486, 578.16pt x 433.62pt>
+] [46] [47] [48] [49] [50] [51] [52] [53] <chapter3_variable_xs/Exp_outflow_p1.png, id=489, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/Exp_outflow_p1.png Graphic file (type png)
 
 <use chapter3_variable_xs/Exp_outflow_p1.png>
 Package pdftex.def Info: chapter3_variable_xs/Exp_outflow_p1.png used on input line 323.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
- <chapter3_variable_xs/Exp_outflow_p2.png, id=487, 578.16pt x 433.62pt>
+ <chapter3_variable_xs/Exp_outflow_p2.png, id=490, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/Exp_outflow_p2.png Graphic file (type png)
 
 <use chapter3_variable_xs/Exp_outflow_p2.png>
 Package pdftex.def Info: chapter3_variable_xs/Exp_outflow_p2.png used on input line 331.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
  [54 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/Exp_outflow_p1.png (PNG copy)>] 
-<chapter3_variable_xs/Exp_outflow_p3.png, id=491, 578.16pt x 433.62pt>
+<chapter3_variable_xs/Exp_outflow_p3.png, id=494, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/Exp_outflow_p3.png Graphic file (type png)
 
 <use chapter3_variable_xs/Exp_outflow_p3.png>
 Package pdftex.def Info: chapter3_variable_xs/Exp_outflow_p3.png used on input line 340.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
- <chapter3_variable_xs/Exp_outflow_p4.png, id=492, 578.16pt x 433.62pt>
+ <chapter3_variable_xs/Exp_outflow_p4.png, id=495, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/Exp_outflow_p4.png Graphic file (type png)
 
 <use chapter3_variable_xs/Exp_outflow_p4.png>
@@ -687,84 +687,84 @@ Package pdftex.def Info: chapter3_variable_xs/Exp_outflow_p4.png used on input l
 :/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/Exp_outflow_p4.png (PNG copy)>] [57
 
 ] [58]
-<chapter3_variable_xs/P1_VarXS_E_psi_L2.png, id=506, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P1_VarXS_E_psi_L2.png, id=509, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P1_VarXS_E_psi_L2.png Graphic file (type png)
 
 <use chapter3_variable_xs/P1_VarXS_E_psi_L2.png>
 Package pdftex.def Info: chapter3_variable_xs/P1_VarXS_E_psi_L2.png used on input line 488.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-<chapter3_variable_xs/P2_VarXS_E_psi_L2.png, id=507, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P2_VarXS_E_psi_L2.png, id=510, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P2_VarXS_E_psi_L2.png Graphic file (type png)
 
 <use chapter3_variable_xs/P2_VarXS_E_psi_L2.png>
 Package pdftex.def Info: chapter3_variable_xs/P2_VarXS_E_psi_L2.png used on input line 497.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-<chapter3_variable_xs/P3_VarXS_E_psi_L2.png, id=508, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P3_VarXS_E_psi_L2.png, id=511, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P3_VarXS_E_psi_L2.png Graphic file (type png)
 
 <use chapter3_variable_xs/P3_VarXS_E_psi_L2.png>
 Package pdftex.def Info: chapter3_variable_xs/P3_VarXS_E_psi_L2.png used on input line 505.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-<chapter3_variable_xs/P4_VarXS_E_psi_L2.png, id=509, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P4_VarXS_E_psi_L2.png, id=512, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P4_VarXS_E_psi_L2.png Graphic file (type png)
 
 <use chapter3_variable_xs/P4_VarXS_E_psi_L2.png>
 Package pdftex.def Info: chapter3_variable_xs/P4_VarXS_E_psi_L2.png used on input line 512.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-<chapter3_variable_xs/P1_VarXS_E_psi_A.png, id=510, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P1_VarXS_E_psi_A.png, id=513, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P1_VarXS_E_psi_A.png Graphic file (type png)
 
 <use chapter3_variable_xs/P1_VarXS_E_psi_A.png>
 Package pdftex.def Info: chapter3_variable_xs/P1_VarXS_E_psi_A.png used on input line 557.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-<chapter3_variable_xs/P2_VarXS_E_psi_A.png, id=511, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P2_VarXS_E_psi_A.png, id=514, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P2_VarXS_E_psi_A.png Graphic file (type png)
 
 <use chapter3_variable_xs/P2_VarXS_E_psi_A.png>
 Package pdftex.def Info: chapter3_variable_xs/P2_VarXS_E_psi_A.png used on input line 564.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-<chapter3_variable_xs/P3_VarXS_E_psi_A.png, id=512, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P3_VarXS_E_psi_A.png, id=515, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P3_VarXS_E_psi_A.png Graphic file (type png)
 
 <use chapter3_variable_xs/P3_VarXS_E_psi_A.png>
 Package pdftex.def Info: chapter3_variable_xs/P3_VarXS_E_psi_A.png used on input line 574.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-<chapter3_variable_xs/P4_VarXS_E_psi_A.png, id=513, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P4_VarXS_E_psi_A.png, id=516, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P4_VarXS_E_psi_A.png Graphic file (type png)
 
 <use chapter3_variable_xs/P4_VarXS_E_psi_A.png>
 Package pdftex.def Info: chapter3_variable_xs/P4_VarXS_E_psi_A.png used on input line 582.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-<chapter3_variable_xs/P1_VarXS_E_psi_out.png, id=514, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P1_VarXS_E_psi_out.png, id=517, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P1_VarXS_E_psi_out.png Graphic file (type png)
 
 <use chapter3_variable_xs/P1_VarXS_E_psi_out.png>
 Package pdftex.def Info: chapter3_variable_xs/P1_VarXS_E_psi_out.png used on input line 592.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-<chapter3_variable_xs/P2_VarXS_E_psi_out.png, id=515, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P2_VarXS_E_psi_out.png, id=518, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P2_VarXS_E_psi_out.png Graphic file (type png)
 
 <use chapter3_variable_xs/P2_VarXS_E_psi_out.png>
 Package pdftex.def Info: chapter3_variable_xs/P2_VarXS_E_psi_out.png used on input line 600.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-<chapter3_variable_xs/P3_VarXS_E_psi_out.png, id=516, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P3_VarXS_E_psi_out.png, id=519, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P3_VarXS_E_psi_out.png Graphic file (type png)
 
 <use chapter3_variable_xs/P3_VarXS_E_psi_out.png>
 Package pdftex.def Info: chapter3_variable_xs/P3_VarXS_E_psi_out.png used on input line 611.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-<chapter3_variable_xs/P4_VarXS_E_psi_out.png, id=517, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P4_VarXS_E_psi_out.png, id=520, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P4_VarXS_E_psi_out.png Graphic file (type png)
 
 <use chapter3_variable_xs/P4_VarXS_E_psi_out.png>
@@ -785,25 +785,25 @@ y)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_varia
 [66
 
 ]
-<chapter3_variable_xs/P1_VarXS_E_I_L2.png, id=543, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P1_VarXS_E_I_L2.png, id=546, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P1_VarXS_E_I_L2.png Graphic file (type png)
  <use chapter3_variable_xs/P1_VarXS_E_I_L2.png>
 Package pdftex.def Info: chapter3_variable_xs/P1_VarXS_E_I_L2.png used on input line 648.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-<chapter3_variable_xs/P2_VarXS_E_I_L2.png, id=544, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P2_VarXS_E_I_L2.png, id=547, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P2_VarXS_E_I_L2.png Graphic file (type png)
  <use chapter3_variable_xs/P2_VarXS_E_I_L2.png>
 Package pdftex.def Info: chapter3_variable_xs/P2_VarXS_E_I_L2.png used on input line 656.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-<chapter3_variable_xs/P3_VarXS_E_I_L2.png, id=545, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P3_VarXS_E_I_L2.png, id=548, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P3_VarXS_E_I_L2.png Graphic file (type png)
  <use chapter3_variable_xs/P3_VarXS_E_I_L2.png>
 Package pdftex.def Info: chapter3_variable_xs/P3_VarXS_E_I_L2.png used on input line 664.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-<chapter3_variable_xs/P4_VarXS_E_I_L2.png, id=546, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P4_VarXS_E_I_L2.png, id=549, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P4_VarXS_E_I_L2.png Graphic file (type png)
  <use chapter3_variable_xs/P4_VarXS_E_I_L2.png>
 Package pdftex.def Info: chapter3_variable_xs/P4_VarXS_E_I_L2.png used on input line 672.
@@ -812,25 +812,25 @@ Package pdftex.def Info: chapter3_variable_xs/P4_VarXS_E_I_L2.png used on input 
 [67 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P1_VarXS_E_I_L2.png (PNG copy)>]
 [68 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_VarXS_E_I_L2.png (PNG copy)> <
 C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P3_VarXS_E_I_L2.png (PNG copy)>]
-<chapter3_variable_xs/P1_VarXS_E_I_A.png, id=553, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P1_VarXS_E_I_A.png, id=556, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P1_VarXS_E_I_A.png Graphic file (type png)
  <use chapter3_variable_xs/P1_VarXS_E_I_A.png>
 Package pdftex.def Info: chapter3_variable_xs/P1_VarXS_E_I_A.png used on input line 692.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-<chapter3_variable_xs/P2_VarXS_E_I_A.png, id=554, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P2_VarXS_E_I_A.png, id=557, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P2_VarXS_E_I_A.png Graphic file (type png)
  <use chapter3_variable_xs/P2_VarXS_E_I_A.png>
 Package pdftex.def Info: chapter3_variable_xs/P2_VarXS_E_I_A.png used on input line 700.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-<chapter3_variable_xs/P3_VarXS_E_I_A.png, id=555, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P3_VarXS_E_I_A.png, id=558, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P3_VarXS_E_I_A.png Graphic file (type png)
  <use chapter3_variable_xs/P3_VarXS_E_I_A.png>
 Package pdftex.def Info: chapter3_variable_xs/P3_VarXS_E_I_A.png used on input line 708.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
 
-<chapter3_variable_xs/P4_VarXS_E_I_A.png, id=556, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P4_VarXS_E_I_A.png, id=559, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P4_VarXS_E_I_A.png Graphic file (type png)
  <use chapter3_variable_xs/P4_VarXS_E_I_A.png>
 Package pdftex.def Info: chapter3_variable_xs/P4_VarXS_E_I_A.png used on input line 714.
@@ -841,25 +841,25 @@ Package pdftex.def Info: chapter3_variable_xs/P4_VarXS_E_I_A.png used on input l
 :/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_VarXS_E_I_A.png (PNG copy)>]
 [71 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P3_VarXS_E_I_A.png (PNG copy)> <C
 :/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P4_VarXS_E_I_A.png (PNG copy)>]
-<chapter3_variable_xs/Psi_Blades.png, id=567, 578.16pt x 433.62pt>
+<chapter3_variable_xs/Psi_Blades.png, id=570, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/Psi_Blades.png Graphic file (type png)
  <use chapter3_variable_xs/Psi_Blades.png>
 Package pdftex.def Info: chapter3_variable_xs/Psi_Blades.png used on input line 748.
 (pdftex.def)             Requested size: 341.43306pt x 256.07178pt.
  [72]
-<chapter3_variable_xs/I_Blades.png, id=571, 578.16pt x 433.62pt>
+<chapter3_variable_xs/I_Blades.png, id=574, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/I_Blades.png Graphic file (type png)
  <use chapter3_variable_xs/I_Blades.png>
 Package pdftex.def Info: chapter3_variable_xs/I_Blades.png used on input line 755.
 (pdftex.def)             Requested size: 341.43306pt x 256.07178pt.
 
-<chapter3_variable_xs/SLXS_Psi_Profile.png, id=572, 578.16pt x 433.62pt>
+<chapter3_variable_xs/SLXS_Psi_Profile.png, id=575, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/SLXS_Psi_Profile.png Graphic file (type png)
 
 <use chapter3_variable_xs/SLXS_Psi_Profile.png>
 Package pdftex.def Info: chapter3_variable_xs/SLXS_Psi_Profile.png used on input line 782.
 (pdftex.def)             Requested size: 341.43306pt x 256.07178pt.
- <chapter3_variable_xs/SLXS_I_Profile.png, id=573, 578.16pt x 433.62pt>
+ <chapter3_variable_xs/SLXS_I_Profile.png, id=576, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/SLXS_I_Profile.png Graphic file (type png)
 
 <use chapter3_variable_xs/SLXS_I_Profile.png>
@@ -869,14 +869,14 @@ Package pdftex.def Info: chapter3_variable_xs/SLXS_I_Profile.png used on input l
 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/I_Blades.png (PNG copy)>] [75 <C:/Use
 rs/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/SLXS_Psi_Profile.png (PNG copy)>] [76 <C:/Us
 ers/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/SLXS_I_Profile.png (PNG copy)>] <chapter3_v
-ariable_xs/CXS_Psi_A_Profile.png, id=587, 578.16pt x 433.62pt>
+ariable_xs/CXS_Psi_A_Profile.png, id=590, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/CXS_Psi_A_Profile.png Graphic file (type png)
 
 <use chapter3_variable_xs/CXS_Psi_A_Profile.png>
 Package pdftex.def Info: chapter3_variable_xs/CXS_Psi_A_Profile.png used on input line 818.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-<chapter3_variable_xs/CXS_I_A_Profile.png, id=588, 578.16pt x 433.62pt>
+<chapter3_variable_xs/CXS_I_A_Profile.png, id=591, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/CXS_I_A_Profile.png Graphic file (type png)
  <use chapter3_variable_xs/CXS_I_A_Profile.png>
 Package pdftex.def Info: chapter3_variable_xs/CXS_I_A_Profile.png used on input line 825.
@@ -884,41 +884,41 @@ Package pdftex.def Info: chapter3_variable_xs/CXS_I_A_Profile.png used on input 
 
 [77] [78 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/CXS_Psi_A_Profile.png (PNG c
 opy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/CXS_I_A_Profile.png (PNG copy)>
-] <chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_L2.png, id=595, 578.16pt x 433.62pt>
+] <chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_L2.png, id=598, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_L2.png Graphic file (type png)
 
 <use chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_L2.png>
 Package pdftex.def Info: chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_L2.png used on input line 857.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-<chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_A.png, id=596, 578.16pt x 433.62pt>
+<chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_A.png, id=599, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_A.png Graphic file (type png)
 
 <use chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_A.png>
 Package pdftex.def Info: chapter3_variable_xs/FW_XS_P3_VarXS_E_psi_A.png used on input line 865.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-<chapter3_variable_xs/FW_XS_P3_VarXS_E_I_L2.png, id=597, 578.16pt x 433.62pt>
+<chapter3_variable_xs/FW_XS_P3_VarXS_E_I_L2.png, id=600, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/FW_XS_P3_VarXS_E_I_L2.png Graphic file (type png)
 
 <use chapter3_variable_xs/FW_XS_P3_VarXS_E_I_L2.png>
 Package pdftex.def Info: chapter3_variable_xs/FW_XS_P3_VarXS_E_I_L2.png used on input line 873.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-<chapter3_variable_xs/FW_XS_P3_VarXS_E_I_A.png, id=598, 578.16pt x 433.62pt>
+<chapter3_variable_xs/FW_XS_P3_VarXS_E_I_A.png, id=601, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/FW_XS_P3_VarXS_E_I_A.png Graphic file (type png)
 
 <use chapter3_variable_xs/FW_XS_P3_VarXS_E_I_A.png>
 Package pdftex.def Info: chapter3_variable_xs/FW_XS_P3_VarXS_E_I_A.png used on input line 881.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-<chapter3_variable_xs/FW_Psi_Blades.png, id=599, 578.16pt x 433.62pt>
+<chapter3_variable_xs/FW_Psi_Blades.png, id=602, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/FW_Psi_Blades.png Graphic file (type png)
  <use chapter3_variable_xs/FW_Psi_Blades.png>
 Package pdftex.def Info: chapter3_variable_xs/FW_Psi_Blades.png used on input line 892.
 (pdftex.def)             Requested size: 341.43306pt x 256.07178pt.
 
-<chapter3_variable_xs/FW_I_Blades.png, id=600, 578.16pt x 433.62pt>
+<chapter3_variable_xs/FW_I_Blades.png, id=603, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/FW_I_Blades.png Graphic file (type png)
  <use chapter3_variable_xs/FW_I_Blades.png>
 Package pdftex.def Info: chapter3_variable_xs/FW_I_Blades.png used on input line 900.
@@ -930,34 +930,34 @@ G copy)>] [81 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chap
 ng (PNG copy)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/FW_XS_P3_VarXS_E_I_A.p
 ng (PNG copy)>] [82 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/FW_Psi_Blades.png
  (PNG copy)>] [83 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/FW_I_Blades.png (PN
-G copy)>] [84] <chapter3_variable_xs/P2_LOBATTO_E_PSI.png, id=620, 578.16pt x 433.62pt>
+G copy)>] [84] <chapter3_variable_xs/P2_LOBATTO_E_PSI.png, id=623, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P2_LOBATTO_E_PSI.png Graphic file (type png)
 
 <use chapter3_variable_xs/P2_LOBATTO_E_PSI.png>
 Package pdftex.def Info: chapter3_variable_xs/P2_LOBATTO_E_PSI.png used on input line 985.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-<chapter3_variable_xs/P2_LOBATTO_E_PSI_A.png, id=621, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P2_LOBATTO_E_PSI_A.png, id=624, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P2_LOBATTO_E_PSI_A.png Graphic file (type png)
 
 <use chapter3_variable_xs/P2_LOBATTO_E_PSI_A.png>
 Package pdftex.def Info: chapter3_variable_xs/P2_LOBATTO_E_PSI_A.png used on input line 993.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-<chapter3_variable_xs/P2_LOBATTO_E_IR.png, id=622, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P2_LOBATTO_E_IR.png, id=625, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P2_LOBATTO_E_IR.png Graphic file (type png)
  <use chapter3_variable_xs/P2_LOBATTO_E_IR.png>
 Package pdftex.def Info: chapter3_variable_xs/P2_LOBATTO_E_IR.png used on input line 1001.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-<chapter3_variable_xs/P2_LOBATTO_E_IR_A.png, id=623, 578.16pt x 433.62pt>
+<chapter3_variable_xs/P2_LOBATTO_E_IR_A.png, id=626, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/P2_LOBATTO_E_IR_A.png Graphic file (type png)
 
 <use chapter3_variable_xs/P2_LOBATTO_E_IR_A.png>
 Package pdftex.def Info: chapter3_variable_xs/P2_LOBATTO_E_IR_A.png used on input line 1009.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
  [85]
-<chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI.png, id=627, 578.16pt x 433.62pt>
+<chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI.png, id=630, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI.png Graphic file (type png)
 
 <use chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI.png>
@@ -968,77 +968,77 @@ Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI.png used 
 y)> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_LOBATTO_E_IR.png (PNG copy)>] 
 [88 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter3_variable_xs/P2_LOBATTO_E_IR_A.png (PNG copy)>
 ]
-<chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI_A.png, id=638, 578.16pt x 433.62pt>
+<chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI_A.png, id=641, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI_A.png Graphic file (type png)
 
 <use chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI_A.png>
 Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_PSI_A.png used on input line 1032.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-<chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR.png, id=639, 578.16pt x 433.62pt>
+<chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR.png, id=642, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR.png Graphic file (type png)
 
 <use chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR.png>
 Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR.png used on input line 1040.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-<chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR_A.png, id=640, 578.16pt x 433.62pt>
+<chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR_A.png, id=643, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR_A.png Graphic file (type png)
 
 <use chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR_A.png>
 Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_LOBATTO_E_IR_A.png used on input line 1049.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-<chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI.png, id=641, 578.16pt x 433.62pt>
+<chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI.png, id=644, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI.png Graphic file (type png)
 
 <use chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI.png>
 Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI.png used on input line 1057.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-<chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI_A.png, id=642, 578.16pt x 433.62pt>
+<chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI_A.png, id=645, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI_A.png Graphic file (type png)
 
 <use chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI_A.png>
 Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_GAUSS_E_PSI_A.png used on input line 1064.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-<chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR.png, id=643, 578.16pt x 433.62pt>
+<chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR.png, id=646, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR.png Graphic file (type png)
 
 <use chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR.png>
 Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR.png used on input line 1071.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-<chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR_A.png, id=644, 578.16pt x 433.62pt>
+<chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR_A.png, id=647, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR_A.png Graphic file (type png)
 
 <use chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR_A.png>
 Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_GAUSS_E_IR_A.png used on input line 1078.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-<chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI.png, id=645, 578.16pt x 433.62pt>
+<chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI.png, id=648, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI.png Graphic file (type png)
 
 <use chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI.png>
 Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI.png used on input line 1086.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-<chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI_A.png, id=646, 578.16pt x 433.62pt>
+<chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI_A.png, id=649, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI_A.png Graphic file (type png)
 
 <use chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI_A.png>
 Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_CXS_E_PSI_A.png used on input line 1093.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-<chapter3_variable_xs/LOW_RES_P2_CXS_E_IR.png, id=647, 578.16pt x 433.62pt>
+<chapter3_variable_xs/LOW_RES_P2_CXS_E_IR.png, id=650, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/LOW_RES_P2_CXS_E_IR.png Graphic file (type png)
 
 <use chapter3_variable_xs/LOW_RES_P2_CXS_E_IR.png>
 Package pdftex.def Info: chapter3_variable_xs/LOW_RES_P2_CXS_E_IR.png used on input line 1100.
 (pdftex.def)             Requested size: 312.9803pt x 234.73357pt.
 
-<chapter3_variable_xs/LOW_RES_P2_CXS_E_IR_A.png, id=648, 578.16pt x 433.62pt>
+<chapter3_variable_xs/LOW_RES_P2_CXS_E_IR_A.png, id=651, 578.16pt x 433.62pt>
 File: chapter3_variable_xs/LOW_RES_P2_CXS_E_IR_A.png Graphic file (type png)
 
 <use chapter3_variable_xs/LOW_RES_P2_CXS_E_IR_A.png>
@@ -1064,56 +1064,56 @@ Chapter 4.
 
 
 ] [98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110] [111] [112] [113] [114] [115]
-<chapter4_acceleration/Const_2_P1_Gauss_Solvers.png, id=735, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Const_2_P1_Gauss_Solvers.png, id=738, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Const_2_P1_Gauss_Solvers.png Graphic file (type png)
 
 <use chapter4_acceleration/Const_2_P1_Gauss_Solvers.png>
 Package pdftex.def Info: chapter4_acceleration/Const_2_P1_Gauss_Solvers.png used on input line 585.
 (pdftex.def)             Requested size: 341.43306pt x 256.07838pt.
 
-<chapter4_acceleration/Const_2_P1_Lobatto_Solvers.png, id=737, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Const_2_P1_Lobatto_Solvers.png, id=740, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Const_2_P1_Lobatto_Solvers.png Graphic file (type png)
 
 <use chapter4_acceleration/Const_2_P1_Lobatto_Solvers.png>
 Package pdftex.def Info: chapter4_acceleration/Const_2_P1_Lobatto_Solvers.png used on input line 610.
 (pdftex.def)             Requested size: 341.43306pt x 256.07838pt.
  [116]
-<chapter4_acceleration/Constant_XS_sn_comparions_S2SA_Gauss.png, id=741, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Constant_XS_sn_comparions_S2SA_Gauss.png, id=744, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Constant_XS_sn_comparions_S2SA_Gauss.png Graphic file (type png)
 
 <use chapter4_acceleration/Constant_XS_sn_comparions_S2SA_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Constant_XS_sn_comparions_S2SA_Gauss.png used on input line 628.
 (pdftex.def)             Requested size: 312.9803pt x 234.73853pt.
 
-<chapter4_acceleration/Constant_XS_sn_comparions_S2SA_Lobatto.png, id=742, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Constant_XS_sn_comparions_S2SA_Lobatto.png, id=745, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Constant_XS_sn_comparions_S2SA_Lobatto.png Graphic file (type png)
 
 <use chapter4_acceleration/Constant_XS_sn_comparions_S2SA_Lobatto.png>
 Package pdftex.def Info: chapter4_acceleration/Constant_XS_sn_comparions_S2SA_Lobatto.png used on input line 636.
 (pdftex.def)             Requested size: 312.9803pt x 234.73853pt.
 
-<chapter4_acceleration/Constant_XS_c_comparions_S2SA_Gauss.png, id=743, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Constant_XS_c_comparions_S2SA_Gauss.png, id=746, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Constant_XS_c_comparions_S2SA_Gauss.png Graphic file (type png)
 
 <use chapter4_acceleration/Constant_XS_c_comparions_S2SA_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Constant_XS_c_comparions_S2SA_Gauss.png used on input line 644.
 (pdftex.def)             Requested size: 312.9803pt x 234.73853pt.
 
-<chapter4_acceleration/Constant_XS_c_comparions_S2SA_Lobatto.png, id=744, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Constant_XS_c_comparions_S2SA_Lobatto.png, id=747, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Constant_XS_c_comparions_S2SA_Lobatto.png Graphic file (type png)
 
 <use chapter4_acceleration/Constant_XS_c_comparions_S2SA_Lobatto.png>
 Package pdftex.def Info: chapter4_acceleration/Constant_XS_c_comparions_S2SA_Lobatto.png used on input line 652.
 (pdftex.def)             Requested size: 312.9803pt x 234.73853pt.
 
-<chapter4_acceleration/Constant_XS_SN8_S2SA_Gauss.png, id=745, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Constant_XS_SN8_S2SA_Gauss.png, id=748, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Constant_XS_SN8_S2SA_Gauss.png Graphic file (type png)
 
 <use chapter4_acceleration/Constant_XS_SN8_S2SA_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Constant_XS_SN8_S2SA_Gauss.png used on input line 666.
 (pdftex.def)             Requested size: 312.9803pt x 234.73853pt.
 
-<chapter4_acceleration/Constant_XS_SN8_S2SA_Lobatto.png, id=746, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Constant_XS_SN8_S2SA_Lobatto.png, id=749, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Constant_XS_SN8_S2SA_Lobatto.png Graphic file (type png)
 
 <use chapter4_acceleration/Constant_XS_SN8_S2SA_Lobatto.png>
@@ -1128,14 +1128,14 @@ _XS_c_comparions_S2SA_Gauss.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertatio
 stant_XS_c_comparions_S2SA_Lobatto.png>] [121 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter4_acc
 eleration/Constant_XS_SN8_S2SA_Gauss.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter4_acceler
 ation/Constant_XS_SN8_S2SA_Lobatto.png>]
-<chapter4_acceleration/Const_2_Constant_XS_sn_comparions_MIP_Gauss.png, id=771, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Const_2_Constant_XS_sn_comparions_MIP_Gauss.png, id=774, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Const_2_Constant_XS_sn_comparions_MIP_Gauss.png Graphic file (type png)
 
 <use chapter4_acceleration/Const_2_Constant_XS_sn_comparions_MIP_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Const_2_Constant_XS_sn_comparions_MIP_Gauss.png used on input line 691.
 (pdftex.def)             Requested size: 341.43306pt x 256.07838pt.
 
-<chapter4_acceleration/Const_2_Constant_XS_sn_comparions_MIP_Lobatto.png, id=772, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Const_2_Constant_XS_sn_comparions_MIP_Lobatto.png, id=775, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Const_2_Constant_XS_sn_comparions_MIP_Lobatto.png Graphic file (type png)
 
 <use chapter4_acceleration/Const_2_Constant_XS_sn_comparions_MIP_Lobatto.png>
@@ -1144,14 +1144,14 @@ Package pdftex.def Info: chapter4_acceleration/Const_2_Constant_XS_sn_comparions
 (pdftex.def)             Requested size: 341.43306pt x 256.07838pt.
  [122 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter4_acceleration/Const_2_Constant_XS_sn_compari
 ons_MIP_Gauss.png>]
-<chapter4_acceleration/Const_2_Constant_XS_c_comparions_MIP_Gauss.png, id=777, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Const_2_Constant_XS_c_comparions_MIP_Gauss.png, id=780, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Const_2_Constant_XS_c_comparions_MIP_Gauss.png Graphic file (type png)
 
 <use chapter4_acceleration/Const_2_Constant_XS_c_comparions_MIP_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Const_2_Constant_XS_c_comparions_MIP_Gauss.png used on input line 711.
 (pdftex.def)             Requested size: 312.9803pt x 234.73853pt.
 
-<chapter4_acceleration/Const_2_Constant_XS_c_comparions_MIP_Lobatto.png, id=778, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Const_2_Constant_XS_c_comparions_MIP_Lobatto.png, id=781, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Const_2_Constant_XS_c_comparions_MIP_Lobatto.png Graphic file (type png)
 
 <use chapter4_acceleration/Const_2_Constant_XS_c_comparions_MIP_Lobatto.png>
@@ -1161,14 +1161,14 @@ Package pdftex.def Info: chapter4_acceleration/Const_2_Constant_XS_c_comparions_
 ons_MIP_Lobatto.png>] [124 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter4_acceleration/Const_2_C
 onstant_XS_c_comparions_MIP_Gauss.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter4_accelerati
 on/Const_2_Constant_XS_c_comparions_MIP_Lobatto.png>] <chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Gauss.
-png, id=789, 505.89pt x 379.4175pt>
+png, id=792, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Gauss.png Graphic file (type png)
 
 <use chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Gauss.png used on input line 729.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Lobatto.png, id=790, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Lobatto.png, id=793, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Lobatto.png Graphic file (type png)
 
 <use chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Lobatto.png>
@@ -1177,21 +1177,21 @@ Package pdftex.def Info: chapter4_acceleration/Const_4_Constant_XS_c_comparions_
  [125 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter4_acceleration/Const_4_Constant_XS_c_compario
 ns_MIP_Gauss.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter4_acceleration/Const_4_Constant_X
 S_c_comparions_MIP_Lobatto.png>]
-<chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Gauss.png, id=796, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Gauss.png, id=799, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Gauss.png Graphic file (type png)
 
 <use chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Gauss.png>
 Package pdftex.def Info: chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Gauss.png used on input line 762.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Lobatto.png, id=797, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Lobatto.png, id=800, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Lobatto.png Graphic file (type png)
 
 <use chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Lobatto.png>
 Package pdftex.def Info: chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Lobatto.png used on input line 770.
 (pdftex.def)             Requested size: 270.30118pt x 202.72871pt.
 
-<chapter4_acceleration/Const_4_Constant_XS_SN8_MIP_Gauss.png, id=798, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Const_4_Constant_XS_SN8_MIP_Gauss.png, id=801, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Const_4_Constant_XS_SN8_MIP_Gauss.png Graphic file (type png)
 
 <use chapter4_acceleration/Const_4_Constant_XS_SN8_MIP_Gauss.png>
@@ -1199,7 +1199,7 @@ Package pdftex.def Info: chapter4_acceleration/Const_4_Constant_XS_SN8_MIP_Gauss
 (pdftex.def)             Requested size: 270.30118pt x 202.72871pt.
  [126 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter4_acceleration/Const_2_Constant_XS_SN8_MIP_Ga
 uss.png>]
-<chapter4_acceleration/Const_4_Constant_XS_SN8_MIP_Lobatto.png, id=803, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Const_4_Constant_XS_SN8_MIP_Lobatto.png, id=806, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Const_4_Constant_XS_SN8_MIP_Lobatto.png Graphic file (type png)
 
 <use chapter4_acceleration/Const_4_Constant_XS_SN8_MIP_Lobatto.png>
@@ -1209,28 +1209,28 @@ Package pdftex.def Info: chapter4_acceleration/Const_4_Constant_XS_SN8_MIP_Lobat
 batto.png>] [128 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter4_acceleration/Const_4_Constant_XS
 _SN8_MIP_Gauss.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter4_acceleration/Const_4_Constant
 _XS_SN8_MIP_Lobatto.png>]
-<chapter4_acceleration/Variable_XS_S2SA_Gauss_spr.png, id=813, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Variable_XS_S2SA_Gauss_spr.png, id=816, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Variable_XS_S2SA_Gauss_spr.png Graphic file (type png)
 
 <use chapter4_acceleration/Variable_XS_S2SA_Gauss_spr.png>
 Package pdftex.def Info: chapter4_acceleration/Variable_XS_S2SA_Gauss_spr.png used on input line 833.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter4_acceleration/Variable_XS_S2SA_Lobatto_spr.png, id=814, 578.16pt x 433.62pt>
+<chapter4_acceleration/Variable_XS_S2SA_Lobatto_spr.png, id=817, 578.16pt x 433.62pt>
 File: chapter4_acceleration/Variable_XS_S2SA_Lobatto_spr.png Graphic file (type png)
 
 <use chapter4_acceleration/Variable_XS_S2SA_Lobatto_spr.png>
 Package pdftex.def Info: chapter4_acceleration/Variable_XS_S2SA_Lobatto_spr.png used on input line 841.
 (pdftex.def)             Requested size: 284.52756pt x 213.39536pt.
  [129]
-<chapter4_acceleration/Const_2_Variable_XS_MIP_Gauss_spr.png, id=818, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Const_2_Variable_XS_MIP_Gauss_spr.png, id=822, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Const_2_Variable_XS_MIP_Gauss_spr.png Graphic file (type png)
 
 <use chapter4_acceleration/Const_2_Variable_XS_MIP_Gauss_spr.png>
 Package pdftex.def Info: chapter4_acceleration/Const_2_Variable_XS_MIP_Gauss_spr.png used on input line 854.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter4_acceleration/Const_2_Variable_XS_MIP_Lobatto_spr.png, id=819, 505.89pt x 379.4175pt>
+<chapter4_acceleration/Const_2_Variable_XS_MIP_Lobatto_spr.png, id=823, 505.89pt x 379.4175pt>
 File: chapter4_acceleration/Const_2_Variable_XS_MIP_Lobatto_spr.png Graphic file (type png)
 
 <use chapter4_acceleration/Const_2_Variable_XS_MIP_Lobatto_spr.png>
@@ -1243,7 +1243,7 @@ _MIP_Gauss_spr.png>]) [132 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Diss
 ariable_XS_MIP_Lobatto_spr.png>] [133]
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter5_depletion/chapter5_depletion.tex
 Chapter 5.
-<chapter5_depletion/article_grid.pdf, id=836, 364.36125pt x 294.09875pt>
+<chapter5_depletion/article_grid.pdf, id=839, 364.36125pt x 294.09875pt>
 File: chapter5_depletion/article_grid.pdf Graphic file (type pdf)
  <use chapter5_depletion/article_grid.pdf>
 Package pdftex.def Info: chapter5_depletion/article_grid.pdf used on input line 32.
@@ -1254,7 +1254,7 @@ Package pdftex.def Info: chapter5_depletion/article_grid.pdf used on input line 
 
 
  <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter5_depletion/article_grid.pdf>]
-<chapter5_depletion/article_transmutation.pdf, id=847, 299.1175pt x 322.20375pt>
+<chapter5_depletion/article_transmutation.pdf, id=850, 299.1175pt x 322.20375pt>
 File: chapter5_depletion/article_transmutation.pdf Graphic file (type pdf)
 
 <use chapter5_depletion/article_transmutation.pdf>
@@ -1267,7 +1267,7 @@ Overfull \hbox (10.73941pt too wide) in paragraph at lines 76--87
 
 [135] [136 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter5_depletion/article_transmutation.pdf>]
 [137] [138] [139] [140]
-<chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__BOC_Flux.pdf, id=873, 502.87875pt x 407.5225p
+<chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__BOC_Flux.pdf, id=876, 502.87875pt x 407.5225p
 t>
 File: chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__BOC_Flux.pdf Graphic file (type pdf)
  <use chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__BOC_Flux.pdf>
@@ -1275,7 +1275,7 @@ Package pdftex.def Info: chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_E
 input line 295.
 (pdftex.def)             Requested size: 312.9803pt x 253.63138pt.
 
-<chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__EOC_Flux.pdf, id=874, 502.87875pt x 407.5225p
+<chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__EOC_Flux.pdf, id=877, 502.87875pt x 407.5225p
 t>
 File: chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__EOC_Flux.pdf Graphic file (type pdf)
  <use chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__EOC_Flux.pdf>
@@ -1285,20 +1285,20 @@ input line 302.
  [141 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter5_depletion/P1_Lobatto_full_80_cells_t_steps6
 0_End_600_Power_2000__BOC_Flux.pdf>] [142 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter5_depleti
 on/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__EOC_Flux.pdf>] [143] [144] [145] [146] [147] [148]
-<chapter5_depletion/Flux_P1_norm_err.png, id=909, 578.16pt x 433.62pt>
+<chapter5_depletion/Flux_P1_norm_err.png, id=912, 578.16pt x 433.62pt>
 File: chapter5_depletion/Flux_P1_norm_err.png Graphic file (type png)
  <use chapter5_depletion/Flux_P1_norm_err.png>
 Package pdftex.def Info: chapter5_depletion/Flux_P1_norm_err.png used on input line 603.
 (pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
 [149 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter5_depletion/Flux_P1_norm_err.png (PNG copy)>]
-<chapter5_depletion/Flux_P2_norm_err.png, id=913, 578.16pt x 433.62pt>
+<chapter5_depletion/Flux_P2_norm_err.png, id=916, 578.16pt x 433.62pt>
 File: chapter5_depletion/Flux_P2_norm_err.png Graphic file (type png)
  <use chapter5_depletion/Flux_P2_norm_err.png>
 Package pdftex.def Info: chapter5_depletion/Flux_P2_norm_err.png used on input line 612.
 (pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<chapter5_depletion/Flux_P3_norm_err.png, id=914, 578.16pt x 433.62pt>
+<chapter5_depletion/Flux_P3_norm_err.png, id=917, 578.16pt x 433.62pt>
 File: chapter5_depletion/Flux_P3_norm_err.png Graphic file (type png)
  <use chapter5_depletion/Flux_P3_norm_err.png>
 Package pdftex.def Info: chapter5_depletion/Flux_P3_norm_err.png used on input line 619.
@@ -1306,31 +1306,31 @@ Package pdftex.def Info: chapter5_depletion/Flux_P3_norm_err.png used on input l
 
 [150 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter5_depletion/Flux_P2_norm_err.png (PNG copy)> <
 C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter5_depletion/Flux_P3_norm_err.png (PNG copy)>]
-<chapter5_depletion/Flux_P4_norm_err.png, id=918, 578.16pt x 433.62pt>
+<chapter5_depletion/Flux_P4_norm_err.png, id=921, 578.16pt x 433.62pt>
 File: chapter5_depletion/Flux_P4_norm_err.png Graphic file (type png)
  <use chapter5_depletion/Flux_P4_norm_err.png>
 Package pdftex.def Info: chapter5_depletion/Flux_P4_norm_err.png used on input line 628.
 (pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<chapter5_depletion/FS_P1_norm_err.png, id=919, 578.16pt x 433.62pt>
+<chapter5_depletion/FS_P1_norm_err.png, id=922, 578.16pt x 433.62pt>
 File: chapter5_depletion/FS_P1_norm_err.png Graphic file (type png)
  <use chapter5_depletion/FS_P1_norm_err.png>
 Package pdftex.def Info: chapter5_depletion/FS_P1_norm_err.png used on input line 643.
 (pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<chapter5_depletion/FS_P2_norm_err.png, id=920, 578.16pt x 433.62pt>
+<chapter5_depletion/FS_P2_norm_err.png, id=923, 578.16pt x 433.62pt>
 File: chapter5_depletion/FS_P2_norm_err.png Graphic file (type png)
  <use chapter5_depletion/FS_P2_norm_err.png>
 Package pdftex.def Info: chapter5_depletion/FS_P2_norm_err.png used on input line 650.
 (pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<chapter5_depletion/FS_P3_norm_err.png, id=921, 578.16pt x 433.62pt>
+<chapter5_depletion/FS_P3_norm_err.png, id=924, 578.16pt x 433.62pt>
 File: chapter5_depletion/FS_P3_norm_err.png Graphic file (type png)
  <use chapter5_depletion/FS_P3_norm_err.png>
 Package pdftex.def Info: chapter5_depletion/FS_P3_norm_err.png used on input line 657.
 (pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<chapter5_depletion/FS_P4_norm_err.png, id=922, 578.16pt x 433.62pt>
+<chapter5_depletion/FS_P4_norm_err.png, id=925, 578.16pt x 433.62pt>
 File: chapter5_depletion/FS_P4_norm_err.png Graphic file (type png)
  <use chapter5_depletion/FS_P4_norm_err.png>
 Package pdftex.def Info: chapter5_depletion/FS_P4_norm_err.png used on input line 664.
@@ -1341,13 +1341,13 @@ Package pdftex.def Info: chapter5_depletion/FS_P4_norm_err.png used on input lin
 /Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter5_depletion/FS_P2_norm_err.png (PNG copy)>] [153 <C:/U
 sers/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter5_depletion/FS_P3_norm_err.png (PNG copy)> <C:/Users/pma
 ginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter5_depletion/FS_P4_norm_err.png (PNG copy)>]
-<chapter5_depletion/ft_P1_norm_err.png, id=932, 578.16pt x 433.62pt>
+<chapter5_depletion/ft_P1_norm_err.png, id=936, 578.16pt x 433.62pt>
 File: chapter5_depletion/ft_P1_norm_err.png Graphic file (type png)
  <use chapter5_depletion/ft_P1_norm_err.png>
 Package pdftex.def Info: chapter5_depletion/ft_P1_norm_err.png used on input line 673.
 (pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<chapter5_depletion/ft_P2_norm_err.png, id=933, 578.16pt x 433.62pt>
+<chapter5_depletion/ft_P2_norm_err.png, id=937, 578.16pt x 433.62pt>
 File: chapter5_depletion/ft_P2_norm_err.png Graphic file (type png)
  <use chapter5_depletion/ft_P2_norm_err.png>
 Package pdftex.def Info: chapter5_depletion/ft_P2_norm_err.png used on input line 680.
@@ -1355,13 +1355,13 @@ Package pdftex.def Info: chapter5_depletion/ft_P2_norm_err.png used on input lin
 
 [154 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter5_depletion/ft_P1_norm_err.png (PNG copy)> <C:
 /Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter5_depletion/ft_P2_norm_err.png (PNG copy)>]
-<chapter5_depletion/ft_P3_norm_err.png, id=938, 578.16pt x 433.62pt>
+<chapter5_depletion/ft_P3_norm_err.png, id=941, 578.16pt x 433.62pt>
 File: chapter5_depletion/ft_P3_norm_err.png Graphic file (type png)
  <use chapter5_depletion/ft_P3_norm_err.png>
 Package pdftex.def Info: chapter5_depletion/ft_P3_norm_err.png used on input line 689.
 (pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<chapter5_depletion/ft_P4_norm_err.png, id=939, 578.16pt x 433.62pt>
+<chapter5_depletion/ft_P4_norm_err.png, id=942, 578.16pt x 433.62pt>
 File: chapter5_depletion/ft_P4_norm_err.png Graphic file (type png)
  <use chapter5_depletion/ft_P4_norm_err.png>
 Package pdftex.def Info: chapter5_depletion/ft_P4_norm_err.png used on input line 696.
@@ -1369,13 +1369,13 @@ Package pdftex.def Info: chapter5_depletion/ft_P4_norm_err.png used on input lin
 
 [155 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter5_depletion/ft_P3_norm_err.png (PNG copy)> <C:
 /Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter5_depletion/ft_P4_norm_err.png (PNG copy)>]
-<chapter5_depletion/FPA_P1_norm_err.png, id=943, 578.16pt x 433.62pt>
+<chapter5_depletion/FPA_P1_norm_err.png, id=946, 578.16pt x 433.62pt>
 File: chapter5_depletion/FPA_P1_norm_err.png Graphic file (type png)
  <use chapter5_depletion/FPA_P1_norm_err.png>
 Package pdftex.def Info: chapter5_depletion/FPA_P1_norm_err.png used on input line 705.
 (pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<chapter5_depletion/FPA_P2_norm_err.png, id=944, 578.16pt x 433.62pt>
+<chapter5_depletion/FPA_P2_norm_err.png, id=947, 578.16pt x 433.62pt>
 File: chapter5_depletion/FPA_P2_norm_err.png Graphic file (type png)
  <use chapter5_depletion/FPA_P2_norm_err.png>
 Package pdftex.def Info: chapter5_depletion/FPA_P2_norm_err.png used on input line 712.
@@ -1383,13 +1383,13 @@ Package pdftex.def Info: chapter5_depletion/FPA_P2_norm_err.png used on input li
 
 [156 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter5_depletion/FPA_P1_norm_err.png (PNG copy)> <C
 :/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter5_depletion/FPA_P2_norm_err.png (PNG copy)>]
-<chapter5_depletion/FPA_P3_norm_err.png, id=948, 578.16pt x 433.62pt>
+<chapter5_depletion/FPA_P3_norm_err.png, id=951, 578.16pt x 433.62pt>
 File: chapter5_depletion/FPA_P3_norm_err.png Graphic file (type png)
  <use chapter5_depletion/FPA_P3_norm_err.png>
 Package pdftex.def Info: chapter5_depletion/FPA_P3_norm_err.png used on input line 721.
 (pdftex.def)             Requested size: 270.30118pt x 202.72293pt.
 
-<chapter5_depletion/FPA_P4_norm_err.png, id=949, 578.16pt x 433.62pt>
+<chapter5_depletion/FPA_P4_norm_err.png, id=952, 578.16pt x 433.62pt>
 File: chapter5_depletion/FPA_P4_norm_err.png Graphic file (type png)
  <use chapter5_depletion/FPA_P4_norm_err.png>
 Package pdftex.def Info: chapter5_depletion/FPA_P4_norm_err.png used on input line 728.
@@ -1404,384 +1404,498 @@ Chapter 6.
 
 
 ] [160] [161] [162] [163] [164]
-Overfull \hbox (21.38441pt too wide) detected at line 203
+Overfull \hbox (21.38441pt too wide) detected at line 210
  []$[] []  \OML/cmm/m/it/12 :$ []  
  []
 
-
-Overfull \hbox (11.18442pt too wide) detected at line 208
+[165]
+Overfull \hbox (11.18442pt too wide) detected at line 215
  []$[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 [] []  :$ []  
  []
 
-[165] [166] [167]
-Overfull \hbox (7.31628pt too wide) detected at line 269
+[166] [167]
+Overfull \hbox (7.31628pt too wide) detected at line 280
 \OML/cmm/m/it/12 I[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 I[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 t [] [] \OT1/cmr/m/n/12 
 + \OML/cmm/m/it/12 a[]\OT1/cmr/m/n/12 \OML/cmm/m/it/12 tc []  :
  []
 
-
-Overfull \hbox (3.41934pt too wide) detected at line 278
+[168]
+Overfull \hbox (3.41934pt too wide) detected at line 289
 [] \OML/cmm/m/it/12 T[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 T[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 t [] [] \OT1/cmr/m/n/
 12 + [] []  \OML/cmm/m/it/12 :
  []
 
-[168]
-Overfull \hbox (3.59695pt too wide) detected at line 321
+[169]
+Overfull \hbox (3.59695pt too wide) detected at line 332
  []$[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 []D[] [][] [] []$ 
  []
 
-[169] [170] [171] [172] [173]
-Overfull \hbox (13.28772pt too wide) detected at line 466
+[170] [171] [172] [173] [174] [175]
+Overfull \hbox (13.28772pt too wide) detected at line 491
 [] \OT1/cmr/m/n/12 = [] + [][] []  \OML/cmm/m/it/12 :
  []
 
-[174]
-Overfull \hbox (25.94893pt too wide) detected at line 488
+
+Overfull \hbox (25.94893pt too wide) detected at line 513
  []$[] \OT1/cmr/m/n/12 + \OT1/cmr/bx/n/12 R[]D[] [][] []  \OML/cmm/m/it/12 :$ []  
  []
 
 
-Overfull \hbox (25.94893pt too wide) detected at line 498
+Overfull \hbox (25.94893pt too wide) detected at line 523
  []$[] \OT1/cmr/m/n/12 + \OT1/cmr/bx/n/12 R[]D[] [][] []  \OML/cmm/m/it/12 ;$ []  
  []
 
-[175]
-Overfull \hbox (9.2835pt too wide) detected at line 554
+[176] [177]
+Overfull \hbox (9.2835pt too wide) detected at line 579
  []$[]\OT1/cmr/m/n/12 \OML/cmm/m/it/12 ta[]c\OT1/cmr/bx/n/12 M[] []$ []  
  []
 
-[176] [177] [178]
-Overfull \hbox (8.6214pt too wide) detected at line 651
+[178] [179]
+Overfull \hbox (8.6214pt too wide) detected at line 676
  []$[]  \OML/cmm/m/it/12 []\OT1/cmr/bx/n/12 G[] \OT1/cmr/m/n/12 + [] [] = []\OT1/cmr/bx/n/12 M[] \OT1/cmr/m/n/12 + []\O
 T1/cmr/bx/n/12 M [] [] \OT1/cmr/m/n/12 + []\OT1/cmr/bx/n/12 R[][] \OT1/cmr/m/n/12 + \OT1/cmr/bx/n/12 R[][] []$ 
  []
 
-[179] [180] [181] [182] [183] [184] [185] [186] [187]
-Overfull \hbox (13.003pt too wide) in paragraph at lines 900--909
+[180] [181] [182] [183] [184] [185] [186] [187] [188]
+Overfull \hbox (13.003pt too wide) in paragraph at lines 923--932
 \OT1/cmr/m/n/12 sim-ply call []\OT1/cmtt/m/n/12 matrix_construction->construct_dimensionless_mass_matrix()\OT1/cmr/m/n/1
 2 , and,
  []
 
-[188] [189] [190] [191]
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
- <chapter6_grey_radtran/Dissertation_Data/MMS2_TL_phi_L2.png, id=1063, 421.575pt x 316.18124pt>
+[189] [190] [191] [192] <chapter6_grey_radtran/Dissertation_Data/MMS2_TL_phi_L2.png, id=1069, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_TL_phi_L2.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_TL_phi_L2.png>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_TL_phi_L2.png used on input line 971.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_TL_phi_L2.png used on input line 995.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_L2.png, id=1064, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_L2.png, id=1070, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_L2.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_L2.png>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_L2.png used on input line 979.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_L2.png used on input line 1003.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_L2.png, id=1065, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_L2.png, id=1071, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_L2.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_L2.png>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_L2.png used on input line 987.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_L2.png used on input line 1011.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS2_TL_temp_L2.png, id=1066, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS2_TL_temp_L2.png, id=1072, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_TL_temp_L2.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_TL_temp_L2.png>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_TL_temp_L2.png used on input line 996.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_TL_temp_L2.png used on input line 1020.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_L2.png, id=1067, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_L2.png, id=1073, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_L2.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_L2.png>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_L2.png used on input line 1004.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_L2.png used on input line 1028.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_L2.png, id=1068, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_L2.png, id=1074, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_L2.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_L2.png>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_L2.png used on input line 1012.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_L2.png used on input line 1036.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
- [192] [193 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS2_T
-L_phi_L2.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS2
-_SLXS_Lobatto_phi_L2.png>]
-<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_A.png, id=1077, 421.575pt x 316.18124pt>
+ [193 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS2_TL_phi_
+L2.png>] [194 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS2
+_SLXS_Lobatto_phi_L2.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertati
+on_Data/MMS2_SLXS_Gauss_phi_L2.png>] [195 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_ra
+dtran/Dissertation_Data/MMS2_TL_temp_L2.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey
+_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_L2.png>] <chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_ph
+i_A.png, id=1090, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_A.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_A.png>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_A.png used on input line 1032.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_A.png used on input line 1059.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_A.png, id=1078, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_A.png, id=1091, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_A.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_A.png>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_A.png used on input line 1040.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_A.png used on input line 1067.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.png, id=1079, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.png, id=1092, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.png>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.png used on input line 1048.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.png used on input line 1075.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.png, id=1080, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.png, id=1093, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.png>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.png used on input line 1056.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.png used on input line 1083.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
- [194 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Ga
-uss_phi_L2.png>] [195 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_D
-ata/MMS2_TL_temp_L2.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertatio
-n_Data/MMS2_SLXS_Lobatto_temp_L2.png>] [196 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_
-radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_L2.png>] [197 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertati
-on/chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_A.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation
-/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_A.png>] [198 <C:/Users/pmaginot/Desktop/Work/P
-GM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.png> <C:/Users/pmaginot/De
-sktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.png>] [199]
-<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_phi_L2.png, id=1108, 421.575pt x 316.18124pt>
+ [196 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Ga
+uss_temp_L2.png>] [197 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_
+Data/MMS2_SLXS_Lobatto_phi_A.png>] [198 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radt
+ran/Dissertation_Data/MMS2_SLXS_Gauss_phi_A.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_
+grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.png>] [199 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Diss
+ertation/chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.png>] [200]
+<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_phi_L2.png, id=1114, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_phi_L2.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_phi_L2.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_phi_L2.png used on input li
-ne 1107.
+ne 1134.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_phi_L2.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_phi_L2.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_phi_L2.png used on input li
-ne 1115.
+ne 1142.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_L2.png, id=1109, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_L2.png, id=1115, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_L2.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_L2.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_L2.png used on input l
-ine 1123.
+ine 1150.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_L2.png, id=1110, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_L2.png, id=1116, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_L2.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_L2.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_L2.png used on input lin
-e 1131.
+e 1158.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_A.png, id=1111, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_A.png, id=1117, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_A.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_A.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_A.png used on input li
-ne 1139.
+ne 1166.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_A.png, id=1112, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_A.png, id=1118, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_A.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_A.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_A.png used on input line
- 1147.
+ 1174.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
- [200] [201 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_C
-onstant_XS_SL_Lobatto_phi_L2.png>]
-<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_L2.png, id=1120, 421.575pt x 316.18124pt>
+ [201 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_Constan
+t_XS_SL_Lobatto_phi_L2.png>] [202]
+[203 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_Constant
+_XS_SL_Lobatto_temp_L2.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Disserta
+tion_Data/MMS3_Constant_XS_SL_Gauss_temp_L2.png>] [204 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/cha
+pter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_A.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissert
+ation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_A.png>]
+<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_L2.png, id=1137, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_L2.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_L2.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_L2.png used on input
- line 1157.
+ line 1186.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_L2.png, id=1121, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_L2.png, id=1138, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_L2.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_L2.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_L2.png used on input l
-ine 1165.
+ine 1194.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
- [202 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_Constan
-t_XS_SL_Lobatto_temp_L2.png>]
-[203 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_Constant
-_XS_SL_Gauss_temp_L2.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertati
-on_Data/MMS3_Constant_XS_SL_Lobatto_temp_A.png>]
-<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_L2.png, id=1132, 421.575pt x 316.18124pt>
+
+<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_L2.png, id=1139, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_L2.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_L2.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_L2.png used on inpu
-t line 1174.
+t line 1203.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
-
-<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_L2.png, id=1133, 421.575pt x 316.18124pt>
+ [205 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_In
+itial_SLXS_Lobatto_phi_L2.png>]
+[206 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Ini
+tial_SLXS_Gauss_phi_L2.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Disserta
+tion_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_L2.png>]
+<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_L2.png, id=1149, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_L2.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_L2.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_L2.png used on input 
-line 1182.
+line 1212.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_A.png, id=1134, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_A.png, id=1150, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_A.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_A.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_A.png used on input 
-line 1190.
+line 1219.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_A.png, id=1135, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_A.png, id=1151, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_A.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_A.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_A.png used on input li
-ne 1198.
+ne 1227.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_A.png, id=1136, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_A.png, id=1152, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_A.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_A.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_A.png used on input
- line 1207.
+ line 1238.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_A.png, id=1137, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_A.png, id=1153, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_A.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_A.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_A.png used on input l
-ine 1215.
+ine 1246.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
- [204 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_Constan
-t_XS_SL_Gauss_temp_A.png>] [205 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Diss
-ertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_L2.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/c
-hapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_L2.png>] [206 <C:/Users/pmaginot/Desktop/Work/PG
-M_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_L2.png> <C:/User
-s/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gau
-ss_temp_L2.png>] [207 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_D
-ata/MMS3_SLXS_Initial_SLXS_Lobatto_phi_A.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_gre
-y_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_A.png>] [208 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertati
-on/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_A.png>]
-<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_L2.png, id=1162, 421.575pt x 316.18124pt>
+ [207 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_In
+itial_SLXS_Gauss_temp_L2.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Disser
+tation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_A.png>] [208 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertatio
+n/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_A.png>] [209 <C:/Users/pmaginot/Desktop/Work/
+PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_A.png> <C:/Use
+rs/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Ga
+uss_temp_A.png>]
+<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_L2.png, id=1169, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_L2.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_L2.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_L2.png used on input lin
-e 1240.
+e 1271.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_L2.png, id=1163, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_L2.png, id=1170, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_L2.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_L2.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_L2.png used on input line 
-1248.
-(pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
+1279.
+(pdftex.def)             Requested size: 270.30118pt x 202.72679pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_L2.png, id=1164, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_L2.png, id=1171, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_L2.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_L2.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_L2.png used on input li
-ne 1256.
-(pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
+ne 1287.
+(pdftex.def)             Requested size: 270.30118pt x 202.72679pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_L2.png, id=1165, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_L2.png, id=1172, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_L2.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_L2.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_L2.png used on input line
- 1264.
-(pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
- [209 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_In
-itial_SLXS_Gauss_temp_A.png>]
-<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_A.png, id=1170, 421.575pt x 316.18124pt>
+ 1295.
+(pdftex.def)             Requested size: 270.30118pt x 202.72679pt.
+ [210] [211 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Consta
+nt_Time_SLXS_Lobatto_phi_L2.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dis
+sertation_Data/Constant_Time_SLXS_Gauss_phi_L2.png>] [212 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/
+chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_L2.png> <C:/Users/pmaginot/Desktop/Work/PGM_Diss
+ertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_L2.png>]
+<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_A.png, id=1186, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_A.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_A.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_A.png used on input line
- 1274.
+ 1308.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_A.png, id=1171, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_A.png, id=1187, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_A.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_A.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_A.png used on input line 1
-282.
+316.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_A.png, id=1172, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_A.png, id=1188, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_A.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_A.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_A.png used on input lin
-e 1291.
+e 1326.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_A.png, id=1173, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_A.png, id=1189, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_A.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_A.png>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_A.png used on input line 
-1299.
+1334.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
- [210 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Constant_Tim
-e_SLXS_Lobatto_phi_L2.png>] [211 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dis
-sertation_Data/Constant_Time_SLXS_Gauss_phi_L2.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapte
-r6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_L2.png>] [212 <C:/Users/pmaginot/Desktop/Work/PGM_Diss
-ertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_L2.png> <C:/Users/pmaginot/D
-esktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_A.png>]
  [213 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Constant_Tim
-e_SLXS_Gauss_phi_A.png>] [214 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Disser
-tation_Data/Constant_Time_SLXS_Lobatto_temp_A.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter
-6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_A.png>] [215]
-<chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Phi.png, id=1201, 421.575pt x 316.18124pt>
+e_SLXS_Lobatto_phi_A.png>] [214 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Diss
+ertation_Data/Constant_Time_SLXS_Gauss_phi_A.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6
+_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_A.png>] [215 <C:/Users/pmaginot/Desktop/Work/PGM_Dissert
+ation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_A.png>]
+<chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Phi.png, id=1204, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Phi.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Phi.png>
-Package pdftex.def Info: chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Phi.png used on input line 1360.
+Package pdftex.def Info: chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Phi.png used on input line 1395.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Temperature_Big_dt.png, id=1202, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Temperature_Big_dt.png, id=1205, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Temperature_Big_dt.png Graphic file (type png)
 
 <use chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Temperature_Big_dt.png>
 Package pdftex.def Info: chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Temperature_Big_dt.png used on inpu
-t line 1368.
+t line 1404.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
 
-<chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Temperature_Small_dt.png, id=1203, 421.575pt x 316.18124pt>
+<chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Temperature_Small_dt.png, id=1206, 421.575pt x 316.18124pt>
 File: chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Temperature_Small_dt.png Graphic file (type png)
 <use chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Temperature_Small_dt.png>
 Package pdftex.def Info: chapter6_grey_radtran/Extended_Time_Integrators_Convergence_Temperature_Small_dt.png used on in
-put line 1374.
+put line 1410.
 (pdftex.def)             Requested size: 284.52756pt x 213.39865pt.
- [216 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Extended_Time_Integrators_Conv
-ergence_Phi.png>] [217 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Extended_Time
-_Integrators_Convergence_Temperature_Big_dt.png>]) [218 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/ch
-apter6_grey_radtran/Extended_Time_Integrators_Convergence_Temperature_Small_dt.png>]
+ [216] [217 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Extended_Time_Integrator
+s_Convergence_Phi.png>]
+[218 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Extended_Time_Integrators_Conve
+rgence_Temperature_Big_dt.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Exten
+ded_Time_Integrators_Convergence_Temperature_Small_dt.png>]
+<chapter6_grey_radtran/Dissertation_Data/Blading_Radiation_Full_MultiCell.png, id=1219, 421.575pt x 316.18124pt>
+File: chapter6_grey_radtran/Dissertation_Data/Blading_Radiation_Full_MultiCell.png Graphic file (type png)
+
+<use chapter6_grey_radtran/Dissertation_Data/Blading_Radiation_Full_MultiCell.png>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Blading_Radiation_Full_MultiCell.png used on input line
+ 1442.
+(pdftex.def)             Requested size: 312.9803pt x 234.73755pt.
+
+<chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Full_MultiCell.png, id=1220, 421.575pt x 316.18124pt>
+File: chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Full_MultiCell.png Graphic file (type png)
+
+<use chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Full_MultiCell.png>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Full_MultiCell.png used on input li
+ne 1450.
+(pdftex.def)             Requested size: 312.9803pt x 234.73755pt.
+
+<chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Zoom_MultiCell.png, id=1221, 421.575pt x 316.18124pt>
+File: chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Zoom_MultiCell.png Graphic file (type png)
+
+<use chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Zoom_MultiCell.png>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Zoom_MultiCell.png used on input li
+ne 1458.
+(pdftex.def)             Requested size: 312.9803pt x 234.73755pt.
+ [219] [220 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Bladin
+g_Radiation_Full_MultiCell.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Diss
+ertation_Data/Blading_Temperature_Full_MultiCell.png>]
+<chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Lobatto_P1_Cell_Refinement.png, id=1231, 421.
+575pt x 316.18124pt>
+File: chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Lobatto_P1_Cell_Refinement.png Graphic f
+ile (type png)
+
+<use chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Lobatto_P1_Cell_Refinement.png>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Lobatto_P1_Cell_Refin
+ement.png used on input line 1469.
+(pdftex.def)             Requested size: 312.9803pt x 234.73755pt.
+
+<chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Lobatto_P1_Cell_Refinement.png, id=1232, 42
+1.575pt x 316.18124pt>
+File: chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Lobatto_P1_Cell_Refinement.png Graphic
+ file (type png)
+
+<use chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Lobatto_P1_Cell_Refinement.png>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Lobatto_P1_Cell_Ref
+inement.png used on input line 1477.
+(pdftex.def)             Requested size: 312.9803pt x 234.73755pt.
+
+<chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Gauss_P4_Cell_Refinement.png, id=1233, 421.57
+5pt x 316.18124pt>
+File: chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Gauss_P4_Cell_Refinement.png Graphic fil
+e (type png)
+
+<use chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Gauss_P4_Cell_Refinement.png>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Gauss_P4_Cell_Refinem
+ent.png used on input line 1486.
+(pdftex.def)             Requested size: 312.9803pt x 234.73755pt.
+
+<chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Gauss_P4_Cell_Refinement.png, id=1234, 421.
+575pt x 316.18124pt>
+File: chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Gauss_P4_Cell_Refinement.png Graphic f
+ile (type png)
+
+<use chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Gauss_P4_Cell_Refinement.png>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Gauss_P4_Cell_Refin
+ement.png used on input line 1494.
+(pdftex.def)             Requested size: 312.9803pt x 234.73755pt.
+ [221 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Blading_Temp
+erature_Zoom_MultiCell.png>] [222 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Di
+ssertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Lobatto_P1_Cell_Refinement.png> <C:/Users/pmaginot/Desktop/Work/PGM_Di
+ssertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Lobatto_P1_Cell_Refi
+nement.png>] [223 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/
+Reorder_Marshak_Zoom_Radiation_SL_Gauss_P4_Cell_Refinement.png> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissert
+ation/chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Gauss_P4_Cell_Refinement.png>]
+<chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Radiation_Lobatto_P_Refinement.png, id=1249, 421.575pt x
+ 316.18124pt>
+File: chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Radiation_Lobatto_P_Refinement.png Graphic file (ty
+pe png)
+ <use chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Radiation_Lobatto_P_Refinement.png>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Radiation_Lobatto_P_Refinement.p
+ng used on input line 1505.
+(pdftex.def)             Requested size: 341.43306pt x 256.08127pt.
+
+[224 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Pointless_Mar
+shak_Zoom_Radiation_Lobatto_P_Refinement.png>]
+<chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Temperature_Lobatto_P_Refinement.png, id=1254, 421.575pt
+ x 316.18124pt>
+File: chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Temperature_Lobatto_P_Refinement.png Graphic file (
+type png)
+
+<use chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Temperature_Lobatto_P_Refinement.png>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Temperature_Lobatto_P_Refinement
+.png used on input line 1514.
+(pdftex.def)             Requested size: 341.43306pt x 256.08127pt.
+
+<chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Radiation.png, id=1255, 421.575pt x 316.18124pt>
+File: chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Radiation.png Graphic file (type png)
+
+<use chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Radiation.png>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Radiation.png used on input line 1
+530.
+(pdftex.def)             Requested size: 312.9803pt x 234.73755pt.
+
+<chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Temperature.png, id=1256, 421.575pt x 316.18124pt>
+File: chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Temperature.png Graphic file (type png)
+
+<use chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Temperature.png>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Temperature.png used on input line
+ 1538.
+(pdftex.def)             Requested size: 312.9803pt x 234.73755pt.
+ [225 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Pointless_Ma
+rshak_Zoom_Temperature_Lobatto_P_Refinement.png>] [226 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/cha
+pter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Radiation.png>] [227 <C:/Users/pmaginot/Desktop/Work/PGM_Disse
+rtation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Temperature.png>]
+Overfull \hbox (7.12234pt too wide) in paragraph at lines 1569--1612
+ [][] 
+ []
+
+) [228] [229]
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter7_conclusions/chapter7_conclusions.tex
 Chapter 7.
-) [219
+) [230
 
 
 
 ] (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\front_matter/bibliography.tex
-(C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.bbl [220
+(C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.bbl [231
 
 
 
-] [221] [222] [223] [224]
-[225])) [226] (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.aux
+] [232] [233] [234] [235]
+[236])) [237] (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.aux
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\front_matter/titlepage.aux)
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\front_matter/abstract.aux)
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\front_matter/dedication.aux)
@@ -1797,10 +1911,10 @@ Chapter 7.
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter7_conclusions/chapter7_conclusions.aux)
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\front_matter/bibliography.aux)) ) 
 Here is how much of TeX's memory you used:
- 6581 strings out of 493921
- 129185 string characters out of 3147274
- 173887 words of memory out of 3000000
- 9508 multiletter control sequences out of 15000+200000
+ 6648 strings out of 493921
+ 134228 string characters out of 3147274
+ 173592 words of memory out of 3000000
+ 9564 multiletter control sequences out of 15000+200000
  11648 words of font info for 44 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  34i,18n,33p,802b,287s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1815,9 +1929,9 @@ e1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
 MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
 /amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/hoekwater/stmary10.pfb>
-Output written on pgm_dissertation.pdf (247 pages, 3232113 bytes).
+Output written on pgm_dissertation.pdf (259 pages, 3331721 bytes).
 PDF statistics:
- 1304 PDF objects out of 1440 (max. 8388607)
+ 1365 PDF objects out of 1440 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 761 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 816 words of extra memory for PDF output out of 10000 (max. 10000000)
 

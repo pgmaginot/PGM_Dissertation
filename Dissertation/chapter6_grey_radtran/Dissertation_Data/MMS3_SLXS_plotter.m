@@ -58,7 +58,7 @@ end
 
 % now make each plot special
 figure(1)
-% CXS phi_A
+% SLXS Lobatto phi_A
 c1 = 3E-6;
 p1 = 2;
 c2 = 1E-9;
