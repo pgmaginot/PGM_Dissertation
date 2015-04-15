@@ -57,7 +57,7 @@ for i=1:1:n_plots
     fid_cell_r(i) = fopen(name_cell , 'r' );
     fid_cell_t(i) = fopen(name_cell , 'r' );
     fid_rad(i) = fopen(name_rad , 'r' );
-    fid_temp(i) = fopen(name_temp , 'r' );
+    fid_temp(i) = fopen(name_temp , 'r' )
 end
 
 % plot one variable at a time to avoit needless, slow, figure switching

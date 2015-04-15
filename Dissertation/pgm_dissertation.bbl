@@ -329,10 +329,22 @@ L.~Thomason and A.~Ellerton Y.~Berquin.
 \newblock \url{www.sourceforge.net/projects/tinyxml}, 2010.
 \newblock v2.6.0.
 
+\bibitem{thick_diffusion_larsen}
+E.~W. Larsen, J.~E. Morel, and W.~F. Miller.
+\newblock Asymptotic solutions of numerical transport problems in optically
+  thick, diffusive regimes.
+\newblock {\em Journal of Computational Physics}, 69:283--324, 1987.
+
 \bibitem{su_olson_1}
 B.~Su and G.~L. Olson.
 \newblock An analytical benchmark for non-equilibrium radiative transfer in an
   isotropically scattering medium.
 \newblock {\em Annals of Nuclear Engergy}, 24(13):1035--1055, 1997.
+
+\bibitem{alex_paper}
+A.~R. Long, N.~A. Gentile, and T.~S. Palmer.
+\newblock The iterative thermal emission method: {A} more implicit modification
+  of {IMC}.
+\newblock {\em Journal of Computational Physics}, 277:228--247, 2014.
 
 \end{thebibliography}
