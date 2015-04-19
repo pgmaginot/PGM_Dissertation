@@ -1,0 +1,111 @@
+\documentclass{beamer}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{alphalph}
+
+%\usepackage{geometry}[width=5in,height=3.75in]
+%\usepackage{animate}
+% \usepackage{multimedia}
+%\usepackage{caption}
+
+
+
+\usepackage{appendixnumberbeamer}
+\usetheme{Frankfurt}
+%\xdefinecolor{maroon}{cmyk}{0.15,1.00,0.39,0.69}
+%\xdefinecolor{maroon}{cmyk}{0.27,0.86,0.60,0.30}
+%\xdefinecolor{maroon}{cmyk}{0.000,1.00,1.00,0.498}
+\usecolortheme[RGB={80,0,0}]{structure}
+
+% Shortcut commands
+% My Shortcut Commands
+\newcommand{\fig}[1]{Fig.~\ref{#1}}                      % figure
+\newcommand{\tbl}[1]{Table~\ref{#1}}                     % table
+
+\newcommand{\be}{\begin{equation*}}   % numbered equation
+\newcommand{\ee}{\end{equation*}}
+
+\newcommand{\benum}{\begin{equation}}   % numbered equation
+\newcommand{\eenum}{\end{equation}}
+
+\newcommand{\bea}{\begin{eqnarray*}}  % numbered equation array
+\newcommand{\eea}{\end{eqnarray*}}
+
+\newcommand{\beanum}{\begin{eqnarray}}  % numbered equation array
+\newcommand{\eeanum}{\end{eqnarray}}
+
+\newcommand{\eqt}[1]{Eq. (\ref{#1})}  % Reference to one equation
+\newcommand{\eqts}[1]{Eqs. (\ref{#1})}  % Reference to multiple equations 
+
+\newcommand{\vect}[1]{\ensuremath{ \vec{\mathbf #1}}}  % bold faced with vector arrow above
+\newcommand{\B}[1]{\ensuremath{B_{#1} }}			% B with a sub scripted argument
+
+\newcommand{\p}{\ensuremath{ \partial}}			% shortcut partial derivative symbol
+
+\newcommand{\abs}[1]{\ensuremath{\left\lvert #1 \right\rvert}}  % absolute value of argument (variable bar size)
+\newcommand{\norm}[1]{\ensuremath{\left\lVert #1 \right\rVert}}  % norm of argument, varaible size
+
+% Equation Punctuation
+\newcommand{\pec}{\, ,}
+\newcommand{\pep}{\, .}
+\setbeamertemplate{footline}{
+\leavevmode%
+\hbox{\hspace*{-0.06cm}
+\begin{beamercolorbox}[wd=.45\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+	\usebeamerfont{author in head/foot}Maginot (TAMU)%~~(\insertshortinstitute)
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.3\paperwidth,ht=2.25ex,dp=1ex,center]{section in head/foot}%
+LLNL Interview %\usebeamerfont{section in head/foot}\insertshorttitle
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,right]{section in head/foot}%
+	\usebeamerfont{section in head/foot}August 15, 2014\hspace*{2em}
+	\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+\end{beamercolorbox}}%
+\vskip0pt%
+}
+\beamertemplatenavigationsymbolsempty
+\beamertemplatetransparentcovered
+
+\setbeamertemplate{bibliography item}[text]
+
+\title{Progress Towards Higher Order Radiative Transfer}
+\author{Peter Maginot \\ Advisors: Jean Ragusa and Jim Morel}\institute{Texas A\&M University- Department of Nuclear Engineering}
+\date{LLNL Interview \\ August 15, 2014 }
+
+
+\newif\ifplacelogo % create a new conditional
+\placelogotrue % set it to true
+\logo{\ifplacelogo\includegraphics[height=1cm]{CSGF_vert.eps}\fi}
+
+\begin{document}
+%---------------------------------------------------------------------------------------------
+%\logo{\includegraphics[height=0.75cm]{CSGF_vert.eps}}
+\placelogotrue
+\begin{frame}
+\titlepage
+\end{frame}
+
+\placelogofalse
+
+
+\begin{frame}
+\frametitle{Road to High Order Radiative Transfer}
+\tableofcontents[hideallsubsections]
+%\begin{enumerate}
+%\item Spatially Varying Cross Section Problems
+%\item Low Order DSA for High Order DFEM Transport
+%\item Strictly Non-Negative Bilinear Scheme for Unstrutured Quads
+%\end{enumerate}
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+%------------------------------------------------------------------------------
