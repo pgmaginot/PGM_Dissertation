@@ -126,7 +126,7 @@ for i=1:1:n_plots
 end
 
 xlabel('Position','FontSize',18,'Interpreter','latex');
-ylabel('V(x)','FontSize',18,'Interpreter','latex');
+ylabel('Mterial Energy Density, V(x)','FontSize',18,'Interpreter','latex');
 
 figure(fig_n_rad)
 % set the legend entries
@@ -185,7 +185,7 @@ for i=1:1:n_plots
 end
 
 xlabel('Position','FontSize',18,'Interpreter','latex');
-ylabel('W(x)','FontSize',18,'Interpreter','latex');
+ylabel('Radiation Energy Density, W(x)','FontSize',18,'Interpreter','latex');
 
 
 return
