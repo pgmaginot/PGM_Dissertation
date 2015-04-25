@@ -1,1 +1,1 @@
-C:\Program Files\gs\gs8.71\bin\gswin32c.exe
+C:\Program Files\gs\gs8.64\bin\gswin32c.exe
