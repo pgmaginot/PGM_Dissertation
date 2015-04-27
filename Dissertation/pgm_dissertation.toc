@@ -75,24 +75,24 @@
 \contentsline {section}{\numberline {6.1}Linearization and Discretization of Grey TRT Equations}{160}
 \contentsline {subsection}{\numberline {6.1.1}SDIRK Time Integration}{160}
 \contentsline {subsection}{\numberline {6.1.2}Spatially Analytic Linearization}{161}
-\contentsline {subsubsection}{\numberline {6.1.2.1}SDIRK Stage 1}{162}
+\contentsline {subsubsection}{\numberline {6.1.2.1}SDIRK Stage 1}{163}
 \contentsline {subsubsection}{\numberline {6.1.2.2}SDIRK Stage $i$}{169}
-\contentsline {subsection}{\numberline {6.1.3}Spatially Discretized Linearization}{172}
-\contentsline {subsubsection}{\numberline {6.1.3.1}SDIRK Stage 1}{174}
-\contentsline {subsubsection}{\numberline {6.1.3.2}SDIRK Stage $i$}{178}
-\contentsline {subsection}{\numberline {6.1.4}Consistency of Pseudo Cross Sections}{182}
-\contentsline {section}{\numberline {6.2}Computer Science Implementation}{189}
-\contentsline {section}{\numberline {6.3}Numerical Results}{191}
-\contentsline {subsection}{\numberline {6.3.1}Method of Manufactured Solutions}{191}
-\contentsline {subsubsection}{\numberline {6.3.1.1}Linear in Time - Trigonometric in Space }{192}
-\contentsline {subsubsection}{\numberline {6.3.1.2}Trigonometric in Space - Linear in Time - with Temperature Dependent Material Properties}{200}
-\contentsline {subsubsection}{\numberline {6.3.1.3}Constant in Time - Trigonometric in Space - with Temperature Dependent Material Properties}{211}
-\contentsline {subsubsection}{\numberline {6.3.1.4}Constant in Space - Trigonometric in Time}{216}
-\contentsline {subsection}{\numberline {6.3.2}Marshak Wave Problem}{218}
-\contentsline {subsection}{\numberline {6.3.3}Attempts at the Su-Olson Problem}{230}
-\contentsline {subsection}{\numberline {6.3.4}Effectiveness of MIP DSA for Radiative Transfer}{232}
-\contentsline {chapter}{\numberline {7}\uppercase {Summary and Conclusions}}{234}
-\contentsline {subsection}{\numberline {7.0.5}Summary}{234}
-\contentsline {subsection}{\numberline {7.0.6}Conclusions}{235}
-\contentsline {subsection}{\numberline {7.0.7}Future Work}{236}
-\contentsline {chapter}{REFERENCES}{238}
+\contentsline {subsection}{\numberline {6.1.3}Spatially Discretized Linearization}{171}
+\contentsline {subsubsection}{\numberline {6.1.3.1}SDIRK Stage $i$}{173}
+\contentsline {subsection}{\numberline {6.1.4}Consistency of Pseudo Cross Sections}{177}
+\contentsline {section}{\numberline {6.2}Software Implementation}{184}
+\contentsline {section}{\numberline {6.3}Numerical Results}{186}
+\contentsline {subsection}{\numberline {6.3.1}Method of Manufactured Solutions}{186}
+\contentsline {subsubsection}{\numberline {6.3.1.1}Linear in Time - Trigonometric in Space }{187}
+\contentsline {subsubsection}{\numberline {6.3.1.2}Trigonometric in Space - Linear in Time - with Temperature Dependent Material Properties}{196}
+\contentsline {subsubsection}{\numberline {6.3.1.3}Constant in Time - Trigonometric in Space - with Temperature Dependent Material Properties}{206}
+\contentsline {subsubsection}{\numberline {6.3.1.4}Constant in Space - Trigonometric in Time}{211}
+\contentsline {subsection}{\numberline {6.3.2}Marshak Wave Problem}{213}
+\contentsline {subsection}{\numberline {6.3.3}Su-Olson Problem}{225}
+\contentsline {subsection}{\numberline {6.3.4}Effectiveness of MIP DSA for Radiative Transfer}{228}
+\contentsline {chapter}{\numberline {7}\uppercase {Summary and Conclusions}}{232}
+\vskip +10pt
+\contentsline {section}{\numberline {7.1}Summary}{232}
+\contentsline {section}{\numberline {7.2}Conclusions}{233}
+\contentsline {subsection}{\numberline {7.2.1}Future Work}{234}
+\contentsline {chapter}{REFERENCES}{236}
