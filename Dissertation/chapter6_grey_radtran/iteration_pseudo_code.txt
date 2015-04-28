@@ -1,0 +1,30 @@
+time = t_start; t_step = 0
+while !end_of_time
+{
+  t_step += 1; dt = calculate_dt(t_step, dt_old,time,t_end)    
+  t_star = t_old    
+  for stage = 1:1:n_stage
+  {
+    time_stage = time + dt*c_sdirk[stage]
+    damping = 1; thermal_iter = 0; thermal_converged = false
+    while !thermal_converged
+    {
+      thermal_iter += 1; intensity_converged = false; phi_new = 0
+      while !intensity_converged
+      {
+        phi_new = calculate_new_intensity_iterate(t_star)
+        change_phi = normalized_diff(phi_new,phi_old)
+        intensity_converged = change_phi < epsilon_phi
+        phi_old = phi_new
+      }
+      [t_star,change_t] = update_temperature(t_star,phi_new,damping)
+      thermal_converged = change_t < epsilon_temperature            
+      damping = check_if_damping_needed(thermal_iter)
+    }
+    k_I[stage] = calculate_k_I(t_star,phi_new)
+    k_T[stage] = calculate_k_T(t_star,phi_new)
+  }
+  advance_intensity(i_old,k_I)
+  advance_temperature(t_old,k_T)  
+  time += dt; end_of_time = time < t_end
+}

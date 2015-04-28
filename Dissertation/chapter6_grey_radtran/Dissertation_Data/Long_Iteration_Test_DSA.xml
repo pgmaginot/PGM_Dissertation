@@ -1,0 +1,123 @@
+<?xml version="1.0" standalone=no>
+<!-- A comment -->
+<INPUT_FILE>
+  <OUTPUT>
+    <Output_type> DUMP </Output_type>
+    <Checkpoint_frequency> 10000 </Checkpoint_frequency>
+    <Output_directory> /scratch/pmaginot/dark_arts_local/output_files/ </Output_directory>
+  </OUTPUT>
+  
+  <REGIONS>
+    <Number_of_regions> 1 </Number_of_regions>
+    <Number_of_materials> 1 </Number_of_materials>
+    <Region> 0 
+      <N_cells> 50 </N_cells>
+      <Left_bound> 0.0 </Left_bound>
+      <Right_bound> 100.0  </Right_bound>
+      <Spacing> Equal   </Spacing>
+      <Material_number> 0 </Material_number>
+    </Region>
+  </REGIONS>
+  
+  <MATERIALS>
+    <!-- CM_SH_KEV or  UNITY-->
+    <Units> Unity </Units>
+    <Material> 0
+      <Scattering_opacity_type> Constant_xs 
+        <Constant_value> 0.0 </Constant_value>
+      </Scattering_opacity_type>      
+      
+      <Absorption_opacity_type> Rational
+        <Multiplier> 5000 </Multiplier>
+        <Denominator_power> 2</Denominator_power>
+        <Denominator_offset> 0</Denominator_offset>
+      </Absorption_opacity_type>      
+      
+      <Cv_type> Constant_cv 
+        <Cv_constant> 0.05 </Cv_constant>        
+      </Cv_type>
+      
+      <Radiation_fixed_source_type> NO_SOURCE   </Radiation_fixed_source_type>
+      <Temperature_fixed_source_type> No_source </Temperature_fixed_source_type>     
+    </Material>
+  </MATERIALS>
+  
+  <TIME>
+    <Dt_min> 0.01 </Dt_min>
+    <Dt_max> 0.1 </Dt_max>
+    <T_start> 0.0 </T_start>
+    <T_end> 5.0 </T_end>
+     <Time_solver> Implicit_Euler </Time_solver>
+    <!--
+      <Starting_method> Exponential </Starting_method>
+    <Increase_factor> 1.25 </Increase_factor>
+    -->
+    
+    <Starting_method> Exponential 
+      <Increase_factor> 1.05 </Increase_factor>
+    </Starting_method>
+  </TIME>
+  
+  <SPATIAL_DISCRETIZATION>
+    <DFEM_degree> 1 </DFEM_degree>
+    <Integration_type> Self_lumping </Integration_type>
+    <DFEM_interpolation_point_type> Lobatto </DFEM_interpolation_point_type>
+    <Opacity_treatment> SLXS
+    </Opacity_treatment>    
+  </SPATIAL_DISCRETIZATION>
+  
+  <ANGULAR_DISCRETIZATION>
+    <Number_of_angles> 2  </Number_of_angles>
+    <Number_of_groups> 1 </Number_of_groups>
+    <Quadrature_type> Gauss_angle </Quadrature_type>    
+    <Number_of_legendre_moments> 1 </Number_of_legendre_moments>
+  </ANGULAR_DISCRETIZATION>
+  
+  <SOLVER>
+    <!-- Valid options are FP_SWEEPS, FP_DSA, KRYLOV_SWEEPS, KRYLOV_DSA   -->
+    <WG_solver_type> FP_DSA
+      <Max_within_group_sweeps> 20000 </Max_within_group_sweeps>
+      <MIP_solve_options>
+        <Z_mip> 2.0 </Z_mip>
+      </MIP_solve_options>
+    </WG_solver_type>
+    
+    <WG_tolerance> 1.0E-10 </WG_tolerance>
+    <Thermal_tolerance> 1.0E-8 </Thermal_tolerance>
+    <Damping_factor> 0.7 </Damping_factor>
+    <Iteration_increase_factor> 2 </Iteration_increase_factor>
+    <Iterations_before_damping> 40 </Iterations_before_damping>
+    <Max_damping_resets> 5 </Max_damping_resets>
+    <Max_thermal_iterations_per_stage> 10000 </Max_thermal_iterations_per_stage>
+  </SOLVER>
+  
+  <BC_IC>
+   <Temperature_ic_type> Constant_Temperature_Ic 
+    <Region> 0
+      <Material_temperature> 0.5 </Material_temperature>
+    </Region>
+   </Temperature_ic_type>
+   
+   <Radiation_ic_type> PLanckian_IC   
+    <Region> 0
+      <Radiation_temperature> 0.5 </Radiation_temperature>
+    </Region>
+   </Radiation_ic_type>
+   
+   <!-- Valid options are INCIDENT_BC, VACUUM_BC, REFLECTIVE_BC   -->
+   <Left_radiation_bc_type> Incident_BC 
+    <BC_value_type> INCIDENT_CURRENT </BC_value_type>
+    <BC_angle_dependence> BC_ISOTROPIC </BC_angle_dependence>
+    <BC_time_dependence> BC_CONSTANT </BC_time_dependence>
+    <BC_value> 100.0 </BC_value>
+   </Left_radiation_bc_type>
+   
+   <!-- Valid options are PLANCKIAN_BC, VACUUM   -->
+   <Right_radiation_bc_type> Vacuum_BC </Right_radiation_bc_type>
+   
+   
+  </BC_IC>
+
+
+
+</INPUT_FILE>

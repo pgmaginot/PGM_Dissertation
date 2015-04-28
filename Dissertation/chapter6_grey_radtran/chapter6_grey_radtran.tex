@@ -37,7 +37,8 @@ The two most important differences between our work here and that of \cite{morel
 \end{enumerate}
 As shown by Larsen, Kumar, and Morel, failure to fully converge the Planckian linearization in temperature can result in non-physical solutions that violate the maximum principle \cite{larsen_trt}.
 
-The remainder of this section is divided into three parts.  Section \ref{sec:chap6_linearization} describes our linearization and discretization of the grey thermal radiative transfer (TRT) equations.  
+The remainder of this section is divided into three parts.  Section \ref{sec:chap6_linearization} describes our linearization and discretization of the grey thermal radiative transfer (TRT) equations. 
+We describe the time marching and nested iteration process we follow while solving the TRT in \secref{sec:chap6_iteration}
 In \secref{sec:chap6_programming}, we briefly describe the features and code implementation of the discretized TRT equations.  
 Finally, we present numerical results that verify and demonstrate the capabilities of our TRT solver in \secref{sec:chap6_results}.
 
@@ -960,6 +961,44 @@ Since we have shown that
 \eenum
 we will use the point-wise definition of \eqt{eq:radtran_d} to evaluate $\mathbf{S}$ and MIP DSA edge integrals requiring knowledge of a point-wise diffusion coefficient.
 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\section{Iterative Solution Process}
+\label{sec:chap6_iteration}
+
+To solve the time-dependent, grey TRT equations, we use a time marching loop with two levels of nested iteration, as detailed through the pseudo-code shown in Listing \ref{lst:pseudo_code}.
+\newpage
+\lstinputlisting[caption=TRT iteration pseudo-code , 
+									basicstyle = \footnotesize,
+									frame = single,
+									label = lst:pseudo_code]{chapter6_grey_radtran/iteration_pseudo_code.txt}
+
+
+We terminate the thermal iteration using a point-wise relative change criterion. 
+However, we only store two objects of temperature unknowns, each of size $N_{cell} \times N_P$, corresponding to $\vec{T}_n$ and $\vec{T}_*$
+$\vec{T}_n$ is modified only after the completion of a time step.  
+This is not a problem, as we already have the point-wise change in temperature, $\vec{\Delta T} = \vec{T}_*^{(\ell+1)} - \vec{T}_*^{(\ell)}$, from \eqt{eq:Ti_iso}:
+\begin{multline}
+\vec{\Delta T} = \left[\I+ 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}\left[\vec{T}_n -\vec{T}_* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right] \dots \\
++ \Delta t a_{ii}\left[\I + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}\R{C_v}^{-1}
+\left[ \R{\sigma_a}\left(\vec{\phi}_i - 4\pi\vec{B}_*  \right) + \vec{S}_T \right] \pec
+\end{multline}
+and
+\benum
+\text{change\_t} = \max_{c=1}^{N_{cell}} \left[ \max_{j=1}^{N_P} \left[  \abs{ \frac{ \Delta T_j }{ T_{j,*} } } \right] \right] \pep
+\eenum
+
+Likewise, we terminate the intensity update iteration using a point-wise relative change criterion:
+\benum
+\text{change\_phi} = \max_{c=1}^{N_{cell}} \left[ \max_{j=1}^{N_P} \left[ { \abs{ \frac{ \phi^{(\ell+1)}_{c,j} - \phi^{(\ell)}_{c,j}}{\phi^{(\ell+1)}_{c,j} }} } \right] \right] \pep
+\eenum
+Since MIP DSA requires two iterates of the angle integrated radiation energy density, $\phi^{(\ell+1)}$ and $\phi^{(\ell)}$, both of size $N_{cell} \times N_P$, we store at least two objects of the same dimensionality as $\phi$.
+We use one of these objects, \verb+phi_new+ in Listing \ref{lst:pseudo_code}, to update $\vec{T}^*$, while the other is local only to the intensity update.
+Our code is designed to use only a single intensity data object of size $N_{cell} \times N_P \times N_{dir}$, $\vec{I}_N$.
+Limiting ourselves to a single \verb+i_old+ requires our intensity update convergence to be based upon the angle integrated intensity and to perform one additional sweep while calculating $\vec{k}_I$.
+The SDIRK time integration technique requires that we save data objects $k_T$ and $k_I$ with,  $N_{stage} \times N_{cell} \times N_P$ and $N_{stage} \times N_{cell} \times N_P \times N_{dir}$ unknowns, respectively.
+For all significant values of $N_{dir}$, the need to store $\vec{I}_n$ and $\vec{k}_I$ will dominate the memory footprint of our implementation, and a reasonable upper bound on memory usage is $(1+N_{stage}) \times N_{dir} \times N_{cell} \times N_P$.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Software Implementation}
 \label{sec:chap6_programming}
 
@@ -1731,5 +1770,51 @@ Marshak Wave 									&  Linear			 & 2.1 & 2.9 \\
 \label{tbl:iteration_count}
 \end{table}
 
+To demonstrate the iterative effectiveness of MIP DSA we now present a problem designed solely to be optically thick.
+We again define a dimensionless problem, $a=c=1$.
+We assume a constant $C_v = 0.05$, define $x\in[0,100]$, $t\in[0,5]$, $\sigma_s = 0$, and $\sigma_a = \frac{5000}{T^2}$.
+Initially, the slab is in thermodynamic equilibrium at a temperature of $T=0.5$, and is heated with an incident current of $100$ on the left hand side of the slab.
+We difference the problem with linear SLXS Lobatto using 50 spatial cells, implicit Euler in time differencing, and a maximum time step size of $\Delta t_{max} = 0.1$.
+The average number of transport iterations per thermal iteration is given in \tbl{tbl:high_iter_count}.
+\begin{table}[!ht]
+\centering
+\caption{Iteration count for a very optically thick TRT problem.}
+\label{tbl:high_iter_count}
+\begin{tabular}{|c|c|}
+\hline
+Intensity  						& Average Intensity					\\				
+Iterative Strategy		& Iterations Per Thermal Iteration \\
+\hline
+SI+DSA				&   2.5  \\ 
+\hline
+SI  &   4460.7 \\
+\hline
+\end{tabular}
+\end{table}
+Clearly, MIP DSA can significantly reduce the iterative work required to solve the grey TRT equations, but the majority of problems we have considered are not very optically thick.
 
+%grove-01.ne.tamu.edu {~ }52 : tail /scratch/pmaginot/dark_arts_local/output_files/*iteration_status.txt
+%==> /scratch/pmaginot/dark_arts_local/output_files/Long_Iteration_Test_DSA_iteration_status.txt <==
+%Time_step:     78 Stage:  0 Thermal_iter:    1 dt: 1.000000000000000e-01 number_of_inner_solves: 3 Relative_Error: 4.440241227948789e-05 Damping: 1.000000000000000e+00
+%Time_step:     78 Stage:  0 Thermal_iter:    2 dt: 1.000000000000000e-01 number_of_inner_solves: 2 Relative_Error: 1.145716100827147e-07 Damping: 1.000000000000000e+00
+%Time_step:     78 Stage:  0 Thermal_iter:    3 dt: 1.000000000000000e-01 number_of_inner_solves: 0 Relative_Error: 7.638963512014214e-11 Damping: 1.000000000000000e+00
+%Time_step:     79 Stage:  0 Thermal_iter:    0 dt: 1.974607061157752e-02 number_of_inner_solves: 4 Relative_Error: 1.143757739981798e-03 Damping: 1.000000000000000e+00
+%Time_step:     79 Stage:  0 Thermal_iter:    1 dt: 1.974607061157752e-02 number_of_inner_solves: 2 Relative_Error: 1.736693053648469e-06 Damping: 1.000000000000000e+00
+%Time_step:     79 Stage:  0 Thermal_iter:    2 dt: 1.974607061157752e-02 number_of_inner_solves: 1 Relative_Error: 7.785510286213231e-10 Damping: 1.000000000000000e+00
+%
+%
+ %Total_thermal_iters: 333
+ %Total_Transport_sweeps: 835
+%
+%==> /scratch/pmaginot/dark_arts_local/output_files/Long_Iteration_Test_SI_iteration_status.txt <==
+%Time_step:     80 Stage:  0 Thermal_iter:    0 dt: 9.239680797383856e-02 number_of_inner_solves: 19297 Relative_Error: 5.492871000825122e-03 Damping: 1.000000000000000e+00
+%Time_step:     80 Stage:  0 Thermal_iter:    1 dt: 9.239680797383856e-02 number_of_inner_solves: 4927 Relative_Error: 3.857958409451315e-05 Damping: 1.000000000000000e+00
+%Time_step:     80 Stage:  0 Thermal_iter:    2 dt: 9.239680797383856e-02 number_of_inner_solves: 0 Relative_Error: 2.212995669048474e-09 Damping: 1.000000000000000e+00
+%Time_step:     81 Stage:  0 Thermal_iter:    0 dt: 8.843092564533883e-02 number_of_inner_solves: 18544 Relative_Error: 5.202411259657879e-03 Damping: 1.000000000000000e+00
+%Time_step:     81 Stage:  0 Thermal_iter:    1 dt: 8.843092564533883e-02 number_of_inner_solves: 4631 Relative_Error: 3.488203327997033e-05 Damping: 1.000000000000000e+00
+%Time_step:     81 Stage:  0 Thermal_iter:    2 dt: 8.843092564533883e-02 number_of_inner_solves: 0 Relative_Error: 1.852268607343342e-09 Damping: 1.000000000000000e+00
+%
+%
+ %Total_thermal_iters: 328
+ %Total_Transport_sweeps: 1463116
 

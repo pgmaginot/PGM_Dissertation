@@ -20,31 +20,34 @@ end
 
 n_plots = length(data_base);
 
-if(n_dir*n_groups > 4)
+if(n_dir*n_groups > 8)
     error('Need more plot strings for this many groups / directions')
 end
 
-if(n_plots > 6)
+if(n_plots > 8)
     error('Not enough line plot format strings');
 end
 
-color_str = cell(3,4);
+color_str = cell(2,8);
 color_str(1,1) =  cellstr('-') ;  
 color_str(1,2) = cellstr('--' ) ;
 color_str(1,3) = cellstr('-.' ) ;   
 color_str(1,4) = cellstr(':' );  
+color_str(1,5) =  cellstr(':') ;  
+color_str(1,6) = cellstr('-.' ) ;
+color_str(1,7) = cellstr('--' ) ;   
+color_str(1,8) = cellstr('-' );  
+
 color_str(2,1) = {[0 0 0] } ;
 color_str(2,2) = {[1 0 0]} ;
 color_str(2,3) = {[0 0.8 0]} ;
 color_str(2,4) = {[0.5 0 0]} ;
 
-mark_str = cell(1,6);
-mark_str(1) = cellstr('v');
-mark_str(2) = cellstr('o');
-mark_str(3) = cellstr('+');
-mark_str(4) = cellstr('s');
-mark_str(5) = cellstr('>');
-mark_str(6) = cellstr('x');
+color_str(2,5) = {[0 0 0] } ;
+color_str(2,6) = {[1 0 0]} ;
+color_str(2,7) = {[0 0.8 0]} ;
+color_str(2,8) = {[0.5 0 0]} ;
+
 
 if( length(cell_base) == 1 )
     cell_str_look = ones(n_plots,1);
