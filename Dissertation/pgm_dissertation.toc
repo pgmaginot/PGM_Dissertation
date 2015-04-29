@@ -6,7 +6,7 @@
 \contentsline {chapter}{NOMENCLATURE}{vi}
 \contentsline {chapter}{TABLE OF CONTENTS}{vii}
 \contentsline {chapter}{LIST OF FIGURES}{x}
-\contentsline {chapter}{LIST OF TABLES}{xxi}
+\contentsline {chapter}{LIST OF TABLES}{xxii}
 \contentsline {chapter}{\numberline {1}\uppercase {Introduction}}{1}
 \vskip +10pt
 \contentsline {section}{\numberline {1.1}Simplifications of the Thermal Radiative Transfer Equations}{2}
@@ -82,18 +82,18 @@
 \contentsline {subsection}{\numberline {6.1.4}Consistency of Pseudo Cross Sections}{177}
 \contentsline {section}{\numberline {6.2}Iterative Solution Process}{184}
 \contentsline {section}{\numberline {6.3}Software Implementation}{187}
-\contentsline {section}{\numberline {6.4}Numerical Results}{188}
+\contentsline {section}{\numberline {6.4}Numerical Results}{189}
 \contentsline {subsection}{\numberline {6.4.1}Method of Manufactured Solutions}{189}
 \contentsline {subsubsection}{\numberline {6.4.1.1}Linear in Time - Trigonometric in Space }{190}
-\contentsline {subsubsection}{\numberline {6.4.1.2}Trigonometric in Space - Linear in Time - with Temperature Dependent Material Properties}{198}
-\contentsline {subsubsection}{\numberline {6.4.1.3}Constant in Time - Trigonometric in Space - with Temperature Dependent Material Properties}{209}
+\contentsline {subsubsection}{\numberline {6.4.1.2}Trigonometric in Space - Linear in Time - with Temperature Dependent Material Properties}{199}
+\contentsline {subsubsection}{\numberline {6.4.1.3}Constant in Time - Trigonometric in Space - with Temperature Dependent Material Properties}{208}
 \contentsline {subsubsection}{\numberline {6.4.1.4}Constant in Space - Trigonometric in Time}{214}
 \contentsline {subsection}{\numberline {6.4.2}Marshak Wave Problem}{216}
-\contentsline {subsection}{\numberline {6.4.3}Su-Olson Problem}{228}
-\contentsline {subsection}{\numberline {6.4.4}Effectiveness of MIP DSA for Radiative Transfer}{231}
-\contentsline {chapter}{\numberline {7}\uppercase {Summary and Conclusions}}{236}
+\contentsline {subsection}{\numberline {6.4.3}Su-Olson Problem}{234}
+\contentsline {subsection}{\numberline {6.4.4}Effectiveness of MIP DSA for Radiative Transfer}{240}
+\contentsline {chapter}{\numberline {7}\uppercase {Summary and Conclusions}}{243}
 \vskip +10pt
-\contentsline {section}{\numberline {7.1}Summary}{236}
-\contentsline {section}{\numberline {7.2}Conclusions}{237}
-\contentsline {subsection}{\numberline {7.2.1}Future Work}{238}
-\contentsline {chapter}{REFERENCES}{240}
+\contentsline {section}{\numberline {7.1}Summary}{243}
+\contentsline {section}{\numberline {7.2}Conclusions}{244}
+\contentsline {subsection}{\numberline {7.2.1}Future Work}{245}
+\contentsline {chapter}{REFERENCES}{247}

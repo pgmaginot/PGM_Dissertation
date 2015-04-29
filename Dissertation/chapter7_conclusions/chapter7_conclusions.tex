@@ -47,7 +47,7 @@ Further, SL Lobatto is equivalent to traditional lumping for linear DFEM, but un
 Self-lumping DFEM schemes easily account for the variation of interaction cross or other material properties.
 A $P$ degree self-lumping scheme using Gauss or Lobatto quadrature only requires $P+1$ material property evaluations to obtain schemes that converge the $L^2$ norm of the angular flux or radiation intensity $\propto P+1$.
 This is in contrast to DFEM schemes that assume a cell-wise constant cross yielding only second order spatial convergence, regardless of trial space degree, for problems with spatially varying interaction cross sections.
-In our neutron transport test problems, SLXS Lobatto and SLXS Gauss (the variants of SL Lobatto and SL Gauss that explicitly account for within cell variation of material properties), converged interaction rate and interaction rate dependent quantities $\propto to P+1$.
+In our neutron transport test problems, SLXS Lobatto and SLXS Gauss (the variants of SL Lobatto and SL Gauss that explicitly account for within cell variation of material properties), converged interaction rate and interaction rate dependent quantities $\propto P+1$.
 However, in our thermal radiative transfer MMS testing SLXS Lobatto converged the $L^2$ error of temperature, a quantity driven by an interaction rate, $\propto P$.
 Though not $P+1$ as we had hoped, given the non-linear nature of the thermal radiative transfer equations, and necessity to integrate much higher order polynomials, e.g. the Planckian term that is a $P^4$ degree polynomial, order $P$ convergence is still promising, as it still allows for increased accuracy with increasing DFEM trial space degree.
 More surprising is that SLXS Gauss applied to the grey TRT appears to converge the $L^2$ error of temperature $\propto P+2$.
@@ -60,10 +60,10 @@ Clearly the extension of this slab geometry work to multiple spatial dimensions 
 Additionally, MIP DSA appeared to be an effective iterative acceleration technique for the grey TRT equations, and as such we would like to see how it performs as the diffusion operator for linear multi-frequency grey acceleration of the multi-group/multi-frequency thermal radiative transfer equations.
 
 Topics of research beyond simply extending our methodology are abundant as well.
-A partial listing includes:
+A non-exhaustive list includes:
 \begin{enumerate}
 \item developing a theory to explain and apriori predict whether a given matrix lumping technique will yield a robust solution,
 \item explaining the apparent super convergence of SLXS Gauss for the TRT temperature solution, 
 \item conducting a diffusion limit analysis of higher order trial space DFEM, and
-\item finding more TRT manufactured solutions that challenge spatial discretization more completely and are closer to real-world applications in both nature and scaling.
+\item developing additional TRT manufactured solutions that challenge spatial discretization more completely and are closer to real-world applications in both nature and scaling.
 \end{enumerate}

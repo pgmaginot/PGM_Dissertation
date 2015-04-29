@@ -33,7 +33,7 @@ Additionally, we consider arbitrary order (and stage count) SDIRK time integrati
 The two most important differences between our work here and that of \cite{morel_radtran} are:
 \begin{enumerate}
 \item we assume opacity and heat capacity can vary within each spatial cell and
-\item we will fully converge the Planckian linearization in temperature.
+\item we fully converge the Planckian linearization in temperature.
 \end{enumerate}
 As shown by Larsen, Kumar, and Morel, failure to fully converge the Planckian linearization in temperature can result in non-physical solutions that violate the maximum principle \cite{larsen_trt}.
 
@@ -58,7 +58,7 @@ f(t,g) &=& \frac{\partial g}{\partial t} \pec
 where $t$ is time, and $G_0$ is the initial value of $g$ at time $t=0$.
 Depending on the literary source, SDIRK stands for Single-Diagonally Implicit Runge-Kutta, S-stable Diagonally Implicit Runge-Kutta, or one of many other expansions of the SDIRK acronym.
 The coefficients, $a_i$, $b_i$, and $c_i$ that describe any Runge-Kutta time integration are typically given in formatted tables called Butcher tableaux.
-Due to the stiff nature of the TRT equations, we will limit ourselves to SDIRK time integration schemes.  
+Due to the stiff nature of the TRT equations, we limit ourselves to SDIRK time integration schemes.  
 The Butcher tableaux of an SDIRK  scheme with $N_{stage}$ stages is given in \eqt{eq:butcher} 
 \benum
 \label{eq:butcher}
@@ -165,7 +165,7 @@ D_* &=& \frac{1}{\pi} a cT_*^3 \pep
 \end{subequations}
 Equation \ref{eq:i_1_start} has a strong non-linear dependence on $T_1$ due to the Planckian term, $\sigma_a B$, and a weak non-linear dependence on $T_1$ if the material opacities are temperature dependent. 
 If we could remove the dependence of $T_1$ from \eqt{eq:i_1_start}, we could solve \eqt{eq:i_1_start} using the same techniques that have been developed to solve the discrete ordinates neutron transport equation.
-We will attempt to remove the strong non-linear dependence on $T_1$ from \eqt{eq:i_1_start} by linearizing the Planckian term.
+We attempt to remove the strong non-linear dependence on $T_1$ from \eqt{eq:i_1_start} by linearizing the Planckian term.
 We neglect the non-linear dependence material opacities and heat capacities on temperature.
 To linearize the Planckian we first apply the linearization of \eqt{eq:scalar_linear} to \eqt{eq:t_1_start} and manipulate.
 Inserting the linearization, we begin with \eqt{eq:long_t_1}
@@ -177,7 +177,7 @@ then move all $T_1$ terms to the left hand side,
 \benum
 \left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)T_1 = T_n + \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi   B_* + 4\pi D_*  T_* \right) + S_T  \right] \pep
 \eenum
-In \eqt{eq:long_t_1}, we have made the assumption that all material properties are evaluated at $T_*$, but will neglect to denote this for streamlined notation.
+In \eqt{eq:long_t_1}, we have made the assumption that all material properties are evaluated at $T_*$, but we neglect to denote this for streamlined notation.
 Next, we divide by the coefficient in front of $T_1$ on the left hand side:
 \begin{multline}
 T_1 = \left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} T_n + \dots \\
@@ -399,7 +399,7 @@ To verify this,  we go through the linearization procedure again with the spatia
 
 If we could solve the spatially discretized equations efficiently through source iteration alone, it would be redundant to go through the entire linearization process with the spatially analytic and spatially discretized TRT equations.
 However, iterative acceleration is essential for efficient solution of the TRT equations due to the Planckian absorption/re-emission terms in the linearized radiation intensity equation creating a situation analogous to a scattering dominated medium in neutron transport.
-As we will see, the problem with accelerating the spatially discretized TRT equations is that we will need a pseudo diffusion coefficient, $\widetilde{D}$, both at quadrature integration points and cell edges for MIP DSA acceleration, but do not have a physical definition of that quantity.
+As we will see, the problem with accelerating the spatially discretized TRT equations is that we need a pseudo diffusion coefficient, $\widetilde{D}$, both at quadrature integration points and cell edges for MIP DSA acceleration, but do not have a physical definition of that quantity.
 
 \subsection{Spatially Discretized Linearization}
 Now we attempt to derive a pseudo fission form of the spatially discretized grey TRT equations.
@@ -612,7 +612,7 @@ where $T_{i,*}$ is an arbitrary temperature at DFEM interpolation point $i$.
 %
 \subsubsection{SDIRK Stage $i$}
 As we showed with the spatially analytic case, the $i$-th SDIRK stage is only slightly different than the first SDRIK stage.
-Thus, we will omit the first stage derivation for the spatially discretized case, and begin with SDIRK stage $i$, first writing the equation for $\vec{I}_i$ and $\vec{T}_{i}$:
+Thus, we omit the first stage derivation for the spatially discretized case, and begin with SDIRK stage $i$, first writing the equation for $\vec{I}_i$ and $\vec{T}_{i}$:
 \begin{multline}
 \vec{I}_i = \vec{I}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{I,j}   } + \\
 \Delta t a_{ii} c \M^{-1}\left[ \frac{1}{4\pi}\R{\sigma_s}\vec{\phi}_i +
@@ -769,7 +769,7 @@ Given the form of \eqt{eq:stage_i_sdirk_intensity}, it appears that we can apply
 In \chapref{sec:chapter4_acceleration}, we used MIP DSA to accelerate a spatially analytic problem of the form
 \benum
 \mu_d \frac{\p \psi}{\p x} + \Sigma_t \psi = \frac{1}{4\pi} \Sigma_s \phi + Q_d \pec
-\label{eq:analytc_xs_mip}
+\label{eq:analytic_xs_mip}
 \eenum
 with spatially discretized analog
 \benum
@@ -833,7 +833,8 @@ would the definitions of \eqts{eq:funky_defs} be equivalent to
 \R{\widetilde{\Sigma_s} } & \overset{?}{=} & \R{\sigma_s} + \overline{\overline{\nu}}_i \R{\sigma_a} ?
 \eeanum
 \end{subequations}
-In \eqts{eq:funky_defs}, we use $i$ subscript to denote SDIRK stage $i$, $j$ to denote matrix row, and $k$ to denote matrix column.  We will continue this notation for the remainder of this section.
+In \eqts{eq:funky_defs}, we use $i$ subscript to denote SDIRK stage $i$, $j$ to denote matrix row, and $k$ to denote matrix column.  
+We continue this notation for the remainder of this section.
 
 We first consider the equivalence of $\overline{\overline{\mathbf R}}_{\sigma_{\tau,i}}$ to $\R{\widetilde{\Sigma_t}}$.
 By definition, 
@@ -889,7 +890,7 @@ In the general case, when \R{\sigma_a} and \R{C_v} are dense, \eqt{eq:dense_nu_s
 \eenum
 
 Though we have showed in the general case, $\R{\sigma_s} + \overline{\overline{\nu}}_i \R{\sigma_a}  \neq \R{\widetilde{\Sigma_s}}$, 
-we wish to investigage whether self-lumping DFEM schemes may be better suited for the solution of the TRT equations.
+we wish to investigate whether self-lumping DFEM schemes may be better suited for the solution of the TRT equations.
 Consider an arbitrary, linear DFEM self-lumping scheme, with the following matrices,
 \begin{subequations}
 \beanum
@@ -946,12 +947,12 @@ Thus, when accounting for the within cell spatial variation of material properti
 \item spatially discretize the grey TRT equations then linear the Planckian.
 \end{enumerate}
 
-Given this information, in the most general case, when using MIP DSA to accelerate grey radiative transfer, we will define the integration in cell $k$ (\eqt{eq:mip_sigma_a} ) as: 
+Given this information, in the most general case, when using MIP DSA to accelerate grey radiative transfer, we define the integration in cell $k$ (\eqt{eq:mip_sigma_a} ) as: 
 \benum
 ( \Sigma_a \Delta \phi, \B{*} ) = \R{\sigma_{\tau,i}} - \left( \R{\sigma_s} + \overline{\overline{\nu}}_i \R{\Sigma_a} \right) \vec{\Delta \phi}_k \pec
 \eenum
 where $\Delta \phi$ is the low order approximation of the angle integrated intensity error, not the neutron transport scalar flux error.
-Likewise, we will define the MIP DSA driving source, the difference between two successive iterates, as
+Likewise, we define the MIP DSA driving source, the difference between two successive iterates, as
 \benum
  \left( \Sigma_s( \phi^{(\ell+1/2)} - \phi^{(\ell)} ) , \B{*} \right) = \left(  \R{\sigma_s} + \overline{\overline{\nu}}_i \R{\Sigma_a} \right)\left( \vec{\phi}^{(\ell+1)} - \vec{\phi}^{(\ell)} \right) \pep
 \eenum
@@ -959,7 +960,7 @@ Since we have shown that
 \benum
 \R{\sigma_{\tau,i},jk} = \frac{\Delta x}{2} \int_{-1}^1{ds}{ \left( \frac{1}{a_{ii} c \Delta t} + \sigma_t \right) \B{j}(s) \B{k}(s) }\pec
 \eenum
-we will use the point-wise definition of \eqt{eq:radtran_d} to evaluate $\mathbf{S}$ and MIP DSA edge integrals requiring knowledge of a point-wise diffusion coefficient.
+we use the point-wise definition of \eqt{eq:radtran_d} to evaluate $\mathbf{S}$ and MIP DSA edge integrals requiring knowledge of a point-wise diffusion coefficient.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Iterative Solution Process}
@@ -986,17 +987,18 @@ and
 \benum
 \text{change\_t} = \max_{c=1}^{N_{cell}} \left[ \max_{j=1}^{N_P} \left[  \abs{ \frac{ \Delta T_j }{ T_{j,*} } } \right] \right] \pep
 \eenum
-
 Likewise, we terminate the intensity update iteration using a point-wise relative change criterion:
 \benum
 \text{change\_phi} = \max_{c=1}^{N_{cell}} \left[ \max_{j=1}^{N_P} \left[ { \abs{ \frac{ \phi^{(\ell+1)}_{c,j} - \phi^{(\ell)}_{c,j}}{\phi^{(\ell+1)}_{c,j} }} } \right] \right] \pep
 \eenum
+Unless otherwise noted, we use an angle integrated intensity convergence criteria $\epsilon_{\phi} = 10^{-12}$ and a temperature criteria of $\epsilon_{T} = 10^{-10}$.
+
 Since MIP DSA requires two iterates of the angle integrated radiation energy density, $\phi^{(\ell+1)}$ and $\phi^{(\ell)}$, both of size $N_{cell} \times N_P$, we store at least two objects of the same dimensionality as $\phi$.
 We use one of these objects, \verb+phi_new+ in Listing \ref{lst:pseudo_code}, to update $\vec{T}^*$, while the other is local only to the intensity update.
 Our code is designed to use only a single intensity data object of size $N_{cell} \times N_P \times N_{dir}$, $\vec{I}_N$.
 Limiting ourselves to a single \verb+i_old+ requires our intensity update convergence to be based upon the angle integrated intensity and to perform one additional sweep while calculating $\vec{k}_I$.
 The SDIRK time integration technique requires that we save data objects $k_T$ and $k_I$ with,  $N_{stage} \times N_{cell} \times N_P$ and $N_{stage} \times N_{cell} \times N_P \times N_{dir}$ unknowns, respectively.
-For all significant values of $N_{dir}$, the need to store $\vec{I}_n$ and $\vec{k}_I$ will dominate the memory footprint of our implementation, and a reasonable upper bound on memory usage is $(1+N_{stage}) \times N_{dir} \times N_{cell} \times N_P$.
+For all significant values of $N_{dir}$, the need to store $\vec{I}_n$ and $\vec{k}_I$ dominates the memory footprint of our implementation, and a reasonable upper bound on memory usage is $(1+N_{stage}) \times N_{dir} \times N_{cell} \times N_P$.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 \section{Software Implementation}
@@ -1033,8 +1035,8 @@ We now consider several test problems to verify and demonstrate the capability o
 The method of manufactured solutions, MMS, consists of choosing an analytic solution, then defining the driving source necessary to achieve that solution \cite{mms}.
 Though MMS solutions are derived, they are excellent for testing the convergence of numerical methods devised to solve complex physics phenomena.
 While analytic solutions that do not use exotic source terms are more appealing for verification purposes, these types of solutions are difficult to devise for complex physics phenomena, especially for coupled physical phenomena like radiative transfer.  
-Or if an analytic solution exists, solutions are really semi-analytic, and cannot be used effectively as a reference solution for a convergence study because the semi-analytic solution has numerical errors of the same magnitude (or greater) than the numerical simulations we are attempting to verify.
-Similarly experimental results will contain measurement errors, and will almost certainly be of low resolution, either measuring only integral quantities, or providing data at only a few points in space, and thus do not permit convergence studies.
+For those multiphysics problems for which an analytic solution does exist, the solutions are usually semi-analytic, and cannot be used effectively as a reference solution for a convergence study because the semi-analytic solution has numerical errors of the same magnitude (or greater) than the numerical simulations we are attempting to verify.
+%Similarly experimental results will contain measurement errors, and will almost certainly be of low resolution, either measuring only integral quantities, or providing data at only a few points in space, and thus do not permit convergence studies.
 
 We elect to choose separable MMS of the form:
 \begin{subequations}
@@ -1052,14 +1054,33 @@ $W_I(x)$ being the spatial component of $\phi$, and the definition of $C_M$ give
 \subsubsection{Linear in Time - Trigonometric in Space  }
 In our first method of manufactured solutions problem, MMS1, we attempt to reproduce a TRT problem whose radiation and temperature solutions is a cosine in space and  linear in time.
 We use a non-dimensional form of the TRT, assuming that $a=c=1$, and for this problem we assume opacities are constant functions of space and temperature.
-We will impose the solution:
+We impose the solution:
 \beanum
 M(\mu_d) &=& \frac{1}{4\pi} \\
 W_I(x) &=& 10 \cos\left( \frac{\pi x}{10} - \frac{\pi}{2} \right) + 15\\
 W_T(x) &=&  25 \cos\left( \frac{\pi x}{10} - \frac{\pi}{2} \right) + 30\\
-F(t) &=& 1+.02x \pep
+F(t) &=& 1+.02t \pep
 \eeanum
-Physically, $x\in[0,10]$, $C_v = 0.1$, $\sigma_a = 100.0$, $\sigma_s = 0.5$, we start the simulation at $t_0 = 0$, and use 100 equal time steps of length $\Delta t = 0.01$, with Alexander's two stage, second order SDIRK method, which we will refer to as 2-2 \cite{alexander}.  The Butcher tableaux for this and all other SDIRK schemes considered is given in \secref{sec:time_convergence}.
+Physically, $x\in[0,10]$, $C_v = 0.1$, $\sigma_a = 100.0$, $\sigma_s = 0.5$, we start the simulation at $t_0 = 0$, end the simulation at $t_{end}=1$, 
+taking 100 equal time steps of length $\Delta t = 0.01$, with Alexander's two stage, second order SDIRK method, which we refer to as 2-2 \cite{alexander}.  
+For this and all other MMS simulations, our initial conditions are
+\beanum
+I(x,\mu_d,t_0) &=& M(\mu_d)W_I(x)F(t_0) \\
+T(x,t_0) &=& W_T(x)F(t_0) \\
+\phi(x,t_0) &=& \left[ \sum_{d=1}^{N_{dir}}{w_d M(\mu_d)} \right] W_I(x)F(t_0) \pep
+\eeanum
+Likewise, we always use an incident flux intensity boundary condition, for $\mu_d >0$:
+\benum
+I_{in}(\mu_d,t) = M(\mu_d) W_I(x_{1/2}) F(t) \pec
+\eenum
+and for $\mu_d < 0$
+\benum
+I_{in}(\mu_d,t) = M(\mu_d) W_I(x_{N_{cell}+1/2}) F(t) \pec
+\eenum
+where $x_{1/2}$ is the left domain boundary and $x_{N_{cell}+1/2}$ is the right domain boundary.
+We do not impose, and no boundary conditions are required for the material temperature.
+
+The Butcher tableaux for this and all other SDIRK schemes considered is given in \secref{sec:time_convergence}.
 We evaluate $\vec{S}_I$ and $\vec{S}_T$ using the spatially analytic definitions of $S_I$ and $S_T$ respectively, and numerically integrate the source moments using a $N_q$ Gauss-Legendre quadrature points, with $N_q = 2N_P + 5$, and $N_P$ is the number of DFEM interpolation points, as defined previously.
 
 We consider three DFEM schemes,
@@ -1069,12 +1090,12 @@ We consider three DFEM schemes,
 \item SL Gauss: self-lumping quadrature using Gauss interpolation points, and
 \end{enumerate}  
 compare each method's accuracy in calculating the discrete $L_2$ norm of the error in angle integrated intensity, $E_{\phi} = \norm{ \widetilde{\phi}(x) - \phi(x)}_{L^2}$, and the $L_2$ error in temperature, $E_T = \norm{ \widetilde{T}(x) - T(x) }_{L^2}$.
-$E_{\phi}$ and $E{T}$ are calculated analogously to the definition of $E_{\psi}$ in \eqt{eq:l2}.
+$E_{\phi}$ and $E_{T}$ are calculated analogously to the definition of $E_{\psi}$ in \eqt{eq:l2}.
 Figure \ref{fig:mms1_tl_phi}, \fig{fig:mms1_lobatto_phi}, and \fig{fig:mms1_gauss_phi} plot the order of convergence of $E_{\phi}$ for the TL, SL Lobatto, and SL Gauss schemes, respectively, as a function of trial space degree and cell size.
 Analogous data for $E_{T}$ is given in \figs{fig:mms1_tl_temp}{fig:mms1_gauss_temp}.
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_TL_phi_L2.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS2_TL_phi_L2.pdf}
 \caption{Convergence of $E_{\phi}$ for the TL scheme in problem MMS1.}
 \label{fig:mms1_tl_phi}
 \end{figure}
@@ -1082,7 +1103,7 @@ Analogous data for $E_{T}$ is given in \figs{fig:mms1_tl_temp}{fig:mms1_gauss_te
 %
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_L2.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_L2.pdf}
 \caption{Convergence of $E_{\phi}$ for the SL Lobatto scheme in problem MMS1.}
 \label{fig:mms1_lobatto_phi}
 \end{figure}
@@ -1090,7 +1111,7 @@ Analogous data for $E_{T}$ is given in \figs{fig:mms1_tl_temp}{fig:mms1_gauss_te
 %
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_L2.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_L2.pdf}
 \caption{Convergence of $E_{\phi}$ for the SL Gauss scheme in problem MMS1.}
 \label{fig:mms1_gauss_phi}
 \end{figure}
@@ -1099,7 +1120,7 @@ Analogous data for $E_{T}$ is given in \figs{fig:mms1_tl_temp}{fig:mms1_gauss_te
 %
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_TL_temp_L2.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS2_TL_temp_L2.pdf}
 \caption{Convergence of $E_{T}$ for the TL scheme in problem MMS1.}
 \label{fig:mms1_tl_temp}
 \end{figure}
@@ -1107,7 +1128,7 @@ Analogous data for $E_{T}$ is given in \figs{fig:mms1_tl_temp}{fig:mms1_gauss_te
 %
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_L2.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_L2.pdf}
 \caption{Convergence of $E_{T}$ for the SL Lobatto scheme in problem MMS1.}
 \label{fig:mms1_lobatto_temp}
 \end{figure}
@@ -1115,16 +1136,26 @@ Analogous data for $E_{T}$ is given in \figs{fig:mms1_tl_temp}{fig:mms1_gauss_te
 %
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_L2.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_L2.pdf}
 \caption{Convergence of $E_{T}$ for the SL Gauss scheme in problem MMS1.}
 \label{fig:mms1_gauss_temp}
 \end{figure}
 
 We make several observations regarding \figs{fig:mms1_tl_phi}{fig:mms1_gauss_temp}.  
-First, the TL scheme does not necessarily increase in accuracy with an increase in trial space degree, is limited to second order spatial convergence for odd degree trial space DFEM, and is limited to their order spatial convergence for even degree trial space schemes, behavior identical to that demonstrated in our neutron transport testing.
+First, the TL scheme does not necessarily increase in accuracy with an increase in trial space degree, is limited to second order spatial convergence for odd degree trial space DFEM, and is limited to third order spatial convergence for even degree trial space schemes, behavior identical to that demonstrated in our neutron transport testing.
 Second, SL Lobatto converges the $L^2$ norm of the radiation energy density $\propto P+1$, the same order of convergence achieved in our neutron transport test problems for the convergence of $L^2$ error of the angular and scalar fluxes.
 However, SL Lobatto only converges $E_T \propto P$, not $P+1$, as was the case for the neutron transport interaction rate.
 Finally, SL Gauss converges $E_{\phi} \propto P+1$, the same order of convergence as for the neutron transport analog, and exhibits super convergence in converging $E_T \propto P+2$.
+
+In \figs{fig:mms1_tl_phi}{fig:mms1_gauss_temp}, and the other plots of this section, the plateauing of errors that appears in some plots is a combination of temporal error, for those problems that are time dependent, and our relative convergence tolerances for both temperature and angle integrated intensity. 
+Given our convergence criteria, we would expect a plateau, $E_{T,min}$ of approximately
+\benum
+E_{T,min} \int_{x_{1/2} }^{x_{N_{cell}+1/2}}{ \epsilon_T \left[ F_t(t_{end}) W_T(x) \right] dx} \pep
+\label{eq:err_plateau}
+\eenum
+Applying \eqt{eq:err_plateau} to MMS1, $E_{T,min} = 4.6\times 10^{-8}$, which is consistent with the location of the $E_T$ error plateau in \fig{fig:mms1_gauss_temp}.
+Since the radiation solution is dependent on the accuracy of the temperature solution via the Planckian term and temperature dependent opacities, similar logic cannot be applied to estimating the location of the $E_{\phi}$ plateaus.
+In \eqt{eq:err_plateau}, we are implicitly assuming that the error in $\phi$ is significantly less than the error in temperature. 
 
 To understand the behaviors of SL Lobatto and SL Gauss completely, we now consider the $L^2$ like norm of cell average radiation energy density error, $E_{\phi_A}$ and cell average temperature error, $E_{T_A}$.
 $E_{\phi_A}$ and $E_{T_A}$ are calculated analogously to \eqt{eq:l2A}.
@@ -1133,12 +1164,12 @@ Convergence of $E_{T_A}$ is given in \figs{fig:mms1_lobatto_temp_A}{fig:mms1_gau
 While no clear pattern emerges in the convergence of $E_{\phi_A}$ as a function of $P$ for SL Lobatto in \fig{fig:mms1_lobatto_phi_A} when considering linear through quartic polynomial trial spaces, it is clear that the orders of convergence exhibited are less than orders of convergence exhibited by SL Lobatto in \figs{fig:multi_L2A_p1}{fig:multi_L2A_p4} for the analogous neutron transport quantity $E_{\psi_A}$.
 Similarly, the radiative transfer variant of SL Gauss does not converge $E_{\phi_A}$ at as high a degree as SL Gauss converged $E_{\psi_A}$ for a pure absorber in neutron transport.  
 However, comparing \fig{fig:mms1_gauss_phi_A} to \figs{fig:multi_L2A_p1}{fig:multi_L2A_p4}, it appears that SL Gauss converges $E_{\phi_A}$ for TRT at most one degree less than SL Gauss converges $E_{\psi_A}$ in neutron transport. 
-Interestingly, the observed decreases in the convergence of $E_{\phi_A}$ for TRT relative to neutron transport convergence of $E_{\psi_A}$ does not hold when considering the convergence of$E_{T_A}$.  
+Interestingly, the observed decreases in the convergence of $E_{\phi_A}$ for TRT relative to neutron transport convergence of $E_{\psi_A}$ does not hold when considering the convergence of $E_{T_A}$.  
 SL Lobatto converges $E_{T_A}$ for TRT with the same order as SL Lobatto converges $E_{\psi_A}$ and $E_{IR_A}$ for neutron transport.
 SL Gauss actually exhibits an $E_{T_A}$ order of convergence that exceeds its neutron transport analogs. 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_A.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_A.pdf}
 \caption{Convergence of $E_{\phi_A}$ for the SL Lobatto scheme in problem MMS1.}
 \label{fig:mms1_lobatto_phi_A}
 \end{figure}
@@ -1146,7 +1177,7 @@ SL Gauss actually exhibits an $E_{T_A}$ order of convergence that exceeds its ne
 %
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_A.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_A.pdf}
 \caption{Convergence of $E_{\phi_A}$ for the SL Gauss scheme in problem MMS1.}
 \label{fig:mms1_gauss_phi_A}
 \end{figure}
@@ -1154,7 +1185,7 @@ SL Gauss actually exhibits an $E_{T_A}$ order of convergence that exceeds its ne
 %
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.pdf}
 \caption{Convergence of $E_{T_A}$ for the SL Lobatto scheme in problem MMS1.}
 \label{fig:mms1_lobatto_temp_A}
 \end{figure}
@@ -1162,7 +1193,7 @@ SL Gauss actually exhibits an $E_{T_A}$ order of convergence that exceeds its ne
 %
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.pdf}
 \caption{Convergence of $E_{T_A}$ for the SL Gauss scheme in problem MMS1.}
 \label{fig:mms1_gauss_temp_A}
 \end{figure}
@@ -1176,20 +1207,20 @@ That is to say that we suspect the $N_P$ quadrature points of a given trial spac
 a degree $5P$ polynomial, than an $N_P$ Lobatto quadrature.
 Though the $N_P$ point Gauss quadrature only exactly integrates polynomials of degree $2(P+1) -1$, it may be that the remaining terms are coincidentally very small in magnitude for a degree $5P$ polynomial of the particular nature of \eqt{eq:planck_int}.
 
-This plateauing of errors seen in the above plots is a result of two things.  
-First, the nested nature of our TRT solution algorithm.
-Due to the nested iterations, we must use the tightest tolerance on the innermost solve, the intensity update.
-We terminate the innermost solve after reaching a certain point-wise change tolerance, $\epsilon_{inner}$, of the zero-th angular moment of the angle integrated intensity: 
-\benum
-\max_{j} { \abs{ \frac{\phi_{j}^{(\ell+1)} - \phi_j^{(\ell)} }{\phi_{j}^{(\ell+1)} } }  } < \epsilon_{inner} \pep
-\eenum
-Similarly, the thermal iteration of SDIRK stage $s$ is terminated when every temperature solution at the DFEM interpolation points, $T_j$,  changes less than $\epsilon_{thermal}$,
-\benum
- \max_{j} { { \abs{ \frac{ T_{j,s}^{(\ell+1)} - T_j^{(\ell)} }{T_{j}^{(\ell+1)} } }  } }< \epsilon_{thermal} \pep
-\eenum
-For this and all other MMS problems, $\epsilon_{inner} = 10^{-12}$ and $\epsilon_{thermal} = 10^{-10}$.
-Secondly, as the TRT equations are functions of space and time, it possible that the error of a given spatial discretization is smaller than the temporal error of the problem, thus a plateauing of the solution error as a function of spatial mesh refinement occurs.
-Thus, truly accurate solutions require the refinement of both spatial mesh and time step size.
+%This plateauing of errors seen in the above plots is a result of two things.  
+%First, the nested nature of our TRT solution algorithm.
+%Due to the nested iterations, we must use the tightest tolerance on the innermost solve, the intensity update.
+%We terminate the innermost solve after reaching a certain point-wise change tolerance, $\epsilon_{inner}$, of the zero-th angular moment of the angle integrated intensity: 
+%\benum
+%\max_{j} { \abs{ \frac{\phi_{j}^{(\ell+1)} - \phi_j^{(\ell)} }{\phi_{j}^{(\ell+1)} } }  } < \epsilon_{inner} \pep
+%\eenum
+%Similarly, the thermal iteration of SDIRK stage $s$ is terminated when every temperature solution at the DFEM interpolation points, $T_j$,  changes less than $\epsilon_{thermal}$,
+%\benum
+ %\max_{j} { { \abs{ \frac{ T_{j,s}^{(\ell+1)} - T_j^{(\ell)} }{T_{j}^{(\ell+1)} } }  } }< \epsilon_{thermal} \pep
+%\eenum
+%For this and all other MMS problems, $\epsilon_{inner} = 10^{-12}$ and $\epsilon_{thermal} = 10^{-10}$.
+%Secondly, as the TRT equations are functions of space and time, it possible that the error of a given spatial discretization is smaller than the temporal error of the problem, thus a plateauing of the solution error as a function of spatial mesh refinement occurs.
+%Thus, truly accurate solutions require the refinement of both spatial mesh and time step size.
 
 \subsubsection{Trigonometric in  Space - Linear in Time - with Temperature Dependent Material Properties}
 
@@ -1207,13 +1238,13 @@ C_v &=& 0.2 + 0.01 T^3 \\
 \sigma_s &=& 0.5 \pep
 \eeanum
 In our problem, $x\in[0,10]$, $t\in[0,2]$, we use the three stage, third order accurate SDRIK method of Alexander \cite{alexander} with $\Delta t = 0.001$.  
-In total , we will consider four different DFEM schemes for this problem, SL Lobatto, SL Gauss, SLXS Lobatto, and SLXS Gauss.  
-The methods denoted SL will assume cell-wise constant opacities and heat capacities,  equal to the cell-wise volumetric average of that quantity.  
-The SLXS schemes will explicitly account for the within cell variation of temperature dependent material properties by evaluating $\mathbf{R}$ as in \eqt{eq:chap3_sl_react}.
+In total , we consider four different DFEM schemes for this problem, SL Lobatto, SL Gauss, SLXS Lobatto, and SLXS Gauss.  
+The methods denoted SL assume cell-wise constant opacities and heat capacities,  equal to the cell-wise volumetric average of that quantity.  
+The SLXS schemes explicitly account for the within cell variation of temperature dependent material properties by evaluating $\mathbf{R}$ as in \eqt{eq:chap3_sl_react}.
 $E_{\phi}$ for the SL Lobatto and SL Gauss schemes is plotted in \fig{fig:mms3_constant_lobatto_phi} and \fig{fig:mms3_constant_gauss_phi}, respectively.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_phi_L2.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_phi_L2.pdf}
 \caption{Convergence of $E_{\phi}$ for the SL Lobatto scheme in problem MMS2.}
 \label{fig:mms3_constant_lobatto_phi}
 \end{figure}
@@ -1221,7 +1252,7 @@ $E_{\phi}$ for the SL Lobatto and SL Gauss schemes is plotted in \fig{fig:mms3_c
 %
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_phi_L2.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_phi_L2.pdf}
 \caption{Convergence of $E_{\phi}$ for the SL Gauss scheme in problem MMS2.}
 \label{fig:mms3_constant_gauss_phi}
 \end{figure}
@@ -1229,7 +1260,7 @@ Regardless of DFEM interpolation point type or trial space degree, assuming cell
 Confirming our suspicion that assuming cell-wise constant material properties limit the convergence of $E_T$ as well, we plot the convergence of $E_T$ for the SL Lobatto scheme in \fig{fig:mms3_constant_lobatto_temp} and for the SL Gauss scheme in \fig{fig:mms3_constant_gauss_temp}.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_L2.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_L2.pdf}
 \caption{Convergence of $E_{T}$ for the SL Lobatto scheme in problem MMS2.}
 \label{fig:mms3_constant_lobatto_temp}
 \end{figure}
@@ -1237,7 +1268,7 @@ Confirming our suspicion that assuming cell-wise constant material properties li
 %
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_L2.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_L2.pdf}
 \caption{Convergence of $E_{T}$ for the SL Gauss scheme in problem MMS2.}
 \label{fig:mms3_constant_gauss_temp}
 \end{figure}
@@ -1245,27 +1276,25 @@ Figures \ref{fig:mms3_constant_lobatto_temp}-\ref{fig:mms3_constant_gauss_temp} 
 Wishing to verify that the high order of convergence observed for $E_{IR_A}$ in Section 3 does not translate to a high rate of spatial convergence for $E_{T_A}$, we consider \fig{fig:mms3_constant_lobatto_temp_A} and \fig{fig:mms3_constant_gauss_temp_A}.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_A.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_A.pdf}
 \caption{Convergence of $E_{T_A}$ for the SL Lobatto scheme in problem MMS2.}
 \label{fig:mms3_constant_lobatto_temp_A}
 \end{figure}
 %
 %
-\begin{figure}[!hbp]
+\begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_A.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_A.pdf}
 \caption{Convergence of $E_{T_A}$ for the SL Gauss scheme in problem MMS2.}
 \label{fig:mms3_constant_gauss_temp_A}
 \end{figure}
 Figure \ref{fig:mms3_constant_lobatto_temp_A} verifies that regardless of trial space degree, the SL Lobatto scheme assuming a cell-wise constant opacity for a problem with temperature or spatially varying opacities converges $E_{T_A}$ second order in space.
 Likewise, \fig{fig:mms3_constant_gauss_temp_A} demonstrates the same is true for the SL Gauss scheme.
 
-\pagebreak
-
 We now consider the convergence of SLXS Lobatto and SLXS Gauss.  First, we see that in \fig{fig:mms3_slxs_lobatto_e_phi}, SLXS Lobatto converges $E_{\phi} \propto P+1$, and in \fig{fig:mms3_slxs_gauss_e_phi}, SLXS Gauss converges $E_{\phi}$ at least $\propto P+1$.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_L2.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_L2.pdf}
 \caption{Convergence of $E_{\phi}$ for the SLXS Lobatto scheme in problem MMS2.}
 \label{fig:mms3_slxs_lobatto_e_phi}
 \end{figure}
@@ -1273,7 +1302,7 @@ We now consider the convergence of SLXS Lobatto and SLXS Gauss.  First, we see t
 %
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_L2.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_L2.pdf}
 \caption{Convergence of $E_{\phi}$ for the SLXS Gauss scheme in problem MMS2.}
 \label{fig:mms3_slxs_gauss_e_phi}
 \end{figure}
@@ -1282,7 +1311,7 @@ Moving on to the convergence of $E_T$, in \fig{fig:mms3_slxs_lobatto_e_t} SLXS L
 In \fig{fig:mms3_slxs_gauss_e_t} SLXS Gauss converges $E_T$ very rapidly, and only the asymptotic convergence rate of linear and quadratic DFEM can be estimated, though both suggest SLXS Gauss converges $E_T \propto P+2$.
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_L2.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_L2.pdf}
 \caption{Convergence of $E_{T}$ for the SLXS Lobatto scheme in problem MMS2.}
 \label{fig:mms3_slxs_lobatto_e_t}
 \end{figure}
@@ -1291,14 +1320,14 @@ In \fig{fig:mms3_slxs_gauss_e_t} SLXS Gauss converges $E_T$ very rapidly, and on
 %
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_L2.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_L2.pdf}
 \caption{Convergence of $E_{T}$ for the SLXS Gauss scheme in problem MMS2.}
 \label{fig:mms3_slxs_gauss_e_t}
 \end{figure}
 %
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_A.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_A.pdf}
 \caption{Convergence of $E_{\phi_A}$ for the SLXS Lobatto scheme in problem MMS2.}
 \label{fig:mms3_slxs_lobatto_phi_a}
 \end{figure}
@@ -1306,7 +1335,7 @@ In \fig{fig:mms3_slxs_gauss_e_t} SLXS Gauss converges $E_T$ very rapidly, and on
 %
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_A.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_A.pdf}
 \caption{Convergence of $E_{\phi_A}$ for the SLXS Gauss scheme in problem MMS2.}
 \label{fig:mms3_slxs_gauss_phi_a}
 \end{figure}
@@ -1317,7 +1346,7 @@ For completeness, we include convergence plots of $E_{T_A}$ for SLXS Lobatto and
 All we can conclude from \figs{fig:mms3_slxs_lobatto_t_a}{fig:mms3_slxs_gauss_t_a} is that both SLXS Lobatto and SLXS Gauss experience increases in convergence of $E_{T_A}$ with increases in trial space degree.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_A.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_A.pdf}
 \caption{Convergence of $E_{T_A}$ for the SLXS Lobatto scheme in problem MMS2.}
 \label{fig:mms3_slxs_lobatto_t_a}
 \end{figure}
@@ -1325,7 +1354,7 @@ All we can conclude from \figs{fig:mms3_slxs_lobatto_t_a}{fig:mms3_slxs_gauss_t_
 %
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_A.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_A.pdf}
 \caption{Convergence of $E_{T_A}$ for the SLXS Gauss scheme in problem MMS2.}
 \label{fig:mms3_slxs_gauss_t_a}
 \end{figure}
@@ -1350,7 +1379,7 @@ C_v &=& 0.1 + 0.2 T^2 \\
 Repeating as we have before, we first consider the convergence of $E_{\phi}$ for SLXS Lobatto and SLXS Gauss in \fig{fig:constant_time_lobatto_phi} and \fig{fig:constant_time_gauss_phi}.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_L2.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_L2.pdf}
 \caption{Convergence of $E_{\phi}$ for SLXS Lobatto scheme for steady state test problem.}
 \label{fig:constant_time_lobatto_phi}
 \end{figure}
@@ -1358,7 +1387,7 @@ Repeating as we have before, we first consider the convergence of $E_{\phi}$ for
 %
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=9.5cm]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_L2.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_L2.pdf}
 \caption{Convergence of $E_{\phi}$ for SLXS Gauss scheme, for steady state test problem.}
 \label{fig:constant_time_gauss_phi}
 \end{figure}
@@ -1366,7 +1395,7 @@ Eliminating the temporal error makes it clear that for TRT problems with tempera
 Likewise, the stead-state problem makes it clear that SLXS Lobatto converges $E_T$ $\propto P$ in \fig{fig:constant_time_lobatto_t} and SLXS Gauss converges $E_T \propto P+2$ in \fig{fig:constant_time_gauss_t}.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=9.5cm]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_L2.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_L2.pdf}
 \caption{Convergence of $E_{T}$ for SLXS Lobatto scheme, for steady state test problem.}
 \label{fig:constant_time_lobatto_t}
 \end{figure}
@@ -1374,7 +1403,7 @@ Likewise, the stead-state problem makes it clear that SLXS Lobatto converges $E_
 %
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=9.5cm]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_L2.pdf}
+\includegraphics[width=9.5cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_L2.pdf}
 \caption{Convergence of $E_{T}$ for SLXS Gauss scheme, for steady state test problem.}
 \label{fig:constant_time_gauss_t}
 \end{figure}
@@ -1382,12 +1411,12 @@ Likewise, the stead-state problem makes it clear that SLXS Lobatto converges $E_
 \newpage
 
 We now examine the convergence of $E_{\phi_A}$.  
-The orders of convergence estimated by \fig{fig:constant_time_lobatto_phi_a} for SLXS Lobatto, are not identical to those estimated in MMS2 shown in \fig{fig:mms3_slxs_lobatto_phi_a}.  
-Even with the steady problem, the error converges quickly enough that solver tolerance is quickly reached, preventing an obvious development of asymptotic behavior.
-Similarly the convergence of $E_{\phi_A}$ for SLXS Gauss in \fig{fig:constant_time_gauss_phi_a} is not identical to the estimates of \fig{fig:mms3_slxs_gauss_phi_a}.
+The estimated order of convergence of $E_{\phi_A}$ in \fig{fig:constant_time_lobatto_phi_a} for SLXS Lobatto, does not appear to be identical to the $E_{\phi_A}$ order of convergence estimated in MMS2for SLXS Lobatto, as shown in \fig{fig:mms3_slxs_lobatto_phi_a}.  
+Figure \ref{fig:constant_time_lobatto_phi_a} and \fig{fig:mms3_slxs_lobatto_phi_a} giving different estimates of $E_{\phi_A}$ convergence is most likely due to a lack of data points available prior to reaching our iterative tolerances, preventing a clear inference of asymptotic convergence rate.
+Similarly the convergence of $E_{\phi_A}$ for SLXS Gauss estimated in \fig{fig:constant_time_gauss_phi_a} does not appear to be same as the SLXS order of convergence for $E_{\phi_A}$ given in \fig{fig:mms3_slxs_gauss_phi_a}.
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_A.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_A.pdf}
 \caption{Convergence of $E_{\phi_A}$ for SLXS Lobatto scheme, for steady state test problem.}
 \label{fig:constant_time_lobatto_phi_a}
 \end{figure}
@@ -1395,7 +1424,7 @@ Similarly the convergence of $E_{\phi_A}$ for SLXS Gauss in \fig{fig:constant_ti
 %
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_A.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_A.pdf}
 \caption{Convergence of $E_{\phi_A}$ for SLXS Gauss scheme, for steady state test problem.}
 \label{fig:constant_time_gauss_phi_a}
 \end{figure}
@@ -1405,7 +1434,7 @@ In \fig{fig:constant_time_lobatto_t_a} the SLXS Lobatto TRT convergence of $E_{T
 SLXS Gauss converges $E_{T_A} \propto 2P+2$ in \fig{fig:constant_time_gauss_t_a}, whereas SLXS Gauss for neutron transport converges $E_{IR_A} \propto 2P+1$ as seen in \figs{fig:varxs_I_A_p1}{fig:varxs_I_A_p4}.
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_A.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_A.pdf}
 \caption{Convergence of $E_{T_A}$ for SLXS Lobatto scheme, for steady state test problem.}
 \label{fig:constant_time_lobatto_t_a}
 \end{figure}
@@ -1413,7 +1442,7 @@ SLXS Gauss converges $E_{T_A} \propto 2P+2$ in \fig{fig:constant_time_gauss_t_a}
 %
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_A.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_A.pdf}
 \caption{Convergence of $E_{T_A}$ for SLXS Gauss scheme, for steady state test problem.}
 \label{fig:constant_time_gauss_t_a}
 \end{figure}
@@ -1474,7 +1503,7 @@ F(t) &=& 45 \cos\left( \pi t \right) + 46 \pec
 $t \in[0,1]$, $\sigma_s = 0.1$, $\sigma_a = 2.5$, $C_v = 0.2$, $x\in[0,10]$ discretized with 10 equally spaced cells.  Convergence of $E_{\phi}$ as a function of $\Delta t$ for the IE, 2-2, and 3-3 time differencing schemes are given in \fig{fig:e_phi_time}.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Phi.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Phi.pdf}
 \caption{Convergence of $E_{\phi}$ for different time integrators as a function of $\Delta t$.}
 \label{fig:e_phi_time}
 \end{figure}
@@ -1483,37 +1512,40 @@ The same data for temperature is given in \figs{fig:big_dt}{fig:small_dt}.  Surp
 Figure \ref{fig:big_dt} shows the convergence of $E_{T}$ for larger time steps, and \fig{fig:small_dt} shows the convergence of $E_{T}$ for smaller time steps, required for the 2-2 and 3-3 schemes to demonstrate their respective asymptotic orders of convergence.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Temperature_Big_dt.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Temperature_Big_dt.pdf}
 \caption{Convergence of $E_{T}$ for different time integrators as a function of $\Delta t$ for larger $\Delta t$.}
 \label{fig:big_dt}
 \end{figure}
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Temperature_Small_dt.pdf}
+\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Temperature_Small_dt.pdf}
 \caption{Convergence of $E_{T}$ for different time integrators as a function of $\Delta t$ for small $\Delta t$.}
 \label{fig:small_dt}
 \end{figure}
 
 \subsection{Marshak Wave Problem}
 
-We now consider our most realistic test problem, a Marshak wave problem presented by Ober and Shadid for radiative diffusion \cite{ober_shadid}.
-We use the $S_2$ discrete ordinates approximation with a Gauss quadrature in angle, which is equivalent to a $P_1$ approximation in slab geometry \cite{s2sa} as compared to the $P_0$ approximation used in \cite{ober_shadid}. 
+We now consider our most realistic test problem, a Marshak wave test problem.
+Originally presented by Ober and Shadid for radiative diffusion \cite{ober_shadid} we compare our $S_2$ solution that uses Gauss quadrature in angle to the solutions presented in \cite{ober_shadid}.
+With an $S_2$ Gauss quadrature in angle, the discrete ordinates method is equivalent to a $P_1$ angular discretization in slab geometry \cite{s2sa}.
+The radiative diffusion solution of \cite{ober_shadid} could also be considered a $P_0$ approximation.
+Thus while not exact, our $P_1$ equivalent solution is nearly equal to the $P_0$ solutions presented in \cite{ober_shadid}.
 Like most thermal radiative transfer problems, no analytic solution exists.  
-As such, we will focus on qualitative comparisons of how DFEM trial space degree, mesh refinement, and time step refinement affect the radiation energy density and material temperature solutions.
+As such, we focus on qualitative comparisons of how DFEM trial space degree, mesh refinement, and time step refinement affect the radiation energy density and material temperature solutions.
 
 The Marshak wave problem consists of an initially cold slab that is heated from the left by an incident radiation intensity, with a vacuum boundary condition on the right.
 Again, the problem is dimensionless, $a=c=C_v=1$; $x\in[0,1]$; and we advance the solution from $t=0$ to $t=1$.
 Initially, the slab is in thermal equilibrium, and $T=\left( 10^{-5} \right)^{1/4}$.
 There is no scattering, $\sigma_s = 0$, and the absorption opacity is temperature dependent, $\sigma_a = \frac{1}{T^3}$.
 
-We will use an initial mesh of 20 cells, but will also consider results using meshes of 80, 320, and 1280 cells.
-For all simulations we use the 2-2 Alexander scheme.
+We use an initial mesh of 20 cells, but also consider results using meshes of 80, 320, and 1280 cells.
+Unless otherwise noted, for all simulations we use the 2-2 Alexander scheme.
 We begin with a minimum time step of $\Delta t = 5\times 10^{-4}$ and increase the time step size by 10\% until we reach a maximum time step size of $\Delta t = 10^{-2}$.
-For our time refinement studies, we will divide the minimum and maximum time step sizes both by a factor of 4, 16, or 64.
-We will consider linear, quadratic, cubic and quartic SLXS Lobatto and SLXS Gauss DFEM schemes.
-To demonstrate that assuming a cell-wise constant opacity results in a bladed radiative transfer temperature solution, we will also consider linear SL Lobatto with a cell-wise volumetric average opacity.
+For our time refinement studies, we divide the minimum and maximum time step sizes both by a factor of 4, 16, or 64.
+We consider linear, quadratic, cubic and quartic SLXS Lobatto and SLXS Gauss DFEM schemes.
+To demonstrate that assuming a cell-wise constant opacity results in a bladed radiative transfer temperature solution, we also consider linear SL Lobatto with a cell-wise volumetric average opacity.
 
-We first investigate the effect, if any of assuming a cell-wise constant opacity.  Figure \ref{fig:bladed_rad_profile} shows the linear SL Lobatto radiation energy density solution at $t=1.0$.
+We first investigate the effect, if any, of assuming a cell-wise constant opacity.  Figure \ref{fig:bladed_rad_profile} shows the linear SL Lobatto radiation energy density solution at $t=1.0$.
 Except for the effects of a very coarse spatial mesh when using 20 cells, the radiation energy density solution is effectively smooth, and comparable to the results published in \cite{ober_shadid}.  
 The full temperature solution is shown in \fig{fig:bladed_t_profile_full}.
 Clearly, the large, non-monotonic discontinuities (blading) observed in the neutron transport interaction rate profile are present in the TRT temperature profile.
@@ -1521,34 +1553,54 @@ In \fig{fig:bladed_t_profile_full}, mesh refinement reduces the magnitude of the
 To emphasize that blading is not eliminated with mesh refinement, consider \fig{fig:bladed_t_profile_zoom}, that zooms in on the material temperature solution near the Marshak wavefront.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=11cm]{chapter6_grey_radtran/Dissertation_Data/Blading_Radiation_Full_MultiCell.pdf}
-\caption{SL Lobatto radiation solution for the Marshak wave problem assuming cell-wise constant volumetric averaged opacities.}
+\includegraphics[width=9.5cm,trim=1.2in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Blading_Radiation_Full_MultiCell.pdf}
+\caption{Linear SL Lobatto radiation solution for the Marshak wave problem assuming cell-wise constant volumetric averaged opacities.}
 \label{fig:bladed_rad_profile}
 \end{figure}
 %
 %
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=11cm]{chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Full_MultiCell.pdf}
-\caption{SL Lobatto temperature solution for the Marshak wave problem assuming cell-wise constant volumetric averaged opacities.}
+\includegraphics[width=9.5cm,trim=1.2in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Full_MultiCell.pdf}
+\caption{Linear SL Lobatto temperature solution for the Marshak wave problem assuming cell-wise constant volumetric averaged opacities.}
 \label{fig:bladed_t_profile_full}
 \end{figure}
 %
 %
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=11cm]{chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Zoom_MultiCell.pdf}
-\caption{SL Lobatto temperature solution for the Marshak wave problem near the wavefront.}
+\includegraphics[width=9.5cm,trim=1.2in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Zoom_MultiCell.pdf}
+\caption{Linear SL Lobatto temperature solution for the Marshak wave problem near the wavefront.}
 \label{fig:bladed_t_profile_zoom}
 \end{figure}
 Clearly, \figs{fig:bladed_rad_profile}{fig:bladed_t_profile_zoom}, in addition to the limited order of convergence results given \fig{fig:mms3_constant_lobatto_temp} and \fig{fig:mms3_constant_gauss_temp} demonstrate that the assumption of a cell-wise constant opacity is not appropriate for thermal radiative transfer simulations with temperature dependent material properties.
+
+For comparison, consider the linear SLXS Lobatto radiation energy density solution in \fig{fig:linear_slxs_full_rad} and the temperature solution in \fig{fig:linear_slxs_full_temp} using 80 mesh cells.
+Visually, there is little difference between the SL Lobatto and SLXS Lobatto angle integrated intensity solutions.
+However, this is not the case when examining the material temperature solutions.  Figure \ref{fig:linear_slxs_full_temp} does not exhibit any blading.
+
+%
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=9.5cm,trim=1.2in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/SLXS_Lobatto_80_Cells_Radiation.pdf}
+\caption{Linear SLXS Lobatto angle integrated intensity solution with 80 cells.}
+\label{fig:linear_slxs_full_rad}
+\end{figure}
+%
+%
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=9.5cm,trim=1.2in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/SLXS_Lobatto_80_Cells_Temperature.pdf}
+\caption{Linear SLXS Lobatto temperature solution with 80 cells.}
+\label{fig:linear_slxs_full_temp}
+\end{figure}
 %
 
 We now consider the effects of spatial mesh refinement on TRT solutions.  
 We first consider the linear SLXS Lobatto scheme, looking at a zoom in near the wavefront of the radiation profile in \fig{fig:lobatto_convergence_rad} and the material temperature profile in \fig{fig:lobatto_convergence_temp}
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=11cm]{chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Lobatto_P1_Cell_Refinement.pdf}
+\includegraphics[width=10cm,trim=1.0in  0.2in 0.5in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Lobatto_P1_Cell_Refinement.pdf}
 \caption{Linear SLXS Lobatto radiation solution near wavefront with increasing spatial mesh refinement.}
 \label{fig:lobatto_convergence_rad}
 \end{figure}
@@ -1556,7 +1608,7 @@ We first consider the linear SLXS Lobatto scheme, looking at a zoom in near the 
 %
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=11cm]{chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Lobatto_P1_Cell_Refinement.pdf}
+\includegraphics[width=10cm,trim=1.0in  0.2in 0.5in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Lobatto_P1_Cell_Refinement.pdf}
 \caption{Linear SLXS Lobatto temperature solution near wavefront with increasing spatial mesh refinement.}
 \label{fig:lobatto_convergence_temp}
 \end{figure}
@@ -1565,7 +1617,7 @@ The changes in the material temperature profile are more pronounced, even when m
 Plots similar to \fig{fig:lobatto_convergence_rad} and \fig{fig:lobatto_convergence_temp} are provided in \fig{fig:gauss_convergence_rad} and \fig{fig:gauss_convergence_temp}, respectively for the quartic SLXS Gauss scheme.
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=11cm]{chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Gauss_P4_Cell_Refinement.pdf}
+\includegraphics[width=10cm,trim=1.0in  0.2in 0.5in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Gauss_P4_Cell_Refinement.pdf}
 \caption{Quartic SLXS Gauss radiation solution near wavefront with increasing spatial mesh refinement.}
 \label{fig:gauss_convergence_rad}
 \end{figure}
@@ -1573,36 +1625,36 @@ Plots similar to \fig{fig:lobatto_convergence_rad} and \fig{fig:lobatto_converge
 %
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=11cm]{chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Gauss_P4_Cell_Refinement.pdf}
+\includegraphics[width=10cm,trim=1.0in  0.2in 0.5in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Gauss_P4_Cell_Refinement.pdf}
 \caption{Quartic SLXS Gauss temperature solution near wavefront with increasing spatial mesh refinement.}
 \label{fig:gauss_convergence_temp}
 \end{figure}
 Due to the SLXS Gauss' high order of spatial convergence, few changes are noticeable with mesh refinement, except when moving from 20 to 80 cells.
 However, when moving from 20 to 80 cells, the Gibbs' phenomena near the solution discontinuity are no longer visible, except for a very small negativity in the temperature solution.
-All solutions for this spatial mesh refinement study used the finest time step sizes.
+All solutions for this spatial mesh refinement study use the finest time step sizes.
 
-We now examine the effect of increasing DFEM trial space degree, so called $P$ refinement, on a fixed mesh of 320 spatial cells, we examine how the SLXS Lobatto solution profile changes with different choice in $P$ for the radiation profile in \fig{fig:p_convergence_rad} and temperature profile in \fig{fig:p_convergence_temp}, when near the Marshak wavefront.
-\begin{figure}[!hbp]
+We now examine the effect of increasing DFEM trial space degree, on a fixed mesh of 320 spatial cells using SLXS Lobatto, focusing on the region near the Marshak wavefront.
+In \fig{fig:p_convergence_rad} we plot the angle integrated intensity profile and plot the temperature profile in \fig{fig:p_convergence_temp}
+\begin{figure}[!htp]
 \centering
-\includegraphics[width=12cm]{chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Radiation_Lobatto_P_Refinement.pdf}
+\includegraphics[width=10cm,trim=1.0in  0.2in 0.5in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Radiation_Lobatto_P_Refinement.pdf}
 \caption{SLXS Lobatto radiation energy density solution with 320 cells for different $P$ near Marshak wavefront.}
 \label{fig:p_convergence_rad}
 \end{figure}
-
-\pagebreak
-
-\begin{figure}[!htp]
+%
+\begin{figure}[!hbp]
 \centering
-\includegraphics[width=12cm]{chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Temperature_Lobatto_P_Refinement.pdf}
+\includegraphics[width=10cm,trim=1.0in  0.2in 0.5in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Temperature_Lobatto_P_Refinement.pdf}
 \caption{SLXS Lobatto material temperature solution with 320 cells for different $P$ near Marshak wavefront.}
 \label{fig:p_convergence_temp}
 \end{figure}
+Increasing $P$ make the wavefront in the radiation profile sharper, but at a resolution of 320 cells, none of the $P$ considered result in a visually continuous solution.
+The most notable changes with increase $P$ come in the temperature profile, where linear SLXS Lobatto does not form a sharp interface, whereas all of the higher $P$ schemes capture the non-smooth transition more accurately.
 
-\vspace{-0.4in}
-Finally, we consider the effect of time step refinement in \fig{fig:time_refinement_rad} for the radiation profile and in \fig{fig:time_refinement_temp}.
+Before looking at very high spatial resolution solutions, we first consider the effect of time step refinement in \fig{fig:time_refinement_rad} for the radiation profile and in \fig{fig:time_refinement_temp}.
 Both \fig{fig:time_refinement_rad} and \fig{fig:time_refinement_temp} use a quartic SLXS Gauss spatial discretization with 1280 cells.
 The effects of decreasing time step size are non-trivial near the wavefront.
-As seen in \fig{fig:time_refinement_rad}, at lower time resolutions ($\Delta t$ and $\frac{\Delta t}{4}$, the wavefront is visibly not uniformly concave down, resulting in several ``wiggles'' in the radiation profile in the heated region of the slab.
+As seen in \fig{fig:time_refinement_rad}, at lower time resolutions, $\Delta t$ and $\frac{\Delta t}{4}$, the wavefront is visibly not uniform concave down, with several ``wiggles'' in the radiation profile in the heated region of the slab.
 Additionally, increased temporal resolution causes the discontinuity at the leading edge of the wavefront to sharpen.
 In \fig{fig:time_refinement_temp}, the effects of increased time resolution are the same as in \fig{fig:time_refinement_rad}.
 However, increased time resolution more noticeably sharpens the discontinuity in the temperature profile than it eliminates wavefront wiggles, though in \fig{fig:time_refinement_temp} the $\Delta t$ curve is not strictly concave down in the heated region of the slab near the wavefront.
@@ -1610,7 +1662,7 @@ However, increased time resolution more noticeably sharpens the discontinuity in
 %
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Radiation.pdf}
+\includegraphics[width=10cm,trim=1.0in  0.2in 0.5in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Radiation.pdf}
 \caption{Quartic SLXS Lobatto radiation energy density solution with 1280 cells for different time refinements near the Marshak wavefront.}
 \label{fig:time_refinement_rad}
 \end{figure}
@@ -1618,14 +1670,14 @@ However, increased time resolution more noticeably sharpens the discontinuity in
 %
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Temperature.pdf}
+\includegraphics[width=10cm,trim=1.0in  0.2in 0.5in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Temperature.pdf}
 \caption{Quartic SLXS Lobatto temperature solution with 1280 cells for different time refinements near the Marshak wavefront.}
 \label{fig:time_refinement_temp}
 \end{figure}
 
 \pagebreak
 
-We conclude our discussion of the Marshak wave problem by considering the results of a very fine spatial mesh calculation.
+We now discuss highly resolved $S_2$ solutions to the Marshak wave problem.
 Our hope is that with sufficient spatial resolution and higher order DFEM, we are able to resolve transport boundary layers.
 Our highest resolution simulation uses ten thousand spatial mesh cells.
 Given the initial, cold temperature of the slab is roughly $T=0.056$,  $\sigma_t = \sigma_a = \frac{1}{T^3}$, then the total slab optical thickness is roughly 5700 MFP thick, and when using ten though cells, each mesh cell is roughly $0.57$ MFP thick.  
@@ -1634,11 +1686,11 @@ To answer whether ten thousand mesh cells is sufficient, we first consider \fig{
 \begin{enumerate}
 \item ten thousand spatial cells, with ten thousand time steps and the 3-3 SDIRK scheme,
 \item ten thousand spatial cells, with one thousand time steps and the 3-3 SDIRK scheme, and 
-\item twelve-hundred spatial cells, with six thousand time steps of the 3-3 SDIRK scheme.
+\item 1280 spatial cells, with six thousand time steps of the 3-3 SDIRK scheme.
 \end{enumerate} 
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=13cm]{chapter6_grey_radtran/Dissertation_Data/Zoom_10k_Phi.pdf}
+\includegraphics[width=13cm,trim=1.0in  0.75in 1.0in 1.0in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Zoom_10k_Phi.pdf}
 \caption{Plot of the radiation energy density on a logarithmic scale for different high resolution simulations near the Marshak wavefront.}
 \label{fig:res_zoom_comparison}
 \end{figure}
@@ -1650,22 +1702,104 @@ Unfortunately, noting that the radiation energy density jumps four orders of mag
 In \fig{fig:boundary_layer}, we plot the angular intensities for $\mu=\pm\frac{1}{\sqrt{3}}$ of the ten thousand cell, ten thousand time step simulation.  
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=12cm]{chapter6_grey_radtran/Dissertation_Data/50_Cells_at_Wavefront_Intensity_Log.pdf}
+\includegraphics[width=11cm,trim=0.5in  0.0in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/50_Cells_at_Wavefront_Intensity_Log.pdf}
 \caption{Plot of the angular intensity on a logarithmic scale near the transport boundary layer at the Marshak wave front.}
 \label{fig:boundary_layer}
 \end{figure}
 Clearly the radiation traveling from the hot to cold region, $\mu=\frac{1}{\sqrt{3}}$ has the largest boundary layer, but even with less than ideal spatial resolution, the rapid rise in angular intensity appears to be smooth, suggesting we have resolved the radiation boundary layer.
 
+Finally, we consider higher $S_N$ solutions to the Marshak wave problem.  First, we compare the $S_8$ solution to the $S_2$ solution for material temperature in \fig{fig:s2_vs_s8_temperature} and for radiation energy density in \fig{fig:s2_vs_s8_radiation}.  The $S_8$ solution in \figs{fig:s2_vs_s8_temperature}{fig:s2_vs_s8_radiation} was generated using quartic SLXS Gauss with five thousand spatial cells, the Alexander 2-2 SDIRK scheme and approximately ten thousand time steps.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=11cm,trim=1.0in  0.5in 0.2in 0.6in,clip=true]{chapter6_grey_radtran/S8_vs_S2_Material_Temperature.pdf}
+\caption{$S_8$ and $S_2$ material temperature profiles.}
+\label{fig:s2_vs_s8_temperature}
+\end{figure}
+%
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=11cm,trim=1.0in  0.3in 0.2in 0.5in,clip=true]{chapter6_grey_radtran/S8_vs_S2_Radiation_Energy_Density.pdf}
+\caption{$S_8$ and $S_2$ radiation energy density profiles.}
+\label{fig:s2_vs_s8_radiation}
+\end{figure}
+The $S_8$ solution exhibits many of the qualitative features we would expect a transport solution to exhibit versus the $S_2$ solution which is very close to the diffusion solution.
+For example, we expect the transport solution to have a higher temperature solution near the problem boundary, with a more rapid drop in both the material temperature and radiation energy density/angle integrated intensity solutions relative to a diffusion solution.
+Additionally, we expect the transport material temperature and radiation energy density solution to penetrate farther into the slab than the diffusion solution, but with a less steep gradient.
+Figures \ref{fig:s2_vs_s8_radiation}-\ref{fig:s2_vs_s8_temperature} both exhibit this behavior, caused by the transport solution becoming more and more like $\delta(\mu-1)$ in optically thick regions. 
+However, we did not expect the non-smooth features near $x=0.2$.
+We suspect this is caused by the rapid attenuation of the most glancing $\mu$ from the incident boundary conditions.
+To verify this, we plot the $S_8$ intensity solution in \fig{fig:s8_intensity_full}.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=16cm,trim=1.5in  0.5in 0.2in 1in,clip=true]{chapter6_grey_radtran/S8_Intensity_SemiLogy.pdf}
+\caption{Log plot of $S_8$ intensities for Marshak wave problem.}
+\label{fig:s8_intensity_full}
+\end{figure}
+
+We now zoom in to the boundary layer intensities near $x=0.2$ and near the thermal wave front.
+In \fig{fig:s8_zoom_glance}, it is clear that the intensity in the direction of $\mu=+0.1834$ experiences a rapid variation as the incident flux from the boundary is rapidly attenuated, and the isotropic emission from the heated regions of the slabs becomes the main contributor to $I(\mu_d = +0.1834)$.
+It is also clear that despite having 25 cells with quartic DFEM in the region $x\in[.18,.185]$, the factor $\approx 7\times$ step drop in $I(\mu_d = +0.1834)$ cannot be fully resolved. 
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=12cm,trim=0.5in  0.2in 0.5in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S8_pos_mu_glance_boundary_layer_log.pdf}
+\caption{Logarithmic plot of intensity near glancing $\mu=+0.1834$ boundary layer. }
+\label{fig:s8_zoom_glance}
+\end{figure}
+
+Near the hot/cold material interface, all but the most glancing $\mu_d > 0$ experience a rapid variation (greater than a factor of 1000 reduction) in angular intensity.
+The more glancing $\mu_d$, the sooner the transition, relative to the left boundary.
+Given the smooth, profiles for $\mu_d > 0.2$, it also appears that we are able to fully resolve these boundary layers. 
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=16cm,trim=1.5in  0.2in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S8_thermal_wavefront_boundary_layer.pdf}
+\caption{Logarithmic plot of intensity boundary layers near thermal wavefront.}
+\label{fig:s8_zoom_thermal_wavefront}
+\end{figure}
+
+Our final look at the Marshak wave problem investigates the structure of an $S_{32}$ solution with 1000 spatial cells, quartic SLXS Gauss, and five thousand time steps using the 2-2 time integration scheme.
+The material temperature solution is plotted in \fig{fig:s8_vs_s32_temperature} against the $S_8$ solution that uses quartic SLXS Gauss,  five thousand spatial cells, and ten thousand 2-2 time integration steps.
+Likewise, the angle integrated intensity solutions are compared in \fig{fig:s8_vs_s32_radiation}.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=16cm,trim=1.5in  0.2in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Material_Temperature.pdf}
+\caption{Comparison of $S_8$ and $S_{32}$ material temperature profiles for Marshak wave problem.}
+\label{fig:s8_vs_s32_temperature}
+\end{figure}
+%
+%
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=16cm,trim=1.5in  0.2in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Radiation.pdf}
+\caption{Comparison of $S_8$ and $S_{32}$ angle integrated intensity solutions for Marshak wave problem.}
+\label{fig:s8_vs_s32_radiation}
+\end{figure}
+Even with $S_{32}$ Gauss quadrature, we continue to see non-smooth dips in both the material temperature and angle integrated intensity profiles, however the dips are significantly smaller for the $S_{32}$ solution as compared to the $S_8$ solution, particularly for the material temperature profile.
+In \fig{fig:s8_vs_s32_radiation}, we no longer observe one dip in the angle integrated intensity profile, but rather four smaller dips.
+Suspecting these are caused by glancing incidence angles in the quadrature set, we plot the angular intensity for all $\mu_d > 0$ in \fig{fig:s32_intensity}.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=16cm,trim=1.5in  0.2in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_Intensity.pdf}
+\caption{$S_{32}$ intensity solutions for all $\mu_d > 0$, for the Marshak wave problem.}
+\label{fig:s32_intensity}
+\end{figure}
+As with the $S_8$ solution, the dips in $\phi$ are associated with corresponding dips in $I_d$ for glancing $\mu_d>0$.\
+The discontinuity associated with $\mu_d = 0.3319$ is obscured in \fig{fig:s8_vs_s32_radiation} as the dip occurs just as the $S_{32}$ angle integrated intensity cross over the $S_8$ angle integrated intensity solution.
+The $\mu_d=0.0483$ intensity jump in \fig{fig:s32_intensity} causes the greatest effect in \fig{fig:s8_vs_s32_radiation} for two reasons.  
+First, the most glancing quadrature angle is attenuated the most rapidly and as such would be expected to have the greatest drop in value.
+Second, Gauss angular quadrature assigns the greatest weight to the quadrature points most near $\mu_d = 0$. 
+Thus even if every discrete ordinate intensity had the same decrease in $I$, the jump in $\phi$ would be largest only for the most glancing $\mu$, $\mu=0.0483$.
+Surprisingly, the $S_8$ and $S_{32}$ calculations have nearly identical positions and values of the temperature and angle integrated intensity solution near the problem boundary and the hot/cold interface.  
+If however, the goal is a smooth transport solution, the value of $N$ required to create a smooth $S_N$ $\phi$ solution appears to be much higher than $S_{32}$.
+
 \subsection{Su-Olson Problem}
 
-The Su-Olson problem \cite{su_olson_1} is an analytic benchmark that consists of an initially cold (initial radiation energy density and temperature conditions are identically zero) half-space slab, heated for a finite amount of time by a volumetric, isotropic radiation source.
+The Su-Olson problem \cite{su_olson_1} is an analytic benchmark that consists of an initially cold (initial radiation energy density and temperature conditions are identically absolute zero) half-space slab, heated for a finite amount of time by a volumetric, isotropic radiation source.
 The slab's scattering opacity is constant in space and temperature, absorption opacity is constant in space and temperature, and $C_v \propto T^3$.
 Assuming $C_v = \alpha T^3$ is critical; as Long, et al. \cite{alex_paper} noted, the assumption regarding $C_v$ is not physical, but is required to make the thermal radiative transfer equations linear in $I$ and $T^4$, or conversely linear in $I$ and material energy density. 
-After a series of transformations, Su and Olson derived an analytic solution to the thermal radiative transfer equations.
-The solution is more accurately described as being semi-analytic.
+After a series of transformations, Su and Olson derived an analytic solution to the thermal radiative transfer equations under these conditions; their solution is more accurately described as being semi-analytic.
 While the radiation energy density and material temperature at every point can be expressed as a closed form integral, evaluation of each integral requires numerical estimation.
 Further, the integral is a 2-D, indefinite integral (in both variables) of a trigonometric function with a slowly  decaying exponential argument.
-However, \cite{su_olson_1} provides several radiation energy density and material energy density points in space, and is beneficial as a benchmark problem to verify the physics of a given radiative transfer implementation.
+However, \cite{su_olson_1} provides several radiation energy density and material energy density points in space, and thus the Su-Olson problem is beneficial as a benchmark problem to verify the physics of a given radiative transfer implementation.
 
 Given the initial temperature condition is explicitly zero, this implies the initial $C_v$ is also zero.
 This is problematic when solving explicitly for temperature and not material energy.
@@ -1676,7 +1810,7 @@ C_v = 10^{-8} + \alpha T^3 \pep
 \eenum
 Alternatively, we could set an initial temperature to be a non absolute zero value.
 
-Since \cite{su_olson_1} presents results in a non-dimensional format, we elect to define $a=c=1$, $\sigma_a = 1$, $\sigma_s=0$, $\alpha = 4$, truncate the full half space to $x\in[0,5]$, and define reference temperature $T_H = 1$.
+Since \cite{su_olson_1} presents results in a non-dimensional format, we elect to define $a=c=1$, $\sigma_a = 1$, $\sigma_s=0$, $\alpha = 4$, truncate the full half space to $x\in[0,5]$, and define the reference temperature, $T_H = 1$.
 We solve the problem using 200 spatial mesh cells, linear SLXS Lobatto DFEM, the Alexander 2-2 time differencing scheme, an initial time step size of $\Delta t = 10^{-5}$, and increase the time step size by a factor of 1.1 until a maximum time step size of $\Delta t = 10^{-3}$ is reached.
 
 In \fig{fig:su_olson_s2_rad} we present the radiation energy density solution, $W(x)$ (in the notation on \cite{su_olson_1}), for $S_2$ angular differencing plotted against the analytic diffusion and transport solutions.  Likewise, in \fig{fig:su_olson_s2_mat}, we plot the material energy density, $V(x)$ (in the notation on \cite{su_olson_1}) for $S_2$ angular differencing.
@@ -1684,13 +1818,13 @@ Solutions at various times, $\tau = 1$ and $\tau=10$ are given in both plots.
 As expected, the $S_2$ solution is nearly identical to diffusion, but skews slightly in the direction of the full transport solution.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=12cm]{chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Radiation_Energy.pdf}
+\includegraphics[width=8cm,trim=1.75in  0.5in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Radiation_Energy.pdf}
 \caption{$S_2$ radiation energy density profile for Su-Olson problem.}
 \label{fig:su_olson_s2_rad}
 \end{figure}
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=12cm]{chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Material_Energy.pdf}
+\includegraphics[width=8cm,trim=1.75in  0.5in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Material_Energy.pdf}
 \caption{$S_2$ material energy density profile for Su-Olson problem.}
 \label{fig:su_olson_s2_mat}
 \end{figure}
@@ -1698,13 +1832,13 @@ As expected, the $S_2$ solution is nearly identical to diffusion, but skews slig
 Increasing the number of discrete ordinates, the radiation energy density profile and material energy density profiles are given in \fig{fig:su_olson_s8_rad} and \fig{fig:su_olson_s8_mat} for $S_8$ angular differencing.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=12cm]{chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Radiation_Energy.pdf}
+\includegraphics[width=8cm,trim=1.75in  0.5in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Radiation_Energy.pdf}
 \caption{$S_8$ radiation energy density profile for Su-Olson problem.}
 \label{fig:su_olson_s8_rad}
 \end{figure}
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=12cm]{chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Material_Energy.pdf}
+\includegraphics[width=8cm,trim=1.75in  0.5in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Material_Energy.pdf}
 \caption{$S_8$ material energy density profile for Su-Olson problem.}
 \label{fig:su_olson_s8_mat}
 \end{figure}

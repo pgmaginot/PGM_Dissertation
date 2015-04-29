@@ -176,7 +176,7 @@ fclose(fid_cell_r(i));
 fclose(fid_rad(i));
 
 xlabel('Position','FontSize',18,'Interpreter','latex');
-ylabel('Radiation Energy Density','FontSize',18,'Interpreter','latex');
+ylabel('Angle Integrated Intensity','FontSize',18,'Interpreter','latex');
 
 
 return
