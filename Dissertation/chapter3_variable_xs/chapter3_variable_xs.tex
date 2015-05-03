@@ -745,14 +745,14 @@ Also plotted in \fig{fig:cxs_blades_psi} and \fig{fig:cxs_blades_ir}, we plot th
 We refer to these analytic solutions as $\psi_C(x)$ and $IR_C(x)$.
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=12cm]{chapter3_variable_xs/Psi_Blades.png}
+\includegraphics[width=12cm]{chapter3_variable_xs/Psi_Blades.pdf}
 \caption{Plots of the analytic $\psi(x)$, CXS DFEM $\widetilde{\psi}(x)$, and $\psi_C(x)$ for the pure absorber with exponential cross section.}
 \label{fig:cxs_blades_psi}
 \end{figure}
 
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=12cm]{chapter3_variable_xs/I_Blades.png}
+\includegraphics[width=12cm]{chapter3_variable_xs/I_Blades.pdf}
 \caption{Plots of the analytic $IR(x)$, CXS DFEM $\widetilde{IR}(x)$, and  $IR_C(x)$ for the pure absorber with exponential cross section.}
 \label{fig:cxs_blades_ir}
 \end{figure}
@@ -779,7 +779,7 @@ Consider $\widetilde{\psi}(x)$ and $\widetilde{IR}(x)$ obtained with SLXS Lobatt
 In \fig{fig:lobatto_blades_psi}, the differences between the angular flux solutions obtained using (1) a cell-wise constant cross section (CXS DFEM) and (2) evaluating cross section values at quadrature points (SLXS Lobatto) are small.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=12cm]{chapter3_variable_xs/SLXS_Psi_Profile.png}
+\includegraphics[width=12cm]{chapter3_variable_xs/SLXS_Psi_Profile.pdf}
 \caption{Plot of the linear trial space SLXS Lobatto and CXS DFEM approximations of $\widetilde{\psi}(x)$ for the pure absorber problem with exponentially varying cross section.}
 \label{fig:lobatto_blades_psi}
 \end{figure}
@@ -791,7 +791,7 @@ The SLXS Lobatto $\widetilde{IR}(x)$ is clearly more accurate than the CXS DFEM 
 %
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=12cm]{chapter3_variable_xs/SLXS_I_Profile.png}
+\includegraphics[width=12cm]{chapter3_variable_xs/SLXS_I_Profile.pdf}
 \caption{Plot of the linear trial space SLXS Lobatto and CXS DFEM approximations of $\widetilde{IR}(x)$ for the pure absorber problem with exponentially varying cross section.}
 \label{fig:lobatto_blades_ir}
 \end{figure}
@@ -815,14 +815,14 @@ We hypothesize here, and will show in \chapref{sec:chapter6_grey_radtran} that a
 
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=11cm]{chapter3_variable_xs/CXS_Psi_A_Profile.png}
+\includegraphics[width=11cm]{chapter3_variable_xs/CXS_Psi_A_Profile.pdf}
 \caption{Plot of the CXS DFEM cell average angular flux at cell centers with linear interpolation for a pure absorber with exponentially varying spatial cross section.}
 \label{fig:cxs_avg_psi}
 \end{figure}
 %
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=11cm]{chapter3_variable_xs/CXS_I_A_Profile.png}
+\includegraphics[width=11cm]{chapter3_variable_xs/CXS_I_A_Profile.pdf}
 \caption{Plot of the CXS DFEM cell average interaction rate at cell centers with linear interpolation for a pure absorber with exponentially varying spatial cross section.}
 \label{fig:cxs_avg_ir}
 \end{figure}
@@ -889,7 +889,7 @@ However, the FW CXS scheme  exhibits the same interaction rate blading phenomena
 The choice of cell-wise cross section does not eliminate blading.
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=12cm]{chapter3_variable_xs/FW_Psi_Blades.png}
+\includegraphics[width=12cm]{chapter3_variable_xs/FW_Psi_Blades.pdf}
 \caption{Plot of the linear trial space FW CXS and CXS DFEM approximations to $\widetilde{\psi}(x)$ for the pure absorber problem with exponentially varying spatial cross section.}
 \label{fig:fw_blading_psi}
 \end{figure}
@@ -897,7 +897,7 @@ The choice of cell-wise cross section does not eliminate blading.
 %
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=12cm]{chapter3_variable_xs/FW_I_Blades.png}
+\includegraphics[width=12cm]{chapter3_variable_xs/FW_I_Blades.pdf}
 \caption{Plot of the linear trial space FW CXS and CXS DFEM approximations to $\widetilde{IR}(x)$ for the pure absorber problem with exponentially varying spatial cross section.}
 \label{fig:fw_blading_ir}
 \end{figure}

@@ -42,58 +42,58 @@
 \contentsline {subsection}{\numberline {3.3.1}Single Cell Outflow Comparisons}{52}
 \contentsline {subsection}{\numberline {3.3.2}Multiple Cell Spatial Convergence Rates}{57}
 \contentsline {subsection}{\numberline {3.3.3}Consequences of Assuming a Cell-Wise Constant Cross Section}{72}
-\contentsline {subsection}{\numberline {3.3.4}Flux-Weighting versus Volume-Averaged Cross Sections}{79}
-\contentsline {subsection}{\numberline {3.3.5}Effects of Mesh Spacing}{84}
-\contentsline {subsubsection}{\numberline {3.3.5.1}Generating Improved Spatial Meshes}{84}
-\contentsline {subsubsection}{\numberline {3.3.5.2}Mesh Spacing Results}{85}
-\contentsline {section}{\numberline {3.4}Conclusions to Be Carried Forward}{95}
-\contentsline {chapter}{\numberline {4}\uppercase {Iterative Acceleration for the $S_N$ Neutron Transport Equations}}{97}
+\contentsline {subsection}{\numberline {3.3.4}Flux-Weighting versus Volume-Averaged Cross Sections}{80}
+\contentsline {subsection}{\numberline {3.3.5}Effects of Mesh Spacing}{85}
+\contentsline {subsubsection}{\numberline {3.3.5.1}Generating Improved Spatial Meshes}{85}
+\contentsline {subsubsection}{\numberline {3.3.5.2}Mesh Spacing Results}{86}
+\contentsline {section}{\numberline {3.4}Conclusions to Be Carried Forward}{96}
+\contentsline {chapter}{\numberline {4}\uppercase {Iterative Acceleration for the $S_N$ Neutron Transport Equations}}{98}
 \vskip +10pt
-\contentsline {section}{\numberline {4.1}Iterative Solution of the Neutron Transport $S_N$ Equations}{97}
-\contentsline {section}{\numberline {4.2}Qualitative Comparison of Different Synthetic Acceleration Techniques}{100}
-\contentsline {section}{\numberline {4.3}$S_2$ Synthetic Acceleration}{102}
-\contentsline {section}{\numberline {4.4}Modified Interior Penalty Diffusion Synthetic Acceleration}{108}
-\contentsline {section}{\numberline {4.5}Numerical Results Verifying Implementation and Performance of S2SA and MIP DSA}{115}
-\contentsline {subsection}{\numberline {4.5.1}Spatially Constant Cross Section Scattering Problem}{116}
-\contentsline {subsubsection}{\numberline {4.5.1.1}S2SA Spectral Radius Sensitivity}{117}
-\contentsline {subsubsection}{\numberline {4.5.1.2}MIP DSA Spectral Radius Sensitivity}{122}
-\contentsline {subsection}{\numberline {4.5.2}Spatially Varying Cross Section Scattering Problem}{129}
-\contentsline {subsubsection}{\numberline {4.5.2.1}S2SA}{130}
-\contentsline {subsubsection}{\numberline {4.5.2.2}MIP DSA}{130}
+\contentsline {section}{\numberline {4.1}Iterative Solution of the Neutron Transport $S_N$ Equations}{98}
+\contentsline {section}{\numberline {4.2}Qualitative Comparison of Different Synthetic Acceleration Techniques}{101}
+\contentsline {section}{\numberline {4.3}$S_2$ Synthetic Acceleration}{103}
+\contentsline {section}{\numberline {4.4}Modified Interior Penalty Diffusion Synthetic Acceleration}{109}
+\contentsline {section}{\numberline {4.5}Numerical Results Verifying Implementation and Performance of S2SA and MIP DSA}{116}
+\contentsline {subsection}{\numberline {4.5.1}Spatially Constant Cross Section Scattering Problem}{117}
+\contentsline {subsubsection}{\numberline {4.5.1.1}S2SA Spectral Radius Sensitivity}{118}
+\contentsline {subsubsection}{\numberline {4.5.1.2}MIP DSA Spectral Radius Sensitivity}{123}
+\contentsline {subsection}{\numberline {4.5.2}Spatially Varying Cross Section Scattering Problem}{130}
+\contentsline {subsubsection}{\numberline {4.5.2.1}S2SA}{131}
+\contentsline {subsubsection}{\numberline {4.5.2.2}MIP DSA}{132}
 \contentsline {section}{\numberline {4.6}Conclusions}{132}
-\contentsline {chapter}{\numberline {5}\uppercase {Fuel Depletion Problem}}{134}
+\contentsline {chapter}{\numberline {5}\uppercase {Fuel Depletion Problem}}{135}
 \vskip +10pt
-\contentsline {section}{\numberline {5.1}Problem Physical Description}{134}
-\contentsline {subsection}{\numberline {5.1.1}Microscopic Cross Section and Yield Data}{138}
-\contentsline {subsection}{\numberline {5.1.2}Reactor Power Levels and Normalization}{141}
-\contentsline {section}{\numberline {5.2}Spatial Discretization}{142}
-\contentsline {subsection}{\numberline {5.2.1}Radiation Solution}{143}
-\contentsline {subsection}{\numberline {5.2.2}Nuclide Density}{145}
-\contentsline {section}{\numberline {5.3}Numerical Results}{148}
-\contentsline {chapter}{\numberline {6}\uppercase {Grey Thermal Radiative Transfer}}{159}
+\contentsline {section}{\numberline {5.1}Problem Physical Description}{135}
+\contentsline {subsection}{\numberline {5.1.1}Microscopic Cross Section and Yield Data}{139}
+\contentsline {subsection}{\numberline {5.1.2}Reactor Power Levels and Normalization}{142}
+\contentsline {section}{\numberline {5.2}Spatial Discretization}{143}
+\contentsline {subsection}{\numberline {5.2.1}Radiation Solution}{144}
+\contentsline {subsection}{\numberline {5.2.2}Nuclide Density}{146}
+\contentsline {section}{\numberline {5.3}Numerical Results}{149}
+\contentsline {chapter}{\numberline {6}\uppercase {Grey Thermal Radiative Transfer}}{160}
 \vskip +10pt
-\contentsline {section}{\numberline {6.1}Linearization and Discretization of Grey TRT Equations}{160}
-\contentsline {subsection}{\numberline {6.1.1}SDIRK Time Integration}{160}
-\contentsline {subsection}{\numberline {6.1.2}Spatially Analytic Linearization}{161}
-\contentsline {subsubsection}{\numberline {6.1.2.1}SDIRK Stage 1}{163}
-\contentsline {subsubsection}{\numberline {6.1.2.2}SDIRK Stage $i$}{169}
-\contentsline {subsection}{\numberline {6.1.3}Spatially Discretized Linearization}{171}
-\contentsline {subsubsection}{\numberline {6.1.3.1}SDIRK Stage $i$}{173}
-\contentsline {subsection}{\numberline {6.1.4}Consistency of Pseudo Cross Sections}{177}
-\contentsline {section}{\numberline {6.2}Iterative Solution Process}{184}
-\contentsline {section}{\numberline {6.3}Software Implementation}{187}
-\contentsline {section}{\numberline {6.4}Numerical Results}{189}
-\contentsline {subsection}{\numberline {6.4.1}Method of Manufactured Solutions}{189}
-\contentsline {subsubsection}{\numberline {6.4.1.1}Linear in Time - Trigonometric in Space }{190}
-\contentsline {subsubsection}{\numberline {6.4.1.2}Trigonometric in Space - Linear in Time - with Temperature Dependent Material Properties}{199}
-\contentsline {subsubsection}{\numberline {6.4.1.3}Constant in Time - Trigonometric in Space - with Temperature Dependent Material Properties}{208}
-\contentsline {subsubsection}{\numberline {6.4.1.4}Constant in Space - Trigonometric in Time}{214}
-\contentsline {subsection}{\numberline {6.4.2}Marshak Wave Problem}{216}
-\contentsline {subsection}{\numberline {6.4.3}Su-Olson Problem}{234}
-\contentsline {subsection}{\numberline {6.4.4}Effectiveness of MIP DSA for Radiative Transfer}{240}
-\contentsline {chapter}{\numberline {7}\uppercase {Summary and Conclusions}}{243}
+\contentsline {section}{\numberline {6.1}Linearization and Discretization of Grey TRT Equations}{161}
+\contentsline {subsection}{\numberline {6.1.1}SDIRK Time Integration}{161}
+\contentsline {subsection}{\numberline {6.1.2}Spatially Analytic Linearization}{162}
+\contentsline {subsubsection}{\numberline {6.1.2.1}SDIRK Stage 1}{164}
+\contentsline {subsubsection}{\numberline {6.1.2.2}SDIRK Stage $i$}{170}
+\contentsline {subsection}{\numberline {6.1.3}Spatially Discretized Linearization}{172}
+\contentsline {subsubsection}{\numberline {6.1.3.1}SDIRK Stage $i$}{174}
+\contentsline {subsection}{\numberline {6.1.4}Consistency of Pseudo Cross Sections}{178}
+\contentsline {section}{\numberline {6.2}Iterative Solution Process}{185}
+\contentsline {section}{\numberline {6.3}Software Implementation}{188}
+\contentsline {section}{\numberline {6.4}Numerical Results}{190}
+\contentsline {subsection}{\numberline {6.4.1}Method of Manufactured Solutions}{190}
+\contentsline {subsubsection}{\numberline {6.4.1.1}Linear in Time - Trigonometric in Space }{191}
+\contentsline {subsubsection}{\numberline {6.4.1.2}Trigonometric in Space - Linear in Time - with Temperature Dependent Material Properties}{200}
+\contentsline {subsubsection}{\numberline {6.4.1.3}Constant in Time - Trigonometric in Space - with Temperature Dependent Material Properties}{209}
+\contentsline {subsubsection}{\numberline {6.4.1.4}Constant in Space - Trigonometric in Time}{215}
+\contentsline {subsection}{\numberline {6.4.2}Marshak Wave Problem}{217}
+\contentsline {subsection}{\numberline {6.4.3}Su-Olson Problem}{235}
+\contentsline {subsection}{\numberline {6.4.4}Effectiveness of MIP DSA for Radiative Transfer}{241}
+\contentsline {chapter}{\numberline {7}\uppercase {Summary and Conclusions}}{244}
 \vskip +10pt
-\contentsline {section}{\numberline {7.1}Summary}{243}
-\contentsline {section}{\numberline {7.2}Conclusions}{244}
-\contentsline {subsection}{\numberline {7.2.1}Future Work}{245}
-\contentsline {chapter}{REFERENCES}{247}
+\contentsline {section}{\numberline {7.1}Summary}{244}
+\contentsline {section}{\numberline {7.2}Conclusions}{245}
+\contentsline {subsection}{\numberline {7.2.1}Future Work}{246}
+\contentsline {chapter}{REFERENCES}{248}

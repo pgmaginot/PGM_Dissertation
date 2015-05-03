@@ -582,7 +582,7 @@ Additionally, we see that MIP DSA achieves a $\rho$ similar to that given in Fig
 Likewise, our S2SA implementation estimates $\rho \leq \approx 0.2$, which agrees well with the Fourier analysis of \cite{s2sa} a true spectral radius of $0.2127c$.  Since the analysis of \cite{s2sa} is for an infinite medium, we expect our estimate of $\rho$ to be less.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=12cm]{chapter4_acceleration/Const_2_P1_Gauss_Solvers.png}
+\includegraphics[width=12cm]{chapter4_acceleration/Const_2_P1_Gauss_Solvers.pdf}
 \caption{Estimates of $\rho$ for different iterative techniques for $S_8$, $c=0.999$, linear SL Gauss.}
 \label{fig:p1_gauss}
 \end{figure}
@@ -607,7 +607,7 @@ MIP DSA for linear SL Lobatto exhibits the same peaking as observed with linear 
 %Thus, to floating point precision, $\norm{\phi^{(\ell+1)}} =0$, and we can longer estimate $\rho$. 
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=12cm]{chapter4_acceleration/Const_2_P1_Lobatto_Solvers.png}
+\includegraphics[width=12cm]{chapter4_acceleration/Const_2_P1_Lobatto_Solvers.pdf}
 \caption{Estimates of $\rho$ for different iterative techniques for $S_8$, $c=0.999$, linear SL Lobatto.}
 \label{fig:p1_lobatto}
 \end{figure}
@@ -625,7 +625,7 @@ From \fig{fig:p1_gauss} and \fig{fig:p1_lobatto}, we expect that the choice of D
 In \fig{fig:s2sa_gauss_as_fun_sn} and \fig{fig:s2sa_lobatto_as_fun_sn}, we compute $\rho$ for S2SA as a function of $S_N$ order for linear SL Gauss and linear SL Lobatto, respectively.  In both \figs{fig:s2sa_gauss_as_fun_sn}{fig:s2sa_lobatto_as_fun_sn}, the higher the $S_N$ order, the larger $\rho$, across all cell optical thicknesses, though there is little difference between $S_8$ and $S_{16}$.
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=11cm]{chapter4_acceleration/Constant_XS_sn_comparions_S2SA_Gauss.png}
+\includegraphics[width=11cm]{chapter4_acceleration/Constant_XS_sn_comparions_S2SA_Gauss.pdf}
 \caption{Estimate of $\rho$ for S2SA as a function of $S_N$ order for $c=0.999$ for  linear SL Gauss.}
 \label{fig:s2sa_gauss_as_fun_sn}
 \end{figure}
@@ -633,7 +633,7 @@ In \fig{fig:s2sa_gauss_as_fun_sn} and \fig{fig:s2sa_lobatto_as_fun_sn}, we compu
 %
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=11cm]{chapter4_acceleration/Constant_XS_sn_comparions_S2SA_Lobatto.png}
+\includegraphics[width=11cm]{chapter4_acceleration/Constant_XS_sn_comparions_S2SA_Lobatto.pdf}
 \caption{Estimate of $\rho$ for S2SA as a function of $S_N$ order for $c=0.999$ for  linear SL Lobatto.}
 \label{fig:s2sa_lobatto_as_fun_sn}
 \end{figure}
@@ -641,7 +641,7 @@ In \fig{fig:s2sa_gauss_as_fun_sn} and \fig{fig:s2sa_lobatto_as_fun_sn}, we compu
 %
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=11cm]{chapter4_acceleration/Constant_XS_c_comparions_S2SA_Gauss.png}
+\includegraphics[width=11cm]{chapter4_acceleration/Constant_XS_c_comparions_S2SA_Gauss.pdf}
 \caption{Estimates of $\rho$ for S2SA as a function of $c$  for  $S_8$  linear SL Gauss.}
 \label{fig:s2sa_gauss_as_fun_c}
 \end{figure}
@@ -649,7 +649,7 @@ In \fig{fig:s2sa_gauss_as_fun_sn} and \fig{fig:s2sa_lobatto_as_fun_sn}, we compu
 %
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=11cm]{chapter4_acceleration/Constant_XS_c_comparions_S2SA_Lobatto.png}
+\includegraphics[width=11cm]{chapter4_acceleration/Constant_XS_c_comparions_S2SA_Lobatto.pdf}
 \caption{Estimates of $\rho$ for S2SA as a function of $c$  for  $S_8$  linear SL Lobatto.}
 \label{fig:s2sa_lobatto_as_fun_c}
 \end{figure}
@@ -663,7 +663,7 @@ Regardless of $c$, $P$, $\Sigma_t \Delta x$, and $S_N$ order, we numerically ver
 %
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=11cm]{chapter4_acceleration/Constant_XS_SN8_S2SA_Gauss.png}
+\includegraphics[width=11cm]{chapter4_acceleration/Constant_XS_SN8_S2SA_Gauss.pdf}
 \caption{Estimates of $\rho$ for S2SA as a function of $S_8$, $c=0.999$, SL Gauss as a function of trial space degree.}
 \label{fig:s2sa_gauss}
 \end{figure}
@@ -671,7 +671,7 @@ Regardless of $c$, $P$, $\Sigma_t \Delta x$, and $S_N$ order, we numerically ver
 %
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=11cm]{chapter4_acceleration/Constant_XS_SN8_S2SA_Lobatto.png}
+\includegraphics[width=11cm]{chapter4_acceleration/Constant_XS_SN8_S2SA_Lobatto.pdf}
 \caption{Estimates of $\rho$ for S2SA as a function of $S_8$, $c=0.999$, SL Lobatto as a function of trial space degree.}
 \label{fig:s2sa_lobatto}
 \end{figure}
@@ -688,13 +688,13 @@ As with S2SA, the higher $S_N$ order, the larger $\rho$ is for the MIP DSA schem
 However, the value of $\rho$ obtained with $S_8$ is only slightly smaller than the $\rho$ of $S_{16}$, and as such we prefer the reduced computational work of $S_8$ simulations to $S_{16}$ in examining iterative effectiveness.  
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=12cm]{chapter4_acceleration/Const_2_Constant_XS_sn_comparions_MIP_Gauss.png}
+\includegraphics[width=12cm]{chapter4_acceleration/Const_2_Constant_XS_sn_comparions_MIP_Gauss.pdf}
 \caption{Estimate of $\rho$ for MIP DSA as a function of  $S_N$ order for $c=0.999$ linear SL Gauss.}
 \label{fig:mip_gauss_as_fun_sn}
 \end{figure}
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=12cm]{chapter4_acceleration/Const_2_Constant_XS_sn_comparions_MIP_Lobatto.png}
+\includegraphics[width=12cm]{chapter4_acceleration/Const_2_Constant_XS_sn_comparions_MIP_Lobatto.pdf}
 \caption{Estimate of $\rho$ for MIP DSA as a function of  $S_N$ order for $c=0.999$ linear SL Lobatto.}
 \label{fig:mip_lobatto_as_fun_sn}
 \end{figure}
@@ -708,7 +708,7 @@ Just as Wang did in his dissertation\cite{yaqi_dissertation}, we now consider $Z
 Estimates of $\rho$ for MIP DSA as a function of $c$ for SL Gauss and SL Lobatto, with $Z_{MIP}=4$ are given in \fig{fig:mip_gauss_as_fun_c_z4} and \fig{fig:mip_lobatto_as_fun_c_z4}, respectively.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=11cm]{chapter4_acceleration/Const_2_Constant_XS_c_comparions_MIP_Gauss.png}
+\includegraphics[width=11cm]{chapter4_acceleration/Const_2_Constant_XS_c_comparions_MIP_Gauss.pdf}
 \caption{Estimate of $\rho$ for MIP DSA as a function of $c$  for  $S_8$  linear SL Gauss.}
 \label{fig:mip_gauss_as_fun_c}
 \end{figure}
@@ -716,7 +716,7 @@ Estimates of $\rho$ for MIP DSA as a function of $c$ for SL Gauss and SL Lobatto
 %
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=11cm]{chapter4_acceleration/Const_2_Constant_XS_c_comparions_MIP_Lobatto.png}
+\includegraphics[width=11cm]{chapter4_acceleration/Const_2_Constant_XS_c_comparions_MIP_Lobatto.pdf}
 \caption{Estimate of $\rho$ for MIP DSA as a function of $c$  for  $S_8$  linear SL Lobatto.}
 \label{fig:mip_lobatto_as_fun_c}
 \end{figure}
@@ -726,7 +726,7 @@ Estimates of $\rho$ for MIP DSA as a function of $c$ for SL Gauss and SL Lobatto
 
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm]{chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Gauss.png}
+\includegraphics[width=10cm]{chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Gauss.pdf}
 \caption{$\rho$ for MIP DSA as a function of $c$  for  $S_8$  linear SL Gauss, $Z_{MIP}=4$.}
 \label{fig:mip_gauss_as_fun_c_z4}
 \end{figure}
@@ -734,7 +734,7 @@ Estimates of $\rho$ for MIP DSA as a function of $c$ for SL Gauss and SL Lobatto
 
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm]{chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Lobatto.png}
+\includegraphics[width=10cm]{chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Lobatto.pdf}
 \caption{$\rho$ for MIP DSA as a function of $c$  for  $S_8$  linear SL Lobatto, $Z_{MIP}=4$.}
 \label{fig:mip_lobatto_as_fun_c_z4}
 \end{figure}
