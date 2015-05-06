@@ -2,7 +2,7 @@
 
 save_all = true;
 
-prob_str = 'MMS1_first/MMS1';
+prob_str = 'MMS1/MMS1';
 i=0;
 fid = zeros(12,1);
 for m=1:1:3
@@ -72,16 +72,18 @@ close 11
 
 figure(2)
 % tl phi_L2
-c1 = 1E-4;
+c1 = 1E-5;
 p1 = 2;
-c2 = 1E-9;
+c2 = 1E-10;
 p2 = 4;
 hold on
 loglog([mm1(1,2) mm1(2,2)] , [c1 c1*mm1(3,2)^p1],'k-','LineWidth',2 );
 hold on
 loglog([mm1(1,2) mm1(2,2)] , [c2 c2*mm1(3,2)^p2],'b-','LineWidth',2 );
-h=legend('P1','P2','P3','P4','2nd Order','4th Order','Location','SouthEast');
+h=legend('P1','P2','P3','P4','$O(\Delta x^2)$','$O(\Delta x^4)$','Location','SouthEast');
 set(h,'Interpreter','latex','Fontsize',14);
+axis( [mm1(1,2) mm1(2,2) 1E-10 2])
+set(gca, 'FontName','Times','Fontsize',14);
 
 figure(4)
 % tl temp_L2
@@ -94,35 +96,31 @@ loglog([mm1(1,2) mm1(2,2)] , [c1 c1*mm1(3,2)^p1],'k-','LineWidth',2 );
 hold on
 loglog([mm1(1,2) mm1(2,2)] , [c2 c2*mm1(3,2)^p2],'b-','LineWidth',2 );
 
-h=legend('P1','P2','P3','P4','1st Order','2nd Order','Location','SouthEast');
+h=legend('P1','P2','P3','P4','$O(\Delta x)$','$O(\Delta x^2)$','Location','SouthEast');
 set(h,'Interpreter','latex','Fontsize',14);
 axis( [mm1(1,4) mm1(2,4) 5E-6 10])
+set(gca, 'FontName','Times','Fontsize',14);
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 figure(6)
 % Lobaato phi_L2
 hold on
-c1 = 3E-2;
+c1 = 1E-4;
 p1 = 2;
-c2 = 3E-5;
+c2 = 5E-9;
 p2 = 3;
-c3 = 2E-7;
-p3 = 4;
-c4 = 5E-10;
-p4 = 5;
 
-% hold on
-% loglog([mm2(1,2) mm2(2,2)] , [c1 c1*mm2(3,2)^p1],'k-','LineWidth',2 );
-% hold on
-% loglog([mm2(1,2) mm2(2,2)] , [c2 c2*mm2(3,2)^p2],'b-','LineWidth',2 );
+hold on
+loglog([mm2(1,2) mm2(2,2)] , [c1 c1*mm2(3,2)^p1],'k-','LineWidth',2 );
+hold on
+loglog([mm2(1,2) mm2(2,2)] , [c2 c2*mm2(3,2)^p2],'b-','LineWidth',2 );
 % hold on
 % loglog([mm2(1,2) mm2(2,2)] , [c3 c3*mm2(3,2)^p3],'r-','LineWidth',2 );
-% hold on
-% loglog([mm2(1,2) mm2(2,2)] , [c4 c4*mm2(3,2)^p4],'g-','LineWidth',2 );
-h=legend('P1','P2','P3','P4','Location','NorthWest');
+h=legend('P1','P2','P3','P4','$O(\Delta x^2)$','$O(\Delta x^3)$','Location','NorthWest');
 set(h,'Interpreter','latex','Fontsize',14);
-% axis( [mm2(1,2) mm2(2,2) 1E-8 1E2])
+set(gca, 'FontName','Times','Fontsize',14);
+axis( [mm2(1,2) mm2(2,2) 1E-10 1E0])
 
 
 figure(8)
@@ -130,11 +128,12 @@ figure(8)
 hold on
 c1 = 1E-1;
 p1 = 1;
-c2 = 1E-5;
+c2 = 5E-6;
 p2 = 2;
 c3 = 1E-8;
 p3 = 3;
-
+c4 = 1E-13;
+p4 = 4;
 
 hold on
 loglog([mm2(1,4) mm2(2,4)] , [c1 c1*mm2(3,4)^p1],'k-','LineWidth',2 );
@@ -142,35 +141,48 @@ hold on
 loglog([mm2(1,4) mm2(2,4)] , [c2 c2*mm2(3,4)^p2],'b-','LineWidth',2 );
 hold on
 loglog([mm2(1,4) mm2(2,4)] , [c3 c3*mm2(3,4)^p3],'r-','LineWidth',2 );
-h=legend('P1','P2','P3','P4','1st Order','2nd Order','3rd Order','Location','SouthWest');
+hold on
+loglog([mm2(1,4) mm2(2,4)] , [c4 c4*mm2(3,4)^p4],'g-','LineWidth',2 );
+h=legend('P1','P2','P3','P4','$O(\Delta x)$','$O(\Delta x^2)$','$O(\Delta x^3)$','$O(\Delta x^4)$','Location','SouthWest');
 set(h,'Interpreter','latex','Fontsize',14);
-axis( [mm2(1,4) mm2(2,4) 1E-8 1E2])
+axis( [mm2(1,4) mm2(2,4) 1E-11 1E2])
+set(gca, 'FontName','Times','Fontsize',14);
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure(10)
 % Gauss phi_L2
+c1 = 1E-10;
+p1 = 3;
+% 
+% hold on
+% loglog([mm3(1,4) mm3(2,4)] , [c1 c1*mm3(3,4)^p1],'k-','LineWidth',2 );
+
 h=legend('P1','P2','P3','P4','Location','NorthWest');
 set(h,'Interpreter','latex','Fontsize',14);
-% axis( [mm3(1,2) mm3(2,2) 1E-8 1E3])    
+axis( [mm3(1,2) mm3(2,2) 1E-10 1E-3])    
+set(gca, 'FontName','Times','Fontsize',14);
 
 figure(12)
 % Gauss temp_L2
-c1 = 1E-4;
+c1 = 1E-8;
 p1 = 3;
-c2 = 1E-6;
+c2 = 1E-12;
 p2 = 4;
-c3 = 2E-9;
-p3 = 5;
-c4 = 1E-12;
-p4 = 6;
 
-h=legend('P1','P2','P3','P4','Location','NorthWest');
+
+hold on
+loglog([mm3(1,4) mm3(2,4)] , [c1 c1*mm3(3,4)^p1],'k-','LineWidth',2 );
+hold on
+loglog([mm3(1,4) mm3(2,4)] , [c2 c2*mm3(3,4)^p2],'b-','LineWidth',2 );
+
+h=legend('P1','P2','P3','P4','$O(\Delta x^3)$', '$O(\Delta x^4)$', 'Location','NorthWest');
 set(h,'Interpreter','latex','Fontsize',14);
-% axis( [mm3(1,4) mm3(2,4) 1E-7 1E3])
+axis( [mm3(1,4) mm3(2,4) 1E-10 1E-2])
+set(gca, 'FontName','Times','Fontsize',14);
 
 % % save all of these lovely plots
 if(save_all)
-    prob_str = sprintf('MMS1_Initial');
+    prob_str = sprintf('MMS1');
 
     for m=1:1:3
         switch m
@@ -198,7 +210,18 @@ if(save_all)
             end
 
             name_base = sprintf('%s_%s_%s',prob_str,meth,err_type);
-            SavePretty( figure( (m-1)*4 + i) , name_base);
+            
+            n = (m-1)*4 + i;
+            figure(n)
+            b = get(gcf,'OuterPosition');
+    %         b(1) = b(2) - (b(2) - b(1))*1.2;
+    %         b(3) = b(2) - (b(2) - b(1))*1.2;
+    %         b(2) = b(2) * .8;
+    %         b(3) = b(3)*1.2;
+            b(4) = b(4)*1.2;
+            set(gcf,'OuterPosition',b);
+        
+            SavePretty( figure( n ) , name_base);
 
         end
     end

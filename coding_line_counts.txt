@@ -1,0 +1,287 @@
+grove-01.ne.tamu.edu {~/Research/dark_arts_local/src }52 :find . -name '*.cc' |                                                                                                                                                              xargs wc -l
+   130 ./dark_arts.cc
+  2364 ./input/Input_Reader.cc
+  1886 ./input/tinyxml.cc
+    52 ./input/tinyxmlerror.cc
+  1638 ./input/tinyxmlparser.cc
+   111 ./input/tinystr.cc
+   286 ./cells/Cell_Data.cc
+   391 ./quadrature_fem_math/Fem_Quadrature.cc
+  6561 ./quadrature_fem_math/Quadrule_New.cc
+     0 ./quadrature_fem_math/dont_want_compiled_yet/Square_Matrix.cc
+    59 ./quadrature_fem_math/Legendre_Poly_Evaluation.cc
+   139 ./quadrature_fem_math/Angular_Quadrature.cc
+    55 ./quadrature_fem_math/Matrix_Construction_Exact.cc
+   175 ./quadrature_fem_math/V_Matrix_Construction.cc
+    32 ./quadrature_fem_math/Matrix_Construction_Self_Lumping.cc
+    53 ./quadrature_fem_math/Matrix_Construction_Trad_Lumping.cc
+   186 ./time_data/Time_Data.cc
+    29 ./time_data/DT_Calculator_Ramp.cc
+    28 ./time_data/V_DT_Calculator.cc
+    27 ./time_data/DT_Calculator_Exponential.cc
+    34 ./time_data/DT_Calculator_Vector.cc
+    10 ./materials/VAbsorption_Opacity.cc
+    44 ./materials/Absorption_Opacity_Rational.cc
+    26 ./materials/Scattering_Opacity_Constant.cc
+    10 ./materials/VScattering_Opacity.cc
+   470 ./materials/Materials.cc
+   832 ./materials/PDT_Files/Opacities.cc
+    58 ./materials/PDT_Files/BaseComponent.cc
+   538 ./materials/PDT_Files/XSConverter.cc
+    10 ./materials/VCv.cc
+    40 ./materials/Scattering_Opacity_Rational.cc
+    26 ./materials/Absorption_Opacity_Constant.cc
+    22 ./materials/Absorption_Opacity_Table.cc
+   672 ./materials/Opacities.cc
+    25 ./materials/Cv_Constant.cc
+    11 ./materials/V_XS_Treatment.cc
+    29 ./materials/Source_T_Constant.cc
+    32 ./materials/Source_I_Constant.cc
+    25 ./materials/XS_Treatment_SLXS.cc
+    39 ./materials/XS_Treatment_Interpolating.cc
+    20 ./materials/Cv_Rational.cc
+    87 ./materials/XS_Treatment_Moment_Preserving.cc
+   409 ./materials/Planck.cc
+    25 ./materials/Scattering_Opacity_Polynomial_Space.cc
+    48 ./materials/Source_T_MMS.cc
+    25 ./materials/Absorption_Opacity_Polynomial_Space.cc
+    28 ./materials/Cv_Polynomial_Temperature.cc
+    48 ./materials/Source_I_MMS.cc
+    33 ./materials/MMS_Space_Poly.cc
+    20 ./materials/MMS_Space_Cos.cc
+    20 ./materials/MMS_Time_Cos.cc
+    34 ./materials/MMS_Time_Poly.cc
+    18 ./materials/MMS_Angle_Isotropic.cc
+    35 ./materials/MMS_Angle_Poly.cc
+    80 ./materials/Absorption_Opacity_Adams_Novak_Model.cc
+    18 ./materials/Source_T_None.cc
+    19 ./materials/Source_I_None.cc
+   361 ./time_marcher/Time_Marcher.cc
+   377 ./variable_storage/Intensity_Data.cc
+   321 ./variable_storage/Temperature_Data.cc
+   111 ./variable_storage/K_Temperature.cc
+   199 ./variable_storage/K_Intensity.cc
+   368 ./variable_storage/Intensity_Moment_Data.cc
+    51 ./variable_storage/Err_Phi.cc
+    24 ./variable_storage/Psi_In.cc
+    71 ./variable_storage/Err_Temperature.cc
+   138 ./variable_storage/MMS_Intensity.cc
+    76 ./variable_storage/MMS_Temperature.cc
+    82 ./solvers/WGRS_FP_DSA.cc
+    44 ./solvers/V_Intensity_Update.cc
+    47 ./solvers/V_WGRS.cc
+    68 ./solvers/Intensity_Update_MF.cc
+    71 ./solvers/WGRS_FP_Sweeps.cc
+    33 ./solvers/Intensity_Update_Grey.cc
+    34 ./solvers/MF_ARD_Solver_FP_No_LMFGA.cc
+     9 ./solvers/V_MF_ARD_Solver.cc
+    31 ./transport_sweep/Solution_Saver_Flux_Moments.cc
+    87 ./transport_sweep/Solution_Saver_K_I.cc
+    41 ./transport_sweep/V_Solution_Saver.cc
+   445 ./transport_sweep/Transport_Sweep.cc
+    17 ./transport_sweep/Sweep_Fixed_Source_Linearization.cc
+    17 ./transport_sweep/Sweep_Fixed_Source_None.cc
+    10 ./transport_sweep/V_Sweep_Fixed_Source.cc
+   170 ./transport_sweep/Sweep_Matrix_Creator_Grey.cc
+   165 ./transport_sweep/Sweep_Matrix_Creator_MF.cc
+   373 ./transport_sweep/V_Sweep_Matrix_Creator.cc
+     8 ./transport_sweep/V_Transport_BC.cc
+    14 ./transport_sweep/Transport_BC_Vacuum.cc
+    61 ./transport_sweep/Transport_BC_MF_Planckian.cc
+    54 ./transport_sweep/Transport_BC_Grey_Planckian.cc
+    16 ./transport_sweep/Transport_BC_Reflective.cc
+    32 ./transport_sweep/Transport_BC_MF_Current.cc
+    67 ./transport_sweep/Transport_BC_Grey_Current.cc
+    17 ./transport_sweep/Transport_BC_MMS.cc
+   648 ./output/Output_Generator.cc
+    49 ./output/Status_Generator.cc
+   130 ./output/Final_Space_Error_Calculator.cc
+   171 ./output/L2_Error_Calculator.cc
+   133 ./output/Space_Time_Error_Calculator.cc
+   123 ./exceptions/Dark_Arts_Exception.cc
+   137 ./temperature_update/MF_Temperature_Matrix_Creator.cc
+    55 ./temperature_update/V_Temperature_Matrix_Creator.cc
+   116 ./temperature_update/Grey_Temperature_Matrix_Creator.cc
+   145 ./temperature_update/Temperature_Update.cc
+   104 ./mip/V_Diffusion_Matrix_Creator.cc
+   443 ./mip/Diffusion_Operator.cc
+   154 ./mip/Diffusion_Matrix_Creator_Grey.cc
+    22 ./mip/Grey_Diffusion_Ordering.cc
+    29 ./mip/V_Diffusion_Ordering.cc
+   115 ./mip/Local_MIP_Assembler.cc
+    23 ./mip/V_MIP_Left_Boundary.cc
+    31 ./mip/V_MIP_Right_Boundary.cc
+    41 ./mip/MIP_Right_Boundary_Incident_Flux.cc
+    41 ./mip/MIP_Left_Boundary_Reflective.cc
+    42 ./mip/MIP_Left_Boundary_Incident_Flux.cc
+    28 ./mip/MIP_Kappa_Calculator.cc
+ 25012 total
+
+ -6561 from Quadrule
+ -3687 TinyXml
+ -2122  PDT/Tabular Opacities
+ 
+ I wrote: ~12600 lines of .cc
+ 
+ 
+ grove-01.ne.tamu.edu {~/Research/dark_arts_local/src }53 :find . -name '*.h' | xargs wc -l
+    86 ./input/Inputs_Allowed.h
+    29 ./input/Radiation_BC_Data.h
+   305 ./input/tinystr.h
+  1805 ./input/tinyxml.h
+   345 ./input/Input_Reader.h
+    43 ./cells/Cell_Data.h
+    65 ./quadrature_fem_math/Quadrule_New.h
+   153 ./quadrature_fem_math/Fem_Quadrature.h
+    26 ./quadrature_fem_math/dont_want_compiled_yet/Square_Matrix.h
+    27 ./quadrature_fem_math/dont_want_compiled_yet/Diagonal_Matrix.h
+    76 ./quadrature_fem_math/Angular_Quadrature.h
+    33 ./quadrature_fem_math/Legendre_Poly_Evaluation.h
+   108 ./quadrature_fem_math/V_Matrix_Construction.h
+    25 ./quadrature_fem_math/Matrix_Construction_Exact.h
+    24 ./quadrature_fem_math/Matrix_Construction_Trad_Lumping.h
+    25 ./quadrature_fem_math/Matrix_Construction_Self_Lumping.h
+    12 ./materials_opacity_cv_planck/Specific_Heat_Object.h
+   120 ./materials_opacity_cv_planck/Opacities.h
+    10 ./materials_opacity_cv_planck/Opacities_Object.h
+    37 ./materials_opacity_cv_planck/Opacity_File_Details.h
+    14 ./materials_opacity_cv_planck/Opacity_Object.h
+   163 ./materials_opacity_cv_planck/Planck.h
+     8 ./everything_else_and_old_stuff/RadTranException.h
+   272 ./everything_else_and_old_stuff/Common_Utils.h
+    60 ./everything_else_and_old_stuff/Constants.h
+   185 ./everything_else_and_old_stuff/Data_Transfer_Object.h
+    23 ./everything_else_and_old_stuff/Energy_Group_Object.h
+   108 ./everything_else_and_old_stuff/Rad_Helper.h
+    29 ./time_data/V_DT_Calculator.h
+    71 ./time_data/Time_Data.h
+    24 ./time_data/DT_Calculator_Ramp.h
+    26 ./time_data/DT_Calculator_Exponential.h
+    25 ./time_data/DT_Calculator_Vector.h
+    17 ./materials/VAbsorption_Opacity.h
+    16 ./materials/VScattering_Opacity.h
+    26 ./materials/Scattering_Opacity_Rational.h
+    24 ./materials/Absorption_Opacity_Rational.h
+   189 ./materials/Materials.h
+    16 ./materials/VSource_T.h
+    67 ./materials/global_constants.h
+    17 ./materials/VSource_I.h
+   758 ./materials/PDT_Files/Opacities.h
+   366 ./materials/PDT_Files/Kind_Info.h
+    70 ./materials/PDT_Files/global_constants.h
+   979 ./materials/PDT_Files/BaseComponent.h
+   340 ./materials/PDT_Files/XSConverter.h
+    16 ./materials/VCv.h
+    24 ./materials/Scattering_Opacity_Constant.h
+    23 ./materials/Absorption_Opacity_Constant.h
+    22 ./materials/Absorption_Opacity_Table.h
+   656 ./materials/Opacities.h
+    23 ./materials/Cv_Constant.h
+    22 ./materials/Source_T_Constant.h
+    22 ./materials/Source_I_Constant.h
+    16 ./materials/V_XS_Treatment.h
+    22 ./materials/XS_Treatment_SLXS.h
+    24 ./materials/XS_Treatment_Interpolating.h
+   166 ./materials/Planck.h
+    39 ./materials/XS_Treatment_Moment_Preserving.h
+    24 ./materials/Scattering_Opacity_Polynomial_Space.h
+    25 ./materials/Absorption_Opacity_Polynomial_Space.h
+    25 ./materials/Cv_Rational.h
+    16 ./materials/V_MMS_Space.h
+    34 ./materials/Source_T_MMS.h
+    23 ./materials/MMS_Space_Poly.h
+    40 ./materials/Source_I_MMS.h
+    16 ./materials/V_MMS_Time.h
+    23 ./materials/MMS_Space_Cos.h
+    22 ./materials/MMS_Time_Cos.h
+    17 ./materials/V_MMS_Angle.h
+    23 ./materials/MMS_Time_Poly.h
+    20 ./materials/MMS_Angle_Isotropic.h
+    26 ./materials/MMS_Angle_Poly.h
+    24 ./materials/Cv_Polynomial_Temperature.h
+    20 ./materials/Source_I_None.h
+    20 ./materials/Absorption_Opacity_Adams_Novak_Model.h
+    20 ./materials/Source_T_None.h
+    78 ./time_marcher/Time_Marcher.h
+    73 ./variable_storage/Temperature_Data.h
+    80 ./variable_storage/Intensity_Data.h
+    67 ./variable_storage/K_Temperature.h
+   103 ./variable_storage/Intensity_Moment_Data.h
+    79 ./variable_storage/K_Intensity.h
+    22 ./variable_storage/Err_Phi.h
+    29 ./variable_storage/Psi_In.h
+    34 ./variable_storage/Err_Temperature.h
+    23 ./variable_storage/MMS_Temperature.h
+    35 ./variable_storage/MMS_Intensity.h
+    49 ./solvers/WGRS_FP_DSA.h
+    35 ./solvers/Intensity_Update_Grey.h
+    45 ./solvers/V_Intensity_Update.h
+    50 ./solvers/V_WGRS.h
+    39 ./solvers/Intensity_Update_MF.h
+    27 ./solvers/MF_ARD_Solver_FP_No_LMFGA.h
+    43 ./solvers/WGRS_FP_Sweeps.h
+    20 ./solvers/V_MF_ARD_Solver.h
+    29 ./transport_sweep/Solution_Saver_Flux_Moments.h
+    39 ./transport_sweep/Solution_Saver_K_I.h
+    48 ./transport_sweep/V_Solution_Saver.h
+   138 ./transport_sweep/Transport_Sweep.h
+    24 ./transport_sweep/Sweep_Fixed_Source_Linearization.h
+    26 ./transport_sweep/Sweep_Fixed_Source_None.h
+    28 ./transport_sweep/V_Sweep_Fixed_Source.h
+    45 ./transport_sweep/Sweep_Matrix_Creator_Grey.h
+    51 ./transport_sweep/Sweep_Matrix_Creator_MF.h
+   206 ./transport_sweep/V_Sweep_Matrix_Creator.h
+    27 ./transport_sweep/V_Transport_BC.h
+    26 ./transport_sweep/Transport_BC_Vacuum.h
+    39 ./transport_sweep/Transport_BC_Grey_Planckian.h
+    39 ./transport_sweep/Transport_BC_MF_Planckian.h
+    26 ./transport_sweep/Transport_BC_Reflective.h
+    39 ./transport_sweep/Transport_BC_MF_Current.h
+    38 ./transport_sweep/Transport_BC_Grey_Current.h
+    30 ./transport_sweep/Transport_BC_MMS.h
+    55 ./output/Output_Generator.h
+    56 ./output/L2_Error_Calculator.h
+    39 ./output/Status_Generator.h
+    80 ./output/Space_Time_Error_Calculator.h
+    61 ./output/Final_Space_Error_Calculator.h
+    27 ./exceptions/Dark_Arts_Exception.h
+     6 ./exceptions/Exception_Types.h
+    65 ./temperature_update/Temperature_Update.h
+    28 ./temperature_update/MF_Temperature_Matrix_Creator.h
+    60 ./temperature_update/V_Temperature_Matrix_Creator.h
+    28 ./temperature_update/Grey_Temperature_Matrix_Creator.h
+    86 ./mip/V_Diffusion_Matrix_Creator.h
+    50 ./mip/Diffusion_Matrix_Creator_Grey.h
+   122 ./mip/Diffusion_Operator.h
+    35 ./mip/V_Diffusion_Ordering.h
+    26 ./mip/Grey_Diffusion_Ordering.h
+    84 ./mip/Local_MIP_Assembler.h
+    44 ./mip/V_MIP_Left_Boundary.h
+    28 ./mip/MIP_Kappa_Calculator.h
+    48 ./mip/V_MIP_Right_Boundary.h
+    41 ./mip/MIP_Left_Boundary_Reflective.h
+    51 ./mip/MIP_Right_Boundary_Incident_Flux.h
+    50 ./mip/MIP_Left_Boundary_Incident_Flux.h
+ 11739 total
+-2110 TinyXML
+-53 junk
+-300 Akansha
+-650 Other old stuff
+-165 Planck
+-2500 PDT/Table
+
+--I wrote 5961 lines of .h files
+
+
+Taxi/*.h: 29880
+Taxi/*.cc 39928
+PDT/*.cc 9095
+PDT/*.h 25680
+
+PDT .h: 56000
+PDT .cc: 50000
+Me .h: 6000
+Me .cc: 13000
+
+
+ 

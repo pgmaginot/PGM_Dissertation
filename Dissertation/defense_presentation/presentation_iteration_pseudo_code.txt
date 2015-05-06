@@ -1,0 +1,21 @@
+while !end_of_time
+{
+  for stage = 1:1:n_stage
+  {
+    while !thermal_converged
+    {
+      while !intensity_converged
+      {
+        phi_new = calculate_new_intensity_iterate(t_star)
+        change_phi = normalized_diff(phi_new,phi_old)
+        intensity_converged = change_phi < epsilon_phi
+      }
+      [t_star,change_t] = update_temperature(t_star,phi_new)
+      thermal_converged = change_t < epsilon_temperature
+    }
+    k_I[stage] = calculate_k_I(t_star,phi_new)
+    k_T[stage] = calculate_k_T(t_star,phi_new)
+  }
+  advance_intensity(i_old,k_I)
+  advance_temperature(t_old,k_T)  
+}

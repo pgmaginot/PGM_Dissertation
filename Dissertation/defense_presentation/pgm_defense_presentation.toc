@@ -1,0 +1,23 @@
+\beamer@endinputifotherversion {3.33pt}
+\beamer@sectionintoc {1}{New Results}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Grey thermal radiative transfer}{3}{0}{1}
+\beamer@sectionintoc {2}{Contributions}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Contributions}{5}{0}{2}
+\beamer@subsectionintoc {2}{2}{Prelim Contributions}{6}{0}{2}
+\beamer@subsectionintoc {2}{3}{Grey TRT}{8}{0}{2}
+\beamer@sectionintoc {3}{MIP for TRT}{9}{0}{3}
+\beamer@subsectionintoc {3}{1}{Analytic Equations}{9}{0}{3}
+\beamer@subsectionintoc {3}{2}{Spatially Analytic}{11}{0}{3}
+\beamer@subsectionintoc {3}{3}{Spatially Discretized}{12}{0}{3}
+\beamer@subsectionintoc {3}{4}{What is D}{14}{0}{3}
+\beamer@sectionintoc {4}{Su-Olson Problem}{19}{0}{4}
+\beamer@subsectionintoc {4}{1}{Commonalities}{19}{0}{4}
+\beamer@subsectionintoc {4}{2}{Su Olson}{21}{0}{4}
+\beamer@sectionintoc {5}{MMS}{24}{0}{5}
+\beamer@subsectionintoc {5}{1}{MMS}{24}{0}{5}
+\beamer@sectionintoc {6}{Marshak Wave}{42}{0}{6}
+\beamer@subsectionintoc {6}{1}{Marhsak Wave Blading}{42}{0}{6}
+\beamer@sectionintoc {7}{Conclusions}{53}{0}{7}
+\beamer@subsectionintoc {7}{1}{Conclusions}{53}{0}{7}
+\beamer@subsectionintoc {7}{2}{Long Term Future Work}{54}{0}{7}
+\beamer@subsectionintoc {7}{3}{Acknowledgments}{55}{0}{7}

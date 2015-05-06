@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.2.7)  2 MAY 2015 15:19
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.2.7)  5 MAY 2015 17:39
 entering extended mode
 **pgm_dissertation.tex
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.tex
@@ -1427,7 +1427,7 @@ Overfull \hbox (9.2835pt too wide) detected at line 622
  []
 
 [174] [175]
-Overfull \hbox (8.6214pt too wide) detected at line 719
+Overfull \hbox (8.6214pt too wide) detected at line 724
  []$[]  \OML/cmm/m/it/12 []\OT1/cmr/bx/n/12 G[] \OT1/cmr/m/n/12 + [] [] = []\OT1/cmr/bx/n/12 M[] \OT1/cmr/m/n/12 + []\O
 T1/cmr/bx/n/12 M [] [] \OT1/cmr/m/n/12 + []\OT1/cmr/bx/n/12 R[][] \OT1/cmr/m/n/12 + \OT1/cmr/bx/n/12 R[][] []$ 
  []
@@ -1444,604 +1444,581 @@ File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 17.
 ) [186] [187]
-Overfull \hbox (13.003pt too wide) in paragraph at lines 1007--1016
+Overfull \hbox (13.003pt too wide) in paragraph at lines 1012--1021
 \OT1/cmr/m/n/12 sim-ply call []\OT1/cmtt/m/n/12 matrix_construction->construct_dimensionless_mass_matrix()\OT1/cmr/m/n/1
 2 , and,
  []
 
-[188] [189] [190] [191]
-<chapter6_grey_radtran/Dissertation_Data/MMS2_TL_phi_L2.pdf, id=1379, 460.72125pt x 352.31625pt>
+[188] [189] [190] [191] <chapter6_grey_radtran/Dissertation_Data/MMS2_TL_phi_L2.pdf, id=1379, 500.87125pt x 473.77pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_TL_phi_L2.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_TL_phi_L2.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_TL_phi_L2.pdf used on input line 1098.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_TL_phi_L2.pdf used on input line 1104.
+(pdftex.def)             Requested size: 284.52756pt x 254.54062pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_L2.pdf, id=1381, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_L2.pdf, id=1381, 500.87125pt x 473.77pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_L2.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_L2.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_L2.pdf used on input line 1106.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_L2.pdf used on input line 1112.
+(pdftex.def)             Requested size: 284.52756pt x 254.54062pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_L2.pdf, id=1383, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_L2.pdf, id=1383, 500.87125pt x 473.77pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_L2.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_L2.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_L2.pdf used on input line 1114.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_L2.pdf used on input line 1120.
+(pdftex.def)             Requested size: 284.52756pt x 254.54062pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS2_TL_temp_L2.pdf, id=1385, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS2_TL_temp_L2.pdf, id=1385, 500.87125pt x 473.77pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_TL_temp_L2.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_TL_temp_L2.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_TL_temp_L2.pdf used on input line 1123.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_TL_temp_L2.pdf used on input line 1127.
+(pdftex.def)             Requested size: 284.52756pt x 254.54062pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_L2.pdf, id=1387, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_L2.pdf, id=1387, 500.87125pt x 473.77pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_L2.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_L2.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_L2.pdf used on input line 1131.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_L2.pdf used on input line 1135.
+(pdftex.def)             Requested size: 284.52756pt x 254.54062pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_L2.pdf, id=1389, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_L2.pdf, id=1389, 500.87125pt x 473.77pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_L2.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_L2.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_L2.pdf used on input line 1139.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_L2.pdf used on input line 1143.
+(pdftex.def)             Requested size: 284.52756pt x 254.54062pt.
  [192] [193 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS2_T
 L_phi_L2.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS2
 _SLXS_Lobatto_phi_L2.pdf>] [194 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Diss
-ertation_Data/MMS2_SLXS_Gauss_phi_L2.pdf>]
-Overfull \vbox (17.32643pt too high) has occurred while \output is active []
-
- [195 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS2_TL_temp
-_L2.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS
-_Lobatto_temp_L2.pdf>]
-<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_A.pdf, id=1479, 460.72125pt x 352.31625pt>
+ertation_Data/MMS2_SLXS_Gauss_phi_L2.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_ra
+dtran/Dissertation_Data/MMS2_TL_temp_L2.pdf>]
+[195 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lob
+atto_temp_L2.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/
+MMS2_SLXS_Gauss_temp_L2.pdf>] [196]
+<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_A.pdf, id=1515, 500.87125pt x 473.77pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_A.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_A.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_A.pdf used on input line 1172.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_phi_A.pdf used on input line 1192.
+(pdftex.def)             Requested size: 256.0748pt x 229.09007pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_A.pdf, id=1481, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_A.pdf, id=1517, 460.72125pt x 352.31625pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_A.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_A.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_A.pdf used on input line 1180.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_phi_A.pdf used on input line 1200.
+(pdftex.def)             Requested size: 256.0748pt x 203.67445pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.pdf, id=1483, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.pdf, id=1519, 500.87125pt x 473.77pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.pdf used on input line 1188.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.pdf used on input line 1208.
+(pdftex.def)             Requested size: 284.52756pt x 254.54062pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.pdf, id=1485, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.pdf, id=1521, 500.87125pt x 473.77pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.pdf used on input line 1196.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
- [196 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Ga
-uss_temp_L2.pdf>] [197 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_
-Data/MMS2_SLXS_Lobatto_phi_A.pdf>] [198 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radt
-ran/Dissertation_Data/MMS2_SLXS_Gauss_phi_A.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_
-grey_radtran/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.pdf>] [199 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Diss
-ertation/chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.pdf>]
-<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_phi_L2.pdf, id=1584, 460.72125pt x 352.31625pt>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.pdf used on input line 1216.
+(pdftex.def)             Requested size: 284.52756pt x 254.54062pt.
+ [197] [198 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS2_S
+LXS_Lobatto_phi_A.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_
+Data/MMS2_SLXS_Gauss_phi_A.pdf>] [199 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtra
+n/Dissertation_Data/MMS2_SLXS_Lobatto_temp_A.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6
+_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_A.pdf>]
+<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_phi_L2.pdf, id=1611, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_phi_L2.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_phi_L2.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_phi_L2.pdf used on input li
-ne 1247.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+ne 1267.
+(pdftex.def)             Requested size: 284.52756pt x 224.41525pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_phi_L2.pdf, id=1586, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_phi_L2.pdf, id=1613, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_phi_L2.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_phi_L2.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_phi_L2.pdf used on input line
- 1255.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+ 1275.
+(pdftex.def)             Requested size: 284.52756pt x 224.41525pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_L2.pdf, id=1588, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_L2.pdf, id=1615, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_L2.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_L2.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_L2.pdf used on input l
-ine 1263.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+ine 1281.
+(pdftex.def)             Requested size: 284.52756pt x 226.93222pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_L2.pdf, id=1590, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_L2.pdf, id=1617, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_L2.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_L2.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_L2.pdf used on input lin
-e 1271.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
-
-<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_A.pdf, id=1592, 460.72125pt x 352.31625pt>
+e 1289.
+(pdftex.def)             Requested size: 284.52756pt x 226.93222pt.
+ [200] [201 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_C
+onstant_XS_SL_Lobatto_phi_L2.pdf>]
+[202 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_Constant
+_XS_SL_Gauss_phi_L2.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertatio
+n_Data/MMS3_Constant_XS_SL_Lobatto_temp_L2.pdf>]
+<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_A.pdf, id=1672, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_A.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_A.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_A.pdf used on input li
-ne 1279.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+ne 1304.
+(pdftex.def)             Requested size: 270.30118pt x 215.5871pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_A.pdf, id=1594, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_A.pdf, id=1674, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_A.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_A.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_A.pdf used on input line
- 1287.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
- [200] [201 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_C
-onstant_XS_SL_Lobatto_phi_L2.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Di
-ssertation_Data/MMS3_Constant_XS_SL_Gauss_phi_L2.pdf>] [202 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertatio
-n/chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_L2.pdf>] [203 <C:/Users/pmaginot/Desktop/Work
-/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_L2.pdf> <C:/Users/
-pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_
-temp_A.pdf>]
-<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_L2.pdf, id=1682, 460.72125pt x 352.31625pt>
-File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_L2.pdf Graphic file (type pdf)
+ 1312.
+(pdftex.def)             Requested size: 270.30118pt x 215.5871pt.
+ [203 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_Constan
+t_XS_SL_Gauss_temp_L2.pdf>] [204 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dis
+sertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_A.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/cha
+pter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_A.pdf>]
+<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Lobatto_phi_L2.pdf, id=1729, 500.87125pt x 473.77pt>
+File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Lobatto_phi_L2.pdf Graphic file (type pdf)
 
-<use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_L2.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_L2.pdf used on input
- line 1297.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+<use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Lobatto_phi_L2.pdf>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Lobatto_phi_L2.pdf used on input line 1323.
+(pdftex.def)             Requested size: 284.52756pt x 266.53468pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_L2.pdf, id=1684, 460.72125pt x 352.31625pt>
-File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_L2.pdf Graphic file (type pdf)
+<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_phi_L2.pdf, id=1731, 500.87125pt x 473.77pt>
+File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_phi_L2.pdf Graphic file (type pdf)
 
-<use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_L2.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_L2.pdf used on input l
-ine 1305.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+<use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_phi_L2.pdf>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_phi_L2.pdf used on input line 1331.
+(pdftex.def)             Requested size: 284.52756pt x 266.53468pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_L2.pdf, id=1686, 460.72125pt x 352.31625pt>
-File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_L2.pdf Graphic file (type pdf)
-<use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_L2.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_L2.pdf used on inpu
-t line 1314.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
- [204 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_Constan
-t_XS_SL_Gauss_temp_A.pdf>]
-[205 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Ini
-tial_SLXS_Lobatto_phi_L2.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Disser
-tation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_L2.pdf>]
-<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_L2.pdf, id=1741, 460.72125pt x 352.31625pt>
-File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_L2.pdf Graphic file (type pdf)
+<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Lobatto_temp_L2.pdf, id=1733, 500.87125pt x 473.77pt>
+File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Lobatto_temp_L2.pdf Graphic file (type pdf)
 
-<use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_L2.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_L2.pdf used on input 
-line 1323.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+<use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Lobatto_temp_L2.pdf>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Lobatto_temp_L2.pdf used on input line 1337.
+(pdftex.def)             Requested size: 284.52756pt x 266.53468pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_A.pdf, id=1743, 460.72125pt x 352.31625pt>
-File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_A.pdf Graphic file (type pdf)
+<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_temp_L2.pdf, id=1735, 500.87125pt x 473.77pt>
+File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_temp_L2.pdf Graphic file (type pdf)
 
-<use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_A.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_A.pdf used on input 
-line 1330.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+<use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_temp_L2.pdf>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_temp_L2.pdf used on input line 1345.
+(pdftex.def)             Requested size: 270.30118pt x 253.2098pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_A.pdf, id=1745, 460.72125pt x 352.31625pt>
-File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_A.pdf Graphic file (type pdf)
+<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_SLXS_Lobatto_phi_A.pdf, id=1737, 500.87125pt x 473.77pt>
+File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_SLXS_Lobatto_phi_A.pdf Graphic file (type pdf)
 
-<use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_A.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_A.pdf used on input li
-ne 1338.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+<use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_SLXS_Lobatto_phi_A.pdf>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_SLXS_Lobatto_phi_A.pdf used on input line 135
+4.
+(pdftex.def)             Requested size: 270.30118pt x 246.37341pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_A.pdf, id=1747, 460.72125pt x 352.31625pt>
-File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_A.pdf Graphic file (type pdf)
+<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_phi_A.pdf, id=1739, 500.87125pt x 473.77pt>
+File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_phi_A.pdf Graphic file (type pdf)
 
-<use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_A.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_A.pdf used on input
- line 1349.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+<use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_phi_A.pdf>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_phi_A.pdf used on input line 1362.
+(pdftex.def)             Requested size: 284.52756pt x 266.53468pt.
 
-<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_A.pdf, id=1749, 460.72125pt x 352.31625pt>
-File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_A.pdf Graphic file (type pdf)
+<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Lobatto_temp_A.pdf, id=1741, 500.87125pt x 473.77pt>
+File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Lobatto_temp_A.pdf Graphic file (type pdf)
 
-<use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_A.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_temp_A.pdf used on input l
-ine 1357.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
- [206 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_In
-itial_SLXS_Lobatto_temp_L2.pdf>]
-[207 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Ini
-tial_SLXS_Gauss_temp_L2.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissert
-ation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_phi_A.pdf>] [208 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation
-/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gauss_phi_A.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dis
-sertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Lobatto_temp_A.pdf>] [209 <C:/User
-s/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Initial_SLXS_Gau
-ss_temp_A.pdf>]
-<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_L2.pdf, id=1862, 460.72125pt x 352.31625pt>
+<use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Lobatto_temp_A.pdf>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Lobatto_temp_A.pdf used on input line 1368.
+(pdftex.def)             Requested size: 284.52756pt x 266.53468pt.
+
+<chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_temp_A.pdf, id=1743, 500.87125pt x 473.77pt>
+File: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_temp_A.pdf Graphic file (type pdf)
+
+<use chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_temp_A.pdf>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_temp_A.pdf used on input line 1376.
+(pdftex.def)             Requested size: 284.52756pt x 266.53468pt.
+ [205 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Lo
+batto_phi_L2.pdf>] [206 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation
+_Data/MMS3_SLXS_Gauss_phi_L2.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Di
+ssertation_Data/MMS3_SLXS_Lobatto_temp_L2.pdf>]
+[207 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gau
+ss_temp_L2.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/MM
+S3_SLXS_SLXS_Lobatto_phi_A.pdf>] [208 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtra
+n/Dissertation_Data/MMS3_SLXS_Gauss_phi_A.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_gr
+ey_radtran/Dissertation_Data/MMS3_SLXS_Lobatto_temp_A.pdf>] [209 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Disser
+tation/chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_temp_A.pdf>]
+<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_L2.pdf, id=1889, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_L2.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_L2.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_L2.pdf used on input lin
-e 1382.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+e 1407.
+(pdftex.def)             Requested size: 284.52756pt x 226.93222pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_L2.pdf, id=1864, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_L2.pdf, id=1891, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_L2.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_L2.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_L2.pdf used on input line 
-1390.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+1415.
+(pdftex.def)             Requested size: 284.52756pt x 226.93222pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_L2.pdf, id=1866, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_L2.pdf, id=1893, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_L2.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_L2.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_L2.pdf used on input li
-ne 1398.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+ne 1426.
+(pdftex.def)             Requested size: 284.52756pt x 226.93222pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_L2.pdf, id=1868, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_L2.pdf, id=1895, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_L2.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_L2.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_L2.pdf used on input line
- 1406.
-(pdftex.def)             Requested size: 270.30118pt x 209.96014pt.
- [210 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Constant_Tim
-e_SLXS_Lobatto_phi_L2.pdf>] [211 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dis
-sertation_Data/Constant_Time_SLXS_Gauss_phi_L2.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapte
-r6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_L2.pdf>]
-<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_A.pdf, id=1915, 460.72125pt x 352.31625pt>
+ 1433.
+(pdftex.def)             Requested size: 270.30118pt x 215.5871pt.
+ [210] [211 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Consta
+nt_Time_SLXS_Lobatto_phi_L2.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dis
+sertation_Data/Constant_Time_SLXS_Gauss_phi_L2.pdf>]
+<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_A.pdf, id=1929, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_A.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_A.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_A.pdf used on input line
- 1419.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+ 1444.
+(pdftex.def)             Requested size: 284.52756pt x 226.93222pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_A.pdf, id=1917, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_A.pdf, id=1931, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_A.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_A.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_A.pdf used on input line 1
-427.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+452.
+(pdftex.def)             Requested size: 284.52756pt x 226.93222pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_A.pdf, id=1919, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_A.pdf, id=1933, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_A.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_A.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_A.pdf used on input lin
-e 1437.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+e 1464.
+(pdftex.def)             Requested size: 270.30118pt x 213.19597pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_A.pdf, id=1921, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_A.pdf, id=1935, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_A.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_A.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_A.pdf used on input line 
-1445.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+1472.
+(pdftex.def)             Requested size: 270.30118pt x 213.19597pt.
  [212 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Constant_Tim
-e_SLXS_Gauss_temp_L2.pdf>] [213 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Diss
-ertation_Data/Constant_Time_SLXS_Lobatto_phi_A.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapte
-r6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_A.pdf>] [214 <C:/Users/pmaginot/Desktop/Work/PGM_Disserta
-tion/Dissertation/chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_A.pdf> <C:/Users/pmaginot/Desk
-top/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_A.pdf>] [21
-5]
-<chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Phi.pdf, id=2009, 460.72125pt x 352.31625
-pt>
-File: chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Phi.pdf Graphic file (type pdf)
- <use chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Phi.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Phi.pdf used on i
-nput line 1506.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
+e_SLXS_Lobatto_temp_L2.pdf>] [213 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Di
+ssertation_Data/Constant_Time_SLXS_Gauss_temp_L2.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chap
+ter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_phi_A.pdf>] [214 <C:/Users/pmaginot/Desktop/Work/PGM_Diss
+ertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_phi_A.pdf>] [215 <C:/Users/pmagin
+ot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Lobatto_temp_A.
+pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Constant_Time
+_SLXS_Gauss_temp_A.pdf>] [216]
+<chapter6_grey_radtran/Dissertation_Data/Time_Integrators_Convergence_Phi.pdf, id=2039, 480.79625pt x 376.40625pt>
+File: chapter6_grey_radtran/Dissertation_Data/Time_Integrators_Convergence_Phi.pdf Graphic file (type pdf)
 
-<chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Temperature_Big_dt.pdf, id=2011, 460.7212
-5pt x 352.31625pt>
-File: chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Temperature_Big_dt.pdf Graphic file 
-(type pdf)
+<use chapter6_grey_radtran/Dissertation_Data/Time_Integrators_Convergence_Phi.pdf>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Time_Integrators_Convergence_Phi.pdf used on input line
+ 1534.
+(pdftex.def)             Requested size: 284.52756pt x 226.93222pt.
 
-<use chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Temperature_Big_dt.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Temperature_Big_d
-t.pdf used on input line 1515.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
-
-<chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Temperature_Small_dt.pdf, id=2013, 460.72
-125pt x 352.31625pt>
-File: chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Temperature_Small_dt.pdf Graphic fil
-e (type pdf)
-
-<use chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Temperature_Small_dt.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Temperature_Small
-_dt.pdf used on input line 1521.
-(pdftex.def)             Requested size: 284.52756pt x 221.0097pt.
- [216 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Extended_Tim
-e_Integrators_Convergence_Phi.pdf>] [217 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_rad
-tran/Dissertation_Data/Extended_Time_Integrators_Convergence_Temperature_Big_dt.pdf>] [218 <C:/Users/pmaginot/Desktop/Wo
-rk/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Extended_Time_Integrators_Convergence_Temperatu
-re_Small_dt.pdf>]
-<chapter6_grey_radtran/Dissertation_Data/Blading_Radiation_Full_MultiCell.pdf, id=2064, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/Time_Integrators_Convergence_Temperature.pdf, id=2041, 480.79625pt x 376.40625p
+t>
+File: chapter6_grey_radtran/Dissertation_Data/Time_Integrators_Convergence_Temperature.pdf Graphic file (type pdf)
+ <use chapter6_grey_radtran/Dissertation_Data/Time_Integrators_Convergence_Temperature.pdf>
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Time_Integrators_Convergence_Temperature.pdf used on in
+put line 1543.
+(pdftex.def)             Requested size: 284.52756pt x 226.93222pt.
+ [217 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Time_Integra
+tors_Convergence_Phi.pdf>]
+[218 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Time_Integrat
+ors_Convergence_Temperature.pdf>]
+<chapter6_grey_radtran/Dissertation_Data/Blading_Radiation_Full_MultiCell.pdf, id=2076, 460.72125pt x 352.31625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Blading_Radiation_Full_MultiCell.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Blading_Radiation_Full_MultiCell.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Blading_Radiation_Full_MultiCell.pdf used on input line
- 1556.
+ 1578.
 (pdftex.def)             Requested size: 270.30118pt x 255.03777pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Full_MultiCell.pdf, id=2066, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Full_MultiCell.pdf, id=2078, 460.72125pt x 352.31625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Full_MultiCell.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Full_MultiCell.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Full_MultiCell.pdf used on input li
-ne 1564.
+ne 1586.
 (pdftex.def)             Requested size: 270.30118pt x 255.03777pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Zoom_MultiCell.pdf, id=2068, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Zoom_MultiCell.pdf, id=2080, 460.72125pt x 352.31625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Zoom_MultiCell.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Zoom_MultiCell.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Zoom_MultiCell.pdf used on input li
-ne 1572.
+ne 1594.
 (pdftex.def)             Requested size: 270.30118pt x 255.03777pt.
-
-<chapter6_grey_radtran/Dissertation_Data/SLXS_Lobatto_80_Cells_Radiation.pdf, id=2070, 480.79625pt x 376.40625pt>
+ [219] [220 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Bladin
+g_Radiation_Full_MultiCell.pdf>]
+[221 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Blading_Tempe
+rature_Full_MultiCell.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertat
+ion_Data/Blading_Temperature_Zoom_MultiCell.pdf>]
+<chapter6_grey_radtran/Dissertation_Data/SLXS_Lobatto_80_Cells_Radiation.pdf, id=2115, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/SLXS_Lobatto_80_Cells_Radiation.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/SLXS_Lobatto_80_Cells_Radiation.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/SLXS_Lobatto_80_Cells_Radiation.pdf used on input line 
-1585.
+1607.
 (pdftex.def)             Requested size: 270.30118pt x 259.143pt.
- [219] [220 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Bladin
-g_Radiation_Full_MultiCell.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Diss
-ertation_Data/Blading_Temperature_Full_MultiCell.pdf>]
-<chapter6_grey_radtran/Dissertation_Data/SLXS_Lobatto_80_Cells_Temperature.pdf, id=2094, 480.79625pt x 376.40625pt>
+
+<chapter6_grey_radtran/Dissertation_Data/SLXS_Lobatto_80_Cells_Temperature.pdf, id=2117, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/SLXS_Lobatto_80_Cells_Temperature.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/SLXS_Lobatto_80_Cells_Temperature.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/SLXS_Lobatto_80_Cells_Temperature.pdf used on input lin
-e 1593.
+e 1615.
 (pdftex.def)             Requested size: 270.30118pt x 259.143pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Lobatto_P1_Cell_Refinement.pdf, id=2096, 460.
+<chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Lobatto_P1_Cell_Refinement.pdf, id=2119, 460.
 72125pt x 352.31625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Lobatto_P1_Cell_Refinement.pdf Graphic f
 ile (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Lobatto_P1_Cell_Refinement.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Lobatto_P1_Cell_Refin
-ement.pdf used on input line 1603.
+ement.pdf used on input line 1625.
 (pdftex.def)             Requested size: 284.52756pt x 243.67053pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Lobatto_P1_Cell_Refinement.pdf, id=2098, 46
+<chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Lobatto_P1_Cell_Refinement.pdf, id=2121, 46
 0.72125pt x 352.31625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Lobatto_P1_Cell_Refinement.pdf Graphic
  file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Lobatto_P1_Cell_Refinement.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Lobatto_P1_Cell_Ref
-inement.pdf used on input line 1611.
+inement.pdf used on input line 1633.
 (pdftex.def)             Requested size: 284.52756pt x 243.67053pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Gauss_P4_Cell_Refinement.pdf, id=2100, 460.72
+<chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Gauss_P4_Cell_Refinement.pdf, id=2123, 460.72
 125pt x 352.31625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Gauss_P4_Cell_Refinement.pdf Graphic fil
 e (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Gauss_P4_Cell_Refinement.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Gauss_P4_Cell_Refinem
-ent.pdf used on input line 1620.
+ent.pdf used on input line 1642.
 (pdftex.def)             Requested size: 284.52756pt x 243.67053pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Gauss_P4_Cell_Refinement.pdf, id=2102, 460.
+<chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Gauss_P4_Cell_Refinement.pdf, id=2125, 460.
 72125pt x 352.31625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Gauss_P4_Cell_Refinement.pdf Graphic f
 ile (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Gauss_P4_Cell_Refinement.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperature_SL_Gauss_P4_Cell_Refin
-ement.pdf used on input line 1628.
+ement.pdf used on input line 1650.
 (pdftex.def)             Requested size: 284.52756pt x 243.67053pt.
- [221 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Blading_Temp
-erature_Zoom_MultiCell.pdf>] [222 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Di
-ssertation_Data/SLXS_Lobatto_80_Cells_Radiation.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapt
-er6_grey_radtran/Dissertation_Data/SLXS_Lobatto_80_Cells_Temperature.pdf>] [223 <C:/Users/pmaginot/Desktop/Work/PGM_Diss
-ertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Lobatto_P1_Cell_Refineme
-nt.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Reorder_Ma
-rshak_Zoom_Temperature_SL_Lobatto_P1_Cell_Refinement.pdf>] [224 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissert
-ation/chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Gauss_P4_Cell_Refinement.pdf> <C:/Users/
-pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Tempera
-ture_SL_Gauss_P4_Cell_Refinement.pdf>]
-<chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Radiation_Lobatto_P_Refinement.pdf, id=2181, 460.72125pt
+ [222 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/SLXS_Lobatto
+_80_Cells_Radiation.pdf>] [223 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Disse
+rtation_Data/SLXS_Lobatto_80_Cells_Temperature.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapte
+r6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Lobatto_P1_Cell_Refinement.pdf>]
+<chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Radiation_Lobatto_P_Refinement.pdf, id=2163, 460.72125pt
  x 352.31625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Radiation_Lobatto_P_Refinement.pdf Graphic file (ty
 pe pdf)
  <use chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Radiation_Lobatto_P_Refinement.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Radiation_Lobatto_P_Refinement.p
-df used on input line 1640.
+df used on input line 1662.
 (pdftex.def)             Requested size: 284.52756pt x 243.67053pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Temperature_Lobatto_P_Refinement.pdf, id=2183, 460.72125
+<chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Temperature_Lobatto_P_Refinement.pdf, id=2165, 460.72125
 pt x 352.31625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Temperature_Lobatto_P_Refinement.pdf Graphic file (
 type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Temperature_Lobatto_P_Refinement.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Temperature_Lobatto_P_Refinement
-.pdf used on input line 1647.
+.pdf used on input line 1669.
 (pdftex.def)             Requested size: 284.52756pt x 243.67053pt.
- [225 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Pointless_Ma
-rshak_Zoom_Radiation_Lobatto_P_Refinement.pdf>]
-<chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Radiation.pdf, id=2196, 460.72125pt x 352.31625pt>
+ [224 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Reorder_Mars
+hak_Zoom_Temperature_SL_Lobatto_P1_Cell_Refinement.pdf>] [225 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertat
+ion/chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Gauss_P4_Cell_Refinement.pdf> <C:/Users/pm
+aginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Temperatu
+re_SL_Gauss_P4_Cell_Refinement.pdf>] [226 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_ra
+dtran/Dissertation_Data/Pointless_Marshak_Zoom_Radiation_Lobatto_P_Refinement.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_D
+issertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Pointless_Marshak_Zoom_Temperature_Lobatto_P_Refinement
+.pdf>]
+<chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Radiation.pdf, id=2219, 460.72125pt x 352.31625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Radiation.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Radiation.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Radiation.pdf used on input line 1
-665.
+687.
 (pdftex.def)             Requested size: 284.52756pt x 243.67053pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Temperature.pdf, id=2198, 460.72125pt x 352.31625pt>
+<chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Temperature.pdf, id=2221, 460.72125pt x 352.31625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Temperature.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Temperature.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Temperature.pdf used on input line
- 1673.
+ 1695.
 (pdftex.def)             Requested size: 284.52756pt x 243.67053pt.
- [226 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Pointless_Ma
-rshak_Zoom_Temperature_Lobatto_P_Refinement.pdf>] [227 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/cha
-pter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Radiation.pdf>] [228 <C:/Users/pmaginot/Desktop/Work/PGM_Disse
-rtation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Temperature.pdf>]
-<chapter6_grey_radtran/Dissertation_Data/Zoom_10k_Phi.pdf, id=2245, 749.80125pt x 765.86125pt>
+ [227] [228 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Time_R
+efinement_Zoom_Radiation.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Disser
+tation_Data/Time_Refinement_Zoom_Temperature.pdf>] <chapter6_grey_radtran/Dissertation_Data/Zoom_10k_Phi.pdf, id=2257, 7
+49.80125pt x 765.86125pt>
 File: chapter6_grey_radtran/Dissertation_Data/Zoom_10k_Phi.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Zoom_10k_Phi.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Zoom_10k_Phi.pdf used on input line 1693.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Zoom_10k_Phi.pdf used on input line 1715.
 (pdftex.def)             Requested size: 369.88582pt x 390.73878pt.
 
-<chapter6_grey_radtran/Dissertation_Data/50_Cells_at_Wavefront_Intensity_Log.pdf, id=2247, 480.79625pt x 376.40625pt>
+<chapter6_grey_radtran/Dissertation_Data/50_Cells_at_Wavefront_Intensity_Log.pdf, id=2259, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/50_Cells_at_Wavefront_Intensity_Log.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/50_Cells_at_Wavefront_Intensity_Log.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/50_Cells_at_Wavefront_Intensity_Log.pdf used on input l
-ine 1705.
-(pdftex.def)             Requested size: 312.9803pt x 246.8587pt.
- [229 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Zoom_10k_Phi
-.pdf>] [230 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/50_Cel
-ls_at_Wavefront_Intensity_Log.pdf>] <chapter6_grey_radtran/S8_vs_S2_Material_Temperature.pdf, id=2289, 480.79625pt x 376
-.40625pt>
+ine 1727.
+(pdftex.def)             Requested size: 312.9803pt x 260.70126pt.
+ [229] [230 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Zoom_1
+0k_Phi.pdf>]
+<chapter6_grey_radtran/S8_vs_S2_Material_Temperature.pdf, id=2277, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/S8_vs_S2_Material_Temperature.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/S8_vs_S2_Material_Temperature.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/S8_vs_S2_Material_Temperature.pdf used on input line 1714.
+Package pdftex.def Info: chapter6_grey_radtran/S8_vs_S2_Material_Temperature.pdf used on input line 1736.
 (pdftex.def)             Requested size: 312.9803pt x 235.81488pt.
 
-<chapter6_grey_radtran/S8_vs_S2_Radiation_Energy_Density.pdf, id=2291, 480.79625pt x 376.40625pt>
+<chapter6_grey_radtran/S8_vs_S2_Radiation_Energy_Density.pdf, id=2279, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/S8_vs_S2_Radiation_Energy_Density.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/S8_vs_S2_Radiation_Energy_Density.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/S8_vs_S2_Radiation_Energy_Density.pdf used on input line 1721.
+Package pdftex.def Info: chapter6_grey_radtran/S8_vs_S2_Radiation_Energy_Density.pdf used on input line 1743.
 (pdftex.def)             Requested size: 312.9803pt x 253.03482pt.
 
-<chapter6_grey_radtran/S8_Intensity_SemiLogy.pdf, id=2293, 1504.62125pt x 785.93625pt>
+<chapter6_grey_radtran/S8_Intensity_SemiLogy.pdf, id=2281, 1504.62125pt x 785.93625pt>
 File: chapter6_grey_radtran/S8_Intensity_SemiLogy.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/S8_Intensity_SemiLogy.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/S8_Intensity_SemiLogy.pdf used on input line 1734.
+Package pdftex.def Info: chapter6_grey_radtran/S8_Intensity_SemiLogy.pdf used on input line 1756.
 (pdftex.def)             Requested size: 455.24408pt x 223.22417pt.
 
-Overfull \hbox (25.23668pt too wide) in paragraph at lines 1734--1735
+Overfull \hbox (25.23668pt too wide) in paragraph at lines 1756--1757
  [][] 
  []
 
-[231 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/S8_vs_S2_Material_Temperature.p
-df>]
-<chapter6_grey_radtran/Dissertation_Data/S8_pos_mu_glance_boundary_layer_log.pdf, id=2310, 480.79625pt x 376.40625pt>
+[231 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/50_Cells_at_W
+avefront_Intensity_Log.pdf>] [232 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/S8
+_vs_S2_Material_Temperature.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/S8_
+vs_S2_Radiation_Energy_Density.pdf>]
+<chapter6_grey_radtran/Dissertation_Data/S8_pos_mu_glance_boundary_layer_log.pdf, id=2337, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/S8_pos_mu_glance_boundary_layer_log.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/S8_pos_mu_glance_boundary_layer_log.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/S8_pos_mu_glance_boundary_layer_log.pdf used on input l
-ine 1744.
+ine 1766.
 (pdftex.def)             Requested size: 341.43306pt x 272.32265pt.
- [232 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/S8_vs_S2_Radiation_Energy_Dens
-ity.pdf>]
-<chapter6_grey_radtran/Dissertation_Data/S8_thermal_wavefront_boundary_layer.pdf, id=2327, 1504.62125pt x 785.93625pt>
+ [233 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/S8_Intensity_SemiLogy.pdf>]
+<chapter6_grey_radtran/Dissertation_Data/S8_thermal_wavefront_boundary_layer.pdf, id=2358, 1504.62125pt x 785.93625pt>
 File: chapter6_grey_radtran/Dissertation_Data/S8_thermal_wavefront_boundary_layer.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/S8_thermal_wavefront_boundary_layer.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/S8_thermal_wavefront_boundary_layer.pdf used on input l
-ine 1754.
+ine 1776.
 (pdftex.def)             Requested size: 455.24408pt x 240.08507pt.
 
-Overfull \hbox (25.23668pt too wide) in paragraph at lines 1754--1755
+Overfull \hbox (25.23668pt too wide) in paragraph at lines 1776--1777
  [][] 
  []
 
-<chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Material_Temperature.pdf, id=2329, 1504.62125pt x 785.93625pt>
+[234 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/S8_pos_mu_gla
+nce_boundary_layer_log.pdf>]
+<chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Material_Temperature.pdf, id=2379, 1504.62125pt x 785.93625pt>
 File: chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Material_Temperature.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Material_Temperature.pdf>
 Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Material_Temperature.pdf used on input line 1
-764.
+786.
 (pdftex.def)             Requested size: 455.24408pt x 240.08507pt.
 
-Overfull \hbox (25.23668pt too wide) in paragraph at lines 1764--1765
+Overfull \hbox (25.23668pt too wide) in paragraph at lines 1786--1787
  [][] 
  []
 
-<chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Radiation.pdf, id=2331, 1504.62125pt x 785.93625pt>
+<chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Radiation.pdf, id=2381, 1504.62125pt x 785.93625pt>
 File: chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Radiation.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Radiation.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Radiation.pdf used on input line 1772.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Radiation.pdf used on input line 1794.
 (pdftex.def)             Requested size: 455.24408pt x 240.08507pt.
 
-Overfull \hbox (25.23668pt too wide) in paragraph at lines 1772--1773
+Overfull \hbox (25.23668pt too wide) in paragraph at lines 1794--1795
  [][] 
  []
 
-<chapter6_grey_radtran/Dissertation_Data/S32_Intensity.pdf, id=2333, 1504.62125pt x 785.93625pt>
+<chapter6_grey_radtran/Dissertation_Data/S32_Intensity.pdf, id=2383, 1504.62125pt x 785.93625pt>
 File: chapter6_grey_radtran/Dissertation_Data/S32_Intensity.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/S32_Intensity.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/S32_Intensity.pdf used on input line 1781.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/S32_Intensity.pdf used on input line 1803.
 (pdftex.def)             Requested size: 455.24408pt x 240.08507pt.
 
-Overfull \hbox (25.23668pt too wide) in paragraph at lines 1781--1782
+Overfull \hbox (25.23668pt too wide) in paragraph at lines 1803--1804
  [][] 
  []
 
-[233 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/S8_Intensity_SemiLogy.pdf>]
-[234 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/S8_pos_mu_gla
-nce_boundary_layer_log.pdf>] [235 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Di
-ssertation_Data/S8_thermal_wavefront_boundary_layer.pdf>] [236 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Disserta
-tion/chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Material_Temperature.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dis
-sertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Radiation.pdf>] [237 <C:/Users/pmaginot/Desktop
-/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/S32_Intensity.pdf>]
-<chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Radiation_Energy.pdf, id=2443, 480.79625pt x 376.40625pt>
+[235 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/S8_thermal_wa
+vefront_boundary_layer.pdf>] [236 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Di
+ssertation_Data/S8_vs_S32_Material_Temperature.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapte
+r6_grey_radtran/Dissertation_Data/S8_vs_S32_Radiation.pdf>] [237 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Disser
+tation/chapter6_grey_radtran/Dissertation_Data/S32_Intensity.pdf>] [238]
+<chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Radiation_Energy.pdf, id=2458, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Radiation_Energy.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Radiation_Energy.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Radiation_Energy.pdf used on input line 182
-1.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Radiation_Energy.pdf used on input line 184
+3.
 (pdftex.def)             Requested size: 227.62204pt x 230.67262pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Material_Energy.pdf, id=2445, 480.79625pt x 376.40625pt>
+<chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Material_Energy.pdf, id=2460, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Material_Energy.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Material_Energy.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Material_Energy.pdf used on input line 1827
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Material_Energy.pdf used on input line 1849
 .
 (pdftex.def)             Requested size: 227.62204pt x 230.67262pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Radiation_Energy.pdf, id=2447, 480.79625pt x 376.40625pt>
+<chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Radiation_Energy.pdf, id=2462, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Radiation_Energy.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Radiation_Energy.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Radiation_Energy.pdf used on input line 183
-5.
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Radiation_Energy.pdf used on input line 185
+7.
 (pdftex.def)             Requested size: 227.62204pt x 230.67262pt.
 
-<chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Material_Energy.pdf, id=2449, 480.79625pt x 376.40625pt>
+<chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Material_Energy.pdf, id=2464, 480.79625pt x 376.40625pt>
 File: chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Material_Energy.pdf Graphic file (type pdf)
 
 <use chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Material_Energy.pdf>
-Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Material_Energy.pdf used on input line 1841
+Package pdftex.def Info: chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Material_Energy.pdf used on input line 1863
 .
 (pdftex.def)             Requested size: 227.62204pt x 230.67262pt.
- [238] [239 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Su_Ols
+ [239] [240 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Dissertation_Data/Su_Ols
 on_S2_Radiation_Energy.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_grey_radtran/Disserta
-tion_Data/Su_Olson_S2_Material_Energy.pdf>] [240 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_
+tion_Data/Su_Olson_S2_Material_Energy.pdf>] [241 <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Dissertation/chapter6_
 grey_radtran/Dissertation_Data/Su_Olson_S8_Radiation_Energy.pdf> <C:/Users/pmaginot/Desktop/Work/PGM_Dissertation/Disser
-tation/chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Material_Energy.pdf>] [241] [242]) [243]
+tation/chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Material_Energy.pdf>] [242] [243]) [244]
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter7_conclusions/chapter7_conclusions.tex
 Chapter 7.
-[244
+[245
 
 
 
@@ -2050,13 +2027,13 @@ Overfull \hbox (12.72855pt too wide) in paragraph at lines 39--40
 []\OT1/cmr/m/n/12 Self-lumping DFEM schemes us-ing Gauss-Legendre (SL Gauss) or Gauss-Lobatto-
  []
 
-[245] [246]) [247] (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\front_matter/bibliography.tex
-(C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.bbl [248
+[246] [247]) [248] (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\front_matter/bibliography.tex
+(C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.bbl [249
 
 
 
-] [249] [250] [251] [252]
-[253])) [254] (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.aux
+] [250] [251] [252] [253]
+[254])) [255] (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\pgm_dissertation.aux
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\front_matter/titlepage.aux)
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\front_matter/abstract.aux)
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\front_matter/dedication.aux)
@@ -2070,36 +2047,33 @@ Overfull \hbox (12.72855pt too wide) in paragraph at lines 39--40
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter5_depletion/chapter5_depletion.aux)
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter6_grey_radtran/chapter6_grey_radtran.aux)
 (C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\chapter7_conclusions/chapter7_conclusions.aux)
-(C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\front_matter/bibliography.aux))
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+(C:\Users\pmaginot\Desktop\Work\PGM_Dissertation\Dissertation\front_matter/bibliography.aux)) ) 
 Here is how much of TeX's memory you used:
- 6776 strings out of 493921
- 140981 string characters out of 3147274
- 175222 words of memory out of 3000000
- 9668 multiletter control sequences out of 15000+200000
+ 6770 strings out of 493921
+ 139858 string characters out of 3147274
+ 174855 words of memory out of 3000000
+ 9663 multiletter control sequences out of 15000+200000
  11648 words of font info for 44 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  34i,18n,33p,802b,1162s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/hoekwater/stmary10.pfb>
-Output written on pgm_dissertation.pdf (277 pages, 4982405 bytes).
+<C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/hoekwater/stmary10.pfb>
+Output written on pgm_dissertation.pdf (278 pages, 4978424 bytes).
 PDF statistics:
- 2622 PDF objects out of 2984 (max. 8388607)
+ 2637 PDF objects out of 2984 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1273 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1262 words of extra memory for PDF output out of 10000 (max. 10000000)
 

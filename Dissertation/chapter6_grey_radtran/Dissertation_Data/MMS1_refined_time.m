@@ -2,10 +2,10 @@
 
 save_all = true;
 
-prob_str = 'MMS1_extra_time/MMS1';
+prob_str = 'MMS1/MMS1';
 i=0;
 fid = zeros(8,1);
-for m=1:1:2
+for m=1:1:3
     switch m
         case 1
             meth_str = 'SL_Lobatto';

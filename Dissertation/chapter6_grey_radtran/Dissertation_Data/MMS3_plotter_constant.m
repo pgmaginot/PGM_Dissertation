@@ -39,7 +39,7 @@ L = x_right - x_left;
 close all;
 
 % load data for SLXS lobatto
-n_data_lobatto = 32; 
+n_data_lobatto = 31; 
 offset = 0;
 mm1 = GenerateRoughPlots(L,offset,n_data_lobatto,fid);
 
@@ -57,7 +57,7 @@ end
 % now make each plot special
 figure(1)
 % CXS phi_A
-c1 = 1E-5;
+c1 = 2E-4;
 p1 = 2;
 % 
 hold on
@@ -69,7 +69,7 @@ set(h,'Interpreter','latex','Fontsize',14);
 
 figure(2)
 % CXS phi_L2
-c1 = 1E-5;
+c1 = 3E-4;
 p1 = 2;
 
 hold on
@@ -81,7 +81,7 @@ set(h,'Interpreter','latex','Fontsize',14);
 
 figure(3)
 % CXS temp_A
-c1 = 2E-5;
+c1 = 1E-5;
 p1 = 2;
 
 hold on
@@ -104,7 +104,7 @@ set(h,'Interpreter','latex','Fontsize',14);
 
 figure(5)
 % Lobaato phi_A
-c1 = 1E-5;
+c1 = 2E-4;
 p1 = 2;
 
 hold on
@@ -116,7 +116,7 @@ set(h,'Interpreter','latex','Fontsize',14);
 
 figure(6)
 % Lobatto phi_L2
-c1 = 1E-5;
+c1 = 2E-4;
 p1 = 2;
 
 hold on
@@ -127,7 +127,7 @@ set(h,'Interpreter','latex','Fontsize',14);
 
 figure(7)
 % Lobaato temp_A
-c1 = 1E-4;
+c1 = 2E-4;
 p1 = 2;
 
 hold on
@@ -174,8 +174,17 @@ if(save_all)
                     err_type = sprintf('temp_L2');
             end
 
-            name_base = sprintf('%s_%s_%s',prob_str,meth,err_type);
-            SavePretty( figure( (m-1)*4 + i) , name_base);
+            n = (m-1)*4 + i;
+            figure(n)
+            b = get(gcf,'OuterPosition');
+    %         b(1) = b(2) - (b(2) - b(1))*1.2;
+    %         b(3) = b(2) - (b(2) - b(1))*1.2;
+    %         b(2) = b(2) * .8;
+    %         b(3) = b(3)*1.2;
+            b(4) = b(4)*1.2;
+            set(gcf,'OuterPosition',b);
+        
+            SavePretty( figure( n ) , name_base);
         end
     end
 end

@@ -1,6 +1,6 @@
 % % % script to generate steady state spatial convergence plots
 
-save_all = true;
+save_all = false;
 
 cxs_phi_a_str = sprintf('Constant_Time/MMS_Constant_Time_CXS_final_space_phi_A_error.txt');
 cxs_phi_l2_str = sprintf('Constant_Time/MMS_Constant_Time_CXS_final_space_phi_L2_error.txt');
@@ -47,7 +47,7 @@ offset = 0;
 mm1 = GenerateRoughPlots(L,offset,n_data_cxs,fid);
 
 % load data for SLXS lobatto
-n_data_lobatto = 29; 
+n_data_lobatto = 28; 
 offset = 4;
 mm2 = GenerateRoughPlots(L,offset,n_data_lobatto,fid);
 
@@ -66,20 +66,22 @@ end
 figure(1)
 % CXS phi_A
 hold on
-c = 3E-3;
+c = 1E1;
 p = 2;
 loglog([mm1(1,1) mm1(2,1)] , [c c*mm1(3,1)^p],'k-','LineWidth',2 );
 h=legend('P1','P2','P3','P4','2nd Order','Location','NorthWest');
 set(h,'Interpreter','latex','Fontsize',14);
+axis( [mm1(1,1) mm1(2,1) 1E0 1E7])
 
 figure(2)
 % CXS phi_L2
 hold on
-c = 5E-4;
+c = 1E1;
 p = 2;
 loglog([mm1(1,2) mm1(2,2)] , [c c*mm1(3,2)^p],'k-','LineWidth',2 );
 h=legend('P1','P2','P3','P4','2nd Order','Location','NorthWest');
 set(h,'Interpreter','latex','Fontsize',14);
+axis( [mm1(1,2) mm1(2,2) 1 1e7])
 
 figure(3)
 % CXS temp_A
@@ -89,11 +91,12 @@ p = 2;
 loglog([mm1(1,3) mm1(2,3)] , [c c*mm1(3,3)^p],'k-','LineWidth',2 );
 h=legend('P1','P2','P3','P4','2nd Order','Location','NorthWest');
 set(h,'Interpreter','latex','Fontsize',14);
+axis( [mm1(1,3) mm1(2,3) 1E-3 1E3])
 
 figure(4)
 % CXS temp_L2
 hold on
-c = 0.7;
+c = 0.3;
 p = 1;
 loglog([mm1(1,4) mm1(2,4)] , [c c*mm1(3,4)^p],'k-','LineWidth',2 );
 h=legend('P1','P2','P3','P4','1st Order','Location','NorthWest');
@@ -104,11 +107,11 @@ axis( [mm1(1,4) mm1(2,4) 0.3 8E2])
 
 figure(5)
 % Lobaato phi_A
-c1 = 2E-2;
+c1 = 1E1;
 p1 = 2;
-c2 = 2E-6;
+c2 = 5E-4;
 p2 = 4;
-c3 = 5E-11;
+c3 = 1E-7;
 p3 = 6;
 
 hold on
@@ -119,22 +122,23 @@ hold on
 loglog([mm2(1,1) mm2(2,1)] , [c3 c3*mm2(3,1)^p3],'r-','LineWidth',2 );
 
 hold on
-c4 = 2E-13;
-loglog([mm2(1,1) mm2(2,1)] , [c4 c4*mm2(3,1)^p3],'r-','LineWidth',2 );
-h=legend('P1','P2','P3','P4','2nd Order','4th Order','6th Order','Location','SouthEast');
+c4 = 2E-10;
+p4 = 8;
+loglog([mm2(1,1) mm2(2,1)] , [c4 c4*mm2(3,1)^p3],'g-','LineWidth',2 );
+h=legend('P1','P2','P3','P4','2nd Order','4th Order','6th Order','8th Order','Location','SouthEast');
 set(h,'Interpreter','latex','Fontsize',14);
-axis([mm2(1,1) mm2(2,1) 1E-11 1E2])
+axis([mm2(1,1) mm2(2,1) 1E-11 1E6])
 
 figure(6)
 % Lobaato phi_L2
 hold on
-c1 = 3E-2;
+c1 = 3E1;
 p1 = 2;
-c2 = 3E-5;
+c2 = 1E-1;
 p2 = 3;
-c3 = 2E-7;
+c3 = 1E-4;
 p3 = 4;
-c4 = 5E-10;
+c4 = 3E-7;
 p4 = 5;
 
 hold on
@@ -147,7 +151,7 @@ hold on
 loglog([mm2(1,2) mm2(2,2)] , [c4 c4*mm2(3,2)^p4],'g-','LineWidth',2 );
 h=legend('P1','P2','P3','P4','2nd Order','3rd Order','4th Order','5th Order','Location','SouthEast');
 set(h,'Interpreter','latex','Fontsize',14);
-axis( [mm2(1,2) mm2(2,2) 1E-8 1E2])
+axis( [mm2(1,2) mm2(2,2) 1E-6 1E6])
 
 figure(7)
 % Lobaato temp_A
@@ -170,10 +174,10 @@ hold on
 loglog([mm2(1,3) mm2(2,3)] , [c4 c4*mm2(3,3)^p4],'g-','LineWidth',2 );
 h=legend('P1','P2','P3','P4','2nd Order','4th Order','6nd Order','8th Order','Location','SouthEast');
 set(h,'Interpreter','latex','Fontsize',14);
-axis( [mm2(1,3) mm2(2,3) 1E-10 1E4])
+axis( [mm2(1,3) mm2(2,3) 1E-14 1E3])
 
 figure(8)
-% Lobaato temp_L2
+% Lobatto temp_L2
 hold on
 c1 = 2E0;
 p1 = 1;
@@ -181,7 +185,7 @@ c2 = 1E-2;
 p2 = 2;
 c3 = 3E-5;
 p3 = 3;
-c4 = 1E-7;
+c4 = 3E-7;
 p4 = 4;
 
 hold on
@@ -194,19 +198,19 @@ hold on
 loglog([mm2(1,4) mm2(2,4)] , [c4 c4*mm2(3,4)^p4],'g-','LineWidth',2 );
 h=legend('P1','P2','P3','P4','1st Order','2nd Order','3rd Order','4th Order','Location','SouthEast');
 set(h,'Interpreter','latex','Fontsize',14);
-axis( [mm2(1,4) mm2(2,4) 1E-7 1E3])
+axis( [mm2(1,4) mm2(2,4) 1E-8 1E3])
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 figure(9)
 % Gauss phi_A
 c1 = 3E-4;
-p1 = 3;
+p1 = 4;
 c2 = 5E-9;
-p2 = 5;
-c3 = 1E-12;
-p3 = 6;
-c4 = 1E-16;
+p2 = 6;
+c3 = 5E-12;
+p3 = 7;
+c4 = 1E-14;
 p4 = 8;
 
 hold on
@@ -217,19 +221,19 @@ hold on
 loglog([mm3(1,4) mm3(2,4)] , [c3 c3*mm3(3,4)^p3],'r-','LineWidth',2 );
 hold on
 loglog([mm3(1,4) mm3(2,4)] , [c4 c4*mm3(3,4)^p4],'g-','LineWidth',2 );
-h=legend('P1','P2','P3','P4','3rd Order','5th Order','6th Order','8th Order','Location','NorthWest');
+h=legend('P1','P2','P3','P4','4th Order','6th Order','7th Order','8th Order','Location','SouthEast');
 set(h,'Interpreter','latex','Fontsize',14);
-axis( [mm3(1,1) mm3(2,1) 1E-10 1E4])
+axis( [mm3(1,1) mm3(2,1) 1E-12 1E5])
 
 figure(10)
 % Gauss phi_L2
-c1 = 1E-4;
+c1 = 3E-2;
 p1 = 3;
-c2 = 1E-6;
+c2 = 1E-5;
 p2 = 4;
-c3 = 1E-9;
+c3 = 1E-7;
 p3 = 5;
-c4 = 1E-12;
+c4 = 1E-10;
 p4 = 6;
 
 hold on
@@ -240,9 +244,9 @@ hold on
 loglog([mm3(1,4) mm3(2,4)] , [c3 c3*mm3(3,4)^p3],'r-','LineWidth',2 );
 hold on
 loglog([mm3(1,4) mm3(2,4)] , [c4 c4*mm3(3,4)^p4],'g-','LineWidth',2 );
-h=legend('P1','P2','P3','P4','3rd Order','4th Order','5th Order','6th Order','Location','NorthWest');
+h=legend('P1','P2','P3','P4','3rd Order','4th Order','5th Order','6th Order','Location','SouthEast');
 set(h,'Interpreter','latex','Fontsize',14);
-axis( [mm3(1,2) mm3(2,2) 1E-8 1E3])    
+axis( [mm3(1,2) mm3(2,2) 1E-10 1E5])    
 
 figure(11)
 % Gauss temp_A
@@ -263,20 +267,20 @@ hold on
 loglog([mm3(1,3) mm3(2,3)] , [c3 c3*mm3(3,3)^p3],'r-','LineWidth',2 );
 hold on
 loglog([mm3(1,3) mm3(2,3)] , [c4 c4*mm3(3,3)^p4],'g-','LineWidth',2 );
-h=legend('P1','P2','P3','P4','4th Order','6th Order','8th Order','10th Order','Location','NorthWest');
+h=legend('P1','P2','P3','P4','4th Order','6th Order','8th Order','10th Order','Location','SouthEast');
 set(h,'Interpreter','latex','Fontsize',14);
-axis( [mm3(1,3) mm3(2,3) 1E-10 1E4])
+axis( [mm3(1,3) mm3(2,3) 1E-15 1E3])
 
 figure(12)
 % Gauss temp_L2
-c1 = 1E-4;
-p1 = 3;
-c2 = 1E-6;
-p2 = 4;
-c3 = 2E-9;
-p3 = 5;
-c4 = 1E-12;
-p4 = 6;
+c1 = 2E-2;
+p1 = 2;
+c2 = 1E-5;
+p2 = 3;
+c3 = 1E-8;
+p3 = 4;
+c4 = 1E-11;
+p4 = 5;
 
 hold on
 loglog([mm3(1,4) mm3(2,4)] , [c1 c1*mm3(3,4)^p1],'k-','LineWidth',2 );
@@ -286,9 +290,9 @@ hold on
 loglog([mm3(1,4) mm3(2,4)] , [c3 c3*mm3(3,4)^p3],'r-','LineWidth',2 );
 hold on
 loglog([mm3(1,4) mm3(2,4)] , [c4 c4*mm3(3,4)^p4],'g-','LineWidth',2 );
-h=legend('P1','P2','P3','P4','3rd Order','4th Order','5th Order','6th Order','Location','NorthWest');
+h=legend('P1','P2','P3','P4','2nd Order','3rd Order','4th Order','5th Order', 'Location','SouthEast');
 set(h,'Interpreter','latex','Fontsize',14);
-axis( [mm3(1,4) mm3(2,4) 1E-7 1E3])
+axis( [mm3(1,4) mm3(2,4) 1E-12 1E3])
 
 % % save all of these lovely plots
 if(save_all)
