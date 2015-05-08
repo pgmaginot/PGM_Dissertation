@@ -1,4 +1,7 @@
-\beamer@slide {eq:analytic_pseudo_i}{11}
-\beamer@slide {eq:analytic_nu}{11}
-\beamer@slide {eq:tau_i_analytic}{11}
-\beamer@slide {lst:pseudo_code}{19}
+\beamer@slide {eq:exact_r}{9}
+\beamer@slide {eq:old_r}{9}
+\beamer@slide {eq:sdirk_middle}{14}
+\beamer@slide {eq:analytic_pseudo_i}{17}
+\beamer@slide {eq:analytic_nu}{18}
+\beamer@slide {eq:tau_i_analytic}{18}
+\beamer@slide {lst:pseudo_code}{27}

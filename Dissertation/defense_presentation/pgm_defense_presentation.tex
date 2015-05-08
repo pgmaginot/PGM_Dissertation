@@ -10,11 +10,20 @@
 \usepackage{listings}
 
 \usepackage{appendixnumberbeamer}
+
+
+\usepackage{xcolor}
+
+
 \usetheme{Frankfurt}
 %\xdefinecolor{maroon}{cmyk}{0.15,1.00,0.39,0.69}
 %\xdefinecolor{maroon}{cmyk}{0.27,0.86,0.60,0.30}
 %\xdefinecolor{maroon}{cmyk}{0.000,1.00,1.00,0.498}
 \usecolortheme[RGB={80,0,0}]{structure}
+
+\newcommand{\highlight}[1]{%
+  \colorbox{red!50}{$\displaystyle#1$}}
+
 
 % Shortcut commands
 % My Shortcut Commands
@@ -72,7 +81,7 @@ PhD Defense %\usebeamerfont{section in head/foot}\insertshorttitle
 
 \setbeamertemplate{bibliography item}[text]
 
-\title{PhD Defense \\ Higher Order Grey Thermal Radiative Transfer}
+\title{Higher Order Grey Thermal Radiative Transfer}
 \author{Peter Maginot}\institute{Texas A\&M University- Department of Nuclear Engineering}
 \date{April 2015}
 
@@ -104,167 +113,405 @@ PhD Defense %\usebeamerfont{section in head/foot}\insertshorttitle
 %\end{enumerate}
 \end{frame}
 
-\section{New Results}
+\section{Theory}
 
-\subsection{Grey thermal radiative transfer}
-\begin{frame}
-\frametitle{New for Today}
-Results
-\begin{itemize}
-\item Su-Olson Problem
-\item Manufactured Solutions
-\item High Resolution Marshak Wave Simulations
-\end{itemize}
-Coding
-\begin{itemize}
-\item Arbitrary DFEM trial space degree
-\item Arbitrary SDIRK schemes
-\item MIP diffusion operator for grey radiative transfer
-\item Done in C++ with lots of bells and whistles
-\end{itemize}
-\end{frame}
+\subsection{Goal}
 
 \begin{frame}
-\frametitle{Didn't Have All That Capability at Prelim?}
-
-\begin{itemize}
-\item Was in MATLAB, now in C++
-\begin{itemize}
-\item About 19,000 lines of C++ (PDT+TAXI-STAPL is about 106k lines)
-\item Code leverages outside packages: CMAKE, PETSc, Eigen, TinyXml
-\item DARK\_ARTS can be read by / used by someone other than me
-\item $>20 \times$ speed-up compared to MATLAB
-\end{itemize}
-\item Used S2SA, now use MIP
-\item Incorporated extensive unit testing
-\item Framework for multi-frequency in place
-\end{itemize}
-
-\end{frame}
-
-\section{Contributions}
-\subsection{Contributions}
-\begin{frame}
-\frametitle{Contributions to Discrete Ordinates Transport}
+\begin{block}{Dissertation Goal}
+\begin{center}
+High-fidelity methods for discrete ordinates ($S_N$) radiative transfer
+\end{center}
+\end{block}
+\begin{center}
+\begin{Large}
+\bf
+Requirements to Achieve Goal
+\end{Large}
+\end{center}
 \begin{enumerate}
-%
-\item Lumping framework (prelim)
-\item Spatially varying cross section treatment (prelim)
-\item Application of higher order DFEM to grey TRT (new)
+\item Accurate Spatial Discretization
+\begin{itemize}
+\item Higher degree trial space discontinuous finite element method (DFEM) trial spaces
+\item Must address robustness
+\end{itemize}
+\item Accurate Spatial Treatment of Opacities
+\begin{itemize}
+\item Cell-wise constant is a poor approximation for problems of interest
+\end{itemize}
+\item Efficient / Effective Acceleration
+\begin{itemize}
+\item Computationally efficient
+\item Compatible with spatial discretization
+\end{itemize}
 \end{enumerate}
 
 \end{frame}
-%
-\subsection{Prelim Contributions}
+
+\subsection{Matrix Lumping}
 \begin{frame}
-\frametitle{Lumping Framework}
-\begin{itemize}
-\item Introduced quadrature based self-lumping (SL) schemes for discrete ordinates
-\item Improved robustness versus traditional lumping (TL)
-\item Considered non-equally spaced DFEM interpolation points
-\item Demonstrated that SL schemes increased in accuracy with increased $P$
-\item Demonstrated that $TL$ were at most third order convergent in space, for all $P$
-\end{itemize}
-\end{frame}
-%
-\begin{frame}
-\frametitle{Spatially Varying Cross Section}
-%
-\begin{itemize}
-\item Demonstrated poor accuracy of cell-wise constant approximation
-\item Demonstrated non-physical interaction rate of cell-wise constant schemes
-\item Modified SL schemes to account for within cell cross section variation (SLXS)
-\item SLXS schemes retained $P+1$ $L^2$ convergence for pure absorber and fuel depletion problem
-\end{itemize}
+\frametitle{Matrix Lumping}
 
-\end{frame}
-
-
-
-\subsection{Grey TRT}
-\begin{frame}
-\frametitle{Grey TRT}
 \begin{enumerate}
-\item Adapting MIP diffusion operator to TRT linearization
-\item Numerical Results
+\item One of three methods to improve the DFEM ``robustness'' 
 \begin{itemize}
-\item Validation (Su-Olson problem)
-\item Order of convergence (Method of Manufactured Solutions)
-\item High resolution capability (Marshak wave problem)
+\item Other methods: ad-hoc fix-ups, strictly non-negative solution representations
+\item Robustness (for $S_N$): solution positivity and resistance to oscillations
 \end{itemize}
+\item Lumping- makes diagonal mass matrices, does not guarantee increase in robustness
+\item Two ways to lump mass matrices
+\begin{itemize}
+\item Traditional lumping (TL): Collapse an exactly integrated mass matrix's entries to the main diagonal
+\item Self-lumping (SL): Use quadrature restricted to the DFEM interpolation points
+\end{itemize} 
+\item Both methods are equivalent for linear DFEM
 \end{enumerate}
 \end{frame}
 
-\section{MIP for TRT}
-\subsection{Analytic Equations}
 \begin{frame}
-\frametitle{Grey TRT Equations}
+\frametitle{Self-Lumping Concept}
+With interpolatory basis functions, restricting quadrature to the DFEM interpolation points ($s_j$) creates a diagonal mass matrix ($\mathbf{M}$) {\em automatically}
+\begin{block}{Self-lumping (SL) $\mathbf{M}$}
+\be
+\mathbf{M}_{ij} = \left \{ \begin{array}{ll}  \frac{\Delta x }{2} w_i  & i=j \\ 0 & \text{otherwise} \end{array} \right.
+\ee
+\end{block}
+\begin{itemize}
+\item Typically, $s_j$ are chosen as equally-spaced points, and $\mathbf{M}$ is integrated analytically
+\item No requirement that $s_j$ be equally-spaced, could use more accurate quadrature as the interpolation points
+\begin{itemize}
+\item E.g. Gauss-Legendre (Gauss) or Lobatto-Gauss-Legendre (Lobatto)
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Robustness}
+\begin{frame}
+\frametitle{Numerical Schemes}
+\begin{block}{New to Dissertation}
+\begin{small}
+\begin{itemize} 
+\item Self-lumping with higher degree trial spaces
+\item Non equally-spaced interpolation points
+\end{itemize}
+\end{small}
+\end{block}
+\begin{itemize}
+\item {\bf SL Gauss}: Gauss quadrature as interpolation points, quadrature restricted to interpolation points
+\item {\bf SL Lobatto}: Lobatto quadrature as interpolation points, quadrature restricted to interpolation points
+\item {\bf SL Newton-Cotes}: Equally-spaced points, quadrature (closed Newton-Cotes) restricted to interpolation points
+\item {\bf TL} (Traditional Lumping): Equally-spaced points, analytic integration, then collapse to main diagonal
+\item {\bf Exact DFEM}: Equally-spaced points, analytic integration
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Outflow Robustness}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[width=5.5cm]{../chapter2_constant_xs/P3_Outflow_AllMeth-eps-converted-to.pdf}
+\caption{$P=3$ Outflow as a function of $h$.}
+\end{figure}
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[width=5.5cm]{../chapter2_constant_xs/P4_Outflow_AllMeth-eps-converted-to.pdf}
+\caption{$P=4$ Outflow as a function of $h$.}
+\end{figure}
+\end{columns}
+\end{frame}
+
+
+\subsection{Spatially Varying Cross Section}
+
+\begin{frame}
+\frametitle{Motivation to Account for Cross Section Spatial Variation}
+\begin{itemize}
+\item Many problems of interest to the NE community have within cell spatially varying cross section/opacity
+\begin{itemize}
+\item Cross sections are functions of temperature, density, fuel burn-up, etc.
+\item High fidelity simulations do not assume cell-wise constant values for these variables
+\end{itemize}
+\item Neutronics examples: fuel depletion problems, coupled reactor physics...
+\item Radiative transfer: $\sigma = T^{-3}$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{$S_N$ Reaction Term}
+In DFEM spatial discretization of $S_N$ transport and thermal radiative transfer equations, we have interactions terms like:
+\benum
+\frac{\Delta x}{2} \int_{-1}^{1}{\sigma(s) \B{i}(s) \widetilde{\psi}(s)~ds} 
+\label{eq:exact_r}
+\eenum
+Historically, for a $P$ degree polynomial trial space representation with $N_P = P+1$ degrees of freedom, this is approximated as
+\benum
+\bar{\sigma} \mathbf{M} \vec{\psi}
+\label{eq:old_r}
+\eenum
+where 
+\be
+\vec{\psi} = \left[ \psi_1 \dots \psi_{N_P+1} \right]^T,~~\widetilde{\psi}(s) = \sum_{j=1}^{N_P}{\B{j}(s) \psi_j}
+\ee
+\eqt{eq:old_r} exact iff $\sigma(s) = \bar{\sigma}$. 
+\end{frame}
+
+\begin{frame}
+\frametitle{History}
+In neutronics:
+\begin{itemize}
+\item Some work has focused on assuming cross section is a linear function within cells
+\item Focus of this historical work has been on reproducing fine mesh results with coarser zoning
+\end{itemize}
+Radiative transfer/radiative diffusion calculations (sometimes) account for within cell variation by using vertex based quadrature integration
+\begin{itemize}
+\item Idea introduced by Adams and Nowak circa 1997
+\item Used by some (ex. Ober and Shadid ~2004)
+\item Not by everyone
+\end{itemize}
+\end{frame}
+
+\subsection{Extending Self-Lumping Framework}
+
+\begin{frame}
+\frametitle{SL Schemes for Spatially Varying Cross Section Problems}
+\vspace{-0.1in}
+\eqt{eq:exact_r} correctly represented as:
+\vspace{-0.1in}
+\be
+\mathbf{R}_{\sigma}\vec{\psi}
+\ee 
+with
+\vspace{-0.1in}
+\be
+\mathbf{R}_{ij} = \frac{\Delta x}{2}\int_{-1}^1{ \sigma(s) \B{i}(s) \B{j}(s)~ds}
+\ee
+\vspace{-0.1in}
+%
+\begin{block}{Self-Lumping Cross Section (SLXS) Schemes}
+Extension of self-lumping schemes to account for spatial variation of opacity/cross section
+\be
+\mathbf{R}_{\sigma,ij}= \left \{ \begin{array}{ll}  \frac{\Delta x }{2}\sigma(s_i) w_i  & i=j \\ 0 & \text{otherwise} \end{array} \right.
+\ee
+\end{block}
+\begin{itemize}
+\item {\bf SLXS Lobatto}- self-lumping incorporating spatial variation of material properties, Lobatto DFEM interpolation points 
+\item {\bf SLXS Gauss}- self-lumping incorporating spatial variation of material properties, Gauss DFEM interpolation points
+\end{itemize}
+%
+\end{frame}
+
+\section{TRT Equations}
+
+\subsection{Analytic TRT}
+\begin{frame}
+\frametitle{Grey Thermal Radiative Transfer Equations}
+Grey (frequency integrated) thermal radiative transfer (TRT) equations:
 \bea
 \frac{1}{c} \frac{\partial I}{\p t} + \mu_d \frac{\p I}{\p x}  + \sigma_t I &=&  2\pi \int_{-1}^{1}{ \sigma_s(\mu'\to\mu_d) I  d\mu }+ \sigma_a B + S_I\\
 C_v \frac{\p T}{\p t} &=&   \sigma_a \left( \phi- 4\pi B   \right) + S_T
 \eea
-\centering
-\begin{itemize}
-\item $I(x,\mu_d,t)$ - intensity $\left[ \frac{energy}{area-time-ster} \right]$
-\item $\phi(x,t)$ - angle integrated intensity $\left[ \frac{energy}{area-time} \right]$
-\item $T(x,t)$ - temperature
-\item $\sigma_{a}$ - absorption opacity  $\left[ {length}^{-1} \right]$
-\item $\sigma_{s}$ - scattering opacity  $\left[ {length}^{-1} \right]$
-\item $C_v$ - heat capacity $\left[ \frac{energy}{volume-temperature} \right]$
-\item $B$ - Planck function $\left[ \frac{energy}{area-time-ster} \right]$
-\end{itemize}
+\begin{columns}[t]
+\column{0.6\textwidth}
+\footnotesize
+$I(x,\mu_d,t)$- intensity $\left[ \frac{energy}{area-time-ster} \right]$ \\
+$\phi(x,t)$- angle integrated intensity $\left[ \frac{energy}{area-time} \right]$ \\
+$B(T) = \frac{acT^4}{4\pi}$- Planck function $\left[ \frac{energy}{area-time-ster} \right]$ \\
+$C_v(x,T)$- heat capacity $\left[ \frac{energy}{volume-temperature} \right] $
+\column{0.5\textwidth}
+\footnotesize
+$T(x,t)$- temperature \\
+$\sigma_{a}(x,T)$- absorption opacity  $\left[ {length}^{-1} \right]$ \\
+$\sigma_{s}(x,T)$- scattering opacity  $\left[ {length}^{-1} \right]$ 
+\end{columns}
 \end{frame}
+
 
 \begin{frame}
 \frametitle{Solution Methodology}
 \begin{enumerate}
 \item Linearize Planckian in temperature
+\small
+\bea
+B(T) &\approx& B(T_*) + \frac{d B}{d T} \bigg \lvert_{T=T_*} (T - T_*)\\
+B_*& =& B(T_*),~D_* = \frac{d B}{d T} \bigg \lvert_{T=T_*} \\
+B &\approx& B_* + D_*(T-T_*)
+\eea
+\normalsize
 \item Expand Planckian in $P$ degree trial space
-\item Use temperature equation to make radiation equation linear (for a given temperature iterate)
-\item Ignore non-linearity of material properties
+\small
+\be
+B(\widetilde{T}) \approx \sum_{j=1}^{N_P}{ B(T_j) \B{j}(s) }
+\ee
+\normalsize
+\item Linearize (for given temperature iterate) radiation equation using temperature equation 
+\item Ignore material properties contributions to Jacobian
 \item Assume SDIRK time integration
-\item Iterate for temperature using damped Newton iteration, with time step control
+\item Newton-Picard iteration for temperature
 \end{enumerate}
 \end{frame}
 
-\subsection{Spatially Analytic}
+\subsection{SDIRK}
 \begin{frame}
-\frametitle{Spatially Analytic Linearized TRT Radiation Equation}
+\frametitle{SDIRK- S-stable Diagonally Implicit Runge-Kutta}
+\small
+Solves problems of the form:
+\bea
+g(t=0) &=& g_0 \\
+g'(t) &=& f(t,g)
+\eea
+With the following relations
 \benum
-\mu_d \frac{\partial I_i}{\partial x} + \sigma_{\tau,i} = \frac{1}{4\pi} \sigma_s \phi_i + \frac{1}{4\pi}\nu_i \sigma_a \phi_i + \xi_i 
+g_{n+1} = g_n + \Delta t \sum_{i=1}^{N_{stage}}{b_i k_i} 
+\label{eq:sdirk_middle}
+\eenum
+\be
+k_i = f\left( t_n + c_i \Delta t ~,~g_{n} + \Delta t \sum_{j=1}^i{a_{ij} k_j }\right) 
+\ee
+\eqt{eq:sdirk_middle} can also be interpreted as:
+\be
+g_i = g_{n} + \Delta t \sum_{j=1}^i{a_{ij} f\left(t_n + \Delta t c_j , g_j\right)} \pec
+\ee
+$a_{ij}$,~$b_i$,~$c_{i}$ are all constants inherent to a given scheme
+\end{frame}
+
+\subsection{Spatially Analytic Linearization}
+\begin{frame}
+\frametitle{TRT Time Discretization}
+Manipulating analytic equations, $k$ of stage $s$ are:
+\bea
+k_{I,s} &=& c\left[ \frac{1}{4\pi}\sigma_{s}(T_s) \phi_s + \sigma_a(T_s) B(T_s) + S_I(t_s) - \mu_d \frac{\partial I_s}{\partial x} - \sigma_t(T_s) I_s \right] \\
+k_{T,s} &=& \frac{1}{C_v(T_s)} \left[ \sigma_a(T_s) \left( \phi_s - 4\pi B(T_s) \right) + S_T(t_s) \right]
+\eea
+SDIRK stage $1$ intensity and temperature relations:
+\be
+I_1 = I_n + a_{11} \Delta t c \left[ \frac{1}{4\pi}\sigma_{s} \phi_1 + \sigma_a B+ S_I - \mu_d \frac{\partial I_1}{\partial x} - \sigma_t I_1 \right] 
+\ee
+\be
+T_1 = T_n +\frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi B \right) + S_T  \right] 
+\ee
+\end{frame}
+
+\begin{frame}
+\frametitle{Manipulate Temperature Equation}
+Linearize temperature equation
+\be
+T_1 = T_n + \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi \left(  B_* + D_*  \left(  T_1 - T_* \right)  \right) \right) + S_T  \right] 
+\ee
+Manipulate and arrive at
+\begin{multline}
+T_1 = T_* + \left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \dots \\
+ \left( T_n - T_* + \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi   B_* \right) + S_T \right]  \right)
+\label{eq:temp_eq}
+\end{multline}
+\end{frame}
+
+\begin{frame}
+\frametitle{Linearize Radiation Equation}
+Insert \eqt{eq:temp_eq} into linearized stage 1 intensity equation:
+\begin{multline*}
+I_1 = I_n + a_{11} \Delta t c \left[ \frac{1}{4\pi}\sigma_{s} \phi_1 + \sigma_a \left(B_* + D_*(T_1 - T_*)  \right) \right]\dots \\ 
++ a_{11} \Delta t c\left[ S_I - \mu_d \frac{\partial I_1}{\partial x} - \sigma_t I_1 \right] \pep
+\end{multline*}
+Manipulate  extensively to achieve
+\benum
+\mu_d \frac{\partial I_1}{\partial x} + \sigma_{\tau,1} = \frac{1}{4\pi} \sigma_s \phi_1 + \frac{1}{4\pi}\nu_1 \sigma_a \phi_1 + \xi_1 
 \label{eq:analytic_pseudo_i}
 \eenum
+\end{frame}
+
+\begin{frame}
+\frametitle{Spatially Analytic Linearized TRT Radiation Equation}
 \begin{subequations}
 \benum
-\nu_i = \frac{ 4\pi a_{ii} \Delta t \sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} 
+\nu_1 = \frac{ 4\pi a_{ii} \Delta t \sigma_a D_*}{C_v + 4\pi a_{11} \Delta t  \sigma_a D_*} 
 \label{eq:analytic_nu}
 \eenum
 \benum
-\sigma_{\tau,i} = \frac{1}{a_{ii} \Delta t c} + \sigma_t 
+\sigma_{\tau,1} = \frac{1}{a_{11} \Delta t c} + \sigma_t 
 \label{eq:tau_i_analytic}
 \eenum
-\begin{itemize}
-\item $a_{ii}$ is an SDIRK constant
-\item $D_*$ is Planck derivative:
-\be 
-D_* = \frac{\p B}{\p T}\bigg \lvert_{T=T_*} 
-\ee
-\end{itemize}
-%\begin{multline}
-%\xi_i = \sigma_a B_* + S_I +  \frac{1}{a_{ii} \Delta t c} I_n + \frac{1}{a_{ii} c} \sum_{j=1}^{i-1}{a_{ij} k_{I,j}}  + \dots  \\ 
-%\sigma_a D_*\left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} 
-%\left( T_n - T_* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} +  \dots \right.\\
-%\left.   \frac{a_{ii} \Delta t }{C_v}  \left( S_T -  4\pi  \sigma_a B_*   \right) \right) 
-%\end{multline}
+\begin{multline}
+\xi_1 = \sigma_a B_* + S_I +  \frac{1}{a_{11} \Delta t c} I_n  + \dots  \\ 
+\sigma_a D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} 
+\left( T_n - T_* +  \frac{a_{11} \Delta t }{C_v}  \left( S_T -  4\pi  \sigma_a B_*   \right) \right) 
+\end{multline}
 \end{subequations}
+\end{frame}
+
+\begin{frame}
+\frametitle{Multi-Stage SDIRK Requires Minor Adaptation}
+Only one term added to temperature equation:
+\be
+T_i = T_n + \highlight{ \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} } + \frac{a_{ii} \Delta t }{C_v} \left[ \sigma_a \left( \phi_i - 4\pi \left[ B_* + D_*(T_i - T_*) \right] \right) + S_T  \right] 
+\ee
+\begin{multline*}
+T_i = T_* + \left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \\
+\left( T_n - T_* + \highlight{ \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} } +  \frac{a_{ii} \Delta t }{C_v} \left[ \sigma_a \left( \phi_i - 4\pi   B_* \right) + S_T \right]  \right)
+\end{multline*}
+Performing the radiation equation linearization still yields:
+\end{frame}
+
+\begin{frame}
+\frametitle{Multi-Stage SDIRK Requires Minor Adaptation}
+Transport equation linearization still yields:\
+\be
+\mu_d \frac{\partial I_i}{\partial x} + \sigma_{\tau,i} = \frac{1}{4\pi} \sigma_s \phi_i + \frac{1}{4\pi}\nu_i \sigma_a \phi_i + \highlight{ \xi_i} 
+\ee
+\vspace{-0.2in}
+\small
+\bea
+\nu_i &=&  \frac{ 4\pi a_{ii} \Delta t \sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \\
+\sigma_{\tau,i} &=& \frac{1}{a_{ii} \Delta t c} + \sigma_t
+\eea
+\vspace{-0.2in}
+\begin{multline*}
+\xi_i = \sigma_a B_* + S_I +  \frac{1}{a_{ii} \Delta t c} I_n + \highlight{ \frac{1}{a_{ii} c} \sum_{j=1}^{i-1}{a_{ij} k_{I,j}} }  + \dots  \\ 
+\sigma_a D_*\left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} 
+\left \{ T_n - T_* + \highlight{ \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} } \right. \\
+\left. +   \frac{a_{ii} \Delta t }{C_v}  \left( S_T -  4\pi  \sigma_a B_*   \right) \right \}
+\end{multline*}
 \end{frame}
 
 \subsection{Spatially Discretized}
 \begin{frame}
 \frametitle{Spatially Discretized Equations}
+Nearly identical result for spatially discretizing then manipulating:
+\be
+\vec{k}_{I}= c \M^{-1} 
+\left[
+\frac{1}{4\pi}\R{\sigma_s}\vec{\phi} + \R{\sigma_a}\vec{B} - \R{\sigma_t} \vec{I} - \mu_d\mathbf{G}\vec{I} + \mu_d I_{in} \vec{f}+ \vec{S}_I
+\right]
+\ee
+\be
+\vec{k}_T =  \R{C_v}^{-1}
+\left[ \R{\sigma_a} \left(\vec{\phi} - 4\pi\vec{B} \right) + \vec{S}_T \right] 
+\ee
+\vspace{-0.1in}
+\begin{multline*}
+\vec{I}_i = \vec{I}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{I,j}   } + 
+\Delta t a_{ii} c \M^{-1}\left \{ \frac{1}{4\pi}\R{\sigma_s}\vec{\phi}_i + \right. \\
+\left. \R{\sigma_a}\left(\vec{B}_* + \D \left(\vec{T}_i -\vec{T}_*  \right)   \right)- \R{\sigma_t} \vec{I}_i - \mu_d \mathbf{G}\vec{I}_i + \mu_d I_{in,i} \vec{f}+ \vec{S}_I
+\right\}
+\end{multline*}
+\vspace{-0.1in}
+\begin{multline*}
+\vec{T}_i = \vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   } + \\
+\Delta t a_{ii}\R{C_v}^{-1}\left[
+\R{\sigma_a}\left(\vec{\phi}_i - 4\pi\vec{B}_* - 4\pi\D\left( \vec{T}_i - \vec{T}_* \right)\right) + \vec{S}_T 
+\right] 
+\end{multline*}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Definitions}
+\vspace{-0.2in}
 \be
 \mu_d\mathbf{G} \vec{I}_i + \overline{\overline{\mathbf R}}_{\sigma_{\tau},i}\vec{I}_i = \frac{1}{4\pi}\R{\sigma_s}\vec{\phi}_i + \frac{1}{4\pi}\overline{\overline{\mathbf \nu}}_i \R{\sigma_a}\vec{\phi}_i + \overline{\overline{\mathbf \xi}}_{d,i} + \mu_d\vec{f}I_{in,i}
 \ee
+\vspace{-0.1in}
 \begin{itemize}
 \item $\mathbf{G}$ - local gradient operator (for $\mu_d > 0$)
 \be
@@ -278,10 +525,11 @@ D_* = \frac{\p B}{\p T}\bigg \lvert_{T=T_*}
 -\B{i}(1)  & \text{  for } \mu_d<0 
 \end{array}\right.
 \ee
-\item $\mathbf{R}_{\sigma_t}$ - reaction matrix for material property $f$
+\item $\mathbf{I}$ - $N_P \times N_P$ identity matrix
+\item $\D$ - diagonal matrix of Planck derivatives
 \be
-\frac{\Delta x}{2}\int_{-1}^1{\sigma_t(s)\B{i}(s)\B{j}(s)~ds} \pep
-\ee
+\mathbf{D}_{*,ii} = \frac{d B}{d T} \bigg \lvert_{T = T_{i,*}} \pep
+\ee 
 \end{itemize}
 %with 
 %\bea
@@ -291,28 +539,28 @@ D_* = \frac{\p B}{\p T}\bigg \lvert_{T=T_*}
 \end{frame}
 
 \begin{frame}
-\frametitle{More Terms}
+\frametitle{``Fission'' Terms}
 \bea
 \overline{\overline{\mathbf \nu}}_i &=& 4\pi \Delta t a_{ii} \R{\sigma_a} \D \left[\mathbf{I} + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}\R{C_v}^{-1}
 \\
 \overline{\overline{\mathbf R}}_{\sigma_{\tau},i} &=& \R{\sigma_t} + \frac{1}{c\Delta t a_{ii}}\M \pec
 \eea
-\begin{itemize}
-\item $\mathbf{I}$ - $N_P \times N_P$ identity matrix, $N_P = P+1$ 
-\item $\M$ - mass matrix
-\item $\D$ - diagonal matrix of Planck derivatives
-\be
-\mathbf{D}_{*,ii} = \frac{d B}{d T} \bigg \lvert_{T = T_{i,*}} \pep
-\ee 
-\end{itemize}
+\begin{multline*}
+\overline{\overline{\mathbf \xi}}_{d,i}  = \frac{1}{c\Delta t a_{ii}}\M\vec{I}_n + \frac{1}{c a_{ii}} \M \sum_{j=1}^{i-1}{a_{ij} k_{I,j}   } + \R{\sigma_a}\vec{B}_*  + \vec{S}_I \dots \\
++ \R{\sigma_a} \D
+\left[\mathbf{I} + 4\pi \Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a} \D \right]^{-1}
+\left \{
+\vec{T}_n - \vec{T}_* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j} }  \right.  \\
+\left. + \Delta t a_{ii} \R{C_v}^{-1}\left[\vec{S}_T - 4\pi\R{\sigma_a} \vec{B}_* \right] \right \} 
+\end{multline*}
 \end{frame}
 
 \subsection{What is D}
 \begin{frame}
 \frametitle{MIP Diffusion Coefficient}
-MIP diffusion operator defined for a problem of the form:
+Modified Interior Penalty (MIP) diffusion operator defined for a problem of the form:
 \be
-\nabla \widetilde{D} \nabla \phi + \widetilde{\Sigma_a} \phi = S
+-\nabla \widetilde{D} \nabla \phi + \widetilde{\Sigma_a} \phi = S
 \ee
 \vspace{-0.2in}
 \begin{itemize}
@@ -324,105 +572,91 @@ MIP diffusion operator defined for a problem of the form:
 \R{\widetilde{\Sigma}_s} &=& \overline{\overline{\mathbf \nu}}_i \R{\sigma_a} + \R{\sigma_s}
 \eea
 \end{itemize}
-If  the spatially analytic linearization and spatially discretized linearization yield the same $\R{\widetilde{\Sigma}_t}$ in theory we can use MIP accelerator
+If  the spatially analytic linearization and spatially discretized linearization yield the same $\R{\widetilde{\Sigma}_t}$ we'll argue that we have a consistently defined diffusion coefficient
 
 \end{frame}
 
 \begin{frame}
 \frametitle{Equivalence for $\widetilde{\Sigma}_t$}
-If we establish 
-\be
-\overline{\overline{\mathbf R}}_{\sigma_{\tau,i}} = \R{\sigma_{\tau,i}} \pec
-\ee
-we may then evaluate
-\be
-\widetilde{D} = \frac{1}{3\widetilde{\Sigma}_t} \pep
-\ee
-at all necessary points.
-\\
-\vspace{0.2in}
+\small
 By definition:
 \be
 \R{\sigma_{\tau,i},jk} = \frac{\Delta x}{2} \int_{-1}^{1}{\B{j}(s) \B{k}(s) \left( \sigma_t(s) + \frac{1}{c a_{ii} \Delta t}  \right)~ds}
 \ee
-\end{frame}
-
-\begin{frame}
-\frametitle{Equivalence for $\widetilde{\Sigma}_t$}
 Likewise
 \bea
 \overline{\overline{\mathbf R}}_{\sigma_{\tau,i}} &=& \frac{1}{a_{ii} c \Delta t} \M + \R{\sigma_t} \\
-\overline{\overline{\mathbf R}}_{\sigma_{\tau,i}} &=& \frac{1}{a_{ii} c \Delta t} \frac{\Delta x}{2} \int_{-1}^1{\B{j}(s) \B{k}(s) ~ds} + \frac{\Delta x}{2} \int_{-1}^1{ \sigma_t(s) \B{j}(s) \B{k}(s)~ds} \\
-\overline{\overline{\mathbf R}}_{\sigma_{\tau,i},jk} &=& \frac{\Delta x}{2} \int_{-1}^1{ \left(\frac{1}{a_{ii} c \Delta t} + \sigma_t(s)  \right) \B{j}(s) \B{k}(s)~ds} \\
+\overline{\overline{\mathbf R}}_{\sigma_{\tau,i},jk} &=& \frac{1}{a_{ii} c \Delta t} \frac{\Delta x}{2} \int_{-1}^1{\B{j}(s) \B{k}(s) ~ds} + \frac{\Delta x}{2} \int_{-1}^1{ \sigma_t(s) \B{j}(s) \B{k}(s)~ds} \\
+\overline{\overline{\mathbf R}}_{\sigma_{\tau,i},jk} &=& \frac{\Delta x}{2} \int_{-1}^1{  \B{j}(s) \B{k}(s) \left(\frac{1}{a_{ii} c \Delta t} + \sigma_t(s)  \right) ~ds} \\
 & & ~~~~ \therefore  \overline{\overline{\mathbf R}}_{\sigma_{\tau,i},jk} = \R{\sigma_{\tau,i},jk}
 \eea
-This does not hold for $\widetilde{\Sigma}_a$, unless using SLXS or cell-wise constant schemes.  For generality, we define:
+This does not generally hold for $\widetilde{\Sigma}_a$, unless using SLXS or cell-wise constant schemes.  For generality, we define:
 \be
 \R{\widetilde{\Sigma}_a} = \overline{\overline{\mathbf R}}_{\sigma_{\tau,i}}  - \left( \R{\sigma_s} + \overline{\overline{\nu}}_i \R{\sigma_a} \right) 
 \ee
 \end{frame}
 
-\begin{frame}
-\frametitle{MIP Iterative Effectiveness}
-\centering
-Iteration Count for Upcoming Results
-\footnotesize
-\begin{tabular}{|c|c|c|c|}
-\hline
-Problem Description & Scheme & Average DSA+SI & Average SI \\
-{}									&				 &  Iterations & Iterations  \\
-\hline
-MMS Constant Time	 & Cubic 			 & 1.6 & 2.3 \\
-8 cells 						& SLXS Lobatto & {} & {} \\
-\hline
-MMS1 						& Quadratic 		& 2.0 & 13.5 \\
-2 cells 				& SLXS Gauss 		& {}  & {} \\
-\hline
-MMS2 						& Linear	 & 1.0 & 2.7 \\
-2 cells 					& SLXS Gauss & {} & {} \\
-\hline
-MMS Constant Space 									& Quartic 				 & 17.0 & 39.0 \\
-Alexander 3-3, $\Delta t=1$					& SLXS Lobatto 			& {}  & {} \\
-\hline
-MMS Constant Space 										& Quartic 				 & 2.3 & 4.9 \\
-Alexander 3-3, $\Delta t=\frac{1}{128}$	& SLXS Lobatto 			& {}  & {} \\
-\hline
-Marshak Wave 									&  Linear			 & 2.1 & 2.9 \\
-20 cells, largest $\Delta t$	& SLXS Lobatto & {} 		 & {} \\
-\hline
-\end{tabular}
-\end{frame}
+%\begin{frame}
+%\frametitle{MIP Iterative Effectiveness}
+%\centering
+%Iteration Count for Upcoming Results
+%\footnotesize
+%\begin{tabular}{|c|c|c|c|}
+%\hline
+%Problem Description & Scheme & Average DSA & Average SI \\
+%{}									&				 &  Iterations & Iterations  \\
+%\hline
+%MMS Constant Time	 & Cubic 			 & 1.6 & 2.3 \\
+%8 cells 						& SLXS Lobatto & {} & {} \\
+%\hline
+%MMS1 						& Quadratic 		& 2.0 & 13.5 \\
+%2 cells 				& SLXS Gauss 		& {}  & {} \\
+%\hline
+%MMS2 						& Linear	 & 1.0 & 2.7 \\
+%2 cells 					& SLXS Gauss & {} & {} \\
+%\hline
+%MMS Constant Space 									& Quartic 				 & 17.0 & 39.0 \\
+%Alexander 3-3, $\Delta t=1$					& SLXS Lobatto 			& {}  & {} \\
+%\hline
+%MMS Constant Space 										& Quartic 				 & 2.3 & 4.9 \\
+%Alexander 3-3, $\Delta t=\frac{1}{128}$	& SLXS Lobatto 			& {}  & {} \\
+%\hline
+%Marshak Wave 									&  Linear			 & 2.1 & 2.9 \\
+%20 cells, largest $\Delta t$	& SLXS Lobatto & {} 		 & {} \\
+%\hline
+%\end{tabular}
+%\end{frame}
 
 \begin{frame}
-\frametitle{Designed Optically Thick Problem}
+\frametitle{Designed Optically Thick and Diffusive Problem}
 $S_8$, 50 cells, P1 SLXS Lobatto, IE SDIRK, initially cold slab with $T=0.5$.
-Incident current of 100 on LHS, vacuum RHS.
-\centering
-\bea
-a=&c&=1 \\
-C_v &=& 0.05\\
-\sigma_a& = &\frac{5000}{T^2} \\
-\sigma_s &=& 0 \\
-x&\in&[0,100]\\ 
-t&\in&[0,5] \\ 
-\Delta t_{max} &=& 0.1 \\
-\eea
+Incident current of 100 on LHS, vacuum RHS, $a=c=1$, $x\in[0,100]$, $t\in[0,5]$, $\Delta t_{max} = 0.1$, $C_v =0.05$, $\sigma_a =\frac{5000}{T^2}$, and $\sigma_s = 0$. 
+\begin{center}
 \footnotesize
 \begin{tabular}{|c|c|}
 \hline	
 Iterative Strategy		& Average Iterations  \\
 \hline
-SI+MIP				&   2.5  \\ 
+Diffusion Synthetic Acceleration				&   2.5  \\ 
 \hline
-SI  &   4460.7 \\
+Source Iteration Alone  &   4460.7 \\
 \hline
 \end{tabular}
 %
+\end{center}
+Quick estimate of scattering ratio
+\be
+\frac{\widetilde{\Sigma}_s}{\widetilde{\Sigma}_t} = \frac{\nu \sigma_a }{\sigma_{\tau}}
+\ee
+using $T = \max\left[\widetilde{T}(x,t_{end})\right]\approx 4, ~\sigma_a = 313~,~\sigma_{\tau} = 323$:
+\bea 
+\nu &=& 0.99999376 \\
+\frac{\widetilde{\Sigma}_s}{\widetilde{\Sigma}_t} &\approx& 0.97
+\eea
+
 \end{frame}
 
-\section{Su-Olson Problem}
-\subsection{Commonalities}
-
+\subsection{Solution Algorithm}
 \begin{frame}
 \frametitle{Solution Algorithm}
 \lstinputlisting[	basicstyle = \scriptsize,
@@ -430,18 +664,9 @@ SI  &   4460.7 \\
 									label = lst:pseudo_code]{presentation_iteration_pseudo_code.txt}
 \end{frame}
 
-\begin{frame}
-\frametitle{Numerical Methods}
-\begin{enumerate}
-\item {\bf TL}- traditional lumping, equally spaced DFEM interpolation points, volume average $C_v$ and $\sigma$, for historical comparison 
-\item {\bf SL Lobatto}- self-lumping, Lobatto DFEM interpolation points, volume average $C_v$ and $\sigma$ 
-\item {\bf SL Gauss}- self-lumping, Gauss DFEM interpolation points, volume average $C_v$ and $\sigma$  
-\item {\bf SLXS Lobatto}- self-lumping incorporating spatial variation of material properties, Lobatto DFEM interpolation points 
-\item {\bf SLXS Gauss}- self-lumping incorporating spatial variation of material properties, Gauss DFEM interpolation points
-\end{enumerate}
-\end{frame}
 
-\subsection{Su Olson}
+\section{TRT Results}
+\subsection{Su-Olson}
 \begin{frame}
 \frametitle{Su-Olson Description}
 \begin{itemize}
@@ -450,41 +675,41 @@ SI  &   4460.7 \\
 \item Constant opacity
 \item $C_v = \alpha T^3$
 \begin{itemize}
-\item $C_v$ assumption causes TRT equations to be linear in $I$ and $T^4$/material energy density
-\item Computationally challenging if not tracking material energy density(IMC)
+\item $C_v$ assumption causes TRT equations to be linear in $I$ and $T^4$/material internal energy density
+\item Iteratively challenging if fundamental unknown is temperature, not material internal energy density
 \item We impose
 \end{itemize}
 \be
 C_v = \epsilon + \alpha T^3
 \ee
 \end{itemize}
-We choose $\sigma_a = 1,~\sigma_s = 0,~a=c=1,~\& \alpha = 4$. 
+We choose $\sigma_a = 1,~\sigma_s = 0,~a=c=1,~\alpha = 4,~\text{and } \epsilon=10^{-8}$. 
 We truncate the half-space to be $x\in[0,10]$ and the source is located in $x\in[0,0.5]$.
 \end{frame}
 
-
-\begin{frame}
-\frametitle{Su-Olson Results with $S_2$}
-
-\begin{columns}[t]
-\column{0.48\textwidth}
-\centering
+%
+%\begin{frame}
+%\frametitle{Su-Olson Results with $S_2$}
+%
+%\begin{columns}[t]
+%\column{0.48\textwidth}
+%\centering
 %\begin{figure}[!htp]
-\includegraphics[width=5cm,trim=1.75in  0.5in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Radiation_Energy.pdf}
+%\includegraphics[width=5cm,trim=1.75in  0.5in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Radiation_Energy.pdf}
 %\caption{$S_2$ radiation energy density profile for Su-Olson problem.}
 %\label{fig:su_olson_s2_rad}
 %\end{figure}
 %\begin{figure}[!hbp]
 %\centering
-\column{0.48\textwidth}
-\centering
-\includegraphics[width=5cm,trim=1.75in  0.5in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Material_Energy.pdf}
+%\column{0.48\textwidth}
+%\centering
+%\includegraphics[width=5cm,trim=1.75in  0.5in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Material_Energy.pdf}
 %\caption{$S_2$ material energy density profile for Su-Olson problem.}
 %\label{fig:su_olson_s2_mat}
 %\end{figure}
-\end{columns}
-Calculated using 200 cells, linear SLXS Lobatto, $\Delta t = 10^{-3}$
-\end{frame}
+%\end{columns}
+%Calculated using 200 cells, linear SLXS Lobatto, $\Delta t = 10^{-3}$
+%\end{frame}
 
 \begin{frame}
 \frametitle{Su-Olson Results with $S_8$}
@@ -502,7 +727,6 @@ Calculated using 200 cells, linear SLXS Lobatto, $\Delta t = 10^{-3}$
 Calculated using 200 cells, linear SLXS Lobatto, $\Delta t = 10^{-3}$
 \end{frame}
 
-\section{MMS}
 \subsection{MMS}
 
 \begin{frame}
@@ -563,6 +787,530 @@ x &\in & [0,10]
 \end{frame}
 
 
+\subsection{MMS2}
+\begin{frame}
+\frametitle{Variable Material Properties Problem- MMS2}
+\bea
+M(\mu_d) &=& \frac{1}{4\pi} \\
+W_I(x) &=& 9 \cos\left( \frac{\pi x}{10} - \frac{\pi}{2} \right) + 3  \\
+W_T(x) &=&  5 \cos\left( \frac{\pi x}{10} - \frac{\pi}{2} \right) + 5 \\
+F(t) &=&  1 + .02t \\
+C_v &=& 0.2 + 0.01 T^3 \\
+\sigma_a &=& \frac{10^4}{T^3} \\
+\sigma_s &=& 0.5 
+\eea
+3-3 Alexander, $\Delta t = 10^{-3}$
+\end{frame}
+
+\begin{frame}
+\frametitle{Must Account for Spatially Varying Material Properties}
+SL Gauss, $P\in[1,4]$.  Limited $L^2$ convergence.
+\begin{columns}[t]
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_phi_L2.pdf}
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_L2.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{This Is Not a Pure Absorber Test Problem}
+SL Gauss, $P\in[1,4]$.  
+\begin{columns}[t]
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_phi_A.pdf}
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_A.pdf}
+\end{columns}
+In a neutron transport pure absorber test problem, cell-wise constant cross section assumption yields poor $L^2$ convergence, but very accurate cell average interaction rates. 
+\end{frame}
+
+\begin{frame}
+\frametitle{SLXS $E_{\phi}$ Convergence}
+\begin{columns}[t]
+\column{0.5\textwidth}
+\centering
+SLXS Lobatto
+\includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Lobatto_phi_L2.pdf}
+\\
+$\propto P+1$
+\column{0.5\textwidth}
+\centering
+SLXS Gauss
+\includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_phi_L2.pdf}
+\\
+$\propto P+1$
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Plateauing of Errors}
+Caused by point-wise relative change convergence criteria.  For temperature:
+\bea
+\text{err\_t} &=& \max_{c=1}^{N_{cells}} \left[ ~\max_{j=1}^{N_P} \left[  ~\abs{ \frac{ \Delta T_j }{ T_{j,*} } } ~\right] ~\right] \\
+\text{converged} &=& \text{err\_t} < \epsilon_T
+\eea
+All MMS results generated with $\epsilon_T = 10^{-11},~\epsilon_{\phi}=10^{-13}$. 
+\end{frame}
+
+\begin{frame}
+\frametitle{Looser Tolerances}
+SLXS Gauss $E_{\phi}$ convergence if ...
+\vspace{0.1in}
+\begin{columns}[t]
+\column{0.5\textwidth}
+\centering
+$\epsilon_T = 10^{-8},~\epsilon_{\phi}=10^{-10}$
+\includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS3_Low_Tol_First_SLXS_Gauss_phi_L2.pdf}
+\column{0.5\textwidth}
+\centering
+$\epsilon_T = 10^{-11},~\epsilon_{\phi}=10^{-13}$
+\includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_phi_L2.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{SLXS $E_T$ Convergence}
+\begin{columns}[t]
+\column{0.5\textwidth}
+\centering
+SLXS Lobatto
+\includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Lobatto_temp_L2.pdf}
+\\
+$\propto P$
+\column{0.5\textwidth}
+\centering
+SLXS Gauss
+\includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_temp_L2.pdf}
+\\
+$\propto P+1$
+\end{columns}
+\end{frame}
+
+\subsection{Marhsak Wave}
+\begin{frame}
+\frametitle{Marshak Wave Problem}
+Unit current incident intensity on left face.  Vacuum right boundary condition.  Initially cold slab.  No analytic solution.
+\bea
+a&=&c=C_v = 1 \\
+x&\in&[0,1] \\
+t&\in&[0,1]  \\
+T_0^4& =& 1E-5 \\
+\sigma_s &=& 0 \\
+\sigma_a &=& \frac{1}{T^3}
+\eea
+\end{frame}
+
+\begin{frame}
+\frametitle{Blading with Cell-Wise Constant Assumption}
+Linear TL, volumetric average opacity
+\begin{columns}[t]
+\column{0.5\textwidth}
+\centering
+Radiation energy density
+\includegraphics[width=\textwidth,trim=1.2in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/Reorder_Blading_Radiation_Full_MultiCell.pdf}
+\column{0.5\textwidth}
+\centering
+Material temperature
+\includegraphics[width=\textwidth,trim=1.2in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/Reorder_Blading_Temperature_Full_MultiCell.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{SLXS Treatment}
+Linear SLXS Lobatto
+\begin{columns}[t]
+\column{0.5\textwidth}
+\centering
+Radiation energy density
+\includegraphics[width=\textwidth,trim=1.2in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/SLXS_Lobatto_80_Cells_Radiation.pdf}
+\column{0.5\textwidth}
+\centering
+Material temperature
+\includegraphics[width=\textwidth,trim=1.2in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/SLXS_Lobatto_80_Cells_Temperature.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Time Resolution Cannot Be Neglected}
+\centering
+Quartic SLXS Lobatto, 1280 mesh cells, 2-2 SDIRK, $\Delta t = 0.01$
+\\
+\vspace{0.1in}
+\includegraphics[width=0.9\textheight,trim=1.0in  0.2in 0.5in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Radiation.pdf}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Extreme Zoom of $S_2$ Radiation Energy Density}
+\begin{columns}[t]
+\column{0.7\textwidth}
+\includegraphics[height=0.8\textheight,trim=1.0in  0.75in 1.0in 1.0in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/Zoom_10k_Phi.pdf}
+\column{0.3\textwidth}
+\begin{itemize}
+\item Log scaly $y$-axis
+\item Gaps caused by negative radiation energy densities
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{$S_2$ vs $S_8$}
+\begin{columns}[t]
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=2.5in,trim=1.0in  0.5in 0.2in 0.6in,clip=true]{../chapter6_grey_radtran/S8_vs_S2_Material_Temperature.pdf}
+\column{0.5\textwidth}
+\centering
+\includegraphics[width=2.5in,trim=1.0in  0.3in 0.2in 0.5in,clip=true]{../chapter6_grey_radtran/S8_vs_S2_Radiation_Energy_Density.pdf}
+\end{columns}
+\centering
+5000 mesh cells, P4 SLXS Gauss, 5k time steps, 2-2 scheme
+\end{frame}
+
+\begin{frame}
+\frametitle{$S_8$ Angular Intensity}
+\centering
+\includegraphics[width=\textwidth,trim=1.5in  0.5in 1.0in 1in,clip=true]{../chapter6_grey_radtran/S8_Intensity_SemiLogy.pdf}
+\end{frame}
+
+\begin{frame}
+\frametitle{Wavefront Boundary Layers}
+\centering
+\includegraphics[width=1.05\textwidth,trim=1.75in  0.2in 1in 0.75in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/S8_thermal_wavefront_boundary_layer.pdf}
+\end{frame}
+
+\begin{frame}
+\frametitle{Need More Resolution for Interior Boundary Layer}
+\centering
+\includegraphics[height=0.8\textheight,trim=0.5in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/S8_pos_mu_glance_boundary_layer_log.pdf}
+\end{frame}
+
+\begin{frame}
+\frametitle{$S_8$ vs $S_{32}$ Solutions}
+\centering
+\includegraphics[width=0.75\textwidth,height=0.4\textheight,trim=1.5in  0.2in 0.5in 0.75in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Material_Temperature.pdf}
+%
+\\
+\includegraphics[width=0.75\textwidth,height=0.4\textheight,trim=1.5in  0.2in 0.5in 0.75in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Radiation.pdf}
+\\
+$S_{32}$ solution- 1000 mesh cells, quartic SLXS Gauss, 5000 time steps
+\end{frame}
+
+\begin{frame}
+\frametitle{$S_{32}$, $\mu_d > 0$ intensities}
+
+\includegraphics[width=\textwidth,trim=1.5in  0.2in 0.5in 0.75in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/S32_Intensity.pdf}
+
+\end{frame}
+
+\section{Conclusions}
+\subsection{Conclusions}
+\begin{frame}
+\frametitle{Conclusions}
+In this research we have
+\begin{enumerate}
+\item Developed a matrix lumping framework that is effective for arbitrary order DFEM trial space degree
+\item Demonstrated the need to consider spatial variation of material properties
+\item Applied MIP diffusion operator to TRT acceleration
+\item Applied higher order DFEM to grey TRT
+\item Examined the asymptotic accuracy of higher order DFEM for coupled grey TRT problems
+\item Generated high order, high resolution discrete ordinates results for grey TRT problems 
+\end{enumerate}
+\end{frame}
+
+\subsection{Long Term Future Work}
+\begin{frame}
+\frametitle{Potential Future Work}
+\begin{itemize}
+\item Complete multi-frequency capabilities
+\item Diffusion limit analysis of higher order DFEM
+\item Extend lumping framework to multiple spatial dimensions
+\end{itemize}
+\end{frame}
+
+\subsection{Acknowledgments}
+\begin{frame}
+\frametitle{Acknowledgments}
+Thanks for your time!
+\vspace{0.3in}
+Portions of this work were funded by the Department of Energy CSGF program, administered by the Krell Institute, under grant DE-FG02-97ER25308.
+\\
+\vspace{0.3in}
+Additional support was provided by the Department of Energy, National Nuclear Security Administration, under Award Number(s) DE-NA0002376.
+
+\end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Spatially Constant Cross Section}
+
+\begin{frame}
+\frametitle{Test Problem}
+Source-free pure absorber, left incident flux, $\psi_{in,d}$, vacuum right BC.
+
+Defining $h$:
+\be
+h = \frac{\sigma_t \Delta x}{\mu_d}
+\ee
+Analytic solution is
+\be
+\psi(x,\mu_d) = \psi_{in,d} \exp[-h]
+\ee
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Order of Convergence}
+Convergence of $\norm{ \widetilde{\psi} - \psi }_{L^2}$ as a function of $h$ 
+\begin{columns}[c]
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[width=5.5cm]{../chapter2_constant_xs/Cubic_L2_err-eps-converted-to.pdf}
+\caption{$P=3$.}
+\end{figure}
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[width=5.5cm]{../chapter2_constant_xs/Quartic_L2_err-eps-converted-to.pdf}
+\caption{$P=4$}
+\end{figure}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Summary of Constant Cross Section Discoveries}
+Positivity
+\begin{itemize}
+\item SL Gauss is strictly positive for even $P$
+\item SL Lobatto and SL Newton-Cotes: strictly positive for odd $P$
+\item TL not robust for $P>1$
+\end{itemize}
+Accuracy
+\begin{itemize}
+\item TL and SL Newton-Cotes converge $\norm{ \widetilde{\psi} - \psi }_{L^2} $ 2nd order for odd $P$, 3rd order for even $P$
+\item SL Lobatto and SL Gauss converge $\norm{ \widetilde{\psi} - \psi }_{L^2} \propto P+1$
+\end{itemize}
+Equivalence
+\begin{itemize}
+\item SL Gauss equivalent to Exact DFEM for all $P$
+\item TL = SL Lobatto = SL Newton-Cotes for $P=1,2$
+\end{itemize}
+\end{frame}
+
+\subsection{Spatially Varying Cross Section}
+
+\begin{frame}
+\frametitle{Test Problem}
+\begin{itemize}
+\item Spatially varying cross section of the form:
+\be
+\sigma_t(x) = c_1 e^{c_2 x}
+\ee
+\item Incident flux, $\psi_{in,d}$ on the left, vacuum on the right, no sources.
+\item Analytic Solution
+\be
+\psi(\mu_d,x) = \psi_{in,d}\exp\left[ \frac{c_1 }{\mu_d c_2 } \left(1- e^{c_2 x}  \right) \right] 
+\ee
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Additional Numerical Schemes}
+\begin{itemize}
+\item {\bf CXS DFEM}: Equally-spaced interpolation points, analytic integration.  Approximate cross section by cell average value
+\item {\bf SLXS Lobatto}: Lobatto interpolation points, self-lumping extended to account for cross section variation
+\item {\bf SLXS Gauss}: Gauss interpolation points, self-lumping extended to account for cross section variation
+\item {\bf SLXS Newton-Cotes}: Equally-spaced interpolation points, self-lumping extended to account for cross section variation
+\end{itemize}
+We will no longer consider the TL scheme.
+\end{frame}
+
+\begin{frame}
+\frametitle{Convergence Results}
+We examine the convergence of $E_{\psi}$ and $E_{\psi_{out}}$ for a pure absorber with
+\be
+\sigma_t(x) = 0.1~10^{2x}
+\ee
+and $x\in[0,1~cm]$.  We define the error quantities as:
+\bea
+E_{\psi} &=& \norm{ \widetilde{\psi}_d(x) - \psi(x,\mu_d)  }_{L^2} \\
+E_{\psi_{out}} &=& \sqrt{\sum_{i=1}^{N_{cells}}{\Delta x_i\left(\widetilde{\psi}_{out,i} - \psi(x_{i+1/2})  \right)^2   }}  
+\eea
+\end{frame}
+
+\begin{frame}
+\frametitle{$L^2$ Convergence}
+New Result: SLXS Lobatto and SLXS Gauss are accurate methods for spatially varying cross section problems
+\begin{columns}[c]
+\column{0.45\textwidth}
+\begin{figure}
+\includegraphics[width=5cm]{../chapter3_variable_xs/P3_VarXS_E_psi_L2.png}
+\caption{$P=3$ convergence plot.}
+\end{figure}
+\column{0.55\textwidth}
+Summary of Convergence Orders
+\begin{itemize}
+\item SLXS Gauss: $\propto P+1$
+\item SLXS Lobatto: $\propto P+1$, less accurate than SL Gauss
+\item SLXS Newton-Cotes: 2 if odd $P$, 3 if even $P$
+\item CXS DFEM: 2 regardless of $P$
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\subsection{Interaction Rate}
+
+\begin{frame}
+\frametitle{Interaction Rate}
+\begin{itemize}
+\item Analytic interaction rate
+\be
+ IR(x) = \sigma_t(x) \psi(x,\mu_d)
+\ee
+\item CXS DFEM approximation
+\be
+\widetilde{IR}(x) = \hat{\sigma}_t \widetilde{\psi}(x)
+\ee
+\item SLXS schemes:  Only point-wise knowledge of $\sigma_t(x)$ in DFEM equations
+\begin{itemize}
+\item Integrals: evaluate $\widetilde{IR}(x)$ with quadrature restricted to interpolation points
+\item Plotting purposes:
+\be
+\widetilde{IR}(x) = \sum_{j=1}^{P+1}{ \sigma_{t,j} \psi_j \B{j}(s) } 
+\ee
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{$L^2$ error of $\widetilde{IR}(x)$}
+
+New Result: SLXS Lobatto and SLXS Gauss Accurately Approximate $\widetilde{IR}(x)$
+\begin{columns}[c]
+\column{0.55\textwidth}
+\begin{figure}
+\includegraphics[width = 5cm]{../chapter3_variable_xs/P3_VarXS_E_I_L2.png}
+\caption{Cubic DFEM}
+\end{figure}
+\column{0.45\textwidth}
+Summary of Convergence Orders
+\begin{itemize}
+\item SL Gauss: $P+1$
+\item SL Lobatto: $P+1$
+\item SL Newton-Cotes: 2 for odd $P$, 3 for even $P$
+\item CXS DFEM: 1, regardless of trial space degree
+\end{itemize}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{$E_{IR_A}$ Convergence}
+\begin{columns}[c]
+\column{0.45\textwidth}
+\begin{figure}
+\includegraphics[width = 5cm]{../chapter3_variable_xs/P4_VarXS_E_I_A.png}
+\caption{Quartic DFEM}
+\end{figure}
+\column{0.55\textwidth}
+Summary of Convergence Orders
+\begin{itemize}
+\item SL Gauss: $2P+1$
+\item SL Lobatto: $2P$
+\item SL Newton-Cotes: $P+1$ for odd $P$, $P+2$ for even $P$
+\item CXS DFEM: $2P+1$, regardless of trial space degree
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{CXS DFEM Accuracy Calculating $IR_A$}
+\begin{itemize}
+\item How can CXS DFEM converge $E_{IR_A}$ so accurately?
+\item Local Conservation
+\be
+\text{Particles In} - \text{Particles Out} =  \text{Total Interactions} 
+\ee
+\item Particles In: Outflow from Previous Cell
+\item Particles Out: Outflow from Current Cell
+\item CXS DFEM converges angular flux outflow $\propto 2P+1$
+\item $\therefore$ CXS DFEM accurately calculates
+\be
+\text{Total Interactions} =\Delta x \left( \widetilde{IR}_A \right)
+\ee
+\end{itemize}
+\end{frame}
+
+
+\subsection{Blading}
+\begin{frame}
+\frametitle{CXS DFEM Interaction Rate Profile}
+
+\begin{block}{New to Dissertation}
+Observation and explanation of blading phenomena
+\end{block}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[width=5cm]{../chapter3_variable_xs/CXS_I_Profile.png}
+\caption{$\widetilde{IR}(x)$ profile.}
+\end{figure}
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[width=5cm]{../chapter3_variable_xs/CXS_I_A_Profile.pdf}
+\caption{Interpolated $\widetilde{IR}_A$ profile.}
+\end{figure}
+\end{columns}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Something Wrong with DFEM?}
+No.  Consider the analytic solution to a problem that has the cell-wise average cross section.
+\begin{columns}[c]
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[width=5cm]{../chapter3_variable_xs/Psi_Blades.pdf}
+\caption{Angular Flux.}
+\end{figure}
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[width=5cm]{../chapter3_variable_xs/I_Blades.pdf}
+\caption{Interaction Rate.}
+\end{figure}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Linear SL Lobatto Solution}
+\begin{block}{New to Dissertation}
+New: Self-lumping schemes do not exhibit blading
+\end{block}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[width=5cm]{../chapter3_variable_xs/SLXS_Psi_Profile.pdf}
+\caption{Angular Flux.}
+\end{figure}
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[width=5cm]{../chapter3_variable_xs/SLXS_I_Profile.pdf}
+\caption{Interaction Rate.}
+\end{figure}
+\end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{TRT Results}
+
 \begin{frame}
 \frametitle{Constant Material Properties- MMS1}
 \bea
@@ -617,84 +1365,8 @@ SL Gauss picks up an order for $T$?
 \includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS2_SLXS_Gauss_temp_L2.pdf}
 \end{columns}
 \end{frame}
-
 \begin{frame}
-\frametitle{Variable Material Properties- MMS2}
-\bea
-M(\mu_d) &=& \frac{1}{4\pi} \\
-W_I(x) &=& 9 \cos\left( \frac{\pi x}{10} - \frac{\pi}{2} \right) + 3  \\
-W_T(x) &=&  5 \cos\left( \frac{\pi x}{10} - \frac{\pi}{2} \right) + 5 \\
-F(t) &=&  1 + .02t \\
-C_v &=& 0.2 + 0.01 T^3 \\
-\sigma_a &=& \frac{10^4}{T^3} \\
-\sigma_s &=& 0.5 
-\eea
-3-3 Alexander, $\Delta t = 10^{-3}$
-\end{frame}
 
-\begin{frame}
-\frametitle{Must Account for Spatially Varying Material Properties}
-SL Gauss, $P\in[1,4]$.  Limited $L^2$ convergence.
-\begin{columns}[t]
-\column{0.5\textwidth}
-\centering
-\includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_phi_L2.pdf}
-\column{0.5\textwidth}
-\centering
-\includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_L2.pdf}
-\end{columns}
-\end{frame}
-
-\begin{frame}
-\frametitle{Not Lucky This Time}
-SL Gauss, $P\in[1,4]$.  High convergence of CXS DFEM for neutronics was problem specific luck/fluke
-\begin{columns}[t]
-\column{0.5\textwidth}
-\centering
-\includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_phi_A.pdf}
-\column{0.5\textwidth}
-\centering
-\includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_A.pdf}
-\end{columns}
-\end{frame}
-
-\begin{frame}
-\frametitle{SLXS $E_{\phi}$ Convergence}
-\begin{columns}[t]
-\column{0.5\textwidth}
-\centering
-SLXS Lobatto
-\includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Lobatto_phi_L2.pdf}
-\\
-$\propto P+1$
-\column{0.5\textwidth}
-\centering
-SLXS Gauss
-\includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_phi_L2.pdf}
-\\
-$\propto P+1$
-\end{columns}
-\end{frame}
-
-\begin{frame}
-\frametitle{SLXS $E_T$ Convergence}
-\begin{columns}[t]
-\column{0.5\textwidth}
-\centering
-SLXS Lobatto
-\includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Lobatto_temp_L2.pdf}
-\\
-$\propto P$
-\column{0.5\textwidth}
-\centering
-SLXS Gauss
-\includegraphics[width=\textwidth,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/MMS3_SLXS_Gauss_temp_L2.pdf}
-\\
-$\propto P+1$
-\end{columns}
-\end{frame}
-
-\begin{frame}
 \frametitle{Steady-state problem}
 \bea
 M(\mu_d) &=& \frac{1}{4\pi} \\
@@ -794,160 +1466,6 @@ TRT $E_{T_A} \propto 2P+2 $
 \end{columns}
 \centering
 \end{frame}
-
-
-\section{Marshak Wave}
-\subsection{Marhsak Wave Blading}
-\begin{frame}
-\frametitle{Marshak Wave Problem}
-Unit current incident intensity on left face.  Vacuum right boundary condition.  Initially cold slab.  No analytic solution.
-\bea
-a&=&c=C_v = 1 \\
-x&\in&[0,1] \\
-t&\in&[0,1]  \\
-T_0^4& =& 1E-5 \\
-\sigma_s &=& 0 \\
-\sigma_a &=& \frac{1}{T^3}
-\eea
-\end{frame}
-
-\begin{frame}
-\frametitle{Blading with Cell-Wise Constant Assumption}
-Linear TL, volumetric average opacity
-\begin{columns}[t]
-\column{0.5\textwidth}
-\centering
-Radiation energy density
-\includegraphics[width=\textwidth,trim=1.2in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/Blading_Radiation_Full_MultiCell.pdf}
-\column{0.5\textwidth}
-\centering
-Material temperature
-\includegraphics[width=\textwidth,trim=1.2in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/Blading_Temperature_Full_MultiCell.pdf}
-\end{columns}
-\end{frame}
-
-\begin{frame}
-\frametitle{SLXS Treatment}
-Linear SLXS Lobatto
-\begin{columns}[t]
-\column{0.5\textwidth}
-\centering
-Radiation energy density
-\includegraphics[width=\textwidth,trim=1.2in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/SLXS_Lobatto_80_Cells_Radiation.pdf}
-\column{0.5\textwidth}
-\centering
-Material temperature
-\includegraphics[width=\textwidth,trim=1.2in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/SLXS_Lobatto_80_Cells_Temperature.pdf}
-\end{columns}
-\end{frame}
-
-\begin{frame}
-\frametitle{Time Resolution Cannot Be Neglected}
-\centering
-Quartic SLXS Lobatto, 1280 mesh cells, 2-2 SDIRK, $\Delta t = 0.01$
-\\
-\vspace{0.1in}
-\includegraphics[width=0.9\textheight,trim=1.0in  0.2in 0.5in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/Time_Refinement_Zoom_Radiation.pdf}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Extreme Zoom of $S_2$ Radiation Energy Density}
-\centering
-\includegraphics[height=0.8\textheight,trim=1.0in  0.75in 1.0in 1.0in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/Zoom_10k_Phi.pdf}
-\end{frame}
-
-\begin{frame}
-\frametitle{$S_2$ vs $S_8$}
-\begin{columns}[t]
-\column{0.5\textwidth}
-\centering
-\includegraphics[width=2.5in,trim=1.0in  0.5in 0.2in 0.6in,clip=true]{../chapter6_grey_radtran/S8_vs_S2_Material_Temperature.pdf}
-\column{0.5\textwidth}
-\centering
-\includegraphics[width=2.5in,trim=1.0in  0.3in 0.2in 0.5in,clip=true]{../chapter6_grey_radtran/S8_vs_S2_Radiation_Energy_Density.pdf}
-\end{columns}
-\centering
-5000 mesh cells, P4 SLXS Gauss, 5k time steps, 2-2 scheme
-\end{frame}
-
-\begin{frame}
-\frametitle{$S_8$ Angular Intensity}
-\centering
-\includegraphics[width=\textwidth,trim=1.5in  0.5in 1.0in 1in,clip=true]{../chapter6_grey_radtran/S8_Intensity_SemiLogy.pdf}
-\end{frame}
-
-\begin{frame}
-\frametitle{Wavefront Boundary Layers}
-\centering
-\includegraphics[width=1.05\textwidth,trim=1.75in  0.2in 1in 0.75in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/S8_thermal_wavefront_boundary_layer.pdf}
-\end{frame}
-
-\begin{frame}
-\frametitle{Need More Resolution for Interior Boundary Layer}
-\centering
-\includegraphics[height=0.8\textheight,trim=0.5in  0.2in 0.75in 0.5in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/S8_pos_mu_glance_boundary_layer_log.pdf}
-\end{frame}
-
-\begin{frame}
-\frametitle{$S_8$ vs $S_{32}$ Solutions}
-\centering
-\includegraphics[width=0.75\textwidth,height=0.4\textheight,trim=1.5in  0.2in 0.5in 0.75in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Material_Temperature.pdf}
-%
-\\
-\includegraphics[width=0.75\textwidth,height=0.4\textheight,trim=1.5in  0.2in 0.5in 0.75in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Radiation.pdf}
-\\
-$S_{32}$ solution- 1000 mesh cells, quartic SLXS Gauss, 5000 time steps
-\end{frame}
-
-\begin{frame}
-\frametitle{$S_{32}$, $\mu_d > 0$ intensities}
-
-\includegraphics[width=\textwidth,trim=1.5in  0.2in 0.5in 0.75in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/S32_Intensity.pdf}
-
-\end{frame}
-
-\section{Conclusions}
-\subsection{Conclusions}
-\begin{frame}
-\frametitle{Conclusions}
-In PhD we have
-\begin{enumerate}
-\item Developed a matrix lumping framework that is effective for arbitrary $P$
-\item Demonstrated the need to consider spatial variation of material properties
-\item Applied MIP diffusion operator to TRT acceleration
-\end{enumerate}
-Today we have
-\begin{itemize}
-\item Applied higher order DFEM to grey TRT
-\item Examined the asymptotic accuracy of higher order DFEM for coupled grey TRT problems
-\item Generated high resolution discrete ordinates results for grey TRT problems 
-\end{itemize}
-\end{frame}
-
-\subsection{Long Term Future Work}
-\begin{frame}
-\frametitle{Potential Future Work}
-\begin{itemize}
-\item Complete multi-frequency capabilities
-\item Diffusion limit analysis of higher order DFEM
-\item Extend lumping framework to multiple spatial dimensions
-\end{itemize}
-\end{frame}
-
-\subsection{Acknowledgments}
-\begin{frame}
-\frametitle{Acknowledgments}
-Thanks for your time!
-\vspace{0.3in}
-Portions of this work were funded by the Department of Energy CSGF program, administered by the Krell Institute, under grant DE-FG02-97ER25308.
-\\
-\vspace{0.3in}
-Additional support was provided by the Department of Energy, National Nuclear Security Administration, under Award Number(s) DE-NA0002376.
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
 %------------------------------------------------------------------------------

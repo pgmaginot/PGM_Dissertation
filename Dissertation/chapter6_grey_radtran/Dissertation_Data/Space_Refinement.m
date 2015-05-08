@@ -1,7 +1,7 @@
 % plot each methd and P as the mesh get refined
 % use the finest time step size
 close all
-for m=1:1:2
+for m=3:1:3
     if(m==1)
         cell_meth = 'SL_Lobatto';
         data_meth = 'SL_Lobatto';
@@ -56,13 +56,13 @@ for m=1:1:2
         
         % Temperature
         figure((m-1)*4 + p)
-        h = legend('1280 Cell', '320 Cell' ,'80 Cell' ,'20 Cell'  );
+        h = legend('1280 Cells', '320 Cells' ,'80 Cells' ,'20 Cells'  );
         set(h,'Interpreter','latex','FontSize',14);
         if(m~=3)
             set(gca,'XTick',[0.34 0.36 0.38 0.4 0.42 0.44])
             axis([0.34 0.42 -0.15 0.8])
             
-            SavePretty( figure((m-1)*4 + p) , temperature_file);
+%             SavePretty( figure((m-1)*4 + p) , temperature_file);
         end
         
         
@@ -71,31 +71,31 @@ for m=1:1:2
         % Radiation
         figure(10 + (m-1)*4 + p)
 %         h = legend('20 Cell' , '80 Cell' , '320 Cell' , '1280 Cell');
-        h = legend('1280 Cell', '320 Cell' ,'80 Cell' ,'20 Cell'  );
+        h = legend('1280 Cells', '320 Cells' ,'80 Cells' ,'20 Cells'  );
         set(h,'Interpreter','latex','FontSize',14);
         
         if(m~=3)
             axis([0.34 0.42 -0.1 1.2])
             set(gca,'XTick',[0.36 0.38 0.4])     
             
-            SavePretty( figure((m-1)*4 + p + 10) , rad_file);
+%             SavePretty( figure((m-1)*4 + p + 10) , rad_file);
         end
         
     end    
 end
 % 
-% % blading plots
-% figure(9)
-% axis([0 1 -0.1 1.5])
-% h = legend('20 Cell' , '80 Cell' , '320 Cell' );
-% set(h,'Interpreter','latex','FontSize',14);
-% SavePretty( figure(9) , 'Reorder_Blading_Temperature_Full_MultiCell');
-% 
-% axis([0.3 0.42 -0.05 1.1])
-% SavePretty( figure(9) , 'Reorder_Blading_Temperature_Zoom_MultiCell');
-% 
-% figure(19)
-% axis([0 1 -0.1 2.2])
-% h = legend('20 Cell' , '80 Cell' , '320 Cell' );
-% set(h,'Interpreter','latex','FontSize',14);
-% SavePretty( figure(19) , 'Reorder_Blading_Radiation_Full_MultiCell');
+% blading plots
+figure(9)
+axis([0 1 -0.1 1.5])
+h = legend( '320 Cells','80 Cells', '20 Cells'  );
+set(h,'Interpreter','latex','FontSize',14);
+SavePretty( figure(9) , 'Reorder_Blading_Temperature_Full_MultiCell');
+
+axis([0.3 0.42 -0.05 1.1])
+SavePretty( figure(9) , 'Reorder_Blading_Temperature_Zoom_MultiCell');
+
+figure(19)
+axis([0 1 -0.1 2.2])
+h = legend( '320 Cells','80 Cells', '20 Cells'  );
+set(h,'Interpreter','latex','FontSize',14);
+SavePretty( figure(19) , 'Reorder_Blading_Radiation_Full_MultiCell');

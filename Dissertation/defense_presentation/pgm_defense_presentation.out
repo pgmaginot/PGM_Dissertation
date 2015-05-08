@@ -1,22 +1,28 @@
-\BOOKMARK [2][]{Outline0.1}{New Results}{}% 1
-\BOOKMARK [3][]{Outline0.1.1.3}{Grey thermal radiative transfer}{Outline0.1}% 2
-\BOOKMARK [2][]{Outline0.2}{Contributions}{}% 3
-\BOOKMARK [3][]{Outline0.2.1.5}{Contributions}{Outline0.2}% 4
-\BOOKMARK [3][]{Outline0.2.2.6}{Prelim Contributions}{Outline0.2}% 5
-\BOOKMARK [3][]{Outline0.2.3.8}{Grey TRT}{Outline0.2}% 6
-\BOOKMARK [2][]{Outline0.3}{MIP for TRT}{}% 7
-\BOOKMARK [3][]{Outline0.3.1.9}{Analytic Equations}{Outline0.3}% 8
-\BOOKMARK [3][]{Outline0.3.2.11}{Spatially Analytic}{Outline0.3}% 9
-\BOOKMARK [3][]{Outline0.3.3.12}{Spatially Discretized}{Outline0.3}% 10
-\BOOKMARK [3][]{Outline0.3.4.14}{What is D}{Outline0.3}% 11
-\BOOKMARK [2][]{Outline0.4}{Su-Olson Problem}{}% 12
-\BOOKMARK [3][]{Outline0.4.1.19}{Commonalities}{Outline0.4}% 13
-\BOOKMARK [3][]{Outline0.4.2.21}{Su Olson}{Outline0.4}% 14
-\BOOKMARK [2][]{Outline0.5}{MMS}{}% 15
-\BOOKMARK [3][]{Outline0.5.1.24}{MMS}{Outline0.5}% 16
-\BOOKMARK [2][]{Outline0.6}{Marshak Wave}{}% 17
-\BOOKMARK [3][]{Outline0.6.1.42}{Marhsak Wave Blading}{Outline0.6}% 18
-\BOOKMARK [2][]{Outline0.7}{Conclusions}{}% 19
-\BOOKMARK [3][]{Outline0.7.1.53}{Conclusions}{Outline0.7}% 20
-\BOOKMARK [3][]{Outline0.7.2.54}{Long Term Future Work}{Outline0.7}% 21
-\BOOKMARK [3][]{Outline0.7.3.55}{Acknowledgments}{Outline0.7}% 22
+\BOOKMARK [2][]{Outline0.1}{Theory}{}% 1
+\BOOKMARK [3][]{Outline0.1.1.3}{Goal}{Outline0.1}% 2
+\BOOKMARK [3][]{Outline0.1.2.4}{Matrix Lumping}{Outline0.1}% 3
+\BOOKMARK [3][]{Outline0.1.3.6}{Robustness}{Outline0.1}% 4
+\BOOKMARK [3][]{Outline0.1.4.8}{Spatially Varying Cross Section}{Outline0.1}% 5
+\BOOKMARK [3][]{Outline0.1.5.11}{Extending Self-Lumping Framework}{Outline0.1}% 6
+\BOOKMARK [2][]{Outline0.2}{TRT Equations}{}% 7
+\BOOKMARK [3][]{Outline0.2.1.12}{Analytic TRT}{Outline0.2}% 8
+\BOOKMARK [3][]{Outline0.2.2.14}{SDIRK}{Outline0.2}% 9
+\BOOKMARK [3][]{Outline0.2.3.15}{Spatially Analytic Linearization}{Outline0.2}% 10
+\BOOKMARK [3][]{Outline0.2.4.21}{Spatially Discretized}{Outline0.2}% 11
+\BOOKMARK [3][]{Outline0.2.5.24}{What is D}{Outline0.2}% 12
+\BOOKMARK [3][]{Outline0.2.6.27}{Solution Algorithm}{Outline0.2}% 13
+\BOOKMARK [2][]{Outline0.3}{TRT Results}{}% 14
+\BOOKMARK [3][]{Outline0.3.1.28}{Su-Olson}{Outline0.3}% 15
+\BOOKMARK [3][]{Outline0.3.2.30}{MMS}{Outline0.3}% 16
+\BOOKMARK [3][]{Outline0.3.3.34}{MMS2}{Outline0.3}% 17
+\BOOKMARK [3][]{Outline0.3.4.41}{Marhsak Wave}{Outline0.3}% 18
+\BOOKMARK [2][]{Outline0.4}{Conclusions}{}% 19
+\BOOKMARK [3][]{Outline0.4.1.52}{Conclusions}{Outline0.4}% 20
+\BOOKMARK [3][]{Outline0.4.2.53}{Long Term Future Work}{Outline0.4}% 21
+\BOOKMARK [3][]{Outline0.4.3.54}{Acknowledgments}{Outline0.4}% 22
+\BOOKMARK [1][]{Outline1}{Appendix}{}% 23
+\BOOKMARK [2][]{Outline1.4.1.55}{Spatially Constant Cross Section}{Outline1}% 24
+\BOOKMARK [3][]{Outline1.4.2.58}{Spatially Varying Cross Section}{Outline1.4.1.55}% 25
+\BOOKMARK [3][]{Outline1.4.3.62}{Interaction Rate}{Outline1.4.1.55}% 26
+\BOOKMARK [3][]{Outline1.4.4.66}{Blading}{Outline1.4.1.55}% 27
+\BOOKMARK [3][]{Outline1.4.5.69}{TRT Results}{Outline1.4.1.55}% 28
