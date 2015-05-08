@@ -71,7 +71,7 @@
 PhD Defense %\usebeamerfont{section in head/foot}\insertshorttitle
 \end{beamercolorbox}%
 \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,right]{section in head/foot}%
-	\usebeamerfont{section in head/foot}April 2015\hspace*{2em}
+	\usebeamerfont{section in head/foot}May 8, 2015\hspace*{2em}
 	\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
 \end{beamercolorbox}}%
 \vskip0pt%
@@ -83,7 +83,7 @@ PhD Defense %\usebeamerfont{section in head/foot}\insertshorttitle
 
 \title{Higher Order Grey Thermal Radiative Transfer}
 \author{Peter Maginot}\institute{Texas A\&M University- Department of Nuclear Engineering}
-\date{April 2015}
+\date{May 8, 2015}
 
 
 \newif\ifplacelogo % create a new conditional
@@ -416,7 +416,7 @@ I_1 = I_n + a_{11} \Delta t c \left[ \frac{1}{4\pi}\sigma_{s} \phi_1 + \sigma_a 
 \end{multline*}
 Manipulate  extensively to achieve
 \benum
-\mu_d \frac{\partial I_1}{\partial x} + \sigma_{\tau,1} = \frac{1}{4\pi} \sigma_s \phi_1 + \frac{1}{4\pi}\nu_1 \sigma_a \phi_1 + \xi_1 
+\mu_d \frac{\partial I_1}{\partial x} + \sigma_{\tau,1}I_1 = \frac{1}{4\pi} \sigma_s \phi_1 + \frac{1}{4\pi}\nu_1 \sigma_a \phi_1 + \xi_1 
 \label{eq:analytic_pseudo_i}
 \eenum
 \end{frame}
@@ -457,7 +457,7 @@ Performing the radiation equation linearization still yields:
 \frametitle{Multi-Stage SDIRK Requires Minor Adaptation}
 Transport equation linearization still yields:\
 \be
-\mu_d \frac{\partial I_i}{\partial x} + \sigma_{\tau,i} = \frac{1}{4\pi} \sigma_s \phi_i + \frac{1}{4\pi}\nu_i \sigma_a \phi_i + \highlight{ \xi_i} 
+\mu_d \frac{\partial I_i}{\partial x} + \sigma_{\tau,i}I_i = \frac{1}{4\pi} \sigma_s \phi_i + \frac{1}{4\pi}\nu_i \sigma_a \phi_i + \highlight{ \xi_i} 
 \ee
 \vspace{-0.2in}
 \small
@@ -947,15 +947,13 @@ Quartic SLXS Lobatto, 1280 mesh cells, 2-2 SDIRK, $\Delta t = 0.01$
 
 \begin{frame}
 \frametitle{Extreme Zoom of $S_2$ Radiation Energy Density}
-\begin{columns}[t]
-\column{0.7\textwidth}
-\includegraphics[height=0.8\textheight,trim=1.0in  0.75in 1.0in 1.0in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/Zoom_10k_Phi.pdf}
-\column{0.3\textwidth}
+\begin{center}
+\includegraphics[height=0.7\textheight,trim=1.5in  0.8in 1.1in 1.0in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/Zoom_10k_Phi.pdf}
+\end{center}
 \begin{itemize}
-\item Log scaly $y$-axis
+\item Log scale $y$-axis
 \item Gaps caused by negative radiation energy densities
 \end{itemize}
-\end{columns}
 \end{frame}
 
 \begin{frame}
@@ -1002,7 +1000,7 @@ $S_{32}$ solution- 1000 mesh cells, quartic SLXS Gauss, 5000 time steps
 \end{frame}
 
 \begin{frame}
-\frametitle{$S_{32}$, $\mu_d > 0$ intensities}
+\frametitle{$S_{32}$, $\mu_d > 0$ Intensities}
 
 \includegraphics[width=\textwidth,trim=1.5in  0.2in 0.5in 0.75in,clip=true]{../chapter6_grey_radtran/Dissertation_Data/S32_Intensity.pdf}
 
