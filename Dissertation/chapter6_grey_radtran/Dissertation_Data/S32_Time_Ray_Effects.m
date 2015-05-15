@@ -26,7 +26,7 @@ rad_file = sprintf('S32_Time_Ray_Effects_Radiation_Cv1_SigA1');
         
 % Temperature
 figure(1)
-h = legend('T=0.1','T=0.5','T=1','T=2' );
+h = legend('t=0.1','t=0.5','t=1','t=2' );
 set(h,'Interpreter','latex','FontSize',24);
 set(gca, 'FontName','Times','FontSize',30)
 axis([0 0.8 -0.05 1.4]) 
@@ -39,7 +39,7 @@ SavePretty(gcf,temperature_file);
 
 % Radiation
 figure(2)
-h = legend('T=0.1','T=0.5','T=1','T=2' );
+h = legend('t=0.1','t=0.5','t=1','t=2' );
 set(h,'Interpreter','latex','FontSize',24);
 set(gca, 'FontName','Times','FontSize',30)
 axis([0 0.8 -0.05 2.5])

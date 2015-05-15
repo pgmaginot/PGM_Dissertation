@@ -27,20 +27,37 @@ rad_file = sprintf('P1_S8_Time_Ray_Effects_Radiation_Cv1_SigA1000');
         
 % Temperature
 figure(1)
-h = legend('T=0.1','T=0.5','T=1','T=2' );
+h = legend('t=0.1','t=0.5','t=1','t=2' );
 set(h,'Interpreter','latex','FontSize',14);
 set(gca, 'FontName','Times','FontSize',18)
 axis([0 0.1 -0.05 1.5]) 
+b = get(gcf,'OuterPosition');
+    %         b(1) = b(2) - (b(2) - b(1))*1.2;
+    %         b(3) = b(2) - (b(2) - b(1))*1.2;
+    %         b(2) = b(2) * .8;
+    %         b(3) = b(3)*1.2;
+            b(4) = b(4)*1.2;
+            set(gcf,'OuterPosition',b);
 SavePretty(gcf,temperature_file);
 
 
 
 % Radiation
 figure(2)
-h = legend('T=0.1','T=0.5','T=1','T=2' );
+h = legend('t=0.1','t=0.5','t=1','t=2' );
 set(h,'Interpreter','latex','FontSize',14);
 set(gca, 'FontName','Times','FontSize',18)
+
 axis([0 0.1 -0.05 4])
+
+b = get(gcf,'OuterPosition');
+    %         b(1) = b(2) - (b(2) - b(1))*1.2;
+    %         b(3) = b(2) - (b(2) - b(1))*1.2;
+    %         b(2) = b(2) * .8;
+    %         b(3) = b(3)*1.2;
+            b(4) = b(4)*1.2;
+            set(gcf,'OuterPosition',b);
+            
 SavePretty(gcf,rad_file);
 
         

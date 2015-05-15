@@ -6,7 +6,7 @@ p_ord = 3;
 plot_p = linspace(-1,1,20);
 [dfem_mat , junk] = feshpln(plot_p,q,p_ord);
 
-n_skip = 20;
+n_skip = 5;
 fig_num = 3;
 
 cell_base = {   ...
@@ -39,33 +39,37 @@ h = legend('$\mu=0.0483$', ...
 
 axis([0 0.1 1E-6 10])
 set(gca,'YScale','log')
-% set(gca,'XTick',[0 0.1 0.2 0.3 0.4 0.5])
+set(gca,'XTick',[0 0.1 0.2 0.3 0.4 0.5])
 set(gca,'FontName','Times','FontSize',30)
 set(h,'Interpreter','latex','FontSize',30)
 xlabel('Position','FontSize',30,'Interpreter','latex');
 ylabel('Intensity','FontSize',30,'Interpreter','latex');
 set(gcf,'OuterPosition',[-7 33 1936 1056],'PaperPosition',[0.2500  2.5000 8.0000 6.0000],'PaperSize',[8.5 11] , 'Position', [1 41 1920  964])
 SavePretty(gcf,'S32_T01_Intensity')
-
+% 
 % Dark_Arts_Plotter(1,2 ,cell_base,data_base,dfem_mat)
-
+% 
 % figure(1)
 % % h = legend('S_{32} T=0.1');
-% set(h,'Interpreter','latex','FontSize',14);
-% set(gca, 'FontName','Times','FontSize',18)
-% axis([0 0.07 -0.05 1]) 
+% % set(h,'Interpreter','latex','FontSize',14);
+% set(gca, 'FontName','Times','FontSize',32)
+% xlabel('Position','FontSize',30,'FontName','Times');
+% ylabel('Temperature','FontSize',30,'FontName','Times')
+% axis([0 0.07 -0.05 1.5]) 
 % set(gcf,'OuterPosition',[-7 33 1936 1056],'PaperPosition',[0.2500  2.5000 8.0000 6.0000],'PaperSize',[8.5 11] , 'Position', [1 41 1920  964])
 % 
-% SavePretty(gcf,'S32_T01_Temperature');
-% close 1
+% % SavePretty(gcf,'S32_T01_Temperature');
+% % close 1
 % 
 % 
 % % Radiation
 % figure(2)
 % % h = legend('S_{32} T=0.1' );
 % % set(h,'Interpreter','latex','FontSize',14);
-% set(gca, 'FontName','Times','FontSize',18)
-% axis([0 0.07 -0.05 2.1])
+% set(gca, 'FontName','Times','FontSize',32)
+% xlabel('Position','FontSize',30,'FontName','Times');
+% ylabel('Radiation Energy Density','FontSize',30,'FontName','Times')
+% axis([0 0.07 -0.05 2.5])
 % text(0.0055 , 1.9 , '$\mu=0.0483$' , 'Interpreter','latex','FontSize',18 );
 % text(0.015 , 1.6 ,'$\mu=0.1445$', 'Interpreter','latex','FontSize',18 );
 % text(0.025 , 1.35 , '$\mu=0.2393$', 'Interpreter','latex','FontSize',18 );
@@ -74,7 +78,7 @@ SavePretty(gcf,'S32_T01_Intensity')
 % text(0.051 , 0.55 ,'$\mu=0.5069$', 'Interpreter','latex','FontSize',18 );
 % 
 % set(gcf,'OuterPosition',[-7          33        1936        1056],'PaperPosition',[0.2500  2.5000 8.0000 6.0000],'PaperSize',[8.5 11] , 'Position', [0 0 1920  964])
-% 
-% 
-% 
-% SavePretty(gcf,'S32_T01_Radiation');
+% % 
+% % 
+% % 
+% SavePretty(gcf,'S32_T01_Radiation_Equal_Height');

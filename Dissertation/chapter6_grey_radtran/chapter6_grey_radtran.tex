@@ -1089,6 +1089,8 @@ Increasing the number of discrete ordinates, the radiation energy density profil
 \end{figure}
 By adding a few discrete directions to the quadrature set, our numerical solution becomes indistinguishable from published results of \cite{su_olson_1}, and we conclude that our TRT equation implementation is valid.
 
+\newpage
+
 \subsection{Method of Manufactured Solutions}
 
 The method of manufactured solutions, MMS, consists of choosing an analytic solution, then defining the driving source necessary to achieve that solution \cite{mms}.
@@ -1346,8 +1348,7 @@ Figures \ref{fig:mms3_constant_lobatto_temp}-\ref{fig:mms3_constant_gauss_temp} 
 To verify that the high order of convergence observed for $E_{IR_A}$ in Section 3 does not translate to a high rate of spatial convergence for $E_{T_A}$, we consider \fig{fig:mms3_constant_lobatto_temp_A} and \fig{fig:mms3_constant_gauss_temp_A}.
 Figure \ref{fig:mms3_constant_lobatto_temp_A} verifies that regardless of trial space degree, the SL Lobatto scheme assuming a cell-wise constant opacity for a problem with temperature or spatially varying opacities converges $E_{T_A}$ second order in space.
 Likewise, \fig{fig:mms3_constant_gauss_temp_A} demonstrates the same is true for the SL Gauss scheme.
-\pagebreak
-\begin{figure}[!htp]
+\begin{figure}[!hbp]
 \centering
 \includegraphics[width=9.5cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_temp_A.pdf}
 \caption{Convergence of $E_{T_A}$ for the SL Lobatto scheme in problem MMS2.}
@@ -1355,13 +1356,12 @@ Likewise, \fig{fig:mms3_constant_gauss_temp_A} demonstrates the same is true for
 \end{figure}
 %
 %
-\begin{figure}[!hbp]
+\begin{figure}[!htp]
 \centering
 \includegraphics[width=9.5cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Gauss_temp_A.pdf}
 \caption{Convergence of $E_{T_A}$ for the SL Gauss scheme in problem MMS2.}
 \label{fig:mms3_constant_gauss_temp_A}
 \end{figure}
-\pagebreak
 
 We now consider the convergence of SLXS Lobatto and SLXS Gauss.  First, we see that in \fig{fig:mms3_slxs_lobatto_e_phi}, SLXS Lobatto converges $E_{\phi} \propto P+1$, and in \fig{fig:mms3_slxs_gauss_e_phi}, SLXS Gauss converges $E_{\phi}$ $\propto P+1$ as well.
 Moving on to the convergence of $E_T$, in \fig{fig:mms3_slxs_lobatto_e_t} SLXS Lobatto converges $E_T \propto P$, the same rate SL Lobatto converged $E_T$ for the TRT problem with constant material properties.  
@@ -1441,24 +1441,25 @@ E_{T,min} \int_{x_{1/2} }^{x_{N_{cell}+1/2}}{ \epsilon_T \left[ F_t(t_{end}) W_T
 Applying \eqt{eq:err_plateau} to MMS1, $E_{T,min} = 4.6\times 10^{-8}$, which is consistent with the location of the $E_T$ error plateau.
 In \eqt{eq:err_plateau}, we are implicitly assuming that the error in $\phi$ is significantly less than the error in temperature. 
 Alternatively, we could consider resulted generated with less stringent $\epsilon_T$ and $\epsilon_{\phi}$.
-In \fig{fig:low_tol_slxs_gauss_temp} and \fig{fig:low_tol_slxs_lobatto_phi}, we give the results for $E_{T}$ convergence for the SLXS Gauss scheme and $E_{\phi}$ covnergence for the SLXS Lobatto scheme for MMS2, but use $\epsilon_T=10^{-8}$ and $\epsilon_{\phi} = 10^{-10}$.
-\begin{figure}[!hbp]
+In \fig{fig:low_tol_slxs_gauss_temp} and \fig{fig:low_tol_slxs_lobatto_phi}, we give the results for $E_{T}$ convergence for the SLXS Gauss scheme and $E_{\phi}$ convergence for the SLXS Lobatto scheme for MMS2, but use $\epsilon_T=10^{-8}$ and $\epsilon_{\phi} = 10^{-10}$.  
+Comparing the $E_T$ plateau in \fig{fig:low_tol_slxs_gauss_temp} of $\approx 5 \times 10^{-7}$ we see a factor of roughly 1000 increase compared to the plateau observed in \fig{fig:mms3_slxs_gauss_e_t}
+ for the same quantity, equivalent to the relative relaxations of $\epsilon_T$ and $\epsilon_{\phi}$.
+Likewise, the $E_{\phi}$ plateau of $\approx 10^{-5}$ in \fig{fig:low_tol_slxs_lobatto_phi} is roughly 1000 times greater than the same plateau observed in \fig{fig:mms3_slxs_lobatto_e_phi}.
+
+\begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm,trim=0.25in  0.25in 0.75in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_Low_Tol_SLXS_Gauss_temp_L2.pdf}
+\includegraphics[width=9cm,trim=0.5in  0.5in 1in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_Low_Tol_SLXS_Gauss_temp_L2.pdf}
 \caption{Convergence of $E_{T}$ for the SLXS Gauss scheme in problem MMS2 using $\epsilon_T = 10^{-8}$ and $\epsilon_{\phi}=10^{-10}$.}
 \label{fig:low_tol_slxs_gauss_temp}
 \end{figure}
 %
 %
-\begin{figure}[!htp]
+\begin{figure}[!hbp]
 \centering
-\includegraphics[width=10cm,trim=0.25in  0.25in 0.75in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_Low_Tol_SLXS_Lobatto_phi_L2.pdf}
+\includegraphics[width=9cm,trim=0.5in  0.5in 1in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_Low_Tol_SLXS_Lobatto_phi_L2.pdf}
 \caption{Convergence of $E_{\phi}$ for the SLXS Lobatto scheme in problem MMS2 using $\epsilon_T = 10^{-8}$ and $\epsilon_{\phi}=10^{-10}$.}
 \label{fig:low_tol_slxs_lobatto_phi}
 \end{figure}
-Comparing the $E_T$ plateau in \fig{fig:low_tol_slxs_gauss_temp} of $\approx 5 \times 10^{-7}$ we see a factor of roughly 1000 increase compared to the plateau observed in \fig{fig:mms3_slxs_gauss_e_t}
- for the same quantity, equivalent to the relative relaxations of $\epsilon_T$ and $\epsilon_{\phi}$.
-Likewise, the $E_{\phi}$ plateau of $\approx 10^{-5}$ in \fig{fig:low_tol_slxs_lobatto_phi} is roughly 1000 times greater than the same plateau observed in \fig{fig:mms3_slxs_lobatto_e_phi}.
 
 \subsubsection{Constant in Time - Trigonometric in Space - with Temperature Dependent Material Properties}
 
@@ -1889,9 +1890,9 @@ Surprisingly, the $S_8$ and $S_{32}$ calculations have nearly identical position
 If however, the goal is a smooth transport solution, the value of $N$ required to create a smooth $S_N$ $\phi$ solution appears to be much higher than $S_{32}$, due to the presence of ray effects \cite{lewis_book}.
 
 The kinks observed in the higher order $S_N$ solutions for the Marshak wave problem are examples of time ray effects.
-Typically these are not observed in thermal radiative transfer simulations, because as the material heats up, the magnitude of photon re-emission sources quickly becomes comparable to the rapid attenuation of the incident photon energy.
+Typically these are not observed in thermal radiative transfer simulations, because as the material heats up, the magnitude of photon re-emission sources quickly becomes comparable to and surpasses the incident photon contribution to the angular intensity.
 To verify that the observed kinks are indeed time ray effects, consider \fig{fig:phi_time_slices} and \fig{fig:temp_time_slices} which show the $S_{32}$ Marshak wave radiation energy density and material temperature at different points in time, computed using 1000 spatial cells, cubic SLXS Lobatto, $\Delta t_{max} = 2 \times 10^{-4}$, and the 2-2 SDIRK time scheme.
-If the observed kinks are time ray effects, they will be worse at earlier times and less pronounced at later times, due to the attenuation of the incident intensity over a greater distance (as the wave front advances) and increased material temperature from photon heating.
+If the observed kinks are time ray effects, they will be worse at earlier times and less pronounced at later times, due to the attenuation of the incident intensity contribution over a greater distance (as the wave front advances) and photon re-emission from the increased material temperature.
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=17cm,trim=2in  0.5in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_Time_Ray_Effects_Radiation_Cv1_SigA1.pdf}
@@ -1904,8 +1905,58 @@ If the observed kinks are time ray effects, they will be worse at earlier times 
 \caption{$S_{32}$ material temperature solution at different times for Marshak wave problem.}
 \label{fig:temp_time_slices}
 \end{figure}
-The solutions
+While the material temperature solution does not have visually large kinks due to ray effects, ray effects can be seen in the radiation energy density solution.
+To observe that the radiation energy density ray effects decrease in magnitude at later times, first consider the radiation energy density at $t=0.1$, given in \fig{fig:t01_radiation_energy}, and then compare to the radiation energy density at $t=2.0$ given in \fig{fig:t2_radiation_energy}.  
+Both figures use the same $y$-axis scaling.  
+However, it is clear that the radiation energy drops associated with ray effects are significantly larger at $t=0.1$ than at $t=2.0$.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=17cm,trim=2in  0.5in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_T01_Radiation_Equal_Height.pdf}
+\caption{$S_{32}$ radiation energy density at $t=0.1$ for Marshak wave problem.}
+\label{fig:t01_radiation_energy}
+\end{figure}
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=17cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_T2_Radiation.pdf}
+\caption{$S_{32}$ radiation energy density at $t=2$ for Marshak wave problem.}
+\label{fig:t2_radiation_energy}
+\end{figure}
+The $\mu$ labels in \figs{fig:t01_radiation_energy}{fig:t2_radiation_energy} correspond to the directional cosines of angular intensities that experience a significant drop at those locations.
+ as shown in \fig{fig:t01_intensity} and \fig{fig:t2_intensity} for $t=0.1$ and $t=2$, respectively.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=17cm,trim=2in  0.5in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_T01_Intensity.pdf}
+\caption{$S_{32}$ angular intensity for $\mu_d>0$ at $t=0.1$ for the Marshak wave problem.}
+\label{fig:t01_intensity}
+\end{figure}
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=17cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_T2_Intensity.pdf}
+\caption{$S_{32}$ angular intensity for $\mu_d>0$ at $t=2$ for the Marshak wave problem.}
+\label{fig:t2_intensity}
+\end{figure}
+Comparing \fig{fig:t01_intensity} to \fig{fig:t2_intensity} clearly shows that as time progresses, ray effects decrease, in \fig{fig:t01_intensity}, there are six angular intensities that have a discontinuous jump from being dominated by incident boundary conditions and heated material photon re-emission whereas in \fig{fig:t2_intensity}, at most 4 directions experience a non-smooth transition from being dominated by incident boundary contributions ti being dominated by photon re-emission.
 
+Though ray effects are inherent to discrete ordinates calculations, the severe time ray effects observed in this Marshak wave problem are more a function of problem parameters than of a severe fundamental flaw with discrete ordinates methods for radiative transfer.
+The choice to define $a=c=C_v=1$ and $\sigma_t = \sigma_a = \frac{1}{T^3}$ was chosen by previous authors on the basis of simplicity alone, not scaling of physical quantities.
+This can easily be seen by considering an alternative simulation, where we define $\sigma_t = \sigma_a = \frac{1000}{T^3}$.
+Under this assumption, even the heated material is optically thick, and photon re-emission quickly becomes the more dominant contributor to angular intensity than incident photon energy.
+In \fig{fig:sig_a_1000_radiation}, radiation energy density solutions for this problem at different times are given for a simulation using 1000 spatial cells, $x\in[0,1]$, linear SLXS Lobatto, and 2-2 time differencing.
+We were limited to using only linear SLXS Lobatto, because as shown in Sec. \ref{sec:chapter3_variable_xs} linear SLXS Lobatto is the only SLXS scheme guaranteed to be robust for problems with spatially varying opacity or cross section.
+Attempts at using cubic SLXS Lobatto were unsuccessful when only using 1000 spatial mesh cells spread over the entire $x\in[0,1]$ interval.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=8cm,trim=1in  0.5in 1in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/P1_S8_Time_Ray_Effects_Radiation_Cv1_SigA1000.pdf}
+\caption{$S_{8}$ radiation energy density solutions for modified Marshak wave problem with $\sigma_a = \frac{1000}{T^3}$ at different times.}
+\label{fig:sig_a_1000_radiation}
+\end{figure}
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=8cm,trim=1in  0.6in 1.0in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/P1_S8_Time_Ray_Effects_Temperature_Cv1_SigA1000.pdf}
+\caption{$S_{8}$ material temperature solutions for modified Marshak wave problem with $\sigma_a = \frac{1000}{T^3}$ at different times.}
+\label{fig:sig_a_1000_temperature}
+\end{figure}
+Figures \ref{fig:sig_a_1000_radiation}-\ref{fig:sig_a_1000_temperature} make it clear that changing $\sigma_a$ fundamentally alters the problem, the wave does not penetrate nearly as far, but also appears to eliminate the time ray effects, though higher spatial resolution would be desirable to verify that the ray effects are not present.
 
 \subsection{Effectiveness of MIP DSA for Radiative Transfer}
 

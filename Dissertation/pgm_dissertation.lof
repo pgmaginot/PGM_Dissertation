@@ -145,51 +145,57 @@
 \contentsline {figure}{\numberline {6.16}{\ignorespaces Convergence of $E_{\phi }$ for the SL Gauss scheme in problem MMS2.}}{205}
 \contentsline {figure}{\numberline {6.17}{\ignorespaces Convergence of $E_{T}$ for the SL Lobatto scheme in problem MMS2.}}{206}
 \contentsline {figure}{\numberline {6.18}{\ignorespaces Convergence of $E_{T}$ for the SL Gauss scheme in problem MMS2.}}{206}
-\contentsline {figure}{\numberline {6.19}{\ignorespaces Convergence of $E_{T_A}$ for the SL Lobatto scheme in problem MMS2.}}{208}
+\contentsline {figure}{\numberline {6.19}{\ignorespaces Convergence of $E_{T_A}$ for the SL Lobatto scheme in problem MMS2.}}{207}
 \contentsline {figure}{\numberline {6.20}{\ignorespaces Convergence of $E_{T_A}$ for the SL Gauss scheme in problem MMS2.}}{208}
 \contentsline {figure}{\numberline {6.21}{\ignorespaces Convergence of $E_{\phi }$ for the SLXS Lobatto scheme in problem MMS2.}}{209}
-\contentsline {figure}{\numberline {6.22}{\ignorespaces Convergence of $E_{\phi }$ for the SLXS Gauss scheme in problem MMS2.}}{210}
+\contentsline {figure}{\numberline {6.22}{\ignorespaces Convergence of $E_{\phi }$ for the SLXS Gauss scheme in problem MMS2.}}{209}
 \contentsline {figure}{\numberline {6.23}{\ignorespaces Convergence of $E_{T}$ for the SLXS Lobatto scheme in problem MMS2.}}{210}
-\contentsline {figure}{\numberline {6.24}{\ignorespaces Convergence of $E_{T}$ for the SLXS Gauss scheme in problem MMS2.}}{211}
+\contentsline {figure}{\numberline {6.24}{\ignorespaces Convergence of $E_{T}$ for the SLXS Gauss scheme in problem MMS2.}}{210}
 \contentsline {figure}{\numberline {6.25}{\ignorespaces Convergence of $E_{\phi _A}$ for the SLXS Lobatto scheme in problem MMS2.}}{211}
-\contentsline {figure}{\numberline {6.26}{\ignorespaces Convergence of $E_{\phi _A}$ for the SLXS Gauss scheme in problem MMS2.}}{212}
+\contentsline {figure}{\numberline {6.26}{\ignorespaces Convergence of $E_{\phi _A}$ for the SLXS Gauss scheme in problem MMS2.}}{211}
 \contentsline {figure}{\numberline {6.27}{\ignorespaces Convergence of $E_{T_A}$ for the SLXS Lobatto scheme in problem MMS2.}}{212}
-\contentsline {figure}{\numberline {6.28}{\ignorespaces Convergence of $E_{T_A}$ for the SLXS Gauss scheme in problem MMS2.}}{213}
+\contentsline {figure}{\numberline {6.28}{\ignorespaces Convergence of $E_{T_A}$ for the SLXS Gauss scheme in problem MMS2.}}{212}
 \contentsline {figure}{\numberline {6.29}{\ignorespaces Convergence of $E_{T}$ for the SLXS Gauss scheme in problem MMS2 using $\epsilon _T = 10^{-8}$ and $\epsilon _{\phi }=10^{-10}$.}}{214}
-\contentsline {figure}{\numberline {6.30}{\ignorespaces Convergence of $E_{\phi }$ for the SLXS Lobatto scheme in problem MMS2 using $\epsilon _T = 10^{-8}$ and $\epsilon _{\phi }=10^{-10}$.}}{215}
-\contentsline {figure}{\numberline {6.31}{\ignorespaces Convergence of $E_{\phi }$ for SLXS Lobatto scheme for steady state test problem.}}{217}
-\contentsline {figure}{\numberline {6.32}{\ignorespaces Convergence of $E_{\phi }$ for SLXS Gauss scheme, for steady state test problem.}}{217}
-\contentsline {figure}{\numberline {6.33}{\ignorespaces Convergence of $E_{T}$ for SLXS Lobatto scheme, for steady state test problem.}}{218}
-\contentsline {figure}{\numberline {6.34}{\ignorespaces Convergence of $E_{T}$ for SLXS Gauss scheme, for steady state test problem.}}{219}
-\contentsline {figure}{\numberline {6.35}{\ignorespaces Convergence of $E_{\phi _A}$ for SLXS Lobatto scheme, for steady state test problem.}}{220}
-\contentsline {figure}{\numberline {6.36}{\ignorespaces Convergence of $E_{\phi _A}$ for SLXS Gauss scheme, for steady state test problem.}}{220}
-\contentsline {figure}{\numberline {6.37}{\ignorespaces Convergence of $E_{T_A}$ for SLXS Lobatto scheme, for steady state test problem.}}{221}
-\contentsline {figure}{\numberline {6.38}{\ignorespaces Convergence of $E_{T_A}$ for SLXS Gauss scheme, for steady state test problem.}}{221}
-\contentsline {figure}{\numberline {6.39}{\ignorespaces Convergence of $E_{\phi }$ for different time integrators as a function of $\Delta t$.}}{223}
-\contentsline {figure}{\numberline {6.40}{\ignorespaces Convergence of $E_{T}$ for different time integrators as a function of $\Delta t$.}}{224}
-\contentsline {figure}{\numberline {6.41}{\ignorespaces Linear SL Lobatto radiation solution for the Marshak wave problem assuming cell-wise constant volumetric averaged opacities.}}{226}
-\contentsline {figure}{\numberline {6.42}{\ignorespaces Linear SL Lobatto temperature solution for the Marshak wave problem assuming cell-wise constant volumetric averaged opacities.}}{227}
-\contentsline {figure}{\numberline {6.43}{\ignorespaces Linear SL Lobatto temperature solution for the Marshak wave problem near the wavefront.}}{227}
-\contentsline {figure}{\numberline {6.44}{\ignorespaces Linear SLXS Lobatto angle integrated intensity solution with 80 cells.}}{228}
-\contentsline {figure}{\numberline {6.45}{\ignorespaces Linear SLXS Lobatto temperature solution with 80 cells.}}{229}
-\contentsline {figure}{\numberline {6.46}{\ignorespaces Linear SLXS Lobatto radiation solution near wavefront with increasing spatial mesh refinement.}}{229}
-\contentsline {figure}{\numberline {6.47}{\ignorespaces Linear SLXS Lobatto temperature solution near wavefront with increasing spatial mesh refinement.}}{230}
-\contentsline {figure}{\numberline {6.48}{\ignorespaces Quartic SLXS Gauss radiation solution near wavefront with increasing spatial mesh refinement.}}{231}
-\contentsline {figure}{\numberline {6.49}{\ignorespaces Quartic SLXS Gauss temperature solution near wavefront with increasing spatial mesh refinement.}}{231}
-\contentsline {figure}{\numberline {6.50}{\ignorespaces SLXS Lobatto radiation energy density solution with 320 cells for different $P$ near Marshak wavefront.}}{232}
-\contentsline {figure}{\numberline {6.51}{\ignorespaces SLXS Lobatto material temperature solution with 320 cells for different $P$ near Marshak wavefront.}}{232}
-\contentsline {figure}{\numberline {6.52}{\ignorespaces Quartic SLXS Lobatto radiation energy density solution with 1280 cells for different time refinements near the Marshak wavefront.}}{234}
-\contentsline {figure}{\numberline {6.53}{\ignorespaces Quartic SLXS Lobatto temperature solution with 1280 cells for different time refinements near the Marshak wavefront.}}{234}
-\contentsline {figure}{\numberline {6.54}{\ignorespaces Plot of the radiation energy density on a logarithmic scale for different high resolution simulations near the Marshak wavefront.}}{236}
-\contentsline {figure}{\numberline {6.55}{\ignorespaces Plot of the angular intensity on a logarithmic scale near the transport boundary layer at the Marshak wave front.}}{237}
-\contentsline {figure}{\numberline {6.56}{\ignorespaces $S_8$ and $S_2$ material temperature profiles.}}{238}
-\contentsline {figure}{\numberline {6.57}{\ignorespaces $S_8$ and $S_2$ radiation energy density profiles.}}{238}
-\contentsline {figure}{\numberline {6.58}{\ignorespaces Log plot of $S_8$ intensities for Marshak wave problem.}}{239}
-\contentsline {figure}{\numberline {6.59}{\ignorespaces Logarithmic plot of intensity near glancing $\mu =+0.1834$ boundary layer. }}{240}
-\contentsline {figure}{\numberline {6.60}{\ignorespaces Logarithmic plot of intensity boundary layers near thermal wavefront.}}{241}
-\contentsline {figure}{\numberline {6.61}{\ignorespaces Comparison of $S_8$ and $S_{32}$ material temperature profiles for Marshak wave problem.}}{242}
-\contentsline {figure}{\numberline {6.62}{\ignorespaces Comparison of $S_8$ and $S_{32}$ angle integrated intensity solutions for Marshak wave problem.}}{242}
-\contentsline {figure}{\numberline {6.63}{\ignorespaces $S_{32}$ intensity solutions for all $\mu _d > 0$, for the Marshak wave problem.}}{243}
-\contentsline {figure}{\numberline {6.64}{\ignorespaces $S_{32}$ radiation energy density at different times for Marshak wave problem.}}{245}
-\contentsline {figure}{\numberline {6.65}{\ignorespaces $S_{32}$ material temperature solution at different times for Marshak wave problem.}}{245}
+\contentsline {figure}{\numberline {6.30}{\ignorespaces Convergence of $E_{\phi }$ for the SLXS Lobatto scheme in problem MMS2 using $\epsilon _T = 10^{-8}$ and $\epsilon _{\phi }=10^{-10}$.}}{214}
+\contentsline {figure}{\numberline {6.31}{\ignorespaces Convergence of $E_{\phi }$ for SLXS Lobatto scheme for steady state test problem.}}{216}
+\contentsline {figure}{\numberline {6.32}{\ignorespaces Convergence of $E_{\phi }$ for SLXS Gauss scheme, for steady state test problem.}}{216}
+\contentsline {figure}{\numberline {6.33}{\ignorespaces Convergence of $E_{T}$ for SLXS Lobatto scheme, for steady state test problem.}}{217}
+\contentsline {figure}{\numberline {6.34}{\ignorespaces Convergence of $E_{T}$ for SLXS Gauss scheme, for steady state test problem.}}{218}
+\contentsline {figure}{\numberline {6.35}{\ignorespaces Convergence of $E_{\phi _A}$ for SLXS Lobatto scheme, for steady state test problem.}}{218}
+\contentsline {figure}{\numberline {6.36}{\ignorespaces Convergence of $E_{\phi _A}$ for SLXS Gauss scheme, for steady state test problem.}}{219}
+\contentsline {figure}{\numberline {6.37}{\ignorespaces Convergence of $E_{T_A}$ for SLXS Lobatto scheme, for steady state test problem.}}{220}
+\contentsline {figure}{\numberline {6.38}{\ignorespaces Convergence of $E_{T_A}$ for SLXS Gauss scheme, for steady state test problem.}}{220}
+\contentsline {figure}{\numberline {6.39}{\ignorespaces Convergence of $E_{\phi }$ for different time integrators as a function of $\Delta t$.}}{222}
+\contentsline {figure}{\numberline {6.40}{\ignorespaces Convergence of $E_{T}$ for different time integrators as a function of $\Delta t$.}}{223}
+\contentsline {figure}{\numberline {6.41}{\ignorespaces Linear SL Lobatto radiation solution for the Marshak wave problem assuming cell-wise constant volumetric averaged opacities.}}{225}
+\contentsline {figure}{\numberline {6.42}{\ignorespaces Linear SL Lobatto temperature solution for the Marshak wave problem assuming cell-wise constant volumetric averaged opacities.}}{226}
+\contentsline {figure}{\numberline {6.43}{\ignorespaces Linear SL Lobatto temperature solution for the Marshak wave problem near the wavefront.}}{226}
+\contentsline {figure}{\numberline {6.44}{\ignorespaces Linear SLXS Lobatto angle integrated intensity solution with 80 cells.}}{227}
+\contentsline {figure}{\numberline {6.45}{\ignorespaces Linear SLXS Lobatto temperature solution with 80 cells.}}{228}
+\contentsline {figure}{\numberline {6.46}{\ignorespaces Linear SLXS Lobatto radiation solution near wavefront with increasing spatial mesh refinement.}}{228}
+\contentsline {figure}{\numberline {6.47}{\ignorespaces Linear SLXS Lobatto temperature solution near wavefront with increasing spatial mesh refinement.}}{229}
+\contentsline {figure}{\numberline {6.48}{\ignorespaces Quartic SLXS Gauss radiation solution near wavefront with increasing spatial mesh refinement.}}{230}
+\contentsline {figure}{\numberline {6.49}{\ignorespaces Quartic SLXS Gauss temperature solution near wavefront with increasing spatial mesh refinement.}}{230}
+\contentsline {figure}{\numberline {6.50}{\ignorespaces SLXS Lobatto radiation energy density solution with 320 cells for different $P$ near Marshak wavefront.}}{231}
+\contentsline {figure}{\numberline {6.51}{\ignorespaces SLXS Lobatto material temperature solution with 320 cells for different $P$ near Marshak wavefront.}}{231}
+\contentsline {figure}{\numberline {6.52}{\ignorespaces Quartic SLXS Lobatto radiation energy density solution with 1280 cells for different time refinements near the Marshak wavefront.}}{233}
+\contentsline {figure}{\numberline {6.53}{\ignorespaces Quartic SLXS Lobatto temperature solution with 1280 cells for different time refinements near the Marshak wavefront.}}{233}
+\contentsline {figure}{\numberline {6.54}{\ignorespaces Plot of the radiation energy density on a logarithmic scale for different high resolution simulations near the Marshak wavefront.}}{235}
+\contentsline {figure}{\numberline {6.55}{\ignorespaces Plot of the angular intensity on a logarithmic scale near the transport boundary layer at the Marshak wave front.}}{236}
+\contentsline {figure}{\numberline {6.56}{\ignorespaces $S_8$ and $S_2$ material temperature profiles.}}{237}
+\contentsline {figure}{\numberline {6.57}{\ignorespaces $S_8$ and $S_2$ radiation energy density profiles.}}{237}
+\contentsline {figure}{\numberline {6.58}{\ignorespaces Log plot of $S_8$ intensities for Marshak wave problem.}}{238}
+\contentsline {figure}{\numberline {6.59}{\ignorespaces Logarithmic plot of intensity near glancing $\mu =+0.1834$ boundary layer. }}{239}
+\contentsline {figure}{\numberline {6.60}{\ignorespaces Logarithmic plot of intensity boundary layers near thermal wavefront.}}{240}
+\contentsline {figure}{\numberline {6.61}{\ignorespaces Comparison of $S_8$ and $S_{32}$ material temperature profiles for Marshak wave problem.}}{241}
+\contentsline {figure}{\numberline {6.62}{\ignorespaces Comparison of $S_8$ and $S_{32}$ angle integrated intensity solutions for Marshak wave problem.}}{241}
+\contentsline {figure}{\numberline {6.63}{\ignorespaces $S_{32}$ intensity solutions for all $\mu _d > 0$, for the Marshak wave problem.}}{242}
+\contentsline {figure}{\numberline {6.64}{\ignorespaces $S_{32}$ radiation energy density at different times for Marshak wave problem.}}{244}
+\contentsline {figure}{\numberline {6.65}{\ignorespaces $S_{32}$ material temperature solution at different times for Marshak wave problem.}}{244}
+\contentsline {figure}{\numberline {6.66}{\ignorespaces $S_{32}$ radiation energy density at $t=0.1$ for Marshak wave problem.}}{245}
+\contentsline {figure}{\numberline {6.67}{\ignorespaces $S_{32}$ radiation energy density at $t=2$ for Marshak wave problem.}}{245}
+\contentsline {figure}{\numberline {6.68}{\ignorespaces $S_{32}$ angular intensity for $\mu _d>0$ at $t=0.1$ for the Marshak wave problem.}}{246}
+\contentsline {figure}{\numberline {6.69}{\ignorespaces $S_{32}$ angular intensity for $\mu _d>0$ at $t=2$ for the Marshak wave problem.}}{246}
+\contentsline {figure}{\numberline {6.70}{\ignorespaces $S_{8}$ radiation energy density solutions for modified Marshak wave problem with $\sigma _a = \frac {1000}{T^3}$ at different times.}}{248}
+\contentsline {figure}{\numberline {6.71}{\ignorespaces $S_{8}$ material temperature solutions for modified Marshak wave problem with $\sigma _a = \frac {1000}{T^3}$ at different times.}}{248}
 \addvspace {10\p@ }
