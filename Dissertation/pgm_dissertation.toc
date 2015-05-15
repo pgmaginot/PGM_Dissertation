@@ -83,17 +83,17 @@
 \contentsline {section}{\numberline {6.2}Iterative Solution Process}{185}
 \contentsline {section}{\numberline {6.3}Software Implementation}{188}
 \contentsline {section}{\numberline {6.4}Numerical Results}{190}
-\contentsline {subsection}{\numberline {6.4.1}Method of Manufactured Solutions}{190}
-\contentsline {subsubsection}{\numberline {6.4.1.1}Linear in Time - Trigonometric in Space }{191}
-\contentsline {subsubsection}{\numberline {6.4.1.2}Trigonometric in Space - Linear in Time - with Temperature Dependent Material Properties}{200}
-\contentsline {subsubsection}{\numberline {6.4.1.3}Constant in Time - Trigonometric in Space - with Temperature Dependent Material Properties}{210}
-\contentsline {subsubsection}{\numberline {6.4.1.4}Constant in Space - Trigonometric in Time}{216}
-\contentsline {subsection}{\numberline {6.4.2}Marshak Wave Problem}{218}
-\contentsline {subsection}{\numberline {6.4.3}Su-Olson Problem}{238}
-\contentsline {subsection}{\numberline {6.4.4}Effectiveness of MIP DSA for Radiative Transfer}{242}
-\contentsline {chapter}{\numberline {7}\uppercase {Summary and Conclusions}}{245}
+\contentsline {subsection}{\numberline {6.4.1}Su-Olson Problem}{190}
+\contentsline {subsection}{\numberline {6.4.2}Method of Manufactured Solutions}{191}
+\contentsline {subsubsection}{\numberline {6.4.2.1}Linear in Time - Trigonometric in Space }{194}
+\contentsline {subsubsection}{\numberline {6.4.2.2}Trigonometric in Space - Linear in Time - with Temperature Dependent Material Properties}{204}
+\contentsline {subsubsection}{\numberline {6.4.2.3}Constant in Time - Trigonometric in Space - with Temperature Dependent Material Properties}{216}
+\contentsline {subsubsection}{\numberline {6.4.2.4}Constant in Space - Trigonometric in Time}{222}
+\contentsline {subsection}{\numberline {6.4.3}Marshak Wave Problem}{224}
+\contentsline {subsection}{\numberline {6.4.4}Effectiveness of MIP DSA for Radiative Transfer}{244}
+\contentsline {chapter}{\numberline {7}\uppercase {Summary and Conclusions}}{250}
 \vskip +10pt
-\contentsline {section}{\numberline {7.1}Summary}{245}
-\contentsline {section}{\numberline {7.2}Conclusions}{246}
-\contentsline {subsection}{\numberline {7.2.1}Future Work}{247}
-\contentsline {chapter}{REFERENCES}{249}
+\contentsline {section}{\numberline {7.1}Summary}{250}
+\contentsline {section}{\numberline {7.2}Conclusions}{251}
+\contentsline {subsection}{\numberline {7.2.1}Future Work}{252}
+\contentsline {chapter}{REFERENCES}{254}

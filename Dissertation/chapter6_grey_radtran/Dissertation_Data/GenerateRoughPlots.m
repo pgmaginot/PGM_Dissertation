@@ -18,16 +18,16 @@ for i=1:1:4
     
     figure(offset + i)
 %     % linear
-%     loglog(data(:,1,1,i) , data(:,2,1,i) , 'ko-.','LineWidth',2,'MarkerSize',10);
-%     hold on;
-%     mm(1,i) = min(nonzeros(data(:,1,1,i)));
-%     mm(2,i) = max(nonzeros(data(:,1,1,i)));
-%     
-%     % quadratic
-%     loglog(data(:,1,2,i) , data(:,2,2,i) , 'bx--','LineWidth',2,'MarkerSize',10);
-%     hold on;
-%     mm(1,i) = min( min(nonzeros(data(:,1,2,i))) , mm(1,i) );
-%     mm(2,i) = max( max(nonzeros(data(:,1,2,i))) , mm(2,i) ) ;
+    loglog(data(:,1,1,i) , data(:,2,1,i) , 'ko-.','LineWidth',2,'MarkerSize',10);
+    hold on;
+    mm(1,i) = min(nonzeros(data(:,1,1,i)));
+    mm(2,i) = max(nonzeros(data(:,1,1,i)));
+    
+    % quadratic
+    loglog(data(:,1,2,i) , data(:,2,2,i) , 'bx--','LineWidth',2,'MarkerSize',10);
+    hold on;
+    mm(1,i) = min( min(nonzeros(data(:,1,2,i))) , mm(1,i) );
+    mm(2,i) = max( max(nonzeros(data(:,1,2,i))) , mm(2,i) ) ;
 %     
     % cubic
     loglog(data(:,1,3,i) , data(:,2,3,i) , 'rs-','LineWidth',2,'MarkerSize',10);

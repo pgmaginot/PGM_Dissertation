@@ -1,4 +1,4 @@
-function Dark_Arts_Plotter( fig_n_temp , fig_n_rad , cell_base , data_base ,dfem_mat)
+function Dark_Arts_Plotter( fig_n_temp , fig_n_rad , cell_base , data_base ,dfem_mat, varargin)
 % plot the radiation and temperature profile corresponding to
 % cell_base_CellDataDump.txt , data_base_TemperatureDump_Final.txt ,
 % data_base_PhiDump_Final.txt
@@ -7,6 +7,14 @@ function Dark_Arts_Plotter( fig_n_temp , fig_n_rad , cell_base , data_base ,dfem
 % check to see if cell_data or data_base are cell_array
 
 % dfem_mat is an n_p * n_el matrix
+
+n_opt_args = size(varargin,2);
+
+if(n_opt_args == 1)
+    offset = varargin{1};
+else
+   offset = 0;
+end
 
 fun_handle = dfem_mat;
 
@@ -20,7 +28,7 @@ end
 
 n_plots = length(data_base);
 
-if(n_plots > 6)
+if( (offset + n_plots) > 6)
     error('Not enough line strings');
 end
 
@@ -86,10 +94,10 @@ for i=1:1:n_plots
     if( p_refining )
         [q,w] = fun_handle(n_el_cell);
         [plot_mat,trash] = feshpln( linspace(-1,1, 2*(5-i)^2 + 2) , q , 5-i);
-        plot(plot_mat*x,plot_mat*t, char(color_str(1,i)) , 'Color' , color_str{2,i} ,  'LineWidth',2)
+        plot(plot_mat*x,plot_mat*t, char(color_str(1,i+offset)) , 'Color' , color_str{2,i+offset} ,  'LineWidth',2)
     else
 %     char(color_str(i))
-        plot(dfem_mat*x,dfem_mat*t, char(color_str(1,i)) , 'Color' , color_str{2,i} ,  'LineWidth',2)
+        plot(dfem_mat*x,dfem_mat*t, char(color_str(1,i+offset)) , 'Color' , color_str{2,i+offset} ,  'LineWidth',2)
     end
     hold on
 end
@@ -103,10 +111,13 @@ for i=1:1:n_plots
        
         if(p_refining)
              [x,t] = GetOneTempData(fid_cell_t(i) , fid_temp(i) ,6-i );
-            plot(plot_mat*x,plot_mat*t, char(color_str(1,i)) , 'Color' , color_str{2,i} , 'LineWidth',2)
+            plot(plot_mat*x,plot_mat*t, char(color_str(1,i+offset)) , 'Color' , color_str{2,i+offset} , 'LineWidth',2)
         else
              [x,t] = GetOneTempData(fid_cell_t(i) , fid_temp(i) , n_el_cell );
-            plot(dfem_mat*x,dfem_mat*t, char(color_str(1,i)) , 'Color' , color_str{2,i} , 'LineWidth',2)
+            h = plot(dfem_mat*x,dfem_mat*t, char(color_str(1,i+offset)) , 'Color' , color_str{2,i+offset} , 'LineWidth',2);
+            hAnnotation = get(h,'Annotation');
+            hLegendEntry = get(hAnnotation','LegendInformation');
+            set(hLegendEntry,'IconDisplayStyle','off');
         end
          hold on
     end
@@ -140,9 +151,9 @@ for i=1:1:n_plots
     if( p_refining )
         [q,w] = fun_handle(n_el_cell);
         [plot_mat,trash] = feshpln( linspace(-1,1,2*(5-i)^2 + 2) , q , 5-i);
-        plot(plot_mat*x,plot_mat*r, char(color_str(1,i)) , 'Color' , color_str{2,i} ,  'LineWidth',2)
+        plot(plot_mat*x,plot_mat*r, char(color_str(1,i+offset)) , 'Color' , color_str{2,i+offset} ,  'LineWidth',2)
     else
-        plot(dfem_mat*x,dfem_mat*r, char(color_str(1,i)) , 'Color' , color_str{2,i} ,  'LineWidth',2)
+       plot(dfem_mat*x,dfem_mat*r, char(color_str(1,i+offset)) , 'Color' , color_str{2,i+offset} ,  'LineWidth',2);
     end
     hold on
 end
@@ -155,10 +166,14 @@ for i=1:1:n_plots
     while(~feof(fid_rad(i) ) )
         if( p_refining )
             [x,r] = GetOneRadData(fid_cell_r(i) , fid_rad(i) , 5-i+1 );
-            plot(plot_mat*x,plot_mat*r, char(color_str(1,i)) , 'Color' , color_str{2,i} , 'LineWidth',2)
+            plot(plot_mat*x,plot_mat*r, char(color_str(1,i+offset)) , 'Color' , color_str{2,i+offset} , 'LineWidth',2)
         else
             [x,r] = GetOneRadData(fid_cell_r(i) , fid_rad(i) , n_el_cell );
-            plot(dfem_mat*x,dfem_mat*r, char(color_str(1,i)) , 'Color' , color_str{2,i} , 'LineWidth',2)
+            h = plot(dfem_mat*x,dfem_mat*r, char(color_str(1,i+offset)) , 'Color' , color_str{2,i+offset} , 'LineWidth',2);
+            
+            hAnnotation = get(h,'Annotation');
+            hLegendEntry = get(hAnnotation','LegendInformation');
+            set(hLegendEntry,'IconDisplayStyle','off');
         end
         hold on
     end

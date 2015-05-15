@@ -7,15 +7,25 @@ cxs_phi_l2_str = sprintf('Constant_Time/MMS_Constant_Time_CXS_final_space_phi_L2
 cxs_temp_a_str = sprintf('Constant_Time/MMS_Constant_Time_CXS_final_space_temperature_A_error.txt');
 cxs_temp_l2_str = sprintf('Constant_Time/MMS_Constant_Time_CXS_final_space_temperature_L2_error.txt');
 
-lobatto_phi_a_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Lobatto_final_space_phi_A_error.txt');
-lobatto_phi_l2_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Lobatto_final_space_phi_L2_error.txt');
-lobatto_temp_a_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Lobatto_final_space_temperature_A_error.txt');
-lobatto_temp_l2_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Lobatto_final_space_temperature_L2_error.txt');
+% lobatto_phi_a_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Lobatto_final_space_phi_A_error.txt');
+% lobatto_phi_l2_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Lobatto_final_space_phi_L2_error.txt');
+% lobatto_temp_a_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Lobatto_final_space_temperature_A_error.txt');
+% lobatto_temp_l2_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Lobatto_final_space_temperature_L2_error.txt');
+% 
+% gauss_phi_a_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Gauss_final_space_phi_A_error.txt');
+% gauss_phi_l2_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Gauss_final_space_phi_L2_error.txt');
+% gauss_temp_a_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Gauss_final_space_temperature_A_error.txt');
+% gauss_temp_l2_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Gauss_final_space_temperature_L2_error.txt');
 
-gauss_phi_a_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Gauss_final_space_phi_A_error.txt');
-gauss_phi_l2_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Gauss_final_space_phi_L2_error.txt');
-gauss_temp_a_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Gauss_final_space_temperature_A_error.txt');
-gauss_temp_l2_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Gauss_final_space_temperature_L2_error.txt');
+lobatto_phi_a_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Lobatto_Low_Tol_final_space_phi_A_error.txt');
+lobatto_phi_l2_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Lobatto_Low_Tol_final_space_phi_L2_error.txt');
+lobatto_temp_a_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Lobatto_Low_Tol_final_space_temperature_A_error.txt');
+lobatto_temp_l2_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Lobatto_Low_Tol_final_space_temperature_L2_error.txt');
+
+gauss_phi_a_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Gauss_Low_Tol_final_space_phi_A_error.txt');
+gauss_phi_l2_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Gauss_Low_Tol_final_space_phi_L2_error.txt');
+gauss_temp_a_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Gauss_Low_Tol_final_space_temperature_A_error.txt');
+gauss_temp_l2_str = sprintf('Constant_Time/MMS_Constant_Time_SLXS_Gauss_Low_Tol_final_space_temperature_L2_error.txt');
 
 fid = zeros(12,1);
 
@@ -32,7 +42,7 @@ fid(8,1) = fopen(lobatto_temp_l2_str,'r');
 fid(9,1) = fopen(gauss_phi_a_str,'r');
 fid(10,1) = fopen(gauss_phi_l2_str,'r');
 fid(11,1) = fopen(gauss_temp_a_str,'r');
-fid(12,1) = fopen(gauss_temp_l2_str,'r');
+fid(12,1) = fopen(gauss_temp_l2_str,'r')
 
 % 
 x_left = 0;
@@ -47,12 +57,12 @@ offset = 0;
 mm1 = GenerateRoughPlots(L,offset,n_data_cxs,fid);
 
 % load data for SLXS lobatto
-n_data_lobatto = 28; 
+n_data_lobatto = 27; 
 offset = 4;
 mm2 = GenerateRoughPlots(L,offset,n_data_lobatto,fid);
 
 % load data for SLXS Gauss
-n_data_gauss = 32; 
+n_data_gauss = 28; 
 offset = 8;
 mm3 = GenerateRoughPlots(L,offset,n_data_gauss,fid);
 

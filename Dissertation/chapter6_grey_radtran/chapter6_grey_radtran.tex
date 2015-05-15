@@ -995,8 +995,9 @@ and
 Likewise, we terminate the intensity update iteration using a point-wise relative change criterion:
 \benum
 \text{change\_phi} = \max_{c=1}^{N_{cell}} \left[ \max_{j=1}^{N_P} \left[ { \abs{ \frac{ \phi^{(\ell+1)}_{c,j} - \phi^{(\ell)}_{c,j}}{\phi^{(\ell+1)}_{c,j} }} } \right] \right] \pep
+\label{eq:change_phi}
 \eenum
-Unless otherwise noted, we use an angle integrated intensity convergence criteria $\epsilon_{\phi} = 10^{-12}$ and a temperature criteria of $\epsilon_{T} = 10^{-10}$.
+Unless otherwise noted, we use an angle integrated intensity convergence criteria $\epsilon_{\phi} = 10^{-13}$ and a temperature criteria of $\epsilon_{T} = 10^{-11}$.
 
 Since MIP DSA requires two iterates of the angle integrated radiation energy density, $\phi^{(\ell+1)}$ and $\phi^{(\ell)}$, both of size $N_{cell} \times N_P$, we store at least two objects of the same dimensionality as $\phi$.
 We use one of these objects, \verb+phi_new+ in Listing \ref{lst:pseudo_code}, to update $\vec{T}^*$, while the other is local only to the intensity update.
@@ -1034,6 +1035,59 @@ Finally, input parameters for the code are input an \verb+XML+ file, which we re
 \label{sec:chap6_results}
 
 We now consider several test problems to verify and demonstrate the capability of the self-lumping DFEM schemes we have developed to solve the grey TRT equations.
+
+\subsection{Su-Olson Problem}
+
+The Su-Olson problem \cite{su_olson_1} is an analytic benchmark that consists of an initially cold (initial radiation energy density and temperature conditions are identically absolute zero) half-space slab, heated for a finite amount of time by a volumetric, isotropic radiation source.
+The slab's scattering opacity is constant in space and temperature, absorption opacity is constant in space and temperature, and $C_v \propto T^3$.
+Assuming $C_v = \alpha T^3$ is critical; as Long, et al. \cite{alex_paper} noted, the assumption regarding $C_v$ is not physical, but is required to make the thermal radiative transfer equations linear in $I$ and $T^4$, or conversely linear in $I$ and material energy density. 
+After a series of transformations, Su and Olson derived an analytic solution to the thermal radiative transfer equations under these conditions; their solution is more accurately described as being semi-analytic.
+While the radiation energy density and material temperature at every point can be expressed as a closed form integral, evaluation of each integral requires numerical estimation.
+Further, the integral is a 2-D, indefinite integral (in both variables) of a trigonometric function with a slowly  decaying exponential argument.
+However, \cite{su_olson_1} provides several radiation energy density and material energy density points in space, and thus the Su-Olson problem is beneficial as a benchmark problem to verify the physics of a given radiative transfer implementation.
+
+Given the initial temperature condition is explicitly zero, this implies the initial $C_v$ is also zero.
+This is problematic when solving explicitly for temperature and not material energy.
+A near-zero heat capacity would result in the material rapidly heating, but a zero heat capacity implies a material that cannot accept heat, and thus can never be heated up.
+To prevent this problem, we modify the definition of $C_v$:
+\benum
+C_v = 10^{-8} + \alpha T^3 \pep
+\eenum
+Alternatively, we could set an initial temperature to be a non absolute zero value.
+
+Since \cite{su_olson_1} presents results in a non-dimensional format, we elect to define $a=c=1$, $\sigma_a = 1$, $\sigma_s=0$, $\alpha = 4$, truncate the full half space to $x\in[0,5]$, and define the reference temperature, $T_H = 1$.
+We solve the problem using 200 spatial mesh cells, linear SLXS Lobatto DFEM, the Alexander 2-2 time differencing scheme, an initial time step size of $\Delta t = 10^{-5}$, and increase the time step size by a factor of 1.1 until a maximum time step size of $\Delta t = 10^{-3}$ is reached.
+
+In \fig{fig:su_olson_s2_rad} we present the radiation energy density solution, $W(x)$ (in the notation on \cite{su_olson_1}), for $S_2$ angular differencing plotted against the analytic diffusion and transport solutions.  Likewise, in \fig{fig:su_olson_s2_mat}, we plot the material energy density, $V(x)$ (in the notation on \cite{su_olson_1}) for $S_2$ angular differencing.
+Solutions at various times, $\tau = 1$ and $\tau=10$ are given in both plots.
+As expected, the $S_2$ solution is nearly identical to diffusion, but skews slightly in the direction of the full transport solution.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=8cm,trim=1.75in  0.5in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Radiation_Energy.pdf}
+\caption{$S_2$ radiation energy density profile for Su-Olson problem.}
+\label{fig:su_olson_s2_rad}
+\end{figure}
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=8cm,trim=1.75in  0.5in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Material_Energy.pdf}
+\caption{$S_2$ material energy density profile for Su-Olson problem.}
+\label{fig:su_olson_s2_mat}
+\end{figure}
+
+Increasing the number of discrete ordinates, the radiation energy density profile and material energy density profiles are given in \fig{fig:su_olson_s8_rad} and \fig{fig:su_olson_s8_mat} for $S_8$ angular differencing.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=8cm,trim=1.75in  0.5in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Radiation_Energy.pdf}
+\caption{$S_8$ radiation energy density profile for Su-Olson problem.}
+\label{fig:su_olson_s8_rad}
+\end{figure}
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=8cm,trim=1.75in  0.5in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Material_Energy.pdf}
+\caption{$S_8$ material energy density profile for Su-Olson problem.}
+\label{fig:su_olson_s8_mat}
+\end{figure}
+By adding a few discrete directions to the quadrature set, our numerical solution becomes indistinguishable from published results of \cite{su_olson_1}, and we conclude that our TRT equation implementation is valid.
 
 \subsection{Method of Manufactured Solutions}
 
@@ -1095,7 +1149,12 @@ We consider three DFEM schemes,
 \item SL Gauss: self-lumping quadrature using Gauss interpolation points, and
 \end{enumerate}  
 compare each method's accuracy in calculating the discrete $L_2$ norm of the error in angle integrated intensity, $E_{\phi} = \norm{ \widetilde{\phi}(x) - \phi(x)}_{L^2}$, and the $L_2$ error in temperature, $E_T = \norm{ \widetilde{T}(x) - T(x) }_{L^2}$.
-$E_{\phi}$ and $E_{T}$ are calculated analogously to the definition of $E_{\psi}$ in \eqt{eq:l2}.
+We calculate $E_{\phi}$ as
+\benum
+E_{\phi} = \sqrt{\sum_{c=1}^{N_{cell}}{ \frac{\Delta x_c}{2} \sum_{q=1}^{N_{qf}}{ w_q \left(\widetilde{\phi}(s_q , t_{end}) - \phi(s_q,t_{end})  \right)^2 } } }\pec
+\label{eq:e_phi_6}
+\eenum
+where $w_q$, $s_q$ are Gauss quadrature points and $N_{qf} = 2P+7$.  $E_{T}$ is calculated analogously to $E_{\phi}$.
 Figure \ref{fig:mms1_tl_phi}, \fig{fig:mms1_lobatto_phi}, and \fig{fig:mms1_gauss_phi} plot the order of convergence of $E_{\phi}$ for the TL, SL Lobatto, and SL Gauss schemes, respectively, as a function of trial space degree and cell size.
 Analogous data for $E_{T}$ is given in \figs{fig:mms1_tl_temp}{fig:mms1_gauss_temp}.
 %
@@ -1152,17 +1211,6 @@ A similar limit exists for TL convergence of $E_T$, at most first order for odd 
 Second, SL Lobatto converges the $L^2$ norm of the radiation energy density $\propto P+1$, the same order of convergence achieved in our neutron transport test problems for the convergence of $L^2$ error of the angular and scalar fluxes.
 However, SL Lobatto only converges $E_T \propto P$, not $P+1$, as was the case for the neutron transport interaction rate.
 Finally, SL Gauss converges $E_{\phi}$ and $E_T$ $\propto P+1$, the same order of convergence as seen with neutron transport.
-
-
-In \figs{fig:mms1_tl_phi}{fig:mms1_gauss_temp}, and the other plots of this section, the plateauing of errors that appears in some plots is a combination of temporal error, for those problems that are time dependent, and our relative convergence tolerances for both temperature and angle integrated intensity. 
-Given our convergence criteria, we would expect a plateau, $E_{T,min}$ of approximately
-\benum
-E_{T,min} \int_{x_{1/2} }^{x_{N_{cell}+1/2}}{ \epsilon_T \left[ F_t(t_{end}) W_T(x) \right] dx} \pep
-\label{eq:err_plateau}
-\eenum
-Applying \eqt{eq:err_plateau} to MMS1, $E_{T,min} = 4.6\times 10^{-8}$, which is consistent with the location of the $E_T$ error plateau in \fig{fig:mms1_gauss_temp}.
-Since the radiation solution is dependent on the accuracy of the temperature solution via the Planckian term and temperature dependent opacities, similar logic cannot be applied to estimating the location of the $E_{\phi}$ plateaus.
-In \eqt{eq:err_plateau}, we are implicitly assuming that the error in $\phi$ is significantly less than the error in temperature. 
 
 To understand the behaviors of SL Lobatto and SL Gauss completely, we now consider the $L^2$ like norm of cell average radiation energy density error, $E_{\phi_A}$ and cell average temperature error, $E_{T_A}$.
 $E_{\phi_A}$ is approximated as:
@@ -1383,6 +1431,34 @@ Both SLXS Lobatto and SLXS Gauss converge $E_{\phi_A}$ at an order less than or 
 However, since both methods require only a small amount of mesh refinement to reach an error level approximately equal to our temperature tolerance, it is difficult to establish with certainty the order of convergence of either method for higher $P$.
 For completeness, we include convergence plots of $E_{T_A}$ for SLXS Lobatto and SLXS Gauss respectively in \fig{fig:mms3_slxs_lobatto_t_a} and \fig{fig:mms3_slxs_gauss_t_a}.
 All we definitively conclude from \figs{fig:mms3_slxs_lobatto_t_a}{fig:mms3_slxs_gauss_t_a} is that both SLXS Lobatto and SLXS Gauss experience increases in convergence of $E_{T_A}$ with increases in trial space degree.
+
+In \figs{fig:mms1_tl_phi}{fig:mms3_slxs_gauss_t_a}, the plateauing of errors that appears in some plots is a result of our relative convergence tolerances for both temperature and angle integrated intensity. 
+Given our convergence criteria, we might expect a plateau, $E_{T,min}$ of approximately
+\benum
+E_{T,min} \int_{x_{1/2} }^{x_{N_{cell}+1/2}}{ \epsilon_T \left[ F_t(t_{end}) W_T(x) \right] dx} \pep
+\label{eq:err_plateau}
+\eenum
+Applying \eqt{eq:err_plateau} to MMS1, $E_{T,min} = 4.6\times 10^{-8}$, which is consistent with the location of the $E_T$ error plateau.
+In \eqt{eq:err_plateau}, we are implicitly assuming that the error in $\phi$ is significantly less than the error in temperature. 
+Alternatively, we could consider resulted generated with less stringent $\epsilon_T$ and $\epsilon_{\phi}$.
+In \fig{fig:low_tol_slxs_gauss_temp} and \fig{fig:low_tol_slxs_lobatto_phi}, we give the results for $E_{T}$ convergence for the SLXS Gauss scheme and $E_{\phi}$ covnergence for the SLXS Lobatto scheme for MMS2, but use $\epsilon_T=10^{-8}$ and $\epsilon_{\phi} = 10^{-10}$.
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=10cm,trim=0.25in  0.25in 0.75in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_Low_Tol_SLXS_Gauss_temp_L2.pdf}
+\caption{Convergence of $E_{T}$ for the SLXS Gauss scheme in problem MMS2 using $\epsilon_T = 10^{-8}$ and $\epsilon_{\phi}=10^{-10}$.}
+\label{fig:low_tol_slxs_gauss_temp}
+\end{figure}
+%
+%
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=10cm,trim=0.25in  0.25in 0.75in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_Low_Tol_SLXS_Lobatto_phi_L2.pdf}
+\caption{Convergence of $E_{\phi}$ for the SLXS Lobatto scheme in problem MMS2 using $\epsilon_T = 10^{-8}$ and $\epsilon_{\phi}=10^{-10}$.}
+\label{fig:low_tol_slxs_lobatto_phi}
+\end{figure}
+Comparing the $E_T$ plateau in \fig{fig:low_tol_slxs_gauss_temp} of $\approx 5 \times 10^{-7}$ we see a factor of roughly 1000 increase compared to the plateau observed in \fig{fig:mms3_slxs_gauss_e_t}
+ for the same quantity, equivalent to the relative relaxations of $\epsilon_T$ and $\epsilon_{\phi}$.
+Likewise, the $E_{\phi}$ plateau of $\approx 10^{-5}$ in \fig{fig:low_tol_slxs_lobatto_phi} is roughly 1000 times greater than the same plateau observed in \fig{fig:mms3_slxs_lobatto_e_phi}.
 
 \subsubsection{Constant in Time - Trigonometric in Space - with Temperature Dependent Material Properties}
 
@@ -1809,62 +1885,27 @@ The discontinuity associated with $\mu_d = 0.3319$ is obscured in \fig{fig:s8_vs
 The $\mu_d=0.0483$ intensity jump in \fig{fig:s32_intensity} causes the greatest effect in \fig{fig:s8_vs_s32_radiation} for two reasons.  
 First, the most glancing quadrature angle is attenuated the most rapidly and as such would be expected to have the greatest drop in value.
 Second, Gauss angular quadrature assigns the greatest weight to the quadrature points most near $\mu_d = 0$. 
-Thus even if every discrete ordinate intensity had the same decrease in $I$, the jump in $\phi$ would be largest only for the most glancing $\mu$, $\mu=0.0483$.
 Surprisingly, the $S_8$ and $S_{32}$ calculations have nearly identical positions and values of the temperature and angle integrated intensity solution near the problem boundary and the hot/cold interface.  
-If however, the goal is a smooth transport solution, the value of $N$ required to create a smooth $S_N$ $\phi$ solution appears to be much higher than $S_{32}$.
+If however, the goal is a smooth transport solution, the value of $N$ required to create a smooth $S_N$ $\phi$ solution appears to be much higher than $S_{32}$, due to the presence of ray effects \cite{lewis_book}.
 
-\subsection{Su-Olson Problem}
-
-The Su-Olson problem \cite{su_olson_1} is an analytic benchmark that consists of an initially cold (initial radiation energy density and temperature conditions are identically absolute zero) half-space slab, heated for a finite amount of time by a volumetric, isotropic radiation source.
-The slab's scattering opacity is constant in space and temperature, absorption opacity is constant in space and temperature, and $C_v \propto T^3$.
-Assuming $C_v = \alpha T^3$ is critical; as Long, et al. \cite{alex_paper} noted, the assumption regarding $C_v$ is not physical, but is required to make the thermal radiative transfer equations linear in $I$ and $T^4$, or conversely linear in $I$ and material energy density. 
-After a series of transformations, Su and Olson derived an analytic solution to the thermal radiative transfer equations under these conditions; their solution is more accurately described as being semi-analytic.
-While the radiation energy density and material temperature at every point can be expressed as a closed form integral, evaluation of each integral requires numerical estimation.
-Further, the integral is a 2-D, indefinite integral (in both variables) of a trigonometric function with a slowly  decaying exponential argument.
-However, \cite{su_olson_1} provides several radiation energy density and material energy density points in space, and thus the Su-Olson problem is beneficial as a benchmark problem to verify the physics of a given radiative transfer implementation.
-
-Given the initial temperature condition is explicitly zero, this implies the initial $C_v$ is also zero.
-This is problematic when solving explicitly for temperature and not material energy.
-A near-zero heat capacity would result in the material rapidly heating, but a zero heat capacity implies a material that cannot accept heat, and thus can never be heated up.
-To prevent this problem, we modify the definition of $C_v$:
-\benum
-C_v = 10^{-8} + \alpha T^3 \pep
-\eenum
-Alternatively, we could set an initial temperature to be a non absolute zero value.
-
-Since \cite{su_olson_1} presents results in a non-dimensional format, we elect to define $a=c=1$, $\sigma_a = 1$, $\sigma_s=0$, $\alpha = 4$, truncate the full half space to $x\in[0,5]$, and define the reference temperature, $T_H = 1$.
-We solve the problem using 200 spatial mesh cells, linear SLXS Lobatto DFEM, the Alexander 2-2 time differencing scheme, an initial time step size of $\Delta t = 10^{-5}$, and increase the time step size by a factor of 1.1 until a maximum time step size of $\Delta t = 10^{-3}$ is reached.
-
-In \fig{fig:su_olson_s2_rad} we present the radiation energy density solution, $W(x)$ (in the notation on \cite{su_olson_1}), for $S_2$ angular differencing plotted against the analytic diffusion and transport solutions.  Likewise, in \fig{fig:su_olson_s2_mat}, we plot the material energy density, $V(x)$ (in the notation on \cite{su_olson_1}) for $S_2$ angular differencing.
-Solutions at various times, $\tau = 1$ and $\tau=10$ are given in both plots.
-As expected, the $S_2$ solution is nearly identical to diffusion, but skews slightly in the direction of the full transport solution.
+The kinks observed in the higher order $S_N$ solutions for the Marshak wave problem are examples of time ray effects.
+Typically these are not observed in thermal radiative transfer simulations, because as the material heats up, the magnitude of photon re-emission sources quickly becomes comparable to the rapid attenuation of the incident photon energy.
+To verify that the observed kinks are indeed time ray effects, consider \fig{fig:phi_time_slices} and \fig{fig:temp_time_slices} which show the $S_{32}$ Marshak wave radiation energy density and material temperature at different points in time, computed using 1000 spatial cells, cubic SLXS Lobatto, $\Delta t_{max} = 2 \times 10^{-4}$, and the 2-2 SDIRK time scheme.
+If the observed kinks are time ray effects, they will be worse at earlier times and less pronounced at later times, due to the attenuation of the incident intensity over a greater distance (as the wave front advances) and increased material temperature from photon heating.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=8cm,trim=1.75in  0.5in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Radiation_Energy.pdf}
-\caption{$S_2$ radiation energy density profile for Su-Olson problem.}
-\label{fig:su_olson_s2_rad}
+\includegraphics[width=17cm,trim=2in  0.5in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_Time_Ray_Effects_Radiation_Cv1_SigA1.pdf}
+\caption{$S_{32}$ radiation energy density at different times for Marshak wave problem.}
+\label{fig:phi_time_slices}
 \end{figure}
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=8cm,trim=1.75in  0.5in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Su_Olson_S2_Material_Energy.pdf}
-\caption{$S_2$ material energy density profile for Su-Olson problem.}
-\label{fig:su_olson_s2_mat}
+\includegraphics[width=17cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_Time_Ray_Effects_Temperature_Cv1_SigA1.pdf}
+\caption{$S_{32}$ material temperature solution at different times for Marshak wave problem.}
+\label{fig:temp_time_slices}
 \end{figure}
+The solutions
 
-Increasing the number of discrete ordinates, the radiation energy density profile and material energy density profiles are given in \fig{fig:su_olson_s8_rad} and \fig{fig:su_olson_s8_mat} for $S_8$ angular differencing.
-\begin{figure}[!htp]
-\centering
-\includegraphics[width=8cm,trim=1.75in  0.5in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Radiation_Energy.pdf}
-\caption{$S_8$ radiation energy density profile for Su-Olson problem.}
-\label{fig:su_olson_s8_rad}
-\end{figure}
-\begin{figure}[!hbp]
-\centering
-\includegraphics[width=8cm,trim=1.75in  0.5in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Material_Energy.pdf}
-\caption{$S_8$ material energy density profile for Su-Olson problem.}
-\label{fig:su_olson_s8_mat}
-\end{figure}
-By adding a few discrete directions to the quadrature set, our numerical solution becomes indistinguishable from published results of \cite{su_olson_1}, and we conclude that our TRT equation implementation is valid.
 
 \subsection{Effectiveness of MIP DSA for Radiative Transfer}
 
@@ -1941,36 +1982,54 @@ The average number of transport iterations per thermal iteration is given in \tb
 Intensity  						& Average Intensity					\\				
 Iterative Strategy		& Iterations Per Thermal Iteration \\
 \hline
-SI+DSA				&   2.5  \\ 
+DSA		&   10  \\ 
 \hline
-SI  &   4460.7 \\
+SI  &   18378 \\
 \hline
 \end{tabular}
 \end{table}
 Clearly, MIP DSA can significantly reduce the iterative work required to solve the grey TRT equations, but the majority of problems we have considered are not very optically thick.
 
-%grove-01.ne.tamu.edu {~ }52 : tail /scratch/pmaginot/dark_arts_local/output_files/*iteration_status.txt
-%==> /scratch/pmaginot/dark_arts_local/output_files/Long_Iteration_Test_DSA_iteration_status.txt <==
-%Time_step:     78 Stage:  0 Thermal_iter:    1 dt: 1.000000000000000e-01 number_of_inner_solves: 3 Relative_Error: 4.440241227948789e-05 Damping: 1.000000000000000e+00
-%Time_step:     78 Stage:  0 Thermal_iter:    2 dt: 1.000000000000000e-01 number_of_inner_solves: 2 Relative_Error: 1.145716100827147e-07 Damping: 1.000000000000000e+00
-%Time_step:     78 Stage:  0 Thermal_iter:    3 dt: 1.000000000000000e-01 number_of_inner_solves: 0 Relative_Error: 7.638963512014214e-11 Damping: 1.000000000000000e+00
-%Time_step:     79 Stage:  0 Thermal_iter:    0 dt: 1.974607061157752e-02 number_of_inner_solves: 4 Relative_Error: 1.143757739981798e-03 Damping: 1.000000000000000e+00
-%Time_step:     79 Stage:  0 Thermal_iter:    1 dt: 1.974607061157752e-02 number_of_inner_solves: 2 Relative_Error: 1.736693053648469e-06 Damping: 1.000000000000000e+00
-%Time_step:     79 Stage:  0 Thermal_iter:    2 dt: 1.974607061157752e-02 number_of_inner_solves: 1 Relative_Error: 7.785510286213231e-10 Damping: 1.000000000000000e+00
-%
-%
- %Total_thermal_iters: 333
- %Total_Transport_sweeps: 835
-%
-%==> /scratch/pmaginot/dark_arts_local/output_files/Long_Iteration_Test_SI_iteration_status.txt <==
-%Time_step:     80 Stage:  0 Thermal_iter:    0 dt: 9.239680797383856e-02 number_of_inner_solves: 19297 Relative_Error: 5.492871000825122e-03 Damping: 1.000000000000000e+00
-%Time_step:     80 Stage:  0 Thermal_iter:    1 dt: 9.239680797383856e-02 number_of_inner_solves: 4927 Relative_Error: 3.857958409451315e-05 Damping: 1.000000000000000e+00
-%Time_step:     80 Stage:  0 Thermal_iter:    2 dt: 9.239680797383856e-02 number_of_inner_solves: 0 Relative_Error: 2.212995669048474e-09 Damping: 1.000000000000000e+00
-%Time_step:     81 Stage:  0 Thermal_iter:    0 dt: 8.843092564533883e-02 number_of_inner_solves: 18544 Relative_Error: 5.202411259657879e-03 Damping: 1.000000000000000e+00
-%Time_step:     81 Stage:  0 Thermal_iter:    1 dt: 8.843092564533883e-02 number_of_inner_solves: 4631 Relative_Error: 3.488203327997033e-05 Damping: 1.000000000000000e+00
-%Time_step:     81 Stage:  0 Thermal_iter:    2 dt: 8.843092564533883e-02 number_of_inner_solves: 0 Relative_Error: 1.852268607343342e-09 Damping: 1.000000000000000e+00
-%
-%
- %Total_thermal_iters: 328
- %Total_Transport_sweeps: 1463116
+In optically thick and diffusive problems such as this, the traditional convergence condition of 
+\benum
+\norm{ \phi^{(\ell+1) } - \phi^{(\ell)} } < \epsilon_{\phi} \pec
+\eenum
+can lead to false convergence \cite{adams_larsen_fast_iterative}.
+Noting that our chosen point-wise convergence condition $\text{change\_phi} < \epsilon_{\phi}$, with $\text{change\_phi}$ as defined in \eqt{eq:change_phi}  is not a true mathematical norm, we would still like to investigate the issue of false convergence.
+To do so, we first define a norm based convergence condition:
+\benum
+\norm{ \phi^{(\ell+1)} - \phi^{(\ell)} }_{L^1} < \epsilon_{\phi} \norm{ \phi^{(\ell+1)}}_{L^1} \pep
+\label{eq:l1}
+\eenum
+In \eqt{eq:l1}, we have multiplied the right hand side by $\norm{ \phi^{(\ell+1)} }$ to allow for a uniform convergence criteria, regardless of the physical scale of any particular problem.
+As shown in \cite{adams_larsen_fast_iterative}, we may eliminate false convergence by normalizing our convergence condition with $1-\rho$,
+\benum
+\frac{\norm{\phi^{(\ell+1)} - \phi^{(\ell)}_{L^1} } }{ 1- \rho}< \epsilon_{\phi} \pec
+\label{eq:rho_convergence}
+\eenum
+where $\rho$ is the spectral radius, which we estimate as:
+\benum
+\rho \approx \frac{ \norm{\phi^{(\ell+1)} - \phi^{(\ell)} } }{ \norm{\phi^{(\ell)} - \phi^{(\ell-1)} } }\pep
+\eenum
+In \tbl{tbl:rho_iters}, we plot the average number of iterations required to converge $\phi$ for each time step for our optically thick and diffusive test problem.  For all methods, we used $\epsilon_{\phi} = 10^{-10}$.
+\begin{table}[!hbp]
+\centering
+\caption{Average number of inner iterations per thermal iteration using different convergence criteria.}
+\label{tbl:rho_iters}
+\begin{tabular}{|c|c|c|c|}
+\hline
+{}  &  $\text{change\_phi} <\epsilon_{\phi}$ & 
+		$ \frac{\norm{ \phi^{(\ell+1)} - \phi^{(\ell)} }_{L^1} }{ \norm{ \phi^{(\ell+1)}}_{L^1}  } < \epsilon_{\phi}$  & 
+		$\frac{\norm{\phi^{(\ell+1)} - \phi^{(\ell)}_{L^1} } }{ 1- \rho}< \epsilon_{\phi} $\\
+		\hline
+SI & 18378 & 6382 & 22563 \\
+\hline
+DSA & 10 & 7 & 7 \\
+\hline
+\end{tabular}
+\end{table}
+Table \ref{tbl:rho_iters} clearly indicates that for optically thick, diffusive problems, the near unity spectral radius can lead to false iterative convergence, and as such should be accounted for explicitly via \eqt{eq:rho_convergence}.  
+We also remark that our choice of using $\norm{\phi^{(\ell+1)} }_{L^1}$ as a physical scaling constant could possibly be improved upon, as $\norm{\phi^{(\ell+1)}}_{L^1}$ is dominated by the already heated region, whereas the greatest changes in $\phi$ are occurring near the thermal wavefront.
+
+
 

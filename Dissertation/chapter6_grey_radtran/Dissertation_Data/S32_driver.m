@@ -7,8 +7,7 @@ cell_base = {   ...
     
 data_base = {   ...
   sprintf('Marshak_Results/Marshak_Wave_SL_Gauss_P4_S32_1k_Cell_5k_Time')...
-        };
-    
+        };    
 p_ord = 4;
 [q,w] = GLNodeWt(p_ord+1);
 plot_p = linspace(-1,1,20);
@@ -16,6 +15,8 @@ plot_p = linspace(-1,1,20);
 
 n_skip = 50;
 fig_num = 3;
+
+
 Pos_S_32_Marshak_Intensity_Plotter( fig_num , cell_base , data_base ,dfem_mat , n_skip )
 
 figure(fig_num)
@@ -36,7 +37,7 @@ h = legend('$\mu=0.0483$', ...
     '$\mu=0.9856$', ...
     '$\mu=0.9973$');
 
-axis([0 0.55 2E-6 3])
+axis([0 0.5 2E-6 3])
 set(gca,'YScale','log')
 set(gca,'XTick',[0 0.1 0.2 0.3 0.4 0.5])
 set(gca,'FontName','Times','FontSize',30)
