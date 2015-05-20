@@ -18,7 +18,7 @@ if( ~iscellstr(cell_base) )
     error('CellData must be passed in as cell arrays')
 end
 
-n_plots = length(data_base);
+[n_plots,n] = size(data_base);
 
 if(n_dir*n_groups > 8)
     error('Need more plot strings for this many groups / directions')
@@ -33,19 +33,18 @@ color_str(1,1) =  cellstr('-') ;
 color_str(1,2) = cellstr('--' ) ;
 color_str(1,3) = cellstr('-.' ) ;   
 color_str(1,4) = cellstr(':' );  
-color_str(1,5) =  cellstr(':') ;  
-color_str(1,6) = cellstr('-.' ) ;
-color_str(1,7) = cellstr('--' ) ;   
-color_str(1,8) = cellstr('-' );  
+color_str(1,5) =  cellstr('-' );  
+color_str(1,6) = cellstr('--' ) ;  
+color_str(1,7) =  cellstr('-.' ) ;
+color_str(1,8) = cellstr(':') ;  
 
 color_str(2,1) = {[0 0 0] } ;
 color_str(2,2) = {[1 0 0]} ;
 color_str(2,3) = {[0 0.8 0]} ;
-color_str(2,4) = {[0.5 0 0]} ;
-
-color_str(2,5) = {[0 0 0] } ;
-color_str(2,6) = {[1 0 0]} ;
-color_str(2,7) = {[0 0.8 0]} ;
+color_str(2,4) = {[0 0 1]} ;
+color_str(2,5) = {[1 0 1] } ;
+color_str(2,6) = {[0 0.5 0.5]} ;
+color_str(2,7) = {[0 1 1]} ;
 color_str(2,8) = {[0.5 0 0]} ;
 
 
@@ -59,9 +58,15 @@ end
 fid_cell = zeros(1,n_plots);
 fid_rad = fid_cell;
 % open all data sources
+
 for i=1:1:n_plots
-    name_cell = sprintf('%s_CellDataDump.txt' , char(cell_base(cell_str_look(i,1))) )
-    name_rad = sprintf( '%s_IntensityDump_Final.txt' , char(data_base(i)) )
+    if(n==1)
+        name_cell = sprintf('%s_CellDataDump.txt' , char(cell_base(cell_str_look(i,1))) )
+        name_rad = sprintf( '%s_IntensityDump_Final.txt' , char(data_base(i)) )
+    elseif(n==2)
+        name_cell = sprintf('%s_CellDataDump.txt' , char(cell_base(cell_str_look(i,1))) )
+        name_rad = sprintf( '%s_IntensityDump_%s.txt' , char(data_base(i,1)) , char(data_base(i,2))  )
+    end
 
     fid_cell(i) = fopen(name_cell , 'r' )
     fid_rad(i) = fopen(name_rad , 'r' )

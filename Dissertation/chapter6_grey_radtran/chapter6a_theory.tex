@@ -1,0 +1,1172 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  New template code for TAMU Theses and Dissertations starting Fall 2012.  
+%  For more info about this template or the 
+%  TAMU LaTeX User's Group, see http://www.howdy.me/.
+%
+%  Author: Wendy Lynn Turner 
+%	 Version 1.0 
+%  Last updated 8/5/2012
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                           SECTION III
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\chapter{\uppercase{Grey Thermal Radiative Transfer- Theory}}
+\label{sec:chapter6_grey_radtran}
+
+We now apply our self-lumping DFEM methodology to the grey thermal radiative transfer equations.
+Our framework shares important characteristics of the work presented by Morel, Wareing, and Smith \cite{morel_radtran}
+\begin{enumerate}
+\item linearization of the Planckian about an arbitrary temperature,
+\item  expansion of the angular intensity and temperature in a $P$ degree trial space, and
+\item expansion of the spatial dependence of the Planckian in a $P$ degree trial space.
+\end{enumerate}
+However, there are several differences between the work we present here and that of \cite{morel_radtran}.
+First, we derive our method for arbitrary DFEM polynomial trial space degree, not only a linear polynomial trial space.
+Second, \cite{morel_radtran} used a DFEM scheme equivalent to traditional lumping, whereas we primarily consider quadrature based self-lumping discretizations.
+However, the equations we derive are applicable to any DFEM scheme that uses polynomial trial space and test functions.
+Additionally, we consider arbitrary order (and stage count) SDIRK time integration, not only implicit Euler time integration.
+The two most important differences between our work here and that of \cite{morel_radtran} are:
+\begin{enumerate}
+\item we assume opacity and heat capacity can vary within each spatial cell and
+\item we fully converge the Planckian linearization in temperature.
+\end{enumerate}
+As shown by Larsen, Kumar, and Morel, failure to fully converge the Planckian linearization in temperature can result in non-physical solutions that violate the maximum principle \cite{larsen_trt}.
+
+The remainder of this section is divided into three parts.  Section \ref{sec:chap6_linearization} describes our linearization and discretization of the grey thermal radiative transfer (TRT) equations. 
+We describe the time marching and nested iteration process we follow while solving the TRT in \secref{sec:chap6_iteration}
+In \secref{sec:chap6_negativity} we describe necessary modifications to physical quantities handle negative angular intensities and temperatures and in
+\secref{sec:chap6_adaptive} we describe some adaptive time step selection techniques.
+We conclude with a brief description of our computer code implementation in \secref{sec:chap6_programming}
+
+\section{Linearization and Discretization of Grey TRT Equations}
+\label{sec:chap6_linearization}
+We begin our discussion of how to linearize the Planckian of the grey thermal radiative transfer in temperature by first briefly outlining SDIRK temporal integration in \secref{sec:sdirk_explained}.
+A more complete explanation can be found in \cite{alexander}
+
+\subsection{SDIRK Time Integration}
+\label{sec:sdirk_explained}
+
+SDIRK time integration schemes are one of many options available for solving initial value problems of the form:
+\beanum
+g(0) &=&G_0 \\
+f(t,g) &=& \frac{\partial g}{\partial t} \pec
+\eeanum
+where $t$ is time, and $G_0$ is the initial value of $g$ at time $t=0$.
+Depending on the literary source, SDIRK stands for Single-Diagonally Implicit Runge-Kutta, S-stable Diagonally Implicit Runge-Kutta, or one of many other expansions of the SDIRK acronym.
+The coefficients, $a_i$, $b_i$, and $c_i$ that describe any Runge-Kutta time integration are typically given in formatted tables called Butcher tableaux.
+Due to the stiff nature of the TRT equations, we limit ourselves to SDIRK time integration schemes.  
+The Butcher tableaux of an SDIRK  scheme with $N_{stage}$ stages is given in \eqt{eq:butcher} 
+\benum
+\label{eq:butcher}
+\begin{array}{c|c|cccc}
+\text{Stage}& c_i 	 & a  			&  		&					&	\\
+\hline
+1						&  c_1   &  a_{11} 	&  0  	&		\dots		&  0 \\
+2						&  c_2   &  a_{21}  & a_{22}  & 		0		& \vdots	\\	
+i						& c_i    &   a_{i1} &  a_{i2} & \ddots   &	0	\\
+N_{stage}     			&  c_{N_{stage}}   &   a_{N_{stage}1} & a_{N_{stage}2} 	& \dots 		& a_{N_{stage}N_{stage} }\\
+\hline
+{}					&				&		b_1		&		b_2			& \dots 	&   b_{N_{stage}}
+\end{array} \pep
+\eenum
+To illustrate how SDIRK is used to advance time-dependent quantities, let us consider a time-dependent scalar function, $g(t)$.
+Given an initial value at time (or time step) $t^n$, $g(t^n)=g_n$, then $g(t^{n+1})$ is:
+\benum
+g_{n+1} = g_n + \Delta t \sum_{i=1}^{N_{stage}}{b_i k_i} \pec
+\label{eq:p1}
+\eenum
+where $\Delta t = t^{n+1} - t^n$, and $k_i$ is defined as:
+\benum
+k_i = f\left( t_n + c_i \Delta t ~,~g_{n} + \Delta t \sum_{j=1}^i{a_{ij} k_j }\right) \pep
+\label{eq:p2}
+\eenum
+Equation \ref{eq:p2} can also be interpreted as meaning:
+\benum
+g_i = g_{n} + \Delta t \sum_{j=1}^i{a_{ij} f\left(t_n + \Delta t c_j , g_j\right)} \pec
+\label{eq:psi-def}
+\eenum
+where $g_i$ is the intermediate value of $g$ at the time of stage $i$, $t_i = t^n + \Delta t c_i$.
+
+We consider three different SDIRK schemes in our work, implicit Euler (IE); a two stage, second order S-stable scheme (2-2); and a three stage, third order S-stable scheme (3-3).
+Both multi-stage schemes were taken from \cite{alexander}.
+The Butcher tableaux for the implicit Euler scheme can be written as:
+\benum
+\label{eq:ie}
+\begin{array}{c|c|c}
+\hline
+1						&  1  	& 1	\\
+\hline
+{}					&				&		1	
+\end{array} \pep
+\eenum
+The 2-2 scheme of Alexander has the following Butcher tableaux,
+\benum
+\label{eq:alexander_2_2}
+\begin{array}{c|c|cc}
+\hline
+1						&  1-\frac{\sqrt{2}}{2}   &  1-\frac{\sqrt{2}}{2}  	&  0  		\\
+2						&  1   &  \frac{\sqrt{2}}{2} & 1-\frac{\sqrt{2}}{2}  	\\	
+\hline
+{}					&				&		\frac{\sqrt{2}}{2}	&		1- \frac{\sqrt{2}}{2}		
+\end{array} \pec
+\eenum
+and the 3-3 scheme's Butcher tableaux is:
+\benum
+\label{eq:alexander_3_3}
+\begin{array}{c|c|ccc}
+\hline
+1						&  \gamma   						& \gamma 	&    										&			\\
+2						&  \frac{1+\gamma}{2}   &  \frac{1-\gamma}{2} 		& \gamma  	&			\\	
+3						&  1   									&   	\delta	& \beta 	 	&		\gamma	\\	
+\hline
+{}					&												&		\delta		&		\beta			&	\gamma
+\end{array} \pec
+\eenum
+with 
+\beanum
+\gamma &=& 0.435866521508459 \\
+\delta &=& \frac{-6\gamma^2 + 16\gamma -1}{4} \\
+\beta &=& \frac{6\gamma^2 - 20\gamma + 5}{4} \pep
+\eeanum
+
+
+\subsection{Spatially Analytic Linearization}
+%
+%
+We now linearize Planckian of the spatially analytic, 1-D slab, grey, discrete ordinates TRT equations with SDIRK time integration.  The spatially and temporally analytic grey discrete ordinates TRT are given in \eqts{eq:analytic_grey_trt},
+\begin{subequations}
+\label{eq:analytic_grey_trt}
+\benum
+\frac{1}{c} \frac{\partial I}{\partial t} + \mu_d \frac{\partial I}{\partial x} + \sigma_t I= \frac{1}{4\pi}\sigma_s \phi + \sigma_a B + S_I
+\label{eq:intensity_eq}
+\eenum
+\benum
+C_v \frac{\partial T}{\partial t} = \sigma_a \left( \phi - 4\pi B \right) + S_T \pep
+\label{eq:temperature_eq} 
+\eenum
+\end{subequations}
+In \eqts{eq:analytic_grey_trt}, we have assumed all scattering and material photon emission is isotropic, defined that $I$ is the photon intensity with directional cosine $\mu_d$ (relative to the $x$-axis),  $S_I$ is a driving radiation source intensity source in the direction of $\mu_d$, $S_T$ is a driving temperature source, and the frequency integrated (grey) Planck, $B$, is:
+\benum
+B(T) = \frac{1}{4\pi} ac T^4\pec
+\eenum
+where $c$ is the speed of light and $a$ is the Planck radiation constant.
+To use SDIRK to advance $I$ and $T$ in time, we must first define the time derivatives of $I$ and $T$:
+\benum
+ \frac{\partial I}{\partial t} = c\left[ \frac{1}{4\pi}\sigma_s \phi + \sigma_a B + S_I - \mu_d \frac{\partial I}{\partial x} - \sigma_t I \right]
+\label{eq:k_I}
+\eenum
+and
+\benum
+\frac{\partial T}{\partial t} = \frac{1}{C_v} \left[ \sigma_a \left( \phi - 4\pi B \right) + S_T \right] \pep
+\label{eq:k_T}
+\eenum
+We evaluate $k_{I,s}$ and $k_{T,s}$, the SDIRK $k$ values for intensity and temperature for stage $s$ as:
+\benum
+k_{I,s} = c\left[ \frac{1}{4\pi}\sigma_{s}(T_s) \phi_s + \sigma_a(T_s) B(T_s) + S_I(t_s) - \mu_d \frac{\partial I_s}{\partial x} - \sigma_t(T_s) I_s \right]
+\label{eq:k_I_stage}
+\eenum
+and
+\benum
+k_{T,s} = \frac{1}{C_v(T_s)} \left[ \sigma_a(T_s) \left( \phi_s - 4\pi B(T_s) \right) + S_T(t_s) \right] \pec
+\label{eq:k_T_stage}
+\eenum
+where $\phi_s$, $I_s$, and $T_s$ are the angle integrated intensity, angular intensity, and temperature at time $t_s$, and $t_s$ is the time of stage $s$.
+
+\subsubsection{SDIRK Stage 1}
+With the definitions of \eqt{eq:psi-def}, \eqt{eq:k_I_stage}, and \eqt{eq:k_T_stage}, we now seek to find $I_1$
+\benum
+I_1 = I_n + a_{11} \Delta t k_{I,1} \pep
+\label{eq:chap6_early}
+\eenum
+Substituting in the definition of \eqt{eq:k_I_stage} into \eqt{eq:chap6_early}, for the intensity in stage 1, we have,
+\benum
+I_1 = I_n + a_{11} \Delta t c \left[ \frac{1}{4\pi}\sigma_{s} \phi_1 + \sigma_a B+ S_I - \mu_d \frac{\partial I_1}{\partial x} - \sigma_t I_1 \right] 
+\pep
+\label{eq:i_1_start}
+\eenum
+Similarly, for $T_1$, we have
+\benum
+T_1 = T_n +\frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi B \right) + S_T  \right] \pep
+\label{eq:t_1_start}
+\eenum
+In \eqt{eq:i_1_start} and \eqt{eq:t_1_start}, we have assumed that unless otherwise noted, all material properties and sources are evaluated at time $t_s$ and temperature $T_s$.
+
+We now introduce the linearization of the Planckian in temperature. 
+For an arbitrary temperature iterate, $T_*$, we approximate $B(T_s)$ as:
+\begin{subequations}
+\label{eq:scalar_linear}
+\beanum
+B(T) &\approx & B(T_*) + \frac{\partial B}{\partial T} \bigg \lvert_{T=T_*} \left(  T - T_* \right) \\
+B(T) &\approx & B_* + D_*  \left(  T - T_* \right) \\
+B_* &=& \frac{1}{4\pi}a  c T_*^4 \\
+D_* &=& \frac{1}{\pi} a cT_*^3 \pep
+\eeanum
+\end{subequations}
+Equation \ref{eq:i_1_start} has a strong non-linear dependence on $T_1$ due to the Planckian term, $\sigma_a B$, and a weak non-linear dependence on $T_1$ if the material opacities are temperature dependent. 
+If we could remove the dependence of $T_1$ from \eqt{eq:i_1_start}, we could solve \eqt{eq:i_1_start} using the same techniques that have been developed to solve the discrete ordinates neutron transport equation.
+We attempt to remove the strong non-linear dependence on $T_1$ from \eqt{eq:i_1_start} by linearizing the Planckian term.
+We neglect the non-linear dependence material opacities and heat capacities on temperature.
+To linearize the Planckian we first apply the linearization of \eqt{eq:scalar_linear} to \eqt{eq:t_1_start} and manipulate.
+Inserting the linearization, we begin with \eqt{eq:long_t_1}
+\benum
+T_1 = T_n + \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi \left(  B_* + D_*  \left(  T_1 - T_* \right)  \right) \right) + S_T  \right] \pec
+\label{eq:long_t_1}
+\eenum
+then move all $T_1$ terms to the left hand side,
+\benum
+\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)T_1 = T_n + \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi   B_* + 4\pi D_*  T_* \right) + S_T  \right] \pep
+\eenum
+In \eqt{eq:long_t_1}, we have made the assumption that all material properties are evaluated at $T_*$, but we neglect to denote this for streamlined notation.
+Next, we divide by the coefficient in front of $T_1$ on the left hand side:
+\begin{multline}
+T_1 = \left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} T_n + \dots \\
+\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi   B_* \right) + S_T \right] + \dots \\
+\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \frac{ 4\pi a_{11} \Delta t }{C_v} \sigma_a D_*  T_* \pec
+\end{multline}
+and then add ``nothing'',
+\benum
+\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left( T_* - T_* \right) \pec
+\eenum
+to the right hand side,
+\begin{multline}
+T_1 = \left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} T_n + \dots \\
+\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi   B_* \right) + S_T \right] + \dots \\
+\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left(1 + \frac{ 4\pi a_{11} \Delta t }{C_v} \sigma_a D_* \right) T_* \dots \\
+-\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} T_*\pep
+\end{multline}
+Noting that 
+\benum
+\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left(1 + \frac{ 4\pi a_{11} \Delta t }{C_v} \sigma_a D_* \right)  = 1 \pec
+\eenum
+and condensing, we finally have:
+\benum
+T_1 = T_* + \left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left( T_n - T_* + \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi   B_* \right) + S_T \right]  \right) \pep
+\label{eq:analytic_t_1}
+\eenum
+We occasionally refer to \eqt{eq:analytic_t_1}, and subsequent, similar equations, as a temperature update, as \eqt{eq:analytic_t_1} is the non-linear iteration for temperature we must converge in order to solve the grey TRT.
+
+We now linearize the Planck term of \eqt{eq:i_1_start} in temperature,
+\benum
+I_1 = I_n + a_{11} \Delta t c \left[ \frac{1}{4\pi}\sigma_{s} \phi_1 + \sigma_a \left(B_* + D_*(T_1 - T_*)  \right) + S_I - \mu_d \frac{\partial I_1}{\partial x} - \sigma_t I_1 \right] \pep
+\label{eq:long_i_1_analytic}
+\eenum
+We then insert \eqt{eq:analytic_t_1} into \eqt{eq:long_i_1_analytic},
+\begin{multline}
+I_1 = I_n + a_{11} \Delta t c \left[ \frac{1}{4\pi}\sigma_{s} \phi_1 + S_I - \mu_d \frac{\partial I_1}{\partial x} - \sigma_t I_1  \right. \\ 
+\left. + \sigma_a \left(B_* + D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left( T_n - T_* + \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi   B_* \right) + S_T \right]  \right) \right) \right] \pep
+\end{multline}
+Next, we divide by $ a_{11} \Delta t c$, and move the interaction and gradient terms to the left hand side:
+\begin{multline}
+\mu_d \frac{\partial I_1}{\partial x} + \sigma_t I_1 + \frac{1}{a_{11} \Delta t c} I_1 = \frac{1}{a_{11} \Delta t c}I_n + \frac{1}{4\pi}\sigma_{s} \phi_1 + S_I \dots \\
++ \sigma_a \left(B_* + D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left( T_n - T_* + \frac{a_{11} \Delta t }{C_v} \left[ \sigma_a \left( \phi_1 - 4\pi   B_* \right) + S_T \right]  \right) \right) \pep
+\end{multline}
+We now manipulate the right hand side,
+\begin{multline}
+\mu_d \frac{\partial I_1}{\partial x} + \sigma_t I_1 + \frac{1}{a_{11} \Delta t c} I_1 = \frac{1}{a_{11} \Delta t c}I_n + \frac{1}{4\pi}\sigma_{s} \phi_1  \dots \\ 
++  \sigma_a  D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \frac{a_{11} \Delta t }{C_v} \sigma_a \phi_1  \dots \\
++ S_I + \sigma_a B_* 
++ \sigma_a D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left( T_n - T_* + \frac{a_{11} \Delta t }{C_v} \left[  S_T - 4\pi \sigma_a   B_*\right]  \right) \pec
+\end{multline}
+and define
+\benum
+\sigma_{\tau,1} = \sigma_t + \frac{1}{a_{11} \Delta t c} \pec
+\label{eq:tau_1_analytic}
+\eenum
+giving
+\begin{multline}
+\mu_d \frac{\partial I_1}{\partial x} + \sigma_{\tau,1} I_1 = \frac{1}{a_{11} \Delta t c}I_n + \frac{1}{4\pi}\sigma_{s} \phi_1  \dots \\ 
++  \sigma_a  D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \frac{a_{11} \Delta t }{C_v} \sigma_a \phi_1  \dots \\
++ S_I + \sigma_a B_* 
++ \sigma_a D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left( T_n - T_* + \frac{a_{11} \Delta t }{C_v} \left[  S_T - 4\pi \sigma_a   B_*\right]  \right) \pep
+\end{multline}
+Focusing on the second $\phi_1$ term on the right hand side,
+\benum
+\sigma_a  D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \frac{a_{11} \Delta t }{C_v} \sigma_a \phi_1 \pec
+\eenum
+we first simplify the terms in front of $\sigma_a \phi_1$
+\benum
+\sigma_a  D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \frac{a_{11} \Delta t }{C_v} = \frac{ \sigma_a D_* a_{11} \Delta t}{C_v + 4\pi a_{11} \Delta t \sigma_a D_*} \pec
+\eenum
+then multiply by $\frac{4\pi}{4\pi}$ and arrange, yielding:
+\benum
+\frac{1}{4\pi} \frac{ \sigma_a D_* a_{11} \Delta t}{C_v + 4\pi a_{11} \Delta t \sigma_a D_*} \sigma_a \phi_1 \pep
+\eenum
+Defining a constant, $\nu_1$,
+\benum
+\nu_1 = \left( 4\pi  a_{11} \Delta t \sigma_a  D_*  \right) \left(C_v + 4\pi a_{11} \Delta t \sigma_a D_*  \right)^{-1} \pec
+\eenum
+we arrive at an equation for intensity $I_1$ that is similar in form to the discrete ordinates neutron transport equations with isotropic scattering, fission, and a fixed source:
+\benum
+\mu_d \frac{\partial I_1}{\partial x} + \sigma_{\tau,1} I_1 = \frac{1}{4\pi}\sigma_{s} \phi_1 + \frac{1}{4\pi}\nu_1 \sigma_a \phi_1 + \xi_1 \pec
+\label{eq:i_analytic_pseudo}
+\eenum
+where
+\begin{multline}
+\xi_1 = \frac{1}{a_{11} \Delta t c}I_n + S_I + \sigma_a B_* + \dots \\
+\sigma_a D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left( T_n - T_* + \frac{a_{11} \Delta t }{C_v} \left[  S_T - 4\pi \sigma_a   B_*\right]  \right) \pep
+\end{multline}
+The similarity of \eqt{eq:i_analytic_pseudo} to the neutron transport equation is especially apparent if we define pseudo total interaction and scattering cross sections, $\widetilde{\Sigma_t}$ and $\widetilde{\Sigma_s}$, to be
+\beanum
+\widetilde{\Sigma_t} &=& \sigma_{\tau,1} \\
+\widetilde{\Sigma_s} &=& \sigma_s + \nu_1 \sigma_a\pec
+\eeanum
+giving:
+\benum
+\mu_d \frac{\partial I_1}{\partial x} + \widetilde{\Sigma_t} I_1 = \frac{1}{4\pi}\widetilde{\Sigma_s} \phi_1 + \xi_1 \pep
+\eenum
+If we define a pseudo absorption interaction cross section as,
+\benum
+\widetilde{\Sigma_a}  = \widetilde{\Sigma_t} - \widetilde{\Sigma_s} \pec
+\eenum
+then it appears that all of the methodology, including DSA, developed for discrete ordinates neutron transport might be applicable for solving the discrete ordinates thermal radiative transfer equations using SDIRK time integration.
+The next step in examining the possibility of applying neutron transport methods to solve the TRT equations is to attempt to form a pseudo neutron transport equation for stage $i$ of any SDIRK time integration scheme. 
+
+\subsubsection{SDIRK Stage $i$}
+
+The intensity at stage $i$, is given by:
+\benum
+I_i = I_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{I,j}} + a_{ii} \Delta t c \left[ \frac{1}{4\pi}\sigma_{s} \phi_i + \sigma_a \left[B_* + D_* (T_i - T_*) \right]+ S_I - \mu_d \frac{\partial I_i}{\partial x} - \sigma_t I_i \right] 
+\pep
+\label{eq:i_i_start}
+\eenum
+Likewise for $T_i$, we have
+\benum
+T_i = T_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} + \frac{a_{ii} \Delta t }{C_v} \left[ \sigma_a \left( \phi_i - 4\pi \left[ B_* + D_*(T_i - T_*) \right] \right) + S_T  \right] \pep
+\label{eq:analytic_t_i_start}
+\eenum
+The only difference between \eqt{eq:i_i_start} and \eqt{eq:long_i_1_analytic} is the presence of
+\benum
+\Delta t \sum_{j=1}^{i-1}{a_{ij} k_{I,j}} \pep
+\eenum
+Likewise, the only difference between \eqt{eq:analytic_t_i_start} and \eqt{eq:long_t_1} is
+\benum
+\Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} \pep
+\eenum
+For brevity, we omit the manipulation of \eqt{eq:analytic_t_i_start} to form a temperature update equation, and instead give the final result:
+%
+%Proceeding as we did for SDIRK stage 1, we first move all $T_i$ terms of \eqt{eq:analytic_t_i_start} to the left hand side,
+%\benum
+%\left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)T_i = T_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}}  + \frac{a_{ii} \Delta t }{C_v} \left[ \sigma_a \left( \phi_i - 4\pi   B_* + 4\pi D_*  T_* \right) + S_T  \right] \pep
+%\eenum
+%Next, we divide by the coefficient in front of $T_i$ on the left hand side:
+%\begin{multline}
+%T_i = \left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left( T_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} \right) + \dots \\
+%\left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \frac{a_{ii} \Delta t }{C_v} \left[ \sigma_a \left( \phi_i- 4\pi   B_* \right) + S_T \right] + \dots \\
+%\left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \frac{ 4\pi a_{ii} \Delta t }{C_v} \sigma_a D_*  T_* \pec
+%\end{multline}
+%and then add ``nothing'' ,
+%\benum
+%\left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left( T_* - T_* \right) \pec
+%\eenum
+%to the right hand side,
+%\begin{multline}
+%T_i = \left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left( T_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} \right) + \dots \\
+%\left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \frac{a_{ii} \Delta t }{C_v} \left[ \sigma_a \left( \phi_i - 4\pi   B_* \right) + S_T \right] + \dots \\
+%\left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left(1 + \frac{ 4\pi a_{ii} \Delta t }{C_v} \sigma_a D_* \right) T_* \dots \\
+%-\left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} T_*\pep
+%\end{multline}
+%Noting that 
+%\benum
+%\left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left(1 + \frac{ 4\pi a_{ii} \Delta t }{C_v} \sigma_a D_* \right)  = 1 \pec
+%\eenum
+%and condensing, we have:
+\begin{multline}
+T_i = T_* + \left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \\
+\left( T_n - T_* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} +  \frac{a_{ii} \Delta t }{C_v} \left[ \sigma_a \left( \phi_i - 4\pi   B_* \right) + S_T \right]  \right) \pep
+\label{eq:analytic_t_i}
+\end{multline}
+
+Similarly, we omit the manipulation of \eqt{eq:i_i_start} into a pseudo-fission form, and instead give the final result,
+%
+%Inserting \eqt{eq:analytic_t_i} into \eqt{eq:i_i_start}, dividing by $a_{ii} c \Delta t$, and moving the gradient and interaction terms to the left hand side:
+%\begin{multline}
+%\mu_d \frac{\partial I_i}{\partial x} + \left(\frac{1}{a_{ii} \Delta t c} + \sigma_t \right) I_i = \frac{1}{a_{ii} \Delta t c} I_n + \frac{1}{a_{ii} c} \sum_{j=1}^{i-1}{a_{ij} k_{I,j}} + \dots\\
+%\frac{1}{4\pi}\sigma_{s} \phi_i + \sigma_a B_* + S_I \dots \\
+ %+ \sigma_a D_*\left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} 
+%\left( T_n - T_* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} \right) \dots \\
+%+   \sigma_a D_*\left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1}  \frac{a_{ii} \Delta t }{C_v} \left[ \sigma_a \left( \phi_i - 4\pi   B_* \right) + S_T \right]  \pep
+%\end{multline}
+%Isolating the $\phi_i$ term that has a coefficient based on the Planck linearization:
+%\begin{multline}
+%\mu_d \frac{\partial I_i}{\partial x} + \left(\frac{1}{a_{ii} \Delta t c} + \sigma_t \right) I_i = \frac{1}{a_{ii} \Delta t c} I_n + \frac{1}{a_{ii} c} \sum_{j=1}^{i-1}{a_{ij} k_{I,j}} + \dots\\
+%\frac{1}{4\pi}\sigma_{s} \phi_i + \sigma_a B_* + S_I \dots \\
+ %+ \sigma_a D_*\left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} 
+%\left( T_n - T_* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} +   \frac{a_{ii} \Delta t }{C_v}  \left( S_T -  4\pi  \sigma_a B_*   \right) \right) \dots \\
+%+   \sigma_a D_*\left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1}  \frac{a_{ii} \Delta t }{C_v} \sigma_a  \phi_i  \pec
+%\end{multline}
+%defining 
+%\begin{subequations}
+%\benum
+%\nu_i = 4\pi \sigma_a D_* \left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1}  \frac{a_{ii} \Delta t }{C_v} = \frac{ 4\pi a_{ii} \Delta t \sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \pec
+%\label{eq:analytic_nu}
+%\eenum
+%\benum
+%\sigma_{\tau,i} = \frac{1}{a_{ii} \Delta t c} + \sigma_t \text \pec \text{and} 
+%\label{eq:tau_i_analytic}
+%\eenum
+%\begin{multline}
+%\xi_i = \sigma_a B_* + S_I +  \frac{1}{a_{ii} \Delta t c} I_n + \frac{1}{a_{ii} c} \sum_{j=1}^{i-1}{a_{ij} k_{I,j}}  + \dots  \\ 
+%\sigma_a D_*\left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} 
+%\left( T_n - T_* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} +   \frac{a_{ii} \Delta t }{C_v}  \left( S_T -  4\pi  \sigma_a B_*   \right) \right) \pec
+%\end{multline}
+%\end{subequations}
+%we arrive at another equation that appears to be similar to the neutron transport equation with isotropic scattering, a fission source, and a fixed source:
+\benum
+\mu_d \frac{\partial I_i}{\partial x} + \sigma_{\tau,i} = \frac{1}{4\pi} \sigma_s \phi_i + \frac{1}{4\pi}\nu_i \sigma_a \phi_i + \xi_i \pec
+\label{eq:analytic_pseudo_i}
+\eenum
+where we have defined the following:
+\begin{subequations}
+\benum
+\nu_i = 4\pi \sigma_a D_* \left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1}  \frac{a_{ii} \Delta t }{C_v} = \frac{ 4\pi a_{ii} \Delta t \sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \pec
+\label{eq:analytic_nu}
+\eenum
+\benum
+\sigma_{\tau,i} = \frac{1}{a_{ii} \Delta t c} + \sigma_t \text \pec \text{and} 
+\label{eq:tau_i_analytic}
+\eenum
+\begin{multline}
+\xi_i = \sigma_a B_* + S_I +  \frac{1}{a_{ii} \Delta t c} I_n + \frac{1}{a_{ii} c} \sum_{j=1}^{i-1}{a_{ij} k_{I,j}}  + \dots  \\ 
+\sigma_a D_*\left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} 
+\left( T_n - T_* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} +   \frac{a_{ii} \Delta t }{C_v}  \left( S_T -  4\pi  \sigma_a B_*   \right) \right) \pep
+\end{multline}
+\end{subequations}
+
+In the spatially analytic case, the grey TRT equations, with Planck linearization and arbitrary stage count SDIRK time integration can be put into a pseudo neutron transport form.
+This suggests that we may techniques such as spatial discretization and acceleration methods, can be used to solve the grey TRT equations.
+To verify this,  we go through the linearization procedure again with the spatially discretized grey TRT equations that explicitly account for the spatial variation of material properties in the next section. 
+
+If we could solve the spatially discretized equations efficiently through source iteration alone, it would be redundant to go through the entire linearization process with the spatially analytic and spatially discretized TRT equations.
+However, iterative acceleration is essential for efficient solution of the TRT equations due to the Planckian absorption/re-emission terms in the linearized radiation intensity equation creating a situation analogous to a scattering dominated medium in neutron transport.
+As we will see, the problem with accelerating the spatially discretized TRT equations is that we need a pseudo diffusion coefficient, $\widetilde{D}$, both at quadrature integration points and cell edges for MIP DSA acceleration, but do not have a physical definition of that quantity.
+
+\subsection{Spatially Discretized Linearization}
+Now we attempt to derive a pseudo fission form of the spatially discretized grey TRT equations.
+First, we must define a spatially discretized $k_I$ and $k_T$.
+To do this, we apply the standard Galerkin procedure outlined in \chapref{sec:chapter2_constant_xs} and \chapref{sec:chapter3_variable_xs} to the spatially analytic forms of $k_{I}$ and $k_{T}$ given in \eqt{eq:k_I_stage} and \eqt{eq:k_T_stage}, respectively.
+For $\vec{k}_{I}$, we have:
+\benum
+\vec{k}_{I}= c \M^{-1} 
+\left[
+\frac{1}{4\pi}\R{\sigma_s}\vec{\phi} + \R{\sigma_a}\vec{B} - \R{\sigma_t} \vec{I} - \mu_d\mathbf{G}\vec{I} + \mu_d I_{in} \vec{f}+ \vec{S}_I
+\right] \pec
+\label{eq:k_i_vec_example}
+\eenum
+where we have approximated the true angular intensity, angle integrated intensities, and temperatures in every spatial cell as $P$ degree polynomials:
+\beanum
+I(s) &\approx& \widetilde{I}(s) \\
+\widetilde{I}(s) &=& \sum_{i=1}^{N_P}{ I_i \B{i}(s) } \\
+\phi(s) &\approx& \widetilde{\phi(s) }\\
+\widetilde{\phi}(s) &=& \sum_{i=1}^{N_P}{ \phi_i \B{i}(s) } \\
+T(s) &\approx& \widetilde{T}(s) \\
+\widetilde{I}(s) &=& \sum_{i=1}^{N_P}{T_i \B{i}(s) } \pec
+\eeanum
+with
+\beanum
+\vec{I} &=& \left[  I_1 \dots I_{N_P} \right]^T \\
+\vec{\phi} &=&\left[  \phi_1 \dots \phi_{N_P} \right]^T \\
+\vec{T} &=& \left[  T_1 \dots T_{N_P} \right]^T \\
+\vec{B} &=& \frac{1}{4\pi} \left[  B(T_1) \dots B(T_{N_P}) \right]^T \pec
+\eeanum
+and
+\benum
+\vec{S}_{I,j} = \frac{\Delta x}{2}\int_{-1}^1{\B{j}(s) S_I(s) ~ds} \pep
+\eenum
+Additionally, $\R{\sigma_t}$ , $\R{\sigma_a}$, and $\R{\sigma_s}$, are defined analogously to the $\R{\Sigma}$ defined for neutron transport, as are $\mathbf{G}$, $\mathbf{M}$, and $\vec{f}$.
+Defining $\vec{k}_T$:
+\benum
+\vec{k}_T =  \R{C_v}^{-1}
+\left[ \R{\sigma_a} \left(\vec{\phi} - 4\pi\vec{B} \right) + \vec{S}_T \right] \pec
+\label{eq:k_t_discretized}
+\eenum
+with
+\benum
+\vec{S}_{T,j} = \frac{\Delta x}{2}\int_{-1}^1{\B{j}(s) S_T(s) ~ds} \pec
+\eenum
+and
+\benum
+\mathbf{R}_{C_v,ij} = \frac{\Delta x}{2}\int_{-1}^1{C_v(s) \B{i}(s)\B{j}(s)~ds} \pep
+\eenum
+
+Before proceeding, it is critical to note that in \eqt{eq:k_i_vec_example} and \eqt{eq:k_t_discretized} we approximate the ``true'' spatial dependence of the Planckian, 
+\benum
+B(s) = B(\widetilde{T}(s) ) \pec
+\eenum
+as
+\benum
+B(s) \approx \sum_{i=1}^{N_P}{ \B{i}(s) B(T_i) } \pep
+\eenum
+Additionally, since the we assume the Planckian is a $P$ degree polynomial in space, it follows that:
+\benum
+B(\widetilde{T}(s)) \approx \sum_{i=1}^{N_P}{ \B{i}(s) \left[ B(T_{i,*}) + (T_i - T_{i,*} ) \frac{d B}{d T} \bigg \lvert_{T = T_{i,*}}\right] } \pec 
+\eenum
+where $T_{i,*}$ is an arbitrary temperature at DFEM interpolation point $i$.
+
+%\subsubsection{SDIRK Stage 1}
+%We now write down the spatially discretized, grey TRT equations with a Planckian that has been linearized in temperature, for the first SDIRK stage.
+%\begin{multline}
+%\vec{I}_1 = \vec{I}_n + c\Delta t a_{11}\M^{-1}\left[   
+%\frac{1}{4\pi}\R{\sigma_s,*}\vec{\phi}_1 + \R{\sigma_a,*}\left(\vec{B}_* + \D \left(\vec{T}_1 -\vec{T}_*  \right)   \right) \dots \right. \\
+%\left. - \R{\sigma_t,*} \vec{I}_1 - \mu_d \mathbf{G}\vec{I}_1 + \mu_d I_{in,1}\vec{f} 
+%+ \vec{S}_I
+%\right]
+%\label{eq:first_I}
+%\end{multline}
+%\benum
+%\vec{T}_1  = \vec{T}_n + \Delta t a_{11} \R{C_v,*}^{-1}\left[
+%\R{\sigma_a,*} \left(\vec{\phi}_1 - 4\pi\vec{B}_* - 4\pi\D\left( \vec{T}_1 - \vec{T}_* \right)\right) + \vec{S}_T
+%\right]
+%\label{eq:first_T}
+%\eenum
+%In \eqt{eq:first_I}, \eqt{eq:first_T}, and all of the equations that follow, we will evaluate all material properties ($\sigma$, $C_v$) at $\widetilde{T}_*$.
+%We will no longer denote this with $_*$, to improve equation readability. 
+%The diagonal matrix $\D$ is defined as
+%\benum
+%\mathbf{D}_{*,ii} = \frac{d B}{d T} \bigg \lvert_{T = T_{i,*}} \pep
+%\eenum
+%
+%We now use \eqt{eq:first_T} to eliminate the unknown temperature, $\vec{T}_1$ from \eqt{eq:first_I} by first moving the $\vec{T}_1$ terms to the left hand side of \eqt{eq:first_T}:
+%\benum
+%\vec{T}_1 +  4\pi\Delta t a_{11} \R{C_v}^{-1}\R{\sigma_a}\D \vec{T}_1   = \vec{T}_n + \Delta t a_{11} \R{C_v}^{-1}
+%\left[
+%\R{\sigma_a} \left(\vec{\phi}_1 -  4\pi\vec{B}_*+ 4\pi\D\vec{T}_* \right) + \vec{S}_T
+%\right] \pep
+%\eenum
+%Multiplying by,
+%\benum
+ %\left[\mathbf{I}+ 4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a}\D   \right]^{-1}
+%\eenum
+%to get rid of the matrices in front of $\vec{T}_1$ and adding a ``zero'', 
+%\benum
+ %\left[\mathbf{I}+ 4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a}\D   \right]^{-1}\left[\vec{T}_* - \vec{T}_*  \right] \pec
+%\eenum
+%to the right hand side yields:
+%\begin{multline}
+%\vec{T}_1 = \left[\mathbf{I} + 4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a}\D   \right]^{-1}
+%\left\{
+%\vec{T}_n + \right. \\
+ %\left. \Delta t a_{11}  \R{C_v}^{-1}\left[ \R{\sigma_a} \left(\vec{\phi}_1 -4\pi \vec{B}_*+ 4\pi \D \vec{T}_* \right) +  \vec{S}_T \right]  
+%\right\} \dots \\
+ %+ \left[\mathbf{I}+ 4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a}\D   \right]^{-1}\left[\vec{T}_* - \vec{T}_*  \right] \pec
+%\end{multline}
+%where $\mathbf{I}$ is the $N_P \times N_P$ identity matrix.
+%Re-arranging gives
+%\begin{multline}
+%\vec{T}_1 = \left[\I+ 4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a}\D   \right]^{-1}
+%\left[
+%\vec{T}_n + \Delta t a_{11}  \R{C_v}^{-1}\left[ \R{\sigma_a} \left(\vec{\phi}_1 - 4\pi\vec{B}_*  \right)+ \vec{S}_T \right]\right] \dots \\ 
+%+ 
+%\left[\I +  4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}
+%\left[\I +  4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a}\D   \right] \vec{T}_* \dots \\
+%- \left[\I +  4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a}\D   \right]^{-1}\vec{T}_* \pec
+%\end{multline}
+%noting the identity:
+%\benum
+%\left[\I +  4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a}\D   \right]^{-1}\left[\I +  4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a}\D   \right] = \I \pec
+%\eenum
+%%
+%yields the stage 1 temperature update equation,
+%\benum
+%\vec{T}_1 = \vec{T}_* + \left[\I + 4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a}\D \right]^{-1}\left[\vec{T}_n - \vec{T}_* +  \Delta t a_{11}  \R{C_v}^{-1}\left[ \R{\sigma_a} \left(\vec{\phi}_1 - 4\pi\vec{B}_*\right) + \vec{S}_{T}\right]\right] \pep
+%\label{eq:iso_T1}
+%\eenum
+%%
+%%
+%Inserting \eqt{eq:iso_T1} into \eqt{eq:first_I}:
+%\begin{multline}
+%\vec{I}_1 = \vec{I}_n + c\Delta t a_{11}\M^{-1}\left[   
+%\frac{1}{4\pi}\R{\sigma_s}\vec{\phi}_1 + \R{\sigma_a}\vec{B}_* - \R{\sigma_t} \vec{I}_1 - \mu_d \mathbf{G}\vec{I}_1 + \mu_d I_{in,1}\vec{f} + \vec{S}_I \right] \dots  \\
+%+ c \Delta t a_{11}\M^{-1} \R{\sigma_a}\D
+%\left[\I + 4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a}\D   \right]^{-1}
+%\left\{ \vec{T}_n - \vec{T}_* \right. \\
+%\left. +  \Delta t a_{11} \R{C_v}^{-1}\left[ \R{\sigma_a} \left(\vec{\phi}_1 - 4\pi\vec{B}_*\right) + \vec{S}_T \right]\right\} \pec
+%\end{multline}
+%%
+%%
+%%
+%and then multiplying by $\frac{1}{c\Delta t a_{11}}\M$, we have
+%\begin{multline}
+%\frac{1}{c\Delta t a_{11}}\M\vec{I}_1 = \frac{1}{c\Delta t a_{11}}\M\vec{I}_n + 
+%\frac{1}{4\pi}\R{\sigma_s}\vec{\phi}_1 + \R{\sigma_a}\vec{B}_* - \R{\sigma_t} \vec{I}_1 - \mu_d \mathbf{G}\vec{I}_1 + \mu_d I_{in,1}\vec{f}  + \vec{S}_I\dots  \\
+%+ \R{\sigma_a} \D
+%\left[\I+ 4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a}\D   \right]^{-1}
+%\left\{\vec{T}_n - \vec{T}_* +  \Delta t a_{11} \R{C_v}^{-1}\left[ \R{\sigma_a} \left(\vec{\phi}_1 - 4\pi\vec{B}_*\right) + \vec{S}_T\right]\right\}  \pep
+%\end{multline}
+%%
+%%
+%%
+%Moving terms that are normally given on the left hand side
+%\begin{multline}
+%\mu_d \mathbf{G}\vec{I}_1 + \left(\frac{1}{c\Delta t a_{11}} \M + \R{\sigma_t} \right)\vec{I}_1 = \frac{1}{c\Delta t a_{11}}\M\vec{I}_n +   
+%\frac{1}{4\pi}\R{\sigma_s}\vec{\phi}_1 + \R{\sigma_a}\vec{B}_* + \mu_d I_{in,1} \vec{f} + \vec{S}_I \dots  \\
+%+ \R{\sigma_a} \D \left[\I+ 4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a}\D   \right]^{-1}
+%\left\{\vec{T}_n - \vec{T}_* +  \Delta t a_{11}  \R{C_v}^{-1}\left[ \R{\sigma_a} \left(\vec{\phi}_1 - 4\pi\vec{B}_*\right) + \vec{S}_T\right]\right\} \pec
+%\end{multline}
+%%
+%%above here
+%%
+%and further manipulating to isolate $\vec{\phi}_1$ terms on the right hand side, we have:
+%%
+%%
+%\begin{multline}
+%\mu_d \mathbf{ G}\vec{I}_1 + \left(\frac{1}{c\Delta t a_{11}} \M + \R{\sigma_t} \right)\vec{I}_1 = \dots \\
+%\frac{1}{4\pi}\R{\sigma_s}\vec{\phi}_1 + \Delta t a_{11} \R{\sigma_a} \D
+%\left[\I + 4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a} \D   \right]^{-1}
+%\R{C_v}^{-1}\R{\sigma_a} \vec{\phi}_1 \dots \\
+%+ \frac{1}{c\Delta t a_{11}}\M \vec{I}_n +\R{\sigma_a}\vec{B}_* + \mu_d I_{in,1} \vec{f} + \vec{S}_I  \dots \\
+%+ \R{\sigma_a} \D
+%\left[\I +4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a} \D   \right]^{-1}
+%\left\{ \vec{T}_n - \vec{T}_* + \Delta t a_{11}  \R{C_v}^{-1}\left[ \vec{S}_T - 4\pi\R{\sigma_a} \vec{B}_*\right] \right\} \pep
+%\label{eq:almost_1}
+%\end{multline}
+%Equation (\ref{eq:almost_1}) can be made to resemble the canonical mono-energetic neutron fission equation by defining the following terms,
+%\begin{subequations}
+%%
+%\label{eq:step1_defs}
+%%
+%\benum
+%\overline{\overline{\mathbf \nu}}_1 = 4\pi\Delta t a_{11} \R{\sigma_a}
+%\D \left[\I + 4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a}\D   \right]^{-1}\R{C_v}^{-1}
+%\eenum 
+ %%
+%%
+ %\begin{multline}
+%\overline{\overline{\mathbf \xi}}_{d,1} = \frac{1}{c\Delta t a_{11}}\M\vec{I}_n + \R{\sigma_a}\vec{B}_*  + \vec{S}_I \dots \\ 
+%+ \R{\sigma_a} \D
+%\left[\I + 4\pi\Delta t a_{11}  \R{C_v}^{-1}\R{\sigma_a}\D   \right]^{-1}
+%\left[\vec{T}_n - \vec{T}_* + \Delta t a_{11}  \R{C_v}^{-1}\left[\vec{S}_T - 4\pi\R{\sigma_a}\vec{B}_*\right]\right] 
+%\end{multline}
+%%%
+%%%
+%\benum
+%\overline{\overline{\mathbf R}}_{\sigma_{\tau},1} = \frac{1}{c\Delta t a_{11}} \M + \R{\sigma_t} \pep
+%\eenum
+%%
+%\end{subequations}
+%Inserting \eqts{eq:step1_defs} into \eqt{eq:almost_1} gives our final form:
+%\benum
+ %\mu_d\mathbf{G}\vec{I}_1 + \overline{\overline{\mathbf R}}_{\sigma_{\tau},1}\vec{I}_1 = \frac{1}{4\pi}\R{\sigma_s}\vec{\phi}_1 + \frac{1}{4\pi}\overline{\overline{\mathbf \nu}}_1\R{\sigma_a} \vec{\phi}_1 +  \mu_d I_{in,1}\vec{f} + \overline{\overline{\mathbf \xi}}_{d,1} \pep
+%\label{eq:1_done}
+%\eenum
+%
+\subsubsection{SDIRK Stage $i$}
+As we showed with the spatially analytic case, the $i$-th SDIRK stage is only slightly different than the first SDRIK stage.
+Thus, we omit the first stage derivation for the spatially discretized case, and begin with SDIRK stage $i$, first writing the equation for $\vec{I}_i$ and $\vec{T}_{i}$:
+\begin{multline}
+\vec{I}_i = \vec{I}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{I,j}   } + \\
+\Delta t a_{ii} c \M^{-1}\left[ \frac{1}{4\pi}\R{\sigma_s}\vec{\phi}_i +
+\R{\sigma_a}\left(\vec{B}_* + \D \left(\vec{T}_i -\vec{T}_*  \right)   \right)- \R{\sigma_t} \vec{I}_i - \mu_d \mathbf{G}\vec{I}_i + \mu_d I_{in,i} \vec{f}+ \vec{S}_I
+\right]
+\label{eq:first_kIi}
+\end{multline}
+\benum
+\vec{T}_i = \vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   } + \Delta t a_{ii}\R{C_v}^{-1}\left[
+\R{\sigma_a}\left(\vec{\phi}_i - 4\pi\vec{B}_* - 4\pi\D\left( \vec{T}_i - \vec{T}_* \right)\right) + \vec{S}_T 
+\right] \pep
+\label{eq:first_kTi}
+\eenum
+In \eqt{eq:first_kIi}, \eqt{eq:first_kTi}, and all of the equations that follow, we evaluate all material properties ($\sigma$, $C_v$) at $\widetilde{T}_*$, but fail to denote this with $_*$, to improve equation readability. 
+The diagonal matrix $\D$ is defined as
+\benum
+\mathbf{D}_{*,ii} = \frac{d B}{d T} \bigg \lvert_{T = T_{i,*}} \pep
+\eenum
+%
+%
+We now solve \eqt{eq:first_kTi} for $\vec{T}_{i}$, by first moving all $\vec{T}_i$ terms to the left hand side: 
+%
+%
+\begin{multline}
+\vec{T}_i +4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D\vec{T}_i = \\
+\vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   } + \Delta t a_{ii}
+\R{C_v}^{-1}\left[
+\R{\sigma_a} \left(\vec{\phi}_i - 4\pi\vec{B}_* + 4\pi\D\vec{T}_* \right) + \vec{S}_T
+ \right] \pec
+\end{multline}
+%
+%
+and consolidate the $\vec{T}_i$ coefficient matrices,
+\begin{multline}
+\left[\I + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]\vec{T}_i = \\
+\vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   } + \Delta t a_{ii}\R{C_v}^{-1}\left[\R{\sigma_a} \left(\vec{\phi}_i - 4\pi\vec{B}_* + 4\pi\D\vec{T}_* \right) + \vec{S}_T \right] \pep
+\end{multline}
+%
+Multiplying the inverse of the coefficient matrix,
+%
+\begin{multline}
+\vec{T}_i = \left[\I+ 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}\left[\vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right] \dots \\
++ \Delta t a_{ii}\left[\I+  4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}\R{C_v}^{-1}\left[
+\R{\sigma_a} \left(\vec{\phi}_i - 4\pi\vec{B}_* + 4\pi\D\vec{T}_* \right) + \vec{S}_T 
+\right] \pec
+\end{multline}
+%
+Isolating the $\vec{T}_*$ term on the right hand side,
+%
+\begin{multline}
+\vec{T}_i = \left[\I +4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}\left[\vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right] \dots \\
++ \Delta t a_{ii}\left[\I +4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}
+\R{C_v}^{-1}\left[ \R{\sigma_a}\left(\vec{\phi}_i - 4\pi\vec{B}_*\right)  + \vec{S}_T \right]\dots \\
++4\pi\Delta t a_{ii}\left[\I + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}
+\R{C_v}^{-1}\R{\sigma_a}\D\vec{T}_* \pec
+\end{multline}
+%
+%
+adding nothing,
+\begin{multline}
+\vec{T}_i = \left[\I + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}\left[\vec{T}_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right] \dots \\
++ \Delta t a_{ii}\left[\I+ 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}
+\R{C_v}^{-1}\left[\R{\sigma_a} \left(\vec{\phi}_i -  4\pi\vec{B}_*\right) + \vec{S}_T \right]\dots \\
++\left[\I+ 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}
+\left[ 4\pi\Delta t a_{ii} \R{C_v}^{-1}\R{\sigma_a}  \D\vec{T}_* \right]\dots \\
++ \left[\I + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1} \left( \vec{T}_* - \vec{T}_*\right) \pec
+\end{multline}
+%
+%
+and noting that
+\benum
+\left[ 4\pi\Delta t a_{ii} \R{C_v}^{-1}\R{\sigma_a}  \D\vec{T}^* \right]^{-1}\left[ 4\pi\Delta t a_{ii} \R{C_v}^{-1}\R{\sigma_a}  \D\vec{T}^* \right] = \I \pec
+\eenum
+%
+%
+we reach the stage $i$ temperature update equation,
+\begin{multline}
+\vec{T}_i = \vec{T}_*   + \left[\I+ 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}\left[\vec{T}_n -\vec{T}_* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right] \dots \\
++ \Delta t a_{ii}\left[\I + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}\R{C_v}^{-1}
+\left[ \R{\sigma_a}\left(\vec{\phi}_i - 4\pi\vec{B}_*  \right) + \vec{S}_T \right] \pep
+\label{eq:Ti_iso}
+\end{multline}
+%
+Multiplying \eqt{eq:first_kIi} by $\frac{1}{c\Delta t a_{ii}}\M$:
+\begin{multline}
+\frac{1}{c\Delta t a_{ii}}\M\vec{I}_i = \frac{1}{c\Delta t a_{ii}}\M\vec{I}_n + \frac{1}{c a_{ii}} \M \sum_{j=1}^{i-1}{a_{ij} k_{I,j}   } \dots \\
++ 
+\frac{1}{4\pi}\R{\sigma_s}\vec{\phi}_i + 
+\R{\sigma_a}\left(\vec{B}_* + \D\left(\vec{T}_i -\vec{T}_*  \right)   \right)- \R{\sigma_t} \vec{I}_i - \mu_d\mathbf{G}\vec{I}_i + \mu_d I_{in,i} \vec{f}+ \vec{S}_I \pec
+\label{eq:kIi_second}
+\end{multline}
+%
+%
+moving the gradient terms and $\frac{1}{a_{ii} c \Delta } \M \vec{I}_i$ to the left hand side and inserting the result of \eqt{eq:Ti_iso} into \eqt{eq:kIi_second}, we have:
+%
+%
+\begin{multline}
+\mu_d \mathbf{G} \vec{I}_i + \left( \frac{1}{c\Delta t a_{ii}}\M + \R{\sigma_t} \right) \vec{I}_i = 
+\frac{1}{c\Delta t a_{ii}}\M\vec{I}_n + \frac{1}{c a_{ii}} \M \sum_{j=1}^{i-1}{a_{ij} k_{I,j}   } 
++ \frac{1}{4\pi}\R{\sigma_s}\vec{\phi}_i 
++ \R{\sigma_a}\vec{B}_* \dots \\ 
++ \R{\sigma_a} \D \left \{
+\left[\I + 4\pi \Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}
+\left[\vec{T}_n -\vec{T}_* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right]   \dots \right.  \\
+\left.
++ \Delta t a_{ii}\left[\I+ 4\pi \Delta t a_{ii}\R{C_v}^{-1} \R{\sigma_a}\D  \right]^{-1} 
+\R{C_v}^{-1}\left[\R{\sigma_a} \left(\vec{\phi}_i - 4\pi \vec{B}_*  \right) + \vec{S}_T \right]  \right \} + \mu_d I_{in,i} \vec{f} + \vec{S}_I \pep
+\label{eq:intensity_stage_i_intermediate}
+\end{multline}
+%
+%
+Re-arranging \eqt{eq:intensity_stage_i_intermediate} to isolate $\vec{\phi}_i$ terms on the right hand side, we have:
+%
+%
+\begin{multline}
+\mu_d \mathbf{G} \vec{I}_i + \left( \frac{1}{c\Delta t a_{ii}}\M + \R{\sigma_t} \right) \vec{I}_i =  \frac{1}{4\pi}\R{\sigma_s}\vec{\phi}_i \dots \\
+%
+%
++  \Delta t a_{ii} \R{\sigma_a} \D
+\left[\I + 4\pi \Delta t a_{ii}\R{C_v}^{-1} \R{\sigma_a}\D  \right]^{-1}\R{C_v}^{-1}\R{\sigma_a}\vec{\phi}_i\dots \\
+%
+%
++ \mu_d \vec{f}I_{in,i} + \vec{S}_I +  \frac{1}{c\Delta t a_{ii}}\M\vec{I}_n + \frac{1}{c a_{ii}} \M \sum_{j=1}^{i-1}{a_{ij} k_{I,j}   } + \R{\sigma_a}\vec{B}_* \dots \\
+%
+%
++ \R{\sigma_a} \D
+\left[\I+ 4\pi \Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a} \D\right]^{-1}
+\left[ \vec{T}_n - \vec{T}_* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}  }\right] \dots \\
+  +\Delta t a_{ii}  \R{C_v}^{-1} \left[\I+ 4\pi \Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a} \D\right]^{-1} \left[\vec{S}_T - 4\pi\R{\sigma_a} \vec{B}_* \right] \pep
+\end{multline}
+Making the following definitions:
+\begin{subequations}
+\label{eq:step_i_defs}
+\begin{multline}
+\overline{\overline{\mathbf \xi}}_{d,i}  = \frac{1}{c\Delta t a_{ii}}\M\vec{I}_n + \frac{1}{c a_{ii}} \M \sum_{j=1}^{i-1}{a_{ij} k_{I,j}   } + \R{\sigma_a}\vec{B}_*  + \vec{S}_I \dots \\
++ \R{\sigma_a} \D
+\left[\mathbf{I} + 4\pi \Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a} \D \right]^{-1}
+\left \{
+\vec{T}_n - \vec{T}_* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j} }  \right.  \\
+\left. + \Delta t a_{ii} \R{C_v}^{-1}\left[\vec{S}_T - 4\pi\R{\sigma_a} \vec{B}_* \right] \right \} 
+\label{eq:almost_stage_i}
+\end{multline}
+ %
+ %
+\beanum
+\overline{\overline{\mathbf \nu}}_i &=& 4\pi \Delta t a_{ii} \R{\sigma_a} \D \left[\mathbf{I} + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}\R{C_v}^{-1}
+\\
+\overline{\overline{\mathbf R}}_{\sigma_{\tau},i} &=& \R{\sigma_t} + \frac{1}{c\Delta t a_{ii}}\M \pec
+\eeanum
+\end{subequations}
+and inserting into \eqt{eq:almost_stage_i} gives our final equation for the radiation intensity:
+\benum
+\mu_d\mathbf{G} \vec{I}_i + \overline{\overline{\mathbf R}}_{\sigma_{\tau},i}\vec{I}_i = \frac{1}{4\pi}\R{\sigma_s}\vec{\phi}_i + \frac{1}{4\pi}\overline{\overline{\mathbf \nu}}_i \R{\sigma_a}\vec{\phi}_i + \overline{\overline{\mathbf \xi}}_{d,i} + \mu_d\vec{f}I_{in,i} \pep
+\label{eq:stage_i_sdirk_intensity}
+\eenum
+Given the form of \eqt{eq:stage_i_sdirk_intensity}, it appears that we can apply MIP DSA to accelerate the iterative solution of \eqt{eq:stage_i_sdirk_intensity}, but we still wish to verify that definition of $\widetilde{\Sigma}_t$ and $\widetilde{\Sigma}_a$ is consistent  between both the spatially discretized and spatially analytic cases.
+
+\subsection{Consistency of Pseudo Cross Sections}
+In \chapref{sec:chapter4_acceleration}, we used MIP DSA to accelerate a spatially analytic problem of the form
+\benum
+\mu_d \frac{\p \psi}{\p x} + \Sigma_t \psi = \frac{1}{4\pi} \Sigma_s \phi + Q_d \pec
+\label{eq:analytic_xs_mip}
+\eenum
+with spatially discretized analog
+\benum
+\mu_d \frac{\p \psi}{\p x} \R{\Sigma_t} \psi = \frac{1}{4\pi} \R{\Sigma_s} \phi + \vec{Q}_d \pep
+\label{eq:discrete_xs_mip}
+\eenum
+In the neutron transport problem, $\Sigma_t$, $\Sigma_s$, and $\Sigma_a$ are physically meaningful quantities, the total macroscopic interaction cross section, macroscopic scattering cross section, and absorption macroscopic cross section are inherent physical properties of a material, and by definition
+\benum
+\Sigma_a + \Sigma_s = \Sigma_t \pep
+\eenum
+Likewise for the spatially discretized case, it is true that
+\benum
+\R{\Sigma_a} = \R{\Sigma_t} - \R{\Sigma_s} \pec
+\label{eq:r_sig_a_calculation}
+\eenum
+since we have defined
+\begin{subequations}
+\label{eq:three_r_sig}
+\beanum
+\R{\Sigma_a,ij} &=& \frac{\Delta x}{2} \int_{-1}^1{ \Sigma_a(s) \B{i}(s) \B{j}(s)~ds} \\
+\R{\Sigma_s,ij} &=& \frac{\Delta x}{2} \int_{-1}^1{ \Sigma_s(s) \B{i}(s) \B{j}(s)~ds} \\
+\R{\Sigma_t,ij} &=& \frac{\Delta x}{2} \int_{-1}^1{ \Sigma_t(s) \B{i}(s) \B{j}(s)~ds} \pep
+\eeanum
+\end{subequations}
+Equation \ref{eq:r_sig_a_calculation} can be verified  by inserting the definitions of \eqts{eq:three_r_sig} into \eqt{eq:r_sig_a_calculation}, 
+\benum
+\R{\Sigma_a,ij} \overset{?}{=} \frac{\Delta x}{2} \int_{-1}^1{ \Sigma_t(s) \B{i}(s) \B{j}(s)~ds} - \frac{\Delta x}{2} \int_{-1}^1{ \Sigma_s(s) \B{i}(s) \B{j}(s)~ds} \pec
+\eenum
+and obviously,
+\benum
+\R{\Sigma_a,ij} = \frac{\Delta x}{2} \int_{-1}^1{ \left( \Sigma_t(s) - \Sigma_s(s) \right) \B{i}(s) \B{j}(s)~ds} = \frac{\Delta x}{2} \int_{-1}^1{ \Sigma_a(s) \B{i}(s) \B{j}(s)~ds} \pep
+\eenum
+
+However, though the forms of \eqt{eq:analytic_pseudo_i} and \eqt{eq:stage_i_sdirk_intensity} appear analogous to neutron transport, it is not obvious that the linearized, pseudo interaction cross sections (\eqt{eq:analytic_pseudo_i}) and their spatially discretized analogs, (\eqt{eq:stage_i_sdirk_intensity}) are equivalent.
+That is, if we started with the spatially analytic linearization, \eqt{eq:analytic_pseudo_i}, re-cast as,
+\benum
+\mu_d \frac{\p I}{\p x} + \widetilde{\Sigma}_t I = \frac{1}{4\pi} \widetilde{\Sigma}_s \phi + \xi_{d,i}
+\eenum
+with
+\beanum
+\widetilde{\Sigma_t} &=& \sigma_{\tau,i} \\
+\widetilde{\Sigma_s} &=& \sigma_s + \nu_i \sigma_a \pec
+\eeanum
+then applied the Galerkin procedure, yielding,
+\benum
+\mu_d \mathbf{G} \vec{I} + \R{\widetilde{\Sigma_t}}\vec{I} = \frac{1}{4\pi} \R{\widetilde{\Sigma_s}}\vec{\phi} + \vec{\widetilde{\xi}}_{d,i} \pec
+\eenum
+with
+\begin{subequations}
+\label{eq:funky_defs}
+\beanum
+\R{\widetilde{\Sigma_t},jk} &=& \frac{\Delta x}{2}\int_{-1}^1{ \widetilde{\Sigma}_t(s)\B{j}(s) \B{k}(s)~ds }\\
+\R{\widetilde{\Sigma_s},jk}&=& \frac{\Delta x}{2}\int_{-1}^1{ \widetilde{\Sigma}_s(s)\B{j}(s) \B{k}(s)~ds } \\
+\vec{\widetilde{\xi}}_{d,j} &=& \frac{\Delta x}{2}\int_{-1}^1{ \B{j}(s) \xi_{d,i}~ds } \pec
+\eeanum
+\end{subequations}
+would the definitions of \eqts{eq:funky_defs} be equivalent to
+\begin{subequations}
+\beanum
+\R{\widetilde{\Sigma_t} } & \overset{?}{=} & \overline{\overline{\mathbf R}}_{\sigma_{\tau,i}}  \\
+\R{\widetilde{\Sigma_s} } & \overset{?}{=} & \R{\sigma_s} + \overline{\overline{\nu}}_i \R{\sigma_a} ?
+\eeanum
+\end{subequations}
+In \eqts{eq:funky_defs}, we use $i$ subscript to denote SDIRK stage $i$, $j$ to denote matrix row, and $k$ to denote matrix column.  
+We continue this notation for the remainder of this section.
+
+We first consider the equivalence of $\overline{\overline{\mathbf R}}_{\sigma_{\tau,i}}$ to $\R{\widetilde{\Sigma_t}}$.
+By definition, 
+\benum
+\overline{\overline{\mathbf R}}_{\sigma_{\tau,i}} = \frac{1}{a_{ii} c \Delta t} \M + \R{\sigma_t} \pep
+\eenum
+It follows that,
+\beanum
+\overline{\overline{\mathbf R}}_{\sigma_{\tau,i},jk} &=& \frac{1}{a_{ii} c \Delta t} \frac{\Delta x}{2} \int_{-1}^1{\B{j}(s) \B{k}(s) ~ds} + \frac{\Delta x}{2} \int_{-1}^1{ \sigma_t(s) \B{j}(s) \B{k}(s)~ds} \\
+\overline{\overline{\mathbf R}}_{\sigma_{\tau,i},jk} &=& \frac{\Delta x}{2} \int_{-1}^1{ \left(\frac{1}{a_{ii} c \Delta t} + \sigma_t(s)  \right) \B{j}(s) \B{k}(s)~ds} \pep
+\eeanum
+From \eqts{eq:funky_defs},
+\benum
+\R{\widetilde{\Sigma_t},jk} = \frac{\Delta x}{2} \int_{-1}^1{\left( \frac{1}{a_{ii} \Delta t c} + \sigma_t(s) \right)\B{j}(s)\B{k}(s)~ds} \pec
+\eenum
+and we conclude that $\overline{\overline{\mathbf R}}_{\sigma_{\tau,i}} = \R{\widetilde{\Sigma_t}}$.
+This is a very important result because it implies that we have a consistent definition of $\widetilde{\Sigma}_t$, that in turn allows us to define a diffusion coefficient for MIP DSA,
+\benum
+\label{eq:radtran_d}
+D(s) = \frac{1}{3\widetilde{\Sigma}_t(s)} = \frac{1}{3 \left( \frac{1}{a_{ii} c \Delta t} + \sigma_t(s) \right)} \pep
+\eenum
+
+We now attempt to determine if 
+\benum
+ \R{\widetilde{\Sigma}_s} = \R{\sigma_s} + \overline{\overline{\nu}}_i \R{\sigma_a} \pep
+\eenum
+First, we expand the definition of $\R{\widetilde{\Sigma}_s}$ from \eqts{eq:funky_defs}, with the definition of TRT pseudo cross sections,
+\benum
+\R{\widetilde{\Sigma}_s,jk} = \frac{\Delta x}{2}\int_{-1}^1{  \B{j}(s) \B{k}(s)~ds   \left( \sigma_s +  \frac{ 4\pi a_{ii} \Delta t \sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \sigma_a \right)  } \pep
+\label{eq:to_split}
+\eenum
+Obviously, we may split \eqt{eq:to_split} into separate components:
+\begin{multline}
+\R{\widetilde{\Sigma}_s,jk} = \frac{\Delta x}{2}\int_{-1}^1{ \sigma_s  \B{j}(s) \B{k}(s)~ds  } + \dots \\ 
+\frac{\Delta x}{2}\int_{-1}^1{ \B{j}(s) \B{k} \left(  \frac{ 4\pi a_{ii} \Delta t\sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \sigma_a \right) ds} \pep
+\end{multline}
+Clearly
+\benum
+\frac{\Delta x}{2}\int_{-1}^1{ \sigma_s  \B{j}(s) \B{k}(s)~ds  } = \R{\sigma_s} \pec
+\eenum
+so we are left to determine whether 
+\benum
+\frac{\Delta x}{2}\int_{-1}^1{ \B{j}(s) \B{k} \left(  \frac{ 4\pi a_{ii} \Delta t \sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \sigma_a \right) ds} = \overline{\overline{\nu}}_i \R{\sigma_a} \pep
+\eenum
+Using the definition of $\overline{\overline{\nu}}_i$ from \eqts{eq:step_i_defs}, we expand $\overline{\overline{\nu}}_i \R{\sigma_a}$,
+\benum
+\overline{\overline{\nu}}_i \R{\sigma_a} = 4\pi \Delta t a_{ii} \R{\sigma_a} \D \left[\mathbf{I} + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}\R{C_v}^{-1}  \R{\sigma_a} \pep
+\label{eq:dense_nu_sig_a_expansion}
+\eenum
+In the general case, when \R{\sigma_a} and \R{C_v} are dense, \eqt{eq:dense_nu_sig_a_expansion} will not yield a matrix with elements
+\benum
+\left[ \overline{\overline{\nu}}_i \R{\sigma_a} \right]_{jk} \neq \frac{\Delta x}{2}\int_{-1}^1{ \B{j}(s) \B{k} \left(  \frac{ 4\pi a_{ii} \sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \sigma_a \right) ds} \pep
+\eenum
+
+Though we have showed in the general case, $\R{\sigma_s} + \overline{\overline{\nu}}_i \R{\sigma_a}  \neq \R{\widetilde{\Sigma_s}}$, 
+we wish to investigate whether self-lumping DFEM schemes may be better suited for the solution of the TRT equations.
+Consider an arbitrary, linear DFEM self-lumping scheme, with the following matrices,
+\begin{subequations}
+\beanum
+\mathbf{R}_{C_v} &=& \left[ \begin{array}{cc} \frac{\Delta x}{2} w_l C_{v,l} & 0 \\ 0 & \frac{\Delta x}{2} w_r C_{v,r} \end{array} \right] \\
+\mathbf{R}_{\sigma_a} &=& \left[ \begin{array}{cc} \frac{\Delta x}{2} w_l \sigma_{a,l} & 0 \\ 0 & \frac{\Delta x}{2} w_r \sigma_{a,r} \end{array} \right] \\
+\D &=& \left[ \begin{array}{cc} D_{*,l} & 0 \\ 0 & D_{*,r}  \end{array} \right] \\
+D_{*,l} &=& \frac{d B}{d T} \bigg \lvert_{T = \widetilde{T}_{*,l}} \\
+D_{*,r} &=& \frac{d B}{d T} \bigg \lvert_{T = \widetilde{T}_{*,r}} 
+\eeanum
+\end{subequations}
+with the $l$ and $r$ subscripts denoting values at the two quadrature points, $s_l$ and $s_q$
+Since $\R{C_v}$ is diagonal, 
+\benum
+\R{C_v}^{-1} = \left[ \begin{array}{cc} \frac{2}{\Delta x w_l C_{v,l} }& 0 \\ 0 & \frac{2}{\Delta x w_r C_{v,r} } \end{array} \right] \pec
+\eenum
+we have
+\beanum
+\left[ \mathbf{I} + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D\right]_{11}  &=&  1 + 4\pi \Delta t a_{ii} \left(\frac{2}{\Delta x w_l C_{v,l} } \right) \left(\frac{\Delta x w_l \sigma_{a,l} }{2} \right)D_{*,l} ~~~~~~~~~\\
+\left[ \mathbf{I} + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D\right]_{22} &=& 1+  4\pi \Delta t a_{ii} \left(\frac{2}{\Delta x w_r C_{v,r} } \right) \left(\frac{\Delta x w_r\sigma_{a,r} }{2} \right) D_{*,r} ~~~~~~~~ \\ 
+\left[ \mathbf{I} + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D\right]_{12} &=& \left[ \mathbf{I} + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D\right]_{21} = 0  \pep
+\eeanum
+Completing the definition of $\overline{\overline{\nu}}_i \R{\sigma_a}$,
+\begin{multline}
+\overline{\overline{\nu}}_i \R{\sigma_a} = 4\pi a_{ii} \Delta t 
+\left[  \begin{array}{cc} \frac{\Delta x w_l \sigma_{a,l} }{2}  & 0 \\ 0 & \frac{\Delta x w_l \sigma_{a,r} }{2}  \end{array} \right] 
+\left[  \begin{array}{cc} D_{*,l} & 0 \\ 0 & D_{*,r} \end{array} \right] \times ... \\
+\left[ \begin{array}{cc} \frac{1}{1 + 4\pi \Delta a_{ii} \frac{\sigma_{a,l}}{C_{v,l}}}& 0 \\ 0 &   \frac{1}{1 + 4\pi \Delta a_{ii} \frac{\sigma_{a,r}}{C_{v,r}}} \end{array} \right]
+\left[ \begin{array}{cc} \frac{2}{\Delta x w_l C_{v,l} }& 0 \\ 0 & \frac{2}{\Delta x w_r C_{v,r} } \end{array} \right]
+\left[  \begin{array}{cc} \frac{\Delta x w_l \sigma_{a,l} }{2}  & 0 \\ 0 & \frac{\Delta x w_l \sigma_{a,r} }{2}  \end{array} \right] 
+\end{multline}
+\benum
+\overline{\overline{\nu}}_i \R{\sigma_a} = 4\pi a_{ii} \Delta t \frac{\Delta x}{2}
+\left[ \begin{array}{cc}
+\frac{ w_l \sigma_{a,l} D_{*,l} }{1+ 4\pi \Delta a_{ii} \frac{\sigma_{a,l}}{C_{v,l}}} \frac{\sigma_{a,l} }{C_{v,l}} & 0
+\\
+0 & \frac{ w_r \sigma_{a,r} D_{*,r} }{1+ 4\pi \Delta a_{ii} \frac{\sigma_{a,r}}{C_{v,r}}} \frac{\sigma_{a,r} }{C_{v,r}}
+\end{array} \right]
+\label{eq:almost_to_f}
+\eenum
+For some quantity $f$, we note that \R{f} with our linear, self-lumping quadrature would be:
+\benum
+\R{f} = \left[ \begin{array}{cc}  \frac{\Delta x}{2} w_l f_l & 0 \\ 0 & \frac{\Delta x}{2} w_r f_r \end{array}\right] \pep
+\eenum
+Considering \eqt{eq:almost_to_f}, and thinking about $\overline{\overline{\nu}}_i \R{\sigma_a} = \R{f}$
+\beanum
+f_l &=& 4\pi a_{ii} \Delta t \frac{\sigma_{a,l} D_{*,l}}{C_{v,l} + 4\pi \Delta a_{ii} \sigma_{a,l}} \sigma_{a,l} \\
+f_r&=& 4\pi a_{ii} \Delta t \frac{\sigma_{a,r} D_{*,r}}{C_{v,r} + 4\pi \Delta a_{ii} \sigma_{a,r}} \sigma_{a,r} \\
+f &=& 4\pi a_{ii} \Delta t \frac{\sigma_{a} D_{*}}{C_v + 4\pi \Delta a_{ii} \sigma_{a}} \sigma_{a} = \nu_i \sigma_a \\
+\R{\nu_i \sigma_a} &=& \overline{\overline{\nu}}_i \R{\sigma_a} \pep
+\eeanum
+Thus, when accounting for the within cell spatial variation of material properties, only when using self-lumping DFEM schemes would it be equivalent to
+\begin{enumerate}
+\item linearize the Planckian of the spatially analytic grey TRT and then spatially discretize, or 
+\item spatially discretize the grey TRT equations then linear the Planckian.
+\end{enumerate}
+
+Given this information, in the most general case, when using MIP DSA to accelerate grey radiative transfer, we define the integration in cell $k$ (\eqt{eq:mip_sigma_a} ) as: 
+\benum
+( \Sigma_a \Delta \phi, \B{*} ) = \R{\sigma_{\tau,i}} - \left( \R{\sigma_s} + \overline{\overline{\nu}}_i \R{\Sigma_a} \right) \vec{\Delta \phi}_k \pec
+\eenum
+where $\Delta \phi$ is the low order approximation of the angle integrated intensity error, not the neutron transport scalar flux error.
+Likewise, we define the MIP DSA driving source, the difference between two successive iterates, as
+\benum
+ \left( \Sigma_s( \phi^{(\ell+1/2)} - \phi^{(\ell)} ) , \B{*} \right) = \left(  \R{\sigma_s} + \overline{\overline{\nu}}_i \R{\Sigma_a} \right)\left( \vec{\phi}^{(\ell+1)} - \vec{\phi}^{(\ell)} \right) \pep
+\eenum
+Since we have shown that 
+\benum
+\R{\sigma_{\tau,i},jk} = \frac{\Delta x}{2} \int_{-1}^1{ds}{ \left( \frac{1}{a_{ii} c \Delta t} + \sigma_t \right) \B{j}(s) \B{k}(s) }\pec
+\eenum
+we use the point-wise definition of \eqt{eq:radtran_d} to evaluate $\mathbf{S}$ and MIP DSA edge integrals requiring knowledge of a point-wise diffusion coefficient.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\section{Iterative Solution Process}
+\label{sec:chap6_iteration}
+
+To solve the time-dependent, grey TRT equations, we use a time marching loop with two levels of nested iteration, as detailed through the pseudo-code shown in Listing \ref{lst:pseudo_code}.
+\newpage
+\lstinputlisting[caption=TRT iteration pseudo-code , 
+									basicstyle = \footnotesize,
+									frame = single,
+									label = lst:pseudo_code]{chapter6_grey_radtran/iteration_pseudo_code.txt}
+
+
+We terminate the thermal iteration using a point-wise relative change criterion. 
+However, we only store two objects of temperature unknowns, each of size $N_{cell} \times N_P$, corresponding to $\vec{T}_n$ and $\vec{T}_*$
+$\vec{T}_n$ is modified only after the completion of a time step.  
+This is not a problem, as we already have the point-wise change in temperature, $\vec{\Delta T} = \vec{T}_*^{(\ell+1)} - \vec{T}_*^{(\ell)}$, from \eqt{eq:Ti_iso}:
+\begin{multline}
+\vec{\Delta T} = \left[\I+ 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}\left[\vec{T}_n -\vec{T}_* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}   }\right] \dots \\
++ \Delta t a_{ii}\left[\I + 4\pi\Delta t a_{ii}\R{C_v}^{-1}\R{\sigma_a}\D  \right]^{-1}\R{C_v}^{-1}
+\left[ \R{\sigma_a}\left(\vec{\phi}_i - 4\pi\vec{B}_*  \right) + \vec{S}_T \right] \pec
+\end{multline}
+and
+\benum
+\text{change\_t} = \max_{c=1}^{N_{cell}} \left[ \max_{j=1}^{N_P} \left[  \abs{ \frac{ \Delta T_j }{ T_{j,*} } } \right] \right] \pep
+\eenum
+Likewise, we terminate the intensity update iteration using a point-wise relative change criterion:
+\benum
+\text{change\_phi} = \max_{c=1}^{N_{cell}} \left[ \max_{j=1}^{N_P} \left[ { \abs{ \frac{ \phi^{(\ell+1)}_{c,j} - \phi^{(\ell)}_{c,j}}{\phi^{(\ell+1)}_{c,j} }} } \right] \right] \pep
+\label{eq:change_phi}
+\eenum
+Unless otherwise noted, we use an angle integrated intensity convergence criteria $\epsilon_{\phi} = 10^{-13}$ and a temperature criteria of $\epsilon_{T} = 10^{-11}$.
+
+Since MIP DSA requires two iterates of the angle integrated radiation energy density, $\phi^{(\ell+1)}$ and $\phi^{(\ell)}$, both of size $N_{cell} \times N_P$, we store at least two objects of the same dimensionality as $\phi$.
+We use one of these objects, \verb+phi_new+ in Listing \ref{lst:pseudo_code}, to update $\vec{T}^*$, while the other is local only to the intensity update.
+Our code is designed to use only a single intensity data object of size $N_{cell} \times N_P \times N_{dir}$, $\vec{I}_N$.
+Limiting ourselves to a single \verb+i_old+ requires our intensity update convergence to be based upon the angle integrated intensity and to perform one additional sweep while calculating $\vec{k}_I$.
+The SDIRK time integration technique requires that we save data objects $k_T$ and $k_I$ with,  $N_{stage} \times N_{cell} \times N_P$ and $N_{stage} \times N_{cell} \times N_P \times N_{dir}$ unknowns, respectively.
+For all significant values of $N_{dir}$, the need to store $\vec{I}_n$ and $\vec{k}_I$ dominates the memory footprint of our implementation, and a reasonable upper bound on memory usage is $(1+N_{stage}) \times N_{dir} \times N_{cell} \times N_P$.
+
+\section{Methods for Tolerating Negative Solutions}
+\label{sec:chap6_negativity}
+
+As shown in \secref{sec:chapter3_variable_xs}, only linear SLXS Lobatto schemes yield strictly positive angular flux outflows from pure absorbers with arbitrarily spatial variation of cross section.
+However, we wish to use higher trial space DFEM methods to improve solution accuracy.
+Since opacity will vary by orders of magnitude within single mesh cells near the Marshak wave front, we expect that we may generate negative angular intensity solutions, which may then generate negative temperature solutions.  
+Though we would prefer to have strictly non-negative angular intensities and temperatures, we must alter our definitions of the Planck function, derivative of the Planck with respect to temperature, and opacities that are temperature dependent, to enable the continued solution of our non-linear thermal radiative transfer simulations in the presence of negative solutions.
+
+
+We will use the same techniques given by Morel et al. \cite{negative_trt} for self-adjoint angular intensity forms of the thermal radiative transfer equations.
+First, we require that all temperature dependent material properties, $\sigma_a$, $\sigma_s$, and $C_v$ remain positive, despite negative temperature values.
+In particular, we will $\sigma_a$ to be
+\benum
+\sigma_a(T) = \left \{ \begin{array}{lr}\sigma_a(T_{cold})  &  T < T_{cold}  \\  \sigma_a(T)  & \text{otherwise}    \end{array} \right. \pep
+\eenum
+On the basis that ``a negative intensity contributes to a negative time derivative of the temperature, the
+Planck function at negative temperatures should similarly contribute to a negative time derivative of the intensity.
+This implies that the Planck function at negative temperatures should be negative'', Morel et al. argue that for an arbitrary positive temperature $\bar{T}$, $B(-\bar{T}) = -B(\bar{T}$, and 
+$\frac{dB}{dT} \bigg \lvert_{T = -\bar{T} } = -\frac{dB}{dT} \bigg \lvert_{T =\bar{T} }$.
+For grey thermal radiative transfer, we generalize this to be
+\beanum
+B(-\bar{T}) &=& \frac{\abs{\bar{T}} }{\bar{T}} \frac{ac\bar{T}^4}{4\pi} \\
+\frac{dB}{dT} \bigg \lvert_{T = -\bar{T} } &=& frac{\abs{\bar{T}} }{\bar{T}} \frac{ac \bar{T}^3 }{\pi} \pep
+\eeanum
+
+\section{Adaptive Time Stepping Methods}
+\label{sec:chap6_adaptive}
+
+To be as efficient as possible, we would like to take as large of time steps as we can while still maintaining some measure of accuracy for our time dependent thermal radiative transfer simulations.
+We achieve this by using adaptive time stepping algorithms.
+For those problems that are too large to be clearly over resolved in time, adaptive time stepping algorithms, in general, compare differences in the solution at different time steps.
+Comparisons can take the form of a high-order/low-order adaptive quadrature to predict error or may be as simple as permitting only a certain level of relative change per time step.
+We elect to use relative change time step controllers, taken from and inspired by the work of Edwards, Morel, and Knoll for radiative diffusion \cite{time_adaptive_diffusion}.
+In \cite{time_adaptive_diffusion}, a point-wise temperature adaptive criterion is applied to predict an appropriate $\Delta t$ for time step $n+1$, $\Delta t^{n+1}$, given the current time step, $\Delta t^n$, and a measure of the maximum change in temperature, $\Delta T$, 
+\benum
+\Delta T = 2 \max_{el} \left[ \frac{\abs{T_{el}^{n} - T_{el}^{n-1}} }{ T_{el}^{n} + T_{el}^{n-1} }   \right] \pec 
+\label{eq:pointwise_adaptive}
+\eenum
+that occurred in advancing from $t^{n-1}$ to $t^n$, where $t^n = t^{n-1} + \Delta t^n$, $el$ is all DFEM temperature unknowns, and $T^{n}_el$ is the temperature of element $el$, at time $t^n$.
+$\Delta t^{n+1}$ is predicted as:
+\benum
+\Delta t^{n+1} = \frac{\Delta T_{goal} }{\Delta T} \Delta t^n  \pec
+\label{eq:adaptive_change}
+\eenum
+where $\Delta T_{goal}$ and $C_{max}$ are user prescribed values.  
+Typical values of $\Delta T_{goal}$ would be on the order of $\Delta T_{goal} = 0.01$, corresponding to approximately a $1\%$  increase in temperature across a time step.
+In addition to also choosing $\Delta t^{n+1}$ so that we end the simulation at the desired time, we also prescribe a maximum time step size, $\Delta t_{max}$, and a maximum allowable increase factor, $C_{max}$, so that
+\benum
+\Delta t^{n+1} = \min \left( \Delta t^{n+1} , C_{max} \Delta t^n , \Delta t_{max}  \right) \pep
+\label{eq:min_dt}
+\eenum
+
+We will consider three different methods for calculating $\Delta T$.  
+Regardless of how we calculate $\Delta T$, we will select our next time step according to \eqt{eq:adaptive_change} and \eqt{eq:min_dt}.
+If calculating $\Delta T$ according to \eqt{eq:pointwise_adaptive}, we say that we are using the point-wise adaptive criterion.
+In our testing, using \eqt{eq:pointwise_adaptive} resulted in taking extremely small time steps, in particular when considering higher order DFEM spatial discretizations of the thermal radiative transfer equations.
+We believe this is because the denominator does not account for the possibility of point-wise temperature solutions than the physical limits of the problem.
+To account for the possibility of lower, possibly even negative temperatures, we also consider a modified point-wise temperature criterion:
+\benum
+\Delta T = 2\max_{el} \left[ \frac{\abs{T^{n+1}_{el} - T^{n}_{el}} }{ \max\left(\abs{ T^{n+1}_{el} } + \abs{ T^n_{el} } , T_{offset}  \right)  }\right] \pec
+\label{eq:modified_pointwise_adaptive}
+\eenum
+where $T_{offset}$ is a user selected temperature.  
+In practice, \eqt{eq:modified_pointwise_adaptive} with $T_{offset} = 0$ allows for problems larger time step sizes than \eqt{eq:adaptive_change}, but still chooses very small time steps.
+To achieve reasonable time step sizes for higher order DFEM, reasonable being defined as time step sizes comparable against the reported time step sizes of \cite{time_adaptive_diffusion} for the same test problem, we often needed to use $T_{offset}$ on the order of $50\times T_{cold}$, where $T_{cold}$ is the initial slab temperature for a Marshak wave problem.
+
+Our final time adaptive criterion is a volumetric based scheme, inspired by \eqt{eq:pointwise_adaptive}.
+Dividing the spatial mesh into $N_{groups}$ contiguous groupings of cells, each grouping with $N_{cg}$ cells, such that $N_{cell} = N_{groups} \times N_{cg}$, we define $\Delta T$ as:
+\benum
+\Delta T = 2 \max_{N_{groups}} \left[ \frac{ \norm{ \widetilde{T}^{n+1}  \widetilde{T}^{n} }_{2,g} }{ \norm{ \widetilde{T}^{n+1} }_{2,g} +  \norm{ \widetilde{T}^{n} }_{2,g} } \right] \pec
+\label{eq:volumetric_adaptive}
+\eenum
+where $\norm{ \widetilde(T) }_{g,2}$ is an $L_2$ norm of $\widetilde{T}$ over the space covered by grouping $g$:
+\benum
+\norm{ \widetilde{T}  }_{g,2}= \sqrt{ \int_{x_{g-1/2}}^{x_{g+1/2}}{ \widetilde{T}^2 ~dx }  }\pec
+\label{eq:group_integral}
+\eenum
+$x_{g-1/2} = x_{N_{cg} (g-1)+1/2}$, and $x_{g+1/2} = x_{N_{cg} g +1/2}$.  
+We exactly integrate \eqt{eq:group_integral} using a $2P$ point Gauss quadrature.  
+$N_{cg}$ is user defined, and can range from one to $N_{cell}$.
+We elect to use sum of norms in the denominator of \eqt{eq:volumetric_adaptive} to avoid any cancellation that could occur if either $\widetilde{T}^n$ or $\widetilde{T}^{n+1}$ are negative.
+Additionally since
+\benum
+\norm{a+b} \leq \norm{a} + \norm{b} \pec
+\eenum
+for any quantities $a$ and $b$, separating the norms results in a larger magnitude denominator, thus making it more likely that larger step sizes will be taken.  
+As will be seen in \secref{sec:chapter6_grey_radtran_results}, the main drawback of the point-wise and modified point-wise adaptive time criterion is that they select prohibitively small $\Delta t^{n+1}$.
+
+When using the time adaptive schemes, we also use the adaptive criterion to verify that in advancing the solution from $t^{n-1}$ to $t^n$ the solution has not changed too rapidly by enforcing
+\benum
+\Delta T < 1.2 \Delta T_{goal} \pep
+\label{eq:eos_check}
+\eenum
+If a given $\Delta t^n$ has caused \eqt{eq:eos_check} to be false, the time step is restarted using a time step that is $\frac{1}{2}$ the size of the time step that violated our change tolerance.
+
+ 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+\section{Software Implementation}
+\label{sec:chap6_programming}
+
+We have implemented our grey radiative transfer equations in a C++ 11 computer code.
+All attempts have been made to incorporate the best practices of modern, C++ programming and software design\cite{cpp_book,effective_cpp}.
+We have made extensive use of the object-oriented programming paradigm of virtual base classes with concrete instantiations.
+For example, we have compared the effects of different methods of DFEM mass matrix construction.
+Regardless of whether we use exact matrix construction, traditional lumping, or self lumping integration, solution of the radiative transfer equations requires access to a mass matrix, for example when calculating $\vec{k}_I$ in \eqt{eq:k_i_vec_example}.
+To shelter other portions of our code and programming logic from the particulars of a given simulation's choice of mass matrix construction, in our radiative transfer implementation, we declared a virtual base class, \verb+V_Matrix_Construction+ with pure virtual member function \verb+construct_dimensionless_mass_matrix()+ .
+The concrete instantiations of \verb+V_Matrix_Construction+: \verb+Matrix_Construction_Exact+, \verb+Matrix_Construction_Trad_Lumping+, and \verb+Matrix_Construction_Self_Lumping+, each exhibit the object-oriented programming inheritance ``is a'' relationship with base class \verb+V_Matrix_Construction+.
+Then, through the use of C++ 11's smart pointers, in particular the \verb+std::shared_ptr+,  at program run-time we declare, once during the entire program's execution, the particular instantiation of base class \verb+V_Matrix_Construction+  we wish our smart pointer, named \verb+matrix_construction+, to point to/possess.
+From this point forward, anytime a mass matrix is needed, we simply call \verb+matrix_construction->construct_dimensionless_mass_matrix()+, and, regardless of our choice of DFEM integration strategy, the appropriate mass matrix is returned.
+
+Where possible we have used third party software to prevent duplication of  efforts.
+All Gauss-Legendre, Gauss-Lobatto, and closed Newton-Cotes quadrature functions are derived from the \verb+QUADRULE+ \cite{quadrule} package, with minor modifications including: use C++ \verb+std::vector+s rather than arrays and encapsulation of the \verb+QUADRULE+ functions into a \verb+QUADRULE+ class to limit access and contamination of the global name space.
+We have directly implemented all of the matrix/vector based equations in this chapter, as written, using the \verb+Eigen+ linear algebra package \cite{eigen}.
+To invert the MIP DSA matrix used to accelerate the iterative solution of the grey TRT equations, we use the \verb+PETSc+ package\cite{petsc} preconditioned with algebraic multigrid\cite{mip_mc} via the \verb+BoomerAMG+ package of \verb+Hypre+ \cite{hypre}.
+We document our code using  inline comments  and \verb+Doxygen+ \cite{doxygen}.
+To build and test the components of our grey thermal radiative transfer code, we use the CMake and CTest packages from Kitware\cite{cmake}.
+By using CTest to verify and test the code, we have created a set (greater than 50) of unit tests that can be performed every time the code is changed or compiled.
+Tests range in size from single component to full simulations using the method of manufactured solutions\cite{mms} testing for convergence.
+Though requiring more additional work than simply using \verb+std::cout+ to test components as added then commenting out the output statements, CTest allows for continuous testing to find bugs that the programmer would not otherwise suspect.
+Finally, input parameters for the code are input an \verb+XML+ file, which we read using \verb+TinyXML+ \cite{xml}. 
