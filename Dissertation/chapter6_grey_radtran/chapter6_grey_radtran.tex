@@ -75,7 +75,7 @@ Increasing the number of discrete ordinates, the radiation energy density profil
 \caption{$S_8$ radiation energy density profile for Su-Olson problem.}
 \label{fig:su_olson_s8_rad}
 \end{figure}
-\begin{figure}[!hbp]
+\begin{figure}[!htp]
 \centering
 \includegraphics[width=8cm,trim=1.75in  0.5in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Su_Olson_S8_Material_Energy.pdf}
 \caption{$S_8$ material energy density profile for Su-Olson problem.}
@@ -538,15 +538,15 @@ The SLXS Lobatto $E_{T_A}$ convergence rate is equal to the SLXS Lobatto converg
 \end{figure}
 %
 %
-\begin{figure}[!hbp]
+\begin{figure}[!htp]
 \centering
 \includegraphics[width=9.5cm,trim=0.25in  0.25in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Constant_Time_SLXS_Gauss_temp_A.pdf}
 \caption{Convergence of $E_{T_A}$ for SLXS Gauss scheme, for steady state test problem.}
 \label{fig:constant_time_gauss_t_a}
 \end{figure}
 
-%\pagebreak
 \newpage
+
 \subsubsection{Constant in Space - Trigonometric in Time}
 \label{sec:time_convergence}
 
@@ -560,28 +560,29 @@ W_T(x) &=&  10 \\
 F(t) &=& 45 \cos\left( \pi t \right) + 46 \pec
 \eeanum
 $t \in[0,1]$, $\sigma_s = 0.1$, $\sigma_a = 2.5$, $C_v = 0.2$, $x\in[0,10]$ discretized with 10 equally spaced cells.  Convergence of $E_{\phi}$ as a function of $\Delta t$ for the IE, 2-2, and 3-3 time differencing schemes is given in \fig{fig:e_phi_time}.
-\begin{figure}[!htp]
-\centering
-\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Time_Integrators_Convergence_Phi.pdf}
-\caption{Convergence of $E_{\phi}$ for different time integrators as a function of $\Delta t$.}
-\label{fig:e_phi_time}
-\end{figure}
 As expected, the IE converges 1st order in time, the 2-2 scheme converges second order, and the Alexander 3-3 scheme converges third order in time.
 The same data for temperature is given in \fig{fig:big_dt}.  
 Though the 2-2 and 3-3 schemes are more accurate than IE, it took a very long time for the 2-2 and 3-3 schemes to demonstrate their respective asymptotic orders of convergence for $E_T$ as compared to $E_{\phi}$.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=10cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Time_Integrators_Convergence_Temperature.pdf}
+\includegraphics[width=9cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Time_Integrators_Convergence_Phi.pdf}
+\caption{Convergence of $E_{\phi}$ for different time integrators as a function of $\Delta t$.}
+\label{fig:e_phi_time}
+\end{figure}
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=9cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Time_Integrators_Convergence_Temperature.pdf}
 \caption{Convergence of $E_{T}$ for different time integrators as a function of $\Delta t$.}
 \label{fig:big_dt}
 \end{figure}
+
 
 \section{Thermal Radiative Transfer Simulations without Analytic Solutions}
 \label{sec:marshak_waves}
 
 \subsection{``Unity'' Marshak Wave Problem}
 
-We now consider our most realistic test problem, a Marshak wave test problem.
+We now consider a Marshak wave test problem.
 Originally presented by Ober and Shadid for radiative diffusion \cite{ober_shadid} we compare our $S_2$ solution that uses Gauss quadrature in angle to the solutions presented in \cite{ober_shadid}.
 With an $S_2$ Gauss quadrature in angle, the discrete ordinates method is equivalent to a $P_1$ angular discretization in slab geometry \cite{s2sa}.
 The radiative diffusion solution of \cite{ober_shadid} could also be considered a $P_0$ approximation.
@@ -590,7 +591,7 @@ Like most thermal radiative transfer problems, no analytic solution exists.
 As such, we focus on qualitative comparisons of how DFEM trial space degree, mesh refinement, and time step refinement affect the radiation energy density and material temperature solutions.
 
 The Marshak wave problem consists of an initially cold slab that is heated from the left by an incident radiation intensity, with a vacuum boundary condition on the right.
-Again, the problem is dimensionless, $a=c=C_v=1$; $x\in[0,1]$; and we advance the solution from $t=0$ to $t=1$.
+The problem arbitrarily sets $a=c=C_v=1$, and as such, we will refer to it as the ``unity'' Marshak wave problem.  The physical domain in $x\in[0,1]$ and we initially advance the solution from $t=0$ to $t=1$.
 Initially, the slab is in thermal equilibrium, and $T=\left( 10^{-5} \right)^{1/4}$.
 There is no scattering, $\sigma_s = 0$, and the absorption opacity is temperature dependent, $\sigma_a = \frac{1}{T^3}$.
 
@@ -913,6 +914,180 @@ In \fig{fig:sig_a_1000_radiation}, radiation energy density solutions for this p
 \end{figure}
 Figures \ref{fig:sig_a_1000_radiation}-\ref{fig:sig_a_1000_temperature} make it clear that changing $\sigma_a$ fundamentally alters the ``unity'' Marshak wave problem.
 The thermal wave does not penetrate nearly as far, but also does not exhibit any time ray effects.
+
+\subsection{Physical Marshak Wave Problem}
+
+We now consider a Marshak wave problem that uses a physical units that has been considered repeatedly in the literature \cite{physical_marshak,time_adaptive_diffusion,negative_trt}.
+The problem consists of a $0.05~[cm]$ slab at an initial temperature of $1~[eV]$, heated from the left with an isotropic $1~[keV]$ photon source.
+After $0.1~[sh]$, $1[sh]=10^{-8}~[sec]$, the thermal wave will have nearly passed through the entire domain.
+The material heat capacity is temperature independent, $C_v = 0.3~[\frac{jerks}{cm^3~keV}]$, $\sigma_a = \frac{300}{T^3} [cm^{-1}]$, with $T$ in keV, and $\sigma_s = 0$.
+Representative angle integrated intensity and temperature solutions at various times are given in \fig{fig:physical_slices_radiation} and \fig{fig:physical_slices_temperature}.    The representative solutions were generated using 100 spatial cells with cubic SLXS Lobatto and $S_8$ Gauss angular quadrature.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=16cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/100C_Physical_Marshak_Wave_Radiation_Times.pdf}
+\caption{$S_{8}$ angle integrated intensity solutions at various times for physical Marshak wave problem.}
+\label{fig:physical_slices_radiation}
+\end{figure}
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width=16cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/100C_Physical_Marshak_Wave_Temperature_Times.pdf}
+\caption{Temperature solutions at various times for physical Marshak wave problem.}
+\label{fig:physical_slices_temperature}
+\end{figure}
+We note that \fig{fig:physical_slices_radiation} does not exhibit any time ray effects.  
+This problem description, given in the cm-sh-keV unit system, has a heat capacity on the same order as $C_v=1$ in the unity Marshak wave problem.  
+In addition the product of the radiation constant, $a = 0.01372~[\frac{jerks}{cm^3~keV^4}]$, and speed of light, $c=299.792~[cm/sh]$, $ac = 4.113~\left[\frac{jerks}{cm^2~sh~keV^4}\right]$, is on the same order as $a=c=1$ from the unity Marshak wave problem.
+The only thing that is significantly different in this problem is that the numerator in the definition of $\sigma_a$ is a factor of 300 larger in this physical Marshak wave problem than the unity Marshak wave problem, reaffirming that the time ray effects observed in the unit problem are atypical of discrete ordinate solutions applied to the thermal radiative transfer equations.
+
+Our main interest in this problem is to test our adaptive time criterion.  
+Using the notation of \eqt{eq:adaptive_change}, in all of the results that follow, we will assume $\Delta T_{goal} = 0.01$, unless otherwise stated.
+We first apply adaptive each method to a linear SLXS discretization of the physical Marshak wave using 100 spatial cells.
+Time step size selected as function of the simulated time in the simulation is given for each method in \fig{fig:linear_time_steps} with $\Delta t_{goal} =0.01$.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=17cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/P1_vs_time.pdf}
+\caption{Time step sizes selected for different adaptive criterion applied to a linear SLXS Lobatto discretization of the physical Marshak wave problem.}
+\label{fig:linear_time_steps}
+\end{figure}
+For this particular problem, the point-wise adaptive criterion taken from \cite{time_adaptive_diffusion}, yields the same time step selection at every time step as the modified point-wise criterion with $T_{offset}=0~eV$ because no negative temperature solutions are generated with a linear SLXS Lobatto discretization of this problem.
+The 4-5 single time steps of the point-wise criterion time step size trace that are orders of magnitude smaller than neighboring time step sizes are artifacts of outputting the solution at selected times, and taking the required time step to output exactly at those times.
+The volumetric scheme with $N_{cg}$ chooses larger time step sizes than the point-wise adaptive criterion as expected, since a $1\%$ change average over a volume permits a much larger increase in $T$ than a $1\%$ increase maximum at any one point.
+We also note the large number of sharps peaks and valleys present in all traces of time step size in \fig{fig:linear_time_steps}.  Each valley, or time step minimum comes as the thermal wave crosses into the next mesh cell.
+Additionally, we note that since the speed of the thermal front slows as time progresses, the peaks occur at a greater frequency for smaller values of $t$ than near the end of the simulation.
+The slowing of the wave can be more clearly visualized by viewing \fig{fig:physical_slices_temperature}, at $t=0.01 ~[sh]$, the wave is at approximately $x=0.0125~[cm]$.
+If the thermal wave propagated at a constant speed, then at $t=0.08~[sh]$, we would expect the thermal wave to be near $x= .1~[cm]$.  However, the thermal wave is only located at approximately $x<0.04~[cm]$ in \fig{fig:physical_slices_temperature}.
+The number of time steps each adaptive method took, as well as the number of time steps that were rejected, those that after a time step had $\Delta T > 1.2 \Delta T_{goal}$ requiring a smaller $\Delta t$, is given in \tbl{tbl:p1_steps}. 
+\begin{table}[!htp]
+\centering
+\caption{Time steps taken for different adaptive time stepping criterion for physical Marshak wave problem discretized with linear SLXS Lobatto and 100 cells.}
+\label{tbl:p1_steps}
+\begin{tabular}{|c|c|c|}
+\hline
+{} &  Total Steps & Rejected Steps \\
+\hline
+Point-wise & 77648 & 0 \\
+\hline
+Modified Point-wise, &    &  \\
+$T_{offset} = 0~[eV]$ &  77648  &  0\\
+\hline
+Volumetric, $N_{cg} = 1$ & 49957   & 0\\
+\hline
+\end{tabular}
+\end{table}
+
+We now examine the performance of each adaptive time criterion applied to a cubic SLXS Lobatto discretization of the physical Marshak wave problem using 100 spatial cells.
+As seen in \fig{fig:physical_slices_temperature}, negative temperature solutions are present at the thermal wavefront.
+The negative temperature solutions are cause the simplest point-wise adaptive criterion, \eqt{eq:pointwise_adaptive}, to fail.
+For all attempted spatial resolutions, the point-wise adaptive criterion always attempts to take vanishingly small time steps.
+To show that the challenging nature of an under resolved Marshak wave problem causes the point-wise adaptive criterion to fail, and that adaptive time step selection techniques 
+are  compatible with higher order DFEM schemes for TRT simulations, we consider an alternative to the Marshak wave problem.
+Using the same spatial domain, temporal domain, and material properties as the physical Marshsak wave problem, but the slab is heated with  a distributed volumetric radiation source equivalent to a black body material radiating energy at a temperature of 1~keV instead of an incident 1~keV temperature source.
+Thus, 
+\begin{enumerate}
+\item the solution is constant in space, 
+\item opacities do not vary spatially,
+\item the radiation solution is strictly non-negative, 
+\item negative temperatures are not generated, and
+\item the point-wise adaptive criterion does not fail.
+\end{enumerate}
+A trace of $\Delta t$ selected at each time step, normalized by dividing the time step number $n$ by the total number of time steps, $n_{final}$, required by a given adaptive criterion to complete the problem is given in \fig{fig:source_trace} for a simulation of the source driven problem using cubic SLXS Lobatto and 1000 spatial cells.
+Figure \ref{fig:source_trace} shows that for a spatially constant solution all three adaptive criteria yield the same time step size, as might be expected.  However, this is still sufficient to demonstrate that adaptive time step selection criteria may be used for higher order DFEM TRT simulations, but they must be designed in a sufficiently sophisticated way that adaptive technique can survive the numerical shortcomings of low spatial resolution problems.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=16cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Source_dt_trace.pdf}
+\caption{Time step sizes selected for adaptive criteria for volumetric radiation source driven problem.}
+\label{fig:source_trace}
+\end{figure}
+
+Table \ref{tbl:p3_counts} summarizes the number of time steps required to complete the physical Marshak wave problem for the modified point-wise and volumetric adaptivity criterion using 100 equally spaced cells and the cubic SLXS Lobatto scheme.
+\begin{table}[!htp]
+\centering
+\caption{Time steps taken for different adaptive time stepping criterion for physical Marshak wave problem discretized with cubic SLXS Lobatto and 100 cells.}
+\label{tbl:p3_counts}
+\begin{tabular}{|c|c|c|}
+\hline
+{} &  Total Steps & Rejected Steps \\
+\hline
+Modified Point-wise, &   Failed & \\
+$T_{offset} = 0~[eV]$ &    &   \\
+\hline
+Modified Point-wise, &   Power Outage  & \\
+$T_{offset} = 1~[eV]$ &     &  \\
+\hline
+Modified Point-wise, &  397608  & 2\\
+$T_{offset} = 5~[eV]$ &    &  \\
+\hline
+Modified Point-wise, &  184033  & 0\\
+$T_{offset} = 50~[eV]$ &    &  \\
+\hline
+Volumetric, $N_{cg} = 1$ &  1320259  & 976 \\
+\hline
+Volumetric, $N_{cg} = 2$ & 68182   & 1252 \\
+\hline
+Volumetric, $N_{cg} = 5$ & 29607   & 1346 \\
+\hline
+Volumetric, $N_{cg} = 10$ & 16657   & 1449 \\
+\hline
+Volumetric, $N_{cg} = 25$ & 9716   & 1631 \\
+\hline
+Volumetric, $N_{cg} = 50$ & 7124   & 1736 \\
+\hline
+Volumetric, $N_{cg} = 100$ & 5936   & 1808 \\
+\hline
+\end{tabular}
+\end{table}
+Comparing the number of steps taken in \tbl{tbl:p3_counts} to \tbl{tbl:p1_steps} makes it clear that higher order DFEM methods applied to TRT simulations challenge the performance of simple adaptive criteria.
+Indeed, the modified point-wise scheme struggles, requiring $T_{floor}$ to be artificially high to yield reasonable time step sizes.
+Though the volumetric adaptive criterion requires more than twice as many time steps to solve the same Marshak wave problem with cubic rather than linear DFEM, the modified point-wise scheme requires more than $4\times$ time steps to solve the same problem with higher DFEM order. 
+Additionally, the modified point-wise adaptive criterion is not universally applicable without a large $T_{offset}$, as evidenced by the failure the modified point-wise adaptive criterion for $T_{offset}=1~[eV]$.
+Consider now the trace of $\Delta t$ selection as a function of time in the simulation in \fig{fig:50ev_1C} for the modified point-wise scheme with $T_{offset}=50~[eV]$ to the volumetric adaptive criterion with $N_{cg}=1$.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=16cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Volumetric_1C_vs_50ev_in_time.pdf}
+\caption{Time step sizes for volumetric and modified point-wise adaptive criteria for cubic SLXS Lobatto discretization of the physical Marshak wave problem.}
+\label{fig:50ev_1C}
+\end{figure}
+We see all of the same features we observed for the linear SLXS Lobatto solution: peak/valley pairs as the thermal wave enters each successive cell in the mesh and the volumetric scheme taking larger time steps than the point-wise scheme.  
+However, it is important to note that though the volumetric scheme takes larger time steps, it also adapts and takes much smaller time steps when necessary, smaller even than the modified point-wise adaptive scheme.
+
+Table \ref{tbl:p3_counts} already demonstrates that larger values of $N_{cg}$ take significantly larger average time steps, but how does $\Delta t$ selection vary for different $N_{cg}$ as a function of time?
+In \fig{fig:1c_vs_100c}, the two extrema of $N_{cg}$ for this particular spatial discretization, there appear to be no significant differences between the trend in time of the different values of $N_{cg}$, with the exception that for $N_{cg}=100$, $\Delta t$ is chosen approximately $10\times-100\times$ larger than $\Delta t$ for $N_{cg}=1$.  Both also appear to have dips associated with the thermal wave passing into each new mesh cell.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=16cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Volumetric_Trace_1cg_vs_100cg_vs_time.pdf}
+\caption{Time step sizes for volumetric adaptive criteria with $N_{cg}=1$ and $N_{cg}=100$ for }
+\label{fig:1c_vs_100c}
+\end{figure}
+This is not the case for intermediate values of $N_{cg}$.  Consider \fig{fig:5c_vs_25c} that plots $\Delta t$ selected during the simulation for the volumetric adaptive criterion using $N_{cg}=5$ and $N_{cg}=25$.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=16cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Volumetric_Trace_5cg_vs_25cg_vs_time.pdf}
+\caption{Time step sizes for volumetric adaptive criteria with $N_{cg}=1$ and $N_{cg}=100$. }
+\label{fig:5c_vs_25c}
+\end{figure}
+The dips we have thus far seen and associated with the thermal wave crossing individual mesh cells is present, but so are other, lower frequency dips.
+These slower, periodic drops in $\Delta t$ are associated with the thermal wave crossing from one volumetric adaptive grouping into another.  
+If a problem was run until the slab was at a uniform temperature, i.e. the thermal wave has passed entirely through the slab, there would be $N_{groups}-1$ repetitive groupings.
+
+Finally, we wish to see examine whether the vastly different values of time steps taken by the different adaptive criteria.
+As no analytic solution exists, we must simply compare the results of simulations that use different adaptive criteria at some time value.
+Assuming that any temporal introduced by taking too large of a time step accumulates, we look at the angle integrated intensity and temperature solutions at $t=0.1~[sh]$.
+Further, assuming that the largest differences occur between the simulation that took the most time steps and the simulation that took the fewest time steps, in \figs{fig:time_difference_radiation}{fig:time_difference_temperature} we compare the angle integrated intensity and temperature solutions of simulations, respectively, of the modified point-wise adaptive criterion with $T_{offset} = 5~[eV]$, and the volumetric adaptive criterion with $N_{cg}=100$.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=16cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/100C_Physical_Marshak_Wave_Radiation_Adaptive_Comparison_Final.pdf}
+\caption{Comparison of angle integrated intensity for different adaptive criteria at $t=0.1~[sh]$.}
+\label{fig:time_difference_radiation}
+\end{figure}
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=16cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/100C_Physical_Marshak_Wave_Temperature_Adaptive_Comparison_Final.pdf}
+\caption{Comparison of temperature for different adaptive criteria at $t=0.1~[sh]$.}
+\label{fig:time_difference_temperature}
+\end{figure}
+Despite the modified point-wise scheme using nearly $80\times$ more time steps than the volumetric criterion with $N_{cg}=100$, with this level of spatial accuracy, there is no appreciable visual difference between the two solutions, suggesting that the volumetric adaptive criteria is more efficient than the modified point-wise criteria when applied to higher order DFEM TRT simulations.
+
+\newpage
 
 \section{Effectiveness of MIP DSA for TRT Iterative Acceleration}
 \label{sec:mip_results}

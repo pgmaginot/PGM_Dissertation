@@ -1130,6 +1130,8 @@ where $\norm{ \widetilde(T) }_{g,2}$ is an $L_2$ norm of $\widetilde{T}$ over th
 $x_{g-1/2} = x_{N_{cg} (g-1)+1/2}$, and $x_{g+1/2} = x_{N_{cg} g +1/2}$.  
 We exactly integrate \eqt{eq:group_integral} using a $2P$ point Gauss quadrature.  
 $N_{cg}$ is user defined, and can range from one to $N_{cell}$.
+Ideally $N_{cg} = 1$.  However, in practice it is necessary to increase $N_{cg}$ to larger values, in order to choose acceptably large time step values.
+Increasing $N_{cg}$ has the same effect as increasing $T_{offset}$ in \eqt{eq:modified_pointwise_adaptive}.
 We elect to use sum of norms in the denominator of \eqt{eq:volumetric_adaptive} to avoid any cancellation that could occur if either $\widetilde{T}^n$ or $\widetilde{T}^{n+1}$ are negative.
 Additionally since
 \benum

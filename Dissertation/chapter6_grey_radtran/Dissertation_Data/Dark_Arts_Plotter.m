@@ -60,15 +60,15 @@ color_str(2,4) = {[0 0 1]} ;
 color_str(2,5) = {[1 0 1] } ;
 color_str(2,6) = {[0 0.5 0.5]} ;
 color_str(2,7) = {[0 1 1]} ;
-color_str(2,8) = {[0.5 0 0]} ;
-color_str(2,9) = {[0 0.3 0]} ;
+color_str(2,8) = {[0.6 0 0]} ;
+color_str(2,9) = {[0 0.1 1]} ;
 color_str(2,10) = {[0 0 0.5]} ;
 color_str(2,11) = {[0.6 0 0.6] } ;
 color_str(2,12) = {[0.5 0.5 0]} ;
 color_str(2,13) = {[0.9 0.9 0]} ;
 color_str(2,14) = {[1 0 0.1] } ;
 color_str(2,15) = {[0.1 1 0]} ;
-color_str(2,16) = {[0 0.1 1]} ;
+color_str(2,16) = {[0 0.5 0]} ;
 
 if( length(cell_base) == 1 )
     cell_str_look = ones(n_plots,1);
