@@ -19,21 +19,52 @@
 \label{sec:chapter6_grey_radtran_results}
 
 
-We now consider several test problems to verify and demonstrate the capability of the self-lumping DFEM schemes we have developed to solve the grey TRT equations.
+We now consider several test problems to verify and demonstrate the capability of the self-lumping DFEM spatial discretizations we have developed to solve the grey TRT equations.
 First, in \secref{sec:chap6_analytic_results} we will consider problems with analytic solutions to verify and demonstrate the asymptotic convergence rates of our DFEM and SDIRK discretizations of the grey thermal radiative transfer equations.
 In \secref{sec:marshak_waves}, we will consider two Marshak wave problems.  
-We consider a Marshak wave test problem to be an initially cold slab being heated by a strong, incident photon source,  creating a nearly discontinuous solution as the thermal wave propagates through and heats the cold slab.
-Finally, we will summarize the effectiveness of the modified interior penalty diffusion synthetic acceleration operator in accelerating the iterative convergence of the grey TRT equations in \secref{sec:mip_results}.
+A Marshak wave test problem consists of an initially cold slab that is heated by a strong, incident photon source, and is characteristic of several thermal radiative transfer problems of interest, such as inertial confinement fusion.
+Finally, we summarize the effectiveness of the modified interior penalty diffusion synthetic acceleration operator in accelerating the iterative convergence of the grey TRT equations in \secref{sec:mip_results}.
 
+We present numerical results for several DFEM schemes:
+\begin{enumerate}
+\item TL: traditional mass matrix lumping using equally-spaced interpolation points with cell-wise constant material properties,
+\item SL Lobatto: self-lumping quadrature using Lobatto interpolation points with cell-wise constant material properties,
+\item SL Gauss: self-lumping quadrature using Gauss interpolation points with cell-wise constant material properties, 
+\item SLXS Lobatto: self-lumping quadrature using Lobatto interpolation points with approximate integration of spatially varying $\mathbf{R}$, and
+\item SLXS Gauss: self-lumping quadrature using Gauss interpolation points with approximate integration of spatially varying $\mathbf{R}$.
+\end{enumerate}  
+In problems where opacities and heat capacities are constant functions of temperature, SL Lobatto is equivalent to SLXS Lobatto and SL Gauss is equivalent to SLXS Gauss.
+However, for problems with temperature dependent material properties, SL Lobatto and SL Gauss will approximate the within cell variation of material properties assuming a cell-wise constant equal to the volumetric average of each material property, whereas SLXS Gauss and SLXS Lobatto will explicitly account for the within cell variation of material properties following the example of \eqt{eq:chap3_sl_react}.
+
+Accuracy comparisons will be based upon the discrete $L_2$ norm of the error in angle integrated intensity, $E_{\phi} = \norm{ \widetilde{\phi}(x) - \phi(x)}_{L^2}$, and the $L_2$ error in temperature, $E_T = \norm{ \widetilde{T}(x) - T(x) }_{L^2}$.
+We calculate $E_{\phi}$ as
+\benum
+E_{\phi} = \sqrt{\sum_{c=1}^{N_{cell}}{ \frac{\Delta x_c}{2} \sum_{q=1}^{N_{qf}}{ w_q \left(\widetilde{\phi}(s_q , t_{end}) - \phi(s_q,t_{end})  \right)^2 } } }\pec
+\label{eq:e_phi_6}
+\eenum
+where $w_q$, $s_q$ are Gauss quadrature points and $N_{qf} = 2P+7$, and $P$ is the DFEM trial space degree.  
+$E_{T}$ is calculated analogously to $E_{\phi}$.
+Additionally, we will consider $L^2$ like norms of the cell average angle integrated intensity, $E_{\phi_A}$, and cell average temperature error, $E_{T_A}$.
+$E_{\phi_A}$ is approximated as:
+\benum
+E_{\phi_A} = \sqrt{
+\sum_{c=1}^{N_{cell}}{ 
+\frac{\Delta x}{2} 
+\left( 
+\frac{1}{2}\sum_{q=1}^{N_{qf}}{ w_q \widetilde{\phi}(s_q , t_{end})}  - \frac{1}{2}\sum_{q=1}^{N_{qf}}{ w_q \phi(s_q , t_{end})} 
+\right)^2 
+} 
+} \pec
+\eenum
+with $N_{qf}$ defined as in \eqt{eq:e_phi_6}.  $E_{T_A}$ is estimated in a similar fashion.
 
 \section{Problems with Analytic Solutions}
 \label{sec:chap6_analytic_results}
 
-
 \subsection{Su-Olson Problem}
 
 The Su-Olson problem \cite{su_olson_1} is an analytic benchmark that consists of an initially cold (initial radiation energy density and temperature conditions are identically absolute zero) half-space slab, heated for a finite amount of time by a volumetric, isotropic radiation source.
-The slab's scattering opacity is constant in space and temperature, absorption opacity is constant in space and temperature, and $C_v \propto T^3$.
+The slab's scattering and absorption opacities are constant in space and temperature and $C_v \propto T^3$.
 Assuming $C_v = \alpha T^3$ is critical; as Long, et al. \cite{alex_paper} noted, the assumption regarding $C_v$ is not physical, but is required to make the thermal radiative transfer equations linear in $I$ and $T^4$, or conversely linear in $I$ and material energy density. 
 After a series of transformations, Su and Olson derived an analytic solution to the thermal radiative transfer equations under these conditions; their solution is more accurately described as being semi-analytic.
 While the radiation energy density and material temperature at every point can be expressed as a closed form integral, evaluation of each integral requires numerical estimation.
@@ -50,10 +81,10 @@ C_v = 10^{-8} + \alpha T^3 \pep
 Alternatively, we could set an initial temperature to be a non absolute zero value.
 
 Since \cite{su_olson_1} presents results in a non-dimensional format, we elect to define $a=c=1$, $\sigma_a = 1$, $\sigma_s=0$, $\alpha = 4$, truncate the full half space to $x\in[0,5]$, and define the reference temperature, $T_H = 1$.
-We solve the problem using 200 spatial mesh cells, linear SLXS Lobatto DFEM, the Alexander 2-2 time differencing scheme, an initial time step size of $\Delta t = 10^{-5}$, and increase the time step size by a factor of 1.1 until a maximum time step size of $\Delta t = 10^{-3}$ is reached.
+We solve the problem using 200 spatial mesh cells, linear SLXS Lobatto, the SDIRK 2-2 time differencing scheme, an initial time step size of $\Delta t = 10^{-5}$, and increase the time step size by a factor of 1.1 until a maximum time step size of $\Delta t = 10^{-3}$ is reached.
 
-In \fig{fig:su_olson_s2_rad} we present the radiation energy density solution, $W(x)$ (in the notation on \cite{su_olson_1}), for $S_2$ angular differencing plotted against the analytic diffusion and transport solutions.  Likewise, in \fig{fig:su_olson_s2_mat}, we plot the material energy density, $V(x)$ (in the notation on \cite{su_olson_1}) for $S_2$ angular differencing.
-Solutions at various times, $\tau = 1$ and $\tau=10$ are given in both plots.
+In \fig{fig:su_olson_s2_rad} we present the radiation energy density solution, ($W(x)$ in the notation on \cite{su_olson_1}) for $S_2$ angular differencing plotted against the analytic diffusion and transport solutions.  Likewise, in \fig{fig:su_olson_s2_mat}, we plot the material energy density ($V(x)$ in the notation on \cite{su_olson_1}) for $S_2$ angular differencing.
+Solutions at non-dimensional times $\tau = 1$ and $\tau=10$ are given in both plots.
 As expected, the $S_2$ solution is nearly identical to diffusion, but skews slightly in the direction of the full transport solution.
 \begin{figure}[!htp]
 \centering
@@ -93,7 +124,7 @@ While analytic solutions that do not use exotic source terms are more appealing 
 For those multiphysics problems for which an analytic solution does exist, the solutions are usually semi-analytic, and cannot be used effectively as a reference solution for a convergence study because the semi-analytic solution has numerical errors of the same magnitude (or greater) than the numerical simulations we are attempting to verify.
 %Similarly experimental results will contain measurement errors, and will almost certainly be of low resolution, either measuring only integral quantities, or providing data at only a few points in space, and thus do not permit convergence studies.
 
-We elect to choose separable MMS of the form:
+We elect to choose separable manufactured solutions of the form:
 \begin{subequations}
 \beanum
 I_d(x,\mu_d,t) &=& M(\mu_d) F(t) W_I(x) \\
@@ -103,22 +134,10 @@ C_M &=& \sum_{d=1}^{N_{dir}} { w_d M(\mu_d) } \pep
 \eeanum
 \label{eq:mms_solns}
 \end{subequations}
-where $M(\mu_d)$ is as angular component of the intensity solution desired, $I_d(x,\mu_d,t)$; $F(t)$ is the time component of the MMS, chosen to be the same for intensity, temperature, and angle integrated intensity; $W_I(x)$ is the spatial component of the intensity, and $W_T(x)$ is the spatial component of the temperature solutions.
-$W_I(x)$ being the spatial component of $\phi$, and the definition of $C_M$ given in \eqts{eq:mms_solns} is required for the $S_N$ approximation to be true.
+where $M(\mu_d)$ is as angular component of the intensity solution desired, $I_d(x,\mu_d,t)$; $F(t)$ is the time component of the manufactured solution, chosen to be the same for the angular intensity, angle integrated intensity, and temperature; $W_I(x)$ is the spatial component of the angular intensity; and $W_T(x)$ is the spatial component of the temperature solutions.
+The definition of $C_M$ given in \eqts{eq:mms_solns} and $W_I(x)$ being the spatial component of $\phi$ is required for the $S_N$ approximation to be true.
 
-\subsubsection{Linear in Time - Trigonometric in Space  }
-In our first method of manufactured solutions problem, MMS1, we attempt to reproduce a TRT problem whose radiation and temperature solutions is a cosine in space and  linear in time.
-We use a non-dimensional form of the TRT, assuming that $a=c=1$, and for this problem we assume opacities are constant functions of space and temperature.
-We impose the solution:
-\beanum
-M(\mu_d) &=& \frac{1}{4\pi} \\
-W_I(x) &=& 10 \cos\left( \frac{\pi x}{10} - \frac{\pi}{2} \right) + 15\\
-W_T(x) &=&  25 \cos\left( \frac{\pi x}{10} - \frac{\pi}{2} \right) + 30\\
-F(t) &=& 1+.02t \pep
-\eeanum
-Physically, $x\in[0,10]$, $C_v = 0.1$, $\sigma_a = 100.0$, $\sigma_s = 0.5$, we start the simulation at $t_0 = 0$, end the simulation at $t_{end}=1$, 
-taking 100 equal time steps of length $\Delta t = 0.01$, with Alexander's two stage, second order SDIRK method, which we refer to as 2-2 \cite{alexander}.  
-For this and all other MMS simulations, our initial conditions are
+For all MMS simulations, our initial conditions are
 \beanum
 I(x,\mu_d,t_0) &=& M(\mu_d)W_I(x)F(t_0) \\
 T(x,t_0) &=& W_T(x)F(t_0) \\
@@ -134,23 +153,21 @@ I_{in}(\mu_d,t) = M(\mu_d) W_I(x_{N_{cell}+1/2}) F(t) \pec
 \eenum
 where $x_{1/2}$ is the left domain boundary and $x_{N_{cell}+1/2}$ is the right domain boundary.
 We do not impose, and no boundary conditions are required for the material temperature.
-
-The Butcher tableaux for this and all other SDIRK schemes considered is given in \secref{sec:time_convergence}.
 We evaluate $\vec{S}_I$ and $\vec{S}_T$ using the spatially analytic definitions of $S_I$ and $S_T$ respectively, and numerically integrate the source moments using a $N_q$ Gauss-Legendre quadrature points, with $N_q = 2N_P + 5$, and $N_P$ is the number of DFEM interpolation points, as defined previously.
 
-We consider three DFEM schemes,
-\begin{enumerate}
-\item TL: traditional mass matrix lumping using equally-spaced interpolation points,
-\item SL Lobatto: self-lumping quadrature using Lobatto interpolation points,
-\item SL Gauss: self-lumping quadrature using Gauss interpolation points, and
-\end{enumerate}  
-compare each method's accuracy in calculating the discrete $L_2$ norm of the error in angle integrated intensity, $E_{\phi} = \norm{ \widetilde{\phi}(x) - \phi(x)}_{L^2}$, and the $L_2$ error in temperature, $E_T = \norm{ \widetilde{T}(x) - T(x) }_{L^2}$.
-We calculate $E_{\phi}$ as
-\benum
-E_{\phi} = \sqrt{\sum_{c=1}^{N_{cell}}{ \frac{\Delta x_c}{2} \sum_{q=1}^{N_{qf}}{ w_q \left(\widetilde{\phi}(s_q , t_{end}) - \phi(s_q,t_{end})  \right)^2 } } }\pec
-\label{eq:e_phi_6}
-\eenum
-where $w_q$, $s_q$ are Gauss quadrature points and $N_{qf} = 2P+7$.  $E_{T}$ is calculated analogously to $E_{\phi}$.
+\subsubsection{Linear in Time - Trigonometric in Space  }
+In our first method of manufactured solutions problem, MMS1, we design a source whose radiation and temperature solutions is a cosine in space and  linear in time.
+We use a non-dimensional form of the TRT, assume that $a=c=1$, and that material opacities and heat capacities are constant functions of space and temperature.
+We impose the solution:
+\beanum
+M(\mu_d) &=& \frac{1}{4\pi} \\
+W_I(x) &=& 10 \cos\left( \frac{\pi x}{10} - \frac{\pi}{2} \right) + 15\\
+W_T(x) &=&  25 \cos\left( \frac{\pi x}{10} - \frac{\pi}{2} \right) + 30\\
+F(t) &=& 1+.02t \pep
+\eeanum
+Physically, $x\in[0,10]$, $C_v = 0.1$, $\sigma_a = 100.0$, $\sigma_s = 0.5$, we start the simulation at $t_0 = 0$, end the simulation at $t_{end}=1$, 
+taking 100 equal time steps of length $\Delta t = 0.01$, with the SDIRK 2-2 scheme.  
+
 Figure \ref{fig:mms1_tl_phi}, \fig{fig:mms1_lobatto_phi}, and \fig{fig:mms1_gauss_phi} plot the order of convergence of $E_{\phi}$ for the TL, SL Lobatto, and SL Gauss schemes, respectively, as a function of trial space degree and cell size.
 Analogous data for $E_{T}$ is given in \figs{fig:mms1_tl_temp}{fig:mms1_gauss_temp}.
 %
@@ -203,24 +220,11 @@ Analogous data for $E_{T}$ is given in \figs{fig:mms1_tl_temp}{fig:mms1_gauss_te
 We make several observations regarding \figs{fig:mms1_tl_phi}{fig:mms1_gauss_temp}.  
 First, the TL scheme does not necessarily increase in accuracy with an increase in trial space degree.
 TL convergence of $E_{\phi}$ is limited to second order in space for odd degree trial space DFEM and third order spatial convergence for even degree trial space schemes, behavior identical to that demonstrated in our neutron transport testing.
-A similar limit exists for TL convergence of $E_T$, at most first order for odd trial space degree and second order for even trial space degree.
-Second, SL Lobatto converges the $L^2$ norm of the radiation energy density $\propto P+1$, the same order of convergence achieved in our neutron transport test problems for the convergence of $L^2$ error of the angular and scalar fluxes.
+A similar limit exists for TL convergence of $E_T$; TL converges $E_T$ at most first order for odd trial space DFEM and second order for even trial space degree DFEM.
+Second, SL Lobatto converges the $L^2$ norm of the angle integrated intensity $\propto P+1$, the same order of convergence achieved in our neutron transport test problems for the convergence of $L^2$ error of the angular and scalar fluxes.
 However, SL Lobatto only converges $E_T \propto P$, not $P+1$, as was the case for the neutron transport interaction rate.
 Finally, SL Gauss converges $E_{\phi}$ and $E_T$ $\propto P+1$, the same order of convergence as seen with neutron transport.
 
-To understand the behaviors of SL Lobatto and SL Gauss completely, we now consider the $L^2$ like norm of cell average radiation energy density error, $E_{\phi_A}$ and cell average temperature error, $E_{T_A}$.
-$E_{\phi_A}$ is approximated as:
-\benum
-E_{\phi_A} = \sqrt{
-\sum_{c=1}^{N_{cell}}{ 
-\frac{\Delta x}{2} 
-\left( 
-\frac{1}{2}\sum_{q=1}^{N_{qf}}{ w_q \widetilde{\phi}(s_q , t_{end})}  - \frac{1}{2}\sum_{q=1}^{N_{qf}}{ w_q \phi(s_q , t_{end})} 
-\right)^2 
-} 
-} \pec
-\eenum
-with $N_{qf} = 2P + 7$, using Gauss quadrature.  $E_{T_A}$ is estimated in a similar fashion.
 Convergence of $E_{\phi_A}$ is given in \fig{fig:mms1_lobatto_phi_A} for SL Lobatto and \fig{fig:mms1_gauss_phi_A} for SL Gauss.
 Convergence of $E_{T_A}$ is given in \figs{fig:mms1_lobatto_temp_A}{fig:mms1_gauss_temp_A} for SL Lobatto and SL Gauss, respectively.
 No definitive pattern emerges in the convergence of $E_{\phi_A}$ as a function of $P$ for SL Lobatto in \fig{fig:mms1_lobatto_phi_A} when considering linear through quartic polynomial trial spaces, though SL Lobatto convergence of $E_{\phi_A}$ looks to be $\propto 2P$ or slightly less.
@@ -269,7 +273,7 @@ That is to say that we suspect the $N_P$ quadrature points of a given trial spac
 \label{eq:planck_int}
 \eenum
 a degree $5P$ polynomial, than an $N_P$ Lobatto quadrature.
-Though the $N_P$ point Gauss quadrature only exactly integrates polynomials of degree $2(P+1) -1$, it may be that the remaining terms are coincidentally very small in magnitude for a degree $5P$ polynomial of the particular nature of \eqt{eq:planck_int}.
+Though the $N_P$ point Gauss quadrature only exactly integrates polynomials of degree $2P+1$, it may be that the remaining terms are coincidentally very small in magnitude for a degree $5P$ polynomial of the particular nature of \eqt{eq:planck_int}.
 
 %This plateauing of errors seen in the above plots is a result of two things.  
 %First, the nested nature of our TRT solution algorithm.
@@ -301,11 +305,11 @@ C_v &=& 0.2 + 0.01 T^3 \\
 \sigma_a &=& \frac{10^4}{T^3} \\
 \sigma_s &=& 0.5 \pep
 \eeanum
-In our problem, $x\in[0,10]$, $t\in[0,2]$, we use the three stage, third order accurate SDRIK method of Alexander \cite{alexander} with $\Delta t = 0.001$.  
+In our problem, $x\in[0,10]$, $t\in[0,2]$ and we discretize in time using the SDIRK 3-3 scheme with $\Delta t = 0.001$.  
 In total , we consider four different DFEM schemes for this problem, SL Lobatto, SL Gauss, SLXS Lobatto, and SLXS Gauss.  
-The methods denoted SL assume cell-wise constant opacities and heat capacities,  equal to the cell-wise volumetric average of that quantity.  
-The SLXS schemes explicitly account for the within cell variation of temperature dependent material properties by evaluating $\mathbf{R}$ as in \eqt{eq:chap3_sl_react}.
-$E_{\phi}$ for the SL Lobatto and SL Gauss schemes is plotted in \fig{fig:mms3_constant_lobatto_phi} and \fig{fig:mms3_constant_gauss_phi}, respectively.
+To reiterate, methods denoted SL assume cell-wise constant opacities and heat capacities,  equal to the cell-wise volumetric average of that quantity;  
+SLXS schemes explicitly account for the within cell variation of temperature dependent material properties by evaluating $\mathbf{R}$ as in \eqt{eq:chap3_sl_react}.
+$E_{\phi}$ convergence for the SL Lobatto and SL Gauss schemes is plotted in \fig{fig:mms3_constant_lobatto_phi} and \fig{fig:mms3_constant_gauss_phi}, respectively.
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=10cm,trim=0.25in  0.25in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/MMS3_Constant_XS_SL_Lobatto_phi_L2.pdf}
@@ -339,7 +343,9 @@ Regardless of DFEM interpolation point type or trial space degree, assuming cell
 Confirming our suspicion that assuming cell-wise constant material properties limit the convergence of $E_T$ as well, we plot the convergence of $E_T$ for the SL Lobatto scheme in \fig{fig:mms3_constant_lobatto_temp} and for the SL Gauss scheme in \fig{fig:mms3_constant_gauss_temp}.
 Figures \ref{fig:mms3_constant_lobatto_temp}-\ref{fig:mms3_constant_gauss_temp} verify the hypothesis we developed while discussing our neutron transport results: assuming a cell-wise constant opacity limits $L^2$ convergence of temperature to at most first order in space, regardless of DFEM trial space degree.
 
-To verify that the high order of convergence observed for $E_{IR_A}$ in Section 3 does not translate to a high rate of spatial convergence for $E_{T_A}$, we consider \fig{fig:mms3_constant_lobatto_temp_A} and \fig{fig:mms3_constant_gauss_temp_A}.
+Recalling that in \secref{sec:chapter3_variable_xs}, assuming a cell-wise constant cross section equal to the volumetric average cross section in a neutron transport pure absorber problem
+resulted in a scheme that converged the cell average interaction rate, $E_{IR_A}$, $\propto 2P+1$, we now consider convergence of $E_{T_A}$, a quantity controlled by cell average interaction rates.
+in \fig{fig:mms3_constant_lobatto_temp_A} and \fig{fig:mms3_constant_gauss_temp_A}.
 Figure \ref{fig:mms3_constant_lobatto_temp_A} verifies that regardless of trial space degree, the SL Lobatto scheme assuming a cell-wise constant opacity for a problem with temperature or spatially varying opacities converges $E_{T_A}$ second order in space.
 Likewise, \fig{fig:mms3_constant_gauss_temp_A} demonstrates the same is true for the SL Gauss scheme.
 \begin{figure}[!hbp]
@@ -357,7 +363,8 @@ Likewise, \fig{fig:mms3_constant_gauss_temp_A} demonstrates the same is true for
 \label{fig:mms3_constant_gauss_temp_A}
 \end{figure}
 
-We now consider the convergence of SLXS Lobatto and SLXS Gauss.  First, we see that in \fig{fig:mms3_slxs_lobatto_e_phi}, SLXS Lobatto converges $E_{\phi} \propto P+1$, and in \fig{fig:mms3_slxs_gauss_e_phi}, SLXS Gauss converges $E_{\phi}$ $\propto P+1$ as well.
+We now consider the convergence of SLXS Lobatto and SLXS Gauss.  
+First, we see that in \fig{fig:mms3_slxs_lobatto_e_phi}, SLXS Lobatto converges $E_{\phi} \propto P+1$, and in \fig{fig:mms3_slxs_gauss_e_phi}, SLXS Gauss converges $E_{\phi}$ $\propto P+1$ as well.
 Moving on to the convergence of $E_T$, in \fig{fig:mms3_slxs_lobatto_e_t} SLXS Lobatto converges $E_T \propto P$, the same rate SL Lobatto converged $E_T$ for the TRT problem with constant material properties.  
 In \fig{fig:mms3_slxs_gauss_e_t} SLXS Gauss converges $E_T$ very rapidly, and only the asymptotic convergence rate of linear and quadratic DFEM can be estimated, though both suggest SLXS Gauss converges $E_T \propto P+2$.
 \begin{figure}[!hbp]
@@ -421,10 +428,10 @@ In \fig{fig:mms3_slxs_gauss_e_t} SLXS Gauss converges $E_T$ very rapidly, and on
 \end{figure}
 
 Focusing now on the convergence of cell average error quantities, we first consider $E_{\phi_A}$ for SLXS Lobatto and SLXS Gauss in \fig{fig:mms3_slxs_lobatto_phi_a} and \fig{fig:mms3_slxs_gauss_phi_a}, respectively.
-Both SLXS Lobatto and SLXS Gauss converge $E_{\phi_A}$ at an order less than or at most equal to the order their respective neutron transport analogs converged $E_{\psi_A}$.
+Both SLXS Lobatto and SLXS Gauss converge $E_{\phi_A}$ at an order less than or at most equal to the order that their respective neutron transport analogs converged $E_{\psi_A}$.
 However, since both methods require only a small amount of mesh refinement to reach an error level approximately equal to our temperature tolerance, it is difficult to establish with certainty the order of convergence of either method for higher $P$.
 For completeness, we include convergence plots of $E_{T_A}$ for SLXS Lobatto and SLXS Gauss respectively in \fig{fig:mms3_slxs_lobatto_t_a} and \fig{fig:mms3_slxs_gauss_t_a}.
-All we definitively conclude from \figs{fig:mms3_slxs_lobatto_t_a}{fig:mms3_slxs_gauss_t_a} is that both SLXS Lobatto and SLXS Gauss experience increases in convergence of $E_{T_A}$ with increases in trial space degree.
+All we can definitively conclude from \figs{fig:mms3_slxs_lobatto_t_a}{fig:mms3_slxs_gauss_t_a} is that both SLXS Lobatto and SLXS Gauss experience increases in convergence of $E_{T_A}$ with increases in trial space degree.
 
 In \figs{fig:mms1_tl_phi}{fig:mms3_slxs_gauss_t_a}, the plateauing of errors that appears in some plots is a result of our relative convergence tolerances for both temperature and angle integrated intensity. 
 Given our convergence criteria, we might expect a plateau, $E_{T,min}$ of approximately
@@ -551,7 +558,7 @@ The SLXS Lobatto $E_{T_A}$ convergence rate is equal to the SLXS Lobatto converg
 \label{sec:time_convergence}
 
 
-We now verify the asymptotic order of convergence of each SDIRK scheme: implicit Euler (IE); the two stage, second order accurate scheme of Alexander (2-2); and the three stage, third order accurate scheme of Alexander (3-3).
+We now verify the asymptotic order of convergence of each SDIRK scheme: IE,  SDIRK 2-2, and SDIRK 3-3, as a function of time step size.
 To simplify the process, we consider a problem with constant spatial dependence:
 \beanum
 M(\mu_d) &=& \frac{1}{4\pi} \\
@@ -560,58 +567,64 @@ W_T(x) &=&  10 \\
 F(t) &=& 45 \cos\left( \pi t \right) + 46 \pec
 \eeanum
 $t \in[0,1]$, $\sigma_s = 0.1$, $\sigma_a = 2.5$, $C_v = 0.2$, $x\in[0,10]$ discretized with 10 equally spaced cells.  Convergence of $E_{\phi}$ as a function of $\Delta t$ for the IE, 2-2, and 3-3 time differencing schemes is given in \fig{fig:e_phi_time}.
-As expected, the IE converges 1st order in time, the 2-2 scheme converges second order, and the Alexander 3-3 scheme converges third order in time.
+As expected, IE converges 1st order in time, SDIRK 2-2 converges second order, and SDIRK 3-3 converges third order in time.
 The same data for temperature is given in \fig{fig:big_dt}.  
-Though the 2-2 and 3-3 schemes are more accurate than IE, it took a very long time for the 2-2 and 3-3 schemes to demonstrate their respective asymptotic orders of convergence for $E_T$ as compared to $E_{\phi}$.
+Though the SDIRK 2-2 and SDIRK 3-3 schemes are always more accurate than IE, much smaller time steps were required for SDIRK  2-2 and SDIRK 3-3 to demonstrate their respective asymptotic orders of convergence for $E_T$ than were required to reach asymptotic convergence of $E_{\phi}$ with respect to time step size.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=9cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Time_Integrators_Convergence_Phi.pdf}
+\includegraphics[width=12cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Time_Integrators_Convergence_Phi.pdf}
 \caption{Convergence of $E_{\phi}$ for different time integrators as a function of $\Delta t$.}
 \label{fig:e_phi_time}
 \end{figure}
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=9cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Time_Integrators_Convergence_Temperature.pdf}
+\includegraphics[width=12cm,trim=0.25in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Time_Integrators_Convergence_Temperature.pdf}
 \caption{Convergence of $E_{T}$ for different time integrators as a function of $\Delta t$.}
 \label{fig:big_dt}
 \end{figure}
 
+\pagebreak
 
 \section{Thermal Radiative Transfer Simulations without Analytic Solutions}
 \label{sec:marshak_waves}
 
-\subsection{``Unity'' Marshak Wave Problem}
+We now consider two Marshak wave test problems.
+In thermal radiative transfer problems, at low temperatures, materials are generally optically thick and emit very few photons, behaving like pure absorbers.
+However, as the material heats up, its optical thickness decreases, photon emission increases, and the problem becomes very diffusive.
+Marshak wave test problems, problems that begin with a cold material that is heated by an incident photon beam, are extremely challenging for discrete ordinates transport spatial discretizations, requiring methods that are accurate in both transport effects (cold material) and diffusive (heated material) regimes, and that can handle rapid variations in material properties.
 
-We now consider a Marshak wave test problem.
-Originally presented by Ober and Shadid for radiative diffusion \cite{ober_shadid} we compare our $S_2$ solution that uses Gauss quadrature in angle to the solutions presented in \cite{ober_shadid}.
-With an $S_2$ Gauss quadrature in angle, the discrete ordinates method is equivalent to a $P_1$ angular discretization in slab geometry \cite{s2sa}.
-The radiative diffusion solution of \cite{ober_shadid} could also be considered a $P_0$ approximation.
-Thus while not exact, our $P_1$ equivalent solution is nearly equal to the $P_0$ solutions presented in \cite{ober_shadid}.
+The first problem, originally described by Ober and Shadid for radiative diffusion \cite{ober_shadid}, arbitrarily sets $a=c=C_v=1$, and as such, we will refer to it as the ``unity'' Marshak wave problem. 
+Originally proposed in 1960 by Petschek and Williamson \cite{physical_marshak}, but considered more recently in \cite{negative_trt,time_adaptive_diffusion}, our second Marshak wave problem has a similar opacity dependence, $\sigma_a \propto T^{-3}$, as the unity Marshak wave problem, but uses physical units.  
+We thus refer to the second Marshak wave problem as the physical Marshak wave problem.
+
+\subsection{Unity Marshak Wave Problem}
+
+%The unity Marshak wave problem consists of an initially cold slab that is heated from the left by an incident radiation intensity, with a vacuum boundary condition on the right.
+Given as a radiative diffusion problem, we adapt the radiative diffusion problem of \cite{ober_shadid} to discrete ordinates thermal radiative transfer by interpreting the left boundary to be a unit isotropic incident current.
+The physical domain is $x\in[0,1]$ and we advance the solution from $t=0$ to $t=1$.
+Initially, the slab is in thermal equilibrium, and $T=\left( 10^{-5} \right)^{1/4}$.
+There is no scattering, $\sigma_s = 0$, and the absorption opacity is temperature dependent, $\sigma_a = \frac{1}{T^3}$.
 Like most thermal radiative transfer problems, no analytic solution exists.  
 As such, we focus on qualitative comparisons of how DFEM trial space degree, mesh refinement, and time step refinement affect the radiation energy density and material temperature solutions.
 
-The Marshak wave problem consists of an initially cold slab that is heated from the left by an incident radiation intensity, with a vacuum boundary condition on the right.
-The problem arbitrarily sets $a=c=C_v=1$, and as such, we will refer to it as the ``unity'' Marshak wave problem.  The physical domain in $x\in[0,1]$ and we initially advance the solution from $t=0$ to $t=1$.
-Initially, the slab is in thermal equilibrium, and $T=\left( 10^{-5} \right)^{1/4}$.
-There is no scattering, $\sigma_s = 0$, and the absorption opacity is temperature dependent, $\sigma_a = \frac{1}{T^3}$.
-
 We use an initial mesh of 20 cells, but also consider results using meshes of 80, 320, and 1280 cells.
-Unless otherwise noted, for all simulations we use the 2-2 Alexander scheme.
+Unless otherwise noted, for all simulations we use the SDIRK 2-2 time discretization.
 We begin with a minimum time step of $\Delta t = 5\times 10^{-4}$ and increase the time step size by 10\% until we reach a maximum time step size of $\Delta t = 10^{-2}$.
 For our time refinement studies, we divide the minimum and maximum time step sizes both by a factor of 4, 16, or 64.
-We consider linear, quadratic, cubic and quartic SLXS Lobatto and SLXS Gauss DFEM schemes.
-To demonstrate that assuming a cell-wise constant opacity results in a bladed radiative transfer temperature solution, we also consider linear SL Lobatto with a cell-wise volumetric average opacity.
+We consider linear, quadratic, cubic and quartic SLXS Lobatto and SLXS Gauss schemes.
+To demonstrate that assuming a cell-wise constant opacity results in a bladed  TRT temperature solution, we also consider linear SL Lobatto with a cell-wise volumetric average opacity.
 
-We first investigate the effect, if any, of assuming a cell-wise constant opacity.  Figure \ref{fig:bladed_rad_profile} shows the linear SL Lobatto radiation energy density solution at $t=1.0$.
+We first investigate the effect of assuming a cell-wise constant opacity.  
+Figure \ref{fig:bladed_rad_profile} shows the linear SL Lobatto radiation energy density solution at $t=1.0$.
 Except for the effects of a very coarse spatial mesh when using 20 cells, the radiation energy density solution is effectively smooth, and comparable to the results published in \cite{ober_shadid}.  
 The full temperature solution is shown in \fig{fig:bladed_t_profile_full}.
 Clearly, the large, non-monotonic discontinuities (blading) observed in the neutron transport interaction rate profile are present in the TRT temperature profile.
-In \fig{fig:bladed_t_profile_full}, mesh refinement reduces the magnitude of the temperature solution blading but does not eliminate blading.
+In \fig{fig:bladed_t_profile_full}, mesh refinement reduces the magnitude of the temperature solution blading but does not eliminate the phenomena.
 To emphasize that blading is not eliminated with mesh refinement, consider \fig{fig:bladed_t_profile_zoom}, that zooms in on the material temperature solution near the Marshak wavefront.
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=9.5cm,trim=1.2in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Reorder_Blading_Radiation_Full_MultiCell.pdf}
-\caption{Linear SL Lobatto radiation solution for the Marshak wave problem assuming cell-wise constant volumetric averaged opacities.}
+\caption{Linear SL Lobatto radiation solution for the unity Marshak wave problem assuming cell-wise constant volumetric averaged opacities.}
 \label{fig:bladed_rad_profile}
 \end{figure}
 %
@@ -619,7 +632,7 @@ To emphasize that blading is not eliminated with mesh refinement, consider \fig{
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=9.5cm,trim=1.2in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Reorder_Blading_Temperature_Full_MultiCell.pdf}
-\caption{Linear SL Lobatto temperature solution for the Marshak wave problem assuming cell-wise constant volumetric averaged opacities.}
+\caption{Linear SL Lobatto temperature solution for the unity Marshak wave problem assuming cell-wise constant volumetric averaged opacities.}
 \label{fig:bladed_t_profile_full}
 \end{figure}
 %
@@ -627,14 +640,15 @@ To emphasize that blading is not eliminated with mesh refinement, consider \fig{
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=9.5cm,trim=1.2in  0.2in 0.75in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Reorder_Blading_Temperature_Zoom_MultiCell.pdf}
-\caption{Linear SL Lobatto temperature solution for the Marshak wave problem near the wavefront.}
+\caption{Linear SL Lobatto temperature solution for the unity Marshak wave problem near the wavefront.}
 \label{fig:bladed_t_profile_zoom}
 \end{figure}
-Clearly, \figs{fig:bladed_rad_profile}{fig:bladed_t_profile_zoom}, in addition to the limited order of convergence results given \fig{fig:mms3_constant_lobatto_temp} and \fig{fig:mms3_constant_gauss_temp} demonstrate that the assumption of a cell-wise constant opacity is not appropriate for thermal radiative transfer simulations with temperature dependent material properties.
+Clearly, \fig{fig:bladed_t_profile_full} and \fig{fig:bladed_t_profile_zoom}, in addition to the limited order of convergence results of \fig{fig:mms3_constant_lobatto_temp} and \fig{fig:mms3_constant_gauss_temp} demonstrate that the assumption of a cell-wise constant opacity is not appropriate for thermal radiative transfer simulations with temperature dependent material properties.
 
-For comparison, consider the linear SLXS Lobatto radiation energy density solution in \fig{fig:linear_slxs_full_rad} and the temperature solution in \fig{fig:linear_slxs_full_temp} using 80 mesh cells.
+For comparison, consider the linear SLXS Lobatto radiation energy density solution in \fig{fig:linear_slxs_full_rad} and the temperature solution in \fig{fig:linear_slxs_full_temp}, computed using 80 mesh cells.
 Visually, there is little difference between the SL Lobatto and SLXS Lobatto angle integrated intensity solutions.
-However, this is not the case when examining the material temperature solutions.  Figure \ref{fig:linear_slxs_full_temp} does not exhibit any blading.
+However, this is not the case when examining the material temperature solutions.  
+Unlike \fig{fig:bladed_t_profile_full}, \fig{fig:linear_slxs_full_temp} does not exhibit any blading.
 
 %
 \begin{figure}[!hbp]
@@ -653,7 +667,7 @@ However, this is not the case when examining the material temperature solutions.
 \end{figure}
 %
 
-We now consider the effects of spatial mesh refinement on TRT solutions.  
+We now consider the effects of spatial mesh refinement on the unity Marshak wave problem.  
 We first consider the linear SLXS Lobatto scheme, looking at a zoom in near the wavefront of the radiation profile in \fig{fig:lobatto_convergence_rad} and the material temperature profile in \fig{fig:lobatto_convergence_temp}
 \begin{figure}[!hbp]
 \centering
@@ -669,9 +683,9 @@ We first consider the linear SLXS Lobatto scheme, looking at a zoom in near the 
 \caption{Linear SLXS Lobatto temperature solution near wavefront with increasing spatial mesh refinement.}
 \label{fig:lobatto_convergence_temp}
 \end{figure}
-Though the changes are subtle, we can see that mesh refinement actually changes the location of both the radiation and temperature profile discontinuity, with the changes more prominent in the material temperature profile, \fig{fig:lobatto_convergence_temp}.
-The changes in the material temperature profile are more pronounced, even when moving from 320 to 1280 mesh cells, than in the radiation profile most likely due to SLXS Lobatto's first order convergence of $E_{T}$.
-Plots similar to \fig{fig:lobatto_convergence_rad} and \fig{fig:lobatto_convergence_temp} are provided in \fig{fig:gauss_convergence_rad} and \fig{fig:gauss_convergence_temp}, respectively for the quartic SLXS Gauss scheme.
+Though the changes are subtle, we can see that mesh refinement actually changes the location of both the radiation and temperature profile wavefront, with the changes more prominent in the material temperature profile, \fig{fig:lobatto_convergence_temp}.
+The changes in the material temperature profile are more pronounced than in the radiation profile because linear SLXS Lobatto more accurately calculates the radiation intensity than the material temperature, converging $E_{\phi} \propto 2$ and $E_T \propto 1$.
+Equivalent plots to \fig{fig:lobatto_convergence_rad} and \fig{fig:lobatto_convergence_temp} are provided in \fig{fig:gauss_convergence_rad} and \fig{fig:gauss_convergence_temp}, respectively for the quartic SLXS Gauss scheme.
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=10cm,trim=1.0in  0.2in 0.5in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Reorder_Marshak_Zoom_Radiation_SL_Gauss_P4_Cell_Refinement.pdf}
@@ -688,7 +702,7 @@ Plots similar to \fig{fig:lobatto_convergence_rad} and \fig{fig:lobatto_converge
 \end{figure}
 Due to the SLXS Gauss' high order of spatial convergence, few changes are noticeable with mesh refinement, except when moving from 20 to 80 cells.
 However, when moving from 20 to 80 cells, the Gibbs' phenomena near the solution discontinuity are no longer visible, except for a very small negativity in the temperature solution.
-All solutions for this spatial mesh refinement study use the finest time step sizes.
+All solutions for this spatial mesh refinement study use $\Delta t = 1.5625 \times 10^{-4}$.
 
 We now examine the effect of increasing DFEM trial space degree, on a fixed mesh of 320 spatial cells using SLXS Lobatto, focusing on the region near the Marshak wavefront.
 In \fig{fig:p_convergence_rad} we plot the angle integrated intensity profile and plot the temperature profile in \fig{fig:p_convergence_temp}
@@ -708,7 +722,7 @@ In \fig{fig:p_convergence_rad} we plot the angle integrated intensity profile an
 Increasing $P$ make the wavefront in the radiation profile sharper, but at a resolution of 320 cells, none of the $P$ considered result in a visually continuous solution.
 The most notable changes with increase $P$ come in the temperature profile, where linear SLXS Lobatto does not form a sharp interface, whereas all of the higher $P$ schemes capture the non-smooth transition more accurately.
 
-Before looking at very high spatial resolution solutions, we first consider the effect of time step refinement in \fig{fig:time_refinement_rad} for the radiation profile and in \fig{fig:time_refinement_temp}.
+Before looking at very high spatial resolution solutions, we first consider the effect of time step refinement on the unity Marshak wave problem in \fig{fig:time_refinement_rad} for the angle integrated intensity and in \fig{fig:time_refinement_temp} for the material temperature solution.
 Both \fig{fig:time_refinement_rad} and \fig{fig:time_refinement_temp} use a quartic SLXS Gauss spatial discretization with 1280 cells.
 The effects of decreasing time step size are non-trivial near the wavefront.
 As seen in \fig{fig:time_refinement_rad}, at lower time resolutions, $\Delta t$ and $\frac{\Delta t}{4}$, the wavefront is visibly not uniform concave down, with several ``wiggles'' in the radiation profile in the heated region of the slab.
@@ -741,9 +755,9 @@ Given the initial, cold temperature of the slab is roughly $T=0.056$,  $\sigma_t
 As noted by Larsen, Morel, and Miller \cite{thick_diffusion_larsen}, this type of mesh spacing is neither optically thick nor thin.
 To answer whether ten thousand mesh cells is sufficient, we first consider \fig{fig:res_zoom_comparison} where we compare the results of cubic SLXS Lobatto schemes that use
 \begin{enumerate}
-\item ten thousand spatial cells, with ten thousand time steps and the 3-3 SDIRK scheme,
-\item ten thousand spatial cells, with one thousand time steps and the 3-3 SDIRK scheme, and 
-\item 1280 spatial cells, with six thousand time steps of the 3-3 SDIRK scheme.
+\item ten thousand spatial cells, with ten thousand time steps and the SDIRK 3-3 scheme,
+\item ten thousand spatial cells, with one thousand time steps and the SDIRK 3-3 scheme, and 
+\item 1280 spatial cells, with six thousand time steps of the SDIRK 3-3 scheme.
 \end{enumerate} 
 \begin{figure}[!htp]
 \centering
@@ -751,11 +765,11 @@ To answer whether ten thousand mesh cells is sufficient, we first consider \fig{
 \caption{Plot of the radiation energy density on a logarithmic scale for different high resolution simulations near the Marshak wavefront.}
 \label{fig:res_zoom_comparison}
 \end{figure}
-Missing' segments in \fig{fig:res_zoom_comparison} are caused by negative radiation energy densities.
-The twelve-hundred cell simulation has only 1 negative node.
+Missing' segments in \fig{fig:res_zoom_comparison} are caused by negative angle integrated intensity solutions.
+The 1280 cell simulation has only 1 negative node.
 The ten thousand cell simulation that uses one thousand time steps has a total of 8 negative nodes; one entire cell has a negative radiation energy density, and two other cells have at least one node with a negative radiation energy density.
-Since the ten thousand cell simulation with ten thousand time steps does not have any negative radiation energy densities, it is clear then that temporal resolution is also required.
-Unfortunately, noting that the radiation energy density jumps four orders of magnitude for $x\in[0.387 0.388]$, our highest resolution run only had a total of ten cells available to resolve the transport boundary layer.
+Since the ten thousand cell simulation with ten thousand time steps does not have any negative radiation energy densities, it is clear then that accurate TRT simulations require both space and time refinement.
+
 In \fig{fig:boundary_layer}, we plot the angular intensities for $\mu=\pm\frac{1}{\sqrt{3}}$ of the ten thousand cell, ten thousand time step simulation.  
 \begin{figure}[!htp]
 \centering
@@ -763,9 +777,13 @@ In \fig{fig:boundary_layer}, we plot the angular intensities for $\mu=\pm\frac{1
 \caption{Plot of the angular intensity on a logarithmic scale near the transport boundary layer at the Marshak wave front.}
 \label{fig:boundary_layer}
 \end{figure}
-Clearly the radiation traveling from the hot to cold region, $\mu=\frac{1}{\sqrt{3}}$ has the largest boundary layer, but even with less than ideal spatial resolution, the rapid rise in angular intensity appears to be smooth, suggesting we have resolved the radiation boundary layer.
+Clearly the radiation traveling from the hot to cold region, $I_d(\mu_d=\frac{1}{\sqrt{3}},x)$ has a large boundary layer near the thermal, but the rapid rise in angular intensity appears to be smooth, suggesting we have resolved the radiation boundary layer. 
+Unfortunately, to obtain high resolution everywhere at all times in the simulation requires a uniform spatial mesh, and using ten thousand total cells leaves only ten cells available to resolve the transport boundary layer present at $x\in[0.387 0.388]$ at $t=1.0$.
 
-Finally, we consider higher $S_N$ solutions to the Marshak wave problem.  First, we compare the $S_8$ solution to the $S_2$ solution for material temperature in \fig{fig:s2_vs_s8_temperature} and for radiation energy density in \fig{fig:s2_vs_s8_radiation}.  The $S_8$ solution in \figs{fig:s2_vs_s8_temperature}{fig:s2_vs_s8_radiation} was generated using quartic SLXS Gauss with five thousand spatial cells, the Alexander 2-2 SDIRK scheme and approximately ten thousand time steps.
+We conclude our discussion of the unity Marshak wave problem by considering higher $S_N$ solutions to the Marshak wave problem.  
+First, we compare the $S_8$ solution to the $S_2$ solution for material temperature in \fig{fig:s2_vs_s8_temperature} and for radiation energy density in \fig{fig:s2_vs_s8_radiation}.  
+The $S_8$ solution in \figs{fig:s2_vs_s8_temperature}{fig:s2_vs_s8_radiation} was generated using quartic SLXS Gauss with five thousand spatial cells, the SDIRK 2-2 scheme, and approximately ten thousand time steps.  
+The $S_2$ solution is the same solution as plotted in \fig{fig:boundary_layer}.
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm,trim=1.0in  0.5in 0.2in 0.6in,clip=true]{chapter6_grey_radtran/S8_vs_S2_Material_Temperature.pdf}
@@ -779,33 +797,33 @@ Finally, we consider higher $S_N$ solutions to the Marshak wave problem.  First,
 \caption{$S_8$ and $S_2$ radiation energy density profiles.}
 \label{fig:s2_vs_s8_radiation}
 \end{figure}
-The $S_8$ solution exhibits many of the qualitative features we would expect a transport solution to exhibit versus the $S_2$ solution which is very close to the diffusion solution.
+The $S_8$ solution exhibits many of the qualitative features we would expect a transport solution to exhibit. % versus the $S_2$ solution which is very close to the diffusion solution.
 For example, we expect the transport solution to have a higher temperature solution near the problem boundary, with a more rapid drop in both the material temperature and radiation energy density/angle integrated intensity solutions relative to a diffusion solution.
 Additionally, we expect the transport material temperature and radiation energy density solution to penetrate farther into the slab than the diffusion solution, but with a less steep gradient.
-Figures \ref{fig:s2_vs_s8_radiation}-\ref{fig:s2_vs_s8_temperature} both exhibit this behavior, caused by the transport solution becoming more and more like $\delta(\mu-1)$ in optically thick regions. 
+Figures \ref{fig:s2_vs_s8_radiation}-\ref{fig:s2_vs_s8_temperature} both exhibit these behaviors, caused by the transport solution becoming more and more like $\delta(\mu-1)$ in optically thick regions. 
 However, we did not expect the non-smooth features near $x=0.2$.
-We suspect this is caused by the rapid attenuation of the most glancing $\mu$ from the incident boundary conditions.
+We suspect the kinks in the temperature and radiation energy density profiles is caused by the transition of the most glancing $\mu_d >0$ from being dominated by boundary contributions to being dominated by photon re-emission.
 To verify this, we plot the $S_8$ intensity solution in \fig{fig:s8_intensity_full}.
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=16cm,trim=1.5in  0.5in 0.2in 1in,clip=true]{chapter6_grey_radtran/S8_Intensity_SemiLogy.pdf}
-\caption{Log plot of $S_8$ intensities for Marshak wave problem.}
+\caption{Log plot of $S_8$ intensities for the unity Marshak wave problem.}
 \label{fig:s8_intensity_full}
 \end{figure}
 
 We now zoom in to the boundary layer intensities near $x=0.2$ and near the thermal wave front.
-In \fig{fig:s8_zoom_glance}, it is clear that the intensity in the direction of $\mu=+0.1834$ experiences a rapid variation as the incident flux from the boundary is rapidly attenuated, and the isotropic emission from the heated regions of the slabs becomes the main contributor to $I(\mu_d = +0.1834)$.
+In \fig{fig:s8_zoom_glance}, it is clear that the intensity in the direction of $\mu=+0.1834$ experiences a rapid variation as the incident flux from the boundary is attenuated, and the isotropic emission from the heated regions of the slabs becomes the main contributor to $I(\mu_d = +0.1834)$.
 It is also clear that despite having 25 cells with quartic DFEM in the region $x\in[.18,.185]$, the factor $\approx 7\times$ step drop in $I(\mu_d = +0.1834)$ cannot be fully resolved. 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=12cm,trim=0.5in  0.2in 0.5in 0.5in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S8_pos_mu_glance_boundary_layer_log.pdf}
 \caption{Logarithmic plot of intensity near glancing $\mu=+0.1834$ boundary layer. }
 \label{fig:s8_zoom_glance}
-\end{figure}
+\end{figure}The more glancing $\mu_d$, the sooner the transition, relative to the left boundary.
 
-Near the hot/cold material interface, all but the most glancing $\mu_d > 0$ experience a rapid variation (greater than a factor of 1000 reduction) in angular intensity.
-The more glancing $\mu_d$, the sooner the transition, relative to the left boundary.
-Given the smooth, profiles for $\mu_d > 0.2$, it also appears that we are able to fully resolve these boundary layers. 
+
+Near the hot/cold material interface, all angular intensities experience a boundary layer transition.  
+Using higher order DFEM and high spatial resolution, it appears that we are able to resolve these boundary layers, given the smooth profile of angular intensity for every direction in the quadrature set.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=16cm,trim=1.5in  0.2in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S8_thermal_wavefront_boundary_layer.pdf}
@@ -813,13 +831,13 @@ Given the smooth, profiles for $\mu_d > 0.2$, it also appears that we are able t
 \label{fig:s8_zoom_thermal_wavefront}
 \end{figure}
 
-Our final look at the Marshak wave problem investigates the structure of an $S_{32}$ solution with 1000 spatial cells, quartic SLXS Gauss, and five thousand time steps using the 2-2 time integration scheme.
-The material temperature solution is plotted in \fig{fig:s8_vs_s32_temperature} against the $S_8$ solution that uses quartic SLXS Gauss,  five thousand spatial cells, and ten thousand 2-2 time integration steps.
+Next we investigate the structure of an $S_{32}$ solution with 1000 spatial cells, quartic SLXS Gauss, and five thousand time steps using the SDIRK 2-2 time integration scheme.
+The material temperature solution is plotted in \fig{fig:s8_vs_s32_temperature} against the $S_8$ solution that uses quartic SLXS Gauss,  five thousand spatial cells, and ten thousand SDIRK time integration steps.
 Likewise, the angle integrated intensity solutions are compared in \fig{fig:s8_vs_s32_radiation}.
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=16cm,trim=1.5in  0.2in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Material_Temperature.pdf}
-\caption{Comparison of $S_8$ and $S_{32}$ material temperature profiles for Marshak wave problem.}
+\caption{Comparison of $S_8$ and $S_{32}$ material temperature profiles for the unity Marshak wave problem.}
 \label{fig:s8_vs_s32_temperature}
 \end{figure}
 %
@@ -827,16 +845,16 @@ Likewise, the angle integrated intensity solutions are compared in \fig{fig:s8_v
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=16cm,trim=1.5in  0.2in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S8_vs_S32_Radiation.pdf}
-\caption{Comparison of $S_8$ and $S_{32}$ angle integrated intensity solutions for Marshak wave problem.}
+\caption{Comparison of $S_8$ and $S_{32}$ angle integrated intensity solutions for the unity Marshak wave problem.}
 \label{fig:s8_vs_s32_radiation}
 \end{figure}
 Even with $S_{32}$ Gauss quadrature, we continue to see non-smooth dips in both the material temperature and angle integrated intensity profiles, however the dips are significantly smaller for the $S_{32}$ solution as compared to the $S_8$ solution, particularly for the material temperature profile.
-In \fig{fig:s8_vs_s32_radiation}, we no longer observe one dip in the angle integrated intensity profile, but rather four smaller dips.
+In \fig{fig:s8_vs_s32_radiation}, the $S_{32}$ exhibits four smaller dips as compared to the single, larger dip associated with $S_8$.
 Suspecting these are caused by glancing incidence angles in the quadrature set, we plot the angular intensity for all $\mu_d > 0$ in \fig{fig:s32_intensity}.
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=16cm,trim=1.5in  0.2in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_Intensity.pdf}
-\caption{$S_{32}$ intensity solutions for all $\mu_d > 0$, for the Marshak wave problem.}
+\caption{$S_{32}$ intensity solutions for all $\mu_d > 0$, for the unity Marshak wave problem.}
 \label{fig:s32_intensity}
 \end{figure}
 As with the $S_8$ solution, the dips in $\phi$ are associated with corresponding dips in $I_d$ for glancing $\mu_d>0$.\
@@ -845,83 +863,84 @@ The $\mu_d=0.0483$ intensity jump in \fig{fig:s32_intensity} causes the greatest
 First, the most glancing quadrature angle is attenuated the most rapidly and as such would be expected to have the greatest drop in value.
 Second, Gauss angular quadrature assigns the greatest weight to the quadrature points most near $\mu_d = 0$. 
 Surprisingly, the $S_8$ and $S_{32}$ calculations have nearly identical positions and values of the temperature and angle integrated intensity solution near the problem boundary and the hot/cold interface.  
-If however, the goal is a smooth transport solution, the value of $N$ required to create a smooth $S_N$ $\phi$ solution appears to be much higher than $S_{32}$, due to the presence of ray effects \cite{lewis_book}.
+If however, the goal is a smooth transport solution, the value of $N$ required to create a smooth $S_N$ $\phi$ solution appears to be much higher than $S_{32}$, due to the presence of time ray effects \cite{lewis_book}.
 
 The kinks observed in the higher order $S_N$ solutions for the Marshak wave problem are examples of time ray effects.
-Typically these are not observed in thermal radiative transfer simulations, because as the material heats up, the magnitude of photon re-emission sources quickly becomes comparable to and surpasses the incident photon contribution to the angular intensity.
-To verify that the observed kinks are indeed time ray effects, consider \fig{fig:phi_time_slices} and \fig{fig:temp_time_slices} which show the $S_{32}$ Marshak wave radiation energy density and material temperature at different points in time, computed using 1000 spatial cells, cubic SLXS Lobatto, $\Delta t_{max} = 2 \times 10^{-4}$, and the 2-2 SDIRK time scheme.
+Typically these are not observed in thermal radiative transfer simulations, because as the material heats up, the magnitude of photon re-emission sources quickly becomes comparable to and surpasses the rapidly attenuated incident photon contribution to the angular intensity.
 If the observed kinks are time ray effects, they will be worse at earlier times and less pronounced at later times, due to the attenuation of the incident intensity contribution over a greater distance (as the wave front advances) and photon re-emission from the increased material temperature.
+To verify that the observed kinks are indeed time ray effects, consider \fig{fig:phi_time_slices} and \fig{fig:temp_time_slices} which show the $S_{32}$ Marshak wave radiation energy density and material temperature at different points in time, computed using 1000 spatial cells, cubic SLXS Lobatto, $\Delta t_{max} = 2 \times 10^{-4}$, and the SDIRK 2-2 time scheme.
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=17cm,trim=2in  0.5in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_Time_Ray_Effects_Radiation_Cv1_SigA1.pdf}
-\caption{$S_{32}$ radiation energy density at different times for Marshak wave problem.}
+\caption{$S_{32}$ radiation energy density at different times for the unity Marshak wave problem.}
 \label{fig:phi_time_slices}
 \end{figure}
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=17cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_Time_Ray_Effects_Temperature_Cv1_SigA1.pdf}
-\caption{$S_{32}$ material temperature solution at different times for Marshak wave problem.}
+\caption{$S_{32}$ material temperature solution at different times for the unity Marshak wave problem.}
 \label{fig:temp_time_slices}
 \end{figure}
-While the material temperature solution does not have visually large kinks due to ray effects, ray effects can be seen in the radiation energy density solution.
+While the earliest time material temperature solution does not have visually large kinks due to ray effects, ray effects can be seen in the radiation energy density solution at all times considered.
 To observe that the radiation energy density ray effects decrease in magnitude at later times, first consider the radiation energy density at $t=0.1$, given in \fig{fig:t01_radiation_energy}, and then compare to the radiation energy density at $t=2.0$ given in \fig{fig:t2_radiation_energy}.  
-Both figures use the same $y$-axis scaling.  
-However, it is clear that the radiation energy drops associated with ray effects are significantly larger at $t=0.1$ than at $t=2.0$.
+Figure \ref{fig:t01_radiation_energy} and \fig{fig:t2_radiation_energy} use the same $y$-axis scaling.  
+Comparing \figs{fig:t01_radiation_energy}{fig:t2_radiation_energy}, it is clear that the radiation energy drops associated with ray effects are significantly larger at $t=0.1$ than at $t=2.0$.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=17cm,trim=2in  0.5in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_T01_Radiation_Equal_Height.pdf}
-\caption{$S_{32}$ radiation energy density at $t=0.1$ for Marshak wave problem.}
+\includegraphics[width=16cm,trim=2in  0.5in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_T01_Radiation_Equal_Height.pdf}
+\caption{$S_{32}$ radiation energy density at $t=0.1$ for the unity Marshak wave problem.}
 \label{fig:t01_radiation_energy}
 \end{figure}
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=17cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_T2_Radiation.pdf}
-\caption{$S_{32}$ radiation energy density at $t=2$ for Marshak wave problem.}
+\includegraphics[width=16cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_T2_Radiation.pdf}
+\caption{$S_{32}$ radiation energy density at $t=2$ for the unity Marshak wave problem.}
 \label{fig:t2_radiation_energy}
 \end{figure}
 The $\mu$ labels in \figs{fig:t01_radiation_energy}{fig:t2_radiation_energy} correspond to the directional cosines of angular intensities that experience a significant drop at those locations.
  as shown in \fig{fig:t01_intensity} and \fig{fig:t2_intensity} for $t=0.1$ and $t=2$, respectively.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=17cm,trim=2in  0.5in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_T01_Intensity.pdf}
-\caption{$S_{32}$ angular intensity for $\mu_d>0$ at $t=0.1$ for the Marshak wave problem.}
+\includegraphics[width=16cm,trim=2in  0.5in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_T01_Intensity.pdf}
+\caption{$S_{32}$ angular intensity for $\mu_d>0$ at $t=0.1$ for the unity Marshak wave problem.}
 \label{fig:t01_intensity}
 \end{figure}
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width=17cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_T2_Intensity.pdf}
-\caption{$S_{32}$ angular intensity for $\mu_d>0$ at $t=2$ for the Marshak wave problem.}
+\includegraphics[width=16cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/S32_T2_Intensity.pdf}
+\caption{$S_{32}$ angular intensity for $\mu_d>0$ at $t=2$ for the unity Marshak wave problem.}
 \label{fig:t2_intensity}
 \end{figure}
 Comparing \fig{fig:t01_intensity} to \fig{fig:t2_intensity} clearly shows that as time progresses, ray effects decrease, in \fig{fig:t01_intensity}, there are six angular intensities that have a discontinuous jump from being dominated by incident boundary conditions and heated material photon re-emission whereas in \fig{fig:t2_intensity}, at most 4 directions experience a non-smooth transition from being dominated by incident boundary contributions ti being dominated by photon re-emission.
 
-Though ray effects are inherent to discrete ordinates calculations, the severe time ray effects observed in this Marshak wave problem are more a function of problem parameters than of a severe fundamental flaw with discrete ordinates methods for radiative transfer.
-The choice to define $a=c=C_v=1$ and $\sigma_t = \sigma_a = \frac{1}{T^3}$ was chosen by previous authors on the basis of simplicity alone, not scaling of physical quantities.
+Though ray effects are inherent to discrete ordinates calculations, the severe time ray effects observed in the unity Marshak wave problem are more a function of problem parameters than of a fundamental flaw with discrete ordinates methods applied to thermal radiative transfer.
+The choice to define $a=c=C_v=1$ and $\sigma_t = \sigma_a = \frac{1}{T^3}$ was chosen by previous authors, and did not correspond to a physical scaling of typical physical material properties.
 This can easily be seen by considering an alternative simulation, where we define $\sigma_t = \sigma_a = \frac{1000}{T^3}$.
 Under this assumption, even the heated material is optically thick, and photon re-emission quickly becomes the more dominant contributor to angular intensity than incident photon energy.
-In \fig{fig:sig_a_1000_radiation}, radiation energy density solutions for this problem at different times are given for a simulation using 1000 spatial cells, $x\in[0,1]$, linear SLXS Lobatto, and 2-2 time differencing.
+In \fig{fig:sig_a_1000_radiation}, radiation energy density solutions for the modified unity Marshak wave problem at different times are given for a simulation using 1000 spatial cells, $x\in[0,1]$, linear SLXS Lobatto, and SDRIK 2-2 time differencing.
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=8cm,trim=1in  0.5in 1in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/More_Times_P1_S8_Time_Ray_Effects_Radiation_Cv1_SigA1000.pdf}
-\caption{$S_{8}$ radiation energy density solutions for modified Marshak wave problem with $\sigma_a = \frac{1000}{T^3}$ at different times.}
+\caption{$S_{8}$ radiation energy density solutions for the modified unity Marshak wave problem with $\sigma_a = \frac{1000}{T^3}$ at different times.}
 \label{fig:sig_a_1000_radiation}
 \end{figure}
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=8cm,trim=1in  0.6in 1.0in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/More_Times_P1_S8_Time_Ray_Effects_Temperature_Cv1_SigA1000.pdf}
-\caption{$S_{8}$ material temperature solutions for modified Marshak wave problem with $\sigma_a = \frac{1000}{T^3}$ at different times.}
+\caption{$S_{8}$ material temperature solutions for modified unity Marshak wave problem with $\sigma_a = \frac{1000}{T^3}$ at different times.}
 \label{fig:sig_a_1000_temperature}
 \end{figure}
 Figures \ref{fig:sig_a_1000_radiation}-\ref{fig:sig_a_1000_temperature} make it clear that changing $\sigma_a$ fundamentally alters the ``unity'' Marshak wave problem.
-The thermal wave does not penetrate nearly as far, but also does not exhibit any time ray effects.
+The thermal wave does not penetrate nearly as far in the modified unity Marshak wave problem, but also does not exhibit any time ray effects as compared to the original unity Marshak wave problem.
 
 \subsection{Physical Marshak Wave Problem}
 
-We now consider a Marshak wave problem that uses a physical units that has been considered repeatedly in the literature \cite{physical_marshak,time_adaptive_diffusion,negative_trt}.
+We now consider a Marshak wave problem that uses a physical units that has been considered repeatedly in the literature \cite{negative_trt,time_adaptive_diffusion,physical_marshak}.
 The problem consists of a $0.05~[cm]$ slab at an initial temperature of $1~[eV]$, heated from the left with an isotropic $1~[keV]$ photon source.
-After $0.1~[sh]$, $1[sh]=10^{-8}~[sec]$, the thermal wave will have nearly passed through the entire domain.
+After $0.1~[sh]$, $1~[sh]=10^{-8}~[sec]$, the thermal wave will have nearly passed through the entire domain.
 The material heat capacity is temperature independent, $C_v = 0.3~[\frac{jerks}{cm^3~keV}]$, $\sigma_a = \frac{300}{T^3} [cm^{-1}]$, with $T$ in keV, and $\sigma_s = 0$.
-Representative angle integrated intensity and temperature solutions at various times are given in \fig{fig:physical_slices_radiation} and \fig{fig:physical_slices_temperature}.    The representative solutions were generated using 100 spatial cells with cubic SLXS Lobatto and $S_8$ Gauss angular quadrature.
+Representative angle integrated intensity and temperature solutions at various times are given in \fig{fig:physical_slices_radiation} and \fig{fig:physical_slices_temperature}.    
+The representative solutions are generated using 100 spatial cells with cubic SLXS Lobatto and $S_8$ Gauss angular quadrature.
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=16cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/100C_Physical_Marshak_Wave_Radiation_Times.pdf}
@@ -937,11 +956,11 @@ Representative angle integrated intensity and temperature solutions at various t
 We note that \fig{fig:physical_slices_radiation} does not exhibit any time ray effects.  
 This problem description, given in the cm-sh-keV unit system, has a heat capacity on the same order as $C_v=1$ in the unity Marshak wave problem.  
 In addition the product of the radiation constant, $a = 0.01372~[\frac{jerks}{cm^3~keV^4}]$, and speed of light, $c=299.792~[cm/sh]$, $ac = 4.113~\left[\frac{jerks}{cm^2~sh~keV^4}\right]$, is on the same order as $a=c=1$ from the unity Marshak wave problem.
-The only thing that is significantly different in this problem is that the numerator in the definition of $\sigma_a$ is a factor of 300 larger in this physical Marshak wave problem than the unity Marshak wave problem, reaffirming that the time ray effects observed in the unit problem are atypical of discrete ordinate solutions applied to the thermal radiative transfer equations.
+The only thing that is significantly different in this problem is that the numerator in the definition of $\sigma_a$ is a factor of 300 larger in this physical Marshak wave problem than the unity Marshak wave problem, reaffirming that the time ray effects observed in the unity Marshak wave problem are atypical of discrete ordinate solutions applied to the thermal radiative transfer equations, and a function more of the optically thin nature of the unity Marshak wave problem at higher temperatures.
 
-Our main interest in this problem is to test our adaptive time criterion.  
+Our main interest in the physical Marshak wave problem is to test our different adaptive time criteria.  
 Using the notation of \eqt{eq:adaptive_change}, in all of the results that follow, we will assume $\Delta T_{goal} = 0.01$, unless otherwise stated.
-We first apply adaptive each method to a linear SLXS discretization of the physical Marshak wave using 100 spatial cells.
+We first apply  each adaptive method to a linear SLXS discretization of the physical Marshak wave using 100 spatial cells.
 Time step size selected as function of the simulated time in the simulation is given for each method in \fig{fig:linear_time_steps} with $\Delta t_{goal} =0.01$.
 \begin{figure}[!htp]
 \centering
@@ -952,11 +971,15 @@ Time step size selected as function of the simulated time in the simulation is g
 For this particular problem, the point-wise adaptive criterion taken from \cite{time_adaptive_diffusion}, yields the same time step selection at every time step as the modified point-wise criterion with $T_{offset}=0~eV$ because no negative temperature solutions are generated with a linear SLXS Lobatto discretization of this problem.
 The 4-5 single time steps of the point-wise criterion time step size trace that are orders of magnitude smaller than neighboring time step sizes are artifacts of outputting the solution at selected times, and taking the required time step to output exactly at those times.
 The volumetric scheme with $N_{cg}$ chooses larger time step sizes than the point-wise adaptive criterion as expected, since a $1\%$ change average over a volume permits a much larger increase in $T$ than a $1\%$ increase maximum at any one point.
-We also note the large number of sharps peaks and valleys present in all traces of time step size in \fig{fig:linear_time_steps}.  Each valley, or time step minimum comes as the thermal wave crosses into the next mesh cell.
-Additionally, we note that since the speed of the thermal front slows as time progresses, the peaks occur at a greater frequency for smaller values of $t$ than near the end of the simulation.
-The slowing of the wave can be more clearly visualized by viewing \fig{fig:physical_slices_temperature}, at $t=0.01 ~[sh]$, the wave is at approximately $x=0.0125~[cm]$.
-If the thermal wave propagated at a constant speed, then at $t=0.08~[sh]$, we would expect the thermal wave to be near $x= .1~[cm]$.  However, the thermal wave is only located at approximately $x<0.04~[cm]$ in \fig{fig:physical_slices_temperature}.
-The number of time steps each adaptive method took, as well as the number of time steps that were rejected, those that after a time step had $\Delta T > 1.2 \Delta T_{goal}$ requiring a smaller $\Delta t$, is given in \tbl{tbl:p1_steps}. 
+We also note the large number of sharps peaks and valleys present in all traces of time step size in \fig{fig:linear_time_steps}.  
+Each valley, or time step minimum comes as the thermal wave crosses into the next mesh cell.
+Additionally, we note that since the speed of the thermal front slows as time progresses, the peaks occur at a greater frequency for earlier times than near the end of the simulation.
+The slowing of the wave can be more clearly visualized by viewing \fig{fig:physical_slices_temperature},.
+At $t=0.01 ~[sh]$, the wave is at approximately $x=0.0125~[cm]$.
+If the thermal wave propagated at a constant speed, then at $t=0.08~[sh]$, we would expect the thermal wave to be near $x= .1~[cm]$.  
+However, the thermal wave is only located at approximately $x<0.04~[cm]$ in \fig{fig:physical_slices_temperature}.
+The number of time steps each adaptive method took, as well as the number of time steps that were rejected are given in \tbl{tbl:p1_steps}. 
+Rejected time steps are those $\Delta t^n$, that after computing $\Delta T$ using $\widetilde{T}^{n+1}$ and $\widetilde{T}^n$, $\Delta T > 1.2 \Delta T_{goal}$, thus indicating $\Delta t^n$ was too large, requiring a repeat of the time step from $t^n$ to $t^{n+1}$.
 \begin{table}[!htp]
 \centering
 \caption{Time steps taken for different adaptive time stepping criterion for physical Marshak wave problem discretized with linear SLXS Lobatto and 100 cells.}
@@ -1011,7 +1034,7 @@ Table \ref{tbl:p3_counts} summarizes the number of time steps required to comple
 Modified Point-wise, &   Failed & \\
 $T_{offset} = 0~[eV]$ &    &   \\
 \hline
-Modified Point-wise, &   Power Outage  & \\
+Modified Point-wise, &   558495  & 3 \\
 $T_{offset} = 1~[eV]$ &     &  \\
 \hline
 Modified Point-wise, &  397608  & 2\\
@@ -1036,10 +1059,19 @@ Volumetric, $N_{cg} = 100$ & 5936   & 1808 \\
 \hline
 \end{tabular}
 \end{table}
-Comparing the number of steps taken in \tbl{tbl:p3_counts} to \tbl{tbl:p1_steps} makes it clear that higher order DFEM methods applied to TRT simulations challenge the performance of simple adaptive criteria.
+Comparing the number of steps taken in \tbl{tbl:p3_counts} to \tbl{tbl:p1_steps} makes it clear that higher order DFEM methods applied to TRT simulations challenge the performance of simple time adaptive criteria.
 Indeed, the modified point-wise scheme struggles, requiring $T_{floor}$ to be artificially high to yield reasonable time step sizes.
-Though the volumetric adaptive criterion requires more than twice as many time steps to solve the same Marshak wave problem with cubic rather than linear DFEM, the modified point-wise scheme requires more than $4\times$ time steps to solve the same problem with higher DFEM order. 
-Additionally, the modified point-wise adaptive criterion is not universally applicable without a large $T_{offset}$, as evidenced by the failure the modified point-wise adaptive criterion for $T_{offset}=1~[eV]$.
+Interestingly though, using an artificially high $T_{floor}$ did not yield significantly larger maximum time step sizes.  
+As seen in \fig{fig:mod_comparison}, the largest time step size chosen with the modified point-wise adaptive scheme is the same regardless whether $T_{offset} = 1~[ev]$ or $T_{offset} = 50~[eV]$.
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=16cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Modified_Pointwise_T_offset.pdf}
+\caption{Time step sizes for modified point-wise adaptive criteria for cubic SLXS Lobatto discretization of the physical Marshak wave problem with different $T_{offset}$.}
+\label{fig:mod_comparison}
+\end{figure}
+
+Though the volumetric adaptive criterion with $N_{cg}=1$  requires more than twice as many time steps to solve the same Marshak wave problem with cubic rather than linear DFEM, the modified point-wise scheme requires more than $7\times$ time steps to solve the same problem with higher DFEM order. 
+Additionally, the modified point-wise adaptive criterion is not universally applicable without a large $T_{offset}$, as evidenced by the failure the modified point-wise adaptive criterion for $T_{offset}=0~[eV]$, and exceedingly high number of time steps required with $T_{offset}=1~[eV]$.
 Consider now the trace of $\Delta t$ selection as a function of time in the simulation in \fig{fig:50ev_1C} for the modified point-wise scheme with $T_{offset}=50~[eV]$ to the volumetric adaptive criterion with $N_{cg}=1$.
 \begin{figure}[!htp]
 \centering
@@ -1048,52 +1080,54 @@ Consider now the trace of $\Delta t$ selection as a function of time in the simu
 \label{fig:50ev_1C}
 \end{figure}
 We see all of the same features we observed for the linear SLXS Lobatto solution: peak/valley pairs as the thermal wave enters each successive cell in the mesh and the volumetric scheme taking larger time steps than the point-wise scheme.  
-However, it is important to note that though the volumetric scheme takes larger time steps, it also adapts and takes much smaller time steps when necessary, smaller even than the modified point-wise adaptive scheme.
+However, it is important to note that though the volumetric scheme takes larger time steps, it also adapts and takes much smaller time steps when necessary, smaller even than the modified point-wise adaptive scheme with $T_{offset}=50~[eV]$.
 
-Table \ref{tbl:p3_counts} already demonstrates that larger values of $N_{cg}$ take significantly larger average time steps, but how does $\Delta t$ selection vary for different $N_{cg}$ as a function of time?
-In \fig{fig:1c_vs_100c}, the two extrema of $N_{cg}$ for this particular spatial discretization, there appear to be no significant differences between the trend in time of the different values of $N_{cg}$, with the exception that for $N_{cg}=100$, $\Delta t$ is chosen approximately $10\times-100\times$ larger than $\Delta t$ for $N_{cg}=1$.  Both also appear to have dips associated with the thermal wave passing into each new mesh cell.
+Table \ref{tbl:p3_counts} demonstrates that larger values of $N_{cg}$ take significantly larger average time steps, but how does $\Delta t$ selection vary for different $N_{cg}$ as a function of time?
+In \fig{fig:1c_vs_100c}, the two extrema of $N_{cg}$ for this particular spatial discretization, there appear to be no significant differences between the trend in time of the different values of $N_{cg}$, with the exception that for $N_{cg}=100$, $\Delta t$ is chosen approximately $10\times-100\times$ larger than $\Delta t$ for $N_{cg}=1$.  
+Both $N_{cg}=1$ and $N_{cg}=100$ have the peaks and valleys associated with the thermal wave passing into each new mesh cell.
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=16cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Volumetric_Trace_1cg_vs_100cg_vs_time.pdf}
 \caption{Time step sizes for volumetric adaptive criteria with $N_{cg}=1$ and $N_{cg}=100$ for }
 \label{fig:1c_vs_100c}
 \end{figure}
-This is not the case for intermediate values of $N_{cg}$.  Consider \fig{fig:5c_vs_25c} that plots $\Delta t$ selected during the simulation for the volumetric adaptive criterion using $N_{cg}=5$ and $N_{cg}=25$.
+This is not the case for intermediate values of $N_{cg}$.  
+Consider \fig{fig:5c_vs_25c} that plots $\Delta t$ selected during the simulation for the volumetric adaptive criterion using $N_{cg}=5$ and $N_{cg}=25$.
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=16cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/Volumetric_Trace_5cg_vs_25cg_vs_time.pdf}
 \caption{Time step sizes for volumetric adaptive criteria with $N_{cg}=1$ and $N_{cg}=100$. }
 \label{fig:5c_vs_25c}
 \end{figure}
-The dips we have thus far seen and associated with the thermal wave crossing individual mesh cells is present, but so are other, lower frequency dips.
+The dips we have thus far seen and associated with the thermal wave crossing individual mesh cells are present, but so are other, lower frequency dips.
 These slower, periodic drops in $\Delta t$ are associated with the thermal wave crossing from one volumetric adaptive grouping into another.  
 If a problem was run until the slab was at a uniform temperature, i.e. the thermal wave has passed entirely through the slab, there would be $N_{groups}-1$ repetitive groupings.
 
-Finally, we wish to see examine whether the vastly different values of time steps taken by the different adaptive criteria.
+Finally, we wish to examine whether the vastly different values of time steps taken by the different adaptive criteria.
 As no analytic solution exists, we must simply compare the results of simulations that use different adaptive criteria at some time value.
 Assuming that any temporal introduced by taking too large of a time step accumulates, we look at the angle integrated intensity and temperature solutions at $t=0.1~[sh]$.
-Further, assuming that the largest differences occur between the simulation that took the most time steps and the simulation that took the fewest time steps, in \figs{fig:time_difference_radiation}{fig:time_difference_temperature} we compare the angle integrated intensity and temperature solutions of simulations, respectively, of the modified point-wise adaptive criterion with $T_{offset} = 5~[eV]$, and the volumetric adaptive criterion with $N_{cg}=100$.
+Further, assuming that the largest differences occur between the simulation that took the most time steps and the simulation that took the fewest time steps, in \figs{fig:time_difference_radiation}{fig:time_difference_temperature} we compare the angle integrated intensity and temperature solutions of simulations, respectively, of the modified point-wise adaptive criterion with $T_{offset} = 1~[eV]$, and the volumetric adaptive criterion with $N_{cg}=100$.
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=16cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/100C_Physical_Marshak_Wave_Radiation_Adaptive_Comparison_Final.pdf}
+\includegraphics[width=16cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/100C_Physical_Marshak_Wave_Radiation_Adaptive_Comparison_Final_1eV.pdf}
 \caption{Comparison of angle integrated intensity for different adaptive criteria at $t=0.1~[sh]$.}
 \label{fig:time_difference_radiation}
 \end{figure}
 \begin{figure}[!htp]
 \centering
-\includegraphics[width=16cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/100C_Physical_Marshak_Wave_Temperature_Adaptive_Comparison_Final.pdf}
+\includegraphics[width=16cm,trim=2in  0.4in 0.5in 0.75in,clip=true]{chapter6_grey_radtran/Dissertation_Data/100C_Physical_Marshak_Wave_Temperature_Adaptive_Comparison_Final_1eV.pdf}
 \caption{Comparison of temperature for different adaptive criteria at $t=0.1~[sh]$.}
 \label{fig:time_difference_temperature}
 \end{figure}
-Despite the modified point-wise scheme using nearly $80\times$ more time steps than the volumetric criterion with $N_{cg}=100$, with this level of spatial accuracy, there is no appreciable visual difference between the two solutions, suggesting that the volumetric adaptive criteria is more efficient than the modified point-wise criteria when applied to higher order DFEM TRT simulations.
+Despite the modified point-wise scheme with $T_{offset}=1~[eV]$ using nearly $95\times$ more time steps than the volumetric criterion with $N_{cg}=100$, with this level of spatial accuracy, there is no appreciable visual difference between the two solutions, suggesting that the volumetric adaptive criteria is more efficient than the modified point-wise criteria when applied to higher order DFEM TRT simulations.
 
 \newpage
 
 \section{Effectiveness of MIP DSA for TRT Iterative Acceleration}
 \label{sec:mip_results}
 
-As of yet, we have failed to have any discussion of the iterative performance of MIP DSA applied to the grey thermal radiative transfer equations.
-Though the problems we have considered are not necessarily optically thick, we have used MIP DSA to solve all problems.
+As of yet, we have failed to discuss the iterative performance of the modified interior penalty diffusion synthetic operator (MIP DSA) applied to the grey thermal radiative transfer equations.
+Though the problems we have considered are not necessarily optically thick, we have used MIP DSA to iteratively solve all problems.
 A large number of the problems we have considered are not optically thick, in part because we were interested in spatial error convergence.
 In \tbl{tbl:iteration_count}, we give a sampling of the average number of iterations required to update the intensity for a given thermal iteration for the problems we have considered thus far.
 
@@ -1203,7 +1237,7 @@ In \tbl{tbl:rho_iters}, we plot the average number of iterations required to con
 \hline
 {}  &  $\text{change\_phi} <\epsilon_{\phi}$ & 
 		$ \frac{\norm{ \phi^{(\ell+1)} - \phi^{(\ell)} }_{L^1} }{ \norm{ \phi^{(\ell+1)}}_{L^1}  } < \epsilon_{\phi}$  & 
-		$\frac{\norm{\phi^{(\ell+1)} - \phi^{(\ell)}_{L^1} } }{ 1- \rho}< \epsilon_{\phi} $\\
+		$\frac{\norm{\phi^{(\ell+1)} - \phi^{(\ell)}_{L^1} } }{ (1- \rho) \norm{\phi^{(\ell+1)}} }< \epsilon_{\phi} $\\
 		\hline
 SI & 18378 & 6382 & 22563 \\
 \hline

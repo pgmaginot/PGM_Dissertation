@@ -17,12 +17,12 @@
 \chapter{\uppercase {Discontinuous Finite Elements for Radiation Transport}}
 \label{sec:chapter2_constant_xs}
 
-In \chapref{sec:introduction}, we briefly mentioned that through manipulation, the thermal radiative transfer equations can be put into a form equivalent to the 
+In \secref{sec:introduction}, we briefly mentioned that through manipulation, the thermal radiative transfer equations can be put into a form equivalent to the 
 neutron transport equation with pseudo- scattering, fission, and fixed sources.  
-We will fully demonstrate the linearization process in \chapref{sec:chapter6_grey_radtran}, but for now we 
+We will fully demonstrate the linearization process in \secref{sec:chapter6_grey_radtran}, but for now we 
 take for granted that solving for the neutron transport equation's angular flux, $\psi$, is related to solving \eqt{eq:full_trt} for $I$.
 Additionally, we will assume that a steady-state, source-free, pure absorber neutron transport problem taxes DFEM schemes in a manner similar to the way DFEM schemes are tested
-in time-dependent thermal radiative transfer simulations, in particular Marshak wave type problems \cite{ober_shadid}.  This chapter draws primarily from
+in time-dependent thermal radiative transfer simulations, in particular Marshak wave type problems \cite{ober_shadid}.  This section draws primarily from
 from our previously published work in \cite{mc_2013} and \cite{part_1_paper}.
 
 \section{History of DFEM for Neutron Transport}
@@ -611,25 +611,25 @@ of $h$ for all methods considered.
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/P1_Outflow_AllMeth-eps-converted-to.pdf}
-\caption{Numerical outflow values  as a function of $h$, for a single cell homogeneous absorber problem with a linear DFEM trial space.}
+\caption{Angular flux outflow as a function of $h$, for different linear trial space DFEM schemes, from a homogeneous, single cell pure absorber.}
 \label{fig:p1_outflow}
 \end{figure}
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/P2_Outflow_AllMeth-eps-converted-to.pdf}
-\caption{Numerical outflow values  as a function of $h$, for a single cell homogeneous absorber problem with a quadratic DFEM trial space.}
+\caption{Angular flux outflow as a function of $h$, for different quadratic trial space DFEM schemes, from a homogeneous, single cell pure absorber.}
 \label{fig:p2_outflow}
 \end{figure}
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/P3_Outflow_AllMeth-eps-converted-to.pdf}
-\caption{Numerical outflow values  as a function of $h$, for a single cell homogeneous absorber problem with a cubic DFEM trial space.}
+\caption{Angular flux outflow as a function of $h$, for different cubic trial space DFEM schemes, from a homogeneous, single cell pure absorber.}
 \label{fig:p3_outflow}
 \end{figure}
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/P4_Outflow_AllMeth-eps-converted-to.pdf}
-\caption{Numerical outflow values  as a function of $h$, for a single cell homogeneous absorber problem with a quartic DFEM trial space.}
+\caption{Angular flux outflow as a function of $h$, for different quartic trial space DFEM schemes, from a homogeneous, single cell pure absorber.}
 \label{fig:p4_outflow}
 \end{figure}
 All methods converge to the analytical solution as $h\to 0$, thus we have zoomed in the range where the methods  visually differ (i.e., $h \ge 1$). 

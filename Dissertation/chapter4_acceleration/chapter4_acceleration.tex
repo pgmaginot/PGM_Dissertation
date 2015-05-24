@@ -130,7 +130,7 @@ Adams and Martin first showed that partially consistent diffusion discretization
 Though shown to be unconditionally stable for certain geometries the M4S DSA proposed in \cite{adams_dsa} has been shown to be unstable for unstructured multi-dimensional geometries \cite{wwm_dsa}.
 To allow more general applicability, we wish to consider a more advanced DSA discretization.
 Alternative DSA discretizations that have been applied successfully to unstructured multi-dimensional geometries include: the partially consistent WLA DSA proposed in \cite{wla_dsa}, the fully consistent DSA (FCDSA) proposed in \cite{wwm_dsa}, and the partially consistent MIP DSA proposed in \cite{mip_dsa}.
-WLA DSA produces a symmetric positive definite (SPD) diffusion matrix and is unconditionally stable, but the spectral radius of the WLA DSA scheme increases on distorted mesh cells and for optically thick cells with scattering ratios very close to unity \cite{wla_dsa,wwm_dsa}.
+WLA DSA produces a symmetric positive definite (SPD) diffusion matrix and is unconditionally stable, but the spectral radius of the WLA DSA scheme increases on distorted mesh cells and for optically thick cells with scattering ratios very close to unity \cite{wwm_dsa,wla_dsa}.
 While the FCDSA scheme remains effective in optically thick cells, it creates a diffusion operator that is very difficult and costly to invert\cite{wwm_dsa}. 
 The MIP DSA discretization \cite{mip_dsa} of Wang and Ragusa generates a SPD diffusion operator, remains effective for all cell optical thicknesses, has been successfully applied to high order DFEM $S_N$ transport, and can be used with adaptive mesh refinement.
 Further, it was shown in \cite{mip_mc} that the MIP DSA diffusion operator can be inverted very quickly using advanced preconditioners such as algebraic multi-grid.
@@ -141,12 +141,12 @@ Thus, if we can show that a MIP DSA discretization is iteratively effective for 
 %However, TSA is in general not as effective as DSA, and finding the most efficient set of parameters that complete the description of the TSA scheme is problem dependent.  \cite{tsa}
 
 We will derive an S2SA operator in \secref{sec:s2sa} and MIP DSA operator in \secref{sec:dsa}.  
-The S2SA operator re-uses a lot of the transport sweep capability we have already developed with our high order DFEM of Chapter \ref{sec:chapter3_variable_xs}, but is computationally challenging to invert (in multiple spatial dimensions), and the MIP DSA operator we define in \secref{sec:dsa} requires significant derivation independent of the DFEM neutron transport methodology we have already derived, but is computationally efficient to invert.
+The S2SA operator re-uses a lot of the transport sweep capability we have already developed with our high order DFEM of \secref{sec:chapter3_variable_xs}, but is computationally challenging to invert (in multiple spatial dimensions), and the MIP DSA operator we define in \secref{sec:dsa} requires significant derivation independent of the DFEM neutron transport methodology we have already derived, but is computationally efficient to invert.
 
 \section{$S_2$ Synthetic Acceleration}
 \label{sec:s2sa}
 
-We begin our derivation by repeating the $S_2$, spatially analytic angular flux update equations from Morel\cite{s2sa} (Eqs. (12a) and (12b)), noting that we have elected to use $\psi^+$ and $\psi^-$ instead of $c^+$ and $c^-$, $\Sigma$ represents macroscopic interaction cross sections rather than $\sigma$,  and we define $\phi = 2\pi \sum_d{w_d \psi_d}$:
+We begin our derivation by repeating the $S_2$, spatially analytic angular flux update equations from Morel (Eqs. (12a) and (12b) in \cite{s2sa}), noting that we have elected to use $\psi^+$ and $\psi^-$ instead of $c^+$ and $c^-$, $\Sigma$ represents macroscopic interaction cross sections rather than $\sigma$,  and we define $\phi = 2\pi \sum_d{w_d \psi_d}$:
 \begin{subequations}
 \label{eq:chap4_raw}
 \benum
@@ -577,7 +577,7 @@ The purpose of the following section is to
 \end{enumerate}
 
 In \fig{fig:p1_gauss}, we compare SI, S2SA, and MIP DSA for linear SL Gauss, with $S_8$ angular quadrature, and $c=0.999$.
-We see that as expected\cite{larsen_dsa}, $\rho$ for source iteration $\approx c$.  
+We see that as expected, $\rho$ for source iteration $\approx c$  \cite{larsen_dsa}.  
 Additionally, we see that MIP DSA achieves a $\rho$ similar to that given in Figs. 6 and 7 of \cite{mip_dsa}.
 Likewise, our S2SA implementation estimates $\rho \leq \approx 0.2$, which agrees well with the Fourier analysis of \cite{s2sa} a true spectral radius of $0.2127c$.  Since the analysis of \cite{s2sa} is for an infinite medium, we expect our estimate of $\rho$ to be less.
 \begin{figure}[!htp]
@@ -664,7 +664,7 @@ Regardless of $c$, $P$, $\Sigma_t \Delta x$, and $S_N$ order, we numerically ver
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=11cm]{chapter4_acceleration/Constant_XS_SN8_S2SA_Gauss.pdf}
-\caption{Estimates of $\rho$ for S2SA as a function of $S_8$, $c=0.999$, SL Gauss as a function of trial space degree.}
+\caption{Estimates of $\rho$ for S2SA with $S_8$, $c=0.999$, SL Gauss as a function of trial space degree.}
 \label{fig:s2sa_gauss}
 \end{figure}
 %
@@ -672,7 +672,7 @@ Regardless of $c$, $P$, $\Sigma_t \Delta x$, and $S_N$ order, we numerically ver
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm]{chapter4_acceleration/Constant_XS_SN8_S2SA_Lobatto.pdf}
-\caption{Estimates of $\rho$ for S2SA as a function of $S_8$, $c=0.999$, SL Lobatto as a function of trial space degree.}
+\caption{Estimates of $\rho$ for S2SA with $S_8$, $c=0.999$, SL Lobatto as a function of trial space degree.}
 \label{fig:s2sa_lobatto}
 \end{figure}
 
@@ -704,7 +704,7 @@ Figure \ref{fig:mip_gauss_as_fun_c} and \fig{fig:mip_lobatto_as_fun_c} examine t
 The general trend is that as $c\to 1$, the larger the estimate of $\rho$, but both SL Gauss and SL Lobatto with MIP DSA remain iteratively stable.
 
 It is as this point that we remember that the MIP DSA scheme uses a constant, $\kappa_{IP}$, which depends on a chosen constant.  In all of the results that have presented to this point, we have assumed that $Z_{MIP}$ of \eqt{eq:kappa_def}, $Z_{MIP} =2$.
-Just as Wang did in his dissertation\cite{yaqi_dissertation}, we now consider $Z_{MIP}=4$.  
+Just as Wang did in his dissertation \cite{yaqi_dissertation}, we now consider $Z_{MIP}=4$.  
 Estimates of $\rho$ for MIP DSA as a function of $c$ for SL Gauss and SL Lobatto, with $Z_{MIP}=4$ are given in \fig{fig:mip_gauss_as_fun_c_z4} and \fig{fig:mip_lobatto_as_fun_c_z4}, respectively.
 \begin{figure}[!htp]
 \centering
@@ -727,7 +727,7 @@ Estimates of $\rho$ for MIP DSA as a function of $c$ for SL Gauss and SL Lobatto
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=10cm]{chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Gauss.pdf}
-\caption{$\rho$ for MIP DSA as a function of $c$  for  $S_8$  linear SL Gauss, $Z_{MIP}=4$.}
+\caption{$\rho$ for MIP DSA as a function of $c$  for  $S_8$  linear SL Gauss, with $Z_{MIP}=4$.}
 \label{fig:mip_gauss_as_fun_c_z4}
 \end{figure}
 
@@ -735,11 +735,9 @@ Estimates of $\rho$ for MIP DSA as a function of $c$ for SL Gauss and SL Lobatto
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=10cm]{chapter4_acceleration/Const_4_Constant_XS_c_comparions_MIP_Lobatto.pdf}
-\caption{$\rho$ for MIP DSA as a function of $c$  for  $S_8$  linear SL Lobatto, $Z_{MIP}=4$.}
+\caption{$\rho$ for MIP DSA as a function of $c$  for  $S_8$  linear SL Lobatto, with $Z_{MIP}=4$.}
 \label{fig:mip_lobatto_as_fun_c_z4}
 \end{figure}
-
-\newpage
 
 There are small differences between \figs{fig:mip_gauss_as_fun_c}{fig:mip_lobatto_as_fun_c} and \figs{fig:mip_gauss_as_fun_c_z4}{fig:mip_lobatto_as_fun_c_z4} .  With $Z_{MIP}=4$ in \fig{fig:mip_gauss_as_fun_c_z4} SL Gauss maintains a slightly higher value of $\rho$ at small optical thicknesses than when $Z_{MIP}=2$, and the the transitional drop from intermediate to larger rho at small optical thicknesses to smaller $\rho$ for large cell optical thicknesses is more pronounced.
 With $Z_{MIP}=4$, SL Lobatto displays a modest, smooth increase in $\rho$ over  a range of intermediate $\Sigma_t \Delta x$ and exhibits a sharper drop in $\rho$ as well.
@@ -889,6 +887,6 @@ Both S2SA and MIP DSA are stable iterative acceleration techniques for problems 
 We have verified our implementations of S2SA and MIP DSA by comparing to published, spatially constant cross section results.
 While the S2SA technique is more effective than MIP DSA (smaller $\rho$), the S2SA matrix that must be inverted is not symmetric or positive definite.
 Thus, S2SA requires direct matrix inversion which in general is not feasible for large systems of equations.
-Conversely, though MIP DSA is not as effective as S2SA, the MIP DSA matrix is SPD, thus it can be inverted much more efficiently [faster] \cite{mip_mc} than the S2SA matrix can be inverted.
+Conversely, though MIP DSA is not as effective as S2SA, the MIP DSA matrix is SPD, thus it can be inverted much more efficiently (faster) \cite{mip_mc} than the S2SA matrix can be inverted.
 As such, to demonstrate that self-lumping schemes that account for within cell spatial variation of quadrature can be used for more realistic problems, we first employ S2SA to accelerate neutron transport within a model fuel depletion problem in Chapter \ref{sec:chapter5_depletion}.
-However, since S2SA is really only practical for small, one dimensional problems, we will apply a variant of MIP DSA to accelerate the iterative process required for thermal radiative transfer problems in Chapter \ref{sec:chapter6_grey_radtran}.
+However, since S2SA is really only practical for small, one dimensional problems, we will apply a variant of MIP DSA to accelerate the iterative process required for thermal radiative transfer problems in \secref{sec:chapter6_grey_radtran}.

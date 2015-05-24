@@ -110,12 +110,12 @@ For higher order (quadratic and higher polynomial degree trial spaces) DFEM to b
 \end{enumerate}
 By ``robust'', we mean that that calculated radiation outflow from a spatial cell is strictly positive for all cell widths and optical thicknesses.
 
-In \chapref{sec:chapter2_constant_xs} we use a steady-state, mono-energetic, source-free pure absorber neutron transport problem with a cross section that is constant in space to examine the robustness of different radiation transport DFEM matrix lumping techniques.
-Next, we extend the techniques developed by Adams \cite{adams_scb,adams_nowak}, for a spatial discretization scheme related to LDFEM  to address the within cell spatial variation of opacity, for higher order DFEM in \chapref{sec:chapter3_variable_xs} .
+In \secref{sec:chapter2_constant_xs} we use a steady-state, mono-energetic, source-free pure absorber neutron transport problem with a cross section that is constant in space to examine the robustness of different radiation transport DFEM matrix lumping techniques.
+Next, we extend the techniques developed by Adams \cite{adams_scb,adams_nowak}, for a spatial discretization scheme related to LDFEM  to address the within cell spatial variation of opacity, for higher order DFEM in \secref{sec:chapter3_variable_xs} .
 %We study the accuracy and robustness of a technique that explicitly accounts for the spatial variation of neutron transport interaction cross sections within each spatial cell
 %for arbitrary trial space degree  DFEM in 
-Then, we examine iterative acceleration techniques compatible with higher order DFEM spatial discretizations in Chapter \ref{sec:chapter4_acceleration}.
-In preparation for solving the coupled, non-linear TRT equations, in \chapref{sec:chapter5_depletion} we combine all of the strategies we have developed in Chapters \ref{sec:chapter2_constant_xs}-\ref{sec:chapter4_acceleration} and apply them to a coupled system of linear equations to solve a two-group fuel depletion problem that uses explicit Euler time differencing.
+Then, we examine iterative acceleration techniques compatible with higher order DFEM spatial discretizations in \secref{sec:chapter4_acceleration}.
+In preparation for solving the coupled, non-linear TRT equations, in \secref{sec:chapter5_depletion} we combine all of the strategies we have developed in Sections \ref{sec:chapter2_constant_xs}-\ref{sec:chapter4_acceleration} and apply them to a coupled system of linear equations to solve a two-group fuel depletion problem that uses explicit Euler time differencing.
 In \secref{sec:chapter6_grey_radtran} we develop the necessary theory and simulation procedures to solve the grey thermal radiative transfer equations using higher order DFEM, fully deriving the necessary  equations, and acceleration techniques. 
 Finally we give numerical results in \secref{sec:chapter6_grey_radtran_results} that verify our newly developed DFEM methods and demonstrate their capabilities on a series of test problems. 
 

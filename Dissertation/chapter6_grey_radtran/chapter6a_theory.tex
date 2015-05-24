@@ -92,7 +92,7 @@ g_i = g_{n} + \Delta t \sum_{j=1}^i{a_{ij} f\left(t_n + \Delta t c_j , g_j\right
 \eenum
 where $g_i$ is the intermediate value of $g$ at the time of stage $i$, $t_i = t^n + \Delta t c_i$.
 
-We consider three different SDIRK schemes in our work, implicit Euler (IE); a two stage, second order S-stable scheme (2-2); and a three stage, third order S-stable scheme (3-3).
+We consider three different SDIRK schemes in our work, implicit Euler (IE); a two stage, second order S-stable scheme (SDIRK 2-2); and a three stage, third order S-stable scheme (SDIRK 3-3).
 Both multi-stage schemes were taken from \cite{alexander}.
 The Butcher tableaux for the implicit Euler scheme can be written as:
 \benum
@@ -104,7 +104,7 @@ The Butcher tableaux for the implicit Euler scheme can be written as:
 {}					&				&		1	
 \end{array} \pep
 \eenum
-The 2-2 scheme of Alexander has the following Butcher tableaux,
+The SDIRK 2-2 scheme of Alexander has the following Butcher tableaux,
 \benum
 \label{eq:alexander_2_2}
 \begin{array}{c|c|cc}
@@ -115,7 +115,7 @@ The 2-2 scheme of Alexander has the following Butcher tableaux,
 {}					&				&		\frac{\sqrt{2}}{2}	&		1- \frac{\sqrt{2}}{2}		
 \end{array} \pec
 \eenum
-and the 3-3 scheme's Butcher tableaux is:
+and the SDIRK 3-3 scheme's Butcher tableaux is:
 \benum
 \label{eq:alexander_3_3}
 \begin{array}{c|c|ccc}
@@ -448,7 +448,7 @@ As we will see, the problem with accelerating the spatially discretized TRT equa
 \subsection{Spatially Discretized Linearization}
 Now we attempt to derive a pseudo fission form of the spatially discretized grey TRT equations.
 First, we must define a spatially discretized $k_I$ and $k_T$.
-To do this, we apply the standard Galerkin procedure outlined in \chapref{sec:chapter2_constant_xs} and \chapref{sec:chapter3_variable_xs} to the spatially analytic forms of $k_{I}$ and $k_{T}$ given in \eqt{eq:k_I_stage} and \eqt{eq:k_T_stage}, respectively.
+To do this, we apply the standard Galerkin procedure outlined in \secref{sec:chapter2_constant_xs} and \secref{sec:chapter3_variable_xs} to the spatially analytic forms of $k_{I}$ and $k_{T}$ given in \eqt{eq:k_I_stage} and \eqt{eq:k_T_stage}, respectively.
 For $\vec{k}_{I}$, we have:
 \benum
 \vec{k}_{I}= c \M^{-1} 
@@ -815,7 +815,7 @@ and inserting into \eqt{eq:almost_stage_i} gives our final equation for the radi
 Given the form of \eqt{eq:stage_i_sdirk_intensity}, it appears that we can apply MIP DSA to accelerate the iterative solution of \eqt{eq:stage_i_sdirk_intensity}, but we still wish to verify that definition of $\widetilde{\Sigma}_t$ and $\widetilde{\Sigma}_a$ is consistent  between both the spatially discretized and spatially analytic cases.
 
 \subsection{Consistency of Pseudo Cross Sections}
-In \chapref{sec:chapter4_acceleration}, we used MIP DSA to accelerate a spatially analytic problem of the form
+In \secref{sec:chapter4_acceleration}, we used MIP DSA to accelerate a spatially analytic problem of the form
 \benum
 \mu_d \frac{\p \psi}{\p x} + \Sigma_t \psi = \frac{1}{4\pi} \Sigma_s \phi + Q_d \pec
 \label{eq:analytic_xs_mip}
@@ -1164,7 +1164,7 @@ From this point forward, anytime a mass matrix is needed, we simply call \verb+m
 
 Where possible we have used third party software to prevent duplication of  efforts.
 All Gauss-Legendre, Gauss-Lobatto, and closed Newton-Cotes quadrature functions are derived from the \verb+QUADRULE+ \cite{quadrule} package, with minor modifications including: use C++ \verb+std::vector+s rather than arrays and encapsulation of the \verb+QUADRULE+ functions into a \verb+QUADRULE+ class to limit access and contamination of the global name space.
-We have directly implemented all of the matrix/vector based equations in this chapter, as written, using the \verb+Eigen+ linear algebra package \cite{eigen}.
+We have directly implemented all of the matrix/vector based equations in this section, as written, using the \verb+Eigen+ linear algebra package \cite{eigen}.
 To invert the MIP DSA matrix used to accelerate the iterative solution of the grey TRT equations, we use the \verb+PETSc+ package\cite{petsc} preconditioned with algebraic multigrid\cite{mip_mc} via the \verb+BoomerAMG+ package of \verb+Hypre+ \cite{hypre}.
 We document our code using  inline comments  and \verb+Doxygen+ \cite{doxygen}.
 To build and test the components of our grey thermal radiative transfer code, we use the CMake and CTest packages from Kitware\cite{cmake}.
