@@ -53,8 +53,8 @@ A more complete explanation can be found in \cite{alexander}
 
 SDIRK time integration schemes are one of many options available for solving initial value problems of the form:
 \beanum
-g(0) &=&G_0 \\
-f(t,g) &=& \frac{\partial g}{\partial t} \pec
+g(0) &=& g_0 \\
+\frac{\partial g}{\partial t}&=& f(t,g) \pec
 \eeanum
 where $t$ is time, and $G_0$ is the initial value of $g$ at time $t=0$.
 Depending on the literary source, SDIRK stands for Single-Diagonally Implicit Runge-Kutta, S-stable Diagonally Implicit Runge-Kutta, or one of many other expansions of the SDIRK acronym.
@@ -87,10 +87,10 @@ k_i = f\left( t_n + c_i \Delta t ~,~g_{n} + \Delta t \sum_{j=1}^i{a_{ij} k_j }\r
 \eenum
 Equation \ref{eq:p2} can also be interpreted as meaning:
 \benum
-g_i = g_{n} + \Delta t \sum_{j=1}^i{a_{ij} f\left(t_n + \Delta t c_j , g_j\right)} \pec
+g_i = g_{n} + \Delta t \sum_{j=1}^i{a_{ij} f\left( t_j , g_j\right)} \pec
 \label{eq:psi-def}
 \eenum
-where $g_i$ is the intermediate value of $g$ at the time of stage $i$, $t_i = t^n + \Delta t c_i$.
+where $g_i$ is the intermediate value of $g$ at the time of stage $i$ and $t_j = t^n + \Delta t c_j$.
 
 We consider three different SDIRK schemes in our work, implicit Euler (IE); a two stage, second order S-stable scheme (SDIRK 2-2); and a three stage, third order S-stable scheme (SDIRK 3-3).
 Both multi-stage schemes were taken from \cite{alexander}.
@@ -150,7 +150,7 @@ C_v \frac{\partial T}{\partial t} = \sigma_a \left( \phi - 4\pi B \right) + S_T 
 \label{eq:temperature_eq} 
 \eenum
 \end{subequations}
-In \eqts{eq:analytic_grey_trt}, we have assumed all scattering and material photon emission is isotropic, defined that $I$ is the photon intensity with directional cosine $\mu_d$ (relative to the $x$-axis),  $S_I$ is a driving radiation source intensity source in the direction of $\mu_d$, $S_T$ is a driving temperature source, and the frequency integrated (grey) Planck, $B$, is:
+In \eqts{eq:analytic_grey_trt}, we have assumed all scattering and material photon emission is isotropic, defined that $I$ is the photon intensity with directional cosine $\mu_d$ (relative to the $x$-axis),  $S_I$ is a driving radiation source intensity source in the direction of $\mu_d$, $S_T$ is a driving temperature source, and the frequency integrated (grey) Planck function, $B$, is:
 \benum
 B(T) = \frac{1}{4\pi} ac T^4\pec
 \eenum
@@ -165,7 +165,7 @@ and
 \frac{\partial T}{\partial t} = \frac{1}{C_v} \left[ \sigma_a \left( \phi - 4\pi B \right) + S_T \right] \pep
 \label{eq:k_T}
 \eenum
-We evaluate $k_{I,s}$ and $k_{T,s}$, the SDIRK $k$ values for intensity and temperature for stage $s$ as:
+We evaluate $k_{I,s}$ and $k_{T,s}$, the SDIRK $k$ values (\eqt{eq:p2}), for intensity and temperature for stage $s$ as:
 \benum
 k_{I,s} = c\left[ \frac{1}{4\pi}\sigma_{s}(T_s) \phi_s + \sigma_a(T_s) B(T_s) + S_I(t_s) - \mu_d \frac{\partial I_s}{\partial x} - \sigma_t(T_s) I_s \right]
 \label{eq:k_I_stage}
@@ -299,6 +299,7 @@ then multiply by $\frac{4\pi}{4\pi}$ and arrange, yielding:
 Defining a constant, $\nu_1$,
 \benum
 \nu_1 = \left( 4\pi  a_{11} \Delta t \sigma_a  D_*  \right) \left(C_v + 4\pi a_{11} \Delta t \sigma_a D_*  \right)^{-1} \pec
+\label{eq:analytic_nu_def}
 \eenum
 we arrive at an equation for intensity $I_1$ that is similar in form to the discrete ordinates neutron transport equations with isotropic scattering, fission, and a fixed source:
 \benum
@@ -311,11 +312,17 @@ where
 \sigma_a D_*\left(1 + \frac{4\pi a_{11} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \left( T_n - T_* + \frac{a_{11} \Delta t }{C_v} \left[  S_T - 4\pi \sigma_a   B_*\right]  \right) \pep
 \end{multline}
 The similarity of \eqt{eq:i_analytic_pseudo} to the neutron transport equation is especially apparent if we define pseudo total interaction and scattering cross sections, $\widetilde{\Sigma_t}$ and $\widetilde{\Sigma_s}$, to be
+\begin{subequations}
+\label{eq:xs_analytic_pseudo}
 \beanum
 \widetilde{\Sigma_t} &=& \sigma_{\tau,1} \\
-\widetilde{\Sigma_s} &=& \sigma_s + \nu_1 \sigma_a\pec
+\widetilde{\Sigma_s} &=& \sigma_s + \nu_1 \sigma_a\pep
 \eeanum
-giving:
+\end{subequations}
+By definition, $\widetilde{\Sigma_s} < \widetilde{\Sigma_t}$. 
+This can be seen by considering the definition of \eqt{eq:analytic_nu_def}, and realizing that $\nu_1 < 1$.
+Since $\widetilde{\Sigma_t} > \sigma_t$, and $\widetilde{\Sigma_s} < \sigma_t$, it follows that $\widetilde{\Sigma_s} < \widetilde{\Sigma_t}$.
+Inserting \eqts{eq:xs_analytic_pseudo} into \eqt{eq:i_analytic_pseudo} yields
 \benum
 \mu_d \frac{\partial I_1}{\partial x} + \widetilde{\Sigma_t} I_1 = \frac{1}{4\pi}\widetilde{\Sigma_s} \phi_1 + \xi_1 \pep
 \eenum
@@ -330,20 +337,20 @@ The next step in examining the possibility of applying neutron transport methods
 
 The intensity at stage $i$, is given by:
 \benum
-I_i = I_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{I,j}} + a_{ii} \Delta t c \left[ \frac{1}{4\pi}\sigma_{s} \phi_i + \sigma_a \left[B_* + D_* (T_i - T_*) \right]+ S_I - \mu_d \frac{\partial I_i}{\partial x} - \sigma_t I_i \right] 
+I_i = I_n + \highlight{ \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{I,j}} } + a_{ii} \Delta t c \left[ \frac{1}{4\pi}\sigma_{s} \phi_i + \sigma_a \left[B_* + D_* (T_i - T_*) \right]+ S_I - \mu_d \frac{\partial I_i}{\partial x} - \sigma_t I_i \right] 
 \pep
 \label{eq:i_i_start}
 \eenum
 Likewise for $T_i$, we have
 \benum
-T_i = T_n + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} + \frac{a_{ii} \Delta t }{C_v} \left[ \sigma_a \left( \phi_i - 4\pi \left[ B_* + D_*(T_i - T_*) \right] \right) + S_T  \right] \pep
+T_i = T_n + \highlight{ \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} } + \frac{a_{ii} \Delta t }{C_v} \left[ \sigma_a \left( \phi_i - 4\pi \left[ B_* + D_*(T_i - T_*) \right] \right) + S_T  \right] \pep
 \label{eq:analytic_t_i_start}
 \eenum
-The only difference between \eqt{eq:i_i_start} and \eqt{eq:long_i_1_analytic} is the presence of
+The only difference between \eqt{eq:i_i_start} and \eqt{eq:long_i_1_analytic} is the addition of
 \benum
 \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{I,j}} \pep
 \eenum
-Likewise, the only difference between \eqt{eq:analytic_t_i_start} and \eqt{eq:long_t_1} is
+Likewise, the only difference between \eqt{eq:analytic_t_i_start} and \eqt{eq:long_t_1} is the additional term
 \benum
 \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} \pep
 \eenum
@@ -377,10 +384,12 @@ For brevity, we omit the manipulation of \eqt{eq:analytic_t_i_start} to form a t
 %and condensing, we have:
 \begin{multline}
 T_i = T_* + \left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} \\
-\left( T_n - T_* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} +  \frac{a_{ii} \Delta t }{C_v} \left[ \sigma_a \left( \phi_i - 4\pi   B_* \right) + S_T \right]  \right) \pep
+\left( T_n - T_* + \highlight{ \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} }+  \frac{a_{ii} \Delta t }{C_v} \left[ \sigma_a \left( \phi_i - 4\pi   B_* \right) + S_T \right]  \right) \pec
 \label{eq:analytic_t_i}
 \end{multline}
-
+where we have highlight that the stage $i$ SDIRK temperature equation differs from the stage 1 SDIRK temperature update equation, \eqt{eq:analytic_t_1}, by only an additional term.
+This result is significant because \eqt{eq:analytic_t_1}  could be thought of as being unique to the implicit Euler discretization which is only first order accurate in time.
+Modifying \eqt{eq:analytic_t_1} by the addition of only a single term, or alternatively, by thinking in terms of arbitrary stage count SDIRK time integration schemes rather than deriving the thermal radiative transfer equations for a single time discretization (implicit Euler), allows for arbitrary order accuracy time integration.
 Similarly, we omit the manipulation of \eqt{eq:i_i_start} into a pseudo-fission form, and instead give the final result,
 %
 %Inserting \eqt{eq:analytic_t_i} into \eqt{eq:i_i_start}, dividing by $a_{ii} c \Delta t$, and moving the gradient and interaction terms to the left hand side:
@@ -422,6 +431,7 @@ Similarly, we omit the manipulation of \eqt{eq:i_i_start} into a pseudo-fission 
 \eenum
 where we have defined the following:
 \begin{subequations}
+\label{eq:analytic_pseudo_i_defs}
 \benum
 \nu_i = 4\pi \sigma_a D_* \left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1}  \frac{a_{ii} \Delta t }{C_v} = \frac{ 4\pi a_{ii} \Delta t \sigma_a D_*}{C_v + 4\pi a_{ii} \Delta t  \sigma_a D_*} \pec
 \label{eq:analytic_nu}
@@ -431,11 +441,12 @@ where we have defined the following:
 \label{eq:tau_i_analytic}
 \eenum
 \begin{multline}
-\xi_i = \sigma_a B_* + S_I +  \frac{1}{a_{ii} \Delta t c} I_n + \frac{1}{a_{ii} c} \sum_{j=1}^{i-1}{a_{ij} k_{I,j}}  + \dots  \\ 
+\highlight{ \xi_i } = \sigma_a B_* + S_I +  \frac{1}{a_{ii} \Delta t c} I_n + \frac{1}{a_{ii} c} \sum_{j=1}^{i-1}{a_{ij} k_{I,j}}  + \dots  \\ 
 \sigma_a D_*\left(1 + \frac{4\pi a_{ii} \Delta t}{C_v} \sigma_a D_*  \right)^{-1} 
-\left( T_n - T_* + \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} +   \frac{a_{ii} \Delta t }{C_v}  \left( S_T -  4\pi  \sigma_a B_*   \right) \right) \pep
+\left( T_n - T_* + \highlight{ \Delta t \sum_{j=1}^{i-1}{a_{ij} k_{T,j}} } +   \frac{a_{ii} \Delta t }{C_v}  \left( S_T -  4\pi  \sigma_a B_*   \right) \right) \pep
 \end{multline}
 \end{subequations}
+Again, we have highlighted in \eqts{eq:analytic_pseudo_i_defs} the only structural changes that result by considering arbitrary order accuracy SDIRK time integration of the thermal radiative transfer equations instead of limiting oneself to implicit Euler time integration of the thermal radiative transfer equations.
 
 In the spatially analytic case, the grey TRT equations, with Planck linearization and arbitrary stage count SDIRK time integration can be put into a pseudo neutron transport form.
 This suggests that we may techniques such as spatial discretization and acceleration methods, can be used to solve the grey TRT equations.
@@ -1065,73 +1076,93 @@ In particular, we will $\sigma_a$ to be
 \benum
 \sigma_a(T) = \left \{ \begin{array}{lr}\sigma_a(T_{cold})  &  T < T_{cold}  \\  \sigma_a(T)  & \text{otherwise}    \end{array} \right. \pep
 \eenum
-On the basis that ``a negative intensity contributes to a negative time derivative of the temperature, the
+\pagebreak
+
+\noindent On the basis that:
+\vspace{0.25in}
+\\
+\emph{
+\noindent a negative intensity contributes to a negative time derivative of the temperature, the
 Planck function at negative temperatures should similarly contribute to a negative time derivative of the intensity.
-This implies that the Planck function at negative temperatures should be negative'', Morel et al. argue that for an arbitrary positive temperature $\bar{T}$, $B(-\bar{T}) = -B(\bar{T}$, and 
-$\frac{dB}{dT} \bigg \lvert_{T = -\bar{T} } = -\frac{dB}{dT} \bigg \lvert_{T =\bar{T} }$.
-For grey thermal radiative transfer, we generalize this to be
+This implies that the Planck function at negative temperatures should be negative, 
+}
+\vspace{0.25in}
+
+\noindent Morel et al. \cite{negative_trt} argued that for an arbitrary positive temperature $\bar{T}$,
+\beanum 
+B(-\bar{T}) &=& -B(\bar{T}) \\
+\frac{dB}{dT} \bigg \lvert_{T = -\bar{T} } &=& -\frac{dB}{dT} \bigg \lvert_{T =\bar{T} } \pep
+\eeanum
+For grey thermal radiative transfer, we define this to be
 \beanum
 B(-\bar{T}) &=& \frac{\abs{\bar{T}} }{\bar{T}} \frac{ac\bar{T}^4}{4\pi} \\
-\frac{dB}{dT} \bigg \lvert_{T = -\bar{T} } &=& frac{\abs{\bar{T}} }{\bar{T}} \frac{ac \bar{T}^3 }{\pi} \pep
+\frac{dB}{dT} \bigg \lvert_{T = -\bar{T} } &=& \frac{\abs{\bar{T}} }{\bar{T}} \frac{ac \bar{T}^3 }{\pi} \pep
 \eeanum
 
 \section{Adaptive Time Stepping Methods}
 \label{sec:chap6_adaptive}
 
 To be as efficient as possible, we would like to take as large of time steps as we can while still maintaining some measure of accuracy for our time dependent thermal radiative transfer simulations.
-We achieve this by using adaptive time stepping algorithms.
+Additionally, after a time step, we would like to verify that the solution did not change too rapidly over a single time step.
+We achieve these goals by using adaptive time stepping algorithms.
 For those problems that are too large to be clearly over resolved in time, adaptive time stepping algorithms, in general, compare differences in the solution at different time steps.
 Comparisons can take the form of a high-order/low-order adaptive quadrature to predict error or may be as simple as permitting only a certain level of relative change per time step.
 We elect to use relative change time step controllers, taken from and inspired by the work of Edwards, Morel, and Knoll for radiative diffusion \cite{time_adaptive_diffusion}.
-In \cite{time_adaptive_diffusion}, a point-wise temperature adaptive criterion is applied to predict an appropriate $\Delta t$ for time step $n+1$, $\Delta t^{n+1}$, given the current time step, $\Delta t^n$, and a measure of the maximum change in temperature, $\Delta T$, 
-\benum
-\Delta T = 2 \max_{el} \left[ \frac{\abs{T_{el}^{n} - T_{el}^{n-1}} }{ T_{el}^{n} + T_{el}^{n-1} }   \right] \pec 
-\label{eq:pointwise_adaptive}
-\eenum
-that occurred in advancing from $t^{n-1}$ to $t^n$, where $t^n = t^{n-1} + \Delta t^n$, $el$ is all DFEM temperature unknowns, and $T^{n}_el$ is the temperature of element $el$, at time $t^n$.
-$\Delta t^{n+1}$ is predicted as:
+
+As in \cite{time_adaptive_diffusion}, given the current time step, $\Delta t^n$, $\Delta t^n = t^n - t^{n-1}$, the next time step, $\Delta t^{n+1}$, $\Delta t^{n+1} = t^{n+1} - t^n$, is predicted as:
 \benum
 \Delta t^{n+1} = \frac{\Delta T_{goal} }{\Delta T} \Delta t^n  \pec
 \label{eq:adaptive_change}
 \eenum
-where $\Delta T_{goal}$ and $C_{max}$ are user prescribed values.  
+where $\Delta T_{goal}$ and $C_{max}$ are user prescribed values and $\Delta T$ is a measure of the change in temperature that occurred over $\Delta t^n$.  
 Typical values of $\Delta T_{goal}$ would be on the order of $\Delta T_{goal} = 0.01$, corresponding to approximately a $1\%$  increase in temperature across a time step.
 In addition to also choosing $\Delta t^{n+1}$ so that we end the simulation at the desired time, we also prescribe a maximum time step size, $\Delta t_{max}$, and a maximum allowable increase factor, $C_{max}$, so that
 \benum
 \Delta t^{n+1} = \min \left( \Delta t^{n+1} , C_{max} \Delta t^n , \Delta t_{max}  \right) \pep
 \label{eq:min_dt}
 \eenum
+We use the adaptive criterion to verify that in advancing the solution from $t^{n-1}$ to $t^n$ the solution has not changed too rapidly by enforcing
+\benum
+\Delta T < 1.2 \Delta T_{goal} \pep
+\label{eq:eos_check}
+\eenum
+If a given $\Delta t^n$ has caused \eqt{eq:eos_check} to be false, the time step is restarted using a time step that is $\frac{1}{2}$ the size of the time step that violated our change tolerance.
 
 We will consider three different methods for calculating $\Delta T$.  
 Regardless of how we calculate $\Delta T$, we will select our next time step according to \eqt{eq:adaptive_change} and \eqt{eq:min_dt}.
-If calculating $\Delta T$ according to \eqt{eq:pointwise_adaptive}, we say that we are using the point-wise adaptive criterion.
+In \cite{time_adaptive_diffusion}, a point-wise  formula is prescribed to calculate the adaptive time criterion $\Delta T$, 
+\benum
+\Delta T = 2 \max_{i=1,\dots,N_{cell}} \left[  \max_{j=1,\dots N_P} \left[ \frac{\abs{T_{j}^{n} - T_{j}^{n-1}} }{ T_{j}^{n} + T_{j}^{n-1} }   \right] \right] \pep 
+\label{eq:pointwise_adaptive}
+\eenum
+If calculating $\Delta T$ according to \eqt{eq:pointwise_adaptive}, we say that we are using the \emph{point-wise} adaptive criterion.
 In our testing, using \eqt{eq:pointwise_adaptive} resulted in taking extremely small time steps, in particular when considering higher order DFEM spatial discretizations of the thermal radiative transfer equations.
 We believe this is because the denominator does not account for the possibility of point-wise temperature solutions than the physical limits of the problem.
-To account for the possibility of lower, possibly even negative temperatures, we also consider a modified point-wise temperature criterion:
+To account for the possibility of lower, possibly even negative temperatures, we also consider a \emph{modified point-wise} temperature criterion:
 \benum
-\Delta T = 2\max_{el} \left[ \frac{\abs{T^{n+1}_{el} - T^{n}_{el}} }{ \max\left(\abs{ T^{n+1}_{el} } + \abs{ T^n_{el} } , T_{offset}  \right)  }\right] \pec
+\Delta T = 2 \max_{i=1,\dots,N_{cell}} \left[  \max_{j=1,\dots N_P} \left[ \frac{\abs{T^{n+1}_j- T^{n}_j } }{ \max\left(\abs{ T^{n+1}_j } + \abs{ T^n_j } , T_{offset}  \right)  }\right]  \right] \pec
 \label{eq:modified_pointwise_adaptive}
 \eenum
 where $T_{offset}$ is a user selected temperature.  
-In practice, \eqt{eq:modified_pointwise_adaptive} with $T_{offset} = 0$ allows for problems larger time step sizes than \eqt{eq:adaptive_change}, but still chooses very small time steps.
+In practice, \eqt{eq:modified_pointwise_adaptive} with $T_{offset} = 0$ works for problems in where \eqt{eq:pointwise_adaptive} fails,  but still chooses very small time steps.
 To achieve reasonable time step sizes for higher order DFEM, reasonable being defined as time step sizes comparable against the reported time step sizes of \cite{time_adaptive_diffusion} for the same test problem, we often needed to use $T_{offset}$ on the order of $50\times T_{cold}$, where $T_{cold}$ is the initial slab temperature for a Marshak wave problem.
-
-Our final time adaptive criterion is a volumetric based scheme, inspired by \eqt{eq:pointwise_adaptive}.
-Dividing the spatial mesh into $N_{groups}$ contiguous groupings of cells, each grouping with $N_{cg}$ cells, such that $N_{cell} = N_{groups} \times N_{cg}$, we define $\Delta T$ as:
+We refer to our final time adaptive criterion as the  \emph{volumetric} adaptive criterion.
+The volumetric adaptive criterion is inspired by \eqt{eq:pointwise_adaptive}.
+Dividing the spatial mesh into $N_{groups}$ contiguous groupings of cells, each grouping with $N_{cg}$ cells, such that $N_{cell} = N_{groups} \times N_{cg}$, the volumetric adaptive criterion defines $\Delta T$ as:
 \benum
-\Delta T = 2 \max_{N_{groups}} \left[ \frac{ \norm{ \widetilde{T}^{n+1}  \widetilde{T}^{n} }_{2,g} }{ \norm{ \widetilde{T}^{n+1} }_{2,g} +  \norm{ \widetilde{T}^{n} }_{2,g} } \right] \pec
+\Delta T = 2 \max_{N_{groups}} \left[ \frac{ \norm{ \widetilde{T}^{n+1} -  \widetilde{T}^{n} }_{2,g} }{ \norm{ \widetilde{T}^{n+1} }_{2,g} +  \norm{ \widetilde{T}^{n} }_{2,g} } \right] \pec
 \label{eq:volumetric_adaptive}
 \eenum
-where $\norm{ \widetilde(T) }_{g,2}$ is an $L_2$ norm of $\widetilde{T}$ over the space covered by grouping $g$:
+where $\norm{ \widetilde{T}_{g,2} }$ is an $L_2$ norm of $\widetilde{T}$ over the space covered by grouping $g$:
 \benum
-\norm{ \widetilde{T}  }_{g,2}= \sqrt{ \int_{x_{g-1/2}}^{x_{g+1/2}}{ \widetilde{T}^2 ~dx }  }\pec
+\norm{ \widetilde{T}  }_{g,2}= \sqrt{ \int_{x_{g-1/2}}^{x_{g+1/2}}{ \left( \widetilde{T} \right)^2 ~dx }  }\pec
 \label{eq:group_integral}
 \eenum
 $x_{g-1/2} = x_{N_{cg} (g-1)+1/2}$, and $x_{g+1/2} = x_{N_{cg} g +1/2}$.  
 We exactly integrate \eqt{eq:group_integral} using a $2P$ point Gauss quadrature.  
 $N_{cg}$ is user defined, and can range from one to $N_{cell}$.
-Ideally $N_{cg} = 1$.  However, in practice it is necessary to increase $N_{cg}$ to larger values, in order to choose acceptably large time step values.
-Increasing $N_{cg}$ has the same effect as increasing $T_{offset}$ in \eqt{eq:modified_pointwise_adaptive}.
+When $N_{cg} = 1$, the volumetric adaptive criterion is most like the point-wise adaptive criteria.  
+However, increasing $N_{cg}$ has the same effect as increasing $T_{offset}$ in \eqt{eq:modified_pointwise_adaptive}, thus we will investigate the effect of $N_{cg}$ on the time step sizes chosen by the volumetric adaptive criterion.
 We elect to use sum of norms in the denominator of \eqt{eq:volumetric_adaptive} to avoid any cancellation that could occur if either $\widetilde{T}^n$ or $\widetilde{T}^{n+1}$ are negative.
 Additionally since
 \benum
@@ -1139,13 +1170,6 @@ Additionally since
 \eenum
 for any quantities $a$ and $b$, separating the norms results in a larger magnitude denominator, thus making it more likely that larger step sizes will be taken.  
 As will be seen in \secref{sec:chapter6_grey_radtran_results}, the main drawback of the point-wise and modified point-wise adaptive time criterion is that they select prohibitively small $\Delta t^{n+1}$.
-
-When using the time adaptive schemes, we also use the adaptive criterion to verify that in advancing the solution from $t^{n-1}$ to $t^n$ the solution has not changed too rapidly by enforcing
-\benum
-\Delta T < 1.2 \Delta T_{goal} \pep
-\label{eq:eos_check}
-\eenum
-If a given $\Delta t^n$ has caused \eqt{eq:eos_check} to be false, the time step is restarted using a time step that is $\frac{1}{2}$ the size of the time step that violated our change tolerance.
 
  
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
