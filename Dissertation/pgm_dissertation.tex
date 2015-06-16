@@ -34,6 +34,8 @@
 \usepackage{lscape}
 \usepackage{url}
 \usepackage{listings}
+
+\usepackage{xcolor}
  
 \newcommand{\fig}[1]{Fig.~\ref{#1}}                      % figure
 \newcommand{\figs}[2]{Figs.~\ref{#1}-\ref{#2}}     
@@ -77,6 +79,11 @@
 \newcommand{\secref}[1]{Section \ref{#1}}
 \newcommand{\chapref}[1]{Chapter \ref{#1}}
 
+\newcommand{\highlight}[1]{%
+  \colorbox{red!50}{$\displaystyle#1$}}
+	
+	
+
 % Equation Punctuation
 \newcommand{\pec}{\, ,}
 \newcommand{\pep}{\, .}
@@ -115,9 +122,9 @@
 \renewcommand{\tamupapertype}{Dissertation}
 \renewcommand{\tamufullname}{Peter Gregory Maginot}
 \renewcommand{\tamudegree}{Doctor of Philosophy}
-\renewcommand{\tamuchairone}{Jean C. Ragusa}
+\renewcommand{\tamuchairone}{Jim E. Morel}
 % Uncomment out the next line if you have co-chairs.  You will also need to edit the titlepage.tex file.
-\newcommand{\tamuchairtwo}{Jim E. Morel}
+\newcommand{\tamuchairtwo}{Jean C. Ragusa}
 \renewcommand{\tamumemberone}{Marvin L. Adams}
 \newcommand{\tamumembertwo}{Jean-Luc Guermond}
 %\newcommand{\tamumemberthree}{Committee Member3}

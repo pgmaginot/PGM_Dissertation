@@ -18,7 +18,7 @@
 \chapter{\uppercase{Fuel Depletion Problem}}
 \label{sec:chapter5_depletion}
 
-We now consider a fuel depletion problem to illustrate that self-lumping DFEM schemes remain accurate for more complex physics than simply a purely absorbing medium.
+We now consider a fuel depletion problem initially published in \cite{part_2_paper} to illustrate that self-lumping DFEM schemes remain accurate for more complex physics than simply a purely absorbing medium.
 The depletion method we use [time stepping scheme, time step size, etc.] is chosen for its simplicity, not for its fidelity relative to state-of-the art depletion methodologies.  
 Our goal is to assess the accuracy of {\emph spatial discretization} methods for problems with spatially varying cross sections, not to propose a new depletion method.  
 However, we stress that self-lumping methods can be implemented with any time depletion method or time stepping scheme since implementation of self-lumping  only requires changes pertaining to the spatial discretization. 
@@ -31,14 +31,14 @@ The dimensions and layout of the fuel and moderator layers lattice is shown in \
 \begin{center}
 \includegraphics[width=8cm]{chapter5_depletion/article_grid.pdf}
 \end{center}
-\caption{Depletion problem fuel/moderator lattice.}
+\caption{Depletion problem fuel/moderator lattice.  Taken from [27].}
 \label{fig:lattice}
 \end{figure}
 
 Initially, each fuel region is a homogeneous mixture containing only fissile $^{235}U$ and fertile $^{238}U$ nuclei, with compositions given in \tbl{tbl:fuel_atom_density}.
 \begin{table}[!htp]
 \centering
-\caption{Fuel atom density data.}
+\caption{Fuel atom density data.  Taken from [27].}
 \begin{tabular}{|c|c|}
 \hline
 Fuel Density $[g/cm^3]$  & 10.97 \\
@@ -57,7 +57,7 @@ As fuel depletion progresses, the isotopic composition of fuel changes.
 The moderator is light water and its composition, given in \tbl{tbl:water_atom_density}, does not change with irradiation.
 \begin{table}[!htp]
 \centering
-\caption{Water atom density data.}
+\caption{Water atom density data.  Taken from [27].}
 \begin{tabular}{|c|c|}
 \hline
 Water Density $[g/cm^3]$  & 1 \\
@@ -81,7 +81,7 @@ All possible transmutation paths are shown in \fig{fig:transmutation}.
 \begin{center}
 \includegraphics[width=10cm]{chapter5_depletion/article_transmutation.pdf}
 \end{center}
-\caption{Depletion problem possible transmutation paths and mechanisms.}
+\caption{Depletion problem possible transmutation paths and mechanisms.  Taken from [27].}
 \label{fig:transmutation}
 \end{figure}
 
@@ -182,7 +182,7 @@ Cross-section data for the fission products and inert nuclides are given in \tbl
 Fission product yields and the parasitic absorber fission product regeneration fraction, $\xi$, are given in \tbl{tbl:fp_misc}.
 \begin{table}[!htp]
 \centering
-\caption{Water microscopic cross section, in barns [$10^{-24}~cm^2$].  Moderator is composed only of $H_{2} O$.}
+\caption{Water microscopic cross section, in barns [$10^{-24}~cm^2$].  Moderator is composed only of $H_{2} O$.  Taken from [27].}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
 Nuclide &		$\sigma_{a,1}$ & $\sigma_{a,2} $& $\sigma_{s,1\to1} $& $\sigma_{s,2\to2}$ & $\sigma_{s,1\to2}$ \\
@@ -198,7 +198,7 @@ $^{16}\text{O}$&  0 & 0 &  2.739 & 3.780 & 0 \\
 %
 \begin{table}[!htp]
 \centering
-\caption{Fuel microscopic cross sections, in barns [$10^{-24}~cm^2$].}
+\caption{Fuel microscopic cross sections, in barns [$10^{-24}~cm^2$].  Taken from [27].}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
 Nuclide &		$\sigma_{a,1}$ & $\sigma_{a,2} $& $\sigma_{s,1\to1} $& $\sigma_{s,2\to2}$ & $\sigma_{s,1\to2}$ \\
@@ -214,7 +214,7 @@ $^{238} _{~92} \text{U}$   & 0.374 &  2.717 & 4.804 & 9.36 & 0 \\
 %
 \begin{table}[!hbp]
 \centering
-\caption{Average neutron yield per fission, and fission microscopic cross section [$10^{-24}~cm^2$]. }
+\caption{Average neutron yield per fission, and fission microscopic cross section [$10^{-24}~cm^2$]. Taken from [27].}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 Nuclide &	  $\nu_1$ &	$\nu_2$ & $\sigma_{f,1}$ & $\sigma_{f,2} $ \\
@@ -231,7 +231,7 @@ $^{238} _{~92} \text{U}$   & 2.8 & N/A & 0.308 &  0   \\
 %
 \begin{table}[!hbp]
 \centering
-\caption{Radiative capture fraction, and fission probability for fissile and fertile nuclides.}
+\caption{Radiative capture fraction, and fission probability for fissile and fertile nuclides.  Taken from [27].}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 Nuclide &	 $\gamma_1$ & $\gamma_2$ &  $y_1$ & $y_2$ \\
@@ -247,7 +247,7 @@ $^{238} _{~92} \text{U}$   &  $\frac{0.066}{0.374}=0.177 $  & 1 &  $\frac{0.308}
 %
 \begin{table}[!htp]
 \centering
-\caption{Parasitic absorber fission product, scattering fission product, and inert nuclide microscopic cross section data in barns [$10^{-24}~cm^2$].}
+\caption{Parasitic absorber fission product, scattering fission product, and inert nuclide microscopic cross section data in barns [$10^{-24}~cm^2$].  Taken from [27].}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
 Nuclide  & $\sigma_{a,1}$ & $\sigma_{a,2}$	& $\sigma_{s,1}$	& $\sigma_{s,2}$ & $\sigma_{s,1\to2} $\\
@@ -265,7 +265,7 @@ Inert & 1 & 5  & 1 & 5 & 0 \\
 %
 \begin{table}[!htp]
 \centering
-\caption{Fission product branch ratios and parasitic absorber fission product regeneration fraction.}
+\caption{Fission product branch ratios and parasitic absorber fission product regeneration fraction.  Taken from [27].}
 \begin{tabular}{|c|c|}
 \hline
 $p_{FS,1} $& 0.3\\
@@ -293,14 +293,14 @@ A typical beginning-of-cycle flux profile is shown in \fig{fig:ex_boc_cycle} and
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm]{chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__BOC_Flux.pdf}
-\caption{Example normalized scalar flux profiles at beginning of fuel burn-up cycle.}
+\caption{Example normalized scalar flux profiles at beginning of fuel burn-up cycle.  Taken from [27].}
 \label{fig:ex_boc_cycle}
 \end{figure}
 %
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm]{chapter5_depletion/P1_Lobatto_full_80_cells_t_steps60_End_600_Power_2000__EOC_Flux.pdf}
-\caption{Example normalized scalar flux profiles at end of fuel burn-up cycle.}
+\caption{Example normalized scalar flux profiles at end of fuel burn-up cycle.  Taken from [27].}
 \label{fig:ex_eoc_cycle}
 \end{figure}
 
@@ -601,7 +601,7 @@ Convergence of $E_{\phi}$ is shown in \figs{fig:depletion_flux_p1}{fig:depletion
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=9.5cm]{chapter5_depletion/Flux_P1_norm_err.png}
-\caption{Normalized total scalar flux error for the depletion problem at end of cycle, for linear DFEM.}
+\caption{Normalized total scalar flux error for the depletion problem at end of cycle, for linear DFEM.  Taken from [27].}
 \label{fig:depletion_flux_p1}
 \end{figure}
 
@@ -610,14 +610,14 @@ Convergence of $E_{\phi}$ is shown in \figs{fig:depletion_flux_p1}{fig:depletion
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=9.5cm]{chapter5_depletion/Flux_P2_norm_err.png}
-\caption{Normalized total scalar flux error for the depletion problem at end of cycle, for quadratic DFEM.}
+\caption{Normalized total scalar flux error for the depletion problem at end of cycle, for quadratic DFEM.  Taken from [27].}
 \label{fig:depletion_flux_p2}
 \end{figure}
 
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=9.5cm]{chapter5_depletion/Flux_P3_norm_err.png}
-\caption{Normalized total scalar flux error for the depletion problem at end of cycle, for cubic DFEM.}
+\caption{Normalized total scalar flux error for the depletion problem at end of cycle, for cubic DFEM.  Taken from [27].}
 \label{fig:depletion_flux_p3}
 \end{figure}
 
@@ -626,7 +626,7 @@ Convergence of $E_{\phi}$ is shown in \figs{fig:depletion_flux_p1}{fig:depletion
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=9.5cm]{chapter5_depletion/Flux_P4_norm_err.png}
-\caption{Normalized total scalar flux error for the depletion problem at end of cycle, for quartic DFEM.}
+\caption{Normalized total scalar flux error for the depletion problem at end of cycle, for quartic DFEM.  Taken from [27].}
 \label{fig:depletion_flux_p4}
 \end{figure}
 
@@ -641,28 +641,28 @@ Convergence of $E_{N_{FS}}$, $E_{N_{FT}}$, and $E_{N_{FP-A}}$ are given in
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=9.5cm]{chapter5_depletion/FS_P1_norm_err.png}
-\caption{Normalized fissile nuclide density error for the depletion problem at end of cycle, for linear DFEM}
+\caption{Normalized fissile nuclide density error for the depletion problem at end of cycle, for linear DFEM.  Taken from [27].}
 \label{fig:depletion_NFS_p1}
 \end{figure}
 
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=9.5cm]{chapter5_depletion/FS_P2_norm_err.png}
-\caption{Normalized fissile nuclide density error for the depletion problem at end of cycle, for quadratic DFEM.}
+\caption{Normalized fissile nuclide density error for the depletion problem at end of cycle, for quadratic DFEM.  Taken from [27].}
 \label{fig:depletion_NFS_p2}
 \end{figure}
 
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=9.5cm]{chapter5_depletion/FS_P3_norm_err.png}
-\caption{Normalized fissile nuclide density error for the depletion problem at end of cycle, for cubic DFEM.}
+\caption{Normalized fissile nuclide density error for the depletion problem at end of cycle, for cubic DFEM.  Taken from [27].}
 \label{fig:depletion_NFS_p3}
 \end{figure}
 
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=9.5cm]{chapter5_depletion/FS_P4_norm_err.png}
-\caption{Normalized fissile nuclide density error for the depletion problem at end of cycle, for quartic DFEM.}
+\caption{Normalized fissile nuclide density error for the depletion problem at end of cycle, for quartic DFEM.  Taken from [27].}
 \label{fig:depletion_NFS_p4}
 \end{figure}
 
@@ -671,14 +671,14 @@ Convergence of $E_{N_{FS}}$, $E_{N_{FT}}$, and $E_{N_{FP-A}}$ are given in
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=9.5cm]{chapter5_depletion/ft_P1_norm_err.png}
-\caption{Normalized fertile nuclide density error for the depletion problem at end of cycle, for linear DFEM.}
+\caption{Normalized fertile nuclide density error for the depletion problem at end of cycle, for linear DFEM.  Taken from [27].}
 \label{fig:depletion_NFT_p1}
 \end{figure}
 %
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=9.5cm]{chapter5_depletion/ft_P2_norm_err.png}
-\caption{Normalized fertile nuclide density error for the depletion problem at end of cycle, for quadratic DFEM..}
+\caption{Normalized fertile nuclide density error for the depletion problem at end of cycle, for quadratic DFEM. Taken from [27].}
 \label{fig:depletion_NFT_p2}
 \end{figure}
 %
@@ -687,14 +687,14 @@ Convergence of $E_{N_{FS}}$, $E_{N_{FT}}$, and $E_{N_{FP-A}}$ are given in
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=9.5cm]{chapter5_depletion/ft_P3_norm_err.png}
-\caption{Normalized fertile nuclide density error for the depletion problem at end of cycle, for cubic DFEM.}
+\caption{Normalized fertile nuclide density error for the depletion problem at end of cycle, for cubic DFEM.  Taken from [27].}
 \label{fig:depletion_NFT_p3}
 \end{figure}
 
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=9.5cm]{chapter5_depletion/ft_P4_norm_err.png}
-\caption{Normalized fertile nuclide density error for the depletion problem at end of cycle, for quartic DFEM.}
+\caption{Normalized fertile nuclide density error for the depletion problem at end of cycle, for quartic DFEM.  Taken from [27].}
 \label{fig:depletion_NFT_p4}
 \end{figure}
 
@@ -703,14 +703,14 @@ Convergence of $E_{N_{FS}}$, $E_{N_{FT}}$, and $E_{N_{FP-A}}$ are given in
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=9.5cm]{chapter5_depletion/FPA_P1_norm_err.png}
-\caption{Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for linear DFEM.}
+\caption{Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for linear DFEM.  Taken from [27].}
 \label{fig:depletion_NFPA_p1}
 \end{figure}
 %
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=9.5cm]{chapter5_depletion/FPA_P2_norm_err.png}
-\caption{Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for quadratic DFEM.}
+\caption{Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for quadratic DFEM.  Taken from [27].}
 \label{fig:depletion_NFPA_p2}
 \end{figure}
 
@@ -719,14 +719,14 @@ Convergence of $E_{N_{FS}}$, $E_{N_{FT}}$, and $E_{N_{FP-A}}$ are given in
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=9.5cm]{chapter5_depletion/FPA_P3_norm_err.png}
-\caption{Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for cubic DFEM.}
+\caption{Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for cubic DFEM.  Taken from [27].}
 \label{fig:depletion_NFPA_p3}
 \end{figure}
 %
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=9.5cm]{chapter5_depletion/FPA_P4_norm_err.png}
-\caption{Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for quartic DFEM.}
+\caption{Normalized parasitic absorber fission product error for the depletion problem at end of cycle, for quartic DFEM.  Taken from [27].}
 \label{fig:depletion_NFPA_p4}
 \end{figure}  
 

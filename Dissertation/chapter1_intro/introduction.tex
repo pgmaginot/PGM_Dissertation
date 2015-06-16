@@ -25,10 +25,12 @@
 This dissertation is dedicated to the solution of the thermal radiative transfer (TRT) equations.  The TRT equations:
 \begin{subequations}
 \label{eq:full_trt}
-\beanum
-\frac{1}{c} \frac{\partial I}{\p t} + \omg \cdot \vec{\nabla} I  + \sigma_t I &=& \int_0^{\infty}{ \int_{4\pi}{ \sigma_s(\omg'\to\omg,E'\to E) I  d\omg' } dE'}+ \sigma_a B \\
-C_v \frac{\p T}{\p t} &=& \int_0^{\infty}{  \sigma_a \left( \phi- 4\pi B   \right) dE} \pec 
-\eeanum
+\benum
+\frac{1}{c} \frac{\partial I}{\p t} + \omg \cdot \vec{\nabla} I  + \sigma_t I = \int_0^{\infty}{ \int_{4\pi}{ \sigma_s(\omg'\to\omg,E'\to E) I  d\omg' } dE'}+ \sigma_a B
+\eenum
+\benum
+C_v \frac{\p T}{\p t} = \int_0^{\infty}{  \sigma_a \left( \phi- 4\pi B   \right) dE} \pec 
+\eenum
 \end{subequations}
 are a nonlinear system of equations that describe the exchange of energy between a photon radiation field and a non-moving material.  
 Radiation intensity, $I$, is a seven dimensional field dependent upon spatial location, $\vec{x}$; photon energy, $E$; photon direction of travel, $\omg$; and time $t$.  

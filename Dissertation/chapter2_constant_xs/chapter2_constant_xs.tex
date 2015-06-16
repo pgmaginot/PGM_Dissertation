@@ -60,7 +60,7 @@ for positivity of the angular flux solution, local truncation error order, and s
 trial space polynomial degree.
 \begin{table}[!htp]
 \centering
-\caption{Nomenclature of numerical schemes.}
+\caption{Nomenclature of numerical schemes.  Taken from [10].}
 \begin{tabular}{|c|c|c|} 
 \hline
   Interpolation &    		Integration			&		Method					\\
@@ -375,7 +375,7 @@ in \tbl{tbl:int_acc_gauss} for Gauss, and \tbl{tbl:int_acc_lobatto} for Lobatto 
 Also listed in Table \ref{tbl:int_acc_nc} - Table \ref{tbl:int_acc_lobatto} is the maximum polynomial degree of the integrands present in the gradient and mass matrices.
 \begin{table}[!ht]
 \centering
-\caption{Accuracy of self-lumping closed Newton-Cotes quadratures for DFEM trial spaces of polynomial degree $P$.}
+\caption{Accuracy of self-lumping closed Newton-Cotes quadratures for DFEM trial spaces of polynomial degree $P$.  Taken from [10].}
 \begin{tabular}{|c|c|c|c|c|} 
 \hline
   Polynomial 											& $N_P=$		  & Degree of   					 &  Degree of   					& Quadrature \\
@@ -393,7 +393,7 @@ Also listed in Table \ref{tbl:int_acc_nc} - Table \ref{tbl:int_acc_lobatto} is t
 \end{table}
 \begin{table}[!ht]
 \centering
-\caption{Accuracy of self-lumping Gauss quadratures for DFEM trial spaces of polynomial degree $P$.}
+\caption{Accuracy of self-lumping Gauss quadratures for DFEM trial spaces of polynomial degree $P$.  Taken from [10].}
 \begin{tabular}{|c|c|c|c|c|} 
 \hline
   Polynomial 											& $N_P=$		  & Degree of   					 &  Degree of   					&  Quadrature  \\
@@ -411,7 +411,7 @@ Also listed in Table \ref{tbl:int_acc_nc} - Table \ref{tbl:int_acc_lobatto} is t
 %
 \begin{table}[!htp]
 \centering
-\caption{Accuracy of self-lumping Lobatto quadratures for DFEM trial spaces of polynomial degree $P$.}
+\caption{Accuracy of self-lumping Lobatto quadratures for DFEM trial spaces of polynomial degree $P$.  Taken from [10].}
 \begin{tabular}{|c|c|c|c|c|} 
 \hline
   Polynomial 											& $N_P=$		  & Degree of   					 &  Degree of   					&  Quadrature  \\
@@ -470,7 +470,7 @@ Thus, the diagonal mass matrix computed using TL contains the closed Newton-Cote
 We also numerically verify this in \tbl{tbl:cotes} for polynomial degrees up to 4, assuming $\Delta x = 2$.
 \begin{table}[!htp]
 \centering
-\caption{Equivalence of traditional lumping and closed Newton-Cotes quadrature approximation of the mass matrix.}
+\caption{Equivalence of traditional lumping and closed Newton-Cotes quadrature approximation of the mass matrix.  Adapted from [11].}
 \begin{tabular}{|c|c|c|c|} 
 \hline
   $P$			& Exact Integration of $\mathbf{M}$ 	&  Row Sums of $\mathbf{M}$ &  Newton-Cotes $w$\\
@@ -611,25 +611,25 @@ of $h$ for all methods considered.
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/P1_Outflow_AllMeth-eps-converted-to.pdf}
-\caption{Angular flux outflow as a function of $h$, for different linear trial space DFEM schemes, from a homogeneous, single cell pure absorber.}
+\caption{Angular flux outflow as a function of $h$, for different linear trial space DFEM schemes, from a homogeneous, single cell pure absorber.  Taken from [11].}
 \label{fig:p1_outflow}
 \end{figure}
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/P2_Outflow_AllMeth-eps-converted-to.pdf}
-\caption{Angular flux outflow as a function of $h$, for different quadratic trial space DFEM schemes, from a homogeneous, single cell pure absorber.}
+\caption{Angular flux outflow as a function of $h$, for different quadratic trial space DFEM schemes, from a homogeneous, single cell pure absorber.  Taken from [11].}
 \label{fig:p2_outflow}
 \end{figure}
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/P3_Outflow_AllMeth-eps-converted-to.pdf}
-\caption{Angular flux outflow as a function of $h$, for different cubic trial space DFEM schemes, from a homogeneous, single cell pure absorber.}
+\caption{Angular flux outflow as a function of $h$, for different cubic trial space DFEM schemes, from a homogeneous, single cell pure absorber.  Taken from [11].}
 \label{fig:p3_outflow}
 \end{figure}
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/P4_Outflow_AllMeth-eps-converted-to.pdf}
-\caption{Angular flux outflow as a function of $h$, for different quartic trial space DFEM schemes, from a homogeneous, single cell pure absorber.}
+\caption{Angular flux outflow as a function of $h$, for different quartic trial space DFEM schemes, from a homogeneous, single cell pure absorber.  Taken from [11].}
 \label{fig:p4_outflow}
 \end{figure}
 All methods converge to the analytical solution as $h\to 0$, thus we have zoomed in the range where the methods  visually differ (i.e., $h \ge 1$). 
@@ -681,25 +681,25 @@ In \figs{fig:vac_inflow_p1}{fig:vac_inflow_p4}, we plot $\widetilde{\psi}_{in,d}
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_0.png}
-\caption{Numerical inflow values as a function of $\frac{S_1}{S_0}$ for a single cell (vacuum case) with a $\delta$-shaped source, using linear DFEM.}
+\caption{Numerical inflow values as a function of $\frac{S_1}{S_0}$ for a single cell (vacuum case) with a $\delta$-shaped source, using linear DFEM.  Taken from [11].}
 \label{fig:vac_inflow_p1}
 \end{figure}
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_0.png}
-\caption{Numerical inflow values as a function of $\frac{S_1}{S_0}$ for a single cell (vacuum case) with a $\delta$-shaped source, using quadratic DFEM.}
+\caption{Numerical inflow values as a function of $\frac{S_1}{S_0}$ for a single cell (vacuum case) with a $\delta$-shaped source, using quadratic DFEM.  Taken from [11].}
 \label{fig:vac_inflow_p2}
 \end{figure}
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_0.png}
-\caption{Numerical inflow values as a function of $\frac{S_1}{S_0}$ for a single cell (vacuum case) with a $\delta$-shaped source, using cubic DFEM.}
+\caption{Numerical inflow values as a function of $\frac{S_1}{S_0}$ for a single cell (vacuum case) with a $\delta$-shaped source, using cubic DFEM.  Taken from [11].}
 \label{fig:vac_inflow_p3}
 \end{figure}
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_0.png}
-\caption{Numerical inflow values as a function of $\frac{S_1}{S_0}$ for a single cell (vacuum case) with a $\delta$-shaped source, using quartic DFEM.}
+\caption{Numerical inflow values as a function of $\frac{S_1}{S_0}$ for a single cell (vacuum case) with a $\delta$-shaped source, using quartic DFEM.  Taken from [11].}
 \label{fig:vac_inflow_p4}
 \end{figure}
 
@@ -713,25 +713,25 @@ Given the results shown in \figs{fig:vac_inflow_p1}{fig:vac_inflow_p4}, we concl
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P1_MFP_5.png}
-\caption{Numerical inflow values  as a function of $\frac{S_1}{S_0}$, for a single cell (absorber case) with a $\delta$-shaped source, using linear DFEM.}
+\caption{Numerical inflow values  as a function of $\frac{S_1}{S_0}$, for a single cell (absorber case) with a $\delta$-shaped source, using linear DFEM.  Taken from [11].}
 \label{fig:abs_inflow_p1}
 \end{figure}
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P2_MFP_5.png}
-\caption{Numerical inflow values  as a function of $\frac{S_1}{S_0}$, for a single cell (absorber case) with a $\delta$-shaped source, using quadratic DFEM.}
+\caption{Numerical inflow values  as a function of $\frac{S_1}{S_0}$, for a single cell (absorber case) with a $\delta$-shaped source, using quadratic DFEM.  Taken from [11].}
 \label{fig:abs_inflow_p2}
 \end{figure}
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P3_MFP_5.png}
-\caption{Numerical inflow values  as a function of $\frac{S_1}{S_0}$, for a single cell (absorber case) with a $\delta$-shaped source, using cubic DFEM.}
+\caption{Numerical inflow values  as a function of $\frac{S_1}{S_0}$, for a single cell (absorber case) with a $\delta$-shaped source, using cubic DFEM.  Taken from [11].}
 \label{fig:abs_inflow_p3}
 \end{figure}
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Final_Inflow_RHS_Comparison_Source_P4_MFP_5.png}
-\caption{Numerical inflow values  as a function of $\frac{S_1}{S_0}$, for a single cell (absorber case) with a $\delta$-shaped source, using quartic DFEM.}
+\caption{Numerical inflow values  as a function of $\frac{S_1}{S_0}$, for a single cell (absorber case) with a $\delta$-shaped source, using quartic DFEM.  Taken from [11].}
 \label{fig:abs_inflow_p4}
 \end{figure}
 \newpage
@@ -805,7 +805,7 @@ the analytic Taylor expansion and Taylor expansion of the numerical approximatio
 % \end{landscape}
 \begin{table}[!hbp]
 \centering
-\caption{Local truncation error analysis in $\widetilde{\psi}_{in,d}$ for a single cell problem with constant cross section, for Exact DFEM and TL. }
+\caption{Local truncation error analysis in $\widetilde{\psi}_{in,d}$ for a single cell problem with constant cross section, for Exact DFEM and TL.  Adapted from [11].}
 \begin{tabular}{|c|c|c|} 
 \hline
   Polynomial 										  & Exact 										&	 TL                   \\
@@ -830,7 +830,7 @@ the analytic Taylor expansion and Taylor expansion of the numerical approximatio
 \end{table}
 \begin{table}[!htp]
 \centering
-\caption{Local truncation error analysis in $\widetilde{\psi}_{in,d}$ for a single cell problem with constant cross section, for SL Newton-Cotes, SL Gauss, and SL Lobatto. }
+\caption{Local truncation error analysis in $\widetilde{\psi}_{in,d}$ for a single cell problem with constant cross section, for SL Newton-Cotes, SL Gauss, and SL Lobatto.  Adapted from [11].}
 \begin{tabular}{|c|c|c|c|} 
 \hline
   Polynomial 										 & SL Newton-Cotes 				& SL Gauss 			 						& SL Lobatto  \\
@@ -911,7 +911,7 @@ the analytic Taylor expansion and Taylor expansion of the numerical approximatio
 % \end{landscape}
 \begin{table}[!htp]
 \centering
-\caption{Local truncation error analysis in $\widetilde{\psi}_{A,d}$ for a single cell problem with constant cross section, for Exact DFEM and TL.}
+\caption{Local truncation error analysis in $\widetilde{\psi}_{A,d}$ for a single cell problem with constant cross section, for Exact DFEM and TL.   Adapted from [11].}
 \begin{tabular}{|c|c|c||} 
 \hline
   Polynomial 										  & Exact 											& TL   \\
@@ -936,7 +936,7 @@ the analytic Taylor expansion and Taylor expansion of the numerical approximatio
 \end{table}
 \begin{table}[!hbp]
 \centering
-\caption{Local truncation error analysis in $\widetilde{\psi}_{A,d}$ for a single cell problem with constant cross section, for SL Newton-Cotes, SL Gauss, and SL Lobatto}
+\caption{Local truncation error analysis in $\widetilde{\psi}_{A,d}$ for a single cell problem with constant cross section, for SL Newton-Cotes, SL Gauss, and SL Lobatto.   Adapted from [11].}
 \begin{tabular}{|c|c|c|c|} 
 \hline
   Polynomial 										 & SL Newton-Cotes 					& SL Gauss 			 						& SL Lobatto  \\
@@ -964,7 +964,7 @@ the analytic Taylor expansion and Taylor expansion of the numerical approximatio
 %
 \begin{table}[!htp]
 \centering
-\caption{Local truncation error analysis in $\widetilde{\psi}_{out,d}$ for a single cell with constant cross section, for Exact DFEM and TL.}
+\caption{Local truncation error analysis in $\widetilde{\psi}_{out,d}$ for a single cell with constant cross section, for Exact DFEM and TL.   Adapted from [11].}
 \begin{tabular}{|c|c|c|} 
 \hline
   Polynomial 										  & Exact 										& TL  	\\
@@ -991,7 +991,7 @@ the analytic Taylor expansion and Taylor expansion of the numerical approximatio
 %
 \begin{table}[!htp]
 \centering
-\caption{Local truncation error analysis in $\widetilde{\psi}_{out,d}$ for a single cell with constant cross section, for SL Newton-Cotes, SL Gauss, and SL Lobatto.}
+\caption{Local truncation error analysis in $\widetilde{\psi}_{out,d}$ for a single cell with constant cross section, for SL Newton-Cotes, SL Gauss, and SL Lobatto.   Adapted from [11].}
 \begin{tabular}{|c|c|c|c|} 
 \hline
   Polynomial 										 & SL Newton-Cotes 					& SL Gauss 			 					& SL Lobatto  \\
@@ -1082,25 +1082,25 @@ For linear and quadratic polynomials, we plot only SL Lobatto and omit plotting 
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Linear_L2_err-eps-converted-to.pdf}
-\caption{Convergence rate of the $L_2$ norm of the error, $E_{\psi}$,  as a function of the mesh cell size for a pure absorber discretized with linear DFEM.}
+\caption{Convergence rate of the $L_2$ norm of the error, $E_{\psi}$,  as a function of the mesh cell size for a pure absorber discretized with linear DFEM.   Taken from [11].}
 \label{fig:multi_L2_p1}
 \end{figure}
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Quadratic_L2_err-eps-converted-to.pdf}
-\caption{Convergence rate of the $L_2$ norm of the error, $E_{\psi}$,  as a function of the mesh cell size for a pure absorber discretized with quadratic DFEM.}
+\caption{Convergence rate of the $L_2$ norm of the error, $E_{\psi}$,  as a function of the mesh cell size for a pure absorber discretized with quadratic DFEM.  Taken from [11].}
 \label{fig:multi_L2_p2}
 \end{figure}
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Cubic_L2_err-eps-converted-to.pdf}
-\caption{Convergence rate of the $L_2$ norm of the error, $E_{\psi}$,  as a function of the mesh cell size for a pure absorber discretized with cubic DFEM.}
+\caption{Convergence rate of the $L_2$ norm of the error, $E_{\psi}$,  as a function of the mesh cell size for a pure absorber discretized with cubic DFEM.  Taken from [11].}
 \label{fig:multi_L2_p3}
 \end{figure}
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Quartic_L2_err-eps-converted-to.pdf}
-\caption{Convergence rate of the $L_2$ norm of the error, $E_{\psi}$,  as a function of the mesh cell size for a pure absorber discretized with quartic DFEM.}
+\caption{Convergence rate of the $L_2$ norm of the error, $E_{\psi}$,  as a function of the mesh cell size for a pure absorber discretized with quartic DFEM.  Taken from [11].}
 \label{fig:multi_L2_p4}
 \end{figure}
 Figures \ref{fig:multi_L2_p1}-\ref{fig:multi_L2_p4} mirror the results of \tbl{tbl:taylor_in_part1} and \tbl{tbl:taylor_in_part2}, which is expected since the convergence rate of $E_{\psi}$ will be limited by the slowest converging local approximation which is $\widetilde{\psi}_{in,d}$.  
@@ -1108,25 +1108,25 @@ Similarly, \figs{fig:multi_L2A_p1}{fig:multi_L2A_p4} are the multiple-cell analo
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Linear_L2A_err-eps-converted-to.pdf}
-\caption{Convergence rate for $E_{\psi,A}$ as a function of the mesh cell size for a homogeneous pure absorber and linear DFEM.}
+\caption{Convergence rate for $E_{\psi,A}$ as a function of the mesh cell size for a homogeneous pure absorber and linear DFEM.  Taken from [11].}
 \label{fig:multi_L2A_p1}
 \end{figure}
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Quadratic_L2A_err-eps-converted-to.pdf}
-\caption{Convergence rate for $E_{\psi,A}$ as a function of the mesh cell size for a homogeneous pure absorber and quadratic DFEM.}
+\caption{Convergence rate for $E_{\psi,A}$ as a function of the mesh cell size for a homogeneous pure absorber and quadratic DFEM.  Taken from [11].}
 \label{fig:multi_L2A_p2}
 \end{figure}
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Cubic_L2A_err-eps-converted-to.pdf}
-\caption{Convergence rate for $E_{\psi,A}$ as a function of the mesh cell size for a homogeneous pure absorber and cubic DFEM.}
+\caption{Convergence rate for $E_{\psi,A}$ as a function of the mesh cell size for a homogeneous pure absorber and cubic DFEM.  Taken from [11].}
 \label{fig:multi_L2A_p3}
 \end{figure}
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Quartic_L2A_err-eps-converted-to.pdf}
-\caption{Convergence rate for $E_{\psi,A}$ as a function of the mesh cell size for a homogeneous pure absorber and quartic DFEM.}
+\caption{Convergence rate for $E_{\psi,A}$ as a function of the mesh cell size for a homogeneous pure absorber and quartic DFEM.  Taken from [11].}
 \label{fig:multi_L2A_p4}
 \end{figure}
 $E_{\psi_{out}}$, as shown in \figs{fig:multi_L2Out_p1}{fig:multi_L2Out_p4}, does not converge at the local truncation error rates of \tbl{tbl:taylor_out_part1} and \tbl{tbl:taylor_out_part2}.  
@@ -1137,25 +1137,25 @@ $E_{\psi_{out}}$, as shown in \figs{fig:multi_L2Out_p1}{fig:multi_L2Out_p4}, doe
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Linear_L2Out_err-eps-converted-to.pdf}
-\caption{Convergence rate of $E_{\psi,out}$ as a function of the mesh cell size for a homogeneous pure absorber for linear DFEM.}
+\caption{Convergence rate of $E_{\psi,out}$ as a function of the mesh cell size for a homogeneous pure absorber for linear DFEM.  Taken from [11].}
 \label{fig:multi_L2Out_p1}
 \end{figure}
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Quadratic_L2Out_err-eps-converted-to.pdf}
-\caption{Convergence rate of $E_{\psi,out}$ as a function of the mesh cell size for a homogeneous pure absorber for quadratic DFEM.}
+\caption{Convergence rate of $E_{\psi,out}$ as a function of the mesh cell size for a homogeneous pure absorber for quadratic DFEM.  Taken from [11].}
 \label{fig:multi_L2Out_p2}
 \end{figure}
 \begin{figure}[!hbp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Cubic_L2Out_err-eps-converted-to.pdf}
-\caption{Convergence rate of $E_{\psi,out}$ as a function of the mesh cell size for a homogeneous pure absorber for cubic DFEM.}
+\caption{Convergence rate of $E_{\psi,out}$ as a function of the mesh cell size for a homogeneous pure absorber for cubic DFEM.  Taken from [11].}
 \label{fig:multi_L2Out_p3}
 \end{figure}
 \begin{figure}[!htp]
 \centering
 \includegraphics[width=11cm]{chapter2_constant_xs/Quartic_L2Out_err-eps-converted-to.pdf}
-\caption{Convergence rate of $E_{\psi,out}$ as a function of the mesh cell size for a pure absorber for quartic DFEM.}
+\caption{Convergence rate of $E_{\psi,out}$ as a function of the mesh cell size for a pure absorber for quartic DFEM.  Taken from [11].}
 \label{fig:multi_L2Out_p4}
 \end{figure}
 
